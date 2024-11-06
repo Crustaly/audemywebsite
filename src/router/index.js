@@ -18,6 +18,8 @@ import PolarPairing from "../pages/GameZone/GameZoneList/PolarPairing.vue";
 // import SpellingBee from "../pages/GameZone/GameZoneList/SpellingBee/SpellingBee.vue";
 import SpellingBee from "../pages/GameZone/GameZoneList/SpellingBee.vue";
 
+import AiGame from "../backend/ai_logic.vue";
+
 const routes = [
     { path: "/home", redirect: "/" },
     { path: "/", name: "Home", component: Home },
@@ -72,6 +74,11 @@ const routes = [
         path: "/game/spellingbee",
         name: "SpellingBee",
         component: SpellingBee,
+    },
+    {
+        path: "/game/ai",
+        name: "AiGame",
+        component: AiGame,
     },
 ];
 
