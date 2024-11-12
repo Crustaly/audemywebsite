@@ -1,6 +1,8 @@
 export default {
     data() {
         return {
+            // Now Questions are dynamic
+            // Questions and answers must be AI generated using OPENAI API
             questions: [
                 { question: "What is 8 plus 8?", answer: "16" },
                 { question: "What is 12 plus 15?", answer: "27" },
