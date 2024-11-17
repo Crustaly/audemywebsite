@@ -1,17 +1,58 @@
 <template>
-  <div class="flex flex-col justify-center items-center h-screen font-poppins bg-[#FAEDD6]">
-    <div class="flex mt-2 mb-2 w-1/2">
-      <button onclick="history.back()"> <img src="/assets/gameImages/buttons/arrow-back.svg"
-          class="bg-white border-2 rounded-lg border-black h-12 p-2 shadow-md hover:bg-gray-300" /></button>
+  <div class="flex flex-col justify-between items-center h-screen py-12 font-poppins bg-[#E6E1F3]">
+    <div class="flex justify-between mt-2 mb-2 w-3/4">
+      <button onclick="history.back()"> 
+        <img src="/assets/gameImages/buttons/arrow-back.svg"
+          class="bg-white border-2 rounded-lg border-black h-14 p-3 shadow-md hover:bg-gray-300" />
+      </button>
+      <button onclick="history.back()" class="bg-white border-2 rounded-lg border-black h-14 p-5 shadow-md flex gap-3 items-center hover:bg-gray-300"> 
+        <div><i class="material-icons">input</i></div>
+        <div class=" font-semibold">Log in</div>
+      </button>
     </div>
-    <div class="flex flex-col my-2 mx-56 h-96 justify-center items-center">
-      <div class="m-10 py-4">
-        <h1 class="text-4.5xl font-bold">Multiplication Madness</h1>
-      </div>
-      <div class="flex flex-col p-4 justify-center" id="content">
-        <div class="flex flex-row gap-4">
-          <div class="p-2 px-5 text-[#087bb4]">&#9432; Hit 'SHIFT' to play the next question</div>
+    <div class="border-2 w-3/4 flex text-center">
+      <div class="text-4.5xl font-bold">Multiplication Madness</div>
+    </div>
+    <div class="flex flex-col my-2 mx-56 w-3/4 justify-center items-center bg-white rounded-[10px] border-[2px] border-[#0C0D0D] shadow-[4px_4px_0px_#0C0D0D]">
+      <div class="flex flex-col justify-center w-full" id="content">
+        <!-- Progress Bar -->
+        <div>
+          <div class="progress">
+            <div class="indeterminate"></div>
+          </div>
         </div>
+
+        <!-- Media Controls -->
+        <div class="flex justify-between items-end w-full px-4">
+          <!-- Previous Button -->
+          <div class="flex flex-col items-center">
+            <div><i class="text-3xl material-icons">skip_previous</i></div>
+            <div>Previous</div>
+          </div>
+          <!-- Rewind 5s Button -->
+          <div class="flex flex-col items-center">
+            <div><i class="text-3xl material-icons">replay_5</i></div>
+            <div>Rewind</div>
+          </div>
+          
+          <!-- Play Button -->
+          <div class="flex flex-col items-center">
+            <div><i class="text-5xl material-icons">play_circle_outline</i></div>
+            <div>Play</div>
+          </div>
+          <!-- Repeat Button -->
+          <div class="flex flex-col items-center">
+            <div><i class="text-3xl material-icons">repeat</i></div>
+            <div>Repeat</div>
+          </div>
+          
+          <!-- Next Button -->
+          <div class="flex flex-col items-center">
+            <div><i class="text-3xl material-icons">skip_next</i></div>
+            <div>Next</div>
+          </div>
+        </div>
+
         <div id="transcript" class="text-center text-xl font-bold pt-2 pb-1">You said: {{ transcription }}</div>
         <div class="text-center text-xl pt-1 pb-2" v-text="gameOverMessage"></div>
       </div>

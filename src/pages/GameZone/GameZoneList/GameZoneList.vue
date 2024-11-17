@@ -67,6 +67,16 @@ watch(
 </script>
 
 <template>
+  <div class="py-10 flex justify-center align-center">
+    <div class="w-[90%] grid grid-cols-2 gap-6 mobile:flex mobile:flex-col">
+      <div class="w-full h-auto flex justify-center mb-20 " v-for="(game, index) in games" :key="index">
+        <GameZoneCard :title="game.title" :icon="game.icon" :textColor="game.textColor" :bgColor="game.bgColor"
+          :url="game.url" @selectGame="openGame" />
+      </div>
+    </div>
+  </div>
+
+  <!--
   <div class="bg-white py-10 flex justify-center align-center">
     <div class="w-[90%] flex flex-wrap justify-between">
       <div class="w-[50%] h-auto flex justify-center mb-20" v-for="(game, index) in games" :key="index">
@@ -75,4 +85,6 @@ watch(
       </div>
     </div>
   </div>
+  -->
+
 </template>

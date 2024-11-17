@@ -3,7 +3,7 @@ import SponsorsCarousel from "./SponsorsCarousel/SponsorsCarousel.vue";
 </script>
 
 <template>
-    <div class="w-full mb-64 flex flex-col gap-y-10 items-center">
+    <div class="w-full mb-64 mobile:mb-24 flex flex-col gap-y-10 items-center">
         <h3
             class="text-small font-poppins text-xs text-center font-bold tracking-[6px]"
         >

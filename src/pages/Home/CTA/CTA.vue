@@ -2,7 +2,7 @@
 
 </script>
 <template>
-  <div class="mobile:min-w-full tablet:min-w-[504px] mx-auto bg-white">
+  <div class="mobile:min-w-full tablet:min-w-[504px] mx-auto bg-white mobile:mb-12">
     <div class="max-w-[504px] mobile:max-w-[358px] mx-auto pb-[78px]">
       <h1
         class="font-poppins text-[40px] tablet:text-[32px] leading-[60px] tablet:leading-[60px] text-center text-[#151E22]">

@@ -21,7 +21,7 @@ const changeCurrentPage = (page) => {
             />
         </div>
         <div class="h-[45%] w-full flex flex-col justify-center items-center">
-            <div>
+            <div class="mobile:w-[80%]">
                 <h2 class="font-poppins text-white text-[40px] mb-14">
                     Play and learn with us!
                 </h2>
@@ -43,17 +43,15 @@ const changeCurrentPage = (page) => {
                 </div>
             </div>
         </div>
-        <div
-            class="flex flex-row justify-center items-center w-full absolute bottom-0 gap-[1px]"
-        >
+        <div class="flex flex-row justify-center items-center w-full absolute bottom-0 gap-[1px]">
             <button
                 @click="changeCurrentPage(1)"
                 :class="
                     currentPage == 1
-                        ? 'bg-white border-0'
-                        : 'bg-gray-500 text-white border border-black'
+                        ? 'bg-white border-0 mobile:w-[230px]'
+                        : 'bg-gray-500 text-white border border-black mobile:w-[100px]'
                 "
-                class="font-poppins p-3 rounded-tl-[8px] rounded-tr-[8px] h-[50px] w-[230px] flex justify-center items-center"
+                class="font-poppins p-3 rounded-tl-[8px] rounded-tr-[8px] h-[50px] w-1/4 flex justify-center items-center"
             >
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -68,16 +66,16 @@ const changeCurrentPage = (page) => {
                         :fill="currentPage == 1 ? 'black' : 'white'"
                     />
                 </svg>
-                Language Lab
+                <div :class="currentPage == 1 ?'mobile:visible':'mobile:hidden'">Language Lab</div>
             </button>
             <button
                 @click="changeCurrentPage(2)"
                 :class="
                     currentPage == 2
-                        ? 'bg-white border-0'
-                        : 'bg-gray-500 text-white border border-black'
+                        ? 'bg-white border-0 mobile:w-[230px]'
+                        : 'bg-gray-500 text-white border border-black mobile:w-[100px]'
                 "
-                class="font-poppins p-3 rounded-tl-[8px] rounded-tr-[8px] h-[50px] w-[230px] flex justify-center items-center"
+                class="font-poppins p-3 rounded-tl-[8px] rounded-tr-[8px] h-[50px] w-1/4 flex justify-center items-center"
             >
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -92,16 +90,16 @@ const changeCurrentPage = (page) => {
                         :fill="currentPage == 2 ? 'black' : 'white'"
                     />
                 </svg>
-                Math Magic
+                <div :class="currentPage == 2 ?'mobile:visible':'mobile:hidden'">Math Magic</div>
             </button>
             <button
                 @click="changeCurrentPage(3)"
                 :class="
                     currentPage == 3
-                        ? 'bg-white border-0'
-                        : 'bg-gray-500 text-white border border-black'
+                        ? 'bg-white border-0 mobile:w-[230px]'
+                        : 'bg-gray-500 text-white border border-black mobile:w-[100px]'
                 "
-                class="font-poppins p-3 rounded-tl-[8px] rounded-tr-[8px] h-[50px] w-[230px] flex justify-center items-center"
+                class="font-poppins p-3 rounded-tl-[8px] rounded-tr-[8px] h-[50px] w-1/4 flex justify-center items-center"
             >
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -116,7 +114,7 @@ const changeCurrentPage = (page) => {
                         :fill="currentPage == 3 ? 'black' : 'white'"
                     />
                 </svg>
-                My Progress
+                <div :class="currentPage == 3 ?'mobile:visible':'mobile:hidden'">My Progress</div>
             </button>
         </div>
     </div>

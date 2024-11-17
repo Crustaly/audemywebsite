@@ -4,7 +4,7 @@ export default {
   theme: {
     screens: {
       tablet: { max: "768px" },
-      mobile: { max: "375px" },
+      mobile: { max: "600px" },
     },
     fontFamily: {
       poppins: "'Poppins', sans-serif;",

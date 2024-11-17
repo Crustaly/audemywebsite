@@ -51,9 +51,9 @@
         </div>
       </div>
     </div>
-    <div class="flex items-center justify-center">
+    <div class="flex items-center justify-center w-full">
       <a href="/about-us"
-        class=" font-poppins font-semibold px-9 py-4 border-[1.5px] border-[#0C0D0D] rounded-[8px] bg-primary-color hover:bg-[#0C587D] duration-300  text-base text-center text-[#fff] shadow-[3px_4px_0px_#0C0D0D] ">
+        class="font-poppins font-semibold px-9 py-4 border-[1.5px] border-[#0C0D0D] rounded-[8px] bg-primary-color hover:bg-[#0C587D] duration-300  text-base text-center text-[#fff] shadow-[3px_4px_0px_#0C0D0D] mobile:w-full">
         Learn more about us
       </a>
     </div>

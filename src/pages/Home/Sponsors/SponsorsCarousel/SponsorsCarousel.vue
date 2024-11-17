@@ -35,7 +35,7 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-    <div class="carousel-container overflow-hidden relative w-full">
+    <div class="carousel-container overflow-hidden relative w-full mobile:h-32">
         <div
             class="carousel flex transition-transform duration-500 ease-in-out"
             :style="{ transform: `translateX(-${currentIndex * 100}%)` }"
@@ -43,7 +43,7 @@ onBeforeUnmount(() => {
             <div
                 v-for="(item, index) in items"
                 :key="index"
-                class="carousel-item flex-none w-full"
+                class="carousel-item flex-none w-full h-auto mobile:h-32"
             >
                 <img
                     :src="item"
