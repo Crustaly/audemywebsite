@@ -4,7 +4,7 @@ import { ref } from "vue";
 const errors = ref(false);
 const email = ref("");
 const password = ref("");
-const authKey = ref("");
+let authKey = ref("");
 
 const login = (event) => {
     event.preventDefault();
