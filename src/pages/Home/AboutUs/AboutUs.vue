@@ -5,14 +5,17 @@
   const items = [
     {
       icon: 'question-mark.svg',
+      alt: 'question icon',
       text: 'Did you know that over <b>70%</b> of blind students are currently lagging behind their peers in school?'
     },
     {
       icon: 'bulb.svg',
+      alt: 'idea icon',
       text: 'This motivates us to increase accessibility and engagement to educational resources for these learners.'
     },
     {
       icon: 'customer-service.svg',
+      alt: 'customer service icon',
       text: 'We offer audio-based educational games for <b>K-8 students</b>, aligning with international curriculums.'
     },
   ];
@@ -46,7 +49,7 @@
     <div class="flex justify-center">
       <div class="max-w-[744px] w-full">
         <div id="div_about_us" class="flex justify-between mt-[110px] tablet:mt-[72px] mb-[63px] gap-16 tablet:gap-14 mobile:gap-4">
-          <AboutUsCard v-for="item in items" :icon="item.icon" :text="item.text" :smallScreen="smallScreen">
+          <AboutUsCard v-for="item in items" :icon="item.icon" :alt="item.alt" :text="item.text" :smallScreen="smallScreen">
           </AboutUsCard>
         </div>
       </div>

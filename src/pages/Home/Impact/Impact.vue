@@ -36,7 +36,7 @@ import Globe from "/assets/images/impact/globe 1.svg";
             <div
                 class="bg-card-background mobile:w-4/12 flex flex-col items-center rounded-xl border-2 border-[#C5DBE2] pb-3 px-3"
             >
-                <img :src="Students" alt="Student's Image" class="-translate-y-10" />
+                <img :src="Students" alt="Carl the catepillar next to a giant pencil" class="-translate-y-10" />
                 <div class="flex flex-col items-center text-body">
                     <h1
                         class="font-poppins font-medium text-2xl text-wrap mobile:text-[24px]"
@@ -55,7 +55,7 @@ import Globe from "/assets/images/impact/globe 1.svg";
             <div
                 class="bg-card-background mobile:w-4/12 flex flex-col items-center rounded-xl border-2 border-[#C5DBE2] translate-y-1/4 pb-3 px-3"
             >
-                <img :src="Problems" alt="Problem's Image" class="-translate-y-10" />
+                <img :src="Problems" alt="Carl the catepiller with a thought bubble above him" class="-translate-y-10" />
                 <div class="flex flex-col items-center text-body">
                     <h1
                         class="font-poppins font-medium text-2xl text-wrap mobile:text-[24px]"
@@ -74,7 +74,7 @@ import Globe from "/assets/images/impact/globe 1.svg";
             <div
                 class="bg-card-background mobile:w-4/12 flex flex-col items-center rounded-xl border-2 border-[#C5DBE2] pb-3 px-3"
             >
-                <img :src="Globe" alt="Globo's Image" class="-translate-y-10" />
+                <img :src="Globe" alt="Carl the catepiller next to a world globe" class="-translate-y-10" />
                 <div class="flex flex-col items-center text-body">
                     <h1
                         class="font-poppins font-medium text-2xl text-wrap mobile:text-[24px]"

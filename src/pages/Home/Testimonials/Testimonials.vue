@@ -3,6 +3,8 @@ import Comment from "/assets/images/testimonials/comment.png";
 import Star from "/assets/images/testimonials/star.svg";
 </script>
 
+<!-- Background and purely decorative images need empty ("") alt text-->
+
 <template>
   <div
     class="flex flex-col items-center gap-y-12 self-center mt-20 pt-80 mobile:pt-64 pb-[18rem] mobile:mt-5 mobile:pb-40 px-20 mobile:px-0 relative z-10"
@@ -10,7 +12,7 @@ import Star from "/assets/images/testimonials/star.svg";
     <img
       src="/assets/images/testimonials/testimonials-bg.png"
       class="absolute top-[4rem] -z-10 h-[60rem] fill"
-      alt="Background image"
+      alt=""
     />
 
     <div class="font-poppins flex flex-col gap-y-3 mobile:px-5">
@@ -34,7 +36,7 @@ import Star from "/assets/images/testimonials/star.svg";
             >
               <img
                 src="/assets/images/testimonials/yellowStar2.svg"
-                alt="Yellow star"
+                alt=""
                 class="absolute top-[-2.5rem] left-[0rem] z-10 pulse"
               />
 
@@ -56,7 +58,7 @@ import Star from "/assets/images/testimonials/star.svg";
             >
               <img
                 src="/assets/images/testimonials/chatBalloon.svg"
-                alt="Chat balloon"
+                alt=""
                 class="absolute top-[2rem] right-[-2rem] mobile:right-[-1.4rem] z-10 pulse"
               />
 
@@ -78,7 +80,7 @@ import Star from "/assets/images/testimonials/star.svg";
             >
               <img
                 src="/assets/images/testimonials/orangeStar.svg"
-                alt="Yellow star"
+                alt=""
                 class="absolute bottom-[-2.5rem] right-[1rem] z-10 pulse"
               />
 

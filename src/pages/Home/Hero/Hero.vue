@@ -34,13 +34,14 @@
             <!-- Hero Image -->
             <img
                 src="/assets/images/hero/hero-image2.png"
-                alt="Tablet with games"
+                alt="Tablet with audemy games. Carl the Caterpillar is in front"
                 class="z-10 w-full"
             />
             <!-- Hero Illustration Image -->
+            <!-- Has empty alt text since it is purely decorative and does not convey info -->
             <img
                 src="/assets/images/hero/hero-illustration.png"
-                alt="Hero Illustration"
+                alt=""
                 class="absolute top-0 right-0 -z-10 mobile:hidden"
             />
         </div>

@@ -31,7 +31,7 @@ onBeforeUnmount(() => {
         >
             <img
                 src="/assets/images/about-us/arrow-up.svg"
-                alt="Arrow Up"
+                alt="Jump to webpage start"
             />
         </button>
     </div>

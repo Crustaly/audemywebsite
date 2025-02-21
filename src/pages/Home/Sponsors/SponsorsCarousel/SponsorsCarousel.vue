@@ -3,10 +3,23 @@ import { ref, onMounted, onBeforeUnmount } from "vue";
 
 const currentIndex = ref(0);
 const items = [
-    "/assets/images/sponsors/google.png",
-    "/assets/images/sponsors/desmos.png",
-    "/assets/images/sponsors/aops.svg",
-    "/assets/images/sponsors/wolframalpha.svg",
+    {
+        img: "/assets/images/sponsors/google.png",
+        alt: 'google icon'
+    },
+    {
+        img: "/assets/images/sponsors/desmos.png",
+        alt: 'desmos icon'
+    },
+    {
+        img: "/assets/images/sponsors/aops.svg",
+        alt: 'aops icon'
+    },    
+    {
+        img: "/assets/images/sponsors/wolframalpha.svg",
+        alt: "worlfram alpha icon"
+    }
+    
 ];
 
 let interval;
@@ -46,9 +59,9 @@ onBeforeUnmount(() => {
                 class="carousel-item flex-none w-full h-auto mobile:h-32"
             >
                 <img
-                    :src="item"
+                    :src="item.img"
+                    :alt="item.alt"
                     class="w-full h-auto object-cover"
-                    alt="logo"
                 />
             </div>
         </div>

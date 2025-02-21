@@ -24,7 +24,7 @@ import SponsorsCarousel from "./SponsorsCarousel/SponsorsCarousel.vue";
                 <img src="/assets/images/sponsors/aops.svg" alt="aops logo" />
                 <img
                     src="/assets/images/sponsors/wolframalpha.svg"
-                    alt="wolframalpha logo"
+                    alt="wolfram alpha logo"
                 />
             </div>
         </div>

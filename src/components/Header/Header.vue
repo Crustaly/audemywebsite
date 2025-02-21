@@ -5,7 +5,7 @@
             <RouterLink to="/home">
                 <img
                     :src="logoPath"
-                    alt="logo"
+                    alt="audemy logo"
                     class="hover:cursor-pointer absolute top-7 h-[60px]"
                     v-if="logoPath"
                 />

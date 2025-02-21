@@ -34,7 +34,7 @@
                 </div>
             </div>
             <div class="w-4/12 tablet:w-full mobile:w-full flex justify-center">
-                <img class="z-0" src="/assets/images/events/events-image.svg" alt="Event's Image" />
+                <img class="z-0" src="/assets/images/events/events-image.svg" alt="Carl the catapiller happily listening from an iphone" />
             </div>
             <div class="w-4/12 tablet:w-full mobile:w-full">
                 <div
@@ -66,11 +66,11 @@
             <div
                 class="absolute mobile:self-left mobile:top-[30%] left-[-5rem] mobile:left-[-2rem] -top-[5rem] h-[50rem] w-[50rem] tablet:w-[502px] mobile:w-[60%] mobile:h-[40%] mobile:order-2 -z-50"
             >
-                <!-- Apple Background -->
+                <!-- Apple Background. Needs empty ("") alt text -->
                 <img
                     class="w-full h-full"
                     src="/assets/images/events/apple-illustration.png"
-                    alt="Background Image"
+                    alt=""
                 />
             </div>
         </div>
