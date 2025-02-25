@@ -6,13 +6,14 @@
     >
         <img
             src="/assets/images/our-projects/lightred-background.png"
+            alt=""
             class="absolute w-full h-[110%] -top-[3rem] right-0 -z-10"
         />
         <!-- Left Portion -->
         <div class="flex items-center justify-center w-1/2">
             <img
                 src="/assets/images/our-projects/Group 1205.png"
-                alt="Caterpillar"
+                alt="Carl the caterpillar"
                 class="h-max"
             />
         </div>

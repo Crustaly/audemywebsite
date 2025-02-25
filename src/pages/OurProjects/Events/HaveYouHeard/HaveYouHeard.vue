@@ -6,10 +6,12 @@ const items = [
     {
         icon: "school.svg",
         text: "Sessions at schools for the blind to introduce our games to students.",
+        alt: "school icon"
     },
     {
         icon: "classroom.svg",
         text: "Workshops for BVI individuals on accessing coding resources.",
+        alt: "classroom icon"
     },
 ];
 
@@ -65,6 +67,7 @@ onUnmounted(() => {
                             :key="index"
                             :icon="item.icon"
                             :text="item.text"
+                            :alt="item.alt"
                             :smallScreen="smallScreen"
                         />
                     </div>
@@ -91,12 +94,12 @@ onUnmounted(() => {
             <img
                 src="/assets/images/our-projects/Mask group.png"
                 class="absolute w-[40%] -top-48 right-0 -z-10 mobile:relative mobile:w-full mobile:top-0"
-                alt="Mask Group Image"
+                alt=""
             />
             <!-- Image of students w/ Crystal -->
             <img
                 src="/assets/images/our-projects/events1.svg"
-                alt="Image of students"
+                alt="Student with Audemy pulled up on a tablet"
                 class="relative -top-20 right-28 z-10 object-contain w-full h-max mobile:right-0"
             />
         </div>

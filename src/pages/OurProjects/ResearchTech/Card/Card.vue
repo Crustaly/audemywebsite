@@ -4,6 +4,7 @@ const props = defineProps({
     icon: String,
     title: String,
     text: String,
+    alt: String,
 });
 
 const path = "/assets/images/our-projects/researchtech/";
@@ -15,7 +16,7 @@ const path = "/assets/images/our-projects/researchtech/";
             <div
                 class="w-[76px] h-[76px] tablet:w-[72px] tablet:h-[72px] rounded-[8px] border-[1.5px] border-[#0C0D0D] shadow-[4px_4px_0px_#0C0D0D] flex justify-center items-center mb-[15px]"
             >
-                <img :src="path + icon" alt="icon" />
+                <img :src="path + icon" :alt="alt"/>
             </div>
         </div>
         <div class="w-full">
@@ -36,7 +37,7 @@ const path = "/assets/images/our-projects/researchtech/";
                 >
                     <img
                         :src="path + icon"
-                        alt="icon"
+                        :alt="alt"
                         class="w-[90%] h-[90%]"
                     />
                 </div>

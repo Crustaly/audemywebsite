@@ -5,16 +5,19 @@ import Card from "./Card/Card.vue";
 const items = [
     {
         icon: "message-chat.svg",
+        alt: "speech bubble",
         title: "Data-Driven Conversational Games",
         text: `Our games are backed by research, rigorously tested and optimized. We've published studies on conversational interfaces at leading international conferences. <a href="https://dl.acm.org/doi/10.1145/3610661.3617150" target="_blank" class="text-[#087BB4] underline text-[18px]"><b>Read more!</b></a>`,
     },
     {
         icon: "network-circle.svg",
+        alt: "globe icon",
         title: "Intel OpenVINO Natural Language Processing",
         text: `Intel OpenVINO's Natural Language Processing uses machine learning to turn speech into text, enabling users to interact with Audemy through an audio-focused interface. <a href="https://www.intel.com/content/www/us/en/developer/tools/openvino-toolkit/overview.html?cid=sem&source=sa360&campid=2024_ao_cbu_us_gmocoma_gmocrbu_awa_text-link_brand_exact_cd_HQ-ai-openvino_3500268603_google_b2b_is_non-pbm_intel&ad_group=AI_Brand-Openvino_Openvino_Exact&intel_term=intel+openvino&sa360id=43700079820169414&gad_source=1&gclid=CjwKCAiAudG5BhAREiwAWMlSjGynGEnU9rLJPetpdfSrDl8V2bxtLFPMuDgLA39EVai2d9PANXXxjhoCTqgQAvD_BwE&gclsrc=aw.ds" target="_blank" class="text-[#087BB4] underline text-[18px]"><b>Learn  more!</b></a>`,
     },
     {
         icon: "eye.svg",
+        alt: "open eye icon",
         title: "Screen Reader Compatibility",
         text: `Our game interface is keyboard-friendly, enabling blind and visually impaired students to navigate, select games, and answer questions with simple keystrokes.`,
     },
@@ -63,6 +66,7 @@ onUnmounted(() => {
                         v-for="(item, index) in items"
                         :key="index"
                         :icon="item.icon"
+                        :alt="item.alt"
                         :title="item.title"
                         :text="item.text"
                         :smallScreen="smallScreen"
