@@ -8,7 +8,7 @@
         <div class="flex items-center justify-center w-1/2">
             <img
                 src="/assets/images/about-us/CarlTheCaterpillar.png"
-                alt="Carl The Caterpillar"
+                alt="Carl the Caterpillar: a yellow caterpillar wearing a graduation cap and next to a large pencil."
                 class="h-max"
             />
         </div>

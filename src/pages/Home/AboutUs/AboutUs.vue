@@ -10,7 +10,7 @@
     },
     {
       icon: 'bulb.svg',
-      alt: 'idea icon',
+      alt: 'new idea icon',
       text: 'This motivates us to increase accessibility and engagement to educational resources for these learners.'
     },
     {

@@ -6,14 +6,17 @@ const items = [
     {
         icon: "bulb2.svg",
         text: "Invest funding in the latest technologies and resources",
+        alt: "investment idea icon"
     },
     {
         icon: "ai.svg",
         text: "Use AI tools to tailor games for blind children's needs",
+        alt: "AI within an atom icon"
     },
     {
         icon: "globe.svg",
         text: "Make our games available to a wider audience",
+        alt: "globe icon"
     },
 ];
 
@@ -68,6 +71,7 @@ onUnmounted(() => {
                                 v-for="(item, index) in items"
                                 :key="index"
                                 :icon="item.icon"
+                                :alt="item.alt"
                                 :text="item.text"
                                 :smallScreen="smallScreen"
                             />
@@ -83,22 +87,22 @@ onUnmounted(() => {
                 <img
                     src="/assets/images/our-projects/Mask group.png"
                     class="absolute w-[90%] object-cover -top-48 -right-40 -z-10 mobile:hidden"
-                    alt="Image"
+                    alt=""
                 />
                 <img
                     src="/assets/images/about-us/childPlaying-tablet.png"
-                    alt="Image of student"
+                    alt="Student in front of computer"
                     class="z-10 object-contain w-[80%] h-auto mobile:w-full"
                 />
             </div>
             <img
                 src="/assets/images/impact/orangeStar.png"
-                alt="Orange Star"
+                alt=""
                 class="absolute bottom-[10rem] left-[52rem] z-10 mobile:hidden"
             />
             <img
                 src="/assets/images/about-us/blueStar2.svg"
-                alt="Blue Star"
+                alt=""
                 class="absolute w-[81px] bottom-[5rem] right-[5rem] z-10 mobile:hidden"
             />
         </div>

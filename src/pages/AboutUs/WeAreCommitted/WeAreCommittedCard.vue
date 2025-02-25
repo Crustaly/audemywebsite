@@ -3,6 +3,7 @@ const props = defineProps({
     smallScreen: Boolean,
     icon: String,
     text: String,
+    alt: String,
 });
 const path = "/assets/images/about-us/";
 </script>
@@ -13,7 +14,7 @@ const path = "/assets/images/about-us/";
             <div
                 class="w-[76px] h-[76px] tablet:w-[72px] tablet:h-[72px] rounded-[8px] border-[1.5px] border-[#0C0D0D] shadow-[4px_4px_0px_#0C0D0D] flex justify-center items-center"
             >
-                <img :src="path + icon" alt="icon" />
+                <img :src="path + icon" :alt="alt" />
             </div>
         </div>
 
@@ -30,7 +31,7 @@ const path = "/assets/images/about-us/";
             <div
                 class="w-[40px] h-[40px] rounded-[8px] border-[1.5px] border-[#0C0D0D] shadow-[4px_4px_0px_#0C0D0D] flex justify-center items-center"
             >
-                <img :src="path + icon" alt="icon" class="w-[90%] h-[90%]" />
+                <img :src="path + icon" :alt="alt" class="w-[90%] h-[90%]" />
             </div>
             <div class="flex-1">
                 <h4
