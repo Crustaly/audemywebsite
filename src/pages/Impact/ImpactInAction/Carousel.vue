@@ -55,7 +55,7 @@ onMounted(() => {
             src="/assets/images/impact/carousel/leftChevron.svg"
             id="left-chevron"
             class="absolute top-1/2 left-1 -translate-1/2 z-10 cursor-pointer"
-            alt="Left Chevron Image"
+            alt="Previous Image"
         />
 
         <div
@@ -64,7 +64,7 @@ onMounted(() => {
             <img
                 src="/assets/images/impact/carousel/carousel1.jpg"
                 class="-z-10 w-full h-full object-cover"
-                alt="Carousel Image"
+                alt="Student holding a tablet loaded with an Audemy game"
             />
         </div>
 
@@ -74,7 +74,7 @@ onMounted(() => {
             <img
                 src="/assets/images/impact/carousel/carousel2.png"
                 class="-z-10 w-full h-full object-cover"
-                alt="Carousel Image"
+                alt="Student at a computer screen with the words Fruit Frenzy on it"
             />
         </div>
 
@@ -84,7 +84,7 @@ onMounted(() => {
             <img
                 src="/assets/images/impact/carousel/carousel3.png"
                 class="-z-10 w-full h-full object-cover"
-                alt="Carousel Image"
+                alt="Student with their face near a smartboard that has the words Spell Safari"
             />
         </div>
 
@@ -95,7 +95,7 @@ onMounted(() => {
             <img
                 src="/assets/images/impact/carousel/carousel4.png"
                 class="-z-10 w-full h-full object-cover"
-                alt="Carousel Image"
+                alt="Student with their face near a smartboard with an Audemy game loaded. The word Frenzy can be seen."
             />
         </div>
 
@@ -105,7 +105,7 @@ onMounted(() => {
             <img
                 src="/assets/images/impact/carousel/carousel5.png"
                 class="-z-10 w-full h-full object-cover"
-                alt="Carousel Image"
+                alt="Student with glasses in front of a smartboard with the Fruit Frenzy game loaded"
             />
         </div>
 
@@ -115,14 +115,14 @@ onMounted(() => {
             <img
                 src="/assets/images/impact/carousel/carousel6.jpeg"
                 class="-z-10 w-full h-full object-cover"
-                alt="Carousel Image"
+                alt="Students posing in front of chalkboards with a smartboard in the middle. Many are posing with peace signs"
             />
         </div>
         <img
             src="/assets/images/impact/carousel/rightChevron.svg"
             id="right-chevron"
             class="absolute top-1/2 right-1 -translate-1/2 z-10 cursor-pointer"
-            alt="Right Chevron Image"
+            alt="Next Image"
         />
     </div>
 </template>

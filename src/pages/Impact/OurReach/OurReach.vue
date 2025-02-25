@@ -28,7 +28,7 @@
             >
                 <img
                     src="/assets/images/impact/students 1.svg"
-                    alt="Student Icon"
+                    alt="Carl the Catterpillar in a graduation cap"
                     class="mx-auto relative -top-12"
                 />
                 <div>
@@ -48,7 +48,7 @@
             >
                 <img
                     src="/assets/images/impact/problems 1.svg"
-                    alt="Problems Solved Icon"
+                    alt="Carl the Catterpillar thinking of the solution to 7 plus 8"
                     class="mx-auto relative -top-12"
                 />
                 <h3 class="font-poppins text-3xl mb-2">20,000 +</h3>
@@ -66,7 +66,7 @@
             >
                 <img
                     src="/assets/images/impact/globe 1.svg"
-                    alt="Collaborating Schools Icon"
+                    alt="Carl the Catterpillar next to a globe"
                     class="mx-auto relative -top-12"
                 />
                 <h3 class="font-poppins text-3xl mb-2">7 +</h3>

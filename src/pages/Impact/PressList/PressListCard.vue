@@ -4,6 +4,7 @@ const props = defineProps({
     image: String,
     text: String,
     author: String,
+    alt: String
 });
 const path = "/assets/images/impact/";
 </script>
@@ -22,7 +23,7 @@ const path = "/assets/images/impact/";
                     <img
                         :src="path + image"
                         class="h-[178px] w-[320px] rounded-2xl mobile:w-full mobile:h-auto"
-                        alt="image"
+                        :alt="alt"
                     />
                 </div>
 

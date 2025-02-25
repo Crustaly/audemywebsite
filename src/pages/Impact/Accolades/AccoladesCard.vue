@@ -3,6 +3,7 @@ const props = defineProps({
     smallScreen: Boolean,
     icon: String,
     text: String,
+    alt: String
 });
 const path = "/assets/images/impact/";
 </script>
@@ -28,7 +29,7 @@ const path = "/assets/images/impact/";
                 <div class="mx-6 flex justify-center mobile:mx-4">
                     <img
                         :src="path + icon"
-                        alt="icon"
+                        :alt="alt"
                         class="mobile:w-[30px] mobile:h-[30px]"
                     />
                 </div>

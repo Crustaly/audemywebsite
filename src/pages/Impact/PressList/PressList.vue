@@ -7,16 +7,19 @@ const items = [
         image: "intel-globalImpactAI.png",
         text: "Intel Celebrates AI Innovations by Students with Global Impact Festival",
         author: "-- By Intel",
+        alt: "Intel ai global impact festival. Three women working on a piece of technology."
     },
     {
         image: "houstonhappens.png",
         text: "Stay motivated during the school year with Houston Happens!",
         author: "-- By CW39 Houston",
+        alt: "Huston Happens logo"
     },
     {
         image: "students2.png",
         text: "Katy ISD student creates audio-based education games for visually impaired children",
         author: "-- By Aubrey Vogel",
+        alt: "Students posing in front of a blackboard. Many hold up peace signs"
     },
 ];
 
@@ -71,6 +74,7 @@ onUnmounted(() => {
                             :image="item.image"
                             :text="item.text"
                             :author="item.author"
+                            :alt="item.alt"
                             :smallScreen="smallScreen"
                         />
                     </div>
@@ -81,12 +85,12 @@ onUnmounted(() => {
         <img
             src="/assets/images/impact/orangeStar.png"
             class="absolute left-[18rem] bottom-[0rem]"
-            alt="image"
+            alt=""
         />
         <img
             src="/assets/images/impact/blueStar.png"
             class="absolute right-[16rem] bottom-[35rem]"
-            alt="image"
+            alt=""
         />
     </div>
 </template>

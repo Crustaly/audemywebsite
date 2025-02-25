@@ -6,22 +6,27 @@ const items = [
     {
         icon: "intel-logo.png",
         text: "Intel Global AI Festival Winner",
+        alt: "Intel logo"
     },
     {
         icon: "dailypoint-logo.png",
         text: "Daily Point of Light Honoree",
+        alt: "Daily Point of Light logo"
     },
     {
         icon: "texas-logo.png",
         text: "Yellow Rose of Texas Award",
+        alt: "Texas state symbol"
     },
     {
         icon: "technovation-logo.png",
         text: "Technovation National Semifinalist",
+        alt: "Technovation logo"
     },
     {
         icon: "acm-logo.png",
         text: "ACM Published Research",
+        alt: "Association for computing machine (AMC) logo"
     },
 ];
 
@@ -45,7 +50,7 @@ onUnmounted(() => {
         <img
             src="/assets/images/impact/light-green-bg-2.png"
             class="absolute w-full h-[125%] -top-[12rem] right-0 -z-10"
-            alt="Background image"
+            alt=""
         />
 
         <!-- MAIN CONTENT -->
@@ -79,6 +84,7 @@ onUnmounted(() => {
                             :key="index"
                             :icon="item.icon"
                             :text="item.text"
+                            :alt="item.alt"
                             :smallScreen="smallScreen"
                         />
                     </div>
