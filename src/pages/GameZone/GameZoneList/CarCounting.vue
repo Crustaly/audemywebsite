@@ -2,15 +2,16 @@
     <div
         class="flex flex-col justify-center items-center h-screen font-poppins bg-[#FAEDD6]"
     >
-        <div class="flex mt-2 mb-2 w-1/2">
-            <button onclick="history.back()">
-                <img
-                    src="/assets/gameImages/buttons/arrow-back.svg"
-                    class="bg-white border-2 rounded-lg border-black h-12 p-2 shadow-md hover:bg-gray-300"
-                    alt="Back Button Image"
-                />
-            </button>
-        </div>
+    <div class="flex mt-2 mb-2 w-1/2">
+    <button @click="handleBack">
+        <img
+            src="/assets/gameImages/buttons/arrow-back.svg"
+            class="bg-white border-2 rounded-lg border-black h-12 p-2 shadow-md hover:bg-gray-300"
+            alt="Back Button Image"
+        />
+    </button>
+</div>
+
         <div class="flex flex-col my-2 mx-56 h-96 justify-center items-center">
             <div class="m-10 py-4 text-center">
                 <h1 class="text-4.5xl font-bold">Car Counting</h1>
@@ -68,33 +69,19 @@ import {
     stopListening,
 } from "../../../Utilities/speechRecognition";
 
-const currentAudios = [],
-    randQueNum = [],
-    answers = [];
-let numOfAudiosPlayed = ref(0),
-    score = ref(0);
-let questionsDb = [],
-    isListening = ref(false),
-    transcription = ref(""),
-    playButton = ref(false),
-    isPlaying = ref(false),
-    isIntroPlaying = ref(false);
+const currentAudios = [], randQueNum = [], answers = [];
+let numOfAudiosPlayed = ref(0), score = ref(0);
+let questionsDb = [], isListening = ref(false), transcription = ref("");
+let playButton = ref(false);
+let isAnsweringPeriod = ref(false); // New flag to track answering period
 
-// Generate random number of cars as Questions
 const generateQuestions = () => {
     console.log("Generating Questions...");
-    // Generate 5 random numbers for the questions
     while (randQueNum.length < 5) {
         let num = Math.floor(Math.random() * 5) + 1;
         if (!randQueNum.includes(num)) {
             randQueNum.push(num);
-            const answerMap = {
-                1: "one",
-                2: "two",
-                3: "three",
-                4: "four",
-                5: "five"
-            };
+            const answerMap = { 1: "one", 2: "two", 3: "three", 4: "four", 5: "five" };
             answers.push(answerMap[num]);
         }
     }
@@ -102,76 +89,79 @@ const generateQuestions = () => {
     console.log("Answers: ", answers);
 };
 
-// Play the next question
+import { playAudioPath } from "../../../Utilities/playAudio"; 
+
 const playNextQuestion = async () => {
-    if (numOfAudiosPlayed.value < 5 && !isPlaying.value) {
-        isPlaying.value = true;
-        
-        // Stop all current audios
-        stopAudios(currentAudios);
-        currentAudios.length = 0;  // Clear the array
+    if (numOfAudiosPlayed.value < 5) {
+        isAnsweringPeriod.value = false; // Disable answering during question
 
-        const audiosToPlay = [];
+        await playQuestion("Question Number " + (numOfAudiosPlayed.value + 1));
 
-        // Add the initial audio
-        playQuestion("Question Number " + (numOfAudiosPlayed.value + 1));
-
-        // Add the car passing by audios
         for (let i = 0; i < randQueNum[numOfAudiosPlayed.value]; i++) {
-            audiosToPlay.push("/assets/carCounting/carpassby.mp3");
+            await playAudioPath("/assets/carCounting/carpassby.mp3");
         }
 
-        // Play all car audios in sequence
-        for (const audioSrc of audiosToPlay) {
-            await new Promise((resolve) => {
-                console.log("Playing - "+ audioSrc)
-                const audio = new Audio(audioSrc);
-                audio.play();
-                audio.onended = resolve;
-                currentAudios.push(audio);
-            });
-        }
+        await playQuestion("How many cars did you hear? Hold 'SPACE' to say the answer");
 
-        // Add the final audio
-        playQuestion("How many cars did you hear? Hold 'SPACE' to say the answer");
-        
-        isPlaying.value = false;
+        isAnsweringPeriod.value = true; // Enable answering after question
+        numOfAudiosPlayed.value++;
     }
 };
 
 // Handle the spacebar events
 const handleKeyDown = (event) => {
-    if (event.code === "KeyR" && 
-        numOfAudiosPlayed.value < 5 && 
-        !isPlaying.value && 
-        !isIntroPlaying.value) {
+    if (event.code === "KeyR" && numOfAudiosPlayed.value < 5) {
         playNextQuestion();
         return;
     }
 
-    if (
-        event.code === "Space" &&
-        !isListening.value &&
-        numOfAudiosPlayed.value < 5 &&
-        !isIntroPlaying.value
-    ) {
+    if (event.code === "Space" && !isListening.value && numOfAudiosPlayed.value < 5) {
+        if (!isAnsweringPeriod.value) {
+            console.log("Cannot answer yet! Wait for the question to finish.");
+            return;
+        }
+
         isListening.value = true;
         playSound("ding-sound.mp3");
+
         startListening((transcript) => {
             console.log("User Answer:", transcript);
-            console.log("Correct Answer:", randQueNum[numOfAudiosPlayed.value]);
-            transcription.value = transcript;
-            if (transcript.trim() === answers[numOfAudiosPlayed.value]) {
-                score.value++;
-                console.log("Correct Answer!");
-                playSound("correctaudio.mp3");
-            } else {
-                console.log("Wrong Answer!");
-                playSound("incorrectaudio.mp3");
-            }
+            console.log("Correct Answer:", answers[numOfAudiosPlayed.value - 1]); // Fix indexing
+            transcription.value = transcript.trim().toLowerCase();
+console.log("Raw User Answer:", transcription.value); // Debugging Log
+
+// Convert recognized numbers (e.g., "3") to words (e.g., "three")
+const numberToWordMap = {
+    1: "one",
+    2: "two",
+    3: "three",
+    4: "four",
+    5: "five"
+};
+
+// Try parsing the user's response into an integer
+const parsedNumber = parseInt(transcription.value);
+
+if (!isNaN(parsedNumber) && numberToWordMap[parsedNumber]) {
+    transcription.value = numberToWordMap[parsedNumber];
+}
+
+console.log("Converted User Answer:", transcription.value);
+console.log("Correct Answer:", answers[numOfAudiosPlayed.value - 1]); // Debugging Log
+
+// Compare the converted answer
+if (transcription.value === answers[numOfAudiosPlayed.value - 1]) {
+    score.value++;
+    console.log("Correct Answer!");
+    playSound("correctaudio.mp3");
+} else {
+    console.log("Wrong Answer!");
+    playSound("incorrectaudio.mp3");
+}
             stopListening();
             isListening.value = false;
-            numOfAudiosPlayed.value++;
+            isAnsweringPeriod.value = false; // Reset answering period
+
             if (numOfAudiosPlayed.value < 5) {
                 setTimeout(() => {
                     playNextQuestion();
@@ -196,22 +186,16 @@ const handleKeyUp = async (event) => {
 };
 
 onMounted(() => {
-    // Request microphone access on page load
     console.log("Requesting microphone access...");
     requestMicPermission();
 
-    // Generate questions
     generateQuestions();
 
     watch(playButton, (newVal) => {
         if (newVal) {
-            isIntroPlaying.value = true;
             const introAudio = playIntro("/carCounting/carCountIntro.mp3");
             currentAudios.push(introAudio);
-            introAudio.onended = () => {
-                isIntroPlaying.value = false;
-                playNextQuestion();
-            };
+            introAudio.onended = playNextQuestion;
         }
     });
 
@@ -225,4 +209,26 @@ onUnmounted(() => {
     window.removeEventListener("keydown", handleKeyDown);
     window.removeEventListener("keyup", handleKeyUp);
 });
+
+
+
+const handleBack = () => {
+    console.log("Stopping all audios before navigating...");
+
+    stopAudios(currentAudios); // Stop all audio
+    currentAudios.length = 0;  // Clear audio array
+
+    window.removeEventListener("keydown", handleKeyDown);
+    window.removeEventListener("keyup", handleKeyUp);
+
+    // Forcefully go back and refresh the page
+    setTimeout(() => {
+        console.log("Navigating to game zone and refreshing...");
+        window.location.href = "../game-zone"; // Navigate & refresh
+    }, 500); // Short delay to ensure audio stops
+};
+
+
+
+
 </script>

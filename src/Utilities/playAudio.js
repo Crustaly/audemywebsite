@@ -13,18 +13,26 @@ export async function playQuestion(question) {
         const audioBlob = await getTTSAudio(question); // Wait for TTS to generate
         if (!audioBlob) {
             console.error("Audio generation failed.");
-            return;
+            return null;  // Return null instead of undefined
         }
 
         const audioURL = URL.createObjectURL(audioBlob);
-        await playAudioPath(audioURL); // Ensure this function handles promises properly
+        const audio = new Audio(audioURL);
+
+        return new Promise((resolve) => {
+            audio.play();
+            audio.onended = resolve;
+        });
     } catch (error) {
         console.error("Error in playQuestion:", error);
+        return null;
     }
 }
+
 export async function getTTSAudio(text) {
     try {
-        const response = await fetch("/api/generate-tts", {
+        const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000/api"; // Fallback
+        const response = await fetch(`${API_URL}/generate-tts`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -33,7 +41,8 @@ export async function getTTSAudio(text) {
         });
 
         if (!response.ok) {
-            throw new Error("Failed to generate TTS");
+            const errorText = await response.text();
+            throw new Error(`Failed to generate TTS: ${errorText}`);
         }
 
         return await response.blob();
@@ -42,6 +51,7 @@ export async function getTTSAudio(text) {
         return null;
     }
 }
+
 
 export function playSound(audioFile) {
     // Play introduction audio
@@ -53,23 +63,15 @@ export function playSound(audioFile) {
     return audio;
 }
 let currentAudios = [];
+
 export function playAudioPath(path) {
     return new Promise((resolve) => {
         let audio = new Audio(path);
-        currentAudios.push(audio); // Track the audio in the array
         audio.play();
-
-        // audio.onplay = () => {
-        //     this.isRecording = true;
-        // };
-
-        // audio.onended = () => {
-        //     this.isRecording = false;
-        //     console.log("Audio ended.");
-        resolve();
-        // };
+        audio.onended = resolve;
     });
 }
+
 
 export function playScore(score) {
     const scoreAudioPath = "/assets/generalAudio/" + score + "correct.mp3";
