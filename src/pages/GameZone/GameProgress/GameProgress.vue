@@ -41,7 +41,7 @@
         <div class="flex flex-col gap-8 border-2 items-center border-black rounded-xl w-3/4 py-10">
             <!-- Title -->
             <div class="text-[25px]">
-                My Math Magic Journey 
+                My Math Magic Journey
             </div>
             
             <!-- Games -->
