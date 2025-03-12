@@ -18,7 +18,7 @@ const changeCurrentPage = (page) => {
     <div class="px-20">
       <Header
         :textColor="'text-black'"
-        :logoPath="'/assets/images/header/header-logo.png'"
+        :logoPath="'/assets/images/header/header-logo-2.png'"
       />
     </div>
     <div class="w-full pt-10 flex align-center justify-center">
@@ -49,7 +49,7 @@ const changeCurrentPage = (page) => {
           >
             Math Magic
           </button>
-          <button
+          <!--button
             @click="changeCurrentPage(3)"
             :class="
               currentPage == 3
@@ -59,7 +59,7 @@ const changeCurrentPage = (page) => {
             class="font-poppins mobile:text-[14px]"
           >
             My Progress
-          </button>
+          </button-->
         </div>
         <div>
           <div v-if="currentPage != 3">

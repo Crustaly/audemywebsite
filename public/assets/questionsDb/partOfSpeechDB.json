@@ -1,75 +1,243 @@
 {
-    "PartOfSpeechGame": {
-        "Questions": {
-            "Easy": [
-                { "Q": "Is the word 'cat' a noun, verb, or adjective?", "A": "noun" },
-                { "Q": "Is the word 'run' a noun, verb, or adjective?", "A": "verb" },
-                { "Q": "Is the word 'happy' a noun, verb, or adjective?", "A": "adjective" },
-                { "Q": "Is the word 'table' a noun, verb, or adjective?", "A": "noun" },
-                { "Q": "Is the word 'jump' a noun, verb, or adjective?", "A": "verb" },
-                { "Q": "Is the word 'blue' a noun, verb, or adjective?", "A": "adjective" },
-                { "Q": "Is the word 'dog' a noun, verb, or adjective?", "A": "noun" },
-                { "Q": "Is the word 'sing' a noun, verb, or adjective?", "A": "verb" },
-                { "Q": "Is the word 'big' a noun, verb, or adjective?", "A": "adjective" },
-                { "Q": "Is the word 'chair' a noun, verb, or adjective?", "A": "noun" },
-                { "Q": "Is the word 'ball' a noun, verb, or adjective?", "A": "noun" },
-                { "Q": "Is the word 'eat' a noun, verb, or adjective?", "A": "verb" },
-                { "Q": "Is the word 'green' a noun, verb, or adjective?", "A": "adjective" },
-                { "Q": "Is the word 'house' a noun, verb, or adjective?", "A": "noun" },
-                { "Q": "Is the word 'run' a noun, verb, or adjective?", "A": "verb" },
-                { "Q": "Is the word 'sky' a noun, verb, or adjective?", "A": "noun" },
-                { "Q": "Is the word 'read' a noun, verb, or adjective?", "A": "verb" },
-                { "Q": "Is the word 'yellow' a noun, verb, or adjective?", "A": "adjective" },
-                { "Q": "Is the word 'car' a noun, verb, or adjective?", "A": "noun" },
-                { "Q": "Is the word 'write' a noun, verb, or adjective?", "A": "verb" },
-                { "Q": "Is the word 'flower' a noun, verb, or adjective?", "A": "noun" }
-            ],
-            "Medium": [
-                { "Q": "Is the word 'dance' a noun, verb, or adjective?", "A": "verb" },
-                { "Q": "Is the word 'bright' a noun, verb, or adjective?", "A": "adjective" },
-                { "Q": "Is the word 'river' a noun, verb, or adjective?", "A": "noun" },
-                { "Q": "Is the word 'talk' a noun, verb, or adjective?", "A": "verb" },
-                { "Q": "Is the word 'funny' a noun, verb, or adjective?", "A": "adjective" },
-                { "Q": "Is the word 'book' a noun, verb, or adjective?", "A": "noun" },
-                { "Q": "Is the word 'laugh' a noun, verb, or adjective?", "A": "verb" },
-                { "Q": "Is the word 'kind' a noun, verb, or adjective?", "A": "adjective" },
-                { "Q": "Is the word 'apple' a noun, verb, or adjective?", "A": "noun" },
-                { "Q": "Is the word 'paint' a noun, verb, or adjective?", "A": "verb" },
-                { "Q": "Is the word 'snow' a noun, verb, or adjective?", "A": "noun" },
-                { "Q": "Is the word 'cook' a noun, verb, or adjective?", "A": "verb" },
-                { "Q": "Is the word 'sweet' a noun, verb, or adjective?", "A": "adjective" },
-                { "Q": "Is the word 'phone' a noun, verb, or adjective?", "A": "noun" },
-                { "Q": "Is the word 'jump' a noun, verb, or adjective?", "A": "verb" },
-                { "Q": "Is the word 'cloud' a noun, verb, or adjective?", "A": "noun" },
-                { "Q": "Is the word 'play' a noun, verb, or adjective?", "A": "verb" },
-                { "Q": "Is the word 'loud' a noun, verb, or adjective?", "A": "adjective" },
-                { "Q": "Is the word 'drink' a noun, verb, or adjective?", "A": "verb" },
-                { "Q": "Is the word 'sleepy' a noun, verb, or adjective?", "A": "adjective" },
-                { "Q": "Is the word 'quiet' a noun, verb, or adjective?", "A": "adjective" }
-            ],
-            "Hard": [
-                { "Q": "Is the word 'enthusiastic' a noun, verb, or adjective?", "A": "adjective" },
-                { "Q": "Is the word 'forest' a noun, verb, or adjective?", "A": "noun" },
-                { "Q": "Is the word 'whisper' a noun, verb, or adjective?", "A": "verb" },
-                { "Q": "Is the word 'delightful' a noun, verb, or adjective?", "A": "adjective" },
-                { "Q": "Is the word 'adventure' a noun, verb, or adjective?", "A": "noun" },
-                { "Q": "Is the word 'discover' a noun, verb, or adjective?", "A": "verb" },
-                { "Q": "Is the word 'enormous' a noun, verb, or adjective?", "A": "adjective" },
-                { "Q": "Is the word 'victory' a noun, verb, or adjective?", "A": "noun" },
-                { "Q": "Is the word 'explore' a noun, verb, or adjective?", "A": "verb" },
-                { "Q": "Is the word 'beautiful' a noun, verb, or adjective?", "A": "adjective" },
-                { "Q": "Is the word 'reliable' a noun, verb, or adjective?", "A": "adjective" },
-                { "Q": "Is the word 'courage' a noun, verb, or adjective?", "A": "noun" },
-                { "Q": "Is the word 'embark' a noun, verb, or adjective?", "A": "verb" },
-                { "Q": "Is the word 'mysterious' a noun, verb, or adjective?", "A": "adjective" },
-                { "Q": "Is the word 'opportunity' a noun, verb, or adjective?", "A": "noun" },
-                { "Q": "Is the word 'impressive' a noun, verb, or adjective?", "A": "adjective" },
-                { "Q": "Is the word 'outstanding' a noun, verb, or adjective?", "A": "adjective" },
-                { "Q": "Is the word 'transform' a noun, verb, or adjective?", "A": "verb" },
-                { "Q": "Is the word 'incredible' a noun, verb, or adjective?", "A": "adjective" },
-                { "Q": "Is the word 'inspire' a noun, verb, or adjective?", "A": "verb" },
-                { "Q": "Is the word 'remarkable' a noun, verb, or adjective?", "A": "adjective" }
-            ]
+  "PartOfSpeechGame": {
+    "Questions": {
+      "Easy": [
+        { "Q": "Is the word 'cat' a noun, verb, or adjective?", "A": ["noun"] },
+        { "Q": "Is the word 'run' a noun, verb, or adjective?", "A": ["verb"] },
+        {
+          "Q": "Is the word 'happy' a noun, verb, or adjective?",
+          "A": ["adjective"]
+        },
+        {
+          "Q": "Is the word 'table' a noun, verb, or adjective?",
+          "A": ["noun"]
+        },
+        {
+          "Q": "Is the word 'jump' a noun, verb, or adjective?",
+          "A": ["verb"]
+        },
+        {
+          "Q": "Is the word 'blue' a noun, verb, or adjective?",
+          "A": ["adjective"]
+        },
+        { "Q": "Is the word 'dog' a noun, verb, or adjective?", "A": ["noun"] },
+        {
+          "Q": "Is the word 'sing' a noun, verb, or adjective?",
+          "A": ["verb"]
+        },
+        {
+          "Q": "Is the word 'big' a noun, verb, or adjective?",
+          "A": ["adjective"]
+        },
+        {
+          "Q": "Is the word 'chair' a noun, verb, or adjective?",
+          "A": ["noun"]
+        },
+        {
+          "Q": "Is the word 'ball' a noun, verb, or adjective?",
+          "A": ["noun"]
+        },
+        { "Q": "Is the word 'eat' a noun, verb, or adjective?", "A": ["verb"] },
+        {
+          "Q": "Is the word 'green' a noun, verb, or adjective?",
+          "A": ["adjective"]
+        },
+        {
+          "Q": "Is the word 'house' a noun, verb, or adjective?",
+          "A": ["noun"]
+        },
+        { "Q": "Is the word 'run' a noun, verb, or adjective?", "A": ["verb"] },
+        { "Q": "Is the word 'sky' a noun, verb, or adjective?", "A": ["noun"] },
+        {
+          "Q": "Is the word 'read' a noun, verb, or adjective?",
+          "A": ["verb"]
+        },
+        {
+          "Q": "Is the word 'yellow' a noun, verb, or adjective?",
+          "A": ["adjective"]
+        },
+        { "Q": "Is the word 'car' a noun, verb, or adjective?", "A": ["noun"] },
+        {
+          "Q": "Is the word 'write' a noun, verb, or adjective?",
+          "A": ["verb"]
+        },
+        {
+          "Q": "Is the word 'flower' a noun, verb, or adjective?",
+          "A": ["noun"]
         }
+      ],
+      "Medium": [
+        {
+          "Q": "Is the word 'dance' a noun, verb, or adjective?",
+          "A": ["verb"]
+        },
+        {
+          "Q": "Is the word 'bright' a noun, verb, or adjective?",
+          "A": ["adjective"]
+        },
+        {
+          "Q": "Is the word 'river' a noun, verb, or adjective?",
+          "A": ["noun"]
+        },
+        {
+          "Q": "Is the word 'talk' a noun, verb, or adjective?",
+          "A": ["verb"]
+        },
+        {
+          "Q": "Is the word 'funny' a noun, verb, or adjective?",
+          "A": ["adjective"]
+        },
+        {
+          "Q": "Is the word 'book' a noun, verb, or adjective?",
+          "A": ["noun"]
+        },
+        {
+          "Q": "Is the word 'laugh' a noun, verb, or adjective?",
+          "A": ["verb"]
+        },
+        {
+          "Q": "Is the word 'kind' a noun, verb, or adjective?",
+          "A": ["adjective"]
+        },
+        {
+          "Q": "Is the word 'apple' a noun, verb, or adjective?",
+          "A": ["noun"]
+        },
+        {
+          "Q": "Is the word 'paint' a noun, verb, or adjective?",
+          "A": ["verb"]
+        },
+        {
+          "Q": "Is the word 'snow' a noun, verb, or adjective?",
+          "A": ["noun"]
+        },
+        {
+          "Q": "Is the word 'cook' a noun, verb, or adjective?",
+          "A": ["verb"]
+        },
+        {
+          "Q": "Is the word 'sweet' a noun, verb, or adjective?",
+          "A": ["adjective"]
+        },
+        {
+          "Q": "Is the word 'phone' a noun, verb, or adjective?",
+          "A": ["noun"]
+        },
+        {
+          "Q": "Is the word 'jump' a noun, verb, or adjective?",
+          "A": ["verb"]
+        },
+        {
+          "Q": "Is the word 'cloud' a noun, verb, or adjective?",
+          "A": ["noun"]
+        },
+        {
+          "Q": "Is the word 'play' a noun, verb, or adjective?",
+          "A": ["verb"]
+        },
+        {
+          "Q": "Is the word 'loud' a noun, verb, or adjective?",
+          "A": ["adjective"]
+        },
+        {
+          "Q": "Is the word 'drink' a noun, verb, or adjective?",
+          "A": ["verb"]
+        },
+        {
+          "Q": "Is the word 'sleepy' a noun, verb, or adjective?",
+          "A": ["adjective"]
+        },
+        {
+          "Q": "Is the word 'quiet' a noun, verb, or adjective?",
+          "A": ["adjective"]
+        }
+      ],
+      "Hard": [
+        {
+          "Q": "Is the word 'enthusiastic' a noun, verb, or adjective?",
+          "A": ["adjective"]
+        },
+        {
+          "Q": "Is the word 'forest' a noun, verb, or adjective?",
+          "A": ["noun"]
+        },
+        {
+          "Q": "Is the word 'whisper' a noun, verb, or adjective?",
+          "A": ["verb"]
+        },
+        {
+          "Q": "Is the word 'delightful' a noun, verb, or adjective?",
+          "A": ["adjective"]
+        },
+        {
+          "Q": "Is the word 'adventure' a noun, verb, or adjective?",
+          "A": ["noun"]
+        },
+        {
+          "Q": "Is the word 'discover' a noun, verb, or adjective?",
+          "A": ["verb"]
+        },
+        {
+          "Q": "Is the word 'enormous' a noun, verb, or adjective?",
+          "A": ["adjective"]
+        },
+        {
+          "Q": "Is the word 'victory' a noun, verb, or adjective?",
+          "A": ["noun"]
+        },
+        {
+          "Q": "Is the word 'explore' a noun, verb, or adjective?",
+          "A": ["verb"]
+        },
+        {
+          "Q": "Is the word 'beautiful' a noun, verb, or adjective?",
+          "A": ["adjective"]
+        },
+        {
+          "Q": "Is the word 'reliable' a noun, verb, or adjective?",
+          "A": ["adjective"]
+        },
+        {
+          "Q": "Is the word 'courage' a noun, verb, or adjective?",
+          "A": ["noun"]
+        },
+        {
+          "Q": "Is the word 'embark' a noun, verb, or adjective?",
+          "A": ["verb"]
+        },
+        {
+          "Q": "Is the word 'mysterious' a noun, verb, or adjective?",
+          "A": ["adjective"]
+        },
+        {
+          "Q": "Is the word 'opportunity' a noun, verb, or adjective?",
+          "A": ["noun"]
+        },
+        {
+          "Q": "Is the word 'impressive' a noun, verb, or adjective?",
+          "A": ["adjective"]
+        },
+        {
+          "Q": "Is the word 'outstanding' a noun, verb, or adjective?",
+          "A": ["adjective"]
+        },
+        {
+          "Q": "Is the word 'transform' a noun, verb, or adjective?",
+          "A": ["verb"]
+        },
+        {
+          "Q": "Is the word 'incredible' a noun, verb, or adjective?",
+          "A": ["adjective"]
+        },
+        {
+          "Q": "Is the word 'inspire' a noun, verb, or adjective?",
+          "A": ["verb"]
+        },
+        {
+          "Q": "Is the word 'remarkable' a noun, verb, or adjective?",
+          "A": ["adjective"]
+        }
+      ]
     }
+  }
 }

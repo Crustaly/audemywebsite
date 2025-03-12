@@ -1,69 +1,180 @@
 {
-    "SyllableCountingGame": {
-        "Questions": {
-            "Easy": [
-                { "Q": "How many syllables are in the word 'apple'?", "A": "two" },
-                { "Q": "How many syllables are in the word 'orange'?", "A": "two" },
-                { "Q": "How many syllables are in the word 'banana'?", "A": "three" },
-                { "Q": "How many syllables are in the word 'cat'?", "A": "one" },
-                { "Q": "How many syllables are in the word 'dog'?", "A": "one" },
-                { "Q": "How many syllables are in the word 'happy'?", "A": "two" },
-                { "Q": "How many syllables are in the word 'house'?", "A": "one" },
-                { "Q": "How many syllables are in the word 'tiger'?", "A": "two" },
-                { "Q": "How many syllables are in the word 'school'?", "A": "one" },
-                { "Q": "How many syllables are in the word 'purple'?", "A": "two" },
-                { "Q": "How many syllables are in the word 'pencil'?", "A": "two" },
-                { "Q": "How many syllables are in the word 'balloon'?", "A": "two" },
-                { "Q": "How many syllables are in the word 'guitar'?", "A": "two" },
-                { "Q": "How many syllables are in the word 'elephant'?", "A": "three" },
-                { "Q": "How many syllables are in the word 'tiger'?", "A": "two" },
-                { "Q": "How many syllables are in the word 'butterfly'?", "A": "three" },
-                { "Q": "How many syllables are in the word 'ocean'?", "A": "two" },
-                { "Q": "How many syllables are in the word 'sunflower'?", "A": "three" },
-                { "Q": "How many syllables are in the word 'computer'?", "A": "three" }
-            ],
-            "Medium": [
-                { "Q": "How many syllables are in the word 'elephant'?", "A": "three" },
-                { "Q": "How many syllables are in the word 'chocolate'?", "A": "three" },
-                { "Q": "How many syllables are in the word 'giraffe'?", "A": "two" },
-                { "Q": "How many syllables are in the word 'balloon'?", "A": "two" },
-                { "Q": "How many syllables are in the word 'mountain'?", "A": "two" },
-                { "Q": "How many syllables are in the word 'butterfly'?", "A": "three" },
-                { "Q": "How many syllables are in the word 'hamburger'?", "A": "three" },
-                { "Q": "How many syllables are in the word 'umbrella'?", "A": "three" },
-                { "Q": "How many syllables are in the word 'pencil'?", "A": "two" },
-                { "Q": "How many syllables are in the word 'jungle'?", "A": "two" },
-                { "Q": "How many syllables are in the word 'computer'?", "A": "three" },
-                { "Q": "How many syllables are in the word 'calendar'?", "A": "three" },
-                { "Q": "How many syllables are in the word 'caterpillar'?", "A": "four" },
-                { "Q": "How many syllables are in the word 'unicorn'?", "A": "three" },
-                { "Q": "How many syllables are in the word 'submarine'?", "A": "three" },
-                { "Q": "How many syllables are in the word 'alligator'?", "A": "four" },
-                { "Q": "How many syllables are in the word 'grapefruit'?", "A": "three" },
-                { "Q": "How many syllables are in the word 'celebrate'?", "A": "three" },
-                { "Q": "How many syllables are in the word 'dictionary'?", "A": "four" }
-            ],
-            "Hard": [
-                { "Q": "How many syllables are in the word 'determination'?", "A": "five" },
-                { "Q": "How many syllables are in the word 'vocabulary'?", "A": "five" },
-                { "Q": "How many syllables are in the word 'unbelievable'?", "A": "five" },
-                { "Q": "How many syllables are in the word 'communication'?", "A": "five" },
-                { "Q": "How many syllables are in the word 'organization'?", "A": "five" },
-                { "Q": "How many syllables are in the word 'electricity'?", "A": "five" },
-                { "Q": "How many syllables are in the word 'international'?", "A": "five" },
-                { "Q": "How many syllables are in the word 'magnificent'?", "A": "four" },
-                { "Q": "How many syllables are in the word 'comprehensive'?", "A": "four" },
-                { "Q": "How many syllables are in the word 'hypothetical'?", "A": "five" },
-                { "Q": "How many syllables are in the word 'hippopotamus'?", "A": "five" },
-                { "Q": "How many syllables are in the word 'counterproductive'?", "A": "six" },
-                { "Q": "How many syllables are in the word 'uncharacteristically'?", "A": "seven" },
-                { "Q": "How many syllables are in the word 'misunderstanding'?", "A": "five" },
-                { "Q": "How many syllables are in the word 'unquestionably'?", "A": "four" },
-                { "Q": "How many syllables are in the word 'unbelievably'?", "A": "five" },
-                { "Q": "How many syllables are in the word 'extraordinarily'?", "A": "six" },
-                { "Q": "How many syllables are in the word 'disproportionately'?", "A": "six" },
-                { "Q": "How many syllables are in the word 'overwhelmingly'?", "A": "five" }
-            ]
+  "SyllableCountingGame": {
+    "Questions": {
+      "Easy": [
+        { "Q": "How many syllables are in the word 'apple'?", "A": ["two"] },
+        { "Q": "How many syllables are in the word 'orange'?", "A": ["two"] },
+        { "Q": "How many syllables are in the word 'banana'?", "A": ["three"] },
+        { "Q": "How many syllables are in the word 'cat'?", "A": ["one"] },
+        { "Q": "How many syllables are in the word 'dog'?", "A": ["one"] },
+        { "Q": "How many syllables are in the word 'happy'?", "A": ["two"] },
+        { "Q": "How many syllables are in the word 'house'?", "A": ["one"] },
+        { "Q": "How many syllables are in the word 'tiger'?", "A": ["two"] },
+        { "Q": "How many syllables are in the word 'school'?", "A": ["one"] },
+        { "Q": "How many syllables are in the word 'purple'?", "A": ["two"] },
+        { "Q": "How many syllables are in the word 'pencil'?", "A": ["two"] },
+        { "Q": "How many syllables are in the word 'balloon'?", "A": ["two"] },
+        { "Q": "How many syllables are in the word 'guitar'?", "A": ["two"] },
+        {
+          "Q": "How many syllables are in the word 'elephant'?",
+          "A": ["three"]
+        },
+        { "Q": "How many syllables are in the word 'tiger'?", "A": ["two"] },
+        {
+          "Q": "How many syllables are in the word 'butterfly'?",
+          "A": ["three"]
+        },
+        { "Q": "How many syllables are in the word 'ocean'?", "A": ["two"] },
+        {
+          "Q": "How many syllables are in the word 'sunflower'?",
+          "A": ["three"]
+        },
+        {
+          "Q": "How many syllables are in the word 'computer'?",
+          "A": ["three"]
         }
+      ],
+      "Medium": [
+        {
+          "Q": "How many syllables are in the word 'elephant'?",
+          "A": ["three"]
+        },
+        {
+          "Q": "How many syllables are in the word 'chocolate'?",
+          "A": ["three"]
+        },
+        { "Q": "How many syllables are in the word 'giraffe'?", "A": ["two"] },
+        { "Q": "How many syllables are in the word 'balloon'?", "A": ["two"] },
+        { "Q": "How many syllables are in the word 'mountain'?", "A": ["two"] },
+        {
+          "Q": "How many syllables are in the word 'butterfly'?",
+          "A": ["three"]
+        },
+        {
+          "Q": "How many syllables are in the word 'hamburger'?",
+          "A": ["three"]
+        },
+        {
+          "Q": "How many syllables are in the word 'umbrella'?",
+          "A": ["three"]
+        },
+        { "Q": "How many syllables are in the word 'pencil'?", "A": ["two"] },
+        { "Q": "How many syllables are in the word 'jungle'?", "A": ["two"] },
+        {
+          "Q": "How many syllables are in the word 'computer'?",
+          "A": ["three"]
+        },
+        {
+          "Q": "How many syllables are in the word 'calendar'?",
+          "A": ["three"]
+        },
+        {
+          "Q": "How many syllables are in the word 'caterpillar'?",
+          "A": ["four"]
+        },
+        {
+          "Q": "How many syllables are in the word 'unicorn'?",
+          "A": ["three"]
+        },
+        {
+          "Q": "How many syllables are in the word 'submarine'?",
+          "A": ["three"]
+        },
+        {
+          "Q": "How many syllables are in the word 'alligator'?",
+          "A": ["four"]
+        },
+        {
+          "Q": "How many syllables are in the word 'grapefruit'?",
+          "A": ["three"]
+        },
+        {
+          "Q": "How many syllables are in the word 'celebrate'?",
+          "A": ["three"]
+        },
+        {
+          "Q": "How many syllables are in the word 'dictionary'?",
+          "A": ["four"]
+        }
+      ],
+      "Hard": [
+        {
+          "Q": "How many syllables are in the word 'determination'?",
+          "A": ["five"]
+        },
+        {
+          "Q": "How many syllables are in the word 'vocabulary'?",
+          "A": ["five"]
+        },
+        {
+          "Q": "How many syllables are in the word 'unbelievable'?",
+          "A": ["five"]
+        },
+        {
+          "Q": "How many syllables are in the word 'communication'?",
+          "A": ["five"]
+        },
+        {
+          "Q": "How many syllables are in the word 'organization'?",
+          "A": ["five"]
+        },
+        {
+          "Q": "How many syllables are in the word 'electricity'?",
+          "A": ["five"]
+        },
+        {
+          "Q": "How many syllables are in the word 'international'?",
+          "A": ["five"]
+        },
+        {
+          "Q": "How many syllables are in the word 'magnificent'?",
+          "A": ["four"]
+        },
+        {
+          "Q": "How many syllables are in the word 'comprehensive'?",
+          "A": ["four"]
+        },
+        {
+          "Q": "How many syllables are in the word 'hypothetical'?",
+          "A": ["five"]
+        },
+        {
+          "Q": "How many syllables are in the word 'hippopotamus'?",
+          "A": ["five"]
+        },
+        {
+          "Q": "How many syllables are in the word 'counterproductive'?",
+          "A": ["six"]
+        },
+        {
+          "Q": "How many syllables are in the word 'uncharacteristically'?",
+          "A": ["seven"]
+        },
+        {
+          "Q": "How many syllables are in the word 'misunderstanding'?",
+          "A": ["five"]
+        },
+        {
+          "Q": "How many syllables are in the word 'unquestionably'?",
+          "A": ["four"]
+        },
+        {
+          "Q": "How many syllables are in the word 'unbelievably'?",
+          "A": ["five"]
+        },
+        {
+          "Q": "How many syllables are in the word 'extraordinarily'?",
+          "A": ["six"]
+        },
+        {
+          "Q": "How many syllables are in the word 'disproportionately'?",
+          "A": ["six"]
+        },
+        {
+          "Q": "How many syllables are in the word 'overwhelmingly'?",
+          "A": ["five"]
+        }
+      ]
     }
+  }
 }

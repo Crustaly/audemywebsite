@@ -1,7 +1,7 @@
 <template>
-
-    <header class="grid grid-cols-[auto_1fr] items-center py-12 relative">
-        <div class="text-lg font-bold">
+    <header class="relative py-8">
+        <!-- Logo Section -->
+        <div class="text-lg font-bold absolute left-4 top-8 z-10">
             <RouterLink to="/home">
                 <img
                     :src="logoPath"
@@ -13,111 +13,142 @@
             <p v-if="!logoPath">audemy</p>
         </div>
 
-        <!-- Desktop Navigation Links -->
-        <ul
-            :class="
-                'flex space-x-8 justify-center font-poppins font-semibold ' +
-                (textColor ?? 'text-[#151e22]')
-            "
-            v-if="!isMobileView"
-        >
-            <li>
-                <RouterLink
-                    to="/home"
-                    class="px-2 pb-2 hover:text-[#087bb4] hover:border-b-2 border-[#087bb4]"
-                    >Home</RouterLink
-                >
-            </li>
-            <li>
-                <RouterLink
-                    to="/about-us"
-                    class="px-2 pb-2 hover:text-[#087bb4] hover:border-b-2 border-[#087bb4]"
-                    >About us</RouterLink
-                >
-            </li>
-            <li>
-                <RouterLink
-                    to="/our-projects"
-                    class="px-2 pb-2 hover:text-[#087bb4] hover:border-b-2 border-[#087bb4]"
-                    >Our projects</RouterLink
-                >
-            </li>
-            <li>
-                <RouterLink
-                    to="/impact"
-                    class="px-2 pb-2 hover:text-[#087bb4] hover:border-b-2 border-[#087bb4]"
-                    >Impact</RouterLink
-                >
-            </li>
-            <li>
-                <RouterLink
-                    to="/game-zone"
-                    class="px-2 pb-2 hover:text-[#087bb4] hover:border-b-2 border-[#087bb4]"
-                    >Game zone</RouterLink
-                >
-            </li>
-        </ul>
+        <!-- Hamburger Button for Mobile -->
+        <div v-if="isMobileView" class="absolute right-4 top-8 z-30">
+            <button @click="toggleMenu" class="text-2xl">&#9776;</button>
+        </div>
 
-        <!-- Mobile Hamburger Menu -->
-        <div v-if="isMobileView" class="absolute top-7 right-0 p-4">
-            <button @click="toggleMenu" class="text-xl">&#9776;</button>
-            <transition 
-                enter-active-class="animate-fade-slide-in"
-                leave-active-class="animate-fade-slide-out"
-            >
-                <ul
-                    v-if="isMenuOpen"
-                    class="flex flex-col space-y-4 mt-2 bg-white p-4 shadow-md rounded-lg font-poppins font-semibold text-[#151e22]"
-                >
+        <!-- Desktop Navigation Links -->
+        <nav v-if="!isMobileView" class="flex justify-center py-2">
+            <ul class="flex font-poppins font-semibold" 
+                :class="[
+                    textColor ?? 'text-[#151e22]',
+                    isTabletView ? 'space-x-2x text-sm' : 'space-x-4'
+                ]">
+                <li>
+                    <RouterLink
+                        to="/home"
+                        class="px-2 pb-2 hover:text-[#087bb4] hover:border-b-2 border-[#087bb4]"
+                        >Home</RouterLink
+                    >
+                </li>
+                <li>
+                    <RouterLink
+                        to="/about-us"
+                        class="px-2 pb-2 hover:text-[#087bb4] hover:border-b-2 border-[#087bb4]"
+                        >About us</RouterLink
+                    >
+                </li>
+                <li>
+                    <RouterLink
+                        to="/our-projects"
+                        class="px-2 pb-2 hover:text-[#087bb4] hover:border-b-2 border-[#087bb4]"
+                        >Our projects</RouterLink
+                    >
+                </li>
+                <li>
+                    <RouterLink
+                        to="/impact"
+                        class="px-2 pb-2 hover:text-[#087bb4] hover:border-b-2 border-[#087bb4]"
+                        >Impact</RouterLink
+                    >
+                </li>
+                <li>
+                    <RouterLink
+                        to="/game-zone"
+                        class="px-2 pb-2 hover:text-[#087bb4] hover:border-b-2 border-[#087bb4]"
+                        >Game zone</RouterLink
+                    >
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Mobile Menu Overlay -->
+        <div 
+            v-if="isMobileView && isMenuOpen" 
+            class="fixed inset-0 bg-black bg-opacity-50 z-40"
+            @click="closeMenu"
+        ></div>
+
+        <!-- Mobile Slide-in Menu -->
+        <div
+            v-if="isMobileView && isMenuOpen"
+            class="fixed inset-y-0 right-0 bg-white z-50 w-4/5 max-w-xs flex flex-col overflow-hidden"
+        >
+            <div class="flex justify-end p-4">
+                <button @click="closeMenu" class="text-2xl">&times;</button>
+            </div>
+            
+            <nav class="flex-1">
+                <ul class="flex flex-col px-6 font-poppins font-semibold">
                     <li>
                         <RouterLink
                             to="/home"
-                            class="hover:text-[#087bb4]"
-                            @click="toggleMenu"
-                            >Home</RouterLink
-                        >
+                            class="block py-4 hover:text-[#087bb4]"
+                            @click="closeMenu"
+                        >Home</RouterLink>
                     </li>
                     <li>
                         <RouterLink
                             to="/about-us"
-                            class="hover:text-[#087bb4]"
-                            @click="toggleMenu"
-                            >About us</RouterLink
-                        >
+                            class="block py-4 hover:text-[#087bb4]"
+                            @click="closeMenu"
+                        >About us</RouterLink>
                     </li>
                     <li>
                         <RouterLink
                             to="/our-projects"
-                            class="hover:text-[#087bb4]"
-                            @click="toggleMenu"
-                            >Our projects</RouterLink
-                        >
+                            class="block py-4 hover:text-[#087bb4]"
+                            @click="closeMenu"
+                        >Our projects</RouterLink>
                     </li>
                     <li>
                         <RouterLink
                             to="/impact"
-                            class="hover:text-[#087bb4]"
-                            @click="toggleMenu"
-                            >Impact</RouterLink
-                        >
+                            class="block py-4 hover:text-[#087bb4]"
+                            @click="closeMenu"
+                        >Impact</RouterLink>
                     </li>
                     <li>
                         <RouterLink
                             to="/game-zone"
-                            class="hover:text-[#087bb4]"
-                            @click="toggleMenu"
-                            >Game zone</RouterLink
-                        >
+                            class="block py-4 hover:text-[#087bb4]"
+                            @click="closeMenu"
+                        >Game zone</RouterLink>
                     </li>
                 </ul>
-            </transition>
+            </nav>
+
+            <div class="border-t py-6 px-6">
+                <div class="flex justify-around">
+                    <a href="#" aria-label="Instagram">
+                        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                        </svg>
+                    </a>
+                    <a href="#" aria-label="LinkedIn">
+                        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                        </svg>
+                    </a>
+                    <a href="#" aria-label="GitHub">
+                        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                    </a>
+                    <a href="#" aria-label="Twitter/X">
+                        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
         </div>
     </header>
-
 </template>
 
 <script setup>
-import { defineProps, ref, onMounted, onUnmounted } from "vue";
+import { defineProps, ref, onMounted, onUnmounted, nextTick } from "vue";
 
 const props = defineProps({
     logoPath: {
@@ -131,53 +162,74 @@ const props = defineProps({
 });
 
 const isMobileView = ref(false);
+const isTabletView = ref(false);
 const isMenuOpen = ref(false);
 
 const toggleMenu = () => {
     isMenuOpen.value = !isMenuOpen.value;
+    
+    if (isMenuOpen.value) {
+        document.body.style.overflow = 'hidden';
+    } else {
+        document.body.style.overflow = '';
+    }
+};
+
+const closeMenu = () => {
+    isMenuOpen.value = false;
+    document.body.style.overflow = '';
 };
 
 const checkScreenSize = () => {
-    isMobileView.value = window.innerWidth <= 768;
+    const width = window.innerWidth;
+    if (width >= 640 && width < 768) {
+        // Small devices (large phones)
+        isTabletView.value = false;
+        isMobileView.value = true;
+    } else if (width >= 768 && width < 1024) {
+        // Medium devices (tablets)
+        isTabletView.value = true;
+        isMobileView.value = false;
+    } else if (width >= 1024) {
+        // Large devices (laptops/desktops)
+        isTabletView.value = false;
+        isMobileView.value = false;
+    } else {
+        // Extra small devices (phones)
+        isTabletView.value = false;
+        isMobileView.value = true;
+    }
 };
 
 // Add resize listener to check screen size
 onMounted(() => {
+    // Initial check
     checkScreenSize();
+    
+    nextTick(() => {
+        checkScreenSize();
+    });
+    
     window.addEventListener("resize", checkScreenSize);
 });
+
 onUnmounted(() => {
     window.removeEventListener("resize", checkScreenSize);
+    document.body.style.overflow = '';
 });
 </script>
 
-<style lang="scss" scoped>
-@media (min-width: 769px) {
-    .mobile-menu {
-        display: none;
-    }
+<style scoped>
+.fixed {
+    animation: slideIn 0.3s ease-out forwards;
 }
-button {
-    position: relative;
-    top: 0.5rem;
-    font-size: 2rem;
-}
-@media (max-width: 768px) {
-    ul {
-        position: fixed;
-        right: 4%;
-        top: 6rem;
-        width: 90%;
-        max-width: 200px;
-        z-index: 10;
-        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-        border-radius: 8px;
-        background-color: #fff;
-    }
 
-    li {
-        padding: 0.5rem 1rem;
-        text-align: center;
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
     }
 }
 </style>
