@@ -1,12 +1,3 @@
-/* 
-    DO NOT RUN THIS FILE.
-    Author: Shrikrishna Bhat
-    This file is only for testing to be used by INTERNAL DEVELOPERS ONLY.
-    This file is not part of the main application.
-    This file is only for testing the API routes.
-    This file is not part of the main application.
-*/
-
 import express from "express";
 import dotenv from "dotenv";
 import testDbHandler from "./test_db.js";

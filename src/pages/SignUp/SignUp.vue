@@ -95,7 +95,7 @@ const submitForm = (event) => {
         </div>
 
         <div
-            class="w-7/12 pt-[62px] pb-[162px] mobile:w-full mobile:pt-[20px] mobile:pb-[20px] mobile:px-20 flex flex-col place-items-center"
+            class="w-7/12 pt-[62px] pb-[162px] mobile:w-full mobile:pt-[20px] mobile:pb-[20px] mobile:px-20"
         >
             <h1
                 class="text-[40px] text-[#151E22] max-w-[504px] mobile:text-[28px] mobile:max-w-full mobile:px-4"
@@ -103,21 +103,10 @@ const submitForm = (event) => {
                 Sign up to get started!
             </h1>
 
-            <!-- Google OAuth Login -->
-            <div class="flex w-full gap-4 items-center justify-center mt-4">
-                <GoogleLogin :callback="callback" class=" flex items-center justify-center gap-4"/>
-            </div>
-
-            <div class="flex text-gray-500 w-full justify-center items-center gap-2 mt-4">
-                <div><hr class="w-52 h-0.5 my-4 bg-gray-500 rounded-sm"/></div>
-                <div>or</div>
-                <div><hr class="w-52 h-0.5 my-4 bg-gray-500 rounded-sm"/></div>
-            </div>
-
             <!-- FORM FIELD -->
             <form
                 ref="signupForm"
-                class="mt-4 max-w-[488px] mobile:mt-[30px] mobile:px-4 mobile:w-full"
+                class="mt-[62px] max-w-[488px] mobile:mt-[30px] mobile:px-4 mobile:w-full"
             >
                 <!-- FIRST & LAST NAME -->
                 <div
@@ -253,10 +242,6 @@ const submitForm = (event) => {
                     </button>
                 </div>
             </form>
-
-            
-
-            
         </div>
     </div>
 </template>

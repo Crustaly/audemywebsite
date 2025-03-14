@@ -10,14 +10,6 @@
             "use": "@vercel/node"
         },
         {
-            "src": "src/pages/api/db/get_user.js",
-            "use": "@vercel/node"
-        },
-        {
-            "src": "src/pages/api/db/update_user_school.js",
-            "use": "@vercel/node"
-        },
-        {
             "src": "package.json",
             "use": "@vercel/static-build",
             "config": {
@@ -34,14 +26,6 @@
         {
             "source": "/api/test_db",
             "destination": "/src/pages/api/test_db.js"
-        },
-        {
-            "source": "/api/db/get_user",
-            "destination": "/src/pages/api/db/get_user.js"
-        },
-        {
-            "source": "/api/db/update_user_school",
-            "destination": "/src/pages/api/db/update_user_school.js"
         },
         {
             "source": "/(.*)",

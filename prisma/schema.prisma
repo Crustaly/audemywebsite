@@ -14,7 +14,7 @@ model Test {
 
 model User {
   id           Int            @id @default(autoincrement())
-  email        String         @unique
+  username     String         @unique
   name         String
   school       String
   gameProgress GameProgress[]
@@ -24,6 +24,6 @@ model GameProgress {
   id         Int    @id @default(autoincrement())
   user_id    Int
   game_id    String
-  level_data Json
+  level_data String
   user       User   @relation(fields: [user_id], references: [id])
 }
