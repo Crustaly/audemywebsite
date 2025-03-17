@@ -58,11 +58,11 @@ onUnmounted(() => {
             class="flex flex-col items-center justify-center mobile:justify-center w-full h-[10%] mb-36 tablet:mb-[265px] mobile:mb-[129px]"
         >
             <div class="w-full">
-                <h3
+                <p
                     class="font-poppins text-small-text-color text-[12px] font-[500] mobile:w-auto text-center tracking-[3.6px] mb-4 text-[#6E777C] font-semibold"
                 >
                     ACCOLADES AND RECOGNITION
-                </h3>
+                </p>
             </div>
 
             <div class="max-w-[519px]">

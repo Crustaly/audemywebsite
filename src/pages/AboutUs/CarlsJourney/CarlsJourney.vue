@@ -16,11 +16,11 @@
         <!-- Right Portion -->
         <div class="w-1/2">
             <div class="mb-4">
-                <h3
+                <p
                     class="font-poppins text-small text-[#6E777C] font-semibold text-[12px] font-[500] mobile:w-auto text-left tracking-[3.6px]"
                 >
                     CARL'S JOURNEY
-                </h3>
+                </p>
             </div>
 
             <div class="max-w-[509px] mb-12">

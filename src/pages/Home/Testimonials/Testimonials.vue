@@ -16,9 +16,9 @@ import Star from "/assets/images/testimonials/star.svg";
     />
 
     <div class="font-poppins flex flex-col gap-y-3 mobile:px-5">
-      <h1 class="text-4.5xl text-center text-title mobile:text-[24px]">
+      <h2 class="text-4.5xl text-center text-title mobile:text-[24px]">
         What people are saying
-      </h1>
+      </h2>
       <p class="text-body text-xl mobile:text-[16px] mobile:text-center">
         Our learners are our top priority, and we strive to make their
         experience unique and enriching.
@@ -44,10 +44,10 @@ import Star from "/assets/images/testimonials/star.svg";
                 <p class="">
                   “The blind students who played the games were very into it!”
                 </p>
-                <h2 class="text-small">
+                <p class="text-small">
                   &mdash; Teacher from the Texas School for the Blind and
                   Visually Impaired
-                </h2>
+                </p>
               </div>
             </div>
           </div>
@@ -67,9 +67,9 @@ import Star from "/assets/images/testimonials/star.svg";
                   “Audemy’s games provide accessible and engaging educational
                   content for our blind students.”
                 </p>
-                <h3 class="text-small">
+                <p class="text-small">
                   &mdash; Staff from Kansas School for the Blind
-                </h3>
+                </p>
               </div>
             </div>
           </div>
@@ -89,7 +89,7 @@ import Star from "/assets/images/testimonials/star.svg";
                   “Audemy’s audio games are unique...my favorite game was car
                   counting because I love cars and math.”
                 </p>
-                <h4 class="text-small">&mdash; Blind Student from Houston</h4>
+                <p class="text-small">&mdash; Blind Student from Houston</p>
               </div>
             </div>
           </div>

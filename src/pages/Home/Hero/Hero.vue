@@ -4,12 +4,12 @@
             class="w-6/12 mobile:w-full flex flex-col gap-y-4 mobile:items-center mobile:text-center"
         >
             <div class="font-poppins">
-                <h1
+                <h2
                     class="text-4xl tablet:text-[24px] mobile:text-[24px] leading-normal text-title"
                 >
                     Have fun and learn with <br />
                     our educational games!
-                </h1>
+                </h2>
             </div>
 
             <div>

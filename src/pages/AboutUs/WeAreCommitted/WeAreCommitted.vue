@@ -46,11 +46,11 @@ onUnmounted(() => {
                 class="flex flex-col items-start justify-start w-1/2 mobile:w-full mobile:items-center mb-16"
             >
                 <div>
-                    <h3
+                    <p
                         class="font-poppins text-small-text-color text-[#6e777c] text-[12px] font-[600] mobile:w-auto text-left tracking-[3.6px] mobile:text-center"
                     >
                         GROWTH & FUTURE HORIZONS
-                    </h3>
+                    </p>
                 </div>
 
                 <div class="max-w-[430px] w-full mobile:text-center">

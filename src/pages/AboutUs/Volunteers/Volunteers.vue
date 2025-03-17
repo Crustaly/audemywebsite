@@ -14,11 +14,11 @@ onMounted(() => {
         <div class="max-w-[85%] w-full h-auto">
             <!-- Section Header -->
             <div class="w-full">
-                <h3
+                <p
                     class="font-poppins text-small-text-color text-[12px] font-[500] mobile:w-auto text-center tracking-[3.6px]"
                 >
                     OUR TEAM
-                </h3>
+                </p>
             </div>
             <div class="w-full mb-24">
                 <h2

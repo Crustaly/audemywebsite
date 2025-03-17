@@ -22,10 +22,10 @@ const path = "/assets/images/our-projects/";
         </div>
 
         <div class="ml-8">
-            <h4
+            <p
                 class="text-left text-body-text-color font-poppins text-[20px] tablet:text-[16px] font-[400]"
                 v-html="text"
-            ></h4>
+            ></p>
         </div>
     </div>
 
@@ -43,10 +43,10 @@ const path = "/assets/images/our-projects/";
                 </div>
             </div>
             <div class="w-10/12 flex justify-end">
-                <h4
+                <p
                     class="text-left text-body-text-color font-poppins max-w-[95%] text-[16px] font-[400]"
                     v-html="text"
-                ></h4>
+                ></p>
             </div>
         </div>
     </div>

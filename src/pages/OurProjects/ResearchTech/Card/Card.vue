@@ -20,13 +20,13 @@ const path = "/assets/images/our-projects/researchtech/";
             </div>
         </div>
         <div class="w-full">
-            <h2 class="font-poppins font-[600] text-[#243e45] text-2xl">
+            <h3 class="font-poppins font-[600] text-[#243e45] text-2xl">
                 {{ title }}
-            </h2>
-            <h4
+            </h3>
+            <p
                 class="text-left text-body-text-color font-poppins text-[20px] tablet:text-[16px] font-[400]"
                 v-html="text"
-            ></h4>
+            ></p>
         </div>
     </div>
     <div v-if="smallScreen" class="w-full">
@@ -43,13 +43,13 @@ const path = "/assets/images/our-projects/researchtech/";
                 </div>
             </div>
             <div class="w-full flex flex-col justify-end">
-                <h2 class="text-[20px]">
+                <h3 class="text-[20px]">
                     <b>{{ title }}</b>
-                </h2>
-                <h4
+                </h3>
+                <p
                     class="text-left text-body-text-color font-poppins max-w-[95%] text-[16px] font-[400]"
                     v-html="text"
-                ></h4>
+                ></p>
             </div>
         </div>
     </div>

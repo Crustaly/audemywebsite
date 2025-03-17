@@ -39,11 +39,11 @@ onUnmounted(() => {
             class="flex flex-col items-start justify-start mobile:justify-center w-1/2 mobile:w-full h-auto mb-36 tablet:mb-[265px] mobile:mb-[129px]"
         >
             <div class="mobile:w-full mobile:flex mobile:justify-center">
-                <h3
+                <p
                     class="font-poppins text-small-text-color text-[#6e777c] text-[12px] font-[600] tracking-[3.6px] text-left mobile:text-center"
                 >
                     EDUCATIONAL EVENTS
-                </h3>
+                </p>
             </div>
 
             <div class="max-w-[519px]">

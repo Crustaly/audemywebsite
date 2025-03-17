@@ -19,10 +19,10 @@ const path = "/assets/images/about-us/";
             </div>
         </div>
         <div class="w-full">
-            <h1
+            <p
                 class="text-left text-body-text-color font-poppins text-[20px] tablet:text-[16px] font-[400]"
                 v-html="text"
-            ></h1>
+            ></p>
         </div>
     </div>
     <div v-if="smallScreen" class="w-full">
@@ -39,10 +39,10 @@ const path = "/assets/images/about-us/";
                 </div>
             </div>
             <div class="w-10/12 flex justify-end">
-                <h2
+                <p
                     class="text-left text-body-text-color font-poppins max-w-[95%] text-[16px] font-[400]"
                     v-html="text"
-                ></h2>
+                ></p>
             </div>
         </div>
     </div>

@@ -11,11 +11,11 @@ import Globe from "/assets/images/impact/globe 1.svg";
         <div
             class="w-6/12 mobile:w-full flex flex-col justify-start gap-y-8 mobile:gap-y-3 mobile:items-center mobile:text-center mobile:mb-8"
         >
-            <h1
+            <h2
                 class="font-poppins text-4xl max-w-[50%] leading-normal text-title mobile:text-[22px] mobile:max-w-full"
             >
                 Our impact in less than a year
-            </h1>
+            </h2>
 
             <p
                 class="font-poppins text-body text-xl leading-8 text-wrap max-w-[65%] tablet:max-w-[85%] mobile:text-[16px] mobile:text-center mobile:max-w-full"
@@ -38,11 +38,11 @@ import Globe from "/assets/images/impact/globe 1.svg";
             >
                 <img :src="Students" alt="Carl the catepillar next to a giant pencil" class="-translate-y-10" />
                 <div class="flex flex-col items-center text-body">
-                    <h1
+                    <p
                         class="font-poppins font-medium text-2xl text-wrap mobile:text-[24px]"
                     >
                         1000+
-                    </h1>
+                    </p>
                     <p
                         class="font-poppins text-base text-center mobile:text-[12px]"
                     >
@@ -57,11 +57,11 @@ import Globe from "/assets/images/impact/globe 1.svg";
             >
                 <img :src="Problems" alt="Carl the catepiller with a thought bubble above him" class="-translate-y-10" />
                 <div class="flex flex-col items-center text-body">
-                    <h1
+                    <p
                         class="font-poppins font-medium text-2xl text-wrap mobile:text-[24px]"
                     >
                         20000+
-                    </h1>
+                    </p>
                     <p
                         class="font-poppins text-base text-center mobile:text-[12px]"
                     >
@@ -76,11 +76,11 @@ import Globe from "/assets/images/impact/globe 1.svg";
             >
                 <img :src="Globe" alt="Carl the catepiller next to a world globe" class="-translate-y-10" />
                 <div class="flex flex-col items-center text-body">
-                    <h1
+                    <p
                         class="font-poppins font-medium text-2xl text-wrap mobile:text-[24px]"
                     >
                         7+
-                    </h1>
+                    </p>
                     <p
                         class="font-poppins text-base text-center mobile:text-[12px]"
                     >

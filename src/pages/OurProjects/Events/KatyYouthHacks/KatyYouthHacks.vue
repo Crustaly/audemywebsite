@@ -21,11 +21,11 @@
         <!-- Right Portion -->
         <div class="w-1/2">
             <div>
-                <h3
+                <p
                     class="font-poppins text-small-text-color text-[12px] text-[#6e777c] font-[600] mobile:w-auto text-left tracking-[3.6px]"
                 >
                     EDUCATIONAL EVENTS
-                </h3>
+                </p>
             </div>
 
             <div class="max-w-[519px] mb-12">

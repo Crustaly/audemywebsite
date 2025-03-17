@@ -4,11 +4,11 @@ import SponsorsCarousel from "./SponsorsCarousel/SponsorsCarousel.vue";
 
 <template>
     <div class="w-full mb-64 mobile:mb-24 flex flex-col gap-y-10 items-center">
-        <h1
+        <h2
             class="text-small font-poppins text-xs text-center font-bold tracking-[6px]"
         >
             SPONSORS THAT TRUSTED US, AMONG OTHERS:
-        </h1>
+        </h2>
         <div class="sponsors-carousel w-full">
             <div
                 class="w-full scroll-auto grid grid-cols-4 grid-row-a items-center"

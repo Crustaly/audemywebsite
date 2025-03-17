@@ -19,10 +19,10 @@ const path = "/assets/images/impact/";
             >
                 <!-- TEXT -->
                 <div class="mx-2 overflow-hidden">
-                    <h4
+                    <p
                         class="text-center text-body-text-color font-poppins text-[20px] tablet:text-[16px] font-[400] mobile:text-[14px] mobile:max-w-[140px] mobile:text-ellipsis"
                         v-html="text"
-                    ></h4>
+                    ></p>
                 </div>
 
                 <!-- ICON -->

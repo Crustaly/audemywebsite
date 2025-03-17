@@ -4,11 +4,11 @@
         <!-- HEADER -->
         <div class="flex flex-col justify-center items-center">
             <div>
-                <h3
+                <p
                     class="font-poppins text-small-text-color text-[12px] font-[500] mobile:w-auto text-center tracking-[3.6px] mb-4 text-[#6E777C] font-semibold"
                 >
                     OUR REACH
-                </h3>
+                </p>
             </div>
 
             <div class="w-[450px]">
@@ -32,7 +32,7 @@
                     class="mx-auto relative -top-12"
                 />
                 <div>
-                    <h3 class="font-poppins text-3xl mb-2">1,000 +</h3>
+                    <p class="font-poppins text-3xl mb-2">1,000 +</p>
                     <p class="font-poppins text-lg mt-2 font-semibold">
                         Blind students impacted
                     </p>
@@ -51,7 +51,7 @@
                     alt="Carl the Catterpillar thinking of the solution to 7 plus 8"
                     class="mx-auto relative -top-12"
                 />
-                <h3 class="font-poppins text-3xl mb-2">20,000 +</h3>
+                <p class="font-poppins text-3xl mb-2">20,000 +</p>
                 <p class="font-poppins text-lg mt-2 font-semibold">
                     Problems solved
                 </p>
@@ -69,7 +69,7 @@
                     alt="Carl the Catterpillar next to a globe"
                     class="mx-auto relative -top-12"
                 />
-                <h3 class="font-poppins text-3xl mb-2">7 +</h3>
+                <p class="font-poppins text-3xl mb-2">7 +</p>
                 <p class="font-poppins text-lg mt-2 font-semibold">
                     Collaborating schools for the blind
                 </p>

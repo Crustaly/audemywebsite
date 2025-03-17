@@ -38,11 +38,11 @@ import Carousel from "./Carousel.vue";
         <!-- TEXT -->
         <div class="mt-[12rem] mobile:text-center">
             <div class="mb-4">
-                <h3
+                <p
                     class="font-poppins text-[12px] mobile:w-auto text-left tracking-[3.6px] mobile:text-center"
                 >
                     GALLERY
-                </h3>
+                </p>
             </div>
 
             <div class="max-w-[509px] mobile:justify-center mobile:text-center">

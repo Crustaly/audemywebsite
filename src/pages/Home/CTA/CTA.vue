@@ -4,9 +4,10 @@
 <template>
   <div class="mobile:min-w-full tablet:min-w-[504px] mx-auto bg-white mobile:mb-12">
     <div class="max-w-[504px] mobile:max-w-[358px] mx-auto pb-[78px]">
-      <h1
+      <h2
         class="font-poppins text-[40px] tablet:text-[32px] leading-[60px] tablet:leading-[60px] text-center text-[#151E22]">
-        Join our mission</h1>
+        Join our mission
+      </h2>
       <p
         class="font-poppins text-[20px] tablet:text-[16px] leading-[30px] tablet:leading-[24px] tablet:w-[438px] mobile:w-full mx-auto text-center text-[#2F3E45] p-4">
         Breaking barriers and building a brighter future together through quality education.

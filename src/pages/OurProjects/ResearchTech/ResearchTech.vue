@@ -43,11 +43,11 @@ onUnmounted(() => {
         class="relative flex flex-col py-[8rem] items-center justify-start mobile:justify-center w-full h-auto mb-36 tablet:mb-[265px] mobile:mb-[12px] mobile:mt-0 mobile:pt-0 mobile:pb-0"
     >
         <div class="w-full">
-            <h3
+            <p
                 class="font-poppins text-small-text-color text-[12px] font-[500] mobile:w-auto text-center tracking-[3.6px]"
             >
                 RESEARCH & TECHNOLOGIES
-            </h3>
+            </p>
         </div>
         <div class="max-w-[519px]">
             <h2

@@ -18,11 +18,11 @@
         />
 
         <div class="w-full">
-            <h3
+            <p
                 class="font-poppins text-small-text-color text-[12px] font-[500] mobile:w-auto text-center tracking-[3.6px] mb-4 text-[#6E777C] font-semibold"
             >
                 FOUNDATION
-            </h3>
+            </p>
         </div>
 
         <div class="w-full mb-8">

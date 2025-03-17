@@ -40,11 +40,13 @@
     class="flex flex-col items-center justify-start mobile:justify-center w-full h-auto mb-36 tablet:mb-[265px] mobile:mb-[129px]">
     <div class="w-full">
       <h1 class="font-poppins text-small-text-color text-[12px] font-[500] mobile:w-auto text-center tracking-[3.6px]">
-        WELCOME TO AUDEMY</h1>
+        WELCOME TO AUDEMY
+      </h1>
     </div>
     <div class="max-w-[519px]">
       <h2 class="text-center font-poppins text-4.5xl tablet:text-[32px] mobile:text-[24px] mobile:text-center font-[400]">
-        We empower students to excel in their studies</h2>
+        We empower students to excel in their studies
+      </h2>
     </div>
     <div class="flex justify-center">
       <div class="max-w-[744px] w-full">

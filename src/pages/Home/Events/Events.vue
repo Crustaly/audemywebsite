@@ -74,12 +74,12 @@ onUnmounted(() => {
                         'tablet:h-[285px] mobile:w-full mobile:h-auto mobile:mb-8'
                     ]"
                 >
-                    <h1
+                    <h2
                         class="font-poppins text-[40px] tablet:text-[32px] mobile:text-[24px] leading-[60px] tablet:leading-[48px] mobile:leading-[36px] text-[#151E22]"
                     >
                         Join the next<br />
                         Katy Youth Hacks
-                    </h1>
+                    </h2>
                     <p
                         class="font-poppins text-[20px] tablet:text-[16px] leading-[30px] tablet:leading-[24px] text-[#2F3E45] mt-2"
                     >
@@ -119,12 +119,12 @@ onUnmounted(() => {
                         'tablet:h-[285px] mobile:w-full mobile:h-auto mobile:mt-8'
                     ]"
                 >
-                    <h1
+                    <h2
                         class="font-poppins text-[40px] tablet:text-[32px] mobile:text-[24px] leading-[60px] tablet:leading-[48px] mobile:leading-[36px] text-[#151E22]"
                     >
                         Discover Apple Loo<br class="hidden mobile:block" />
                         on You Tube
-                    </h1>
+                    </h2>
                     <p
                         class="font-poppins text-[20px] tablet:text-[16px] leading-[30px] tablet:leading-[24px] text-[#2F3E45] mt-2"
                     >

@@ -32,14 +32,14 @@ const props = defineProps({
                         class="w-[160px] h-[160px]"
                     />
                     <div class="gap-5">
-                        <h3
+                        <p
                             class="text-center font-poppins text-[20px] m-0 w-full"
                         >
                             <b>{{ volunteer.name }}</b>
-                        </h3>
-                        <h4 class="text-center font-poppins text-[18px] w-full">
+                        </p>
+                        <p class="text-center font-poppins text-[18px] w-full">
                             {{ volunteer.role }}
-                        </h4>
+                        </p>
                     </div>
                 </div>
             </div>

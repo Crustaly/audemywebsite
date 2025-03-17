@@ -29,10 +29,10 @@ const path = "/assets/images/impact/";
 
                 <!-- TEXT -->
                 <div class="mx-6 mt-8 w-[360px] mobile:w-full mobile:mt-4">
-                    <h4
+                    <p
                         class="text-left text-body-text-color font-poppins text-[20px] tablet:text-[16px] font-[600] mobile:text-[16px] mobile:text-center"
                         v-html="text"
-                    ></h4>
+                    ></p>
                 </div>
 
                 <!-- AUTHOR -->

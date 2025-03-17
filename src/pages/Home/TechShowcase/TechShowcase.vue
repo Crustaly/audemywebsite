@@ -102,11 +102,11 @@ let videoStoped = () => {
         class="max-w-[505px] tablet:max-w-[440px] h-[348px] tablet:h-[309px] mobile:h-[285px] grid justify-self-start mobile:order-1 mobile:items-center mobile:text-center"
         :class="{ 'tablet-text-container': isTablet }"
       >
-        <h1
+        <h2
           class="font-poppins text-[40px] tablet:text-[32px] mobile:text-[24px] leading-[60px] tablet:leading-[48px] mobile:leading-[36px] text-[#151E22]"
         >
           Enjoy learning thanks to inclusive technology!
-        </h1>
+        </h2>
         <p
           class="font-poppins text-[20px] tablet:text-[16px] leading-[30px] tablet:leading-[24px] text-[#2F3E45]"
         >
