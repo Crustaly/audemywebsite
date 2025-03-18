@@ -9,7 +9,7 @@ import OrangeStar from "/assets/images/SignUpImg/Group 895.png";
 import Book from "/assets/images/SignUpImg/Group 1106.png";
 import Star from "/assets/images/testimonials/star.svg";
 
-const submitForm = (event) => {
+const submitForm = async (event) => {
     event.preventDefault(); // Prevent default form submission behavior
     // Get form data from the ref
     const formData = new FormData(signupForm.value);
@@ -23,33 +23,37 @@ const submitForm = (event) => {
         return; // Stop if passwords don't match
     }
 
-    // Send form data as JSON
-    fetch("https://audemy-users-api.fly.dev/signup", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-            user: {
-                first_name: signupForm.value.first_name.value,
-                last_name: signupForm.value.last_name.value,
-                birthday: signupForm.value.birthday.value,
-                school_name: signupForm.value.school_name.value,
-                email: signupForm.value.email.value,
-                password: signupForm.value.password.value,
-                confirm_password: signupForm.value.confirm_password.value,
+    try {
+        const response = await fetch("/api/auth/signup", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
             },
-        }), // Convert the object to JSON
-    })
-        .then((response) => response.json())
-        .then((data) => {
-            console.log("Success:", data);
-            // You can handle the response here (e.g., show a success message)
-        })
-        .catch((error) => {
-            console.error("Error:", error);
-            // You can handle errors here
+            body: JSON.stringify({
+                user: {
+                    first_name: signupForm.value.first_name.value,
+                    last_name: signupForm.value.last_name.value,
+                    birthday: signupForm.value.birthday.value,
+                    school_name: signupForm.value.school_name.value,
+                    email: signupForm.value.email.value,
+                    password: signupForm.value.password.value,
+                    confirm_password: signupForm.value.confirm_password.value,
+                },
+            }),
         });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+            throw new Error(data.error || "Something went wrong");
+        }
+
+        console.log("Success:", data);
+        // Handle success (e.g., redirect, show success message)
+    } catch (error) {
+        console.error("Error:", error.message);
+        // Handle error (e.g., show error message to the user)
+    }
 };
 </script>
 <template>
@@ -105,13 +109,18 @@ const submitForm = (event) => {
 
             <!-- Google OAuth Login -->
             <div class="flex w-full gap-4 items-center justify-center mt-4">
-                <GoogleLogin :callback="callback" class=" flex items-center justify-center gap-4"/>
+                <GoogleLogin
+                    :callback="callback"
+                    class="flex items-center justify-center gap-4"
+                />
             </div>
 
-            <div class="flex text-gray-500 w-full justify-center items-center gap-2 mt-4">
-                <div><hr class="w-52 h-0.5 my-4 bg-gray-500 rounded-sm"/></div>
+            <div
+                class="flex text-gray-500 w-full justify-center items-center gap-2 mt-4"
+            >
+                <div><hr class="w-52 h-0.5 my-4 bg-gray-500 rounded-sm" /></div>
                 <div>or</div>
-                <div><hr class="w-52 h-0.5 my-4 bg-gray-500 rounded-sm"/></div>
+                <div><hr class="w-52 h-0.5 my-4 bg-gray-500 rounded-sm" /></div>
             </div>
 
             <!-- FORM FIELD -->
@@ -253,10 +262,6 @@ const submitForm = (event) => {
                     </button>
                 </div>
             </form>
-
-            
-
-            
         </div>
     </div>
 </template>
