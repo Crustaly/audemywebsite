@@ -12,7 +12,7 @@ export default async function handler(req, res) {
             email,
             password,
             confirm_password,
-        } = req.body.user;
+        } = req.body;
 
         if (req.method !== "POST") {
             return res.status(405).json({ error: "Method Not Allowed" });
@@ -36,12 +36,11 @@ export default async function handler(req, res) {
 
         // Hash password
         const hashedPassword = await bcrypt.hash(password, 10);
+        console.log("hashedPassword", hashedPassword);
 
         //! Create New user in Database
 
-        return res
-            .status(201)
-            .json({ message: "User created successfully", user: newUser });
+        return res.status(201).json({ message: "User created successfully" });
     } catch (error) {
         console.error("Signup Error:", error);
         return res.status(500).json({ error: "Internal Server Error" });
