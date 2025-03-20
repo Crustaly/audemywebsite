@@ -94,7 +94,7 @@ const submitForm = (event) => {
       />
       <img
         :src="Group1010"
-        class="absolute bottom-[10%] w-[50%] h-[auto] left-[50%] translate-x-[-50%] mobile:w-[60%] mobile:hidden tablet:w-[65%] tablet:h-[15%] tablet:bottom-[14%] tablet:left-[50%] tablet:translate-x-[-50%]"
+        class="absolute bottom-[10%] w-[60%] h-[auto] left-[50%] translate-x-[-50%] mobile:w-[60%] mobile:hidden tablet:w-[65%] tablet:h-[16%] tablet:bottom-[14%] tablet:left-[50%] tablet:translate-x-[-50%]"
         alt=""
       />
     </div>

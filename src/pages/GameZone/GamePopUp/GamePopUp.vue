@@ -15,7 +15,7 @@
     >
       <img
         src="/assets/gameImages/popup/background.svg"
-        alt="background"
+        alt=""
         class="absolute top-0 right-0"
       />
 
