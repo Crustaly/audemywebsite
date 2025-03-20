@@ -21,13 +21,13 @@ const props = defineProps({
     >
         <img
             :src="icon"
-            alt="Game icon"
+            alt=""
             class="w-[100px] h-[100px] mobile:w-[40px] mobile:h-[40px] absolute top-4 right-5 mobile:top-5 mobile:right-1 z-20"
         />
         <img
             v-if="bgDecoration"
             :src="bgImage"
-            alt="BG Game icon"
+            alt=""
             class="h-3/4 absolute top-0 right-0 rounded-xl"
         />
         <div class="w-full absolute bottom-0 left-0 p-4 z-50">

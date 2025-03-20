@@ -27,7 +27,7 @@
         <div class="absolute left-0 z-0" style="bottom: 150px">
           <img
             src="/assets/gameImages/cloud-bg-Tab-left.png"
-            alt="Decorative cloud"
+            alt=""
             style="width: 300px; height: auto"
           />
           <!-- Paper plane above left cloud -->
@@ -37,7 +37,7 @@
           >
             <img
               src="/assets/gameImages/paperPlane.png"
-              alt="Paper plane"
+              alt=""
               style="width: 100%; height: 100%"
             />
           </div>
@@ -46,7 +46,7 @@
         <div class="absolute bottom-0 right-0 z-0" style="bottom: 50px">
           <img
             src="/assets/gameImages/cloud-bg-Tab-right.png"
-            alt="Decorative cloud"
+            alt=""
             style="width: 300px; height: auto"
           />
         </div>
@@ -56,7 +56,7 @@
         <div class="absolute bottom-0 left-0 z-0" style="bottom: 50px">
           <img
             src="/assets/gameImages/cloud-bg.png"
-            alt="Decorative cloud"
+            alt=""
             style="width: 400px; height: auto"
           />
         </div>
@@ -67,7 +67,7 @@
         <div class="absolute right-0 z-0" style="bottom: 20px">
           <img
             src="/assets/gameImages/cloud-bg-Tab-right.png"
-            alt="Decorative cloud"
+            alt=""
             style="width: 250px"
           />
         </div>
@@ -83,7 +83,7 @@
             <img
               src="/assets/gameImages/buttons/arrow-back.svg"
               class="bg-white border-2 rounded-lg border-black h-12 p-2 shadow-md hover:bg-gray-300"
-              alt="Back Button Image"
+              alt=""
             />
           </button>
         </div>
@@ -103,7 +103,7 @@
               <img
                 src="/assets/gameImages/buttons/arrow-back.svg"
                 class="bg-white border-2 rounded-lg border-black h-12 p-2 shadow-md hover:bg-gray-300"
-                alt="Back Button Image"
+                alt=""
               />
             </button>
           </div>
@@ -114,7 +114,7 @@
               <div class="mb-2">
                 <img
                   src="/assets/gameImages/buttons/gameButtons/addition.svg"
-                  alt="Game icon"
+                  alt=""
                   class="w-[70px] h-[70px]"
                 />
               </div>
@@ -204,7 +204,7 @@
                   <img
                     src="/assets/gameImages/buttons/mic.png"
                     class="w-6 h-6"
-                    alt="Record Icon"
+                    alt=""
                   />
                 </button>
 
@@ -239,7 +239,7 @@
                   <img
                     src="/assets/gameImages/buttons/repeat.png"
                     class="w-6 h-6"
-                    alt="Repeat Icon"
+                    alt=""
                   />
                 </button>
               </div>
