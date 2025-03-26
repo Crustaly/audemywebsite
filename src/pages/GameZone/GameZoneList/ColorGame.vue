@@ -1,7 +1,5 @@
 <template>
-  <div
-    class="min-h-screen font-poppins bg-[#EACAFF]"
-  >
+  <div class="min-h-screen font-poppins bg-[#EACAFF]">
     <!-- Header -->
     <div class="w-full">
       <GamePagesHeader />
@@ -157,13 +155,16 @@
                   :disabled="isIntroPlaying"
                   :class="{ 'opacity-50 cursor-not-allowed': isIntroPlaying }"
                 >
-                  {{ isIntroPlaying ? 'Please wait...' : 'Start Questions' }}
+                  {{ isIntroPlaying ? "Please wait..." : "Start Questions" }}
                 </button>
               </div>
 
               <!-- Game Control Buttons -->
               <div
-                v-show="!(isTablet || isMobile) || (!isIntroPlaying && numOfAudiosPlayed > 0)"
+                v-show="
+                  !(isTablet || isMobile) ||
+                  (!isIntroPlaying && numOfAudiosPlayed > 0)
+                "
                 :class="[
                   isTablet
                     ? 'flex gap-[25px] mb-6'
@@ -253,7 +254,10 @@
               <!-- Transcript -->
               <div
                 id="transcript"
-                v-show="!(isTablet || isMobile) || (!isIntroPlaying && numOfAudiosPlayed > 0)"
+                v-show="
+                  !(isTablet || isMobile) ||
+                  (!isIntroPlaying && numOfAudiosPlayed > 0)
+                "
                 class="text-center text-xl font-bold pt-2 pb-1"
               >
                 You said: {{ transcription }}
@@ -313,11 +317,11 @@ const checkDeviceType = () => {
     // Small devices (large phones)
     isTablet.value = false;
     isMobile.value = true;
-  } else if (width >= 768 && width <= 1024) { 
+  } else if (width >= 768 && width <= 1024) {
     // Medium devices (tablets, including iPad Pro width)
     isTablet.value = true;
     isMobile.value = false;
-  } else if (width > 1024) { 
+  } else if (width > 1024) {
     // Large devices (laptops/desktops)
     isTablet.value = false;
     isMobile.value = false;
@@ -378,7 +382,7 @@ const toggleRecording = () => {
     if (!isRecording.value) {
       // Start recording
       isRecording.value = true;
-      
+
       // Start listening in continuous mode
       startListening((transcript) => {
         // Just update the transcription in real-time
@@ -391,14 +395,18 @@ const toggleRecording = () => {
 
       // Get the final transcript
       const finalTranscript = transcription.value;
-      
+
       // Process the answer
       const question = questionsDb[randQueNum[numOfAudiosPlayed.value]];
       console.log("Question is: ", question["Q"]);
       console.log("User Answer:", finalTranscript);
       console.log("Correct Answer:", question["A"]);
-      
-      if (question["A"].map(str => str.toLowerCase()).includes(finalTranscript.trim().toLowerCase())) {
+
+      if (
+        question["A"]
+          .map((str) => str.toLowerCase())
+          .includes(finalTranscript.trim().toLowerCase())
+      ) {
         score.value++;
         console.log("Correct Answer!");
         playSound("correctaudio.mp3");
@@ -408,18 +416,18 @@ const toggleRecording = () => {
         const incorectAudio = "The correct answer is " + question["A"][0];
         currentAudios.push(playQuestion(incorectAudio));
       }
-      
+
       // Stop listening
       stopListening();
       isRecording.value = false;
       numOfAudiosPlayed.value++;
-      
+
       // Reset transcription for next question
       setTimeout(() => {
         transcription.value = "";
         isButtonCooldown.value = false;
         console.log("Recording processed and stopped");
-        
+
         // Move to next question or end game
         if (numOfAudiosPlayed.value < 5) {
           setTimeout(() => {
@@ -468,7 +476,7 @@ const repeatQuestion = () => {
 // Add new function to handle first question start
 const startFirstQuestion = () => {
   console.log("Starting first question...");
-  numOfAudiosPlayed.value = 1;  // This will trigger the buttons to show
+  numOfAudiosPlayed.value = 1; // This will trigger the buttons to show
   playNextQuestion();
 };
 

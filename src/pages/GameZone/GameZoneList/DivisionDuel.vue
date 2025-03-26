@@ -1,8 +1,5 @@
 <template>
-  <div
-    class="min-h-screen font-poppins"
-    :class="[isTablet || isMobile ? 'bg-[#6FFFC6]' : 'bg-[#6FFFC6]']"
-  >
+  <div class="min-h-screen font-poppins bg-[#6FFFC6]">
     <!-- Header -->
     <div class="w-full">
       <GamePagesHeader />
@@ -51,7 +48,7 @@
         </div>
       </template>
       <!-- Clouds for desktop -->
-      <template v-else-if="!isMobile">
+      <template v-else-if="isDesktop">
         <div class="absolute bottom-0 left-0 z-0" style="bottom: 50px">
           <img
             src="/assets/gameImages/cloud-bg.png"
@@ -149,8 +146,24 @@
               class="flex flex-col p-4 justify-center"
               id="content"
             >
-              <!-- Different button styling for tablet -->
+              <!-- Mobile/Tablet Start Questions Button - Only show before questions start -->
+              <div v-if="(isTablet || isMobile) && numOfAudiosPlayed === 0">
+                <button
+                  @click="startFirstQuestion"
+                  class="bg-[#087bb4] text-white font-bold py-2 px-4 rounded-lg shadow-md hover:bg-[#0d5f8b] mb-6"
+                  :disabled="isIntroPlaying"
+                  :class="{ 'opacity-50 cursor-not-allowed': isIntroPlaying }"
+                >
+                  {{ isIntroPlaying ? "Please wait..." : "Start Questions" }}
+                </button>
+              </div>
+
+              <!-- Game control buttons -->
               <div
+                v-show="
+                  !(isTablet || isMobile) ||
+                  (!isIntroPlaying && numOfAudiosPlayed > 0)
+                "
                 :class="[
                   isTablet
                     ? 'flex gap-[25px] mb-6'
@@ -239,6 +252,10 @@
 
               <div
                 id="transcript"
+                v-show="
+                  !(isTablet || isMobile) ||
+                  (!isIntroPlaying && numOfAudiosPlayed > 0)
+                "
                 class="text-center text-xl font-bold pt-2 pb-1"
               >
                 You said: {{ transcription }}
@@ -262,7 +279,7 @@
 </template>
 
 <script setup>
-import { onMounted, onUnmounted, ref, watch } from "vue";
+import { onMounted, onUnmounted, ref, watch, computed } from "vue";
 import GamePagesHeader from "../../Header/GamePagesHeader.vue";
 import { requestMicPermission } from "../../../Utilities/requestMicAccess";
 import {
@@ -280,6 +297,7 @@ import {
 // Device detection
 const isTablet = ref(false);
 const isMobile = ref(false);
+const isDesktop = computed(() => !isTablet.value && !isMobile.value);
 
 // Function to handle back button click
 const goBack = () => {
@@ -297,11 +315,11 @@ const checkDeviceType = () => {
     // Small devices (large phones)
     isTablet.value = false;
     isMobile.value = true;
-  } else if (width >= 768 && width <= 1024) { 
+  } else if (width >= 768 && width <= 1024) {
     // Medium devices (tablets, including iPad Pro width)
     isTablet.value = true;
     isMobile.value = false;
-  } else if (width > 1024) { 
+  } else if (width > 1024) {
     // Large devices (laptops/desktops)
     isTablet.value = false;
     isMobile.value = false;
@@ -335,7 +353,7 @@ const generateQuestions = () => {
         ...data["DivisionGame"]["Questions"]["Medium"],
         ...data["DivisionGame"]["Questions"]["Hard"],
       ];
-      
+
       // Only generate 5 random questions
       while (randQueNum.length < 5) {
         let num = Math.floor(Math.random() * allQuestions.length);
@@ -368,7 +386,7 @@ const toggleRecording = () => {
     if (!isRecording.value) {
       // Start recording
       isRecording.value = true;
-      
+
       startListening((transcript) => {
         transcription.value = transcript;
       }, false);
@@ -378,14 +396,18 @@ const toggleRecording = () => {
 
       // Get the final transcript
       const finalTranscript = transcription.value;
-      
+
       // Process the answer
       const question = questionsDb[randQueNum[numOfAudiosPlayed.value]];
       console.log("Question is: ", question["Q"]);
       console.log("User Answer:", finalTranscript);
       console.log("Correct Answer:", question["A"]);
-      
-      if (question["A"].map(str => str.toLowerCase()).includes(finalTranscript.trim().toLowerCase())) {
+
+      if (
+        question["A"]
+          .map((str) => str.toLowerCase())
+          .includes(finalTranscript.trim().toLowerCase())
+      ) {
         score.value++;
         console.log("Correct Answer!");
         playSound("correctaudio.mp3");
@@ -395,18 +417,18 @@ const toggleRecording = () => {
         const incorectAudio = "The correct answer is " + question["A"][0];
         currentAudios.push(playQuestion(incorectAudio));
       }
-      
+
       // Stop listening
       stopListening();
       isRecording.value = false;
       numOfAudiosPlayed.value++;
-      
+
       // Reset transcription for next question
       setTimeout(() => {
         transcription.value = "";
         isButtonCooldown.value = false;
         console.log("Recording processed and stopped");
-        
+
         // Move to next question or end game
         if (numOfAudiosPlayed.value < 5) {
           setTimeout(() => {
@@ -453,6 +475,13 @@ const repeatQuestion = () => {
   }
 };
 
+// Add new function to handle first question start
+const startFirstQuestion = () => {
+  console.log("Starting first question...");
+  numOfAudiosPlayed.value = 1; // This will trigger the buttons to show
+  playNextQuestion();
+};
+
 onMounted(() => {
   // Request microphone access on page load
   console.log("Requesting microphone access...");
@@ -472,7 +501,10 @@ onMounted(() => {
       currentAudios.push(introAudio);
       introAudio.onended = () => {
         isIntroPlaying.value = false;
-        playNextQuestion();
+        // Only auto-play next question on desktop
+        if (isDesktop.value) {
+          playNextQuestion();
+        }
       };
     }
   });
