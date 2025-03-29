@@ -308,6 +308,8 @@ const goBack = () => {
   console.log("Going back...");
   // Stop all audio playback before navigating away
   stopAudios(currentAudios);
+  // Save the source category to sessionStorage
+  sessionStorage.setItem("gameCategory", "math");
   // Force navigate to the game zone page
   window.location.href = "/game-zone";
 };
