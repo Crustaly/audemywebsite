@@ -14,7 +14,7 @@ const props = defineProps({
 </script>
 
 <template>
-    <div
+    <button
         @click="$emit('selectGame', url)"
         class="w-full h-[320px] mobile:h-[160px] rounded-[16px] border-[5px] border-[#323232] shadow-2xl  p-5 relative flex justify-center items-center"
         :style="{ backgroundColor: bgColor, color: textColor ?? '#323232' }"
@@ -48,7 +48,7 @@ const props = defineProps({
                 {{ description }}
             </div>
         </div>
-    </div>
+    </button>
 </template>
 <style>
 @media (max-width: 1020px) and (min-width: 768px) {
