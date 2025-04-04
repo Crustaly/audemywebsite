@@ -32,7 +32,7 @@
                     class="mx-auto relative -top-12"
                 />
                 <div>
-                    <p class="font-poppins text-3xl mb-2">1,000 +</p>
+                    <span class="font-poppins text-3xl mb-2">1,000 +</span>
                     <p class="font-poppins text-lg mt-2 font-semibold">
                         Blind students impacted
                     </p>
@@ -51,7 +51,7 @@
                     alt="Carl the Catterpillar thinking of the solution to 7 plus 8"
                     class="mx-auto relative -top-12"
                 />
-                <p class="font-poppins text-3xl mb-2">20,000 +</p>
+                <span class="font-poppins text-3xl mb-2">20,000 +</span>
                 <p class="font-poppins text-lg mt-2 font-semibold">
                     Problems solved
                 </p>
@@ -69,7 +69,7 @@
                     alt="Carl the Catterpillar next to a globe"
                     class="mx-auto relative -top-12"
                 />
-                <p class="font-poppins text-3xl mb-2">7 +</p>
+                <span class="font-poppins text-3xl mb-2">7 +</span>
                 <p class="font-poppins text-lg mt-2 font-semibold">
                     Collaborating schools for the blind
                 </p>

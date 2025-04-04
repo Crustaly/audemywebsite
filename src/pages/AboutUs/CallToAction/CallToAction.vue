@@ -5,12 +5,12 @@
             class="flex justify-evenly mobile:flex-col mobile:items-center mobile:mx-0 mx-[16rem] mb-[10rem]"
         >
             <div class="mobile:text-center">
-                <p
+                <h4
                     class="font-poppins w-[510px] text-[20px] tablet:text-[16px] leading-[30px] tablet:leading-[24px] tablet:w-[438px] mobile:w-full mx-auto text-left text-[#2F3E45] mobile:mt-[20px]"
                 >
                     With your support, we can achieve even greater things in the
                     future.
-                </p>
+                </h4>
             </div>
 
             <!-- Buttons -->

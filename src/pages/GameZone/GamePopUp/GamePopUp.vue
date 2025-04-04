@@ -30,11 +30,11 @@
             <div class="flex">
               <div class="w-auto">
                 <div class="w-auto max-w-[80%]">
-                  <h3
+                  <span
                     class="font-poppins font-semibold text-[36px] text-[500] leading-[54px] text-[#087BB4] text-center"
                   >
                     10
-                  </h3>
+                  </span>
                   <h3
                     class="font-poppins text-[16px] text-[400] leading-[24px] text-[#6E777C] text-center"
                   >
@@ -44,11 +44,11 @@
               </div>
               <div class="w-auto">
                 <div class="w-auto max-w-[80%]">
-                  <h3
+                  <span
                     class="font-poppins font-semibold text-[36px] text-[500] leading-[54px] text-[#087BB4] text-center"
                   >
                     73%
-                  </h3>
+                  </span>
                   <h3
                     class="font-poppins text-[16px] text-[400] leading-[24px] text-[#6E777C] text-center"
                   >
@@ -58,11 +58,11 @@
               </div>
               <div class="w-auto">
                 <div class="w-auto max-w-[80%]">
-                  <h3
+                  <span
                     class="font-poppins font-semibold text-[36px] text-[500] leading-[54px] text-[#087BB4] text-center"
                   >
                     2
-                  </h3>
+                  </span>
                   <h3
                     class="font-poppins text-[16px] text-[400] leading-[24px] text-[#6E777C] text-center"
                   >
@@ -72,11 +72,11 @@
               </div>
               <div class="w-auto">
                 <div class="w-auto max-w-[80%]">
-                  <h3
+                  <span
                     class="font-poppins font-semibold text-[36px] text-[500] leading-[54px] text-[#087BB4] text-center"
                   >
                     4
-                  </h3>
+                  </span>
                   <h3
                     class="font-poppins text-[16px] text-[400] leading-[24px] text-[#6E777C] text-center"
                   >
