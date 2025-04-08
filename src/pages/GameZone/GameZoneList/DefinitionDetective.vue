@@ -413,7 +413,10 @@ const toggleRecording = () => {
         console.log("Wrong Answer!");
         playSound("incorrectaudio.mp3");
         const incorectAudio = "The correct answer is " + question["A"][0];
-        currentAudios.push(playQuestion(incorectAudio));
+
+        setTimeout(() => {
+          currentAudios.push(playQuestion(incorectAudio));
+        }, 1000);
       }
 
       // Stop listening
