@@ -73,7 +73,9 @@ let videoStoped = () => {
           class="absolute w-[90%] left-[4%] h-[86%] top-[7%] mx-auto z-0"
         >
           <div
+            tabindex="0"
             v-if="!isplaying"
+            @keyup.enter="playVideo(this)"
             @click="playVideo(this)"
             ref="playBut"
             class="absolute z-10 cursor-pointer w-[56px] h-[56px] rounded-[50%] border-[2px] border-[black] bg-[#FE892A] hover:bg-[#D6711F] top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]"

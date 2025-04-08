@@ -43,12 +43,12 @@ import Affiliates from "./Affiliates.vue";
             <div
                 class="w-1/2 mobile:text-center mobile:items-center mobile:flex mobile:w-fit"
             >
-                <p
+                <h4
                     class="w-[504px] ml-[2rem] text-body text-xl font-poppins leading-8 mobile:ml-0 mobile:w-fit-content mobile:text-center"
                 >
                     As we expand our services, we'd love to have you partner
                     with us on this exciting journey!
-                </p>
+                </h4>
             </div>
 
             <div

@@ -38,17 +38,17 @@ import Globe from "/assets/images/impact/globe 1.svg";
             >
                 <img :src="Students" alt="Carl the catepillar next to a giant pencil" class="-translate-y-10" />
                 <div class="flex flex-col items-center text-body">
-                    <p
+                    <span
                         class="font-poppins font-medium text-2xl text-wrap mobile:text-[24px]"
                     >
                         1000+
-                    </p>
-                    <p
+                    </span>
+                    <span
                         class="font-poppins text-base text-center mobile:text-[12px]"
                     >
                         students <br />
                         impacted
-                    </p>
+                    </span>
                 </div>
             </div>
 
@@ -57,17 +57,17 @@ import Globe from "/assets/images/impact/globe 1.svg";
             >
                 <img :src="Problems" alt="Carl the catepiller with a thought bubble above him" class="-translate-y-10" />
                 <div class="flex flex-col items-center text-body">
-                    <p
+                    <span
                         class="font-poppins font-medium text-2xl text-wrap mobile:text-[24px]"
                     >
                         20000+
-                    </p>
-                    <p
+                    </span>
+                    <span
                         class="font-poppins text-base text-center mobile:text-[12px]"
                     >
                         problems <br />
                         solved
-                    </p>
+                    </span>
                 </div>
             </div>
 
@@ -76,17 +76,17 @@ import Globe from "/assets/images/impact/globe 1.svg";
             >
                 <img :src="Globe" alt="Carl the catepiller next to a world globe" class="-translate-y-10" />
                 <div class="flex flex-col items-center text-body">
-                    <p
+                    <span
                         class="font-poppins font-medium text-2xl text-wrap mobile:text-[24px]"
                     >
                         7+
-                    </p>
-                    <p
+                    </span>
+                    <span
                         class="font-poppins text-base text-center mobile:text-[12px]"
                     >
                         collaborating <br />
                         schools
-                    </p>
+                    </span>
                 </div>
             </div>
         </div>

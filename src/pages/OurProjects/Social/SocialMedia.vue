@@ -6,12 +6,12 @@
             class="inline-block text-xs font-semibold tracking-widest text-[#6E777C] font-poppins"
             >SOCIAL MEDIA CONTENT</span
         >
-        <div class="bold mt-2 text-4xl font-normal font-poppins">
+        <h2 class="bold mt-2 text-4xl font-normal font-poppins">
             Explore Apple Loo Education
-        </div>
-        <span class="mt-7 inline-block w-[350px] font-poppins"
+        </h2>
+        <p class="mt-7 inline-block w-[350px] font-poppins"
             >Our YouTube channel that educates young students through engaging
-            videos.</span
+            videos.</p
         >
 
         <div class="mt-10 relative">

@@ -36,7 +36,9 @@ const props = defineProps({
                     id="title"
                     class="font-poppins text-[50px] tablet:text-[40px] mobile:text-[20px] text-wrap font-semibold"
                 >
+                    <h3>
                     {{ title }}
+                    </h3>
                 </div>
             </div>
             <div
@@ -45,7 +47,9 @@ const props = defineProps({
                 class="font-poppins text-[24px] mobile:text-[12px] tablet:text-[20px]"
                 :style="!bgDecoration ? 'text-[#6E777C]' : ''"
             >
+                <p>
                 {{ description }}
+                </p>
             </div>
         </div>
     </button>

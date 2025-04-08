@@ -14,13 +14,13 @@
                     >
                         Discover how we make education accessible
                     </h2>
-                    <h3
+                    <p
                         class="text-left text-body-text-color font-poppins text-[20px] tablet:text-[16px] mobile:text-center font-[400]"
                     >
                         Our innovative technologies and educational initiatives
                         provide fun learning for blind and visually impaired
                         individuals.
-                    </h3>
+                    </p>
                     <div
                         class="flex justify-start w-full mobile:justify-center"
                     >
