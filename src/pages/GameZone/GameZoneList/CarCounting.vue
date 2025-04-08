@@ -468,9 +468,8 @@ const toggleRecording = () => {
       console.log("Correct Answer:", randQueNum[numOfAudiosPlayed.value]);
 
       if (
-        finalTranscript.trim().toLowerCase() ===
-        answers[numOfAudiosPlayed.value]
-      ) {
+        finalTranscript.trim().toLowerCase().includes(answers[numOfAudiosPlayed.value].toLowerCase())
+      ){
         score.value++;
         console.log("Correct Answer!");
         playSound("correctaudio.mp3");
