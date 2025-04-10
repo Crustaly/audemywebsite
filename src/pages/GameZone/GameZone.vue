@@ -27,7 +27,7 @@ onMounted(() => {
   <div
     class="relative bg-white h-full overflow-x-hidden flex flex-col justify-center"
   >
-    <div class="px-20">
+    <div class="px-16">
       <Header
         :textColor="'text-black'"
         :logoPath="'/assets/images/header/header-logo-2.png'"
