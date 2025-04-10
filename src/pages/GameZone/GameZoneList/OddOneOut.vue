@@ -429,11 +429,16 @@ const toggleRecording = () => {
       console.log("User Answer:", finalTranscript);
       console.log("Correct Answer:", question["A"]);
 
-      if (
-        question["A"].some((answer) =>
-          finalTranscript.trim().toLowerCase().includes(answer.toLowerCase())
-        )
-      ){
+      const userWords = finalTranscript
+      .toLowerCase()
+      .replace(/[.,!?]/g, "")
+      .split(/\s+/);
+
+      const correctAnswers = Array.isArray(question["A"])
+        ? question["A"].map((a) => a.toLowerCase())
+        : [question["A"].toLowerCase()];
+
+      if (userWords.some((word) => correctAnswers.includes(word))){
         score.value++;
         console.log("Correct Answer!");
         playSound("correctaudio.mp3");
