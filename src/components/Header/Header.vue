@@ -1,7 +1,9 @@
 <template>
-    <header class="relative py-8">
+    <!-- Header height = 60px logo + 32px top offset (top-8) + 32px bottom padding = 124px. -->
+    <!-- Logo size is fixed to maintain a consistent UI across viewports. -->  
+    <header id="header-grid" class="relative h-[124px]">
         <!-- Logo Section -->
-        <div class="text-lg font-bold absolute left-4 top-8 z-10">
+        <div id="logo-item" class="text-lg font-bold absolute left-2 top-8 z-10">
             <RouterLink to="/home">
                 <img
                     :src="logoPath"
@@ -14,46 +16,46 @@
         </div>
 
         <!-- Hamburger Button for Mobile -->
-        <div v-if="isMobileView" class="absolute right-4 top-8 z-30">
+        <div id="nav-btn-item" v-if="isMobileView" class="absolute right-4 top-12 z-30">
             <button @click="toggleMenu" class="text-2xl">&#9776;</button>
         </div>
 
         <!-- Desktop Navigation Links -->
-        <nav v-if="!isMobileView" class="flex justify-center py-2">
-            <ul class="flex font-poppins font-semibold" 
+        <nav id="nav-links-grid" v-if="!isMobileView" class="justify-end py-2">
+            <ul id="router-links-grid" class="font-poppins font-semibold" 
                 :class="[
                     textColor ?? 'text-[#151e22]',
                     isTabletView ? 'space-x-2x text-sm' : 'space-x-4'
                 ]">
-                <li>
+                <li id="home-item">
                     <RouterLink
                         to="/home"
                         class="px-2 pb-2 hover:text-[#087bb4] hover:border-b-2 border-[#087bb4]"
                         >Home</RouterLink
                     >
                 </li>
-                <li>
+                <li id="about-item">
                     <RouterLink
                         to="/about-us"
                         class="px-2 pb-2 hover:text-[#087bb4] hover:border-b-2 border-[#087bb4]"
                         >About us</RouterLink
                     >
                 </li>
-                <li>
+                <li id="projects-item">
                     <RouterLink
                         to="/our-projects"
                         class="px-2 pb-2 hover:text-[#087bb4] hover:border-b-2 border-[#087bb4]"
                         >Our projects</RouterLink
                     >
                 </li>
-                <li>
+                <li id="impact-item">
                     <RouterLink
                         to="/impact"
                         class="px-2 pb-2 hover:text-[#087bb4] hover:border-b-2 border-[#087bb4]"
                         >Impact</RouterLink
                     >
                 </li>
-                <li>
+                <li id="games-item">
                     <RouterLink
                         to="/game-zone"
                         class="px-2 pb-2 hover:text-[#087bb4] hover:border-b-2 border-[#087bb4]"
@@ -218,3 +220,70 @@ onUnmounted(() => {
     document.body.style.overflow = '';
 });
 </script>
+
+<style>
+/* Default: Mobile view (max-width: 639px) */
+#header-grid {
+    display: grid;
+    grid-template-areas: 'logo . . . . rightmost';
+}
+
+#logo-item {
+    grid-column: 1 / span 5;
+}
+
+#logo-item img {
+    /* Prevent logo image from resizing to maintain a consistent UI */
+    height: 60px;
+    width: auto;
+    object-fit: contain;
+}
+
+#nav-btn-item {
+    grid-column: 6 / span 1;
+}
+
+/* Align nav links with logo */
+#router-links-grid > li {
+    align-self: center;
+}
+
+/* Medium and Large Devices (≥768px) */
+@media only screen and (min-width: 768px) {
+    #logo-item {
+        grid-column: 1 / span 5;
+    }
+
+    #nav-links-grid {
+        grid-column: 6 / span 1;
+        display: grid;
+        grid-template-areas: '. . . . .';
+    }
+
+    #router-links-grid {
+        grid-column: 1 / span 5;
+        display: grid;
+        grid-template-area: 'home about projects impact games';
+    }
+
+    #home-item {
+        grid-column: 1 / span 1;
+    }
+
+    #about-item {
+        grid-column: 2 / span 1;
+    }
+
+    #projects-item {
+        grid-column: 3 / span 1;
+    }
+
+    #impact-item {
+        grid-column: 4 / span 1;
+    }
+
+    #games-item {
+        grid-column: 5 / span 1;
+    }
+}
+</style>

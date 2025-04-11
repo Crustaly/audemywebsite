@@ -55,7 +55,7 @@ onUnmounted(() => {
   <div 
     :class="[
       'relative', 
-      !isTablet && !isMobile ? 'px-20' : '',
+      !isTablet && !isMobile ? 'px-16' : '',
       isTablet ? 'px-10' : '',
       isMobile ? 'px-5' : ''
     ]" 
