@@ -1,290 +1,24 @@
 <template>
-  <div
-    class="min-h-screen font-poppins bg-[#FFBCEE]"
-  >
-    <!-- Header -->
-    <div class="w-full">
-      <GamePagesHeader />
-    </div>
-
-    <!-- Decorative Elements -->
-    <div
-      class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none"
-    >
-      <!-- Sun - Only for desktop -->
-      <div
-        v-if="!isTablet && !isMobile"
-        class="absolute top-20 right-60 w-32 h-32"
-      >
-        <svg viewBox="0 0 100 100" class="w-full h-full">
-          <circle cx="50" cy="50" r="50" fill="#FFD137" />
-        </svg>
-      </div>
-      <!-- Clouds - Different for tablet -->
-      <template v-if="isTablet">
-        <!-- Left cloud for tablet -->
-        <div class="absolute left-0 z-0" style="bottom: 150px">
-          <img
-            src="/assets/gameImages/cloud-bg-Tab-left.png"
-            alt="Decorative cloud"
-            style="width: 300px; height: auto"
-          />
-          <!-- Paper plane above left cloud -->
-          <div
-            class="absolute"
-            style="width: 82px; height: 82px; top: -350px; left: 50.05px"
-          >
-            <img
-              src="/assets/gameImages/paperPlane.png"
-              alt="Paper plane"
-              style="width: 100%; height: 100%"
-            />
-          </div>
-        </div>
-        <!-- Right cloud for tablet -->
-        <div class="absolute bottom-0 right-0 z-0" style="bottom: 50px">
-          <img
-            src="/assets/gameImages/cloud-bg-Tab-right.png"
-            alt="Decorative cloud"
-            style="width: 300px; height: auto"
-          />
-        </div>
-      </template>
-      <!-- Clouds for desktop -->
-      <template v-else-if="isDesktop">
-        <div class="absolute bottom-0 left-0 z-0" style="bottom: 50px">
-          <img
-            src="/assets/gameImages/cloud-bg.png"
-            alt="Decorative cloud"
-            style="width: 400px; height: auto"
-          />
-        </div>
-      </template>
-      <!-- Mobile-specific clouds -->
-      <template v-if="isMobile">
-        <!-- Only right cloud for mobile -->
-        <div class="absolute right-0 z-0" style="bottom: 20px">
-          <img
-            src="/assets/gameImages/cloud-bg-Tab-right.png"
-            alt="Decorative cloud"
-            style="width: 250px"
-          />
-        </div>
-      </template>
-    </div>
-
-    <!-- Main Content -->
-    <div class="flex items-center justify-center min-h-[calc(100vh-64px)]">
-      <div class="relative w-full max-w-[800px]">
-        <!-- Back Button Container -->
-        <div v-if="!isMobile" class="absolute top-4 left-4 z-30">
-          <button @click="goBack">
-            <img
-              src="/assets/gameImages/buttons/arrow-back.svg"
-              class="bg-white border-2 rounded-lg border-black h-12 p-2 shadow-md hover:bg-gray-300"
-              alt="Back Button Image"
-            />
-          </button>
-        </div>
-
-        <!-- Game Elements Container -->
-        <div
-          class="flex flex-col justify-center items-center relative z-10 mx-auto"
-          :class="[
-            isMobile
-              ? 'h-[calc(60vh-144px)] w-[95%] mt-16'
-              : 'h-[calc(60vh-64px)] w-[90%]',
-          ]"
-        >
-          <!-- Back Button for Mobile -->
-          <div v-if="isMobile" class="self-center -mt-32 mb-8">
-            <button @click="goBack">
-              <img
-                src="/assets/gameImages/buttons/arrow-back.svg"
-                class="bg-white border-2 rounded-lg border-black h-12 p-2 shadow-md hover:bg-gray-300"
-                alt="Back Button Image"
-              />
-            </button>
-          </div>
-
-          <div class="flex flex-col justify-center items-center mb-8">
-            <!-- Game icon and title -->
-            <div class="flex flex-col items-center">
-              <div class="mb-2">
-                <img
-                  src="/assets/gameImages/buttons/gameButtons/addition.svg"
-                  alt="Game icon"
-                  class="w-[70px] h-[70px]"
-                />
-              </div>
-              <h1
-                :class="[
-                  isMobile
-                    ? 'text-[56px] leading-[60px]'
-                    : 'text-[64px] leading-[70px]',
-                ]"
-                class="font-poppins font-semibold tracking-normal text-center mb-6"
-              >
-                Animal Addition
-              </h1>
-              <p
-                :class="[
-                  isMobile ? 'w-[350px] h-[24px]' : 'w-[397px] h-[24px]',
-                ]"
-                class="font-poppins font-normal text-[16px] leading-[24px] tracking-normal text-center mt-2 mb-8 text-[#777777]"
-              >
-                Add up the animals!
-              </p>
-            </div>
-
-            <!-- Play button section -->
-            <div v-if="playButton === false">
-              <button
-                @click="playButton = true"
-                class="bg-[#087bb4] text-white font-bold py-2 px-4 rounded-lg shadow-md hover:bg-[#0d5f8b]"
-              >
-                Play
-              </button>
-            </div>
-
-            <!-- Question and answer section -->
-            <div
-              v-else-if="
-                numOfAudiosPlayed < 5 && playButton === true
-              "
-              class="flex flex-col p-4 justify-center"
-              id="content"
-            >
-              <!-- Mobile/Tablet Start Questions Button - Only show before questions start -->
-              <div v-if="(isTablet || isMobile) && numOfAudiosPlayed === 0">
-                <button
-                  @click="startFirstQuestion"
-                  class="bg-[#087bb4] text-white font-bold py-2 px-4 rounded-lg shadow-md hover:bg-[#0d5f8b] mb-6"
-                  :disabled="isIntroPlaying"
-                  :class="{ 'opacity-50 cursor-not-allowed': isIntroPlaying }"
-                >
-                  {{ isIntroPlaying ? 'Please wait...' : 'Start Questions' }}
-                </button>
-              </div>
-
-              <!-- Different button styling for tablet -->
-              <div
-                v-show="!(isTablet || isMobile) || (!isIntroPlaying && numOfAudiosPlayed > 0)"
-                :class="[
-                  isTablet
-                    ? 'flex gap-[25px] mb-6'
-                    : isMobile
-                    ? 'flex flex-col gap-4 mb-6'
-                    : 'flex gap-6 mb-6',
-                ]"
-              >
-                <!-- Record Answer Button -->
-                <button
-                  @click="toggleRecording"
-                  :class="[
-                    'flex items-center justify-center shadow-md',
-                    isTablet
-                      ? 'w-[200px] h-[60px] pt-5 pr-[30px] pb-5 pl-[30px] gap-[10px] rounded-[20px]'
-                      : isMobile
-                      ? 'w-full h-[60px] pt-5 pr-[30px] pb-5 pl-[30px] gap-[10px] rounded-[20px]'
-                      : 'gap-2.5 w-[234px] h-[116px] pt-5 pr-7 pb-5 pl-7 rounded-[20px]',
-                    isRecording ? 'bg-red-500' : 'bg-[#087BB4]',
-                    'text-white',
-                    isIntroPlaying || isButtonCooldown
-                      ? 'opacity-50 cursor-not-allowed'
-                      : '',
-                  ]"
-                  style="box-shadow: 10px 10px 20px 0px #32323233"
-                  :disabled="isIntroPlaying || isButtonCooldown"
-                  :title="
-                    isIntroPlaying
-                      ? 'Please wait until the introduction finishes'
-                      : isButtonCooldown
-                      ? 'Please wait until the question finishes playing'
-                      : 'Record your answer'
-                  "
-                >
-                  <span class="text-lg font-medium">
-                    {{
-                      isRecording
-                        ? "Stop Recording"
-                        : isTablet || isMobile
-                        ? "Record"
-                        : "Record Answer"
-                    }}
-                  </span>
-                  <img
-                    src="/assets/gameImages/buttons/mic.png"
-                    class="w-6 h-6"
-                    alt="Record Icon"
-                  />
-                </button>
-
-                <!-- Repeat Question Button -->
-                <button
-                  @click="repeatQuestion"
-                  :class="[
-                    'flex items-center justify-center shadow-md',
-                    isTablet
-                      ? 'w-[200px] h-[60px] pt-5 pr-[30px] pb-5 pl-[30px] gap-[10px] rounded-[20px]'
-                      : isMobile
-                      ? 'w-full h-[60px] pt-5 pr-[30px] pb-5 pl-[30px] gap-[10px] rounded-[20px]'
-                      : 'gap-2.5 w-[234px] h-[116px] pt-5 pr-7 pb-5 pl-7 rounded-[20px]',
-                    'bg-white border border-[#0096D6] text-[#0096D6]',
-                    isIntroPlaying || isButtonCooldown
-                      ? 'opacity-50 cursor-not-allowed'
-                      : '',
-                  ]"
-                  style="box-shadow: 10px 10px 20px 0px #32323233"
-                  :disabled="isIntroPlaying || isButtonCooldown"
-                  :title="
-                    isIntroPlaying
-                      ? 'Please wait until the introduction finishes'
-                      : isButtonCooldown
-                      ? 'Please wait before repeating the question again'
-                      : 'Repeat the current question'
-                  "
-                >
-                  <span class="text-lg font-medium">{{
-                    isTablet || isMobile ? "Repeat" : "Repeat Question"
-                  }}</span>
-                  <img
-                    src="/assets/gameImages/buttons/repeat.png"
-                    class="w-6 h-6"
-                    alt="Repeat Icon"
-                  />
-                </button>
-              </div>
-
-              <div
-                id="transcript"
-                v-show="!(isTablet || isMobile) || (!isIntroPlaying && numOfAudiosPlayed > 0)"
-                class="text-center text-xl font-bold pt-2 pb-1"
-              >
-                You said: {{ transcription }}
-              </div>
-            </div>
-
-            <!-- Game over section -->
-            <div v-else>
-              <div class="text-center text-3xl font-bold pt-2 pb-1">
-                Game Over
-              </div>
-              <div class="text-center text-xl font-medium pt-2 pb-1">
-                Score: {{ score }} / 5
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <GameLayout
+    :backgroundColor="'#FFBCEE'"
+    :title="'Animal Addition'"
+    :subtitle="'Add up the animals!'"
+    :iconPath="'/assets/gameImages/buttons/gameButtons/addition.svg'"
+    :playButton="playButton"
+    :isRecording="isRecording"
+    :isIntroPlaying="isIntroPlaying"
+    :isButtonCooldown="isButtonCooldown"
+    :numOfAudiosPlayed="numOfAudiosPlayed"
+    @goBack="goBack"
+    @startFirstQuestion="startFirstQuestion"
+    @toggleRecording="toggleRecording"
+    @repeatQuestion="repeatQuestion"
+    @updatePlayButton="(val) => (playButton = val)"
+  />
 </template>
 
 <script setup>
-import { onMounted, onUnmounted, ref, watch, computed } from "vue";
-import GamePagesHeader from "../../Header/GamePagesHeader.vue";
-import { requestMicPermission } from "../../../Utilities/requestMicAccess";
+import GameLayout from "./GameComponents/GameLayout.vue";
 import {
   playIntro,
   playQuestion,
@@ -296,11 +30,7 @@ import {
   startListening,
   stopListening,
 } from "../../../Utilities/speechRecognition";
-
-// Device detection
-const isTablet = ref(false);
-const isMobile = ref(false);
-const isDesktop = computed(() => !isTablet.value && !isMobile.value);
+import { onMounted, onUnmounted, ref, watch, computed } from "vue";
 
 // Function to handle back button click
 const goBack = () => {
@@ -311,28 +41,6 @@ const goBack = () => {
   sessionStorage.setItem("gameCategory", "math");
   // Force navigate to the game zone page
   window.location.href = "/game-zone";
-};
-
-// Check device type on mount and on window resize
-const checkDeviceType = () => {
-  const width = window.innerWidth;
-  if (width >= 640 && width < 768) {
-    // Small devices (large phones)
-    isTablet.value = false;
-    isMobile.value = true;
-  } else if (width >= 768 && width <= 1024) { 
-    // Medium devices (tablets, including iPad Pro width)
-    isTablet.value = true;
-    isMobile.value = false;
-  } else if (width > 1024) { 
-    // Large devices (laptops/desktops)
-    isTablet.value = false;
-    isMobile.value = false;
-  } else {
-    // Extra small devices (phones)
-    isTablet.value = false;
-    isMobile.value = true;
-  }
 };
 
 const currentAudios = [];
@@ -358,7 +66,7 @@ const generateQuestions = () => {
         ...data["AdditionGame"]["Questions"]["Medium"],
         ...data["AdditionGame"]["Questions"]["Hard"],
       ];
-      
+
       // Only need 5 random questions
       while (randQueNum.length < 5) {
         let num = Math.floor(Math.random() * allQuestions.length);
@@ -389,7 +97,7 @@ const toggleRecording = () => {
   if (numOfAudiosPlayed.value < 5 && !isIntroPlaying.value) {
     if (!isRecording.value) {
       isRecording.value = true;
-      
+
       startListening((transcript) => {
         transcription.value = transcript;
       }, false);
@@ -398,18 +106,18 @@ const toggleRecording = () => {
       console.log("Processing recording...");
 
       const finalTranscript = transcription.value;
-      
+
       // Process the answer
       const question = questionsDb.value[randQueNum[numOfAudiosPlayed.value]];
       console.log("Question is: ", question["Q"]);
       console.log("User Answer:", finalTranscript);
       console.log("Correct Answer:", question["A"]);
-      
+
       if (
         question["A"].some((answer) =>
           finalTranscript.trim().toLowerCase().includes(answer.toLowerCase())
         )
-      ){
+      ) {
         score.value++;
         console.log("Correct Answer!");
         playSound("correctaudio.mp3");
@@ -423,18 +131,18 @@ const toggleRecording = () => {
           currentAudios.push(playQuestion(incorectAudio));
         }, 1000);
       }
-      
+
       // Stop listening
       stopListening();
       isRecording.value = false;
       numOfAudiosPlayed.value++;
-      
+
       // Reset transcription for next question
       setTimeout(() => {
         transcription.value = "";
         isButtonCooldown.value = false;
         console.log("Recording processed and stopped");
-        
+
         // Move to next question or end game
         if (numOfAudiosPlayed.value < 5) {
           setTimeout(() => {
@@ -484,19 +192,11 @@ const repeatQuestion = () => {
 // Add new function to handle first question start
 const startFirstQuestion = () => {
   console.log("Starting first question...");
-  numOfAudiosPlayed.value = 1;  // This will trigger the buttons to show
+  numOfAudiosPlayed.value = 1; // This will trigger the buttons to show
   playNextQuestion();
 };
 
 onMounted(() => {
-  // Request microphone access on page load
-  console.log("Requesting microphone access...");
-  requestMicPermission();
-
-  // Check device type
-  checkDeviceType();
-  window.addEventListener("resize", checkDeviceType);
-
   // Generate questions
   generateQuestions();
 
@@ -519,6 +219,5 @@ onMounted(() => {
 onUnmounted(() => {
   console.log("Navigated Back!");
   stopAudios(currentAudios);
-  window.removeEventListener("resize", checkDeviceType);
 });
 </script>
