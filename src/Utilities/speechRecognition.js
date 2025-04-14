@@ -1,5 +1,5 @@
 let recognition = null;
-let isRecognizing = false;
+let isListening = false;
 
 // Initialize Speech Recognition
 const initSpeechRecognition = () => {
@@ -26,51 +26,69 @@ const initSpeechRecognition = () => {
     return recognition;
 };
 
-// Start Listening
-export const startListening = (onResultCallback) => {
-    if (isRecognizing) {
-        console.warn("Speech recognition is already active.");
-        return;
+// Pre-initialize speech recognition
+export function preInitSpeechRecognition() {
+    if (!recognition) {
+        try {
+            recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+            recognition.lang = 'en-US';
+            recognition.interimResults = true;
+        } catch (error) {
+            console.error('Error pre-initializing speech recognition:', error);
+        }
     }
+}
 
-    const recognizer = initSpeechRecognition();
-    if (!recognizer) return;
-
-    isRecognizing = true;
-
-    recognizer.onstart = () => {
-        console.log("Speech recognition started.");
-    };
-
-    recognizer.onresult = (event) => {
-        const transcript = event.results[0][0].transcript.toLowerCase();
-        console.log("Recognized speech:", transcript);
-        if (onResultCallback) {
-            onResultCallback(transcript);
+// Start Listening
+export function startListening(callback, autoStop = true) {
+    // If recognition is already listening, stop it first
+    if (isListening) {
+        stopListening();
+    }
+    
+    // Ensure recognition object exists
+    if (!recognition) {
+        preInitSpeechRecognition();
+    }
+    
+    // Set new parameters for this session
+    recognition.continuous = !autoStop;
+    
+    recognition.onresult = (event) => {
+        const transcript = Array.from(event.results)
+            .map(result => result[0].transcript.toLowerCase())
+            .join('');
+        callback(transcript);
+        
+        if (autoStop && event.results[0].isFinal) {
+            stopListening();
         }
     };
-
-    recognizer.onerror = (event) => {
-        console.error("Speech recognition error:", event.error);
-        stopListening();
+    
+    recognition.onend = () => {
+        if (!autoStop && isListening) {
+            recognition.start();
+        } else {
+            isListening = false;
+        }
     };
-
-    recognizer.onend = () => {
-        console.log("Speech recognition ended.");
-        isRecognizing = false;
-    };
-
-    recognizer.start();
-};
+    
+    try {
+        recognition.start();
+        isListening = true;
+    } catch (error) {
+        console.error('Error starting speech recognition:', error);
+    }
+}
 
 // Stop Listening
-export const stopListening = () => {
-    if (!isRecognizing || !recognition) {
-        console.warn("Speech recognition is not active.");
-        return;
+export function stopListening() {
+    isListening = false;
+    if (recognition) {
+        try {
+            recognition.stop();
+        } catch (error) {
+            console.error('Error stopping speech recognition:', error);
+        }
     }
-
-    recognition.stop();
-    isRecognizing = false;
-    console.log("Speech recognition stopped.");
-};
+}

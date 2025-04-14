@@ -2,11 +2,26 @@
 import Header from "../../components/Header/Header.vue";
 import GameZoneList from "../GameZone/GameZoneList/GameZoneList.vue";
 import GameProgress from "../GameZone/GameProgress/GameProgress.vue";
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 const currentPage = ref(1);
 const changeCurrentPage = (page) => {
     currentPage.value = page;
 };
+
+onMounted(() => {
+  const category = sessionStorage.getItem("gameCategory");
+
+  if (category === "math") {
+    changeCurrentPage(2); // Math Games
+  } else {
+    changeCurrentPage(1); // Language Games or default
+  }
+
+  // Clear it after use
+  sessionStorage.removeItem("gameCategory");
+});
+
+
 </script>
 <template>
     <div

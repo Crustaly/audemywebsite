@@ -57,7 +57,15 @@ export function playAudioPath(path) {
     return new Promise((resolve) => {
         let audio = new Audio(path);
         currentAudios.push(audio); // Track the audio in the array
-        audio.play();
+        audio.play()
+            .then(() => {
+                console.log("Audio playback started successfully.");
+                resolve();
+            })
+            .catch((err) => {
+                console.warn("⚠️ Playback blocked or failed:", err);
+                resolve();
+            });
 
         // audio.onplay = () => {
         //     this.isRecording = true;

@@ -113,12 +113,13 @@
             "Hard": [
                 {
                     "Q": "What is 100 × 200?",
-                    "A": ["20000", "twenty thousand"]
+                    "A": ["20000", "20,000", "twenty thousand"]
                 },
                 {
                     "Q": "What is 150 × 250?",
                     "A": [
                         "37500",
+                        "37,500",
                         "thirty-seven thousand five hundred",
                         "thirty seven thousand five hundred"
                     ]
@@ -127,55 +128,59 @@
                     "Q": "What is 125 × 375?",
                     "A": [
                         "46875",
+                        "46,875",
                         "forty-six thousand eight hundred seventy-five",
                         "forty six thousand eight hundred seventy five"
                     ]
                 },
                 {
                     "Q": "What is 300 × 400?",
-                    "A": ["120000", "one hundred twenty thousand"]
+                    "A": ["120000", "120,000", "one hundred twenty thousand"]
                 },
                 {
                     "Q": "What is 225 × 275?",
                     "A": [
                         "61875",
+                        "61,875",
                         "sixty-one thousand eight hundred seventy-five",
                         "sixty one thousand eight hundred seventy five"
                     ]
                 },
                 {
                     "Q": "What is 500 × 500?",
-                    "A": ["250000", "two hundred fifty thousand"]
+                    "A": ["250000", "250,000", "two hundred fifty thousand"]
                 },
                 {
                     "Q": "What is 450 × 550?",
                     "A": [
                         "247500",
+                        "247,500",
                         "two hundred forty-seven thousand five hundred",
                         "two hundred forty seven thousand five hundred"
                     ]
                 },
                 {
                     "Q": "What is 600 × 400?",
-                    "A": ["240000", "two hundred forty thousand"]
+                    "A": ["240000", "240,000", "two hundred forty thousand"]
                 },
                 {
                     "Q": "What is 800 × 200?",
-                    "A": ["160000", "one hundred sixty thousand"]
+                    "A": ["160000", "160,000", "one hundred sixty thousand"]
                 },
                 {
                     "Q": "What is 900 × 100?",
-                    "A": ["90000", "ninety thousand"]
+                    "A": ["90000", "90,000", "ninety thousand"]
                 },
                 {
                     "Q": "What is 750 × 250?",
                     "A": [
                         "187500",
+                        "187,500",
                         "one hundred eighty-seven thousand five hundred",
                         "one hundred eighty seven thousand five hundred"
                     ]
                 },
-                { "Q": "What is 1000 × 1000?", "A": ["1000000", "one million"] }
+                { "Q": "What is 1000 × 1000?", "A": ["1000000", "1,000,000", "one million"] }
             ]
         }
     }

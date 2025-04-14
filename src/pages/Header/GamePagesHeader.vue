@@ -1,20 +1,19 @@
 <!-- GamePagesHeader.vue -->
 <template>
-    <header class="header border">
-      <!-- Left side - Menu and Logo -->
-      <div class="header-left">
-        <router-link to="/" class="logo-link">
-          <img
-            src="/assets/images/header/header-logo-2.png"
-            alt="Audemy Logo"
-            class="logo"
-          />
-        </router-link>
-      </div>
+    <header class="flex items-center justify-between px-8 py-4 bg-transparent">
+    <!-- Left side - Menu and Logo -->
+    <div class="flex items-center gap-6">
+      <router-link to="/" class="flex items-center">
+        <img
+          src="/assets/images/header/header-logo-2.png"
+          alt="Audemy Logo"
+          class="h-10"
+        />
+      </router-link>
+    </div>
   
       <!-- Right side - Navigation and Login -->
-      <div class="header-right">
-        
+     <div class="flex items-center gap-8">
         <div v-if="userSession">
             <button
               class="flex justify-center items-center bg-[#FE892A] text-black font-bold py-3 px-6 rounded-lg border-[1.5px] shadow-[3px_4px_0px_#0C0D0D] border-black hover:bg-[#D6711F]"
@@ -80,87 +79,3 @@
 });
   </script>
   
-  <style scoped>
-  .header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1rem 2rem;
-    background-color: transparent;
-  }
-  
-  .header-left {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-  }
-  
-  .header-right {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-  }
-  
-  .menu-button {
-    padding: 0.5rem;
-    background-color: #087BB4;
-    border-radius: 0.5rem;
-    color: white;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .menu-button:hover {
-    background-color: #0d5f8b;
-  }
-  
-  .logo-link {
-    display: flex;
-    align-items: center;
-  }
-  
-  .logo {
-    height: 2.5rem;
-  }
-  
-  .navigation {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-  }
-  
-  .nav-link {
-    color: #2B2B2B;
-    text-decoration: none;
-    font-size: 1rem;
-    font-weight: 600;
-    font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    transition: color 0.3s;
-  }
-  
-  .nav-link:hover {
-    color: #087BB4;
-  }
-  
-  .login-button {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.5rem 1rem;
-    background-color: #087BB4;
-    color: white;
-    text-decoration: none;
-    border-radius: 0.5rem;
-    transition: background-color 0.3s;
-  }
-  
-  .login-button:hover {
-    background-color: #0d5f8b;
-  }
-  
-  .router-link-active {
-    color: #087BB4;
-    font-weight: 600;
-  }
-  </style>
