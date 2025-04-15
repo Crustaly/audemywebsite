@@ -263,7 +263,7 @@ onUnmounted(() => {
     #router-links-grid {
         grid-column: 1 / span 5;
         display: grid;
-        grid-template-area: 'home about projects impact games';
+        grid-template-areas: 'home about projects impact games';
     }
 
     #home-item {
