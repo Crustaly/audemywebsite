@@ -32,7 +32,7 @@
       <!-- Second Column "Quick Links" -->
       <div id="ftr-links-subgrid" class="mt-[10px]">
         <div id="ftr-links" class="mb-[17px] font-jakarta font-bold text-[16px] leading-[18px] text-[#B9D6DF] pt-[2px] pb-[2px]">
-          Quick links
+          Quick Links
         </div>
         <ul id="ftr-links-inner-subgrid">
           <li
@@ -75,7 +75,7 @@
             <a href="https://www.instagram.com/audemyapp" target="_blank">Instagram</a>
           </li>
           <li class="mb-[17px] font-jakarta font-bold text-[14px] text-white leading-[18px]">
-            <a href="https://www.linkedin.com/company/audemy/" target="_blank">Linkedin</a>
+            <a href="https://www.linkedin.com/company/audemy/" target="_blank">LinkedIn</a>
           </li>
           <li class="mb-[17px] font-jakarta font-bold text-[14px] text-white leading-[18px]">
             <a href="https://github.com/Crustaly/audemy" target="_blank">Github</a>
@@ -130,6 +130,16 @@
 <style lang="scss" scoped>
 /* * * * * Default: Mobile-first, Small Viewports * * * * */
 /* * * * * The following refers to the footer as ftr * * * * */
+
+#ftr-contact-email a:hover, #ftr-links-inner-subgrid a:hover, #ftr-socials-list a:hover {
+  color: #087bb4;
+  border-bottom: 2px solid #087bb4;
+  padding-bottom: 5px;
+}
+
+#small-ftr-socials-inner-subgrid box-icon:hover, #small-ftr-socials-inner-subgrid svg:hover {
+  fill: #087bb4;
+}
 
 #ftr-grid {
   display: grid;
