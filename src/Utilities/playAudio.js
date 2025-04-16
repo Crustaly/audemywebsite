@@ -33,8 +33,23 @@ export async function getTTSAudio(text) {
         });
 
         if (!response.ok) {
-            throw new Error("Failed to generate TTS");
-        }
+            if (response.status === 400) {
+              alert("Bad request: The text provided is invalid or missing.");
+              throw new Error("Bad request");
+            } else if (response.status === 401) {
+              alert("Unauthorized: Authentication required for text-to-speech service.");
+              throw new Error("Unauthorized");
+            } else if (response.status === 405) {
+              alert("Method not allowed: This operation is not supported.");
+              throw new Error("Method not allowed");
+            } else if (response.status === 429) {
+              alert("Too many requests: Rate limit exceeded. Please try again later.");
+              throw new Error("Too many requests");
+            } else {
+              alert("Text-to-speech generation failed. Please try again later.");
+              throw new Error("Failed to generate TTS");
+            }
+          }
 
         return await response.blob();
     } catch (error) {

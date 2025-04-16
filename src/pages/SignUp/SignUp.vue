@@ -20,6 +20,7 @@ const submitForm = (event) => {
     signupForm.value.confirm_password.value !== signupForm.value.password.value
   ) {
     console.error("Passwords do not match");
+    alert("Passwords do not match. Please try again.");
     return; // Stop if passwords don't match
   }
 
@@ -41,14 +42,34 @@ const submitForm = (event) => {
       },
     }), // Convert the object to JSON
   })
-    .then((response) => response.json())
+    .then((response) => {
+      if (!response.ok) {
+        if (response.status === 400) {
+          alert("Bad request: Please check your information and try again.");
+          throw new Error("Bad request");
+        } else if (response.status === 401) {
+          alert("Unauthorized: You need to be authenticated.");
+          throw new Error("Unauthorized");
+        } else if (response.status === 405) {
+          alert("Method not allowed: This operation is not supported.");
+          throw new Error("Method not allowed");
+        } else if (response.status === 429) {
+          alert("Too many requests: Please try again later.");
+          throw new Error("Too many requests");
+        } else {
+          alert("An error occurred. Please try again later.");
+          throw new Error("Server error");
+        }
+      }
+      return response.json();
+    })
     .then((data) => {
       console.log("Success:", data);
       // You can handle the response here (e.g., show a success message)
     })
     .catch((error) => {
       console.error("Error:", error);
-      // You can handle errors here
+      // Errors are already handled above
     });
 };
 </script>

@@ -2,6 +2,7 @@
 import { ref } from "vue";
 
 const errors = ref(false);
+const errorMessage = ref("Invalid email and password combination. Try again!");
 const email = ref("");
 const password = ref("");
 let authKey = ref("");
@@ -12,6 +13,7 @@ const login = (event) => {
 
     if (!email.value || !password.value) {
         errors.value = true;
+        errorMessage.value = "Please fill in all required fields";
         resetErrors();
         return;
     }
@@ -30,16 +32,46 @@ const login = (event) => {
         }),
     })
         .then((response) => {
-            response.json();
+            if (!response.ok) {
+                // Handle specific error status codes
+                switch (response.status) {
+                    case 400:
+                        errors.value = true;
+                        errorMessage.value = "Bad request: Please check your input";
+                        throw new Error("Bad request");
+                    case 401:
+                        errors.value = true;
+                        errorMessage.value = "Unauthorized: Invalid email or password";
+                        throw new Error("Unauthorized");
+                    case 405:
+                        errors.value = true;
+                        errorMessage.value = "Method not allowed";
+                        throw new Error("Method not allowed");
+                    case 429:
+                        errors.value = true;
+                        errorMessage.value = "Too many requests: Please try again later";
+                        throw new Error("Too many requests");
+                    default:
+                        errors.value = true;
+                        errorMessage.value = "An error occurred. Please try again";
+                        throw new Error("Server error");
+                }
+            }
             //This is where the auth key is saved for future API calls
             //We should think about saving it in a more central location using Vuex library
             authKey = response.headers.get("authorization");
+            return response.json();
         })
         .then((data) => {
             console.log("Success:", data);
         })
         .catch((error) => {
             console.error("Error:", error);
+            if (!errors.value) {
+                errors.value = true;
+                errorMessage.value = "Network error: Please check your connection";
+                resetErrors();
+            }
         });
 };
 
@@ -97,10 +129,7 @@ const resetErrors = () => {
                             class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative"
                             role="alert"
                         >
-                            <span class="block sm:inline text-center"
-                                >Invalid email and password combination. Try
-                                again!</span
-                            >
+                            <span class="block sm:inline text-center">{{ errorMessage }}</span>
                         </div>
                     </div>
                     <!-- Changed for field here to email -->
