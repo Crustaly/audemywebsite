@@ -305,6 +305,22 @@ const feedbackClass = computed(() => {
                     />
                 </div>
 
+                <!-- EMAIL FIELD -->
+                <div class="mb-[16px] mobile:w-full">
+                     <label
+                         class="block text-[#0C0D0D] font-semiBold"
+                         for="email"
+                         >Email</label
+                     >
+                     <input
+                         type="email"
+                         class="w-full outline-none border border-black h-[48px] px-4 rounded-[8px]"
+                         id="email"
+                         name="email"
+                         placeholder="Enter your email address"
+                     />
+                 </div>
+
                 <!-- PASSWORD FIELD -->
                 <div class="mb-[16px] mobile:w-full">
                     <label
