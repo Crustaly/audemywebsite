@@ -10,7 +10,7 @@
       class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none"
     >
       <div
-        v-if="!isTablet && !isMobile"
+        v-show="!isTablet && !isMobile"
         class="absolute top-20 right-60 w-32 h-32"
       >
         <svg viewBox="0 0 100 100" class="w-full h-full">
@@ -74,7 +74,7 @@
     <div class="flex items-center justify-center min-h-[calc(100vh-64px)]">
       <div class="relative w-full max-w-[800px]">
         <!-- Back Button Container -->
-        <div v-if="!isMobile" class="absolute top-4 left-4 z-30">
+        <div v-show="!isMobile" class="absolute top-4 left-4 z-30">
           <button @click="goBack">
             <img
               src="/assets/gameImages/buttons/arrow-back.svg"
@@ -94,7 +94,7 @@
           ]"
         >
           <!-- Back Button for Mobile -->
-          <div v-if="isMobile" class="self-center -mt-32 mb-8">
+          <div v-show="isMobile" class="self-center -mt-32 mb-8">
             <button @click="goBack">
               <img
                 src="/assets/gameImages/buttons/arrow-back.svg"
@@ -130,7 +130,7 @@
                 ]"
                 class="font-poppins font-normal text-[16px] leading-[24px] tracking-normal text-center mt-2 mb-8 text-[#777777]"
               >
-                Divide the given numers!
+                Divide the given numbers!
               </p>
             </div>
             <div v-if="playButton === false">
@@ -147,7 +147,7 @@
               id="content"
             >
               <!-- Mobile/Tablet Start Questions Button - Only show before questions start -->
-              <div v-if="(isTablet || isMobile) && numOfAudiosPlayed === 0">
+              <div v-show="(isTablet || isMobile) && numOfAudiosPlayed === 0">
                 <button
                   @click="startFirstQuestion"
                   class="bg-[#087bb4] text-white font-bold py-2 px-4 rounded-lg shadow-md hover:bg-[#0d5f8b] mb-6"
@@ -175,28 +175,9 @@
                 <!-- Record Answer Button -->
                 <button
                   @click="toggleRecording"
-                  :class="[
-                    'flex items-center justify-center shadow-md',
-                    isTablet
-                      ? 'w-[200px] h-[60px] pt-5 pr-[30px] pb-5 pl-[30px] gap-[10px] rounded-[20px]'
-                      : isMobile
-                      ? 'w-full h-[60px] pt-5 pr-[30px] pb-5 pl-[30px] gap-[10px] rounded-[20px]'
-                      : 'gap-2.5 w-[234px] h-[116px] pt-5 pr-7 pb-5 pl-7 rounded-[20px]',
-                    isRecording ? 'bg-red-500' : 'bg-[#087BB4]',
-                    'text-white',
-                    isIntroPlaying || isButtonCooldown
-                      ? 'opacity-50 cursor-not-allowed'
-                      : '',
-                  ]"
-                  style="box-shadow: 10px 10px 20px 0px #32323233"
-                  :disabled="isIntroPlaying || isButtonCooldown"
-                  :title="
-                    isIntroPlaying
-                      ? 'Please wait until the introduction finishes'
-                      : isButtonCooldown
-                      ? 'Please wait until the question finishes playing'
-                      : 'Record your answer'
-                  "
+                  :class="recordButtonClasses"
+                  :disabled="isButtonDisabled"
+                  :title="recordButtonTitle"
                 >
                   <span class="text-lg font-medium">
                     {{
@@ -279,6 +260,7 @@
 </template>
 
 <script setup>
+// 1. Imports
 import { onMounted, onUnmounted, ref, watch, computed } from "vue";
 import GamePagesHeader from "../../Header/GamePagesHeader.vue";
 import { requestMicPermission } from "../../../Utilities/requestMicAccess";
@@ -294,23 +276,109 @@ import {
   stopListening,
 } from "../../../Utilities/speechRecognition";
 
-// Device detection
+// 2. Props / Emits
+// (none in this component)
+
+// 3. Refs & Reactive State
+// Arrays (static data)
+const currentAudios = [];
+const randQueNum = [];
+let questionsDb = [];
+
+// Game state variables
+const numOfAudiosPlayed = ref(0);
+const score = ref(0);
+const isRecording = ref(false);
+const transcription = ref("");
+
+// UI control states
+const playButton = ref(false);
+const isIntroPlaying = ref(false);
+const isButtonCooldown = ref(false);
+
+// Device Detection
 const isTablet = ref(false);
 const isMobile = ref(false);
+
+// 4. Computed Properties
 const isDesktop = computed(() => !isTablet.value && !isMobile.value);
 
-// Function to handle back button click
-const goBack = () => {
-  console.log("Going back...");
-  // Stop all audio playback before navigating away
-  stopAudios(currentAudios);
-  // Save the source category to sessionStorage
-  sessionStorage.setItem("gameCategory", "math");
-  // Force navigate to the game zone page
-  window.location.href = "/game-zone";
-};
+const currentQuestion = computed(() => {
+  if (
+    numOfAudiosPlayed.value < 5 &&
+    questionsDb.length > 0 &&
+    randQueNum.length > numOfAudiosPlayed.value
+  ) {
+    return questionsDb[randQueNum[numOfAudiosPlayed.value]];
+  }
+  return null;
+});
 
-// Check device type on mount and on window resize
+const isButtonDisabled = computed(
+  () => isIntroPlaying.value || isButtonCooldown.value
+);
+
+const recordButtonClasses = computed(() => [
+  "flex items-center justify-center shadow-md",
+  isTablet.value
+    ? "w-[200px] h-[60px] pt-5 pr-[30px] pb-5 pl-[30px] gap-[10px] rounded-[20px]"
+    : isMobile.value
+    ? "w-full h-[60px] pt-5 pr-[30px] pb-5 pl-[30px] gap-[10px] rounded-[20px]"
+    : "gap-2.5 w-[234px] h-[116px] pt-5 pr-7 pb-5 pl-7 rounded-[20px]",
+  isRecording.value ? "bg-red-500" : "bg-[#087BB4]",
+  "text-white",
+  isButtonDisabled.value ? "opacity-50 cursor-not-allowed" : "",
+]);
+
+const recordButtonTitle = computed(() => {
+  if (isIntroPlaying.value)
+    return "Please wait until the introduction finishes";
+  if (isButtonCooldown.value)
+    return "Please wait until the question finishes playing";
+  return "Record your answer";
+});
+
+// 5. Watch/WatchEffect
+// (no global watch/watchEffect in this component)
+
+// 6. Lifecycle Hooks
+onMounted(() => {
+  console.log("Requesting microphone access...");
+  requestMicPermission();
+
+  checkDeviceType();
+  window.addEventListener("resize", checkDeviceType);
+
+  generateQuestions();
+
+  // Watch play button to start intro
+  watch(playButton, (newVal) => {
+    if (newVal) {
+      isIntroPlaying.value = true;
+      const introAudio = playIntro("/divisionduel/divintro.mp3");
+      currentAudios.push(introAudio);
+      introAudio.onended = () => {
+        isIntroPlaying.value = false;
+        // Only auto-play next question on desktop
+        if (isDesktop.value) {
+          playNextQuestion();
+        }
+      };
+    }
+  });
+});
+
+onUnmounted(() => {
+  // Stop audio playback and cleanup listeners
+  console.log("Navigated Back!");
+  stopAudios(currentAudios);
+  window.removeEventListener("resize", checkDeviceType);
+});
+
+// 7. Functions/Methods
+/**
+ * Checks the device type on mount and on window resize
+ */
 const checkDeviceType = () => {
   const width = window.innerWidth;
   if (width >= 640 && width < 768) {
@@ -332,19 +400,9 @@ const checkDeviceType = () => {
   }
 };
 
-const currentAudios = [],
-  randQueNum = [];
-let numOfAudiosPlayed = ref(0),
-  score = ref(0);
-let questionsDb = [],
-  isListening = ref(false),
-  transcription = ref(""),
-  playButton = ref(false),
-  isIntroPlaying = ref(false),
-  isRecording = ref(false),
-  isButtonCooldown = ref(false);
-
-// Generate multiplication questions using Json file
+/**
+ * Generates division questions using JSON file
+ */
 const generateQuestions = () => {
   console.log("Generating Questions...");
   fetch("/assets/questionsDb/divisionDb.json")
@@ -373,20 +431,22 @@ const generateQuestions = () => {
     });
 };
 
-// Play the next question
+/**
+ * Plays the next question
+ */
 const playNextQuestion = () => {
-  if (numOfAudiosPlayed.value < 5) {
-    const question = questionsDb[randQueNum[numOfAudiosPlayed.value]];
-    console.log(question);
-    currentAudios.push(playQuestion(question["Q"]));
+  if (numOfAudiosPlayed.value < 5 && currentQuestion.value) {
+    console.log(currentQuestion.value);
+    currentAudios.push(playQuestion(currentQuestion.value["Q"]));
   }
 };
 
-// Toggle recording state when record button is clicked
+/**
+ * Toggles the recording state when the record button is clicked
+ */
 const toggleRecording = () => {
   if (numOfAudiosPlayed.value < 5 && !isIntroPlaying.value) {
     if (!isRecording.value) {
-      // Start recording
       isRecording.value = true;
 
       startListening((transcript) => {
@@ -395,8 +455,6 @@ const toggleRecording = () => {
     } else {
       isButtonCooldown.value = true;
       console.log("Processing recording...");
-
-      // Get the final transcript
       const finalTranscript = transcription.value;
 
       // Process the answer
@@ -428,18 +486,15 @@ const toggleRecording = () => {
         }, 1000);
       }
 
-      // Stop listening
       stopListening();
       isRecording.value = false;
       numOfAudiosPlayed.value++;
 
-      // Reset transcription for next question
       setTimeout(() => {
         transcription.value = "";
         isButtonCooldown.value = false;
         console.log("Recording processed and stopped");
 
-        // Move to next question or end game
         if (numOfAudiosPlayed.value < 5) {
           setTimeout(() => {
             playNextQuestion();
@@ -455,23 +510,35 @@ const toggleRecording = () => {
   }
 };
 
-// Repeat question
+/**
+ * Handles the back button click
+ */
+const goBack = () => {
+  console.log("Going back...");
+  // Stop all audio playback before navigating away
+  stopAudios(currentAudios);
+  // Save the source category to sessionStorage
+  sessionStorage.setItem("gameCategory", "math");
+  // Force navigate to the game zone page
+  window.location.href = "/game-zone";
+};
+
+/**
+ * Repeats the current question
+ */
 const repeatQuestion = () => {
   if (
     numOfAudiosPlayed.value < 5 &&
     !isIntroPlaying.value &&
     !isButtonCooldown.value
   ) {
-    // Set cooldown flag
     isButtonCooldown.value = true;
 
-    // logging message for repeating question
     console.log(
       "Repeating question for Division Duel game - Question #" +
         (numOfAudiosPlayed.value + 1)
     );
 
-    // Play the question
     playNextQuestion();
 
     // Delay of 3.5 seconds
@@ -485,44 +552,16 @@ const repeatQuestion = () => {
   }
 };
 
-// Add new function to handle first question start
+/**
+ * Starts the first question
+ * Only used for mobile devices
+ */
 const startFirstQuestion = () => {
   console.log("Starting first question...");
   numOfAudiosPlayed.value = 1; // This will trigger the buttons to show
   playNextQuestion();
 };
 
-onMounted(() => {
-  // Request microphone access on page load
-  console.log("Requesting microphone access...");
-  requestMicPermission();
-
-  // Check device type initially and set up listener for window resize
-  checkDeviceType();
-  window.addEventListener("resize", checkDeviceType);
-
-  // Generate questions
-  generateQuestions();
-
-  watch(playButton, (newVal) => {
-    if (newVal) {
-      isIntroPlaying.value = true;
-      const introAudio = playIntro("/divisionduel/divintro.mp3");
-      currentAudios.push(introAudio);
-      introAudio.onended = () => {
-        isIntroPlaying.value = false;
-        // Only auto-play next question on desktop
-        if (isDesktop.value) {
-          playNextQuestion();
-        }
-      };
-    }
-  });
-});
-
-onUnmounted(() => {
-  console.log("Navigated Back!");
-  stopAudios(currentAudios);
-  window.removeEventListener("resize", checkDeviceType);
-});
+// 8.Exposed Values
+// (none exposed in this component)
 </script>

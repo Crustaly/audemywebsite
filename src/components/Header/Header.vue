@@ -1,7 +1,7 @@
 <template>
     <header class="relative py-8">
         <!-- Logo Section -->
-        <div class="text-lg font-bold absolute left-4 top-8 z-10">
+        <div class="text-lg font-bold absolute left-4 top-6 z-10">
             <RouterLink to="/home">
                 <img
                     :src="logoPath"
@@ -15,11 +15,11 @@
 
         <!-- Hamburger Button for Mobile -->
         <div v-if="isMobileView" class="absolute right-4 top-8 z-30">
-            <button @click="toggleMenu" class="text-2xl">&#9776;</button>
+            <button @click="toggleMenu" class="text-4xl">&#9776;</button>
         </div>
 
         <!-- Desktop Navigation Links -->
-        <nav v-if="!isMobileView" class="flex justify-center py-2">
+        <nav v-if="!isMobileView" class="flex justify-end items-center gap-4 py-2">
             <ul class="flex font-poppins font-semibold" 
                 :class="[
                     textColor ?? 'text-[#151e22]',
@@ -61,6 +61,30 @@
                     >
                 </li>
             </ul>
+            
+            <div v-if="userSession">
+                <button
+                    class="flex justify-center items-center bg-[#FE892A] text-black font-bold py-3 px-6 rounded-lg border-[1.5px] shadow-[3px_4px_0px_#0C0D0D] border-black hover:bg-[#D6711F]"
+                    @click="logout"
+                >Log out&nbsp;
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M5 12h14"></path>
+                        <path d="m12 5 7 7-7 7"></path>
+                    </svg>
+                </button>
+            </div>
+            <div v-else>
+                <router-link
+                    to="/login"
+                    class="flex justify-center items-center login-button text-white font-bold py-3 px-6 rounded-lg border-[1.5px] shadow-[3px_4px_0px_#0C0D0D] border-black bg-[#087BB4] hover:bg-[#0C587D]"
+                    >
+                    Log in &nbsp;
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M5 12h14"></path>
+                        <path d="m12 5 7 7-7 7"></path>
+                    </svg>
+                </router-link>
+            </div>
         </nav>
 
         <!-- Mobile Menu Overlay -->
@@ -75,8 +99,8 @@
             v-if="isMobileView && isMenuOpen"
             class="fixed inset-y-0 right-0 bg-white z-50 w-4/5 max-w-xs flex flex-col overflow-hidden"
         >
-            <div class="flex justify-end p-4">
-                <button @click="closeMenu" class="text-2xl">&times;</button>
+            <div class="flex justify-end p-7 px-10">
+                <button @click="closeMenu" class="text-4xl">&times;</button>
             </div>
             
             <nav class="flex-1">
@@ -116,6 +140,25 @@
                             @click="closeMenu"
                         >Game zone</RouterLink>
                     </li>
+                    <li>
+                        <router-link
+                            to="/login"
+                            class="flex justify-center items-center login-button text-white font-bold py-3 px-6 rounded-lg border-[1.5px] shadow-[3px_4px_0px_#0C0D0D] border-black bg-[#087BB4] hover:bg-[#0C587D]"
+                            >
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M5 12h14"></path>
+                                <path d="m12 5 7 7-7 7"></path>
+                            </svg>
+                            &nbsp;Log in
+                        </router-link>
+                    </li>
+                    <li v-if="userSession">
+                        <button
+                            class="mt-4 bg-[#FE892A] text-white px-4 py-2 rounded"
+                            @click="logout"
+                        >Logout
+                        </button>
+                    </li>
                 </ul>
             </nav>
 
@@ -145,11 +188,26 @@
             </div>
         </div>
     </header>
+    <!-- Alert -->
+    <div v-if="showAlert" class="flex justify-between w-1/4 bg-green-100 border border-green-400 text-green-700 px-4 py-3 z-50 rounded fixed bottom-5 right-5 transition-opacity duration-300 ease-in-out transform" role="alert">
+        <span class="block sm:inline"><strong class="font-bold">Log out</strong> successful!</span>
+        <button @click="closeAlert">   
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+            </svg>
+        </button>
+    </div>
 </template>
 
 <script setup>
 import { defineProps, ref, onMounted, onUnmounted, nextTick } from "vue";
+import Cookies from "js-cookie";
+import { useRouter } from "vue-router";
 
+
+const router = useRouter();
+const userSession = ref(null);
+const showAlert = ref(false);
 const props = defineProps({
     logoPath: {
         type: [String, null],
@@ -201,6 +259,20 @@ const checkScreenSize = () => {
   }
 };
 
+const logout = () => {
+    Cookies.remove("audemyUserSession");
+    userSession.value = null;
+    showAlert.value = true;
+    setTimeout(() => {
+        showAlert.value = false;
+    }, 3000);
+    router.push("/game-zone");
+};
+
+const closeAlert = () => {
+    showAlert.value = false;
+};
+
 // Add resize listener to check screen size
 onMounted(() => {
     // Initial check
@@ -211,6 +283,14 @@ onMounted(() => {
     });
     
     window.addEventListener("resize", checkScreenSize);
+
+    const session = Cookies.get("audemyUserSession");
+    if (session) {
+        const parsed = JSON.parse(session);
+        console.log("Parsed session:", parsed);
+        userSession.value = parsed;
+    }
+    
 });
 
 onUnmounted(() => {

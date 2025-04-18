@@ -7,23 +7,54 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Test {
-  id   Int    @id @default(autoincrement())
-  name String
-}
-
 model User {
-  id           Int            @id @default(autoincrement())
-  username     String         @unique
-  name         String
-  school       String
-  gameProgress GameProgress[]
+  user_id   Int     @id @default(autoincrement())
+  name      String  
+  email     String  @unique
+  school    String
+  password  String
+
+  Sessions  Session[]
+  Progress  Progress?
 }
 
-model GameProgress {
-  id         Int    @id @default(autoincrement())
-  user_id    Int
-  game_id    String
-  level_data String
-  user       User   @relation(fields: [user_id], references: [id])
+enum Category {
+  MATH
+  LANGUAGE
+}
+model Game {
+  game_id   Int       @id @unique @default(autoincrement()) 
+  category  Category
+  name      String
+
+  Sessions  Session[] 
+}
+
+model Difficulty {
+  difficulty_id   Int       @id @unique @default(autoincrement())
+  level           String
+
+  Sessions        Session[]
+}
+
+model Session {
+  session_id      Int     @id @unique @default(autoincrement())
+  user_id         Int
+  game_id         Int
+  correct         Int
+  incorrect       Int
+  difficulty_id   Int
+
+  User            User        @relation(references: [user_id], fields: [user_id])
+  Game            Game        @relation(references: [game_id], fields: [game_id])
+  Difficulty      Difficulty  @relation(references: [difficulty_id], fields: [difficulty_id])
+}
+
+model Progress {
+  user_id         Int
+  progress_json   Json        
+
+  User            User        @relation(references: [user_id], fields: [user_id])
+
+  @@id(user_id)
 }

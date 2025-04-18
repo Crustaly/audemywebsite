@@ -10,7 +10,7 @@
       class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none"
     >
       <div
-        v-if="!isTablet && !isMobile"
+        v-show="!isTablet && !isMobile"
         class="absolute top-20 right-60 w-32 h-32"
       >
         <svg viewBox="0 0 100 100" class="w-full h-full">
@@ -74,7 +74,7 @@
     <div class="flex items-center justify-center min-h-[calc(100vh-64px)]">
       <div class="relative w-full max-w-[800px]">
         <!-- Back Button Container -->
-        <div v-if="!isMobile" class="absolute top-4 left-4 z-30">
+        <div v-show="!isMobile" class="absolute top-4 left-4 z-30">
           <button @click="goBack">
             <img
               src="/assets/gameImages/buttons/arrow-back.svg"
@@ -94,7 +94,7 @@
           ]"
         >
           <!-- Back Button for Mobile -->
-          <div v-if="isMobile" class="self-center -mt-32 mb-8">
+          <div v-show="isMobile" class="self-center -mt-32 mb-8">
             <button @click="goBack">
               <img
                 src="/assets/gameImages/buttons/arrow-back.svg"
@@ -149,7 +149,7 @@
               id="content"
             >
               <!-- Mobile/Tablet Start Questions Button - Only show before questions start -->
-              <div v-if="(isTablet || isMobile) && numOfAudiosPlayed === 0">
+              <div v-show="(isTablet || isMobile) && numOfAudiosPlayed === 0">
                 <button
                   @click="startFirstQuestion"
                   class="bg-[#087bb4] text-white font-bold py-2 px-4 rounded-lg shadow-md hover:bg-[#0d5f8b] mb-6"
@@ -177,28 +177,10 @@
                 <!-- Record Answer Button -->
                 <button
                   @click="toggleRecording"
-                  :class="[
-                    'flex items-center justify-center shadow-md',
-                    isTablet
-                      ? 'w-[200px] h-[60px] pt-5 pr-[30px] pb-5 pl-[30px] gap-[10px] rounded-[20px]'
-                      : isMobile
-                      ? 'w-full h-[60px] pt-5 pr-[30px] pb-5 pl-[30px] gap-[10px] rounded-[20px]'
-                      : 'gap-2.5 w-[234px] h-[116px] pt-5 pr-7 pb-5 pl-7 rounded-[20px]',
-                    isRecording ? 'bg-red-500' : 'bg-[#087BB4]',
-                    'text-white',
-                    isIntroPlaying || isButtonCooldown || isPlaying
-                      ? 'opacity-50 cursor-not-allowed'
-                      : '',
-                  ]"
+                  :class="recordButtonClasses"
                   style="box-shadow: 10px 10px 20px 0px #32323233"
-                  :disabled="isIntroPlaying || isButtonCooldown || isPlaying"
-                  :title="
-                    isIntroPlaying
-                      ? 'Please wait until the introduction finishes'
-                      : isButtonCooldown || isPlaying
-                      ? 'Please wait until the question finishes playing'
-                      : 'Record your answer'
-                  "
+                  :disabled="isButtonDisabled || isPlaying"
+                  :title="recordButtonTitle"
                 >
                   <span class="text-lg font-medium">
                     {{
@@ -227,21 +209,13 @@
                       ? 'w-full h-[60px] pt-5 pr-[30px] pb-5 pl-[30px] gap-[10px] rounded-[20px]'
                       : 'gap-2.5 w-[234px] h-[116px] pt-5 pr-7 pb-5 pl-7 rounded-[20px]',
                     'bg-white border border-[#0096D6] text-[#0096D6]',
-                    isIntroPlaying || isPlaying || isButtonCooldown
+                    isIntroPlaying || isButtonCooldown || isPlaying
                       ? 'opacity-50 cursor-not-allowed'
                       : '',
                   ]"
                   style="box-shadow: 10px 10px 20px 0px #32323233"
-                  :disabled="isIntroPlaying || isPlaying || isButtonCooldown"
-                  :title="
-                    isIntroPlaying
-                      ? 'Please wait until the introduction finishes'
-                      : isPlaying
-                      ? 'Please wait while the question is playing'
-                      : isButtonCooldown
-                      ? 'Please wait before repeating the question again'
-                      : 'Repeat the current question'
-                  "
+                  :disabled="isIntroPlaying || isButtonCooldown || isPlaying"
+                  :title="repeatButtonTitle"
                 >
                   <span class="text-lg font-medium">{{
                     isTablet || isMobile ? "Repeat" : "Repeat Question"
@@ -283,6 +257,7 @@
 </template>
 
 <script setup>
+// 1. Imports
 import { onMounted, onUnmounted, ref, watch, computed } from "vue";
 import GamePagesHeader from "../../Header/GamePagesHeader.vue";
 import { requestMicPermission } from "../../../Utilities/requestMicAccess";
@@ -298,23 +273,110 @@ import {
   stopListening,
 } from "../../../Utilities/speechRecognition";
 
-// Device detection
+// 2. Props / Emits
+// (none in this component)
+
+// 3. Refs & Reactive State
+// Arrays (static data)
+const currentAudios = [];
+const randQueNum = [];
+const answers = [];
+
+// Game state variables
+const numOfAudiosPlayed = ref(0);
+const score = ref(0);
+const isRecording = ref(false);
+const transcription = ref("");
+const isPlaying = ref(false);
+
+// UI control states
+const playButton = ref(false);
+const isIntroPlaying = ref(false);
+const isButtonCooldown = ref(false);
+
+// Device Detection
 const isTablet = ref(false);
 const isMobile = ref(false);
+
+// 4. Computed Properties
 const isDesktop = computed(() => !isTablet.value && !isMobile.value);
 
-// Function to handle back button click
-const goBack = () => {
-  console.log("Going back...");
-  // Stop all audio playback before navigating away
-  stopAudios(currentAudios);
-  // Save the source category to sessionStorage
-  sessionStorage.setItem("gameCategory", "math");
-  // Force navigate to the game zone page
-  window.location.href = "/game-zone";
-};
+const isButtonDisabled = computed(
+  () => isIntroPlaying.value || isButtonCooldown.value
+);
 
-// Check device type on mount and on window resize
+const recordButtonClasses = computed(() => [
+  "flex items-center justify-center shadow-md",
+  isTablet.value
+    ? "w-[200px] h-[60px] pt-5 pr-[30px] pb-5 pl-[30px] gap-[10px] rounded-[20px]"
+    : isMobile.value
+    ? "w-full h-[60px] pt-5 pr-[30px] pb-5 pl-[30px] gap-[10px] rounded-[20px]"
+    : "gap-2.5 w-[234px] h-[116px] pt-5 pr-7 pb-5 pl-7 rounded-[20px]",
+  isRecording.value ? "bg-red-500" : "bg-[#087BB4]",
+  "text-white",
+  isButtonDisabled.value || isPlaying.value
+    ? "opacity-50 cursor-not-allowed"
+    : "",
+]);
+
+const recordButtonTitle = computed(() => {
+  if (isIntroPlaying.value)
+    return "Please wait until the introduction finishes";
+  if (isButtonCooldown.value || isPlaying.value)
+    return "Please wait until the question finishes playing";
+  return "Record your answer";
+});
+
+const repeatButtonTitle = computed(() => {
+  if (isIntroPlaying.value)
+    return "Please wait until the introduction finishes";
+  if (isPlaying.value) return "Please wait while the question is playing";
+  if (isButtonCooldown.value)
+    return "Please wait before repeating the question again";
+  return "Repeat the current question";
+});
+
+// 5. Watch/WatchEffect
+// (no global watch/watchEffect in this component)
+
+// 6. Lifecycle Hooks
+onMounted(() => {
+  console.log("Requesting microphone access...");
+  requestMicPermission();
+
+  checkDeviceType();
+  window.addEventListener("resize", checkDeviceType);
+
+  generateQuestions();
+
+  // Watch play button to start intro
+  watch(playButton, (newVal) => {
+    if (newVal) {
+      isIntroPlaying.value = true;
+      const introAudio = playIntro("/carCounting/carCountIntro.mp3");
+      currentAudios.push(introAudio);
+      introAudio.onended = () => {
+        isIntroPlaying.value = false;
+        // Only auto-play next question on desktop
+        if (isDesktop.value) {
+          playNextQuestion();
+        }
+      };
+    }
+  });
+});
+
+onUnmounted(() => {
+  // Stop audio playback and cleanup listeners
+  console.log("Navigated Back!");
+  stopAudios(currentAudios);
+  window.removeEventListener("resize", checkDeviceType);
+});
+
+// 7. Functions/Methods
+/**
+ * Checks the device type on mount and on window resize
+ */
 const checkDeviceType = () => {
   const width = window.innerWidth;
   if (width >= 640 && width < 768) {
@@ -336,20 +398,22 @@ const checkDeviceType = () => {
   }
 };
 
-const currentAudios = [],
-  randQueNum = [],
-  answers = [];
-let numOfAudiosPlayed = ref(0),
-  score = ref(0);
-let questionsDb = [],
-  isRecording = ref(false),
-  transcription = ref(""),
-  playButton = ref(false),
-  isPlaying = ref(false),
-  isIntroPlaying = ref(false),
-  isButtonCooldown = ref(false);
+/**
+ * Handles the back button click
+ */
+const goBack = () => {
+  console.log("Going back...");
+  // Stop all audio playback before navigating away
+  stopAudios(currentAudios);
+  // Save the source category to sessionStorage
+  sessionStorage.setItem("gameCategory", "math");
+  // Force navigate to the game zone page
+  window.location.href = "/game-zone";
+};
 
-// Generate random number of cars as Questions
+/**
+ * Generates random number of cars as Questions
+ */
 const generateQuestions = () => {
   console.log("Generating Questions...");
   // Generate 5 random numbers for the questions
@@ -371,7 +435,9 @@ const generateQuestions = () => {
   console.log("Answers: ", answers);
 };
 
-// Play the next question
+/**
+ * Plays the next question with sequential car sounds
+ */
 const playNextQuestion = async () => {
   if (numOfAudiosPlayed.value < 5 && !isPlaying.value) {
     isPlaying.value = true;
@@ -382,7 +448,6 @@ const playNextQuestion = async () => {
 
     const audiosToPlay = [];
 
-    // Add the initial audio
     playQuestion("Question Number " + (numOfAudiosPlayed.value + 1));
 
     // Add the car passing by audios
@@ -408,40 +473,9 @@ const playNextQuestion = async () => {
   }
 };
 
-// Repeat the current question
-const repeatQuestion = () => {
-  if (
-    numOfAudiosPlayed.value < 5 &&
-    !isPlaying.value &&
-    !isIntroPlaying.value &&
-    !isButtonCooldown.value
-  ) {
-    // Set cooldown flag
-    isButtonCooldown.value = true;
-
-    // logging message for repeating question
-    console.log(
-      "Repeating question for Car Counting game - Question #" +
-        (numOfAudiosPlayed.value + 1)
-    );
-
-    // Play the question
-    playNextQuestion();
-
-    // Delay of 4 seconds
-    setTimeout(() => {
-      isButtonCooldown.value = false;
-    }, 4000);
-  } else if (isIntroPlaying.value) {
-    console.log("Cannot repeat question while introduction is playing");
-  } else if (isPlaying.value) {
-    console.log("Cannot repeat question while audio is playing");
-  } else if (isButtonCooldown.value) {
-    console.log("Please wait before repeating the question again");
-  }
-};
-
-// Toggle recording state when record button is clicked
+/**
+ * Toggles the recording state when the record button is clicked
+ */
 const toggleRecording = () => {
   if (
     numOfAudiosPlayed.value < 5 &&
@@ -455,7 +489,7 @@ const toggleRecording = () => {
 
       startListening((transcript) => {
         transcription.value = transcript;
-      }, false); // false parameter indicates continuous mode
+      }, false);
     } else {
       isButtonCooldown.value = true;
       console.log("Processing recording...");
@@ -468,23 +502,25 @@ const toggleRecording = () => {
       console.log("Correct Answer:", randQueNum[numOfAudiosPlayed.value]);
 
       if (
-        finalTranscript.trim().toLowerCase().includes(answers[numOfAudiosPlayed.value].toLowerCase())
-      ){
+        finalTranscript
+          .trim()
+          .toLowerCase()
+          .includes(answers[numOfAudiosPlayed.value].toLowerCase())
+      ) {
         score.value++;
         console.log("Correct Answer!");
         playSound("correctaudio.mp3");
       } else {
         console.log("Wrong Answer!");
-        playSound("incorrectaudio.mp3");
         const incorectAudio =
           "The correct answer is " + answers[numOfAudiosPlayed.value];
-        
+        playSound("incorrectaudio.mp3");
+
         setTimeout(() => {
           currentAudios.push(playQuestion(incorectAudio));
         }, 1000);
       }
 
-      // Stop listening
       stopListening();
       isRecording.value = false;
       numOfAudiosPlayed.value++;
@@ -495,7 +531,6 @@ const toggleRecording = () => {
         isButtonCooldown.value = false;
         console.log("Recording processed and stopped");
 
-        // Move to next question or end game
         if (numOfAudiosPlayed.value < 5) {
           setTimeout(() => {
             playNextQuestion();
@@ -511,44 +546,48 @@ const toggleRecording = () => {
   }
 };
 
-// Add new function to handle first question start
+/**
+ * Repeats the current question
+ */
+const repeatQuestion = () => {
+  if (
+    numOfAudiosPlayed.value < 5 &&
+    !isPlaying.value &&
+    !isIntroPlaying.value &&
+    !isButtonCooldown.value
+  ) {
+    isButtonCooldown.value = true;
+
+    console.log(
+      "Repeating question for Car Counting game - Question #" +
+        (numOfAudiosPlayed.value + 1)
+    );
+
+    playNextQuestion();
+
+    // Delay of 4 seconds
+    setTimeout(() => {
+      isButtonCooldown.value = false;
+    }, 4000);
+  } else if (isIntroPlaying.value) {
+    console.log("Cannot repeat question while introduction is playing");
+  } else if (isPlaying.value) {
+    console.log("Cannot repeat question while audio is playing");
+  } else if (isButtonCooldown.value) {
+    console.log("Please wait before repeating the question again");
+  }
+};
+
+/**
+ * Starts the first question
+ * Only used for mobile devices
+ */
 const startFirstQuestion = () => {
   console.log("Starting first question...");
   numOfAudiosPlayed.value = 1; // This will trigger the buttons to show
   playNextQuestion();
 };
 
-onMounted(() => {
-  // Request microphone access on page load
-  console.log("Requesting microphone access...");
-  requestMicPermission();
-
-  // Check device type initially and set up listener for window resize
-  checkDeviceType();
-  window.addEventListener("resize", checkDeviceType);
-
-  // Generate questions
-  generateQuestions();
-
-  watch(playButton, (newVal) => {
-    if (newVal) {
-      isIntroPlaying.value = true;
-      const introAudio = playIntro("/carCounting/carCountIntro.mp3");
-      currentAudios.push(introAudio);
-      introAudio.onended = () => {
-        isIntroPlaying.value = false;
-        // Only auto-play next question on desktop
-        if (isDesktop.value) {
-          playNextQuestion();
-        }
-      };
-    }
-  });
-});
-
-onUnmounted(() => {
-  console.log("Navigated Back!");
-  stopAudios(currentAudios);
-  window.removeEventListener("resize", checkDeviceType);
-});
+// 8. Exposed Values
+// (none exposed in this component)
 </script>
