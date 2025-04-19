@@ -156,7 +156,7 @@
                   :disabled="isIntroPlaying"
                   :class="{ 'opacity-50 cursor-not-allowed': isIntroPlaying }"
                 >
-                  {{ isIntroPlaying ? "Please wait..." : "Start Questions" }}
+                  {{ isIntroPlaying ? 'Please wait...' : 'Start Questions' }}
                 </button>
               </div>
 
@@ -203,10 +203,10 @@
                   <span class="text-lg font-medium">
                     {{
                       isRecording
-                        ? "Stop Recording"
+                        ? 'Stop Recording'
                         : isTablet || isMobile
-                        ? "Record"
-                        : "Record Answer"
+                        ? 'Record'
+                        : 'Record Answer'
                     }}
                   </span>
                   <img
@@ -244,7 +244,7 @@
                   "
                 >
                   <span class="text-lg font-medium">{{
-                    isTablet || isMobile ? "Repeat" : "Repeat Question"
+                    isTablet || isMobile ? 'Repeat' : 'Repeat Question'
                   }}</span>
                   <img
                     src="/assets/gameImages/buttons/repeat.png"
@@ -283,20 +283,20 @@
 </template>
 
 <script setup>
-import { onMounted, onUnmounted, ref, watch, computed } from "vue";
-import GamePagesHeader from "../../Header/GamePagesHeader.vue";
-import { requestMicPermission } from "../../../Utilities/requestMicAccess";
+import { onMounted, onUnmounted, ref, watch, computed } from 'vue';
+import GamePagesHeader from '../../Header/GamePagesHeader.vue';
+import { requestMicPermission } from '../../../Utilities/requestMicAccess';
 import {
   playIntro,
   playQuestion,
   playSound,
   stopAudios,
   playScore,
-} from "../../../Utilities/playAudio";
+} from '../../../Utilities/playAudio';
 import {
   startListening,
   stopListening,
-} from "../../../Utilities/speechRecognition";
+} from '../../../Utilities/speechRecognition';
 
 // Device detection
 const isTablet = ref(false);
@@ -305,13 +305,13 @@ const isDesktop = computed(() => !isTablet.value && !isMobile.value);
 
 // Function to handle back button click
 const goBack = () => {
-  console.log("Going back...");
+  console.log('Going back...');
   // Stop all audio playback before navigating away
   stopAudios(currentAudios);
   // Save the source category to sessionStorage
-  sessionStorage.setItem("gameCategory", "math");
+  sessionStorage.setItem('gameCategory', 'math');
   // Force navigate to the game zone page
-  window.location.href = "/game-zone";
+  window.location.href = '/game-zone';
 };
 
 // Check device type on mount and on window resize
@@ -343,7 +343,7 @@ let numOfAudiosPlayed = ref(0),
   score = ref(0);
 let questionsDb = [],
   isRecording = ref(false),
-  transcription = ref(""),
+  transcription = ref(''),
   playButton = ref(false),
   isPlaying = ref(false),
   isIntroPlaying = ref(false),
@@ -351,29 +351,30 @@ let questionsDb = [],
 
 // Generate random number of cars as Questions
 const generateQuestions = () => {
-  console.log("Generating Questions...");
+  console.log('Generating Questions...');
   // Generate 5 random numbers for the questions
   while (randQueNum.length < 5) {
     let num = Math.floor(Math.random() * 5) + 1;
     if (!randQueNum.includes(num)) {
       randQueNum.push(num);
       const answerMap = {
-        1: "one",
-        2: "two",
-        3: "three",
-        4: "four",
-        5: "five",
+        1: 'one',
+        2: 'two',
+        3: 'three',
+        4: 'four',
+        5: 'five',
       };
       answers.push(answerMap[num]);
     }
   }
-  console.log("Random Numbers: ", randQueNum);
-  console.log("Answers: ", answers);
+  console.log('Random Numbers: ', randQueNum);
+  console.log('Answers: ', answers);
 };
 
 // Play the next question
 const playNextQuestion = async () => {
   if (numOfAudiosPlayed.value < 5 && !isPlaying.value) {
+    isButtonCooldown.value = true;
     isPlaying.value = true;
 
     // Stop all current audios
@@ -383,17 +384,17 @@ const playNextQuestion = async () => {
     const audiosToPlay = [];
 
     // Add the initial audio
-    playQuestion("Question Number " + (numOfAudiosPlayed.value + 1));
+    await playQuestion('Question Number ' + (numOfAudiosPlayed.value + 1));
 
     // Add the car passing by audios
     for (let i = 0; i < randQueNum[numOfAudiosPlayed.value]; i++) {
-      audiosToPlay.push("/assets/carCounting/carpassby.mp3");
+      audiosToPlay.push('/assets/carCounting/carpassby.mp3');
     }
 
     // Play all car audios in sequence
     for (const audioSrc of audiosToPlay) {
       await new Promise((resolve) => {
-        console.log("Playing - " + audioSrc);
+        console.log('Playing - ' + audioSrc);
         const audio = new Audio(audioSrc);
         audio.play();
         audio.onended = resolve;
@@ -402,9 +403,11 @@ const playNextQuestion = async () => {
     }
 
     // Add the final audio
-    playQuestion("How many cars did you hear?");
+
+    await playQuestion('How many cars did you hear?');
 
     isPlaying.value = false;
+    isButtonCooldown.value = false;
   }
 };
 
@@ -421,7 +424,7 @@ const repeatQuestion = () => {
 
     // logging message for repeating question
     console.log(
-      "Repeating question for Car Counting game - Question #" +
+      'Repeating question for Car Counting game - Question #' +
         (numOfAudiosPlayed.value + 1)
     );
 
@@ -433,11 +436,11 @@ const repeatQuestion = () => {
       isButtonCooldown.value = false;
     }, 4000);
   } else if (isIntroPlaying.value) {
-    console.log("Cannot repeat question while introduction is playing");
+    console.log('Cannot repeat question while introduction is playing');
   } else if (isPlaying.value) {
-    console.log("Cannot repeat question while audio is playing");
+    console.log('Cannot repeat question while audio is playing');
   } else if (isButtonCooldown.value) {
-    console.log("Please wait before repeating the question again");
+    console.log('Please wait before repeating the question again');
   }
 };
 
@@ -451,33 +454,38 @@ const toggleRecording = () => {
     if (!isRecording.value) {
       // Start recording
       isRecording.value = true;
-      playSound("ding-sound.mp3");
+      playSound('ding-sound.mp3');
 
       startListening((transcript) => {
         transcription.value = transcript;
       }, false); // false parameter indicates continuous mode
     } else {
       isButtonCooldown.value = true;
-      console.log("Processing recording...");
+      console.log('Processing recording...');
 
       // Get the final transcript
       const finalTranscript = transcription.value;
 
       // Process the answer
-      console.log("User Answer:", finalTranscript);
-      console.log("Correct Answer:", randQueNum[numOfAudiosPlayed.value]);
+      console.log('User Answer:', finalTranscript);
+      console.log('Correct Answer:', randQueNum[numOfAudiosPlayed.value]);
 
-      const cleanedInput = finalTranscript.trim().toLowerCase().replace(/[^\w\s]/g, ''); // removes punctuation
-      if (cleanedInput.includes(answers[numOfAudiosPlayed.value].toLowerCase())) {
+      const cleanedInput = finalTranscript
+        .trim()
+        .toLowerCase()
+        .replace(/[^\w\s]/g, ''); // removes punctuation
+      if (
+        cleanedInput.includes(answers[numOfAudiosPlayed.value].toLowerCase())
+      ) {
         score.value++;
-        console.log("Correct Answer!");
-        playSound("correctaudio.mp3");
+        console.log('Correct Answer!');
+        playSound('correctaudio.mp3');
       } else {
-        console.log("Wrong Answer!");
-        playSound("incorrectaudio.mp3");
+        console.log('Wrong Answer!');
+        playSound('incorrectaudio.mp3');
         const incorectAudio =
-          "The correct answer is " + answers[numOfAudiosPlayed.value];
-        
+          'The correct answer is ' + answers[numOfAudiosPlayed.value];
+
         setTimeout(() => {
           currentAudios.push(playQuestion(incorectAudio));
         }, 1000);
@@ -490,9 +498,8 @@ const toggleRecording = () => {
 
       // Reset transcription for next question
       setTimeout(() => {
-        transcription.value = "";
-        isButtonCooldown.value = false;
-        console.log("Recording processed and stopped");
+        transcription.value = '';
+        console.log('Recording processed and stopped');
 
         // Move to next question or end game
         if (numOfAudiosPlayed.value < 5) {
@@ -500,7 +507,7 @@ const toggleRecording = () => {
             playNextQuestion();
           }, 2000);
         } else {
-          console.log("Game Over!");
+          console.log('Game Over!');
           setTimeout(() => {
             playScore(score.value);
           }, 2000);
@@ -512,19 +519,19 @@ const toggleRecording = () => {
 
 // Add new function to handle first question start
 const startFirstQuestion = () => {
-  console.log("Starting first question...");
+  console.log('Starting first question...');
   numOfAudiosPlayed.value = 1; // This will trigger the buttons to show
   playNextQuestion();
 };
 
 onMounted(() => {
   // Request microphone access on page load
-  console.log("Requesting microphone access...");
+  console.log('Requesting microphone access...');
   requestMicPermission();
 
   // Check device type initially and set up listener for window resize
   checkDeviceType();
-  window.addEventListener("resize", checkDeviceType);
+  window.addEventListener('resize', checkDeviceType);
 
   // Generate questions
   generateQuestions();
@@ -532,7 +539,7 @@ onMounted(() => {
   watch(playButton, (newVal) => {
     if (newVal) {
       isIntroPlaying.value = true;
-      const introAudio = playIntro("/carCounting/carCountIntro.mp3");
+      const introAudio = playIntro('/carCounting/carCountIntro.mp3');
       currentAudios.push(introAudio);
       introAudio.onended = () => {
         isIntroPlaying.value = false;
@@ -546,8 +553,8 @@ onMounted(() => {
 });
 
 onUnmounted(() => {
-  console.log("Navigated Back!");
+  console.log('Navigated Back!');
   stopAudios(currentAudios);
-  window.removeEventListener("resize", checkDeviceType);
+  window.removeEventListener('resize', checkDeviceType);
 });
 </script>
