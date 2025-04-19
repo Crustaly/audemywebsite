@@ -1,7 +1,5 @@
 <template>
-  <div
-    class="min-h-screen font-poppins bg-[#FFBCEE]"
-  >
+  <div class="min-h-screen font-poppins bg-[#FFBCEE]">
     <!-- Header -->
     <div class="w-full">
       <GamePagesHeader />
@@ -149,9 +147,7 @@
 
             <!-- Question and answer section -->
             <div
-              v-else-if="
-                numOfAudiosPlayed < 5 && playButton === true
-              "
+              v-else-if="numOfAudiosPlayed < 5 && playButton === true"
               class="flex flex-col p-4 justify-center"
               id="content"
             >
@@ -169,7 +165,10 @@
 
               <!-- Different button styling for tablet -->
               <div
-                v-show="!(isTablet || isMobile) || (!isIntroPlaying && numOfAudiosPlayed > 0)"
+                v-show="
+                  !(isTablet || isMobile) ||
+                  (!isIntroPlaying && numOfAudiosPlayed > 0)
+                "
                 :class="[
                   isTablet
                     ? 'flex gap-[25px] mb-6'
@@ -207,10 +206,10 @@
                   <span class="text-lg font-medium">
                     {{
                       isRecording
-                        ? "Stop Recording"
+                        ? 'Stop Recording'
                         : isTablet || isMobile
-                        ? "Record"
-                        : "Record Answer"
+                        ? 'Record'
+                        : 'Record Answer'
                     }}
                   </span>
                   <img
@@ -246,7 +245,7 @@
                   "
                 >
                   <span class="text-lg font-medium">{{
-                    isTablet || isMobile ? "Repeat" : "Repeat Question"
+                    isTablet || isMobile ? 'Repeat' : 'Repeat Question'
                   }}</span>
                   <img
                     src="/assets/gameImages/buttons/repeat.png"
@@ -258,7 +257,10 @@
 
               <div
                 id="transcript"
-                v-show="!(isTablet || isMobile) || (!isIntroPlaying && numOfAudiosPlayed > 0)"
+                v-show="
+                  !(isTablet || isMobile) ||
+                  (!isIntroPlaying && numOfAudiosPlayed > 0)
+                "
                 class="text-center text-xl font-bold pt-2 pb-1"
               >
                 You said: {{ transcription }}
@@ -282,20 +284,20 @@
 </template>
 
 <script setup>
-import { onMounted, onUnmounted, ref, watch, computed } from "vue";
-import GamePagesHeader from "../../Header/GamePagesHeader.vue";
-import { requestMicPermission } from "../../../Utilities/requestMicAccess";
+import { onMounted, onUnmounted, ref, watch, computed } from 'vue';
+import GamePagesHeader from '../../Header/GamePagesHeader.vue';
+import { requestMicPermission } from '../../../Utilities/requestMicAccess';
 import {
   playIntro,
   playQuestion,
   playSound,
   stopAudios,
   playScore,
-} from "../../../Utilities/playAudio";
+} from '../../../Utilities/playAudio';
 import {
   startListening,
   stopListening,
-} from "../../../Utilities/speechRecognition";
+} from '../../../Utilities/speechRecognition';
 
 // Device detection
 const isTablet = ref(false);
@@ -304,13 +306,13 @@ const isDesktop = computed(() => !isTablet.value && !isMobile.value);
 
 // Function to handle back button click
 const goBack = () => {
-  console.log("Going back...");
+  console.log('Going back...');
   // Stop all audio playback before navigating away
   stopAudios(currentAudios);
   // Save the source category to sessionStorage
-  sessionStorage.setItem("gameCategory", "math");
+  sessionStorage.setItem('gameCategory', 'math');
   // Force navigate to the game zone page
-  window.location.href = "/game-zone";
+  window.location.href = '/game-zone';
 };
 
 // Check device type on mount and on window resize
@@ -320,11 +322,11 @@ const checkDeviceType = () => {
     // Small devices (large phones)
     isTablet.value = false;
     isMobile.value = true;
-  } else if (width >= 768 && width <= 1024) { 
+  } else if (width >= 768 && width <= 1024) {
     // Medium devices (tablets, including iPad Pro width)
     isTablet.value = true;
     isMobile.value = false;
-  } else if (width > 1024) { 
+  } else if (width > 1024) {
     // Large devices (laptops/desktops)
     isTablet.value = false;
     isMobile.value = false;
@@ -341,7 +343,7 @@ const numOfAudiosPlayed = ref(0);
 const score = ref(0);
 const questionsDb = ref([]);
 const isListening = ref(false);
-const transcription = ref("");
+const transcription = ref('');
 const playButton = ref(false);
 const isIntroPlaying = ref(false);
 const isRecording = ref(false);
@@ -349,16 +351,16 @@ const isButtonCooldown = ref(false);
 
 // Generate addition questions using Json file
 const generateQuestions = () => {
-  console.log("Generating Questions...");
-  fetch("/assets/questionsDb/additionDb.json")
+  console.log('Generating Questions...');
+  fetch('/assets/questionsDb/additionDb.json')
     .then((response) => response.json())
     .then((data) => {
       let allQuestions = [
-        ...data["AdditionGame"]["Questions"]["Easy"],
-        ...data["AdditionGame"]["Questions"]["Medium"],
-        ...data["AdditionGame"]["Questions"]["Hard"],
+        ...data['AdditionGame']['Questions']['Easy'],
+        ...data['AdditionGame']['Questions']['Medium'],
+        ...data['AdditionGame']['Questions']['Hard'],
       ];
-      
+
       // Only need 5 random questions
       while (randQueNum.length < 5) {
         let num = Math.floor(Math.random() * allQuestions.length);
@@ -367,20 +369,23 @@ const generateQuestions = () => {
         }
       }
       questionsDb.value = allQuestions;
-      console.log("Questions generated!");
+      console.log('Questions generated!');
       console.log(questionsDb.value);
     })
     .catch((error) => {
-      console.error("Error fetching questions:", error);
+      console.error('Error fetching questions:', error);
     });
 };
 
 // Play the next question
-const playNextQuestion = () => {
+const playNextQuestion = async () => {
   if (numOfAudiosPlayed.value < 5) {
     const question = questionsDb.value[randQueNum[numOfAudiosPlayed.value]];
     console.log(question);
-    currentAudios.push(playQuestion(question["Q"]));
+
+    isButtonCooldown.value = true;
+    await playQuestion(question['Q']);
+    isButtonCooldown.value = false;
   }
 };
 
@@ -389,64 +394,63 @@ const toggleRecording = () => {
   if (numOfAudiosPlayed.value < 5 && !isIntroPlaying.value) {
     if (!isRecording.value) {
       isRecording.value = true;
-      
+
       startListening((transcript) => {
         transcription.value = transcript;
       }, false);
     } else {
       isButtonCooldown.value = true;
-      console.log("Processing recording...");
+      console.log('Processing recording...');
 
       const finalTranscript = transcription.value;
-      
+
       // Process the answer
       const question = questionsDb.value[randQueNum[numOfAudiosPlayed.value]];
-      console.log("Question is: ", question["Q"]);
-      console.log("User Answer:", finalTranscript);
-      console.log("Correct Answer:", question["A"]);
-      
+      console.log('Question is: ', question['Q']);
+      console.log('User Answer:', finalTranscript);
+      console.log('Correct Answer:', question['A']);
+
       const userWords = finalTranscript
-      .toLowerCase()
-      .replace(/[.,!?]/g, "")
-      .split(/\s+/);
+        .toLowerCase()
+        .replace(/[.,!?]/g, '')
+        .split(/\s+/);
 
-      const correctAnswers = Array.isArray(question["A"])
-        ? question["A"].map((a) => a.toLowerCase())
-        : [question["A"].toLowerCase()];
+      const correctAnswers = Array.isArray(question['A'])
+        ? question['A'].map((a) => a.toLowerCase())
+        : [question['A'].toLowerCase()];
 
-      if (userWords.some((word) => correctAnswers.includes(word))){
+      if (userWords.some((word) => correctAnswers.includes(word))) {
         score.value++;
-        console.log("Correct Answer!");
-        playSound("correctaudio.mp3");
+        console.log('Correct Answer!');
+        playSound('correctaudio.mp3');
       } else {
-        console.log("Wrong Answer!");
-        playSound("incorrectaudio.mp3");
-        console.log("Correct Answer is: ", question["A"]);
-        const incorectAudio = "The correct answer is " + question["A"][0];
+        console.log('Wrong Answer!');
+        playSound('incorrectaudio.mp3');
+        console.log('Correct Answer is: ', question['A']);
+        const incorectAudio = 'The correct answer is ' + question['A'][0];
 
         setTimeout(() => {
           currentAudios.push(playQuestion(incorectAudio));
         }, 1000);
       }
-      
+
       // Stop listening
       stopListening();
       isRecording.value = false;
       numOfAudiosPlayed.value++;
-      
+
       // Reset transcription for next question
       setTimeout(() => {
-        transcription.value = "";
-        isButtonCooldown.value = false;
-        console.log("Recording processed and stopped");
-        
+        transcription.value = '';
+        console.log('Recording processed and stopped');
+
         // Move to next question or end game
         if (numOfAudiosPlayed.value < 5) {
           setTimeout(() => {
             playNextQuestion();
           }, 2000);
         } else {
-          console.log("Game Over!");
+          console.log('Game Over!');
           setTimeout(() => {
             playScore(score.value);
           }, 2000);
@@ -468,7 +472,7 @@ const repeatQuestion = () => {
 
     // logging message for repeating question
     console.log(
-      "Repeating question for Animal Addition game - Question #" +
+      'Repeating question for Animal Addition game - Question #' +
         (numOfAudiosPlayed.value + 1)
     );
 
@@ -480,27 +484,27 @@ const repeatQuestion = () => {
       isButtonCooldown.value = false;
     }, 5000);
   } else if (isIntroPlaying.value) {
-    console.log("Cannot repeat question while introduction is playing");
+    console.log('Cannot repeat question while introduction is playing');
   } else if (isButtonCooldown.value) {
-    console.log("Please wait before repeating the question again");
+    console.log('Please wait before repeating the question again');
   }
 };
 
 // Add new function to handle first question start
 const startFirstQuestion = () => {
-  console.log("Starting first question...");
-  numOfAudiosPlayed.value = 1;  // This will trigger the buttons to show
+  console.log('Starting first question...');
+  numOfAudiosPlayed.value = 1; // This will trigger the buttons to show
   playNextQuestion();
 };
 
 onMounted(() => {
   // Request microphone access on page load
-  console.log("Requesting microphone access...");
+  console.log('Requesting microphone access...');
   requestMicPermission();
 
   // Check device type
   checkDeviceType();
-  window.addEventListener("resize", checkDeviceType);
+  window.addEventListener('resize', checkDeviceType);
 
   // Generate questions
   generateQuestions();
@@ -508,7 +512,7 @@ onMounted(() => {
   watch(playButton, (newVal) => {
     if (newVal) {
       isIntroPlaying.value = true;
-      const introAudio = playIntro("/animalAddition/additionintro.mp3");
+      const introAudio = playIntro('/animalAddition/additionintro.mp3');
       currentAudios.push(introAudio);
       introAudio.onended = () => {
         isIntroPlaying.value = false;
@@ -522,8 +526,8 @@ onMounted(() => {
 });
 
 onUnmounted(() => {
-  console.log("Navigated Back!");
+  console.log('Navigated Back!');
   stopAudios(currentAudios);
-  window.removeEventListener("resize", checkDeviceType);
+  window.removeEventListener('resize', checkDeviceType);
 });
 </script>
