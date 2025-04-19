@@ -157,7 +157,7 @@
                   :disabled="isIntroPlaying"
                   :class="{ 'opacity-50 cursor-not-allowed': isIntroPlaying }"
                 >
-                  {{ isIntroPlaying ? "Please wait..." : "Start Questions" }}
+                  {{ isIntroPlaying ? 'Please wait...' : 'Start Questions' }}
                 </button>
               </div>
 
@@ -187,10 +187,12 @@
                       : 'gap-2.5 w-[234px] h-[116px] pt-5 pr-7 pb-5 pl-7 rounded-[20px]',
                     isRecording ? 'bg-red-500' : 'bg-[#087BB4]',
                     'text-white',
-                    isIntroPlaying ? 'opacity-50 cursor-not-allowed' : '',
+                    isIntroPlaying || isButtonCooldown
+                      ? 'opacity-50 cursor-not-allowed'
+                      : '',
                   ]"
                   style="box-shadow: 10px 10px 20px 0px #32323233"
-                  :disabled="isIntroPlaying"
+                  :disabled="isIntroPlaying || isButtonCooldown"
                   :title="
                     isIntroPlaying
                       ? 'Please wait until the introduction finishes'
@@ -200,10 +202,10 @@
                   <span class="text-lg font-medium">
                     {{
                       isRecording
-                        ? "Stop Recording"
+                        ? 'Stop Recording'
                         : isTablet || isMobile
-                        ? "Record"
-                        : "Record Answer"
+                        ? 'Record'
+                        : 'Record Answer'
                     }}
                   </span>
                   <img
@@ -239,7 +241,7 @@
                   "
                 >
                   <span class="text-lg font-medium">{{
-                    isTablet || isMobile ? "Repeat" : "Repeat Question"
+                    isTablet || isMobile ? 'Repeat' : 'Repeat Question'
                   }}</span>
                   <img
                     src="/assets/gameImages/buttons/repeat.png"
@@ -278,20 +280,20 @@
 </template>
 
 <script setup>
-import { onMounted, onUnmounted, ref, watch, computed } from "vue";
-import GamePagesHeader from "../../Header/GamePagesHeader.vue";
-import { requestMicPermission } from "../../../Utilities/requestMicAccess";
+import { onMounted, onUnmounted, ref, watch, computed } from 'vue';
+import GamePagesHeader from '../../Header/GamePagesHeader.vue';
+import { requestMicPermission } from '../../../Utilities/requestMicAccess';
 import {
   playIntro,
   playQuestion,
   playSound,
   stopAudios,
   playScore,
-} from "../../../Utilities/playAudio";
+} from '../../../Utilities/playAudio';
 import {
   startListening,
   stopListening,
-} from "../../../Utilities/speechRecognition";
+} from '../../../Utilities/speechRecognition';
 
 // Device detection
 const isTablet = ref(false);
@@ -300,11 +302,11 @@ const isDesktop = computed(() => !isTablet.value && !isMobile.value);
 
 // Function to handle back button click
 const goBack = () => {
-  console.log("Going back...");
+  console.log('Going back...');
   // Stop all audio playback before navigating away
   stopAudios(currentAudios);
   // Force navigate to the game zone page
-  window.location.href = "/game-zone";
+  window.location.href = '/game-zone';
 };
 
 // Check device type on mount and on window resize
@@ -335,7 +337,7 @@ let numOfAudiosPlayed = ref(0),
   score = ref(0);
 let questionsDb = [],
   isListening = ref(false),
-  transcription = ref(""),
+  transcription = ref(''),
   playButton = ref(false),
   isIntroPlaying = ref(false),
   isRecording = ref(false),
@@ -343,7 +345,7 @@ let questionsDb = [],
 
 // Generate multiplication questions using Json file
 const generateQuestions = () => {
-  console.log("Generating Questions...");
+  console.log('Generating Questions...');
   // Generate 5 random numbers for the questions
   while (randQueNum.length < 5) {
     let num = Math.floor(Math.random() * 10);
@@ -352,24 +354,27 @@ const generateQuestions = () => {
     }
   }
   // Fetch questions from JSON file
-  fetch("/assets/questionsDb/polarPairingDB.json")
+  fetch('/assets/questionsDb/polarPairingDB.json')
     .then((response) => response.json())
     .then((data) => {
-      console.log("Questions:", data["PolarPairingGame"]["Questions"]["Easy"]);
+      console.log('Questions:', data['PolarPairingGame']['Questions']['Easy']);
       // Process the questions data as needed
-      questionsDb = data["PolarPairingGame"]["Questions"]["Easy"];
+      questionsDb = data['PolarPairingGame']['Questions']['Easy'];
     })
     .catch((error) => {
-      console.error("Error fetching questions:", error);
+      console.error('Error fetching questions:', error);
     });
 };
 
 // Play the next question
-const playNextQuestion = () => {
+const playNextQuestion = async () => {
   if (numOfAudiosPlayed.value < 5) {
     const question = questionsDb[randQueNum[numOfAudiosPlayed.value]];
     console.log(question);
-    currentAudios.push(playQuestion(question["Q"]));
+
+    isButtonCooldown.value = true;
+    await playQuestion(question['Q']);
+    isButtonCooldown.value = false;
   }
 };
 
@@ -385,7 +390,7 @@ const repeatQuestion = () => {
 
     // logging message for repeating question
     console.log(
-      "Repeating question for Polar Pairing game - Question #" +
+      'Repeating question for Polar Pairing game - Question #' +
         (numOfAudiosPlayed.value + 1)
     );
 
@@ -397,9 +402,9 @@ const repeatQuestion = () => {
       isButtonCooldown.value = false;
     }, 5000);
   } else if (isIntroPlaying.value) {
-    console.log("Cannot repeat question while introduction is playing");
+    console.log('Cannot repeat question while introduction is playing');
   } else if (isButtonCooldown.value) {
-    console.log("Please wait before repeating the question again");
+    console.log('Please wait before repeating the question again');
   }
 };
 
@@ -414,34 +419,34 @@ const toggleRecording = () => {
       }, false);
     } else {
       isButtonCooldown.value = true;
-      console.log("Processing recording...");
+      console.log('Processing recording...');
 
       // Get the final transcript
       const finalTranscript = transcription.value;
 
       // Process the answer
       const question = questionsDb[randQueNum[numOfAudiosPlayed.value]];
-      console.log("Question is: ", question["Q"]);
-      console.log("User Answer:", finalTranscript);
-      console.log("Correct Answer:", question["A"]);
+      console.log('Question is: ', question['Q']);
+      console.log('User Answer:', finalTranscript);
+      console.log('Correct Answer:', question['A']);
 
       const userWords = finalTranscript
-      .toLowerCase()
-      .replace(/[.,!?]/g, "")
-      .split(/\s+/);
+        .toLowerCase()
+        .replace(/[.,!?]/g, '')
+        .split(/\s+/);
 
-      const correctAnswers = Array.isArray(question["A"])
-        ? question["A"].map((a) => a.toLowerCase())
-        : [question["A"].toLowerCase()];
+      const correctAnswers = Array.isArray(question['A'])
+        ? question['A'].map((a) => a.toLowerCase())
+        : [question['A'].toLowerCase()];
 
-      if (userWords.some((word) => correctAnswers.includes(word))){
+      if (userWords.some((word) => correctAnswers.includes(word))) {
         score.value++;
-        console.log("Correct Answer!");
-        playSound("correctaudio.mp3");
+        console.log('Correct Answer!');
+        playSound('correctaudio.mp3');
       } else {
-        console.log("Wrong Answer!");
-        playSound("incorrectaudio.mp3");
-        const incorectAudio = "The correct answer is " + question["A"][0];
+        console.log('Wrong Answer!');
+        playSound('incorrectaudio.mp3');
+        const incorectAudio = 'The correct answer is ' + question['A'][0];
 
         setTimeout(() => {
           currentAudios.push(playQuestion(incorectAudio));
@@ -455,9 +460,8 @@ const toggleRecording = () => {
 
       // Reset transcription for next question
       setTimeout(() => {
-        transcription.value = "";
-        isButtonCooldown.value = false;
-        console.log("Recording processed and stopped");
+        transcription.value = '';
+        console.log('Recording processed and stopped');
 
         // Move to next question or end game
         if (numOfAudiosPlayed.value < 5) {
@@ -465,7 +469,7 @@ const toggleRecording = () => {
             playNextQuestion();
           }, 2000);
         } else {
-          console.log("Game Over!");
+          console.log('Game Over!');
           setTimeout(() => {
             playScore(score.value);
           }, 2000);
@@ -477,19 +481,19 @@ const toggleRecording = () => {
 
 // Add new function to handle first question start
 const startFirstQuestion = () => {
-  console.log("Starting first question...");
+  console.log('Starting first question...');
   numOfAudiosPlayed.value = 1; // This will trigger the buttons to show
   playNextQuestion();
 };
 
 onMounted(() => {
   // Request microphone access on page load
-  console.log("Requesting microphone access...");
+  console.log('Requesting microphone access...');
   requestMicPermission();
 
   // Check device type
   checkDeviceType();
-  window.addEventListener("resize", checkDeviceType);
+  window.addEventListener('resize', checkDeviceType);
 
   // Generate questions
   generateQuestions();
@@ -497,7 +501,7 @@ onMounted(() => {
   watch(playButton, (newVal) => {
     if (newVal) {
       isIntroPlaying.value = true;
-      const introAudio = playIntro("/polarpairing/oppintro.mp3");
+      const introAudio = playIntro('/polarpairing/oppintro.mp3');
       currentAudios.push(introAudio);
       introAudio.onended = () => {
         isIntroPlaying.value = false;
@@ -511,9 +515,9 @@ onMounted(() => {
 });
 
 onUnmounted(() => {
-  console.log("Navigated Back!");
+  console.log('Navigated Back!');
   stopAudios(currentAudios);
 
-  window.removeEventListener("resize", checkDeviceType);
+  window.removeEventListener('resize', checkDeviceType);
 });
 </script>
