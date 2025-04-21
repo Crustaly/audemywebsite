@@ -18,6 +18,7 @@ const props = defineProps({
         @click="$emit('selectGame', url)"
         class="w-full h-[320px] mobile:h-[160px] rounded-[16px] border-[5px] border-[#323232] shadow-2xl  p-5 relative flex justify-center items-center"
         :style="{ backgroundColor: bgColor, color: textColor ?? '#323232' }"
+        style="z-index:0"
     >
         <img
             :src="icon"
