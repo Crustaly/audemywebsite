@@ -31,8 +31,8 @@ const schools = [
         link: "https://asdb.az.gov/",
     },
     {
-        name: "Obra D. Tompkins High School",
-        link: "https://www.katyisd.org/tompkins",
+        name: "Vermont Association For The Blind And Visually Impaired",
+        link: "https://www.vabvi.org/",
     },
     {
         name: "HeZe Special Education Center (菏泽市特殊教育中心)",

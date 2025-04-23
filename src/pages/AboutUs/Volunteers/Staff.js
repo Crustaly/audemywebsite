@@ -124,10 +124,36 @@ const developmentStaff = [
         name: "Shyaka Chaste",
         role: "Developer",
         image: "/assets/images/about-us/volunteers/shyaka.png",
-    },{
+    },
+    {
         name: "Prajwala Shambulingappa",
         role: "Developer",
         image: "/assets/images/about-us/volunteers/default1.svg",
+    },
+    {
+        name: "Ankita Shendge",
+        role: "Developer",
+        image: "/assets/images/about-us/volunteers/ankita.png",
+    },
+    {
+        name: "Isabelle Huang",
+        role: "Developer",
+        image: "/assets/images/about-us/volunteers/isabelle.png",
+    },
+    {
+        name: "DooHwan Kim",
+        role: "Developer",
+        image: "/assets/images/about-us/volunteers/doohwan.png",
+    },
+    {
+        name: "Jesus Luigi Sison",
+        role: "Developer",
+        image: "/assets/images/about-us/volunteers/jesus.png",
+    },
+    {
+        name: "Rajat Kulkarni",
+        role: "Developer",
+        image: "/assets/images/about-us/volunteers/rajat.png",
     },
 ];
 

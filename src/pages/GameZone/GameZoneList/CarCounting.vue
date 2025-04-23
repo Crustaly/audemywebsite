@@ -501,12 +501,8 @@ const toggleRecording = () => {
       console.log("User Answer:", finalTranscript);
       console.log("Correct Answer:", randQueNum[numOfAudiosPlayed.value]);
 
-      if (
-        finalTranscript
-          .trim()
-          .toLowerCase()
-          .includes(answers[numOfAudiosPlayed.value].toLowerCase())
-      ) {
+      const cleanedInput = finalTranscript.trim().toLowerCase().replace(/[^\w\s]/g, ''); // removes punctuation
+      if (cleanedInput.includes(answers[numOfAudiosPlayed.value].toLowerCase())) {
         score.value++;
         console.log("Correct Answer!");
         playSound("correctaudio.mp3");

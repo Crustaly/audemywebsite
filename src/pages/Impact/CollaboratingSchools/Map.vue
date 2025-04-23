@@ -26,7 +26,7 @@ export default {
                 var location4 = [-89, 40];
                 var location5 = [-111.0937, 34.0489];
                 var location6 = [117.0208, 36.6683];
-                var location7 = [-95.3698, 29.7604];
+                var location7 = [-72.576, 44.2601];
                 var popupOffset = 25;
 
                 var marker1 = new tt.Marker().setLngLat(location1).addTo(map);
@@ -66,7 +66,9 @@ export default {
                 var popup7 = new tt.Popup({
                     offset: popupOffset,
                     closeButton: false,
-                }).setText("Obra D. Tompkins High School");
+                }).setText(
+                    "Vermont Association For The Blind And Visually Impaired"
+                );
 
                 marker1.setPopup(popup1);
                 marker2.setPopup(popup2);

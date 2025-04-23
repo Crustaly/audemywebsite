@@ -459,9 +459,10 @@ const toggleRecording = () => {
       console.log("Correct Answer:", question["A"]);
 
       const userWords = finalTranscript
-      .toLowerCase()
-      .replace(/[.,!?]/g, "")
-      .split(/\s+/);
+  .toLowerCase()
+  .replace(/[^a-z0-9\s]/gi, "") // removes everything except letters, numbers, and spaces
+  .split(/\s+/)
+  .filter(Boolean); // removes empty strings
 
       const correctAnswers = Array.isArray(question["A"])
         ? question["A"].map((a) => a.toLowerCase())
