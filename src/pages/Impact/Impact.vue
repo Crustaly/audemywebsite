@@ -8,11 +8,23 @@ import PressList from "./PressList/PressList.vue";
 import OurReach from "./OurReach/OurReach.vue";
 import CollaboratingSchools from "./CollaboratingSchools/CollaboratingSchools.vue";
 import ImpactInAction from "./ImpactInAction/ImpactInAction.vue";
+
+import { useDeviceType } from '../../utilities/checkDeviceType';
+const { isMobile, isTablet } = useDeviceType();
+
 </script>
+
 <template>
     <ScrollUpButton />
-
-    <div class="px-20 relative" ref="content">
+    <div 
+        :class="[
+        'relative', 
+        !isTablet && !isMobile ? 'px-14' : '',
+        isTablet ? 'px-6' : '',
+        isMobile ? 'px-8' : ''
+        ]" 
+        ref="content"
+    >
         <Header :logoPath="'/assets/images/header/header-logo-2.png'" />
         <OurReach />
     </div>

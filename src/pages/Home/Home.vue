@@ -11,43 +11,10 @@ import Sponsors from "./Sponsors/Sponsors.vue";
 import TechShowcase from "./TechShowcase/TechShowcase.vue";
 import Impact from "./Impact/Impact.vue";
 import ScrollUpButton from "../../components/ScrollUpButton/ScrollUpButton.vue";
-import { ref, onMounted, onUnmounted } from 'vue';
 
-// Device detection
-const isTablet = ref(false);
-const isMobile = ref(false);
+import { useDeviceType } from '../../utilities/checkDeviceType';
+const { isMobile, isTablet } = useDeviceType();
 
-// Check device type on mount and on window resize
-const checkDeviceType = () => {
-  const width = window.innerWidth;
-  if (width >= 640 && width < 768) {
-    // Small devices (large phones)
-    isTablet.value = false;
-    isMobile.value = true;
-  } else if (width >= 768 && width < 1024) {
-    // Medium devices (tablets)
-    isTablet.value = true;
-    isMobile.value = false;
-  } else if (width >= 1024) {
-    // Large devices (laptops/desktops)
-    isTablet.value = false;
-    isMobile.value = false;
-  } else {
-    // Extra small devices (phones)
-    isTablet.value = false;
-    isMobile.value = true;
-  }
-};
-
-// Add event listeners
-onMounted(() => {
-  checkDeviceType();
-  window.addEventListener('resize', checkDeviceType);
-});
-
-onUnmounted(() => {
-  window.removeEventListener('resize', checkDeviceType);
-});
 </script>
 
 <template>
@@ -55,9 +22,9 @@ onUnmounted(() => {
   <div 
     :class="[
       'relative', 
-      !isTablet && !isMobile ? 'px-20' : '',
-      isTablet ? 'px-10' : '',
-      isMobile ? 'px-5' : ''
+      !isTablet && !isMobile ? 'px-14' : '',
+      isTablet ? 'px-6' : '',
+      isMobile ? 'px-8' : ''
     ]" 
     ref="content"
   >
