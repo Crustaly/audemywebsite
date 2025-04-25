@@ -12,7 +12,7 @@ import TechShowcase from "./TechShowcase/TechShowcase.vue";
 import Impact from "./Impact/Impact.vue";
 import ScrollUpButton from "../../components/ScrollUpButton/ScrollUpButton.vue";
 
-import { useDeviceType } from '../../utilities/checkDeviceType';
+import { useDeviceType } from "../../Utilities/checkDeviceType";
 const { isMobile, isTablet } = useDeviceType();
 
 </script>

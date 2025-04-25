@@ -8,7 +8,7 @@ import Volunteers from "./Volunteers/Volunteers.vue";
 import WeAreCommitted from "./WeAreCommitted/WeAreCommitted.vue";
 import CallToAction from "./CallToAction/CallToAction.vue";
 
-import { useDeviceType } from '../../utilities/checkDeviceType';
+import { useDeviceType } from "../../Utilities/checkDeviceType";
 const { isMobile, isTablet } = useDeviceType();
 
 </script>

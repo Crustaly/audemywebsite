@@ -7,7 +7,7 @@ import Footer from "../../components/Footer/Footer.vue";
 
 import { ref, onMounted, onUnmounted } from "vue";
 
-import { useDeviceType } from '../../utilities/checkDeviceType';
+import { useDeviceType } from "../../Utilities/checkDeviceType";
 const { isMobile, isTablet } = useDeviceType();
 
 const currentPage = ref(1);

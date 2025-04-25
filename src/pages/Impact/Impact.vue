@@ -9,7 +9,7 @@ import OurReach from "./OurReach/OurReach.vue";
 import CollaboratingSchools from "./CollaboratingSchools/CollaboratingSchools.vue";
 import ImpactInAction from "./ImpactInAction/ImpactInAction.vue";
 
-import { useDeviceType } from '../../utilities/checkDeviceType';
+import { useDeviceType } from "../../Utilities/checkDeviceType";
 const { isMobile, isTablet } = useDeviceType();
 
 </script>

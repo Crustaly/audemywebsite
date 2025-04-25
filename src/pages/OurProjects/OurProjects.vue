@@ -9,7 +9,7 @@ import KatyYouthHacks from "./Events/KatyYouthHacks/KatyYouthHacks.vue";
 import SocialMedia from "./Social/SocialMedia.vue";
 import Footer from "../../components/Footer/Footer.vue";
 
-import { useDeviceType } from '../../utilities/checkDeviceType';
+import { useDeviceType } from "../../Utilities/checkDeviceType";
 const { isMobile, isTablet } = useDeviceType();
 
 </script>
