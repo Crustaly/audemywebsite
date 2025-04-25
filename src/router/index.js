@@ -13,6 +13,7 @@ import ResetConfirm from "../pages/ResetPassword/ResetConfirm.vue";
 import ResetLandingPage from "../pages/ResetPassword/ResetLandingPage.vue";
 import AboutUs from "../pages/AboutUs/AboutUs.vue";
 import Impact from "../pages/Impact/Impact.vue";
+import Troubleshooting from "../pages/Troubleshooting/Troubleshooting.vue"
 // import SpellingBee from "../pages/GameZone/GameZoneList/SpellingBee/SpellingBee.vue";
 
 const routes = [
@@ -30,6 +31,7 @@ const routes = [
     { path: "/reset-confirm", name: "Reset Confirm", component: ResetConfirm },
     { path: "/reset-landing-page", name: "Reset Landing Page", component: ResetLandingPage },
     { path: "/:pathMatch(.*)*", name: "not-found", component: NotFound },
+    { path: "/troubleshooting", name: "Troubleshooting Page", component: Troubleshooting },
     {
         path: "/game/addition",
         name: "AdditionGame",
