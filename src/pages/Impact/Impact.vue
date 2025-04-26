@@ -16,6 +16,7 @@ const { isMobile, isTablet } = useDeviceType();
 
 <template>
     <ScrollUpButton />
+    
     <div 
         :class="[
         'relative', 
@@ -26,12 +27,13 @@ const { isMobile, isTablet } = useDeviceType();
         ref="content"
     >
         <Header :logoPath="'/assets/images/header/header-logo-2.png'" />
-        <OurReach />
     </div>
-    <CollaboratingSchools />
-
+    
     <ImpactInAction />
-    <Accolades />
     <PressList />
+    <CollaboratingSchools />
+    <Accolades />
+    <OurReach />
+    
     <Footer />
 </template>

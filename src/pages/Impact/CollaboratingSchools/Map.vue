@@ -2,108 +2,135 @@
 import { onMounted, ref } from "vue";
 
 export default {
-    name: "Map",
-    setup() {
-        const mapRef = ref(null);
-        onMounted(() => {
-            const tt = window.tt;
-            var map = tt.map({
-                key: "1JNM9zmAHGoFlR8FiiV1syDoa05dafLP",
-                container: mapRef.value,
-                style: "tomtom://vector/1/basic-main",
-                center: [-97.7431, 30.2672],
-                zoom: 2.5,
-            });
-            map.addControl(new tt.FullscreenControl());
-            map.addControl(new tt.NavigationControl());
+  name: "Map",
+  setup() {
+    const mapRef = ref(null);
+    onMounted(() => {
+      const tt = window.tt;
+      var map = tt.map({
+        key: "1JNM9zmAHGoFlR8FiiV1syDoa05dafLP",
+        container: mapRef.value,
+        style: "tomtom://vector/1/basic-main",
+        center: [-97.7431, 30.2672],
+        zoom: 2.5,
+      });
+      map.addControl(new tt.FullscreenControl());
+      map.addControl(new tt.NavigationControl());
 
-            function addMarker(map) {
-                const tt = window.tt;
+      addMarker(map);
 
-                var location1 = [-119.4179, 36.7783];
-                var location2 = [-97.7431, 30.2672];
-                var location3 = [-98, 38.5];
-                var location4 = [-89, 40];
-                var location5 = [-111.0937, 34.0489];
-                var location6 = [117.0208, 36.6683];
-                var location7 = [-72.576, 44.2601];
-                var popupOffset = 25;
+      function addMarker(map) {
+        const locations = [
+          {
+            name: "Alabama Institute for the Deaf and Blind",
+            coordinates: [-86.121667, 33.423889],
+          },
+          {
+            name: "Arizona State School for the Deaf and the Blind",
+            coordinates: [-110.9904206, 32.2370163],
+          },
+          {
+            name: "California School for the Blind",
+            coordinates: [-121.965, 37.561389],
+          },
+          {
+            name: "Florida School for the Deaf and the Blind",
+            coordinates: [-81.31568, 29.91387],
+          },
+          {
+            name: "Georgia Academy for the Blind",
+            coordinates: [-83.6686, 32.8481],
+          },
+          {
+            name: "Hadley (IL)",
+            coordinates: [-87.7305, 42.1056],
+          },
+          {
+            name: "Idaho Educational Services for the Deaf and the Blind",
+            coordinates: [-114.71018377937226, 42.930033266556364],
+          },
+          {
+            name: "Illinois School for the Visually Impaired",
+            coordinates: [-90.21798754611584, 39.73565543633133],
+          },
+          {
+            name: "Indiana School for the Blind and Visually Impaired",
+            coordinates: [-86.08515046145114, 39.83401516509762],
+          },
+          {
+            name: "Iowa Educational Services for the Blind and Visually Impaired",
+            coordinates: [-95.82260501904825, 41.22588929543891],
+          },
+          {
+            name: "Kansas State School for the Blind",
+            coordinates: [-94.6395, 39.11653],
+          },
+          {
+            name: "Kentucky School for the Blind",
+            coordinates: [-85.713383, 38.255933],
+          },
+          {
+            name: "Louisiana School for the Visually Impaired",
+            coordinates: [-91.188055, 30.393055],
+          },
+          {
+            name: "Maryland School for the Blind",
+            coordinates: [-76.536111, 39.3675],
+          },
+          {
+            name: "Missouri School for the Blind",
+            coordinates: [-90.245, 38.608333],
+          },
+          {
+            name: "Perkins School for the Blind (MA)",
+            coordinates: [-71.1755, 42.362],
+          },
+          {
+            name: "Vermont Association for the Blind and Visually Impaired",
+            coordinates: [-73.150000, 44.466667],
+          },
+          {
+            name: "Visually Impaired Preschool Services (KY + IN)",
+            coordinates: [-85.68384087502888, 38.20048802883136],
+          },
+        ];
 
-                var marker1 = new tt.Marker().setLngLat(location1).addTo(map);
-                var marker2 = new tt.Marker().setLngLat(location2).addTo(map);
-                var marker3 = new tt.Marker().setLngLat(location3).addTo(map);
-                var marker4 = new tt.Marker().setLngLat(location4).addTo(map);
-                var marker5 = new tt.Marker().setLngLat(location5).addTo(map);
-                var marker6 = new tt.Marker().setLngLat(location6).addTo(map);
-                var marker7 = new tt.Marker().setLngLat(location7).addTo(map);
-
-                var popup1 = new tt.Popup({
-                    offset: popupOffset,
-                    closeButton: false,
-                }).setText("California School for the Blind");
-                var popup2 = new tt.Popup({
-                    offset: popupOffset,
-                    closeButton: false,
-                }).setText("Texas School for the Blind and Visually Impaired");
-                var popup3 = new tt.Popup({
-                    offset: popupOffset,
-                    closeButton: false,
-                }).setText("Kansas School for the Blind");
-                var popup4 = new tt.Popup({
-                    offset: popupOffset,
-                    closeButton: false,
-                }).setText("Illinois School for the Visually Impaired");
-                var popup5 = new tt.Popup({
-                    offset: popupOffset,
-                    closeButton: false,
-                }).setText("Arizona State School for the Deaf and the Blind");
-                var popup6 = new tt.Popup({
-                    offset: popupOffset,
-                    closeButton: false,
-                }).setText(
-                    "HeZe Special Education Center (菏泽市特殊教育中心)"
-                );
-                var popup7 = new tt.Popup({
-                    offset: popupOffset,
-                    closeButton: false,
-                }).setText(
-                    "Vermont Association For The Blind And Visually Impaired"
-                );
-
-                marker1.setPopup(popup1);
-                marker2.setPopup(popup2);
-                marker3.setPopup(popup3);
-                marker4.setPopup(popup4);
-                marker5.setPopup(popup5);
-                marker6.setPopup(popup6);
-                marker7.setPopup(popup7);
-            }
-
-            addMarker(map);
+        const tt = window.tt;
+        locations.forEach((location) => {
+          let marker = new tt.Marker()
+            .setLngLat(location.coordinates)
+            .addTo(map);
+          let popup = new tt.Popup({
+            offset: 25,
+            closeButton: false,
+          }).setText(location.name);
+          marker.setPopup(popup);
         });
+      }
+    });
 
-        return { mapRef };
-    },
+    return { mapRef };
+  },
 };
 </script>
 
 <template>
-    <div id="map" ref="mapRef"></div>
+  <div id="map" ref="mapRef"></div>
 </template>
 
 <style>
 #map {
-    height: 45vh;
-    width: 35vw;
-    border-radius: 16px;
+  height: 45vh;
+  width: 35vw;
+  border-radius: 16px;
 }
 @media (max-width: 768px) {
-    #map {
-        height: 80vw;
-        width: 80vw;
-        border-radius: 12px;
-        margin: 0 auto;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    }
+  #map {
+    height: 80vw;
+    width: 80vw;
+    border-radius: 12px;
+    margin: 0 auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
 }
 </style>

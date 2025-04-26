@@ -11,32 +11,76 @@ const changeCurrentPage = (page) => {
 
 const schools = [
     {
-        name: "California School for the Blind",
-        link: "https://www.csb-cde.ca.gov/",
-    },
-    {
-        name: "Texas School for the Blind and Visually Impaired",
-        link: "https://www.tsbvi.edu/",
-    },
-    {
-        name: "Kansas School for the Blind",
-        link: "https://kssb.net/",
-    },
-    {
-        name: "Illinois School for the Visually Impaired",
-        link: "https://www.dhs.state.il.us/page.aspx?item=84503",
+        name: "Alabama Institute for the Deaf and Blind",
+        link: "https://www.aidb.org",
     },
     {
         name: "Arizona State School for the Deaf and the Blind",
         link: "https://asdb.az.gov/",
     },
     {
-        name: "Vermont Association For The Blind And Visually Impaired",
-        link: "https://www.vabvi.org/",
+        name: "California School for the Blind",
+        link: "https://www.csb-cde.ca.gov/",
     },
     {
-        name: "HeZe Special Education Center (菏泽市特殊教育中心)",
-        link: "http://www.hzstjzx.cn/",
+        name: "Florida School for the Deaf and the Blind",
+        link: "https://www.fsdbk12.org'",
+    },
+    {
+        name: "Georgia Academy for the Blind",
+        link: "https://www.gabmacon.org",
+    },
+    {
+        name: "Hadley (IL)",
+        link: "https://hadleyhelps.org",
+    },
+    {
+        name: "Idaho Educational Services for the Deaf and the Blind",
+        link: "https://www.iesdb.org",
+    },
+    {
+        name: "Illinois School for the Visually Impaired",
+        link: "https://www.dhs.state.il.us/page.aspx?item=84503",
+    },
+    {
+        name: "Indiana School for the Blind and Visually Impaired",
+        link: "https://www.in.gov/isbvi/",
+    },
+    {
+        name: "Iowa Educational Services for the Blind and Visually Impaired",
+        link: "https://www.iesbvi.org",
+    },
+    {
+        name: "Kansas State School for the Blind",
+        link: "https://kansasblind.gov",
+    },
+    {
+        name: "Kentucky School for the Blind",
+        link: "https://www.ksb.k12.ky.us",
+    },
+    {
+        name: "Louisiana School for the Visually Impaired",
+        link: "https://www.ssdofla.org/o/lsvi",
+    },
+    {
+        name: "Maryland School for the Blind",
+        link: "https://www.marylandschoolfortheblind.org",
+    },
+    {
+        name: "Missouri School for the Blind",
+        link: "https://msb.dese.mo.gov",
+    },
+    {
+        name: "Perkins School for the Blind (MA)",
+        link: "https://www.perkins.org",
+    },
+    {
+        name: "Vermont Association for the Blind and Visually Impaired",
+        link: "https://www.vabvi.org",
+    },
+    {
+        name: "Visually Impaired Preschool Services (KY + IN)",
+        link: "https://vips.org/vips-louisville/",
     },
 ];
 
@@ -89,9 +133,9 @@ const teachers = [
     </div>
 
     <div
-        class="relative w-[33vw] pl-[1rem] py-[2rem] rounded-b-[8px] bg-white border-b-2 border-l-2 border-r-2 border-black shadow-[1px_3px_4px_#2F3E45] mobile:w-[80vw] mobile:h-[80vw] mobile:-ml-10"
+        class="relative max-h-[270px] h-[270px] w-[33vw] pl-[1rem] py-[2rem] rounded-b-[8px] bg-white border-b-2 border-l-2 border-r-2 border-black shadow-[1px_3px_4px_#2F3E45] mobile:w-[80vw] mobile:h-[80vw] mobile:-ml-10"
     >
-        <div v-if="currentPage != 2">
+        <div v-if="currentPage != 2" class="overflow-y-auto h-[200px]">
             <SchoolsList
                 v-for="(school, index) in schools"
                 :key="index"
@@ -99,7 +143,7 @@ const teachers = [
                 :link="school.link"
             />
         </div>
-        <div v-if="currentPage === 2">
+        <div v-if="currentPage === 2" class="overflow-y-auto h-[200px]">
             <TeachersList
                 v-for="(teacher, index) in teachers"
                 :key="index"

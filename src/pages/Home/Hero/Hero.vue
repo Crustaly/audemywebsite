@@ -7,8 +7,7 @@
                 <h1
                     class="text-4xl tablet:text-[24px] mobile:text-[24px] leading-normal text-title"
                 >
-                    Have fun and learn with <br />
-                    our educational games!
+                Learning Made Fun and Inclusive
                 </h1>
             </div>
 
@@ -16,9 +15,7 @@
                 <p
                     class="font-poppins text-body text-xl mobile:text-[16px] max-w-md leading-8"
                 >
-                    Explore our free, interactive, audio-based games designed to
-                    make learning engaging and inclusive for blind and visually
-                    impaired children.
+                Try our free audio-based games—interactive, accessible, and built to empower blind and visually impaired children through fun learning.
                 </p>
             </div>
 
