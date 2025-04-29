@@ -294,7 +294,7 @@ const login = async (event) => {
             }),
         });
 
-        // // Log response before parsing
+        // Log response before parsing
         // const textResponse = await response.text();
         // console.log("Raw Response:", textResponse);
         // Check if response is JSON before trying to parse it

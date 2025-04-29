@@ -266,7 +266,9 @@ const logout = () => {
     setTimeout(() => {
         showAlert.value = false;
     }, 3000);
-    router.push("/game-zone");
+    setTimeout(() => {
+        router.push("/");
+    }, 2000);
 };
 
 const closeAlert = () => {
