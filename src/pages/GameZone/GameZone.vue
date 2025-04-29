@@ -253,17 +253,19 @@ function hideMenuDropdown(menuBtn, currentDropdown) {
           >
             Math Games
           </button>
-          <!--button
+
+          <!-- MY PROGRESS BUTTON -->
+          <button
             @click="changeCurrentPage(3)"
             :class="
               currentPage == 3
-                ? 'text-[#087BB4] font-semibold'
-                : 'text-[#6E777C]'
+                ? 'text-[#087BB4] bg-[#e6f3fa] font-semibold border-[#087BB4]'
+                : 'text-[#6E777C] bg-white border-[#6E777C]'
             "
-            class="font-poppins mobile:text-[14px]"
+            class="font-poppins mobile:text-[14px] py-2 px-8 rounded-full border"
           >
             My Progress
-          </button-->
+          </button>
 
           <!-- LANGUAGE GAMES MENU -->
           <div class="relative w-full h-full" 
