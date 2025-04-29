@@ -7,6 +7,10 @@ const errors = ref(false);      // flag to display error on frontend
 const email = ref("");          // email input field value
 const router = useRouter();
 
+const showErrorAlert = (message) => {
+    alert(message); // Using standard alert for simplicity
+};
+
 const sendResetEmail = async (event) => {
     // prevent default form submission which would reload the page
     event.preventDefault();     
@@ -26,19 +30,57 @@ const sendResetEmail = async (event) => {
         );
         // Handle the response from the API based on the status code
         console.log("Response:", emailResponse.status)
-        if (emailResponse.status === 404) {
-            // Set the flag to true to display the error message on the frontend
-            console.error("Error: User with provided email id not present.");
-            errors.value = true;
-        } else{
+        // Get the response data
+        const responseData = await emailResponse.json().catch(() => ({}));
+        
+        if (!emailResponse.ok) {
+            switch (emailResponse.status) {
+                case 400:
+                    showErrorAlert("Bad request: Please check your input");
+                    break;
+                case 401:
+                    showErrorAlert("Unauthorized: Invalid credentials");
+                    break;
+                case 403:
+                    showErrorAlert("Forbidden: You don't have permission to access this resource");
+                    break;
+                case 404:
+                    showErrorAlert("Resource not found");
+                    break;
+                case 405:
+                    showErrorAlert("Method not allowed");
+                    break;
+                case 429:
+                    showErrorAlert("Too many requests: Please try again later");
+                    break;
+                case 500:
+                    showErrorAlert("Internal server error. Please try again later.");
+                    break;
+                case 502:
+                    showErrorAlert("Internal server error. Please try again later.");
+                    break;
+                case 503:
+                    showErrorAlert("Internal server error. Please try again later.");
+                    break;
+                case 504:
+                    showErrorAlert("Internal server error. Please try again later.");
+                    break;
+                default:
+                    // Handle other errors
+                    alert('Unexpected error occurred.');
+            }
+            // Return to prevent further execution
+            return;
+        } else {
             // Route to reset-link-sent page if email sent successfully
             console.log("Email sent successfully.");
             router.push("/reset-link-sent");
         }
     } catch (error) {
-        // Set the flag to true to display the error message on the frontend
-        console.error("Error: Email not present- ", error);
+        // Handle network errors
+        console.error("Error: ", error);
         errors.value = true;
+        alert('Network error. Please check your connection and try again.');
     }    
 };
 </script>

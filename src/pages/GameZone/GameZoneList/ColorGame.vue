@@ -5,6 +5,12 @@
       <GamePagesHeader />
     </div>
 
+    <!-- Something Not Working? Button -->
+    <GamePagesFooter
+      :handleSthNotWorkingButtonClick="handleSthNotWorkingButtonClick"
+      :currentAudios="currentAudios"
+    />
+
     <!-- Decorative Elements -->
     <div
       class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none"
@@ -266,6 +272,7 @@
 // 1. Imports
 import { onMounted, onUnmounted, ref, watch, computed } from "vue";
 import GamePagesHeader from "../../Header/GamePagesHeader.vue";
+import GamePagesFooter from "../../Footer/GamePagesFooter.vue"
 import { requestMicPermission } from "../../../Utilities/requestMicAccess";
 import {
   playIntro,
@@ -459,9 +466,10 @@ const toggleRecording = () => {
       console.log("Correct Answer:", question["A"]);
 
       const userWords = finalTranscript
-      .toLowerCase()
-      .replace(/[.,!?]/g, "")
-      .split(/\s+/);
+  .toLowerCase()
+  .replace(/[^a-z0-9\s]/gi, "") // removes everything except letters, numbers, and spaces
+  .split(/\s+/)
+  .filter(Boolean); // removes empty strings
 
       const correctAnswers = Array.isArray(question["A"])
         ? question["A"].map((a) => a.toLowerCase())
@@ -556,5 +564,16 @@ const startFirstQuestion = () => {
   console.log("Starting first question...");
   numOfAudiosPlayed.value = 1;
   playNextQuestion();
+};
+
+/**
+ * Handles the something not working button click
+ */
+ const handleSthNotWorkingButtonClick = () => {
+  console.log("Navigating to Troubleshooting Page...");
+  // Stop all audio playback before navigating away
+  stopAudios(currentAudios);
+  // Force navigate to the game zone page
+  window.location.href = "/troubleshooting";
 };
 </script>

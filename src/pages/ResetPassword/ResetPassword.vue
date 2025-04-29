@@ -13,15 +13,66 @@ onMounted(() => {
     // Get the token from the URL query parameters
     const query = new URLSearchParams(window.location.search);
     token.value = query.get("token");
+
+    if (!token.value) {
+        errorMessage.value = "Invalid password reset link. Please request a new one.";
+    }
 });
+
+const showErrorAlert = (message) => {
+    errors.value = true;
+    errorMessage.value = message;
+};
+
+const handleApiError = (status, message) => {
+    switch(status) {
+        case 400:
+            errorMessage.value = "Bad request: " + (message || "Please check your input");
+            break;
+        case 401:
+            linkExpired.value = true;
+            errorMessage.value = "Password reset link is invalid or has expired";
+            break;
+        case 403:
+            errorMessage.value = "Forbidden: You don't have permission to reset this password";
+            break;
+        case 404:
+            errorMessage.value = "User not found";
+            break;
+        case 405:
+            errorMessage.value = "Method not allowed";
+            break;
+        case 429:
+            errorMessage.value = "Too many requests: Please try again later";
+            break;
+        case 500:
+            linkExpired.value = true;
+            errorMessage.value = "Internal server error: Password reset link may have expired";
+            break;
+        default:
+            errorMessage.value = message || "An error occurred during password reset";
+    }
+};
 
 const resetConfirm = async (event) => {
     event.preventDefault();     // prevent default form submission which would reload the page
+
+    // Reset error states
+    errors.value = false;
+    linkExpired.value = false;
+    errorMessage.value = "";
+
+    if (!token.value) {
+        errorMessage.value = "Invalid password reset link. Please request a new one.";
+        return;
+    }
 
     // pre-condition checks for the password and confirm password fields
     if ((password.value != confirmPassword.value) || (password.value.length < 8)) {
         // Set the flag to true to display the error message on the frontend
         errors.value = true;
+        errorMessage.value = "Passwords do not match or is not at least 8 characters long";
+        return;
     }else{
         errors.value = false;
         // API call to reset password
@@ -40,19 +91,26 @@ const resetConfirm = async (event) => {
 
             // Handle the response from the API based on the status code
             console.log("Reset Password response:", resetResponse.status);
-            if (resetResponse.status === 500) {
-                linkExpired.value = true;
-                console.error("Link Expired");
+            if (!resetResponse.ok) {
+            // Get response body if available
+            let errorData = {};
+            try {
+                errorData = await resetResponse.json();
+            } catch (e) {
+                // If response body can't be parsed as JSON, continue with empty error data
             }
+            
+            handleApiError(resetResponse.status, errorData.message);
+            return;
+        }
 
-            // Route to reset-confirm page if password reset was successfull
-            if (resetResponse.status === 200 && linkExpired.value === false) {
-                router.push("/reset-confirm");
-            }
-        } catch (error) {
+        // Route to reset-confirm page if password reset was successful
+        router.push("/reset-confirm");
+        
+    } catch (error) {
             // Throw error and set the flag to true to display the error message on the frontend
             console.error("Error: ", error);
-            errors.value = true;
+            errorMessage.value = "Connection error: Please check your internet connection and try again";
         }
     }
 };
