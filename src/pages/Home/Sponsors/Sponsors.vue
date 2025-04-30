@@ -11,20 +11,51 @@ import SponsorsCarousel from "./SponsorsCarousel/SponsorsCarousel.vue";
         </h1>
         <div class="sponsors-carousel w-full">
             <div
-                class="w-full scroll-auto grid grid-cols-4 grid-row-a items-center"
+                class="w-full scroll-auto grid grid-cols-4 grid-row-a items-center justify-center text-center mb-5"
             >
+                <img
+                    src="/assets/images/sponsors/intel.svg"
+                    alt="intel logo"
+                    class="mx-auto"
+                />
                 <img
                     src="/assets/images/sponsors/google.png"
                     alt="google logo"
+                    class="mx-auto"
+                />
+                <img
+                    src="/assets/images/sponsors/hersheys.svg"
+                    alt="hersheys logo"
+                    class="mx-auto"
                 />
                 <img
                     src="/assets/images/sponsors/desmos.png"
                     alt="desmos logo"
+                    class="mx-auto"
                 />
-                <img src="/assets/images/sponsors/aops.svg" alt="aops logo" />
+            </div>
+            <div
+                class="w-full scroll-auto grid grid-cols-4 grid-row-a items-center justify-center text-center"
+            >
+                <img
+                    src="/assets/images/sponsors/aops.svg"
+                    alt="aops logo"
+                    class="mx-auto"
+                />
                 <img
                     src="/assets/images/sponsors/wolframalpha.svg"
                     alt="wolframalpha logo"
+                    class="mx-auto"
+                />
+                <img
+                    src="/assets/images/sponsors/k4c.svg"
+                    alt="k4c logo"
+                    class="mx-auto"
+                />
+                <img
+                    src="/assets/images/sponsors/ncwit.png"
+                    alt="ncwit logo"
+                    class="w-[45%] h-auto mx-auto"
                 />
             </div>
         </div>

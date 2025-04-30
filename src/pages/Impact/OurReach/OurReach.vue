@@ -5,7 +5,7 @@
         <div class="flex flex-col justify-center items-center">
             <div>
                 <h3
-                    class="font-poppins text-small-text-color text-[12px] font-[500] mobile:w-auto text-center tracking-[3.6px] mb-4 text-[#6E777C] font-semibold"
+                    class="font-poppins text-small-text-color text-[12px] font-[500] mobile:w-auto text-center tracking-[3.6px] mb-4 text-[#6E777C]"
                 >
                     OUR REACH
                 </h3>
@@ -32,7 +32,7 @@
                     class="mx-auto relative -top-12"
                 />
                 <div>
-                    <h3 class="font-poppins text-3xl mb-2">1,000 +</h3>
+                    <h3 class="font-poppins text-3xl mb-2">5,000+</h3>
                     <p class="font-poppins text-lg mt-2 font-semibold">
                         Blind students impacted
                     </p>
@@ -51,7 +51,7 @@
                     alt="Problems Solved Icon"
                     class="mx-auto relative -top-12"
                 />
-                <h3 class="font-poppins text-3xl mb-2">20,000 +</h3>
+                <h3 class="font-poppins text-3xl mb-2">100,000+</h3>
                 <p class="font-poppins text-lg mt-2 font-semibold">
                     Problems solved
                 </p>
@@ -69,7 +69,7 @@
                     alt="Collaborating Schools Icon"
                     class="mx-auto relative -top-12"
                 />
-                <h3 class="font-poppins text-3xl mb-2">7 +</h3>
+                <h3 class="font-poppins text-3xl mb-2">19+</h3>
                 <p class="font-poppins text-lg mt-2 font-semibold">
                     Collaborating schools for the blind
                 </p>

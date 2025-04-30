@@ -2,7 +2,13 @@
 import Header from "../../components/Header/Header.vue";
 import GameZoneList from "../GameZone/GameZoneList/GameZoneList.vue";
 import GameProgress from "../GameZone/GameProgress/GameProgress.vue";
-import { ref, onMounted } from "vue";
+import ScrollUpButton from "../../components/ScrollUpButton/ScrollUpButton.vue";
+import Footer from "../../components/Footer/Footer.vue";
+
+import { ref, onMounted, onUnmounted } from "vue";
+
+import { useDeviceType } from "../../Utilities/checkDeviceType";
+const { isMobile, isTablet } = useDeviceType();
 
 const currentPage = ref(1);
 const changeCurrentPage = (page) => {
@@ -21,6 +27,8 @@ onMounted(() => {
   // Clear it after use
   sessionStorage.removeItem("gameCategory");
 });
+
+
 
 // Reactive flags to track dropdown visibility for each game menu (for 'aria-expanded')
 const isLangMenuOpen = ref(false);
@@ -193,10 +201,19 @@ function hideMenuDropdown(menuBtn, currentDropdown) {
 
 
 <template>
+  <ScrollUpButton />
   <div
     class="relative bg-white h-full overflow-x-hidden flex flex-col justify-center"
   >
-    <div class="px-20">
+    <div 
+      :class="[
+        'relative', 
+        !isTablet && !isMobile ? 'px-14' : '',
+        isTablet ? 'px-6' : '',
+        isMobile ? 'px-8' : ''
+      ]" 
+      ref="content"
+    >
       <Header
         :textColor="'text-black'"
         :logoPath="'/assets/images/header/header-logo-2.png'"
@@ -204,7 +221,7 @@ function hideMenuDropdown(menuBtn, currentDropdown) {
     </div>
     <div class="w-full pt-10 flex align-center justify-center">
       <div class="w-10/12">
-        <h2 id="game-zone-header" class="font-poppins text-black text-[40px] mobile:text-[25px] mobile:text-center mt-10 M-0">
+        <h2 id="game-zone-header" class="font-poppins text-black text-[40px] mobile:text-[25px] mobile:text-center M-0">
           Play and learn with us!
         </h2>
         <div id="game-zone-grid" class="w-full grid grid-rows-3 gap-5 mb-10 mt-10">
@@ -406,6 +423,7 @@ function hideMenuDropdown(menuBtn, currentDropdown) {
       </div>
     </div>
   </div>
+  <Footer />
 </template>
 
 

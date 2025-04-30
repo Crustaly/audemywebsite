@@ -1,11 +1,9 @@
 <script setup>
-import Comment from "/assets/images/testimonials/comment.png";
-import Star from "/assets/images/testimonials/star.svg";
 </script>
 
 <template>
   <div
-    class="flex flex-col items-center gap-y-12 self-center mt-20 pt-80 mobile:pt-64 pb-[18rem] mobile:mt-5 mobile:pb-40 px-20 mobile:px-0 relative z-10"
+    class="flex flex-col items-center gap-y-12 self-center pt-80 mobile:pt-64 pb-[18rem] mobile:mt-5 mobile:pb-40 px-20 mobile:px-0 relative z-10"
   >
     <img
       src="/assets/images/testimonials/testimonials-bg.png"
@@ -30,7 +28,7 @@ import Star from "/assets/images/testimonials/star.svg";
         >
           <div class="w-4/12 mobile:w-[285px]">
             <div
-              class="relative bg-[#fff] shadow-[3px_4px_0px_#0C0D0D] border-2 border-[#2A3338] py-20 mobile:py-16 px-8 rounded-lg min-h-[344px] w-11/12 mobile:w-[285px] mobile:h-[280px]"
+              class="relative bg-[#fff] shadow-[3px_4px_0px_#0C0D0D] border-2 border-[#2A3338] py-20 mobile:py-16 px-8 rounded-lg min-h-[443px] w-11/12 mobile:w-[285px] mobile:h-[280px]"
             >
               <img
                 src="/assets/images/testimonials/yellowStar2.svg"
@@ -40,11 +38,10 @@ import Star from "/assets/images/testimonials/star.svg";
 
               <div class="max-w-52 w-full flex flex-col gap-y-4 mobile:justify-between mobile:h-full font-poppins">
                 <p class="">
-                  “The blind students who played the games were very into it!”
+                  “Audemy has been an invaluable tool within my classroom. My students who played the games were very into it, and the games cover tons of educational topics like math and language!”
                 </p>
                 <h2 class="text-small">
-                  &mdash; Teacher from the Texas School for the Blind and
-                  Visually Impaired
+                  &mdash; Teacher from the Texas School for the Blind and Visually Impaired
                 </h2>
               </div>
             </div>
@@ -52,7 +49,7 @@ import Star from "/assets/images/testimonials/star.svg";
 
           <div class="w-4/12 mobile:w-[285px]">
             <div
-              class="relative bg-[#fff] shadow-[3px_4px_0px_#0C0D0D] border-2 border-[#2A3338] py-20 mobile:py-16 px-8 rounded-lg min-h-[344px] w-11/12 mobile:w-[285px] mobile:h-[280px]"
+              class="relative bg-[#fff] shadow-[3px_4px_0px_#0C0D0D] border-2 border-[#2A3338] py-20 mobile:py-16 px-8 rounded-lg min-h-[443px] w-11/12 mobile:w-[285px] mobile:h-[280px]"
             >
               <img
                 src="/assets/images/testimonials/chatBalloon.svg"
@@ -62,8 +59,7 @@ import Star from "/assets/images/testimonials/star.svg";
 
               <div class="max-w-52 w-full flex flex-col gap-y-4 mobile:justify-between mobile:h-full font-poppins">
                 <p class="">
-                  “Audemy’s games provide accessible and engaging educational
-                  content for our blind students.”
+                  “Audemy’s games provide accessible and engaging educational content for our blind students.”
                 </p>
                 <h3 class="text-small">
                   &mdash; Staff from Kansas School for the Blind
@@ -74,7 +70,7 @@ import Star from "/assets/images/testimonials/star.svg";
 
           <div class="w-4/12 mobile:w-[285px]">
             <div
-              class="relative bg-[#fff] shadow-[3px_4px_0px_#0C0D0D] border-2 border-[#2A3338] py-20 mobile:py-16 px-8 rounded-lg min-h-[344px] w-11/12 mobile:w-[285px] mobile:h-[280px]"
+              class="relative bg-[#fff] shadow-[3px_4px_0px_#0C0D0D] border-2 border-[#2A3338] py-20 mobile:py-16 px-8 rounded-lg min-h-[443px] w-11/12 mobile:w-[285px] mobile:h-[280px]"
             >
               <img
                 src="/assets/images/testimonials/orangeStar.svg"
@@ -84,8 +80,7 @@ import Star from "/assets/images/testimonials/star.svg";
 
               <div class="max-w-52 w-full flex flex-col gap-y-4 mobile:justify-between mobile:h-full font-poppins">
                 <p class="">
-                  “Audemy’s audio games are unique...my favorite game was car
-                  counting because I love cars and math.”
+                  “Audemy’s audio games are really cool! My favorite game was car counting because I love cars and math.”
                 </p>
                 <h4 class="text-small">&mdash; Blind Student from Houston</h4>
               </div>

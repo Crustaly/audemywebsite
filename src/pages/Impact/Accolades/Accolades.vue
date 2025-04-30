@@ -41,13 +41,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-    <div class="flex w-full px-20 mt-60 mb-20 relative">
-        <img
-            src="/assets/images/impact/light-green-bg-2.png"
-            class="absolute w-full h-[125%] -top-[12rem] right-0 -z-10"
-            alt="Background image"
-        />
-
+    <div class="flex w-full px-20 mt-40 mb-20 relative">
         <!-- MAIN CONTENT -->
         <div
             class="flex flex-col items-center justify-center mobile:justify-center w-full h-[10%] mb-36 tablet:mb-[265px] mobile:mb-[129px]"

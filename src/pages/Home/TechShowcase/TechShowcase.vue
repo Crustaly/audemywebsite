@@ -58,7 +58,7 @@ let videoStoped = () => {
 
 <template>
     <div
-      class="mt-[44px] mb-[8rem] mobile:mb-[128px] flex items-center justify-around mobile:gap-[64px] text-left mobile:flex-col"
+      class="mt-[44px] mb-[2rem] mobile:mb-[128px] flex items-center justify-around mobile:gap-[64px] text-left mobile:flex-col"
       :class="{ 'tablet-showcase': isTablet }"
     >
       <div

@@ -3,7 +3,7 @@ import Carousel from "./Carousel.vue";
 </script>
 
 <template>
-    <div class="flex gap-24 w-full mb-[28rem] mobile:flex-col">
+    <div class="flex gap-24 w-full mb-[12rem] mobile:flex-col">
         <!-- CAROUSEL COMPONENT -->
         <div class="relative w-1/2 mobile:hidden">
             <img src="/assets/images/impact/Union.png" class="max-w[100px]" alt="Union Image" />
