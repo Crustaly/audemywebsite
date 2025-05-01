@@ -63,14 +63,26 @@
                         >Game zone</RouterLink
                     >
                 </li>
-
                 <li v-if="userSession" id="logout-btn-item">
                     <button
                         id="logout-btn-desktop"
                         class="flex justify-center items-center bg-[#FE892A] text-black font-bold py-3 px-6 rounded-lg border-[1.5px] shadow-[3px_4px_0px_#0C0D0D] border-black hover:bg-[#D6711F]"
                         @click="logout"
                     >
-                    Log out
+                        <!-- Add profile photo -->
+                        <img 
+                            v-if="userSession.user && userSession.user.imageUrl" 
+                            :src="userSession.user.imageUrl" 
+                            alt="Profile" 
+                            class="w-6 h-6 rounded-full mr-2"
+                        />
+                        <img 
+                            v-else 
+                            src="../../assets/character/default-profile.png" 
+                            alt="Profile" 
+                            class="w-6 h-6 rounded-full mr-2"
+                        />
+                        Log out
                     </button>
                 </li>
                 <li v-else id="login-btn-item">
@@ -79,7 +91,7 @@
                         to="/login"
                         class="flex justify-center items-center login-button text-white font-bold py-3 px-6 rounded-lg border-[1.5px] shadow-[3px_4px_0px_#0C0D0D] border-black bg-[#087BB4] hover:bg-[#0C587D]"
                     >
-                    Log in
+                        Log in
                     </router-link>
                 </li>
             </ul>
@@ -154,7 +166,21 @@
                         <button
                             class="mt-4 bg-[#FE892A] text-white px-4 py-2 rounded"
                             @click="logout"
-                        >Logout
+                        >
+                        <!-- Add profile photo -->
+                        <img 
+                            v-if="userSession.user && userSession.user.imageUrl" 
+                            :src="userSession.user.imageUrl" 
+                            alt="Profile" 
+                            class="w-6 h-6 rounded-full mr-2"
+                        />
+                        <img 
+                            v-else 
+                            src="../../assets/character/default-profile.png" 
+                            alt="Profile" 
+                            class="w-6 h-6 rounded-full mr-2"
+                        />
+                        Logout
                         </button>
                     </li>
                 </ul>
@@ -288,11 +314,14 @@ onMounted(() => {
 
     const session = Cookies.get("audemyUserSession");
     if (session) {
-        const parsed = JSON.parse(session);
-        console.log("Parsed session:", parsed);
-        userSession.value = parsed;
+        try {
+            const parsed = JSON.parse(session);
+            console.log("Parsed session:", parsed);
+            userSession.value = parsed;
+        } catch (error) {
+            console.error("Error parsing user session:", error);
+        }
     }
-    
 });
 
 onUnmounted(() => {
