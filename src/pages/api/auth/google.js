@@ -1,15 +1,6 @@
 import { jwtDecode } from 'jwt-decode';
 import Cookies from 'js-cookie';
 
-/**
- * Handles Google OAuth callback, decodes JWT, checks user in DB, and sets session/cookie.
- * @param {object} response - Google OAuth response (with .credential)
- * @param {object} userProfile - Vue ref to store user profile
- * @param {object} showSchoolForm - Vue ref to boolean for showing school form
- * @param {object} userSession - Vue ref for user session
- * @param {object} router - Vue router instance
- * @returns {Promise<void>}
- */
 export async function handleGoogleCallback(
   response,
   userProfile,
@@ -68,16 +59,6 @@ export async function handleGoogleCallback(
   }
 }
 
-/**
- * Updates the user's school in the DB and sets session/cookie.
- * @param {object} school - Vue ref to school name string
- * @param {object} userProfile - Vue ref to user profile
- * @param {object} OAuthResponse - Vue ref to OAuth token/credential
- * @param {object} userSession - Vue ref for user session
- * @param {object} showSchoolForm - Vue ref for showing/hiding school form
- * @param {object} router - Vue router instance
- * @returns {Promise<void>}
- */
 export async function handleSchoolUpdate(
   school,
   userProfile,
@@ -108,6 +89,13 @@ export async function handleSchoolUpdate(
   const data = await response.json();
 
   if (data.success) {
+    console.log(data.user.user_id);
+    const print = await fetch('/api/db/create_default_progress', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ user_id: data.user.user_id }),
+    });
+    console.log(print);
     Cookies.set(
       'audemyUserSession',
       JSON.stringify({
