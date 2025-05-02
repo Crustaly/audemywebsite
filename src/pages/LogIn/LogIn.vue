@@ -163,7 +163,7 @@
 <script setup>
 import { ref, onMounted } from "vue";
 import { GoogleLogin } from "vue3-google-login";
-import { useRouter } from "vue-router";
+
 import { jwtDecode } from "jwt-decode";
 import Cookies from "js-cookie";
 

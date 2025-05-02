@@ -42,12 +42,35 @@
                 Sign up to get started!
             </h1>
 
-            <!-- Google OAuth Login -->
-            <div class="mt-[20px] pt-[20px] pb-[20px]" aria-label="Google Login" aria-labelledby="Google Login">
-                <GoogleLogin
-                    :callback="callback"
-                />
-            </div>
+      <!-- Google OAuth Login -->
+      <div class="flex w-full gap-4 items-center justify-center mt-4">
+        <GoogleLogin
+          :callback="callback"
+          class="flex items-center justify-center gap-4"
+        />
+      </div>
+      <div
+        v-if="showSchoolForm"
+        class="w-7/12 bg-white flex items-center justify-center flex-col gap-4"
+      >
+        <h3
+          class="text-[36px] text-[#151E22] text-center w-7/12 mobile:w-full mobile:text-[24px] mobile:mb-4"
+        >
+          Enter Your School
+        </h3>
+        <input
+          v-model="school"
+          type="text"
+          class="border-2 border-black py-2 px-2 rounded-[8px] w-1/2"
+          placeholder="School Name"
+        />
+        <button
+          @click="updateSchool"
+          class="w-[488px] h-[56px] text-white rounded-[8px] bg-[#087BB4] hover:bg-[#0C587D] hover:cursor-pointer border-2 border-black font-semiBold shadow-[4px_4px_0px_black] mobile:w-full"
+        >
+          Submit
+        </button>
+      </div>
 
             <!-- Decorative "or" Divider -->
             <div
@@ -225,259 +248,422 @@ import { ref, watch, onMounted, computed } from "vue";
 const signupForm = ref(null);
 const passwordsMatch = ref(false);
 const showFeedback = ref(true);
-const password = ref("");
-const confirmPassword = ref("");
+const password = ref('');
+const confirmPassword = ref('');
 const confirmTouched = ref(false);
 const formSubmitted = ref(false);
-const debugMessage = ref("Please confirm your password");
-
-import Cookies from "js-cookie";
+const debugMessage = ref('Please confirm your password');
+var OAuthResponse = ref(null);
+const userSession = ref(null);
+const userProfile = ref(null);
+const school = ref(''); // Store school input
+const showSchoolForm = ref(false); // Control form visibility
+const router = useRouter();
+var OAuthResponse = ref(null);
 
 const showErrorAlert = (message) => {
-    alert(message); // Using standard alert for simplicity
+  alert(message); // Using standard alert for simplicity
 };
 
 const submitForm = async (event) => {
-    event.preventDefault(); // Prevent default form submission behavior
+  event.preventDefault(); // Prevent default form submission behavior
 
-    // Set formSubmitted to true
-    formSubmitted.value = true;
+  // Set formSubmitted to true
+  formSubmitted.value = true;
 
-    // Force validation check before submission
-    validatePasswords();
+  // Force validation check before submission
+  validatePasswords();
 
-    // Check if passwords match
-    if (!passwordsMatch.value) {
-        debugMessage.value = "Form submission stopped: passwords don't match";
-        return;
+  // Check if passwords match
+  if (!passwordsMatch.value) {
+    debugMessage.value = "Form submission stopped: passwords don't match";
+    return;
+  }
+
+  try {
+    const response = await fetch('/api/auth/signup', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        user: {
+          first_name: signupForm.value.first_name.value,
+          last_name: signupForm.value.last_name.value,
+          // birthday: signupForm.value.birthday.value,
+          school_name: signupForm.value.school_name.value,
+          email: signupForm.value.email.value,
+          password: signupForm.value.password.value,
+          confirm_password: signupForm.value.confirm_password.value,
+        },
+      }),
+    });
+
+    if (!response.ok) {
+      // For non-JSON responses, try to get text content
+      const contentType = response.headers.get('content-type');
+      if (!contentType || !contentType.includes('application/json')) {
+        const errorText = await response.text();
+        console.error('Non-JSON error response:', errorText);
+      }
+
+      // Now handle based on status code
+      switch (response.status) {
+        case 400:
+          showErrorAlert('Bad request: Please check your input');
+          break;
+        case 401:
+          showErrorAlert('Unauthorized: Invalid credentials');
+          break;
+        case 403:
+          showErrorAlert(
+            "Forbidden: You don't have permission to access this resource"
+          );
+          break;
+        case 404:
+          showErrorAlert('Resource not found');
+          break;
+        case 405:
+          showErrorAlert('Method not allowed');
+          break;
+        case 429:
+          showErrorAlert('Too many requests: Please try again later');
+          break;
+        case 500:
+          showErrorAlert('Internal server error. Please try again later.');
+          break;
+        case 502:
+          showErrorAlert('Internal server error. Please try again later.');
+          break;
+        case 503:
+          showErrorAlert('Internal server error. Please try again later.');
+          break;
+        case 504:
+          showErrorAlert('Internal server error. Please try again later.');
+          break;
+        default:
+          // Try to get error message from response if it's JSON
+          let errorMessage = 'Something went wrong';
+          if (contentType && contentType.includes('application/json')) {
+            try {
+              const data = await response.json();
+              errorMessage = data.error || errorMessage;
+            } catch (e) {
+              console.error('Error parsing JSON:', e);
+            }
+          }
+          alert(`Signup error: ${errorMessage}`);
+      }
+
+      // Instead of throwing an error, just return to stop execution
+      return;
     }
 
+    // Continue with normal execution if response is OK
+    const data = await response.json();
+
+    console.log('Success:', data);
+    //! Go To login
+    console.log('Signup Successful', data);
+
+    const loginResponse = await fetch('/api/auth/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        user: {
+          email: signupForm.value.email.value,
+          password: signupForm.value.password.value,
+        },
+      }),
+    });
+
+    if (!loginResponse.ok) {
+      const loginContentType = loginResponse.headers.get('content-type');
+      let loginData;
+
+      if (loginContentType && loginContentType.includes('application/json')) {
+        try {
+          loginData = await loginResponse.json();
+        } catch (e) {
+          console.error('Error parsing login JSON:', e);
+        }
+      }
+
+      switch (loginResponse.status) {
+        case 400:
+          alert('Invalid login request. Please check your information.');
+          break;
+        case 401:
+          alert('Invalid email or password. Please try again.');
+          break;
+        case 404:
+          alert('Account not found. Please check your email.');
+          break;
+        case 429:
+          alert('Too many login attempts. Please try again later.');
+          break;
+        case 500:
+          showErrorAlert('Internal server error. Please try again later.');
+          break;
+        case 502:
+          showErrorAlert('Internal server error. Please try again later.');
+          break;
+        case 503:
+          showErrorAlert('Internal server error. Please try again later.');
+          break;
+        case 504:
+          showErrorAlert('Internal server error. Please try again later.');
+          break;
+        default:
+          alert(
+            `Login error: ${
+              (loginData && loginData.error) || 'Something went wrong'
+            }`
+          );
+      }
+
+      // Return without throwing error to prevent dual alerts
+      return;
+    }
+
+    const loginData = await loginResponse.json();
+    console.log('Login Successful', loginData);
+
+    if (loginData.token) {
+      Cookies.set('audemyUserSession', JSON.stringify(loginData.token), {
+        expires: 7, // Set the cookie to expire in 7 days
+        secure: true,
+      });
+      window.location.href = '/game-zone';
+    } else {
+      showErrorAlert('Token not found');
+      return;
+    }
+    signupForm.value?.reset?.();
+  } catch (error) {
+    console.error('Error:', error.message);
+    // Only show error alert if it hasn't been shown by the code above
+    showErrorAlert(`Error: ${error.message}`);
+  }
+};
+const handleApiError = (status, message) => {
+  switch (status) {
+    case 400:
+      showErrorAlert('Bad request: ' + (message || 'Please check your input'));
+      break;
+    case 401:
+      showErrorAlert('Unauthorized: ' + (message || 'Invalid credentials'));
+      break;
+    case 403:
+      showErrorAlert(
+        "Forbidden: You don't have permission to access this resource"
+      );
+      break;
+    case 404:
+      showErrorAlert('Resource not found');
+      break;
+    case 405:
+      showErrorAlert('Method not allowed');
+      break;
+    case 429:
+      showErrorAlert('Too many requests: Please try again later');
+      break;
+    case 500:
+      showErrorAlert('Internal server error. Please try again later.');
+      break;
+    case 502:
+      showErrorAlert('Internal server error. Please try again later.');
+      break;
+    case 503:
+      showErrorAlert('Internal server error. Please try again later.');
+      break;
+    case 504:
+      showErrorAlert('Internal server error. Please try again later.');
+      break;
+    default:
+      // Handle other errors
+      showErrorAlert('Unexpected error occurred.');
+  }
+};
+const callback = async (response) => {
+  OAuthResponse = response.credential;
+  if (response?.credential) {
     try {
-        const response = await fetch("/api/auth/signup", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                user: {
-                    first_name: signupForm.value.first_name.value,
-                    last_name: signupForm.value.last_name.value,
-                    // birthday: signupForm.value.birthday.value,
-                    school_name: signupForm.value.school_name.value,
-                    email: signupForm.value.email.value,
-                    password: signupForm.value.password.value,
-                    confirm_password: signupForm.value.confirm_password.value,
-                },
-            }),
-        });
-
-        if (!response.ok) {
-            // For non-JSON responses, try to get text content
-            const contentType = response.headers.get("content-type");
-            if (!contentType || !contentType.includes("application/json")) {
-                const errorText = await response.text();
-                console.error("Non-JSON error response:", errorText);
-            }
-            
-            // Now handle based on status code
-            switch (response.status) {
-                case 400:
-                    showErrorAlert("Bad request: Please check your input");
-                    break;
-                case 401:
-                    showErrorAlert("Unauthorized: Invalid credentials");
-                    break;
-                case 403:
-                    showErrorAlert("Forbidden: You don't have permission to access this resource");
-                    break;
-                case 404:
-                    showErrorAlert("Resource not found");
-                    break;
-                case 405:
-                    showErrorAlert("Method not allowed");
-                    break;
-                case 429:
-                    showErrorAlert("Too many requests: Please try again later");
-                    break;
-                case 500:
-                    showErrorAlert("Internal server error. Please try again later.");
-                    break;
-                case 502:
-                    showErrorAlert("Internal server error. Please try again later.");
-                    break;
-                case 503:
-                    showErrorAlert("Internal server error. Please try again later.");
-                    break;
-                case 504:
-                    showErrorAlert("Internal server error. Please try again later.");
-                    break;
-                default:
-                    // Try to get error message from response if it's JSON
-                    let errorMessage = 'Something went wrong';
-                    if (contentType && contentType.includes("application/json")) {
-                        try {
-                            const data = await response.json();
-                            errorMessage = data.error || errorMessage;
-                        } catch (e) {
-                            console.error("Error parsing JSON:", e);
-                        }
-                    }
-                    alert(`Signup error: ${errorMessage}`);
-            }
-            
-            // Instead of throwing an error, just return to stop execution
-            return;
-        }
-
-        // Continue with normal execution if response is OK
-        const data = await response.json();
-
-        console.log("Success:", data);
-        //! Go To login
-        console.log("Signup Successful", data);
-
-        const loginResponse = await fetch("/api/auth/login", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                user: {
-                    email: signupForm.value.email.value,
-                    password: signupForm.value.password.value,
-                },
-            }),
-        });
-
-        if (!loginResponse.ok) {
-            const loginContentType = loginResponse.headers.get("content-type");
-            let loginData;
-            
-            if (loginContentType && loginContentType.includes("application/json")) {
-                try {
-                    loginData = await loginResponse.json();
-                } catch (e) {
-                    console.error("Error parsing login JSON:", e);
-                }
-            }
-            
-            switch (loginResponse.status) {
-                case 400:
-                    alert('Invalid login request. Please check your information.');
-                    break;
-                case 401:
-                    alert('Invalid email or password. Please try again.');
-                    break;
-                case 404:
-                    alert('Account not found. Please check your email.');
-                    break;
-                case 429:
-                    alert('Too many login attempts. Please try again later.');
-                    break;
-                case 500:
-                    showErrorAlert("Internal server error. Please try again later.");
-                    break;
-                case 502:
-                    showErrorAlert("Internal server error. Please try again later.");
-                    break;
-                case 503:
-                    showErrorAlert("Internal server error. Please try again later.");
-                    break;
-                case 504:
-                    showErrorAlert("Internal server error. Please try again later.");
-                    break;
-                default:
-                    alert(`Login error: ${(loginData && loginData.error) || 'Something went wrong'}`);
-            }
-            
-            // Return without throwing error to prevent dual alerts
-            return;
-        }
-
-        const loginData = await loginResponse.json();
-        console.log("Login Successful", loginData);
-
-        if (loginData.token) {
-            Cookies.set("audemyUserSession", JSON.stringify(loginData.token), {
-                expires: 7, // Set the cookie to expire in 7 days
-                secure: true,
-            });
-            window.location.href = "/game-zone";
-        } else {
-            showErrorAlert("Token not found");
-            return;
-        }
-        signupForm.value?.reset?.();
-
+      const decoded = jwtDecode(response.credential);
+      userProfile.value = {
+        name: decoded.name,
+        email: decoded.email,
+        imageUrl: decoded.picture,
+      };
     } catch (error) {
-        console.error("Error:", error.message);
-        // Only show error alert if it hasn't been shown by the code above
-        showErrorAlert(`Error: ${error.message}`);
+      console.error('Failed to decode JWT:', error);
+      showErrorAlert('Failed to process Google login');
+      return;
     }
+  }
+
+  const dbResponse = await fetch(
+    `/api/db/get_user?email=${userProfile.value.email}`,
+    {
+      method: 'GET',
+      headers: { 'Content-Type': 'application/json' },
+    }
+  );
+
+  if (!dbResponse.ok) {
+    const errorData = await dbResponse.json().catch(() => ({}));
+    handleApiError(
+      dbResponse.status,
+      errorData.message || 'Failed to retrieve user data'
+    );
+    return;
+  }
+
+  const dbData = await dbResponse.json();
+  console.log('DB Response:', dbData);
+
+  if (!dbData || !dbData.email) {
+    console.log('User not found, prompting for school...');
+    showSchoolForm.value = true;
+  } else {
+    Cookies.set(
+      'audemyUserSession',
+      JSON.stringify({
+        token: OAuthResponse,
+        user: userProfile.value,
+      }),
+      {
+        expires: 7,
+      }
+    );
+    userSession.value = {
+      token: OAuthResponse,
+      user: userProfile.value,
+    };
+
+    router.push('/game-zone');
+  }
+};
+
+const updateSchool = async () => {
+  if (!school.value) {
+    alert('Please enter your school name.');
+    return;
+  }
+
+  try {
+    const response = await fetch(`/api/db/update_user_school`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        email: userProfile.value.email,
+        name: userProfile.value.name,
+        school: school.value,
+      }),
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json().catch(() => ({}));
+      handleApiError(
+        response.status,
+        errorData.message || 'Failed to update school information'
+      );
+      return;
+    }
+
+    const data = await response.json();
+    console.log('Updated user:', data);
+
+    if (data.success) {
+      Cookies.set(
+        'audemyUserSession',
+        JSON.stringify({
+          token: OAuthResponse,
+          user: userProfile.value,
+        }),
+        {
+          expires: 7,
+        }
+      );
+      userSession.value = {
+        token: OAuthResponse,
+        user: userProfile.value,
+      };
+      showSchoolForm.value = false;
+      router.push('/game-zone');
+    } else {
+      showErrorAlert(data.message || 'Failed to update school information');
+    }
+  } catch (error) {
+    console.error('Error updating school:', error);
+    showErrorAlert('Connection error: Please check your internet connection');
+  }
 };
 
 const validatePasswords = () => {
-    // Always show feedback
-    showFeedback.value = true;
+  // Always show feedback
+  showFeedback.value = true;
 
-    if (password.value && confirmPassword.value) {
-        // Both fields have values, set match status
-        passwordsMatch.value = password.value === confirmPassword.value;
-        debugMessage.value = passwordsMatch.value
-            ? "Passwords are a match."
-            : "Passwords do not match.";
-    } else if (confirmTouched.value && confirmPassword.value === "") {
-        // If user has interacted with confirm field but it's now empty
-        passwordsMatch.value = false;
-        debugMessage.value = "Please confirm your password";
-    } else if (formSubmitted.value) {
-        // If form was submitted but confirm password is empty
-        passwordsMatch.value = false;
-        debugMessage.value = "Please confirm your password";
-    } else if (confirmPassword.value) {
-        // Confirm password has a value but doesn't match
-        passwordsMatch.value = false;
-        debugMessage.value = "Passwords do not match.";
-    } else {
-        // Confirm password is empty and never touched
-        passwordsMatch.value = null;
-        debugMessage.value = "Please confirm your password";
-    }
+  if (password.value && confirmPassword.value) {
+    // Both fields have values, set match status
+    passwordsMatch.value = password.value === confirmPassword.value;
+    debugMessage.value = passwordsMatch.value
+      ? 'Passwords are a match.'
+      : 'Passwords do not match.';
+  } else if (confirmTouched.value && confirmPassword.value === '') {
+    // If user has interacted with confirm field but it's now empty
+    passwordsMatch.value = false;
+    debugMessage.value = 'Please confirm your password';
+  } else if (formSubmitted.value) {
+    // If form was submitted but confirm password is empty
+    passwordsMatch.value = false;
+    debugMessage.value = 'Please confirm your password';
+  } else if (confirmPassword.value) {
+    // Confirm password has a value but doesn't match
+    passwordsMatch.value = false;
+    debugMessage.value = 'Passwords do not match.';
+  } else {
+    // Confirm password is empty and never touched
+    passwordsMatch.value = null;
+    debugMessage.value = 'Please confirm your password';
+  }
 
-    // console.log("passwordsMatch after:", passwordsMatch.value);
+  // console.log("passwordsMatch after:", passwordsMatch.value);
 };
 
 const handleConfirmBlur = () => {
-    confirmTouched.value = true;
-    validatePasswords();
+  confirmTouched.value = true;
+  validatePasswords();
 };
 
 onMounted(() => {
-    // Force feedback to show for debugging
-    showFeedback.value = true;
-    validatePasswords();
+  // Force feedback to show for debugging
+  showFeedback.value = true;
+  validatePasswords();
 });
 
 // Watch both password fields for changes
 watch(password, () => {
-    validatePasswords();
+  validatePasswords();
 });
 
 watch(confirmPassword, () => {
-    validatePasswords();
+  validatePasswords();
 });
 
 // Reset formSubmitted when either password changes
 watch([password, confirmPassword], () => {
-    // Reset formSubmitted whenever either password changes after form submission
-    if (formSubmitted.value) {
-        formSubmitted.value = false;
-    }
+  // Reset formSubmitted whenever either password changes after form submission
+  if (formSubmitted.value) {
+    formSubmitted.value = false;
+  }
 
-    // If user is typing in confirm field, mark it as touched
-    if (confirmPassword.value) {
-        confirmTouched.value = true;
-    }
+  // If user is typing in confirm field, mark it as touched
+  if (confirmPassword.value) {
+    confirmTouched.value = true;
+  }
 });
 
 const feedbackMessage = computed(() => {
@@ -503,13 +689,13 @@ const feedbackMessage = computed(() => {
 });
 
 const feedbackClass = computed(() => {
-    if (passwordsMatch.value === true) {
-        return "bg-green-100 border-green-500 text-green-800";
-    } else if (passwordsMatch.value === false) {
-        return "bg-red-100 border-red-500 text-red-800";
-    } else {
-        return "bg-gray-100 border-gray-400 text-gray-800";
-    }
+  if (passwordsMatch.value === true) {
+    return 'bg-green-100 border-green-500 text-green-800';
+  } else if (passwordsMatch.value === false) {
+    return 'bg-red-100 border-red-500 text-red-800';
+  } else {
+    return 'bg-gray-100 border-gray-400 text-gray-800';
+  }
 });
 
 </script>
