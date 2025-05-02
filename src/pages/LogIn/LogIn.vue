@@ -161,6 +161,8 @@ import { useRouter } from 'vue-router';
 import { jwtDecode } from 'jwt-decode';
 import Cookies from 'js-cookie';
 
+import { handleGoogleCallback, handleSchoolUpdate } from '../api/auth/google';
+
 const errors = ref(false);
 const errorMessage = ref('Invalid email and password combination. Try again!');
 const email = ref('');
@@ -335,116 +337,20 @@ const login = async (event) => {
 
 const callback = async (response) => {
   OAuthResponse = response.credential;
-  if (response?.credential) {
-    try {
-      const decoded = jwtDecode(response.credential);
-      userProfile.value = {
-        name: decoded.name,
-        email: decoded.email,
-        imageUrl: decoded.picture,
-      };
-    } catch (error) {
-      console.error('Failed to decode JWT:', error);
-      showErrorAlert('Failed to process Google login');
-      return;
-    }
-  }
-
-  const dbResponse = await fetch(
-    `/api/db/get_user?email=${userProfile.value.email}`,
-    {
-      method: 'GET',
-      headers: { 'Content-Type': 'application/json' },
-    }
-  );
-
-  if (!dbResponse.ok) {
-    const errorData = await dbResponse.json().catch(() => ({}));
-    handleApiError(
-      dbResponse.status,
-      errorData.message || 'Failed to retrieve user data'
-    );
-    return;
-  }
-
-  const dbData = await dbResponse.json();
-  console.log('DB Response:', dbData);
-
-  if (!dbData || !dbData.email) {
-    console.log('User not found, prompting for school...');
-    showSchoolForm.value = true;
-  } else {
-    Cookies.set(
-      'audemyUserSession',
-      JSON.stringify({
-        token: OAuthResponse,
-        user: userProfile.value,
-      }),
-      {
-        expires: 7,
-      }
-    );
-    userSession.value = {
-      token: OAuthResponse,
-      user: userProfile.value,
-    };
-
-    router.push('/game-zone');
+  try {
+    await handleGoogleCallback(response, userProfile, showSchoolForm, userSession, router);
+  } catch (error) {
+    console.error(error.message);
+    showErrorAlert(error.message);
   }
 };
 
 const updateSchool = async () => {
-  if (!school.value) {
-    alert('Please enter your school name.');
-    return;
-  }
-
   try {
-    const response = await fetch(`/api/db/update_user_school`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        email: userProfile.value.email,
-        name: userProfile.value.name,
-        school: school.value,
-      }),
-    });
-
-    if (!response.ok) {
-      const errorData = await response.json().catch(() => ({}));
-      handleApiError(
-        response.status,
-        errorData.message || 'Failed to update school information'
-      );
-      return;
-    }
-
-    const data = await response.json();
-    console.log('Updated user:', data);
-
-    if (data.success) {
-      Cookies.set(
-        'audemyUserSession',
-        JSON.stringify({
-          token: OAuthResponse,
-          user: userProfile.value,
-        }),
-        {
-          expires: 7,
-        }
-      );
-      userSession.value = {
-        token: OAuthResponse,
-        user: userProfile.value,
-      };
-      showSchoolForm.value = false;
-      router.push('/game-zone');
-    } else {
-      showErrorAlert(data.message || 'Failed to update school information');
-    }
+    await handleSchoolUpdate(school, userProfile, OAuthResponse, userSession, showSchoolForm, router);
   } catch (error) {
-    console.error('Error updating school:', error);
-    showErrorAlert('Connection error: Please check your internet connection');
+    console.error(error.message);
+    showErrorAlert(error.message);
   }
 };
 
