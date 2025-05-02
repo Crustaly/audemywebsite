@@ -23,9 +23,9 @@
                 <!-- Horizontal Game List -->
                 <div class="flex flex-row overflow-auto gap-16 w-4/6 p-2 lang_gameList">
                     <div v-for="game in languageGames" class="basis-1/4 flex-none">
-                        <div><img src="/assets/myProgress/stage1.svg" class="object-fill"/></div>
-                        <div class="flex justify-center text-center pt-2">{{ game.title }}</div>
-                        <div class="flex justify-center text-gray-500">Level</div>
+                        <div><img :src="game.progressImage ? game.progressImage:'/assets/myProgress/stage1.svg'" class="object-fill"/></div>
+                        <div class="flex justify-center text-center pt-2">{{ game.title }}</div> 
+                        <div class="flex justify-center text-gray-500">{{ game.difficultyLevel || 'Loading...' }}</div>
                     </div>
                 </div>
                 <!-- Arrow Swipe Right -->
@@ -55,9 +55,9 @@
                 <!-- Horizontal Game List -->
                 <div class="flex flex-row overflow-auto gap-16 w-4/6 p-2 math_gameList">
                     <div v-for="game in mathGames" class="basis-1/4 flex-none">
-                        <div><img src="/assets/myProgress/stage2.svg" class="object-fill"/></div>
+                        <div><img :src="game.progressImage ? game.progressImage:'/assets/myProgress/stage1.svg'" class="object-fill"/></div>
                         <div class="flex justify-center text-center pt-2">{{ game.title }}</div>
-                        <div class="flex justify-center text-gray-500">Level</div>
+                        <div class="flex justify-center text-gray-500">{{ game.difficultyLevel || 'Loading...' }}</div>
                     </div>
                 </div>
                 <!-- Arrow Swipe Right -->
@@ -84,10 +84,12 @@ import Cookies from 'js-cookie';
 import { getLanguageGames, getMathGames } from "../GameDB.js";
 
 const userSession = ref(null);
-const userName = ref("[Namee]");
+const userName = ref("[Name]");
+const userEmail = ref('');
 const languageGames = ref(getLanguageGames());
 const mathGames = ref(getMathGames());
-
+const level = ['Beginner', 'Intermediate', 'Advanced'];
+const isProgressLoaded = ref(false);
 
 const langScrollRight = () => {
   const content = document.querySelector(".lang_gameList");
@@ -109,6 +111,36 @@ const mathScrollLeft = () => {
   if (content) content.scrollLeft -= 150;
 };
 
+const fetchUserProgress = async (email) => {
+  try {
+    const response = await fetch(`/api/db/get-user-progress?email=${email}`, {
+      method: "GET",
+      headers: { "Content-Type": "application/json" },
+    });
+    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+
+    const data = await response.json();
+    const progressArray = data?.Progress?.progress_json?.progress || [];
+    
+    gamesWithProgress(languageGames.value, progressArray.slice(0,8));
+    gamesWithProgress(mathGames.value, progressArray.slice(8,16));
+
+    isProgressLoaded.value = true;
+  } catch (error) {
+    console.error("Failed to fetch user progress:", error);
+    isProgressLoaded.value = true;
+  }
+};
+
+const gamesWithProgress = (games, progressArray) => {
+    const imagePath = '/assets/myProgress/stage';
+    for (let n=0; n<8; n++){
+        games[n].difficultyLevel = level[progressArray[n].difficulty_id - 1];
+        games[n].progressImage = imagePath + String(progressArray[n].difficulty_id) + '.svg';
+    }
+    console.log('Modified Game:', games);
+};
+
 
 onMounted(() => {
     const session = Cookies.get("audemyUserSession");
@@ -118,6 +150,10 @@ onMounted(() => {
             console.log("Parsed session:", parsed);
             userSession.value = parsed;
             userName.value = parsed.user.name;
+            userEmail.value = parsed.user.email;
+            console.log('User Email is:', userEmail.value)
+
+            fetchUserProgress(userEmail.value);
         } catch (e) {
             console.error("Failed to parse user session cookie:", e);
         }
