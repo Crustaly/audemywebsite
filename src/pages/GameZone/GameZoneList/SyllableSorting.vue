@@ -162,7 +162,7 @@
                   :disabled="isIntroPlaying"
                   :class="{ 'opacity-50 cursor-not-allowed': isIntroPlaying }"
                 >
-                  {{ isIntroPlaying ? "Please wait..." : "Start Questions" }}
+                  {{ isIntroPlaying ? 'Please wait...' : 'Start Questions' }}
                 </button>
               </div>
 
@@ -191,10 +191,10 @@
                   <span class="text-lg font-medium">
                     {{
                       isRecording
-                        ? "Stop Recording"
+                        ? 'Stop Recording'
                         : isTablet || isMobile
-                        ? "Record"
-                        : "Record Answer"
+                        ? 'Record'
+                        : 'Record Answer'
                     }}
                   </span>
                   <img
@@ -230,7 +230,7 @@
                   "
                 >
                   <span class="text-lg font-medium">{{
-                    isTablet || isMobile ? "Repeat" : "Repeat Question"
+                    isTablet || isMobile ? 'Repeat' : 'Repeat Question'
                   }}</span>
                   <img
                     src="/assets/gameImages/buttons/repeat.png"
@@ -270,21 +270,21 @@
 
 <script setup>
 // 1. Imports
-import { onMounted, onUnmounted, ref, watch, computed } from "vue";
-import GamePagesHeader from "../../Header/GamePagesHeader.vue";
-import GamePagesFooter from "../../Footer/GamePagesFooter.vue"
-import { requestMicPermission } from "../../../Utilities/requestMicAccess";
+import { onMounted, onUnmounted, ref, watch, computed } from 'vue';
+import GamePagesHeader from '../../Header/GamePagesHeader.vue';
+import GamePagesFooter from '../../Footer/GamePagesFooter.vue';
+import { requestMicPermission } from '../../../Utilities/requestMicAccess';
 import {
   playIntro,
   playQuestion,
   playSound,
   stopAudios,
   playScore,
-} from "../../../Utilities/playAudio";
+} from '../../../Utilities/playAudio';
 import {
   startListening,
   stopListening,
-} from "../../../Utilities/speechRecognition";
+} from '../../../Utilities/speechRecognition';
 
 // 2. Props / Emits
 // (none in this component)
@@ -299,7 +299,7 @@ let questionsDb = [];
 const numOfAudiosPlayed = ref(0);
 const score = ref(0);
 const isRecording = ref(false);
-const transcription = ref("");
+const transcription = ref('');
 
 // UI control states
 const playButton = ref(false);
@@ -329,23 +329,23 @@ const isButtonDisabled = computed(
 );
 
 const recordButtonClasses = computed(() => [
-  "flex items-center justify-center shadow-md",
+  'flex items-center justify-center shadow-md',
   isTablet.value
-    ? "w-[200px] h-[60px] pt-5 pr-[30px] pb-5 pl-[30px] gap-[10px] rounded-[20px]"
+    ? 'w-[200px] h-[60px] pt-5 pr-[30px] pb-5 pl-[30px] gap-[10px] rounded-[20px]'
     : isMobile.value
-    ? "w-full h-[60px] pt-5 pr-[30px] pb-5 pl-[30px] gap-[10px] rounded-[20px]"
-    : "gap-2.5 w-[234px] h-[116px] pt-5 pr-7 pb-5 pl-7 rounded-[20px]",
-  isRecording.value ? "bg-red-500" : "bg-[#087BB4]",
-  "text-white",
-  isButtonDisabled.value ? "opacity-50 cursor-not-allowed" : "",
+    ? 'w-full h-[60px] pt-5 pr-[30px] pb-5 pl-[30px] gap-[10px] rounded-[20px]'
+    : 'gap-2.5 w-[234px] h-[116px] pt-5 pr-7 pb-5 pl-7 rounded-[20px]',
+  isRecording.value ? 'bg-red-500' : 'bg-[#087BB4]',
+  'text-white',
+  isButtonDisabled.value ? 'opacity-50 cursor-not-allowed' : '',
 ]);
 
 const recordButtonTitle = computed(() => {
   if (isIntroPlaying.value)
-    return "Please wait until the introduction finishes";
+    return 'Please wait until the introduction finishes';
   if (isButtonCooldown.value)
-    return "Please wait until the question finishes playing";
-  return "Record your answer";
+    return 'Please wait until the question finishes playing';
+  return 'Record your answer';
 });
 
 // 5. Watch/WatchEffect
@@ -353,11 +353,11 @@ const recordButtonTitle = computed(() => {
 
 // 6. Lifecycle Hooks
 onMounted(() => {
-  console.log("Requesting microphone access...");
+  console.log('Requesting microphone access...');
   requestMicPermission();
 
   checkDeviceType();
-  window.addEventListener("resize", checkDeviceType);
+  window.addEventListener('resize', checkDeviceType);
 
   generateQuestions();
 
@@ -365,7 +365,7 @@ onMounted(() => {
   watch(playButton, (newVal) => {
     if (newVal) {
       isIntroPlaying.value = true;
-      const introAudio = playIntro("/syllableSorting/syllableIntro.mp3");
+      const introAudio = playIntro('/syllableSorting/syllableIntro.mp3');
       currentAudios.push(introAudio);
       introAudio.onended = () => {
         isIntroPlaying.value = false;
@@ -380,9 +380,9 @@ onMounted(() => {
 
 onUnmounted(() => {
   // Stop audio playback and cleanup listeners
-  console.log("Navigated Back!");
+  console.log('Navigated Back!');
   stopAudios(currentAudios);
-  window.removeEventListener("resize", checkDeviceType);
+  window.removeEventListener('resize', checkDeviceType);
 });
 
 // 7. Functions/Methods
@@ -414,18 +414,18 @@ const checkDeviceType = () => {
  * Handles the back button click
  */
 const goBack = () => {
-  console.log("Going back...");
+  console.log('Going back...');
   // Stop all audio playback before navigating away
   stopAudios(currentAudios);
   // Force navigate to the game zone page
-  window.location.href = "/game-zone";
+  window.location.href = '/game-zone';
 };
 
 /**
  * Generates syllable questions using JSON file
  */
 const generateQuestions = () => {
-  console.log("Generating Questions...");
+  console.log('Generating Questions...');
   // Generate 5 random numbers for the questions
   while (randQueNum.length < 5) {
     let num = Math.floor(Math.random() * 10);
@@ -434,28 +434,31 @@ const generateQuestions = () => {
     }
   }
   // Fetch questions from JSON file
-  fetch("/assets/questionsDb/SyllableGameDB.json")
+  fetch('/assets/questionsDb/SyllableGameDB.json')
     .then((response) => response.json())
     .then((data) => {
       console.log(
-        "Questions:",
-        data["SyllableCountingGame"]["Questions"]["Easy"]
+        'Questions:',
+        data['SyllableCountingGame']['Questions']['Easy']
       );
       // Process the questions data as needed
-      questionsDb = data["SyllableCountingGame"]["Questions"]["Easy"];
+      questionsDb = data['SyllableCountingGame']['Questions']['Easy'];
     })
     .catch((error) => {
-      console.error("Error fetching questions:", error);
+      console.error('Error fetching questions:', error);
     });
 };
 
 /**
  * Plays the next question
  */
-const playNextQuestion = () => {
+const playNextQuestion = async () => {
   if (numOfAudiosPlayed.value < 5 && currentQuestion.value) {
     console.log(currentQuestion.value);
-    currentAudios.push(playQuestion(currentQuestion.value["Q"]));
+
+    isButtonCooldown.value = true;
+    await playQuestion(currentQuestion.value['Q']);
+    isButtonCooldown.value = false;
   }
 };
 
@@ -472,33 +475,33 @@ const toggleRecording = () => {
       }, false);
     } else {
       isButtonCooldown.value = true;
-      console.log("Processing recording...");
+      console.log('Processing recording...');
 
       const finalTranscript = transcription.value;
 
       // Process the answer
       const question = questionsDb[randQueNum[numOfAudiosPlayed.value]];
-      console.log("Question is: ", question["Q"]);
-      console.log("User Answer:", finalTranscript);
-      console.log("Correct Answer:", question["A"]);
+      console.log('Question is: ', question['Q']);
+      console.log('User Answer:', finalTranscript);
+      console.log('Correct Answer:', question['A']);
 
       const userWords = finalTranscript
-      .toLowerCase()
-      .replace(/[.,!?]/g, "")
-      .split(/\s+/);
+        .toLowerCase()
+        .replace(/[.,!?]/g, '')
+        .split(/\s+/);
 
-      const correctAnswers = Array.isArray(question["A"])
-        ? question["A"].map((a) => a.toLowerCase())
-        : [question["A"].toLowerCase()];
+      const correctAnswers = Array.isArray(question['A'])
+        ? question['A'].map((a) => a.toLowerCase())
+        : [question['A'].toLowerCase()];
 
-      if (userWords.some((word) => correctAnswers.includes(word))){
+      if (userWords.some((word) => correctAnswers.includes(word))) {
         score.value++;
-        console.log("Correct Answer!");
-        playSound("correctaudio.mp3");
+        console.log('Correct Answer!');
+        playSound('correctaudio.mp3');
       } else {
-        console.log("Wrong Answer!");
-        playSound("incorrectaudio.mp3");
-        const incorectAudio = "The correct answer is " + question["A"][0];
+        console.log('Wrong Answer!');
+        playSound('incorrectaudio.mp3');
+        const incorectAudio = 'The correct answer is ' + question['A'][0];
 
         setTimeout(() => {
           currentAudios.push(playQuestion(incorectAudio));
@@ -511,9 +514,8 @@ const toggleRecording = () => {
       numOfAudiosPlayed.value++;
 
       setTimeout(() => {
-        transcription.value = "";
-        isButtonCooldown.value = false;
-        console.log("Recording processed and stopped");
+        transcription.value = '';
+        console.log('Recording processed and stopped');
 
         // Move to next question or end game
         if (numOfAudiosPlayed.value < 5) {
@@ -521,7 +523,7 @@ const toggleRecording = () => {
             playNextQuestion();
           }, 2000);
         } else {
-          console.log("Game Over!");
+          console.log('Game Over!');
           setTimeout(() => {
             playScore(score.value);
           }, 2000);
@@ -543,7 +545,7 @@ const repeatQuestion = () => {
     isButtonCooldown.value = true;
 
     console.log(
-      "Repeating question for Syllable Sorting game - Question #" +
+      'Repeating question for Syllable Sorting game - Question #' +
         (numOfAudiosPlayed.value + 1)
     );
 
@@ -554,9 +556,9 @@ const repeatQuestion = () => {
       isButtonCooldown.value = false;
     }, 5000);
   } else if (isIntroPlaying.value) {
-    console.log("Cannot repeat question while introduction is playing");
+    console.log('Cannot repeat question while introduction is playing');
   } else if (isButtonCooldown.value) {
-    console.log("Please wait before repeating the question again");
+    console.log('Please wait before repeating the question again');
   }
 };
 
@@ -565,7 +567,7 @@ const repeatQuestion = () => {
  * Only used for mobile devices
  */
 const startFirstQuestion = () => {
-  console.log("Starting first question...");
+  console.log('Starting first question...');
   numOfAudiosPlayed.value = 1;
   playNextQuestion();
 };
@@ -573,12 +575,12 @@ const startFirstQuestion = () => {
 /**
  * Handles the something not working button click
  */
- const handleSthNotWorkingButtonClick = () => {
-  console.log("Navigating to Troubleshooting Page...");
+const handleSthNotWorkingButtonClick = () => {
+  console.log('Navigating to Troubleshooting Page...');
   // Stop all audio playback before navigating away
   stopAudios(currentAudios);
   // Force navigate to the game zone page
-  window.location.href = "/troubleshooting";
+  window.location.href = '/troubleshooting';
 };
 
 // 8. Exposed Values

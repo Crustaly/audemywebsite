@@ -63,14 +63,28 @@
                         >Game zone</RouterLink
                     >
                 </li>
-
                 <li v-if="userSession" id="logout-btn-item">
                     <button
                         id="logout-btn-desktop"
                         class="flex justify-center items-center bg-[#FE892A] text-black font-bold py-3 px-6 rounded-lg border-[1.5px] shadow-[3px_4px_0px_#0C0D0D] border-black hover:bg-[#D6711F]"
                         @click="logout"
                     >
-                    Log out
+                        <!-- Add profile photo -->
+                        <span id="logout-text-desktop">Logout</span>
+                        <img 
+                            id="google-profile-desktop"
+                            v-if="userSession.user && userSession.user.imageUrl" 
+                            :src="userSession.user.imageUrl" 
+                            aria-hidden="true"
+                            class="w-6 h-6 rounded-full ml-2"
+                        />
+                        <img 
+                            id="default-profile-desktop"
+                            v-else
+                            src="../../assets/character/default-profile.png" 
+                            aria-hidden="true"
+                            class="w-6 h-6 rounded-full ml-2"
+                        />
                     </button>
                 </li>
                 <li v-else id="login-btn-item">
@@ -79,7 +93,7 @@
                         to="/login"
                         class="flex justify-center items-center login-button text-white font-bold py-3 px-6 rounded-lg border-[1.5px] shadow-[3px_4px_0px_#0C0D0D] border-black bg-[#087BB4] hover:bg-[#0C587D]"
                     >
-                    Log in
+                        Log in
                     </router-link>
                 </li>
             </ul>
@@ -137,11 +151,32 @@
                             class="block py-4 hover:text-[#087bb4]"
                             @click="closeMenu"
                         >Game zone</RouterLink>
+                    </li> 
+                    <li v-if="userSession">
+                        <button
+                            class="flex justify-center items-center w-full mt-4 bg-[#FE892A] text-black font-bold py-3 px-6 rounded-lg border-[1.5px] shadow-[3px_4px_0px_#0C0D0D] border-black hover:bg-[#D6711F] rounded"
+                            @click="logout"
+                        >
+                        Logout
+                        <!-- Add profile photo -->
+                        <img 
+                            v-if="userSession.user && userSession.user.imageUrl" 
+                            :src="userSession.user.imageUrl" 
+                            aria-hidden="true" 
+                            class="w-6 h-6 rounded-full ml-2"
+                        />
+                        <img 
+                            v-else
+                            src="../../assets/character/default-profile.png" 
+                            aria-hidden="true"
+                            class="w-6 h-6 rounded-full ml-2"
+                        /> 
+                        </button>
                     </li>
-                    <li>
+                    <li v-else>
                         <router-link
                             to="/login"
-                            class="flex justify-center items-center login-button text-white font-bold py-3 px-6 rounded-lg border-[1.5px] shadow-[3px_4px_0px_#0C0D0D] border-black bg-[#087BB4] hover:bg-[#0C587D] mt-8"
+                            class="flex justify-center items-center login-button w-full text-white font-bold py-3 px-6 rounded-lg border-[1.5px] shadow-[3px_4px_0px_#0C0D0D] border-black bg-[#087BB4] hover:bg-[#0C587D] mt-8"
                             >
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                                 <path d="M5 12h14"></path>
@@ -149,13 +184,6 @@
                             </svg>
                             &nbsp;Log in
                         </router-link>
-                    </li>
-                    <li v-if="userSession">
-                        <button
-                            class="mt-4 bg-[#FE892A] text-white px-4 py-2 rounded"
-                            @click="logout"
-                        >Logout
-                        </button>
                     </li>
                 </ul>
             </nav>
@@ -288,11 +316,14 @@ onMounted(() => {
 
     const session = Cookies.get("audemyUserSession");
     if (session) {
-        const parsed = JSON.parse(session);
-        console.log("Parsed session:", parsed);
-        userSession.value = parsed;
+        try {
+            const parsed = JSON.parse(session);
+            console.log("Parsed session:", parsed);
+            userSession.value = parsed;
+        } catch (error) {
+            console.error("Error parsing user session:", error);
+        }
     }
-    
 });
 
 onUnmounted(() => {
@@ -384,8 +415,26 @@ onUnmounted(() => {
 
 /* * * * * Resize Log In/Out buttons for medium screens (768px–1024px) * * * * */
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
-    #logout-btn-desktop, #login-btn-desktop {
+    #login-btn-desktop {
         padding: 15px;
     }
+
+    #logout-btn-desktop {
+        padding: 8px; /* Adjust (reduce) padding to accomodate width of profile icon */
+        display: grid;
+        grid-template-areas: 
+            "text text text"
+            ". profile .";
+    }
+
+    #logout-text-desktop {
+        grid-area: text;
+    }
+
+    #google-profile-desktop, #default-profile-desktop {
+        grid-area: profile;
+        margin: 0;
+    }
+
 }
 </style>
