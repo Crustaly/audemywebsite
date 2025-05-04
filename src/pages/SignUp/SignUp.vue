@@ -519,6 +519,9 @@ const feedbackClass = computed(() => {
 
 form label {
     margin-bottom: 5px;
+    text-align: left;
+    width: 80%;
+    margin-left: 10%;
 }
 
 form input {
