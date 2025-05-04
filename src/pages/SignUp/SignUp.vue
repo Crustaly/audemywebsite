@@ -178,18 +178,20 @@
                     </p>
                 </div>
                 <div
+                    id="login-grid"
                     class="text-[16px] text-[#0C0D0D] mobile:text-[14px] mobile:px-4"
                 >
-                    <p class="font-semibold mt-[10px] mb-[10px]">
+                    <p id="login-caption" class="font-semibold mt-[10px] mb-[10px]">
                         Already have an Audemy account?
                     </p>
-                    <a href="login" class="text-[#087BB4] hover:text-[#0C587D] underline"
-                    >
-                        Log in
-                    </a>
+                    <div id="login-link">
+                        <a href="login" class="text-[#087BB4] w-auto hover:text-[#0C587D] underline">
+                            Log in
+                        </a>
+                    </div>
                 </div>
                 <!-- GET STARTED BTN -->
-                <div class="mt-[20px] mb-[20px] w-full">
+                <div class="mt-[40px] mb-[40px] w-full">
                     <button
                         type="button"
                         @click="submitForm"
@@ -545,6 +547,28 @@ form input {
         margin-top: 0px;
         margin-bottom: 0px;
         grid-area: 1 / span 2;
+    }
+
+    #login-grid {
+        display: grid;
+        grid-template-columns: auto auto;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+
+    #login-caption, #login-link {
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+
+    #login-caption {
+        grid-column: 1;
+        text-align: left;
+    }
+
+    #login-link {
+        grid-column: 2;
+        text-align: right;
     }
 
 }
