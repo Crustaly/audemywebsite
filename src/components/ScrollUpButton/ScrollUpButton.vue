@@ -9,7 +9,7 @@ const scrollToTop = () => {
 };
 
 const handleScroll = () => {
-    showButton.value = window.scrollY > 1500;
+    showButton.value = window.scrollY > 800;
 };
 
 const showButton = ref(false);
