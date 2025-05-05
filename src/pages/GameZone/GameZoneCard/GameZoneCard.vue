@@ -31,7 +31,7 @@ const props = defineProps({
             alt=""
             class="h-3/4 absolute top-0 right-0 rounded-xl"
         />
-        <div class="w-full absolute bottom-0 left-0 p-4 z-50">
+        <div class="text-left w-full absolute bottom-0 left-0 p-4 z-50">
             <div class="w-full" :class="{ 'mb-0': description }">
                 <div
                     id="title"
