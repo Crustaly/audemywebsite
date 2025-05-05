@@ -9,6 +9,8 @@ const confirmPassword = ref("");
 const token = ref("");
 const router = useRouter();
 
+let errorMessage = ref("")
+
 onMounted(() => {
     // Get the token from the URL query parameters
     const query = new URLSearchParams(window.location.search);

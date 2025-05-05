@@ -4,9 +4,11 @@ import jwt from 'jsonwebtoken';
 
 const prisma = new PrismaClient();
 
+const baseURL = process.env.BASE_URL
+
 export default async function handler(req, res) {
     // Set CORS headers (you can either use "*" for all origins or a specific one like below)
-    res.setHeader("Access-Control-Allow-Origin", "http://localhost:5173");
+    res.setHeader("Access-Control-Allow-Origin", baseURL);
     res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
     res.setHeader(
         "Access-Control-Allow-Headers",
@@ -32,7 +34,7 @@ export default async function handler(req, res) {
 
         // Generate reset token using jwt with expiration time
         const resetToken = jwt.sign({ userId: user.user_id }, process.env.JWT_SECRET, { expiresIn: '10m' });
-        resetLink = `http://localhost:5173/reset-landing-page?user=${user.name}&token=${resetToken}`;
+        resetLink = `${baseURL}/reset-landing-page?user=${user.name}&token=${resetToken}`;
         console.log("Reset link generated.");
 
     } catch (error) {
