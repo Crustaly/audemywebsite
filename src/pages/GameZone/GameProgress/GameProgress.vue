@@ -1,5 +1,5 @@
 <template>
-  <div v-if="userSession" class="flex flex-col gap-8 items-center py-4">
+  <div v-if="userSession" class="flex flex-col gap-8 items-center">
     <!-- User Greeting -->
     <div class="text-[30px]">{{ userName }}, unlock new levels with Carl!</div>
 

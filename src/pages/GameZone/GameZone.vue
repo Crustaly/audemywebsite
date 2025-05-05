@@ -220,7 +220,7 @@ function hideMenuDropdown(menuBtn, currentDropdown) {
       />
     </div>
     <div class="w-full pt-10 flex align-center justify-center">
-      <div class="w-10/12">
+      <div class="w-10/12 pb-14">
         <h2 id="game-zone-header" class="font-poppins text-black text-[40px] mobile:text-[25px] mobile:text-center M-0">
           Play and learn with us!
         </h2>
