@@ -34,7 +34,7 @@ onUnmounted(() => {
     >
         <!-- LEFT PORTION -->
         <div
-            class="flex flex-col items-start justify-start mobile:justify-center w-1/2 mobile:w-full h-auto mb-36 tablet:mb-[265px] mobile:mb-[129px]"
+            class="flex flex-col items-start justify-start mobile:justify-center w-1/2 mobile:w-full h-auto mb-5 tablet:mb-[265px] mobile:mb-[129px]"
         >
             <div class="mobile:w-full mobile:flex mobile:justify-center">
                 <h3

@@ -35,7 +35,7 @@
                 <img
                     src="/assets/images/our-projects/header/banner.svg"
                     alt="Banner"
-                    class="absolute -top-3 right-0 -z-10 w-[50rem] h-auto mobile:relative mobile:top-0 mobile:right-auto mobile:w-full mobile:h-auto"
+                    class="absolute -right-8 -z-10 w-[50rem] h-auto mobile:relative mobile:top-0 mobile:right-auto mobile:w-full mobile:h-auto"
                 />
             </div>
         </div>
