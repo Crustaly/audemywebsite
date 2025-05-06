@@ -1,46 +1,44 @@
 <template>
-    <ScrollUpButton />
-    <div 
-        :class="[
-            'relative', 
-            !isTablet && !isMobile ? 'px-14' : '',
-            isTablet ? 'px-6' : '',
-            isMobile ? 'px-8' : ''
-        ]" 
-        ref="content"
-    >
+  <ScrollUpButton />
+  <div
+    :class="[
+      'relative',
+      !isTablet && !isMobile ? 'px-14' : '',
+      isTablet ? 'px-6' : '',
+      isMobile ? 'px-8' : '',
+    ]"
+    ref="content"
+  >
     <Header :logoPath="'/assets/images/header/header-logo-2.png'" />
-    </div>
-    <div 
-        id="signup-container"
-        :class="[
-            !isTablet && !isMobile ? 'px-20' : '',
-            isTablet ? 'px-10' : '',
-            isMobile ? 'px-5' : ''
-        ]"
+  </div>
+  <div
+    id="signup-container"
+    :class="[
+      !isTablet && !isMobile ? 'px-20' : '',
+      isTablet ? 'px-10' : '',
+      isMobile ? 'px-5' : '',
+    ]"
+  >
+    <!-- Mobile-first banner with decorative images, shapes, and icons -->
+    <div
+      id="signup-banner"
+      class="relative bg-[#b1c7d0] w-full h-[200px]"
+      aria-hidden="true"
     >
-        <!-- Mobile-first banner with decorative images, shapes, and icons -->
-        <div 
-            id="signup-banner"
-            class="relative bg-[#b1c7d0] w-full h-[200px]"
-            aria-hidden="true"
-        >
-            <Banner 
-                :CarlImgPath="'/assets/images/SignUpImg/Group 1010.png'" 
-                curveColor="#E5F0F5"
-            />
-        </div>
-        <!-- SIGN UP FORM -->
-        <div 
-            id="signup-form-container"
-            class="pt-[20px] pb-[20px] mb-[40px] mt-[40px] text-center"
-            :class="[
-                !isTablet && !isMobile ? 'mt-[0px] mb-[0px]' : '',
-            ]"
-        >
-            <h1 class="text-[#151E22] mobile:text-[28px] text-[35px]">
-                Sign up to get started!
-            </h1>
+      <Banner
+        :CarlImgPath="'/assets/images/SignUpImg/Group 1010.png'"
+        curveColor="#E5F0F5"
+      />
+    </div>
+    <!-- SIGN UP FORM -->
+    <div
+      id="signup-form-container"
+      class="pt-[20px] pb-[20px] mb-[40px] mt-[40px] text-center"
+      :class="[!isTablet && !isMobile ? 'mt-[0px] mb-[0px]' : '']"
+    >
+      <h1 class="text-[#151E22] mobile:text-[28px] text-[35px]">
+        Sign up to get started!
+      </h1>
 
       <!-- Google OAuth Login -->
       <div class="flex w-full gap-4 items-center justify-center mt-4">
@@ -72,165 +70,152 @@
         </button>
       </div>
 
-            <!-- Decorative "or" Divider -->
-            <div
-                class="flex text-gray-500 w-full justify-center items-center gap-2 mt-4"
-                aria-hidden="true"
-            >
-            <div>
-                <hr class="w-[180px] h-0.5 bg-gray-500 rounded-sm" />
-            </div>
-            <div>or</div>
-            <div>
-                <hr class="w-[180px] h-0.5 bg-gray-500 rounded-sm" />
-            </div>
-            </div>
-
-            <!-- FORM FIELD -->
-            <form ref="signupForm" class="mt-[20px] pt-[20px] pb-[20px]">
-                <!-- FIRST & LAST NAME -->
-                <div>
-                    <div>
-                        <label
-                            class="block text-[#0C0D0D] font-semibold"
-                            for="first_name"
-                        >
-                            First Name
-                        </label>
-                        <input
-                            type="text"
-                            class="outline-none border border-black h-[48px] px-4 rounded-[8px] w-[80%]"
-                            id="first_name"
-                            name="first_name"
-                            placeholder="Enter your first name"
-                        />
-                    </div>
-                    <div>
-                        <label
-                            class="block text-[#0C0D0D] font-semibold"
-                            for="last_name"
-                        >
-                            Last Name
-                        </label>
-                        <input
-                            type="text"
-                            class="outline-none border border-black h-[48px] px-4 rounded-[8px] w-[80%]"
-                            id="last_name"
-                            name="last_name"
-                            placeholder="Enter your last name"
-                        />
-                    </div>
-                </div>
-                <!-- SCHOOL FIELD -->
-                <div class="w-full">
-                    <label
-                        for="school_name"
-                        class="block text-[#0C0D0D] font-semibold"
-                    >
-                        School
-                    </label>
-                    <input
-                        type="text"
-                        class="w-[80%] outline-none border border-black h-[48px] px-4 rounded-[8px]"
-                        id="school_name"
-                        name="school_name"
-                        placeholder="Enter your school's name"
-                    />
-                </div>
-                <!-- EMAIL FIELD -->
-                <div class="w-full">
-                    <label
-                        class="block text-[#0C0D0D] font-semibold"
-                        for="email"
-                        >Email</label
-                    >
-                    <input
-                        type="email"
-                        class="w-[80%] outline-none border border-black h-[48px] px-4 rounded-[8px]"
-                        id="email"
-                        name="email"
-                        placeholder="Enter your email address"
-                    />
-                </div>
-                <!-- PASSWORD FIELD -->
-                <div class="w-full">
-                    <label
-                        for="password"
-                        class="block text-[#0C0D0D] font-semibold"
-                    >
-                        Password
-                    </label>
-                    <input
-                        v-model="password"
-                        type="password"
-                        class="w-[80%] outline-none border border-black h-[48px] px-4 rounded-[8px]"
-                        id="password"
-                        name="password"
-                        placeholder="Create your best password"
-                        @input="validatePasswords"
-                    />
-                </div>
-                <!-- CONFIRM PASSWORD FIELD -->
-                <div class="mb-[16px] mobile:w-full relative">
-                    <label
-                        for="confirm_password"
-                        class="block text-[#0C0D0D] font-semibold"
-                    >
-                        Confirm Password
-                    </label>
-                    <input
-                        v-model="confirmPassword"
-                        type="password"
-                        class="w-[80%] outline-none border border-black h-[48px] px-4 rounded-[8px]"
-                        id="confirm_password"
-                        name="confirm_password"
-                        placeholder="Confirm your password"
-                        @input="validatePasswords"
-                        @blur="handleConfirmBlur"
-                    />
-                </div>
-                <!-- Password match feedback container (Using computed properties) -->
-                <div
-                    v-show="confirmTouched"
-                    class="mb-6 p-3 ml-[10%] rounded-lg border-2 shadow-md min-h-[56px] text-base font-medium w-[80%]"
-                    :class="feedbackClass"
-                    v-if="feedbackMessage !== 'cleared'"
-                >
-                    <p class="font-medium" role="alert">
-                        {{ feedbackMessage }}
-                    </p>
-                </div>
-                <div
-                    id="login-grid"
-                    class="text-[16px] text-[#0C0D0D] mobile:text-[14px] mobile:px-4"
-                >
-                    <p id="login-caption" class="font-semibold mt-[10px] mb-[10px]">
-                        Already have an Audemy account?
-                    </p>
-                    <div id="login-link">
-                        <a href="login" class="text-[#087BB4] w-auto hover:text-[#0C587D] underline">
-                            Log in
-                        </a>
-                    </div>
-                </div>
-                <!-- GET STARTED BTN -->
-                <div class="mt-[40px] mb-[40px] w-full">
-                    <button
-                        type="button"
-                        @click="submitForm"
-                        class="h-[55px] w-[280px] font-semibold text-white rounded-[8px] bg-[#087BB4] hover:bg-[#0C587D] hover:cursor-pointer border-2 border-black font-semibold shadow-[4px_4px_0px_black]"
-                        value="Get Started"
-                    >
-                        Get Started
-                    </button>
-                </div>
-            </form>
+      <!-- Decorative "or" Divider -->
+      <div
+        class="flex text-gray-500 w-full justify-center items-center gap-2 mt-4"
+        aria-hidden="true"
+      >
+        <div>
+          <hr class="w-[180px] h-0.5 bg-gray-500 rounded-sm" />
         </div>
+        <div>or</div>
+        <div>
+          <hr class="w-[180px] h-0.5 bg-gray-500 rounded-sm" />
+        </div>
+      </div>
+
+      <!-- FORM FIELD -->
+      <form ref="signupForm" class="mt-[20px] pt-[20px] pb-[20px]">
+        <!-- FIRST & LAST NAME -->
+        <div>
+          <div>
+            <label class="block text-[#0C0D0D] font-semibold" for="first_name">
+              First Name
+            </label>
+            <input
+              type="text"
+              class="outline-none border border-black h-[48px] px-4 rounded-[8px] w-[80%]"
+              id="first_name"
+              name="first_name"
+              placeholder="Enter your first name"
+            />
+          </div>
+          <div>
+            <label class="block text-[#0C0D0D] font-semibold" for="last_name">
+              Last Name
+            </label>
+            <input
+              type="text"
+              class="outline-none border border-black h-[48px] px-4 rounded-[8px] w-[80%]"
+              id="last_name"
+              name="last_name"
+              placeholder="Enter your last name"
+            />
+          </div>
+        </div>
+        <!-- SCHOOL FIELD -->
+        <div class="w-full">
+          <label for="school_name" class="block text-[#0C0D0D] font-semibold">
+            School
+          </label>
+          <input
+            type="text"
+            class="w-[80%] outline-none border border-black h-[48px] px-4 rounded-[8px]"
+            id="school_name"
+            name="school_name"
+            placeholder="Enter your school's name"
+          />
+        </div>
+        <!-- EMAIL FIELD -->
+        <div class="w-full">
+          <label class="block text-[#0C0D0D] font-semibold" for="email"
+            >Email</label
+          >
+          <input
+            type="email"
+            class="w-[80%] outline-none border border-black h-[48px] px-4 rounded-[8px]"
+            id="email"
+            name="email"
+            placeholder="Enter your email address"
+          />
+        </div>
+        <!-- PASSWORD FIELD -->
+        <div class="w-full">
+          <label for="password" class="block text-[#0C0D0D] font-semibold">
+            Password
+          </label>
+          <input
+            v-model="password"
+            type="password"
+            class="w-[80%] outline-none border border-black h-[48px] px-4 rounded-[8px]"
+            id="password"
+            name="password"
+            placeholder="Create your best password"
+            @input="validatePasswords"
+          />
+        </div>
+        <!-- CONFIRM PASSWORD FIELD -->
+        <div class="mb-[16px] mobile:w-full relative">
+          <label
+            for="confirm_password"
+            class="block text-[#0C0D0D] font-semibold"
+          >
+            Confirm Password
+          </label>
+          <input
+            v-model="confirmPassword"
+            type="password"
+            class="w-[80%] outline-none border border-black h-[48px] px-4 rounded-[8px]"
+            id="confirm_password"
+            name="confirm_password"
+            placeholder="Confirm your password"
+            @input="validatePasswords"
+            @blur="handleConfirmBlur"
+          />
+        </div>
+        <!-- Password match feedback container (Using computed properties) -->
+        <div
+          v-show="confirmTouched"
+          class="mb-6 p-3 ml-[10%] rounded-lg border-2 shadow-md min-h-[56px] text-base font-medium w-[80%]"
+          :class="feedbackClass"
+          v-if="feedbackMessage !== 'cleared'"
+        >
+          <p class="font-medium" role="alert">
+            {{ feedbackMessage }}
+          </p>
+        </div>
+        <div
+          id="login-grid"
+          class="text-[16px] text-[#0C0D0D] mobile:text-[14px] mobile:px-4"
+        >
+          <p id="login-caption" class="font-semibold mt-[10px] mb-[10px]">
+            Already have an Audemy account?
+          </p>
+          <div id="login-link">
+            <a
+              href="login"
+              class="text-[#087BB4] w-auto hover:text-[#0C587D] underline"
+            >
+              Log in
+            </a>
+          </div>
+        </div>
+        <!-- GET STARTED BTN -->
+        <div class="mt-[40px] mb-[40px] w-full">
+          <button
+            type="button"
+            @click="submitForm"
+            class="h-[55px] w-[280px] font-semibold text-white rounded-[8px] bg-[#087BB4] hover:bg-[#0C587D] hover:cursor-pointer border-2 border-black font-semibold shadow-[4px_4px_0px_black]"
+            value="Get Started"
+          >
+            Get Started
+          </button>
+        </div>
+      </form>
     </div>
+  </div>
   <Footer />
 </template>
-
-
 
 <script setup>
 import { ref, watch, onMounted, computed } from 'vue';
@@ -239,6 +224,12 @@ import { GoogleLogin } from 'vue3-google-login';
 import Cookies from 'js-cookie';
 import { useRouter } from 'vue-router';
 import { handleGoogleCallback, handleSchoolUpdate } from '../api/auth/google';
+import Header from '../../components/Header/Header.vue';
+import Footer from '../../components/Footer/Footer.vue';
+import ScrollUpButton from '../../components/ScrollUpButton/ScrollUpButton.vue';
+import Banner from '../../components/AccountPages/Banner.vue';
+
+import { useDeviceType } from '../../Utilities/checkDeviceType';
 
 import Group1010 from '/assets/images/SignUpImg/Group 1010.png';
 import Group878 from '/assets/images/SignUpImg/Group 878.png';
@@ -246,6 +237,7 @@ import OrangeStar from '/assets/images/SignUpImg/Group 895.png';
 import Book from '/assets/images/SignUpImg/Group 1106.png';
 import Star from '/assets/images/testimonials/star.svg';
 
+const { isMobile, isTablet } = useDeviceType();
 const signupForm = ref(null);
 const passwordsMatch = ref(false);
 const showFeedback = ref(true);
@@ -585,25 +577,25 @@ watch([password, confirmPassword], () => {
 });
 
 const feedbackMessage = computed(() => {
-    if (passwordsMatch.value === true) {
-        return "Yeye! Passwords are a match!";
-    } else if (passwordsMatch.value === false) {
-        // Check if user cleared any password fields
-        if (password.value === "") {
-            if (confirmPassword.value === "") {
-                return "cleared";
-            } else {
-                return "Please enter a password.";
-            }
-        } else if (confirmPassword.value === "") {
-            return "Please confirm your password.";
-        } else {
-            return "Oops! Passwords do not match. Please Try again.";
-        }
+  if (passwordsMatch.value === true) {
+    return 'Yeye! Passwords are a match!';
+  } else if (passwordsMatch.value === false) {
+    // Check if user cleared any password fields
+    if (password.value === '') {
+      if (confirmPassword.value === '') {
+        return 'cleared';
+      } else {
+        return 'Please enter a password.';
+      }
+    } else if (confirmPassword.value === '') {
+      return 'Please confirm your password.';
     } else {
-        // Case: passwordsMatch.value === null
-        return "Please confirm your password.";
+      return 'Oops! Passwords do not match. Please Try again.';
     }
+  } else {
+    // Case: passwordsMatch.value === null
+    return 'Please confirm your password.';
+  }
 });
 
 const feedbackClass = computed(() => {
@@ -615,66 +607,61 @@ const feedbackClass = computed(() => {
     return 'bg-gray-100 border-gray-400 text-gray-800';
   }
 });
-
 </script>
-
-
 
 <style scoped>
 /* * * * * Default: Mobile view (max-width: 639px) * * * * */
 
 form label {
-    margin-bottom: 5px;
-    text-align: left;
-    width: 80%;
-    margin-left: 10%;
+  margin-bottom: 5px;
+  text-align: left;
+  width: 80%;
+  margin-left: 10%;
 }
 
 form input {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 /* * * * * Large Devices (≥1025px) * * * * */
 @media only screen and (min-width: 1025px) {
-    
-    #signup-container {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr); 
-    }
+  #signup-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
 
-    #signup-banner {
-        grid-area: 1 / span 1;
-        height: 100%;
-    }
+  #signup-banner {
+    grid-area: 1 / span 1;
+    height: 100%;
+  }
 
-    #signup-form-container {
-        margin-top: 0px;
-        margin-bottom: 0px;
-        grid-area: 1 / span 2;
-    }
+  #signup-form-container {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    grid-area: 1 / span 2;
+  }
 
-    #login-grid {
-        display: grid;
-        grid-template-columns: auto auto;
-        margin-left: 10%;
-        margin-right: 10%;
-    }
+  #login-grid {
+    display: grid;
+    grid-template-columns: auto auto;
+    margin-left: 10%;
+    margin-right: 10%;
+  }
 
-    #login-caption, #login-link {
-        margin-top: 0px;
-        margin-bottom: 0px;
-    }
+  #login-caption,
+  #login-link {
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
 
-    #login-caption {
-        grid-column: 1;
-        text-align: left;
-    }
+  #login-caption {
+    grid-column: 1;
+    text-align: left;
+  }
 
-    #login-link {
-        grid-column: 2;
-        text-align: right;
-    }
-
+  #login-link {
+    grid-column: 2;
+    text-align: right;
+  }
 }
-
 </style>
