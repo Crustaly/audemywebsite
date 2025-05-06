@@ -67,7 +67,7 @@ const items = [
     image: 'meet-crystal-yang.png',
     text: 'Meet Crystal Yang',
     author: '-- By Canvas rebel',
-    url: "https://medium.com/authority-magazine/social-impact-heroes-why-how-crystal-yang-of-audemy-is-helping-to-change-our-world-59d47f21ac81"
+    url: "https://canvasrebel.com/meet-crystal-yang/"
   },
   {
     image: 'voyage-houston.png',
