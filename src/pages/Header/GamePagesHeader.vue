@@ -53,11 +53,14 @@
   
   <script setup>
   import { ref, onMounted } from 'vue';
+  import { useRouter } from "vue-router";
   import Cookies from "js-cookie";
 
   
   const userSession = ref(null);
   const showAlert = ref(false);
+  const router = useRouter();
+
 
   const logout = () => {
     Cookies.remove("audemyUserSession");
@@ -65,7 +68,8 @@
     showAlert.value = true;
     setTimeout(() => {
         showAlert.value = false;
-    }, 3000);
+        router.push("/game-zone");
+    }, 2000);
   };
 
   onMounted(() => {

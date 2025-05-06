@@ -154,7 +154,7 @@
                     </li> 
                     <li v-if="userSession">
                         <button
-                            class="flex justify-center items-center w-full mt-4 bg-[#FE892A] text-black font-bold py-3 px-6 rounded-lg border-[1.5px] shadow-[3px_4px_0px_#0C0D0D] border-black hover:bg-[#D6711F] rounded"
+                            class="flex justify-center items-center w-full mt-4 bg-[#FE892A] text-black font-bold py-3 px-6 rounded-lg border-[1.5px] shadow-[3px_4px_0px_#0C0D0D] border-black hover:bg-[#D6711F]"
                             @click="logout"
                         >
                         Logout
