@@ -122,7 +122,7 @@ onUnmounted(() => {
         >
           <div
             id="div_about_us"
-            class="grid gap-6 mt-[40px] tablet:mt-[72px] mb-[63px] w-full grid-cols-3 tablet:grid-cols-2 mobile:grid-cols-1"
+            class="grid gap-6 mt-[40px] tablet:mt-[72px] mb-[63px] w-full grid-cols-4 tablet:grid-cols-3 mobile:grid-cols-1"
           >
             <div v-for="(item, index) in items" :key="index" class="flex">
               <div class="flex flex-col h-full w-full min-h-[300px] mb-3">
