@@ -22,7 +22,7 @@ const path = '/assets/images/impact/';
         <div class="w-full">
           <img
             :src="path + image"
-            class="w-full h-auto rounded-2xl border-[1px] border-black"
+            class="w-full h-auto rounded-2xl border-[1px] border-[#E5E5E5]"
             alt="image"
           />
         </div>
