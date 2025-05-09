@@ -5,7 +5,7 @@ import Affiliates from "./Affiliates.vue";
 
 <template>
     <div
-        class="relative flex flex-col items-start justify-center mobile:justify-center w-full h-[10%] px-[15rem] mt-[7rem] mb-36 tablet:mb-[265px] mobile:mb-[129px]"
+        class="relative flex flex-col items-start justify-center mobile:justify-center w-full h-[10%] px-[15rem] mt-[7rem] mb-10 tablet:mb-[265px] mobile:mb-[129px]"
     >
         <img
             src="/assets/images/impact/light-green-bg-2.png"

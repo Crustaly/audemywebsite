@@ -28,8 +28,8 @@ const { isMobile, isTablet } = useDeviceType();
         <Header :logoPath="'/assets/images/header/header-logo-2.png'" />
     </div>
     
-    <PressList />
     <CollaboratingSchools />
+    <PressList />
     <Accolades />
     <OurReach />
     
