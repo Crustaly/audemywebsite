@@ -19,17 +19,13 @@
             isMobile ? 'px-5' : ''
         ]"
     >
-        <!-- Mobile-first banner with decorative images, shapes, and icons -->
-        <div 
+        <!-- Mobile-first decorative, custom banner -->
+        <Banner 
             id="signup-banner"
-            class="relative bg-[#b1c7d0] w-full h-[200px]"
-            aria-hidden="true"
-        >
-            <Banner 
-                :CarlImgPath="'/assets/images/SignUpImg/Group 1010.png'" 
-                curveColor="#E5F0F5"
-            />
-        </div>
+            :CarlImgPath="'/assets/images/SignUpImg/signup-carl.png'" 
+            bgColor="#B1C7D0"
+            curveColor="#E5F0F5"
+        />
         <!-- SIGN UP FORM -->
         <div 
             id="signup-form-container"
@@ -66,8 +62,8 @@
             <!-- FORM FIELD -->
             <form ref="signupForm" class="mt-[20px] pt-[20px] pb-[20px]">
                 <!-- FIRST & LAST NAME -->
-                <div>
-                    <div>
+                <div id="full-name-grid">
+                    <div id="first-name-fields">
                         <label
                             class="block text-[#0C0D0D] font-semibold"
                             for="first_name"
@@ -82,7 +78,7 @@
                             placeholder="Enter your first name"
                         />
                     </div>
-                    <div>
+                    <div id="last-name-fields">
                         <label
                             class="block text-[#0C0D0D] font-semibold"
                             for="last_name"
@@ -179,9 +175,9 @@
                 </div>
                 <div
                     id="login-grid"
-                    class="text-[16px] text-[#0C0D0D] mobile:text-[14px] mobile:px-4"
+                    class="text-[16px] font-semibold text-[#0C0D0D] mobile:text-[14px] mobile:px-4"
                 >
-                    <p id="login-caption" class="font-semibold mt-[10px] mb-[10px]">
+                    <p id="login-caption" class="mt-[10px] mb-[10px]">
                         Already have an Audemy account?
                     </p>
                     <div id="login-link">
@@ -535,7 +531,7 @@ form input {
     
     #signup-container {
         display: grid;
-        grid-template-columns: repeat(3, 1fr); 
+        grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
     }
 
     #signup-banner {
@@ -547,6 +543,35 @@ form input {
         margin-top: 0px;
         margin-bottom: 0px;
         grid-area: 1 / span 2;
+    }
+
+    #full-name-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* 2 equal columns */
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+
+    #first-name-fields {
+        grid-column: 1;
+        text-align: left;
+    }
+
+    #first-name-fields, #last-name-fields {
+        width: 111%;
+        /* Parent full-name-grid is set to 80% width, so enlarge name fields */
+    }
+
+    #last-name-fields {
+        grid-column: 2;
+    }
+
+    #first-name-fields label {
+        margin: 0 0 5px 0; /* Reset margins, except margin-bottom: 5px; */
+    }
+
+    #last-name-fields label {
+        margin-left: 10%;
     }
 
     #login-grid {

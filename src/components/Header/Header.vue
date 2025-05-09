@@ -154,7 +154,7 @@
                     </li> 
                     <li v-if="userSession">
                         <button
-                            class="flex justify-center items-center w-full mt-4 bg-[#FE892A] text-black font-bold py-3 px-6 rounded-lg border-[1.5px] shadow-[3px_4px_0px_#0C0D0D] border-black hover:bg-[#D6711F] rounded"
+                            class="flex justify-center items-center w-full mt-4 bg-[#FE892A] text-black font-bold py-3 px-6 rounded-lg border-[1.5px] shadow-[3px_4px_0px_#0C0D0D] border-black hover:bg-[#D6711F]"
                             @click="logout"
                         >
                         Logout
@@ -163,12 +163,14 @@
                             v-if="userSession.user && userSession.user.imageUrl" 
                             :src="userSession.user.imageUrl" 
                             aria-hidden="true" 
+                            alt="Google Profile"
                             class="w-6 h-6 rounded-full ml-2"
                         />
                         <img 
                             v-else
                             src="../../assets/character/default-profile.png" 
                             aria-hidden="true"
+                            alt="Default Profile"
                             class="w-6 h-6 rounded-full ml-2"
                         /> 
                         </button>
@@ -176,8 +178,9 @@
                     <li v-else>
                         <router-link
                             to="/login"
+                            @click="closeMenu"
                             class="flex justify-center items-center login-button w-full text-white font-bold py-3 px-6 rounded-lg border-[1.5px] shadow-[3px_4px_0px_#0C0D0D] border-black bg-[#087BB4] hover:bg-[#0C587D] mt-8"
-                            >
+                        >
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                                 <path d="M5 12h14"></path>
                                 <path d="m12 5 7 7-7 7"></path>
