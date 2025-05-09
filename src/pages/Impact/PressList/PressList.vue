@@ -93,7 +93,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="relative flex w-full justify-center px-10 mt-20 mb-32">
+  <div class="relative flex w-full justify-center px-10 mt-20 mb-16">
     <!-- MAIN SECTION -->
     <div
       class="flex flex-col items-start justify-start mobile:justify-center h-auto mb-36 tablet:mb-[265px] mobile:mb-[129px]"
