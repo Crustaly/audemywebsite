@@ -1,166 +1,209 @@
 <template>
-    <div
-        class="w-full h-screen overflow-hidden bg-[#FFDABA] flex justify-between mobile:flex-row"
+    <ScrollUpButton />
+    <div 
+        :class="[
+            'relative', 
+            !isTablet && !isMobile ? 'px-14' : '',
+            isTablet ? 'px-6' : '',
+            isMobile ? 'px-8' : ''
+        ]" 
+        ref="content"
     >
-        <div
-            class="w-5/12 md:w-full sm:w-full relative flex items-center jusitfy-center"
-        >
-            <div
-                class="w-full flex flex-col justify-center items-center gap-14 z-10"
-            >
-                <img
-                    src="/assets/images/LoginImg/icons.svg"
-                    alt="logo icon"
-                    class="w-[50%] h-[50%]"
-                />
-                <img
-                    src="/assets/images/LoginImg/logo-icon.svg"
-                    alt="logo icon"
-                    class="w-[45%] h-[45%]"
-                />
-            </div>
-            <img
-                src="/assets/images/LoginImg/wave-icon.svg"
-                alt="wave icon"
-                class="absolute -bottom-[15%] right-0 w-full -z-1"
-            />
-            <button
-                v-if="userSession"
-                @click="logout"
-                class="mt-4 bg-red-500 text-white px-4 py-2 rounded"
-            >
-                Logout
-            </button>
-        </div>
-
-        <!-- Show login form if not logged in -->
-        <div
+    <Header :logoPath="'/assets/images/header/header-logo-2.png'" />
+    </div>
+    <div 
+        id="login-container"
+        :class="[
+            !isTablet && !isMobile ? 'px-20' : '',
+            isTablet ? 'px-10' : '',
+            isMobile ? 'px-5' : ''
+        ]"
+    >
+        <Banner 
+            id="login-banner"
+            :CarlImgPath="'/assets/images/LoginImg/logo-icon.svg'" 
+            bgColor="#f5bc8d"
+            curveColor="#f8cba6"
+            :isPageShort="showSchoolForm"
+        />
+        <!-- SHOW LOG IN FORM, IF NOT LOGGED IN -->
+        <div 
             v-if="!userSession && !showSchoolForm"
-            class="w-7/12 md:w-full sm:w-full bg-white flex flex-col items-center justify-center border-2"
+            id="login-form-container"
+            class="pt-[20px] pb-[20px] mb-[40px] mt-[40px] text-center"
+            :class="[
+                !isTablet && !isMobile ? 'mt-[0px] mb-[0px]' : '',
+            ]"
         >
-            <form
+            <h1 class="text-[#151E22] mobile:text-[28px] text-[35px]">
+                Hi there, welcome back!
+            </h1>
+            <!-- LOG IN FORM -->
+            <form 
+                ref="loginForm" 
                 @submit="login"
                 method="post"
-                class="w-full flex flex-col justify-center items-center gap-6 my-4"
+                class="w-[80%] ml-[10%] mt-[20px] pt-[20px] pb-[20px]"
             >
-                <h1
-                    class="text-[36px] text-[#151E22] text-center w-7/12 mobile:w-full mobile:text-[24px] mobile:mb-4"
-                >
-                    Hi there, welcome back!
-                </h1>
-                <div class="w-[70%] max-w-[450px]">
-                    <div class="mt-8 mb-3" v-if="errors">
-                        <div
-                            class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative text-center"
-                            role="alert"
-                        >
-                            {{ errorMessage }}
-                        </div>
+                <!-- ERROR MESSAGES -->
+                <div class="mt-8 mb-3" v-if="errors">
+                    <div
+                        class="bg-red-100 border-red-500 text-red-800 mb-6 p-3 ml-[10%] rounded-lg border-2 shadow-md min-h-[56px] text-base font-medium w-[80%]"
+                        role="alert"
+                    >
+                        <p>{{ errorMessage }}</p>
                     </div>
-                    <div class="mb-[16px]">
-                        <label
-                            class="block text-[#0C0D0D] mb-1 font-semiBold"
-                            for="email"
-                            >Email Address</label
-                        >
-                        <input
-                            v-model="email"
-                            type="email"
-                            class="w-full outline-none border-2 border-black py-2 px-2 rounded-[8px]"
-                            id="email"
-                            name="email"
-                            placeholder="Enter your email address"
-                            autocomplete="email"
-                        />
-                    </div>
-                    <div class="mb-[16px]">
+                </div>
+                <!-- EMAIL FIELD -->
+                <div>
+                    <label
+                        class="block text-[#0C0D0D] font-semibold"
+                        for="email"
+                    >
+                        Email Address
+                    </label>
+                    <input
+                        v-model="email"
+                        type="email"
+                        class="w-full outline-none border border-black h-[48px] px-4 rounded-[8px]"
+                        id="email"
+                        name="email"
+                        placeholder="Enter your email address"
+                        autocomplete="email"
+                    />
+                </div>
+                <!-- PASSWORD FIELD -->
+                <div>
+                    <div id="forgot-password-grid">
                         <label
                             for="password"
-                            class="block text-[#0C0D0D] mb-1 font-semiBold"
-                            >Password</label
+                            class="text-[#0C0D0D] font-semibold"
                         >
-                        <input
-                            v-model="password"
-                            type="password"
-                            class="w-full outline-none border-2 border-black py-2 px-2 rounded-[8px]"
-                            id="password"
-                            name="password"
-                            placeholder="Enter your password"
-                        />
-                    </div>
-                    <div class="flex justify-end w-full">
-                        <a
-                            href="./forgot-password"
-                            class="underline text-[#087BB4] font-medium"
-                            >Forgot password?</a
-                        >
-                    </div>
-                    <div class="flex justify-start w-full">
-                        <h5>
-                            New to Audemy?
+                            Password
+                        </label>
+                        <div id="forgot-password-link">
                             <a
-                                href="./signup"
-                                class="underline text-[#087BB4] font-medium"
-                                >Sign Up</a
+                                href="./forgot-password"
+                                class="text-[#087BB4] hover:text-[#0C587D] underline font-medium"
                             >
-                        </h5>
+                                Forgot password?
+                            </a>
+                        </div>
                     </div>
-
-                    <div class="flex justify-center w-full pt-4 mb-6">
+                    <input
+                        v-model="password"
+                        type="password"
+                        class="w-full outline-none border border-black h-[48px] px-4 rounded-[8px]"
+                        id="password"
+                        name="password"
+                        placeholder="Enter your password"
+                    />
+                </div>
+                <!-- OPTIONAL SIGN UP GRID -->
+                <div
+                    id="signup-grid"
+                    class="text-[16px] font-semibold mobile:text-[14px] mobile:px-4"
+                >
+                    <p id="signup-caption" class="text-[#0C0D0D]">
+                        New to Audemy?
+                    </p>
+                    <div id="signup-link">
+                        <a href="signup" class="text-[#087BB4] w-auto hover:text-[#0C587D] underline">
+                            Sign Up
+                        </a>
+                    </div>
+                </div>
+                <!-- GET STARTED BTN -->
+                <div class="mt-[40px] mb-[40px] w-full">
+                    <button
+                        type="submit"
+                        class="h-[55px] w-[280px] py-3 font-bold rounded-[8px] bg-[#FE892A] hover:bg-[#ff8d33] border-2 border-black shadow-[4px_4px_0px_black] text-black"
+                    >
+                        Log in
+                    </button>
+                </div>
+                <!-- DECORATIVE "OR" DIVIDER -->
+                <div
+                    class="flex text-gray-500 w-full justify-center items-center gap-2 mt-4"
+                    aria-hidden="true"
+                >
+                    <div>
+                        <hr class="w-[180px] h-0.5 bg-gray-500 rounded-sm" />
+                    </div>
+                    <div>or</div>
+                    <div>
+                        <hr class="w-[180px] h-0.5 bg-gray-500 rounded-sm" />
+                    </div>
+                </div>
+                <!-- GOOGLE OAUTH LOG IN -->
+                <div class="mt-[20px] pt-[20px] pb-[20px]" aria-label="Google Login" aria-labelledby="Google Login">
+                    <GoogleLogin
+                        :callback="callback"
+                    />
+                </div>
+            </form>
+        </div>
+        <!-- SHOW SCHOOL FORM, IF CURRENTLY LOGGED IN -->
+        <div
+            v-if="showSchoolForm"
+            id="school-form-container"
+            class="pt-[20px] pb-[20px] mb-[40px] mt-[40px]"
+            :class="[
+                !isTablet && !isMobile ? 'mt-[0px] mb-[0px]' : '',
+            ]"
+        >
+            <form 
+                @submit.prevent="updateSchool" 
+                ref="schoolForm" 
+                method="post"
+                class="w-[80%] ml-[10%] mt-[20px] pt-[20px] pb-[20px]"
+            >
+                <h1 class="text-[#151E22] mobile:text-[28px] text-[35px] text-center">
+                    Enter Your School
+                </h1>
+                <div id="school-form">
+                    <label 
+                        for="school"
+                        class="text-[#0C0D0D] font-semibold"
+                    >
+                        School
+                    </label>
+                    <input
+                        v-model="school"
+                        type="text"
+                        name="school"
+                        id="school"
+                        class="w-full outline-none border border-black h-[48px] px-4 rounded-[8px]"
+                        placeholder="Enter your school's name"
+                    />
+                    <div class="mt-[40px] mb-[40px] w-full text-center">
                         <button
                             type="submit"
-                            class="w-full py-3 font-bold rounded-[8px] bg-[#FE892A] hover:bg-[#ff8d33] border-2 border-black shadow-[4px_4px_0px_black] text-black"
+                            class="h-[55px] w-[280px] py-3 font-bold rounded-[8px] text-white bg-[#087BB4] hover:bg-[#0C587D] hover:cursor-pointer border-2 border-black font-semibold shadow-[4px_4px_0px_black]"
                         >
-                            Log in
+                            Submit
                         </button>
                     </div>
                 </div>
             </form>
-
-            <div
-                class="flex w-1/2 text-gray-500 items-center justify-center gap-2 my-4"
-            >
-                <div><hr class="w-32 md:w-52 h-0.5 bg-gray-500 rounded-sm" /></div>
-                <div>or</div>
-                <div><hr class="w-32 md:w-52 h-0.5 bg-gray-500 rounded-sm" /></div>
-            </div>
-
-            <!-- Google OAuth Login -->
-            <div class="flex w-full gap-4 items-center justify-center mt-4 mb-8">
-                <GoogleLogin
-                    :callback="callback"
-                    class="flex items-center justify-center gap-4"
-                />
-            </div>
-        </div>
-
-        <!-- Show school input if needed -->
-        <div
-            v-if="showSchoolForm"
-            class="w-7/12 bg-white flex items-center justify-center flex-col gap-4"
-        >
-            <h3
-                class="text-[36px] text-[#151E22] text-center w-7/12 mobile:w-full mobile:text-[24px] mobile:mb-4"
-            >
-                Enter Your School
-            </h3>
-            <input
-                v-model="school"
-                type="text"
-                class="border-2 border-black py-2 px-2 rounded-[8px] w-1/2"
-                placeholder="School Name"
-            />
-            <button
-                @click="updateSchool"
-                class="w-[488px] h-[56px] text-white rounded-[8px] bg-[#087BB4] hover:bg-[#0C587D] hover:cursor-pointer border-2 border-black font-semiBold shadow-[4px_4px_0px_black] mobile:w-full"
-            >
-                Submit
-            </button>
         </div>
     </div>
+    <Footer />
 </template>
 
+
+
 <script setup>
+
+// Components
+import Header from "../../components/Header/Header.vue";
+import Footer from "../../components/Footer/Footer.vue";
+import ScrollUpButton from "../../components/ScrollUpButton/ScrollUpButton.vue";
+import Banner from "../../components/AccountPages/Banner.vue";
+
+import { useDeviceType } from "../../Utilities/checkDeviceType";
+const { isMobile, isTablet } = useDeviceType();
+
 import { ref, onMounted } from "vue";
 import { GoogleLogin } from "vue3-google-login";
 import { useRouter } from "vue-router";
@@ -453,4 +496,74 @@ const logout = () => {
     userProfile.value = null;
     router.push("/login");
 };
+
 </script>
+
+
+
+<style scoped>
+/* * * * * Default: Mobile view (max-width: 639px) * * * * */
+
+label {
+    margin-bottom: 5px;
+    text-align: left;
+    width: 80%;
+}
+
+input {
+    margin-bottom: 20px;
+}
+
+#signup-grid, #forgot-password-grid {
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+#signup-caption, #signup-link {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#signup-grid {
+    padding: 0;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#signup-caption, #forgot-password-grid label {
+    grid-column: 1;
+    text-align: left;
+}
+
+#forgot-password-link {
+    margin-bottom: 5px; /* to align with Password label */
+}
+
+#signup-link, #forgot-password-link {
+    grid-column: 2;
+    text-align: right;
+}
+
+/* * * * * Large Devices (≥1025px) * * * * */
+@media only screen and (min-width: 1025px) {
+
+#login-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+}
+
+#login-banner {
+    grid-area: 1 / span 1;
+    height: 100%;
+}
+
+#login-form-container, #school-form-container {
+    margin-top: 0px;
+    margin-bottom: 0px; 
+    grid-area: 1 / span 2;
+    padding-bottom: 50px; 
+}
+
+}
+
+</style>
