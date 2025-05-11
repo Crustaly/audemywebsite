@@ -7,7 +7,6 @@ import Accolades from "./Accolades/Accolades.vue";
 import PressList from "./PressList/PressList.vue";
 import OurReach from "./OurReach/OurReach.vue";
 import CollaboratingSchools from "./CollaboratingSchools/CollaboratingSchools.vue";
-import ImpactInAction from "./ImpactInAction/ImpactInAction.vue";
 
 import { useDeviceType } from "../../Utilities/checkDeviceType";
 const { isMobile, isTablet } = useDeviceType();
@@ -29,9 +28,8 @@ const { isMobile, isTablet } = useDeviceType();
         <Header :logoPath="'/assets/images/header/header-logo-2.png'" />
     </div>
     
-    <ImpactInAction />
-    <PressList />
     <CollaboratingSchools />
+    <PressList />
     <Accolades />
     <OurReach />
     

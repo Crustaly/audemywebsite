@@ -3,7 +3,7 @@ import Carousel from "./Carousel.vue";
 </script>
 
 <template>
-    <div class="flex gap-24 w-full mb-[12rem] mobile:flex-col">
+    <div class="flex gap-24 w-full mb-[6rem] mobile:flex-col">
         <!-- CAROUSEL COMPONENT -->
         <div class="relative w-1/2 mobile:hidden">
             <img src="/assets/images/impact/Union.png" class="max-w[100px]" alt="Union Image" />
@@ -49,7 +49,7 @@ import Carousel from "./Carousel.vue";
                 <h2
                     class="text-left font-poppins text-[#151e22] text-4.5xl tablet:text-[32px] mobile:text-[24px] mobile:text-center font-[400] mb-8"
                 >
-                    Our impact in action
+                    Our Projects in action
                 </h2>
                 <p
                     class="text-body text-xl font-poppins leading-8 mobile:text-center mobile:px-4"

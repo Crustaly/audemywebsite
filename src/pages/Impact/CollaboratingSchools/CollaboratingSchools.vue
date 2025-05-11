@@ -5,7 +5,7 @@ import Affiliates from "./Affiliates.vue";
 
 <template>
     <div
-        class="relative flex flex-col items-start justify-center mobile:justify-center w-full h-[10%] px-[15rem] mt-[7rem] mb-36 tablet:mb-[265px] mobile:mb-[129px]"
+        class="relative flex flex-col items-start justify-center mobile:justify-center w-full h-[10%] px-[15rem] mt-[7rem] mb-10 tablet:mb-[265px] mobile:mb-[129px]"
     >
         <img
             src="/assets/images/impact/light-green-bg-2.png"
@@ -44,7 +44,7 @@ import Affiliates from "./Affiliates.vue";
                 class="w-1/2 mobile:text-center mobile:items-center mobile:flex mobile:w-fit"
             >
                 <p
-                    class="w-[504px] ml-[2rem] text-body text-xl font-poppins leading-8 mobile:ml-0 mobile:w-fit-content mobile:text-center"
+                    class="w-[504px] text-body text-xl font-poppins leading-8 mobile:ml-0 mobile:w-fit-content mobile:text-center"
                 >
                     As we expand our services, we'd love to have you partner
                     with us on this exciting journey!
@@ -52,7 +52,7 @@ import Affiliates from "./Affiliates.vue";
             </div>
 
             <div
-                class="text-center w-1/2 mobile:w-full mobile:flex mobile:justify-center"
+                class="text-end w-1/2 mobile:w-full mobile:flex mobile:justify-center"
             >
                 <a
                     href="mailto:connect.audemy@gmail.com"
