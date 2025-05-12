@@ -1,278 +1,65 @@
 <template>
-  <div class="min-h-screen font-poppins bg-[#EACAFF]">
-    <!-- Header -->
-    <div class="w-full">
-      <GamePagesHeader />
-    </div>
+  <GameLayout
+    bgColor="#9AE2EB"
+    :isTablet="isTablet"
+    :isMobile="isMobile"
+    :currentAudios="currentAudios"
+    :handleSthNotWorkingButtonClick="handleSthNotWorkingButtonClick"
+    :goBack="goBack"
+  >
+    <div class="flex flex-col justify-center items-center mb-8">
+      <GameHeader
+        iconSrc="/assets/gameImages/buttons/gameButtons/color-game.svg"
+        title="Color Game"
+        description="Name the color of a given object!"
+        :isMobile="isMobile"
+      />
 
-    <!-- Something Not Working? Button -->
-    <GamePagesFooter
-      :handleSthNotWorkingButtonClick="handleSthNotWorkingButtonClick"
-      :currentAudios="currentAudios"
-    />
+      <PlayButton v-if="playButton === false" @play-click="playButton = true" />
 
-    <!-- Decorative Elements -->
-    <div
-      class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none"
-    >
       <div
-        v-show="!isTablet && !isMobile"
-        class="absolute top-20 right-60 w-32 h-32"
+        v-else-if="numOfAudiosPlayed < 5 && playButton === true"
+        class="flex flex-col p-4 justify-center"
+        id="content"
       >
-        <svg viewBox="0 0 100 100" class="w-full h-full">
-          <circle cx="50" cy="50" r="50" fill="#FFD137" />
-        </svg>
+        <StartQuestionsButton
+          v-show="(isTablet || isMobile) && numOfAudiosPlayed === 0"
+          :isIntroPlaying="isIntroPlaying"
+          @start-click="startFirstQuestion"
+        />
+
+        <GameControls
+          v-show="
+            !(isTablet || isMobile) ||
+            (!isIntroPlaying && numOfAudiosPlayed > 0)
+          "
+          :isTablet="isTablet"
+          :isMobile="isMobile"
+          :isRecording="isRecording"
+          :isIntroPlaying="isIntroPlaying"
+          :isButtonCooldown="isButtonCooldown"
+          :transcription="transcription"
+          :numOfAudiosPlayed="numOfAudiosPlayed"
+          @record-click="toggleRecording"
+          @repeat-click="repeatQuestion"
+        />
       </div>
-      <!-- Clouds - Different for tablet -->
-      <template v-if="isTablet">
-        <!-- Left cloud for tablet -->
-        <div class="absolute left-0 z-0" style="bottom: 150px">
-          <img
-            src="/assets/gameImages/cloud-bg-Tab-left.png"
-            alt="Decorative cloud"
-            class="w-[300px] h-auto"
-          />
-          <!-- Paper plane above left cloud -->
-          <div
-            class="absolute"
-            style="width: 82px; height: 82px; top: -350px; left: 50.05px"
-          >
-            <img
-              src="/assets/gameImages/paperPlane.png"
-              alt="Paper plane"
-              style="width: 100%; height: 100%"
-            />
-          </div>
-        </div>
-        <!-- Right cloud for tablet -->
-        <div class="absolute bottom-0 right-0 z-0" style="bottom: 50px">
-          <img
-            src="/assets/gameImages/cloud-bg-Tab-right.png"
-            alt="Decorative cloud"
-            class="w-[300px] h-auto"
-          />
-        </div>
-      </template>
-      <!-- Clouds for desktop -->
-      <template v-else-if="isDesktop">
-        <div class="absolute bottom-0 left-0 z-0" style="bottom: 50px">
-          <img
-            src="/assets/gameImages/cloud-bg.png"
-            alt="Decorative cloud"
-            style="width: 400px; height: auto"
-          />
-        </div>
-      </template>
-      <!-- Mobile-specific clouds -->
-      <template v-if="isMobile">
-        <!-- Only right cloud for mobile -->
-        <div class="absolute right-0 z-0" style="bottom: 20px">
-          <img
-            src="/assets/gameImages/cloud-bg-Tab-right.png"
-            alt="Decorative cloud"
-            style="width: 250px"
-          />
-        </div>
-      </template>
+
+      <GameOver v-else :score="score" />
     </div>
-
-    <!-- Main Content -->
-    <div class="flex items-center justify-center min-h-[calc(100vh-64px)]">
-      <div class="relative w-full max-w-[800px]">
-        <!-- Back Button Container -->
-        <div v-show="!isMobile" class="absolute top-4 left-4 z-30">
-          <button @click="goBack">
-            <img
-              src="/assets/gameImages/buttons/arrow-back.svg"
-              class="bg-white border-2 rounded-lg border-black h-12 p-2 shadow-md hover:bg-gray-300"
-              alt="Back Button Image"
-            />
-          </button>
-        </div>
-
-        <!-- Game Elements Container -->
-        <div
-          class="flex flex-col justify-center items-center relative z-10 mx-auto"
-          :class="[
-            isMobile
-              ? 'h-[calc(60vh-144px)] w-[95%] mt-16'
-              : 'h-[calc(60vh-64px)] w-[90%]',
-          ]"
-        >
-          <!-- Back Button for Mobile -->
-          <div v-show="isMobile" class="self-center -mt-32 mb-8">
-            <button @click="goBack">
-              <img
-                src="/assets/gameImages/buttons/arrow-back.svg"
-                class="bg-white border-2 rounded-lg border-black h-12 p-2 shadow-md hover:bg-gray-300"
-                alt="Back Button Image"
-              />
-            </button>
-          </div>
-
-          <div class="flex flex-col justify-center items-center mb-8">
-            <!-- Game icon and title -->
-            <div class="flex flex-col items-center">
-              <div class="mb-2">
-                <img
-                  src="/assets/gameImages/buttons/gameButtons/color-game.svg"
-                  alt="Game icon"
-                  class="w-[70px] h-[70px]"
-                />
-              </div>
-              <h1
-                :class="[
-                  isMobile
-                    ? 'text-[56px] leading-[60px]'
-                    : 'text-[64px] leading-[70px]',
-                ]"
-                class="font-poppins font-semibold tracking-normal text-center mb-6"
-              >
-                Color Game
-              </h1>
-              <p
-                :class="[
-                  isMobile ? 'w-[350px] h-[24px]' : 'w-[397px] h-[24px]',
-                ]"
-                class="font-poppins font-normal text-[16px] leading-[24px] tracking-normal text-center mt-2 mb-8 text-[#777777]"
-              >
-                Name the color of a given object!
-              </p>
-            </div>
-
-            <div v-if="playButton === false">
-              <button
-                @click="playButton = true"
-                class="bg-[#087bb4] text-white font-bold py-2 px-4 rounded-lg shadow-md hover:bg-[#0d5f8b]"
-              >
-                Play
-              </button>
-            </div>
-            <div
-              v-else-if="numOfAudiosPlayed < 5 && playButton === true"
-              class="flex flex-col p-4 justify-center"
-              id="content"
-            >
-              <!-- Mobile/Tablet Start Questions Button - Only show before questions start -->
-              <div v-show="(isTablet || isMobile) && numOfAudiosPlayed === 0">
-                <button
-                  @click="startFirstQuestion"
-                  class="bg-[#087bb4] text-white font-bold py-2 px-4 rounded-lg shadow-md hover:bg-[#0d5f8b] mb-6"
-                  :disabled="isIntroPlaying"
-                  :class="{ 'opacity-50 cursor-not-allowed': isIntroPlaying }"
-                >
-                  {{ isIntroPlaying ? 'Please wait...' : 'Start Questions' }}
-                </button>
-              </div>
-
-              <!-- Game Control Buttons -->
-              <div
-                v-show="
-                  !(isTablet || isMobile) ||
-                  (!isIntroPlaying && numOfAudiosPlayed > 0)
-                "
-                :class="[
-                  isTablet
-                    ? 'flex gap-[25px] mb-6'
-                    : isMobile
-                    ? 'flex flex-col gap-4 mb-6'
-                    : 'flex gap-6 mb-6',
-                ]"
-              >
-                <!-- Record Answer Button -->
-                <button
-                  @click="toggleRecording"
-                  :class="recordButtonClasses"
-                  style="box-shadow: 10px 10px 20px 0px #32323233"
-                  :disabled="isButtonDisabled"
-                  :title="recordButtonTitle"
-                >
-                  <span class="text-lg font-medium">
-                    {{
-                      isRecording
-                        ? 'Stop Recording'
-                        : isTablet || isMobile
-                        ? 'Record'
-                        : 'Record Answer'
-                    }}
-                  </span>
-                  <img
-                    src="/assets/gameImages/buttons/mic.png"
-                    class="w-6 h-6"
-                    alt="Record Icon"
-                  />
-                </button>
-
-                <!-- Repeat Question Button -->
-                <button
-                  @click="repeatQuestion"
-                  :class="[
-                    'flex items-center justify-center shadow-md',
-                    isTablet
-                      ? 'w-[200px] h-[60px] pt-5 pr-[30px] pb-5 pl-[30px] gap-[10px] rounded-[20px]'
-                      : isMobile
-                      ? 'w-full h-[60px] pt-5 pr-[30px] pb-5 pl-[30px] gap-[10px] rounded-[20px]'
-                      : 'gap-2.5 w-[234px] h-[116px] pt-5 pr-7 pb-5 pl-7 rounded-[20px]',
-                    'bg-white border border-[#0096D6] text-[#0096D6]',
-                    isIntroPlaying || isButtonCooldown
-                      ? 'opacity-50 cursor-not-allowed'
-                      : '',
-                  ]"
-                  style="box-shadow: 10px 10px 20px 0px #32323233"
-                  :disabled="isIntroPlaying || isButtonCooldown"
-                  :title="
-                    isIntroPlaying
-                      ? 'Please wait until the introduction finishes'
-                      : isButtonCooldown
-                      ? 'Please wait before repeating the question again'
-                      : 'Repeat the current question'
-                  "
-                >
-                  <span class="text-lg font-medium">{{
-                    isTablet || isMobile ? 'Repeat' : 'Repeat Question'
-                  }}</span>
-                  <img
-                    src="/assets/gameImages/buttons/repeat.png"
-                    class="w-6 h-6"
-                    alt="Repeat Icon"
-                  />
-                </button>
-              </div>
-
-              <!-- Transcript -->
-              <div
-                id="transcript"
-                v-show="
-                  !(isTablet || isMobile) ||
-                  (!isIntroPlaying && numOfAudiosPlayed > 0)
-                "
-                class="text-center text-xl font-bold pt-2 pb-1"
-              >
-                You said: {{ transcription }}
-              </div>
-            </div>
-
-            <!-- Game over section -->
-            <div v-else>
-              <div class="text-center text-3xl font-bold pt-2 pb-1">
-                Game Over
-              </div>
-              <div class="text-center text-xl font-medium pt-2 pb-1">
-                Score: {{ score }} / 5
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  </GameLayout>
 </template>
 
 <script setup>
 // 1. Imports
 import { onMounted, onUnmounted, ref, watch, computed } from 'vue';
-import GamePagesHeader from '../../Header/GamePagesHeader.vue';
-import GamePagesFooter from '../../Footer/GamePagesFooter.vue';
+import GameLayout from '../../../components/Game/GameLayout.vue';
+import GameControls from '../../../components/Game/GameControls.vue';
+import GameHeader from '../../../components/Game/GameHeader.vue';
+import PlayButton from '../../../components/Game/PlayButton.vue';
+import StartQuestionsButton from '../../../components/Game/StartQuestionsButton.vue';
+import GameOver from '../../../components/Game/GameOver.vue';
+
 import { requestMicPermission } from '../../../Utilities/requestMicAccess';
 import {
   playIntro,
