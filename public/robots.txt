@@ -10,4 +10,13 @@ Disallow: /api/auth/login.js
 Disallow: /api/send-email.js
 Disallow: /api/reset-password.js
 
+Disallow: /login
+Disallow: /signup
+Disallow: /impact
+Disallow: /project
+
+Disallow: /*.env$
+Disallow: /*.log$
+Disallow: /*.json$
+
 Sitemap: https://audemy.crustaly.com/sitemap.xml

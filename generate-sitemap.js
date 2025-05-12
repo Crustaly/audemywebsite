@@ -6,14 +6,13 @@ const links = [
   { url: '/', changefreq: 'weekly', priority: 1.0 },
   { url: '/about-us', changefreq: 'monthly', priority: 0.8 },
   { url: '/game-zone', changefreq: 'weekly', priority: 0.9 },
-  // Add more routes if needed
 ];
 
 const sitemap = new SitemapStream({ hostname: 'https://audemy.org' });
 const writeStream = createWriteStream('./public/sitemap.xml');
 
 streamToPromise(sitemap).then(() =>
-  console.log('✅ Sitemap generated at public/sitemap.xml')
+  console.log('Sitemap generated.')
 );
 
 sitemap.pipe(writeStream);
