@@ -12,8 +12,6 @@ Disallow: /api/reset-password.js
 
 Disallow: /login
 Disallow: /signup
-Disallow: /impact
-Disallow: /project
 
 Disallow: /*.env$
 Disallow: /*.log$
