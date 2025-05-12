@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+
+Disallow: /api/generate_audio.js
+Disallow: /api/test_db.js
+Disallow: /api/db/get_user.js
+Disallow: /api/db/update_user_school.js
+Disallow: /api/auth/signup.js
+Disallow: /api/auth/login.js
+Disallow: /api/send-email.js
+Disallow: /api/reset-password.js
+
+Sitemap: https://audemy.crustaly.com/sitemap.xml
