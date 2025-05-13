@@ -8,5 +8,6 @@
 </template>
 
 <script setup>
+import { defineEmits } from 'vue';
 defineEmits(['play-click']);
 </script>

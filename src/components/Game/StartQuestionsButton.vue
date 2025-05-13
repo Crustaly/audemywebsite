@@ -10,6 +10,7 @@
 </template>
 
 <script setup>
+import { defineProps, defineEmits } from 'vue';
 defineProps({
   isIntroPlaying: {
     type: Boolean,

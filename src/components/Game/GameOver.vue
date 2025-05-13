@@ -8,6 +8,7 @@
 </template>
 
 <script setup>
+import { defineProps } from 'vue';
 defineProps({
   score: {
     type: Number,
