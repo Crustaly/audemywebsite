@@ -9,7 +9,7 @@
   >
     <div class="flex flex-col justify-center items-center mb-8">
       <GameHeader
-        iconSrc="/assets/gameImages/buttons/gameButtons/definition.svg"
+        iconSrc="../../../assets/gameImages/buttons/gameButtons/definition.svg"
         title="Definition Detective"
         description="Find the correct word based on the definition."
         :isMobile="isMobile"
