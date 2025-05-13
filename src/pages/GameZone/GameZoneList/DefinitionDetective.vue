@@ -1,64 +1,14 @@
-<template>
-  <GameLayout
-    bgColor="#9AE2EB"
-    :isTablet="isTablet"
-    :isMobile="isMobile"
-    :currentAudios="currentAudios"
-    :handleSthNotWorkingButtonClick="handleSthNotWorkingButtonClick"
-    :goBack="goBack"
-  >
-    <div class="flex flex-col justify-center items-center mb-8">
-      <GameHeader
-        iconSrc="../../../assets/gameImages/buttons/gameButtons/definition.svg"
-        title="Definition Detective"
-        description="Find the correct word based on the definition."
-        :isMobile="isMobile"
-      />
-
-      <PlayButton v-if="playButton === false" @play-click="playButton = true" />
-
-      <div
-        v-else-if="numOfAudiosPlayed < 5 && playButton === true"
-        class="flex flex-col p-4 justify-center"
-        id="content"
-      >
-        <StartQuestionsButton
-          v-show="(isTablet || isMobile) && numOfAudiosPlayed === 0"
-          :isIntroPlaying="isIntroPlaying"
-          @start-click="startFirstQuestion"
-        />
-
-        <GameControls
-          v-show="
-            !(isTablet || isMobile) ||
-            (!isIntroPlaying && numOfAudiosPlayed > 0)
-          "
-          :isTablet="isTablet"
-          :isMobile="isMobile"
-          :isRecording="isRecording"
-          :isIntroPlaying="isIntroPlaying"
-          :isButtonCooldown="isButtonCooldown"
-          :transcription="transcription"
-          :numOfAudiosPlayed="numOfAudiosPlayed"
-          @record-click="toggleRecording"
-          @repeat-click="repeatQuestion"
-        />
-      </div>
-
-      <GameOver v-else :score="score" />
-    </div>
-  </GameLayout>
-</template>
+<template></template>
 
 <script setup>
 // 1. Imports
 import { onMounted, onUnmounted, ref, watch, computed } from 'vue';
 import GameLayout from '../../../components/Game/GameLayout.vue';
-import GameControls from '../../../components/Game/GameControls.vue';
-import GameHeader from '../../../components/Game/GameHeader.vue';
-import PlayButton from '../../../components/Game/PlayButton.vue';
-import StartQuestionsButton from '../../../components/Game/StartQuestionsButton.vue';
-import GameOver from '../../../components/Game/GameOver.vue';
+// import GameControls from '../../../components/game/GameControls.vue';
+// import GameHeader from '../../../components/game/GameHeader.vue';
+// import PlayButton from '../../../components/game/PlayButton.vue';
+// import StartQuestionsButton from '../../../components/game/StartQuestionsButton.vue';
+// import GameOver from '../../../components/game/GameOver.vue';
 
 import { requestMicPermission } from '../../../Utilities/requestMicAccess';
 import {
