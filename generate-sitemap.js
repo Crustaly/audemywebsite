@@ -6,6 +6,8 @@ const links = [
   { url: '/', changefreq: 'weekly', priority: 1.0 },
   { url: '/about-us', changefreq: 'monthly', priority: 0.8 },
   { url: '/game-zone', changefreq: 'weekly', priority: 0.9 },
+  { url: '/our-projects', changefreq: 'weekly', priority: 0.7 },
+  { url: '/impact', changefreq: 'weekly', priority: 0.6 },
 ];
 
 const sitemap = new SitemapStream({ hostname: 'https://audemy.org' });
