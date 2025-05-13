@@ -119,8 +119,8 @@
 
 <script setup>
 import { computed, defineProps } from 'vue';
-import GamePagesHeader from '../../Pages/Header/GamePagesHeader.vue';
-import GamePagesFooter from '../../Pages/Footer/GamePagesFooter.vue';
+import GamePagesHeader from '../../pages/Header/GamePagesHeader.vue';
+import GamePagesFooter from '../../pages/Footer/GamePagesFooter.vue';
 
 const props = defineProps({
   bgColor: {
