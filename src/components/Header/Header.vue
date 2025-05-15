@@ -307,9 +307,9 @@
 </template>
 
 <script setup>
-import { defineProps, ref, onMounted, onUnmounted, nextTick } from 'vue';
-import Cookies from 'js-cookie';
-import { useRouter } from 'vue-router';
+import { ref, onMounted, onUnmounted, nextTick } from "vue";
+import Cookies from "js-cookie";
+import { useRouter } from "vue-router";
 
 const router = useRouter();
 const userSession = ref(null);

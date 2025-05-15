@@ -1,5 +1,6 @@
 <script setup>
-import { defineProps } from 'vue';
+
+// import { defineProps } from "vue";
 const props = defineProps({
   staffTitle: String,
   staff: Array,
