@@ -7,10 +7,10 @@
     This file is not part of the main application.
 */
 
-import express from "express";
-import dotenv from "dotenv";
-import testDbHandler from "./test_db.js";
-import generateAudioHandler from "./generate_audio.js";
+import express from 'express';
+import dotenv from 'dotenv';
+import testDbHandler from './test_db.js';
+import generateAudioHandler from './generate_audio.js';
 
 dotenv.config();
 const app = express();
@@ -20,28 +20,28 @@ app.use(express.json());
 
 // Wrapper function to catch errors
 const asyncHandler = (fn) => (req, res, next) => {
-    Promise.resolve(fn(req, res, next)).catch(next);
+  Promise.resolve(fn(req, res, next)).catch(next);
 };
 
 // API Routes with error handling
-app.all("/api/test_db", asyncHandler(testDbHandler));
-app.all("/api/generate-tts", asyncHandler(generateAudioHandler));
+app.all('/api/test_db', asyncHandler(testDbHandler));
+app.all('/api/generate-tts', asyncHandler(generateAudioHandler));
 
 // Error Handling Middleware
 app.use((err, req, res, next) => {
-    console.error("Server Error:", err);
-    res.status(500).json({
-        error: "Internal Server Error",
-        details: err.message,
-    });
+  console.error('Server Error:', err);
+  res.status(500).json({
+    error: 'Internal Server Error',
+    details: err.message,
+  });
 });
 
 // Serve static frontend
-app.use(express.static("dist"));
-app.get("/*", (req, res) => {
-    res.sendFile("index.html", { root: "dist" });
+app.use(express.static('dist'));
+app.get('/*', (req, res) => {
+  res.sendFile('index.html', { root: 'dist' });
 });
 
 app.listen(PORT, () => {
-    console.log(`Server running locally at http://localhost:${PORT}/`);
+  console.log(`Server running locally at http://localhost:${PORT}/`);
 });

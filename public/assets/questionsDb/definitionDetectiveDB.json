@@ -1,90 +1,309 @@
 {
-    "DefinitionDetectiveGame": {
-        "Questions": {
-            "Easy": [
-                { "Q": "What is the word for a soft and furry animal that purrs and loves milk?", "A": ["cat"] },
-                { "Q": "What is the word for a yellow fruit that monkeys love to eat?", "A": ["banana"] },
-                { "Q": "What is the word for something you use to write on paper, filled with ink?", "A": ["pen"] },
-                { "Q": "What is the word for a round object used in many sports, like soccer and basketball?", "A": ["ball", "bawl"] },
-                { "Q": "What is the word for a big red fruit with seeds inside, often made into sauce?", "A": ["tomato"] },
-                { "Q": "What is the word for the place you sleep at night?", "A": ["bed"] },
-                { "Q": "What is the word for water falling from the sky?", "A": ["rain"] },
-                { "Q": "What is the word for a long, yellow vehicle that takes children to school?", "A": ["bus"] },
-                { "Q": "What is the word for a small insect that makes honey?", "A": ["bee"] },
-                { "Q": "What is the word for a person who teaches in a school?", "A": ["teacher", "teach her"] },
-                { "Q": "What is the word for something you wear on your feet?", "A": ["shoes"] },
-                { "Q": "What is the word for the meal you eat in the morning?", "A": ["breakfast"] },
-                { "Q": "What is the word for a large animal with a trunk?", "A": ["elephant"] },
-                { "Q": "What is the word for a place where you swim?", "A": ["pool"] },
-                { "Q": "What is the word for a flying insect that glows at night?", "A": ["firefly", "fire fly"] },
-                { "Q": "What is the word for something you wear on your head?", "A": ["hat"] },
-                { "Q": "What is the word for the opposite of hot?", "A": ["cold"] },
-                { "Q": "What is the word for the object used to tell time on a wall?", "A": ["clock"] },
-                { "Q": "What is the word for an animal that barks?", "A": ["dog"] },
-                { "Q": "What is the word for a fruit that is red and often given to teachers?", "A": ["apple"] },
-                { "Q": "What is the word for the bright object in the sky that gives us light during the day?", "A": ["sun"] },
-                { "Q": "What is the word for the frozen water that falls from the sky in winter?", "A": ["snow"] },
-                { "Q": "What is the word for the green plant on lawns?", "A": ["grass"] },
-                { "Q": "What is the word for the place where you cook food?", "A": ["kitchen"] },
-                { "Q": "What is the word for the small pet that runs on a wheel and loves to nibble?", "A": ["hamster"] },
-                { "Q": "What is the word for the object you use to drink water?", "A": ["cup"] },
-                { "Q": "What is the word for the opposite of up?", "A": ["down"] }            
-            ],
-            "Medium": [
-                { "Q": "What is the word for a place where books are kept and borrowed?", "A": ["library", "lie berry"] },
-                { "Q": "What is the word for a person who flies an airplane?", "A": ["pilot"] },
-                { "Q": "What is the word for a building where people watch movies?", "A": ["cinema", "movie theater", "theater"] },
-                { "Q": "What is the word for a tool used to cut paper or cloth?", "A": ["scissors"] },
-                { "Q": "What is the word for an animal that carries its baby in a pouch?", "A": ["kangaroo"] },
-                { "Q": "What is the word for a large body of water surrounded by land?", "A": ["lake"] },
-                { "Q": "What is the word for a person who fixes cars?", "A": ["mechanic"] },
-                { "Q": "What is the word for a machine used to cool food?", "A": ["refrigerator", "fridge"] },
-                { "Q": "What is the word for a person who writes books?", "A": ["author"] },
-                { "Q": "What is the word for a large vehicle used to carry goods?", "A": ["truck"] },
-                { "Q": "What is the word for something people wear on their wrist to tell time?", "A": ["watch"] },
-                { "Q": "What is the word for a place where scientists work?", "A": ["laboratory", "lab"] },
-                { "Q": "What is the word for a system of planets including Earth?", "A": ["solar system"] },
-                { "Q": "What is the word for a person who juggles balls in a circus?", "A": ["clown"] },
-                { "Q": "What is the word for the outer covering of a tree?", "A": ["bark"] },
-                { "Q": "What is the word for a tool used to measure weight?", "A": ["scale"] },
-                { "Q": "What is the word for a device used to take photographs?", "A": ["camera"] },
-                { "Q": "What is the word for the study of living things?", "A": ["biology"] },
-                { "Q": "What is the word for a device used to measure temperature?", "A": ["thermometer"] },
-                { "Q": "What is the word for an object used to erase pencil marks?", "A": ["eraser"] },
-                { "Q": "What is the word for the force that pulls objects toward the Earth?", "A": ["gravity"] },
-                { "Q": "What is the word for a place where animals are kept for people to see?", "A": ["zoo"] },
-                { "Q": "What is the word for a storm with strong winds that spins in a circle?", "A": ["tornado"] },
-                { "Q": "What is the word for a tool used to tell which direction is north?", "A": ["compass"] },
-                { "Q": "What is the word for the organ that pumps blood through the body?", "A": ["heart"] },
-                { "Q": "What is the word for the instrument with black and white keys?", "A": ["piano"] },
-                { "Q": "What is the word for a natural satellite of a planet?", "A": ["moon"] },
-                { "Q": "What is the word for a person who makes food in a restaurant?", "A": ["chef"] },
-                { "Q": "What is the word for a machine used for sewing fabric?", "A": ["sewing machine"] }
-            ],
-            "Hard": [
-                { "Q": "What is the word for a person who studies the stars and planets?", "A": ["astronomer"] },
-                { "Q": "What is the word for a formal agreement between countries?", "A": ["treaty"] },
-                { "Q": "What is the word for the process of water turning into vapor?", "A": ["evaporation"] },
-                { "Q": "What is the word for a person who travels to unknown places?", "A": ["explorer"] },
-                { "Q": "What is the word for the layer of air that surrounds the Earth?", "A": ["atmosphere"] },
-                { "Q": "What is the word for an animal that eats only plants?", "A": ["herbivore"] },
-                { "Q": "What is the word for a natural underground chamber?", "A": ["cave"] },
-                { "Q": "What is the word for a device used to look at very small objects?", "A": ["microscope"] },
-                { "Q": "What is the word for the study of the human mind and behavior?", "A": ["psychology"] },
-                { "Q": "What is the word for a person who studies ancient human cultures?", "A": ["archaeologist"] },
-                { "Q": "What is the word for the force that opposes motion between two surfaces?", "A": ["friction"] },
-                { "Q": "What is the word for a person who studies rocks and minerals?", "A": ["geologist"] },
-                { "Q": "What is the word for a baby frog?", "A": ["tadpole"] },
-                { "Q": "What is the word for a large, thick sheet of ice that moves over land?", "A": ["glacier"] },
-                { "Q": "What is the word for the imaginary line that divides the Earth into northern and southern halves?", "A": ["equator"] },
-                { "Q": "What is the word for an animal that sleeps during the day and is active at night?", "A": ["nocturnal"] },
-                { "Q": "What is the word for the outermost layer of the Earth?", "A": ["crust"] },
-                { "Q": "What is the word for the liquid rock that comes out of a volcano?", "A": ["lava"] },
-                { "Q": "What is the word for the gas that humans breathe in to survive?", "A": ["oxygen"] },
-                { "Q": "What is the word for a place where animals and plants live together in nature?", "A": ["habitat"] },
-                { "Q": "What is the word for a person who travels in space?", "A": ["astronaut"] },
-                { "Q": "What is the word for the process of liquid water turning into ice?", "A": ["freezing"] }
-            ]
+  "DefinitionDetectiveGame": {
+    "Questions": {
+      "Easy": [
+        {
+          "Q": "What is the word for a soft and furry animal that purrs and loves milk?",
+          "A": ["cat"]
+        },
+        {
+          "Q": "What is the word for a yellow fruit that monkeys love to eat?",
+          "A": ["banana"]
+        },
+        {
+          "Q": "What is the word for something you use to write on paper, filled with ink?",
+          "A": ["pen"]
+        },
+        {
+          "Q": "What is the word for a round object used in many sports, like soccer and basketball?",
+          "A": ["ball", "bawl"]
+        },
+        {
+          "Q": "What is the word for a big red fruit with seeds inside, often made into sauce?",
+          "A": ["tomato"]
+        },
+        {
+          "Q": "What is the word for the place you sleep at night?",
+          "A": ["bed"]
+        },
+        {
+          "Q": "What is the word for water falling from the sky?",
+          "A": ["rain"]
+        },
+        {
+          "Q": "What is the word for a long, yellow vehicle that takes children to school?",
+          "A": ["bus"]
+        },
+        {
+          "Q": "What is the word for a small insect that makes honey?",
+          "A": ["bee"]
+        },
+        {
+          "Q": "What is the word for a person who teaches in a school?",
+          "A": ["teacher", "teach her"]
+        },
+        {
+          "Q": "What is the word for something you wear on your feet?",
+          "A": ["shoes"]
+        },
+        {
+          "Q": "What is the word for the meal you eat in the morning?",
+          "A": ["breakfast"]
+        },
+        {
+          "Q": "What is the word for a large animal with a trunk?",
+          "A": ["elephant"]
+        },
+        { "Q": "What is the word for a place where you swim?", "A": ["pool"] },
+        {
+          "Q": "What is the word for a flying insect that glows at night?",
+          "A": ["firefly", "fire fly"]
+        },
+        {
+          "Q": "What is the word for something you wear on your head?",
+          "A": ["hat"]
+        },
+        { "Q": "What is the word for the opposite of hot?", "A": ["cold"] },
+        {
+          "Q": "What is the word for the object used to tell time on a wall?",
+          "A": ["clock"]
+        },
+        { "Q": "What is the word for an animal that barks?", "A": ["dog"] },
+        {
+          "Q": "What is the word for a fruit that is red and often given to teachers?",
+          "A": ["apple"]
+        },
+        {
+          "Q": "What is the word for the bright object in the sky that gives us light during the day?",
+          "A": ["sun"]
+        },
+        {
+          "Q": "What is the word for the frozen water that falls from the sky in winter?",
+          "A": ["snow"]
+        },
+        {
+          "Q": "What is the word for the green plant on lawns?",
+          "A": ["grass"]
+        },
+        {
+          "Q": "What is the word for the place where you cook food?",
+          "A": ["kitchen"]
+        },
+        {
+          "Q": "What is the word for the small pet that runs on a wheel and loves to nibble?",
+          "A": ["hamster"]
+        },
+        {
+          "Q": "What is the word for the object you use to drink water?",
+          "A": ["cup"]
+        },
+        { "Q": "What is the word for the opposite of up?", "A": ["down"] }
+      ],
+      "Medium": [
+        {
+          "Q": "What is the word for a place where books are kept and borrowed?",
+          "A": ["library", "lie berry"]
+        },
+        {
+          "Q": "What is the word for a person who flies an airplane?",
+          "A": ["pilot"]
+        },
+        {
+          "Q": "What is the word for a building where people watch movies?",
+          "A": ["cinema", "movie theater", "theater"]
+        },
+        {
+          "Q": "What is the word for a tool used to cut paper or cloth?",
+          "A": ["scissors"]
+        },
+        {
+          "Q": "What is the word for an animal that carries its baby in a pouch?",
+          "A": ["kangaroo"]
+        },
+        {
+          "Q": "What is the word for a large body of water surrounded by land?",
+          "A": ["lake"]
+        },
+        {
+          "Q": "What is the word for a person who fixes cars?",
+          "A": ["mechanic"]
+        },
+        {
+          "Q": "What is the word for a machine used to cool food?",
+          "A": ["refrigerator", "fridge"]
+        },
+        {
+          "Q": "What is the word for a person who writes books?",
+          "A": ["author"]
+        },
+        {
+          "Q": "What is the word for a large vehicle used to carry goods?",
+          "A": ["truck"]
+        },
+        {
+          "Q": "What is the word for something people wear on their wrist to tell time?",
+          "A": ["watch"]
+        },
+        {
+          "Q": "What is the word for a place where scientists work?",
+          "A": ["laboratory", "lab"]
+        },
+        {
+          "Q": "What is the word for a system of planets including Earth?",
+          "A": ["solar system"]
+        },
+        {
+          "Q": "What is the word for a person who juggles balls in a circus?",
+          "A": ["clown"]
+        },
+        {
+          "Q": "What is the word for the outer covering of a tree?",
+          "A": ["bark"]
+        },
+        {
+          "Q": "What is the word for a tool used to measure weight?",
+          "A": ["scale"]
+        },
+        {
+          "Q": "What is the word for a device used to take photographs?",
+          "A": ["camera"]
+        },
+        {
+          "Q": "What is the word for the study of living things?",
+          "A": ["biology"]
+        },
+        {
+          "Q": "What is the word for a device used to measure temperature?",
+          "A": ["thermometer"]
+        },
+        {
+          "Q": "What is the word for an object used to erase pencil marks?",
+          "A": ["eraser"]
+        },
+        {
+          "Q": "What is the word for the force that pulls objects toward the Earth?",
+          "A": ["gravity"]
+        },
+        {
+          "Q": "What is the word for a place where animals are kept for people to see?",
+          "A": ["zoo"]
+        },
+        {
+          "Q": "What is the word for a storm with strong winds that spins in a circle?",
+          "A": ["tornado"]
+        },
+        {
+          "Q": "What is the word for a tool used to tell which direction is north?",
+          "A": ["compass"]
+        },
+        {
+          "Q": "What is the word for the organ that pumps blood through the body?",
+          "A": ["heart"]
+        },
+        {
+          "Q": "What is the word for the instrument with black and white keys?",
+          "A": ["piano"]
+        },
+        {
+          "Q": "What is the word for a natural satellite of a planet?",
+          "A": ["moon"]
+        },
+        {
+          "Q": "What is the word for a person who makes food in a restaurant?",
+          "A": ["chef"]
+        },
+        {
+          "Q": "What is the word for a machine used for sewing fabric?",
+          "A": ["sewing machine"]
         }
+      ],
+      "Hard": [
+        {
+          "Q": "What is the word for a person who studies the stars and planets?",
+          "A": ["astronomer"]
+        },
+        {
+          "Q": "What is the word for a formal agreement between countries?",
+          "A": ["treaty"]
+        },
+        {
+          "Q": "What is the word for the process of water turning into vapor?",
+          "A": ["evaporation"]
+        },
+        {
+          "Q": "What is the word for a person who travels to unknown places?",
+          "A": ["explorer"]
+        },
+        {
+          "Q": "What is the word for the layer of air that surrounds the Earth?",
+          "A": ["atmosphere"]
+        },
+        {
+          "Q": "What is the word for an animal that eats only plants?",
+          "A": ["herbivore"]
+        },
+        {
+          "Q": "What is the word for a natural underground chamber?",
+          "A": ["cave"]
+        },
+        {
+          "Q": "What is the word for a device used to look at very small objects?",
+          "A": ["microscope"]
+        },
+        {
+          "Q": "What is the word for the study of the human mind and behavior?",
+          "A": ["psychology"]
+        },
+        {
+          "Q": "What is the word for a person who studies ancient human cultures?",
+          "A": ["archaeologist"]
+        },
+        {
+          "Q": "What is the word for the force that opposes motion between two surfaces?",
+          "A": ["friction"]
+        },
+        {
+          "Q": "What is the word for a person who studies rocks and minerals?",
+          "A": ["geologist"]
+        },
+        { "Q": "What is the word for a baby frog?", "A": ["tadpole"] },
+        {
+          "Q": "What is the word for a large, thick sheet of ice that moves over land?",
+          "A": ["glacier"]
+        },
+        {
+          "Q": "What is the word for the imaginary line that divides the Earth into northern and southern halves?",
+          "A": ["equator"]
+        },
+        {
+          "Q": "What is the word for an animal that sleeps during the day and is active at night?",
+          "A": ["nocturnal"]
+        },
+        {
+          "Q": "What is the word for the outermost layer of the Earth?",
+          "A": ["crust"]
+        },
+        {
+          "Q": "What is the word for the liquid rock that comes out of a volcano?",
+          "A": ["lava"]
+        },
+        {
+          "Q": "What is the word for the gas that humans breathe in to survive?",
+          "A": ["oxygen"]
+        },
+        {
+          "Q": "What is the word for a place where animals and plants live together in nature?",
+          "A": ["habitat"]
+        },
+        {
+          "Q": "What is the word for a person who travels in space?",
+          "A": ["astronaut"]
+        },
+        {
+          "Q": "What is the word for the process of liquid water turning into ice?",
+          "A": ["freezing"]
+        }
+      ]
     }
+  }
 }

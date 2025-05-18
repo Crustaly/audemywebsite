@@ -1,392 +1,372 @@
 {
-    "SubtractionGame": {
-        "Questions": {
-            "Easy": [
-                {
-                    "Q": "If there are 8 zebras and 3 run off to graze, how many zebras are left?",
-                    "A": ["5", "five", "five"]
-                },
-                {
-                    "Q": "If there are 6 monkeys and 2 climb a tree, how many monkeys are left on the ground?",
-                    "A": ["4", "four", "four"]
-                },
-                {
-                    "Q": "If there are 10 parrots and 4 fly away, how many parrots are left?",
-                    "A": ["6", "six", "six"]
-                },
-                {
-                    "Q": "If there are 7 lions and 3 leave the pride, how many lions are left?",
-                    "A": ["4", "four", "four"]
-                },
-                {
-                    "Q": "If there are 9 turtles and 4 crawl into the water, how many turtles are left on the shore?",
-                    "A": ["5", "five", "five"]
-                },
-                {
-                    "Q": "If there are 5 giraffes and 1 moves to another tree, how many giraffes are left?",
-                    "A": ["4", "four", "four"]
-                },
-                {
-                    "Q": "If there are 6 deer and 2 hide in the forest, how many deer are left?",
-                    "A": ["4", "four", "four"]
-                },
-                {
-                    "Q": "If there are 8 elephants and 5 walk away, how many elephants are left?",
-                    "A": ["3", "three", "three"]
-                },
-                {
-                    "Q": "If there are 10 flamingos and 6 fly off, how many flamingos are left?",
-                    "A": ["4", "four", "four"]
-                },
-                {
-                    "Q": "If there are 12 snakes and 7 slither away, how many snakes are left?",
-                    "A": ["5", "five", "five"]
-                },
-                {
-                    "Q": "If there are 11 cows and 2 moo loudly, how many cows are left?",
-                    "A": ["9", "nine", "nine"]
-                },
-                {
-                    "Q": "If there are 12 sheep and 5 go to the meadow, how many sheep are left?",
-                    "A": ["7", "seven", "seven"]
-                },
-                {
-                    "Q": "If there are 7 chickens and 1 returns to the coop, how many are left?",
-                    "A": ["6", "six", "six"]
-                },
-                {
-                    "Q": "If there are 13 frogs and 6 jump into the pond, how many frogs are left?",
-                    "A": ["7", "seven", "seven"]
-                },
-                {
-                    "Q": "If there are 15 horses and 4 gallop away, how many horses are left?",
-                    "A": ["11", "eleven", "eleven"]
-                },
-                {
-                    "Q": "If there are 14 goats and 3 walk up the hill, how many goats are left?",
-                    "A": ["11", "eleven", "eleven"]
-                },
-                {
-                    "Q": "If there are 10 dogs and 3 chase their tails, how many dogs are left?",
-                    "A": ["7", "seven", "seven"]
-                },
-                {
-                    "Q": "If there are 14 cats and 5 nap in the sun, how many cats are left awake?",
-                    "A": ["9", "nine", "nine"]
-                },
-                {
-                    "Q": "If there are 13 birds and 7 fly south, how many birds remain?",
-                    "A": ["6", "six", "six"]
-                },
-                {
-                    "Q": "If there are 4 fish and 1 swims away, how many fish are left?",
-                    "A": ["3", "three", "three"]
-                },
-                {
-                    "Q": "If there are 15 bees and 8 fly to flowers, how many bees are left in the hive?",
-                    "A": ["7", "seven", "seven"]
-                },
-                {
-                    "Q": "If there are 9 bears and 6 go fishing, how many bears stay behind?",
-                    "A": ["3", "three", "three"]
-                },
-                {
-                    "Q": "If there are 12 rabbits and 5 hop into the garden, how many rabbits are left in the field?",
-                    "A": ["7", "seven", "seven"]
-                },
-                {
-                    "Q": "If there are 11 ducks and 4 waddle away, how many ducks are left?",
-                    "A": ["7", "seven", "seven"]
-                },
-                {
-                    "Q": "If there are 6 pigs and 2 roll in the mud, how many pigs are clean?",
-                    "A": ["4", "four", "four"]
-                },
-                {
-                    "Q": "If there are 5 cows and 3 enter the barn, how many cows are outside?",
-                    "A": ["2", "two", "two"]
-                },
-                {
-                    "Q": "If there are 8 chickens and 4 lay eggs, how many chickens are not laying eggs?",
-                    "A": ["4", "four", "four"]
-                },
-                {
-                    "Q": "If there are 10 squirrels and 5 gather nuts, how many squirrels are left in the tree?",
-                    "A": ["5", "five", "five"]
-                },
-                {
-                    "Q": "If there are 7 frogs and 2 leap into the pond, how many frogs are on the bank?",
-                    "A": ["5", "five", "five"]
-                },
-                {
-                    "Q": "If there are 9 mice and 4 hide in the cheese, how many mice are visible?",
-                    "A": ["5", "five", "five"]
-                },
-                {
-                    "Q": "If there are 13 ladybugs and 6 fly away, how many ladybugs are left on the leaf?",
-                    "A": ["7", "seven", "seven"]
-                },
-                {
-                    "Q": "If there are 14 ants and 5 carry food, how many ants are not carrying food?",
-                    "A": ["9", "nine", "nine"]
-                },
-                {
-                    "Q": "If there are 10 butterflies and 3 flutter away, how many butterflies remain?",
-                    "A": ["7", "seven", "seven"]
-                },
-                {
-                    "Q": "If there are 11 hamsters and 6 run on wheels, how many hamsters are resting?",
-                    "A": ["5", "five", "five"]
-                }
-            ],
-            "Medium": [
-                {
-                    "Q": "If there are 18 zebras and 9 run off to graze, how many zebras are left?",
-                    "A": ["9", "nine", "nine"]
-                },
-                {
-                    "Q": "If there are 20 leopards and 8 chase after prey, how many leopards are left?",
-                    "A": ["12", "twelve", "twelve"]
-                },
-                {
-                    "Q": "If there are 25 flamingos and 10 fly away, how many flamingos are left?",
-                    "A": ["15", "fifteen", "fifteen"]
-                },
-                {
-                    "Q": "If there are 30 antelopes and 12 run into the bushes, how many antelopes are left?",
-                    "A": ["18", "eighteen", "eighteen"]
-                },
-                {
-                    "Q": "If there are 22 crocodiles and 7 dive underwater, how many crocodiles are left?",
-                    "A": ["15", "fifteen", "fifteen"]
-                },
-                {
-                    "Q": "If there are 24 rhinos and 6 wander off, how many rhinos are left?",
-                    "A": ["18", "eighteen", "eighteen"]
-                },
-                {
-                    "Q": "If there are 28 camels and 14 move to another oasis, how many camels are left?",
-                    "A": ["14", "fourteen", "fourteen"]
-                },
-                {
-                    "Q": "If there are 26 penguins and 11 slide into the water, how many penguins are left?",
-                    "A": ["15", "fifteen", "fifteen"]
-                },
-                {
-                    "Q": "If there are 19 buffalo and 8 run into the woods, how many buffalo are left?",
-                    "A": ["11", "eleven", "eleven"]
-                },
-                {
-                    "Q": "If there are 21 foxes and 9 sneak into their dens, how many foxes are left?",
-                    "A": ["12", "twelve", "twelve"]
-                },
-                {
-                    "Q": "If there are 17 kangaroos and 5 hop away, how many are left?",
-                    "A": ["12", "twelve", "twelve"]
-                },
-                {
-                    "Q": "If there are 23 wolves and 9 howl at the moon, how many wolves are silent?",
-                    "A": ["14", "fourteen", "fourteen"]
-                },
-                {
-                    "Q": "If there are 27 pandas and 13 eat bamboo, how many pandas are not eating?",
-                    "A": ["14", "fourteen", "fourteen"]
-                },
-                {
-                    "Q": "If there are 29 koalas and 15 climb trees, how many koalas are on the ground?",
-                    "A": ["14", "fourteen", "fourteen"]
-                },
-                {
-                    "Q": "If there are 16 otters and 7 swim away, how many otters are left?",
-                    "A": ["9", "nine", "nine"]
-                },
-                {
-                    "Q": "If there are 25 seals and 11 dive into the water, how many seals remain on the ice?",
-                    "A": ["14", "fourteen", "fourteen"]
-                },
-                {
-                    "Q": "If there are 19 raccoons and 6 raid the trash, how many raccoons are elsewhere?",
-                    "A": ["13", "thirteen", "thirteen"]
-                },
-                {
-                    "Q": "If there are 22 beavers and 8 build dams, how many beavers are not building?",
-                    "A": ["14", "fourteen", "fourteen"]
-                },
-                {
-                    "Q": "If there are 24 moose and 10 wander into the forest, how many moose are left?",
-                    "A": ["14", "fourteen", "fourteen"]
-                },
-                {
-                    "Q": "If there are 30 eagles and 15 fly away, how many eagles remain?",
-                    "A": ["15", "fifteen", "fifteen"]
-                },
-                {
-                    "Q": "If there are 28 hawks and 12 soar high, how many hawks are perched?",
-                    "A": ["16", "sixteen", "sixteen"]
-                },
-                {
-                    "Q": "If there are 26 squirrels and 9 gather nuts, how many squirrels are left?",
-                    "A": ["17", "seventeen", "seventeen"]
-                },
-                {
-                    "Q": "If there are 20 rabbits and 7 hop into the garden, how many rabbits are outside?",
-                    "A": ["13", "thirteen", "thirteen"]
-                },
-                {
-                    "Q": "If there are 18 deer and 6 graze in the field, how many deer are resting?",
-                    "A": ["12", "twelve", "twelve"]
-                },
-                {
-                    "Q": "If there are 21 foxes and 10 hunt for food, how many foxes are in the den?",
-                    "A": ["11", "eleven", "eleven"]
-                },
-                {
-                    "Q": "If there are 23 bears and 12 fish in the river, how many bears are elsewhere?",
-                    "A": ["11", "eleven", "eleven"]
-                },
-                {
-                    "Q": "If there are 27 coyotes and 14 howl, how many coyotes are quiet?",
-                    "A": ["13", "thirteen", "thirteen"]
-                },
-                {
-                    "Q": "If there are 29 armadillos and 17 curl into balls, how many are uncurled?",
-                    "A": ["12", "twelve", "twelve"]
-                },
-                {
-                    "Q": "If there are 24 porcupines and 11 climb trees, how many are on the ground?",
-                    "A": ["13", "thirteen", "thirteen"]
-                },
-                {
-                    "Q": "If there are 19 skunks and 9 spray, how many skunks didn't spray?",
-                    "A": ["10", "ten", "ten"]
-                },
-                {
-                    "Q": "If there are 17 possums and 8 play dead, how many are active?",
-                    "A": ["9", "nine", "nine"]
-                },
-                {
-                    "Q": "If there are 25 turkeys and 15 gobble, how many turkeys are silent?",
-                    "A": ["10", "ten", "ten"]
-                },
-                {
-                    "Q": "If there are 28 geese and 13 fly south, how many geese stay behind?",
-                    "A": ["15", "fifteen", "fifteen"]
-                }
-            ],
-            "Hard": [
-                {
-                    "Q": "If there are 100 gazelles and 45 leap away, how many gazelles are left?",
-                    "A": ["55", "fifty-five", "fifty five"]
-                },
-                {
-                    "Q": "If there are 150 flamingos and 75 fly away, how many flamingos are left?",
-                    "A": ["75", "seventy-five", "seventy five"]
-                },
-                {
-                    "Q": "If there are 200 tigers and 88 move to another jungle, how many tigers are left?",
-                    "A": ["112", "one hundred twelve", "one hundred twelve"]
-                },
-                {
-                    "Q": "If there are 300 elephants and 125 migrate to another area, how many elephants are left?",
-                    "A": [
-                        "175",
-                        "one hundred seventy-five",
-                        "one hundred seventy five"
-                    ]
-                },
-                {
-                    "Q": "If there are 275 giraffes and 100 wander off, how many giraffes are left?",
-                    "A": [
-                        "175",
-                        "one hundred seventy-five",
-                        "one hundred seventy five"
-                    ]
-                },
-                {
-                    "Q": "If there are 400 monkeys and 150 swing away into the trees, how many monkeys are left?",
-                    "A": ["250", "two hundred fifty", "two hundred fifty"]
-                },
-                {
-                    "Q": "If there are 500 deer and 200 run into the forest, how many deer are left?",
-                    "A": ["300", "three hundred", "three hundred"]
-                },
-                {
-                    "Q": "If there are 450 seals and 225 dive into the ocean, how many seals are left?",
-                    "A": [
-                        "225",
-                        "two hundred twenty-five",
-                        "two hundred twenty five"
-                    ]
-                },
-                {
-                    "Q": "If there are 600 wolves and 300 run into the mountains, how many wolves are left?",
-                    "A": ["300", "three hundred", "three hundred"]
-                },
-                {
-                    "Q": "If there are 800 kangaroos and 400 hop away, how many kangaroos are left?",
-                    "A": ["400", "four hundred", "four hundred"]
-                },
-                {
-                    "Q": "If there are 120 buffalo and 50 stampede, how many buffalo are left?",
-                    "A": ["70", "seventy", "seventy"]
-                },
-                {
-                    "Q": "If there are 250 cheetahs and 80 sprint after prey, how many cheetahs are left?",
-                    "A": ["170", "one hundred seventy", "one hundred seventy"]
-                },
-                {
-                    "Q": "If there are 350 eagles and 120 fly to the mountains, how many eagles remain?",
-                    "A": ["230", "two hundred thirty", "two hundred thirty"]
-                },
-                {
-                    "Q": "If there are 180 zebras and 90 gallop away, how many zebras are left?",
-                    "A": ["90", "ninety", "ninety"]
-                },
-                {
-                    "Q": "If there are 220 rhinos and 110 charge, how many rhinos are calm?",
-                    "A": ["110", "one hundred ten", "one hundred ten"]
-                },
-                {
-                    "Q": "If there are 600 lions and 250 hunt, how many lions are resting?",
-                    "A": ["350", "three hundred fifty", "three hundred fifty"]
-                },
-                {
-                    "Q": "If there are 700 hyenas and 300 laugh, how many hyenas are silent?",
-                    "A": ["400", "four hundred", "four hundred"]
-                },
-                {
-                    "Q": "If there are 900 crows and 450 fly to the east, how many crows remain?",
-                    "A": ["450", "four hundred fifty", "four hundred fifty"]
-                },
-                {
-                    "Q": "If there are 150 gorillas and 60 beat their chests, how many gorillas are quiet?",
-                    "A": ["90", "ninety", "ninety"]
-                },
-                {
-                    "Q": "If there are 320 elephants and 140 trumpet loudly, how many elephants are silent?",
-                    "A": ["180", "one hundred eighty", "one hundred eighty"]
-                },
-                {
-                    "Q": "If there are 450 tigers and 200 prowl the jungle, how many tigers are resting?",
-                    "A": ["250", "two hundred fifty", "two hundred fifty"]
-                },
-                {
-                    "Q": "If there are 550 leopards and 275 climb trees, how many leopards are on the ground?",
-                    "A": [
-                        "275",
-                        "two hundred seventy-five",
-                        "two hundred seventy five"
-                    ]
-                },
-                {
-                    "Q": "If there are 750 pandas and 325 eat bamboo, how many pandas are not eating?",
-                    "A": [
-                        "425",
-                        "four hundred twenty-five",
-                        "four hundred twenty five"
-                    ]
-                }
-            ]
+  "SubtractionGame": {
+    "Questions": {
+      "Easy": [
+        {
+          "Q": "If there are 8 zebras and 3 run off to graze, how many zebras are left?",
+          "A": ["5", "five", "five"]
+        },
+        {
+          "Q": "If there are 6 monkeys and 2 climb a tree, how many monkeys are left on the ground?",
+          "A": ["4", "four", "four"]
+        },
+        {
+          "Q": "If there are 10 parrots and 4 fly away, how many parrots are left?",
+          "A": ["6", "six", "six"]
+        },
+        {
+          "Q": "If there are 7 lions and 3 leave the pride, how many lions are left?",
+          "A": ["4", "four", "four"]
+        },
+        {
+          "Q": "If there are 9 turtles and 4 crawl into the water, how many turtles are left on the shore?",
+          "A": ["5", "five", "five"]
+        },
+        {
+          "Q": "If there are 5 giraffes and 1 moves to another tree, how many giraffes are left?",
+          "A": ["4", "four", "four"]
+        },
+        {
+          "Q": "If there are 6 deer and 2 hide in the forest, how many deer are left?",
+          "A": ["4", "four", "four"]
+        },
+        {
+          "Q": "If there are 8 elephants and 5 walk away, how many elephants are left?",
+          "A": ["3", "three", "three"]
+        },
+        {
+          "Q": "If there are 10 flamingos and 6 fly off, how many flamingos are left?",
+          "A": ["4", "four", "four"]
+        },
+        {
+          "Q": "If there are 12 snakes and 7 slither away, how many snakes are left?",
+          "A": ["5", "five", "five"]
+        },
+        {
+          "Q": "If there are 11 cows and 2 moo loudly, how many cows are left?",
+          "A": ["9", "nine", "nine"]
+        },
+        {
+          "Q": "If there are 12 sheep and 5 go to the meadow, how many sheep are left?",
+          "A": ["7", "seven", "seven"]
+        },
+        {
+          "Q": "If there are 7 chickens and 1 returns to the coop, how many are left?",
+          "A": ["6", "six", "six"]
+        },
+        {
+          "Q": "If there are 13 frogs and 6 jump into the pond, how many frogs are left?",
+          "A": ["7", "seven", "seven"]
+        },
+        {
+          "Q": "If there are 15 horses and 4 gallop away, how many horses are left?",
+          "A": ["11", "eleven", "eleven"]
+        },
+        {
+          "Q": "If there are 14 goats and 3 walk up the hill, how many goats are left?",
+          "A": ["11", "eleven", "eleven"]
+        },
+        {
+          "Q": "If there are 10 dogs and 3 chase their tails, how many dogs are left?",
+          "A": ["7", "seven", "seven"]
+        },
+        {
+          "Q": "If there are 14 cats and 5 nap in the sun, how many cats are left awake?",
+          "A": ["9", "nine", "nine"]
+        },
+        {
+          "Q": "If there are 13 birds and 7 fly south, how many birds remain?",
+          "A": ["6", "six", "six"]
+        },
+        {
+          "Q": "If there are 4 fish and 1 swims away, how many fish are left?",
+          "A": ["3", "three", "three"]
+        },
+        {
+          "Q": "If there are 15 bees and 8 fly to flowers, how many bees are left in the hive?",
+          "A": ["7", "seven", "seven"]
+        },
+        {
+          "Q": "If there are 9 bears and 6 go fishing, how many bears stay behind?",
+          "A": ["3", "three", "three"]
+        },
+        {
+          "Q": "If there are 12 rabbits and 5 hop into the garden, how many rabbits are left in the field?",
+          "A": ["7", "seven", "seven"]
+        },
+        {
+          "Q": "If there are 11 ducks and 4 waddle away, how many ducks are left?",
+          "A": ["7", "seven", "seven"]
+        },
+        {
+          "Q": "If there are 6 pigs and 2 roll in the mud, how many pigs are clean?",
+          "A": ["4", "four", "four"]
+        },
+        {
+          "Q": "If there are 5 cows and 3 enter the barn, how many cows are outside?",
+          "A": ["2", "two", "two"]
+        },
+        {
+          "Q": "If there are 8 chickens and 4 lay eggs, how many chickens are not laying eggs?",
+          "A": ["4", "four", "four"]
+        },
+        {
+          "Q": "If there are 10 squirrels and 5 gather nuts, how many squirrels are left in the tree?",
+          "A": ["5", "five", "five"]
+        },
+        {
+          "Q": "If there are 7 frogs and 2 leap into the pond, how many frogs are on the bank?",
+          "A": ["5", "five", "five"]
+        },
+        {
+          "Q": "If there are 9 mice and 4 hide in the cheese, how many mice are visible?",
+          "A": ["5", "five", "five"]
+        },
+        {
+          "Q": "If there are 13 ladybugs and 6 fly away, how many ladybugs are left on the leaf?",
+          "A": ["7", "seven", "seven"]
+        },
+        {
+          "Q": "If there are 14 ants and 5 carry food, how many ants are not carrying food?",
+          "A": ["9", "nine", "nine"]
+        },
+        {
+          "Q": "If there are 10 butterflies and 3 flutter away, how many butterflies remain?",
+          "A": ["7", "seven", "seven"]
+        },
+        {
+          "Q": "If there are 11 hamsters and 6 run on wheels, how many hamsters are resting?",
+          "A": ["5", "five", "five"]
         }
+      ],
+      "Medium": [
+        {
+          "Q": "If there are 18 zebras and 9 run off to graze, how many zebras are left?",
+          "A": ["9", "nine", "nine"]
+        },
+        {
+          "Q": "If there are 20 leopards and 8 chase after prey, how many leopards are left?",
+          "A": ["12", "twelve", "twelve"]
+        },
+        {
+          "Q": "If there are 25 flamingos and 10 fly away, how many flamingos are left?",
+          "A": ["15", "fifteen", "fifteen"]
+        },
+        {
+          "Q": "If there are 30 antelopes and 12 run into the bushes, how many antelopes are left?",
+          "A": ["18", "eighteen", "eighteen"]
+        },
+        {
+          "Q": "If there are 22 crocodiles and 7 dive underwater, how many crocodiles are left?",
+          "A": ["15", "fifteen", "fifteen"]
+        },
+        {
+          "Q": "If there are 24 rhinos and 6 wander off, how many rhinos are left?",
+          "A": ["18", "eighteen", "eighteen"]
+        },
+        {
+          "Q": "If there are 28 camels and 14 move to another oasis, how many camels are left?",
+          "A": ["14", "fourteen", "fourteen"]
+        },
+        {
+          "Q": "If there are 26 penguins and 11 slide into the water, how many penguins are left?",
+          "A": ["15", "fifteen", "fifteen"]
+        },
+        {
+          "Q": "If there are 19 buffalo and 8 run into the woods, how many buffalo are left?",
+          "A": ["11", "eleven", "eleven"]
+        },
+        {
+          "Q": "If there are 21 foxes and 9 sneak into their dens, how many foxes are left?",
+          "A": ["12", "twelve", "twelve"]
+        },
+        {
+          "Q": "If there are 17 kangaroos and 5 hop away, how many are left?",
+          "A": ["12", "twelve", "twelve"]
+        },
+        {
+          "Q": "If there are 23 wolves and 9 howl at the moon, how many wolves are silent?",
+          "A": ["14", "fourteen", "fourteen"]
+        },
+        {
+          "Q": "If there are 27 pandas and 13 eat bamboo, how many pandas are not eating?",
+          "A": ["14", "fourteen", "fourteen"]
+        },
+        {
+          "Q": "If there are 29 koalas and 15 climb trees, how many koalas are on the ground?",
+          "A": ["14", "fourteen", "fourteen"]
+        },
+        {
+          "Q": "If there are 16 otters and 7 swim away, how many otters are left?",
+          "A": ["9", "nine", "nine"]
+        },
+        {
+          "Q": "If there are 25 seals and 11 dive into the water, how many seals remain on the ice?",
+          "A": ["14", "fourteen", "fourteen"]
+        },
+        {
+          "Q": "If there are 19 raccoons and 6 raid the trash, how many raccoons are elsewhere?",
+          "A": ["13", "thirteen", "thirteen"]
+        },
+        {
+          "Q": "If there are 22 beavers and 8 build dams, how many beavers are not building?",
+          "A": ["14", "fourteen", "fourteen"]
+        },
+        {
+          "Q": "If there are 24 moose and 10 wander into the forest, how many moose are left?",
+          "A": ["14", "fourteen", "fourteen"]
+        },
+        {
+          "Q": "If there are 30 eagles and 15 fly away, how many eagles remain?",
+          "A": ["15", "fifteen", "fifteen"]
+        },
+        {
+          "Q": "If there are 28 hawks and 12 soar high, how many hawks are perched?",
+          "A": ["16", "sixteen", "sixteen"]
+        },
+        {
+          "Q": "If there are 26 squirrels and 9 gather nuts, how many squirrels are left?",
+          "A": ["17", "seventeen", "seventeen"]
+        },
+        {
+          "Q": "If there are 20 rabbits and 7 hop into the garden, how many rabbits are outside?",
+          "A": ["13", "thirteen", "thirteen"]
+        },
+        {
+          "Q": "If there are 18 deer and 6 graze in the field, how many deer are resting?",
+          "A": ["12", "twelve", "twelve"]
+        },
+        {
+          "Q": "If there are 21 foxes and 10 hunt for food, how many foxes are in the den?",
+          "A": ["11", "eleven", "eleven"]
+        },
+        {
+          "Q": "If there are 23 bears and 12 fish in the river, how many bears are elsewhere?",
+          "A": ["11", "eleven", "eleven"]
+        },
+        {
+          "Q": "If there are 27 coyotes and 14 howl, how many coyotes are quiet?",
+          "A": ["13", "thirteen", "thirteen"]
+        },
+        {
+          "Q": "If there are 29 armadillos and 17 curl into balls, how many are uncurled?",
+          "A": ["12", "twelve", "twelve"]
+        },
+        {
+          "Q": "If there are 24 porcupines and 11 climb trees, how many are on the ground?",
+          "A": ["13", "thirteen", "thirteen"]
+        },
+        {
+          "Q": "If there are 19 skunks and 9 spray, how many skunks didn't spray?",
+          "A": ["10", "ten", "ten"]
+        },
+        {
+          "Q": "If there are 17 possums and 8 play dead, how many are active?",
+          "A": ["9", "nine", "nine"]
+        },
+        {
+          "Q": "If there are 25 turkeys and 15 gobble, how many turkeys are silent?",
+          "A": ["10", "ten", "ten"]
+        },
+        {
+          "Q": "If there are 28 geese and 13 fly south, how many geese stay behind?",
+          "A": ["15", "fifteen", "fifteen"]
+        }
+      ],
+      "Hard": [
+        {
+          "Q": "If there are 100 gazelles and 45 leap away, how many gazelles are left?",
+          "A": ["55", "fifty-five", "fifty five"]
+        },
+        {
+          "Q": "If there are 150 flamingos and 75 fly away, how many flamingos are left?",
+          "A": ["75", "seventy-five", "seventy five"]
+        },
+        {
+          "Q": "If there are 200 tigers and 88 move to another jungle, how many tigers are left?",
+          "A": ["112", "one hundred twelve", "one hundred twelve"]
+        },
+        {
+          "Q": "If there are 300 elephants and 125 migrate to another area, how many elephants are left?",
+          "A": ["175", "one hundred seventy-five", "one hundred seventy five"]
+        },
+        {
+          "Q": "If there are 275 giraffes and 100 wander off, how many giraffes are left?",
+          "A": ["175", "one hundred seventy-five", "one hundred seventy five"]
+        },
+        {
+          "Q": "If there are 400 monkeys and 150 swing away into the trees, how many monkeys are left?",
+          "A": ["250", "two hundred fifty", "two hundred fifty"]
+        },
+        {
+          "Q": "If there are 500 deer and 200 run into the forest, how many deer are left?",
+          "A": ["300", "three hundred", "three hundred"]
+        },
+        {
+          "Q": "If there are 450 seals and 225 dive into the ocean, how many seals are left?",
+          "A": ["225", "two hundred twenty-five", "two hundred twenty five"]
+        },
+        {
+          "Q": "If there are 600 wolves and 300 run into the mountains, how many wolves are left?",
+          "A": ["300", "three hundred", "three hundred"]
+        },
+        {
+          "Q": "If there are 800 kangaroos and 400 hop away, how many kangaroos are left?",
+          "A": ["400", "four hundred", "four hundred"]
+        },
+        {
+          "Q": "If there are 120 buffalo and 50 stampede, how many buffalo are left?",
+          "A": ["70", "seventy", "seventy"]
+        },
+        {
+          "Q": "If there are 250 cheetahs and 80 sprint after prey, how many cheetahs are left?",
+          "A": ["170", "one hundred seventy", "one hundred seventy"]
+        },
+        {
+          "Q": "If there are 350 eagles and 120 fly to the mountains, how many eagles remain?",
+          "A": ["230", "two hundred thirty", "two hundred thirty"]
+        },
+        {
+          "Q": "If there are 180 zebras and 90 gallop away, how many zebras are left?",
+          "A": ["90", "ninety", "ninety"]
+        },
+        {
+          "Q": "If there are 220 rhinos and 110 charge, how many rhinos are calm?",
+          "A": ["110", "one hundred ten", "one hundred ten"]
+        },
+        {
+          "Q": "If there are 600 lions and 250 hunt, how many lions are resting?",
+          "A": ["350", "three hundred fifty", "three hundred fifty"]
+        },
+        {
+          "Q": "If there are 700 hyenas and 300 laugh, how many hyenas are silent?",
+          "A": ["400", "four hundred", "four hundred"]
+        },
+        {
+          "Q": "If there are 900 crows and 450 fly to the east, how many crows remain?",
+          "A": ["450", "four hundred fifty", "four hundred fifty"]
+        },
+        {
+          "Q": "If there are 150 gorillas and 60 beat their chests, how many gorillas are quiet?",
+          "A": ["90", "ninety", "ninety"]
+        },
+        {
+          "Q": "If there are 320 elephants and 140 trumpet loudly, how many elephants are silent?",
+          "A": ["180", "one hundred eighty", "one hundred eighty"]
+        },
+        {
+          "Q": "If there are 450 tigers and 200 prowl the jungle, how many tigers are resting?",
+          "A": ["250", "two hundred fifty", "two hundred fifty"]
+        },
+        {
+          "Q": "If there are 550 leopards and 275 climb trees, how many leopards are on the ground?",
+          "A": ["275", "two hundred seventy-five", "two hundred seventy five"]
+        },
+        {
+          "Q": "If there are 750 pandas and 325 eat bamboo, how many pandas are not eating?",
+          "A": ["425", "four hundred twenty-five", "four hundred twenty five"]
+        }
+      ]
     }
+  }
 }
