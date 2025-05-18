@@ -1,14 +1,26 @@
 <script setup>
+
+import Banner from "../../components/AccountPages/Banner.vue";
+import Header from "../../components/Header/Header.vue";
+import Footer from "../../components/Footer/Footer.vue";
+
+import { useDeviceType } from "../../Utilities/checkDeviceType";
+const { isMobile, isTablet } = useDeviceType();
+
 import { ref } from "vue";
 import { useRouter } from "vue-router";
-
 
 const errors = ref(false);      // flag to display error on frontend
 const email = ref("");          // email input field value
 const router = useRouter();
+const errorMessage = ref("");
 
 const showErrorAlert = (message) => {
-    alert(message); // Using standard alert for simplicity
+    errors.value = true;
+    errorMessage.value = message;
+    setTimeout(() => {
+        errors.value = false;
+    }, 5000);
 };
 
 const sendResetEmail = async (event) => {
@@ -45,7 +57,11 @@ const sendResetEmail = async (event) => {
                     showErrorAlert("Forbidden: You don't have permission to access this resource");
                     break;
                 case 404:
-                    showErrorAlert("Resource not found");
+                    if (!email.value) {
+                        showErrorAlert("Please enter your email.");
+                    } else {
+                        showErrorAlert("No account found with that email address.");
+                    } 
                     break;
                 case 405:
                     showErrorAlert("Method not allowed");
@@ -83,95 +99,171 @@ const sendResetEmail = async (event) => {
         alert('Network error. Please check your connection and try again.');
     }    
 };
+
 </script>
 
-<template>
-    <div
-        class="w-full h-screen overflow-hidden bg-[#FFDABA] flex justify-between mobile:flex-row"
-    >
-        <div
-            class="w-5/12 md:w-full sm:w-full relative flex items-center jusitfy-center"
-        >
-            <div
-                class="w-full flex flex-col justify-center items-center gap-14 z-10"
-            >
-                <img
-                    src="/assets/images/LoginImg/icons.svg"
-                    alt="logo icon"
-                    class="w-[50%] h-[50%]"
-                />
-                <img
-                    src="/assets/images/LoginImg/logo-icon.svg"
-                    alt="logo icon"
-                    class="w-[45%] h-[45%]"
-                />
-            </div>
-            <img
-                src="/assets/images/LoginImg/wave-icon.svg"
-                alt="wave icon"
-                class="absolute -bottom-[15%] right-0 w-full -z-1"
-            />
-        </div>
 
-        <div
-            class="w-7/12 md:w-full sm:w-full bg-white flex flex-col items-center justify-center border-2"
+
+<template>
+    <div 
+        :class="[
+            'relative', 
+            !isTablet && !isMobile ? 'px-14' : '',
+            isTablet ? 'px-6' : '',
+            isMobile ? 'px-8' : ''
+        ]" 
+        ref="content"
+    >
+    <Header :logoPath="'/assets/images/header/header-logo-2.png'" />
+    </div>
+    <div 
+        id="forgot-pw-container"
+        :class="[
+            !isTablet && !isMobile ? 'px-20' : '',
+            isTablet ? 'px-10' : '',
+            isMobile ? 'px-5' : ''
+        ]"
+    >
+        <Banner
+            id="forgot-pw-banner"
+            :CarlImgPath="'/assets/images/impact/globe-icon.svg'" 
+            :isImageWide="false"
+            bgColor="#B1C7D0"
+            curveColor="#E5F0F5"
+            :isPageShort="true"
+        />
+        <div 
+            id="forgot-pw-form-container"
+            class="pt-[20px] pb-[20px] mb-[40px] mt-[40px] text-center"
+            :class="[
+                !isTablet && !isMobile ? 'mt-[0px] mb-[0px]' : '',
+            ]"
         >
-            <form
+            <h1 class="text-[#151E22] mobile:text-[28px] text-[35px]">
+                Let's reset your password
+            </h1>
+            <br>
+            <p class="w-[80%] ml-[10%]">
+                Enter the email associated with your account and we’ll send you a link to reset your password.
+            </p>
+            <!-- FORGOT PASSWORD FORM -->
+            <form 
                 @submit="sendResetEmail"
                 method="post"
-                class="max-h-[350px] w-full flex flex-col justify-center items-center gap-[5%] my-4"
+                class="w-[80%] ml-[10%] mt-[20px] pt-[20px] pb-[20px]"
             >
+                <div>
+                    <label
+                        class="block text-[#0C0D0D] font-semibold"
+                        for="email"
+                    >
+                        Email Address
+                    </label>
+                    <input
+                        v-model="email"
+                        type="email"
+                        class="w-full outline-none border border-black h-[48px] px-4 rounded-[8px]"
+                        id="email"
+                        name="email"
+                        placeholder="Enter your email address"
+                        autocomplete="email"
+                    />
+                </div>
+                <!-- ERROR MESSAGES -->
+                <div class="mt-8 mb-3" v-if="errors">
+                    <div
+                        class="bg-red-100 border-red-500 text-red-800 mb-6 p-3 ml-[10%] rounded-lg border-2 shadow-md min-h-[56px] text-base font-medium w-[80%]"
+                        role="alert"
+                    >
+                        <p>{{ errorMessage }}</p>
+                    </div>
+                </div>
+                <!-- RETURN TO LOGIN OPTION -->
                 <div
-                    class="text-[#151E22] text-center w-7/12 mb-10 mobile:w-full  mobile:mb-4"
+                    id="login-grid"
+                    class="text-[16px] font-semibold text-[#0C0D0D] mobile:text-[14px] mobile:px-4"
                 >
-                    <h1 class="text-[36px] mobile:text-[24px]">Let's reset your Password</h1>
-                    <div>Enter the email associated with your account and we’ll send you a link to reset your password.</div>
-                </div>
-                
-                <div class="w-7/12 max-w-[450px]">
-                    <div class="mb-[16px]">
-                        <label
-                            class="block text-[#0C0D0D] mb-1 font-semiBold"
-                            for="email"
-                            >Email Address</label
-                        >
-                        <input
-                            v-model="email"
-                            type="email"
-                            class="w-full outline-none border-2 border-black py-2 px-2 rounded-[8px]"
-                            id="email"
-                            name="email"
-                            placeholder="Enter your email address"
-                            autocomplete="email"
-                        />
-                    </div>
-                    <div class="mb-3" v-if="errors">
-                        <div class="text-red-700" role="alert">
-                            <span class="block sm:inline">No account found with that email address.</span>
-                        </div>
-                    </div>
-                    <div class="flex justify-start w-full">
-                        <h5>
-                            Return to
-                            <a
-                                href="./login"
-                                class="underline text-[#087BB4] font-medium"
-                                >Log in</a
-                            >
-                        </h5>
-                    </div>
-
-                    <div class="flex justify-center w-full pt-4">
-                        <button
-                            type="submit"
-                            class="w-full py-3 font-bold rounded-[8px] bg-[#FE892A] hover:bg-[#ff8d33] border-2 border-black shadow-[4px_4px_0px_black] text-black"
-                        >
-                            Send link to email
-                        </button>
+                    <p id="login-caption" class="mt-[10px] mb-[10px]">
+                        Return to Login?
+                    </p>
+                    <div id="login-link">
+                        <a href="login" class="text-[#087BB4] w-auto hover:text-[#0C587D] underline">
+                            Log in
+                        </a>
                     </div>
                 </div>
-            </form>
+                <!-- SUBMIT BUTTON -->
+                <div class="mt-[40px] mb-[40px] w-full">
+                    <button
+                        type="submit"
+                        class="h-[55px] w-[280px] font-semibold text-white rounded-[8px] bg-[#087BB4] hover:bg-[#0C587D] hover:cursor-pointer border-2 border-black font-semibold shadow-[4px_4px_0px_black]"
+                    >
+                        Send link to email
+                    </button>
+                </div>
+            </form>            
         </div>
-
     </div>
+    <Footer />
 </template>
+
+
+
+<style scoped>
+/* * * * * Default: Mobile view (max-width: 639px) * * * * */
+label {
+    margin-bottom: 5px;
+    text-align: left;
+    width: 80%;
+}
+
+input {
+    margin-bottom: 20px;
+}
+
+#login-grid {
+    display: grid;
+    grid-template-columns: auto auto;
+    padding: 0;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#login-caption, #login-link {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#login-caption {
+    grid-column: 1;
+    text-align: left;
+}
+
+#login-link {
+    grid-column: 2;
+    text-align: right;
+}
+
+/* * * * * Large Devices (≥1025px) * * * * */
+@media only screen and (min-width: 1025px) {
+
+#forgot-pw-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+}
+
+#forgot-pw-banner {
+    grid-area: 1 / span 1;
+    height: 100%;
+}
+
+#forgot-pw-form-container {
+    margin-top: 0px;
+    margin-bottom: 0px; 
+    grid-area: 1 / span 2;
+    padding-bottom: 50px; 
+}
+
+}
+
+</style>

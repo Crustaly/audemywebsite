@@ -1,6 +1,6 @@
 <script setup>
 
-// Decorative images and icons for top banner (mobile-first, sm-md) or side section (large viewports)
+// Decorative mobile-first top banner (small-medium) or side image (large viewports)
 import OrangeStar from "/assets/images/SignUpImg/orange-star.png";
 import Book from "/assets/images/SignUpImg/books.png";
 import YellowStar from "/assets/images/testimonials/star.svg";
@@ -12,11 +12,19 @@ import { useDeviceType } from "../../Utilities/checkDeviceType";
 const { isMobile, isTablet } = useDeviceType();
 
 import { defineProps } from "vue";
+
+// isWideImg: true if image width > height.
+// Helps Banner scale image: Reduces width for wide images, or height for tall ones.
 const props = defineProps({
     CarlImgPath: {
         type: String,
         required: false
     }, 
+    isImageWide: {
+        type: Boolean,
+        required: false,
+        default: true
+    },
     bgColor: {
         type: String,
         required: false
@@ -29,7 +37,7 @@ const props = defineProps({
         type: Boolean,
         required: false,
         default: false
-    } 
+    }
 });
 
 </script>
@@ -62,82 +70,94 @@ const props = defineProps({
                 class="absolute z-10"
                 alt="orange star"
                 :class="[
-                    !isTablet && !isMobile ? 'w-[70px] right-[8%] top-[23%]' : '',
+                    (!isMobile && !isTablet) ? 'w-[70px] right-[8%] top-[23%]' : '',
                     isTablet ? 'w-[60px] right-[8%] top-[25%]' : '',
                     isMobile ? 'w-[50px] right-[8%] top-[21%]' : '',
                 ]"
+                loading="lazy"
             />
             <img
                 :src="YellowStar"
                 class="absolute z-10"
                 alt="yellow star"
                 :class="[
-                    !isTablet && !isMobile ? 'w-[65px] right-[40%] top-[15%]' : '',
+                    (!isMobile && !isTablet) ? 'w-[65px] right-[40%] top-[15%]' : '',
                     isTablet ? 'w-[60px] left-[75%] top-[20%]' : '',
                     isMobile ? 'w-[50px] left-[70%] top-[20%]' : '',
                 ]"
+                loading="lazy"
             />
             <img
                 :src="BlueStar"
                 class="w-[65px] absolute z-10"
                 alt="blue star"
                 :class="[
-                    !isTablet && !isMobile ? 'w-[70px] left-[8%] top-[22%]' : '',
+                    (!isMobile && !isTablet) ? 'w-[70px] left-[8%] top-[22%]' : '',
                     isTablet ? 'left-[21%] top-[20%]' : '',
                     isMobile ? 'left-[18%] top-[20%]' : '',
                 ]"
+                loading="lazy"
             />
             <img
                 :src="Book"
                 class="absolute z-10 rotate-[330deg]"
                 alt="book"
                 :class="[
-                    !isTablet && !isMobile ? 'left-[40%] top-[75%] rotate-[360deg]' : '',
-                    !isPageShort && !isTablet && !isMobile ? 'w-[60px]' : '',
-                    isPageShort && !isTablet && !isMobile ? 'w-[50px]' : '',
+                    (!isMobile && !isTablet) ? 'left-[40%] top-[75%] rotate-[360deg]' : '',
+                    !isPageShort && (!isMobile && !isTablet) ? 'w-[60px]' : '',
+                    isPageShort && (!isMobile && !isTablet) ? 'w-[50px]' : '',
                     isTablet ? 'w-[50px] left-[12%] top-[60%]' : '',
                     isMobile ? 'w-[50px] left-[10%] top-[53%]' : '',
                 ]"
+                loading="lazy"
             />
             <img
                 :src="CarlImgPath"
-                class="absolute left-[50%] translate-x-[-50%]"
+                ref="imgRef"
+                class="object-contain absolute left-[50%] translate-x-[-50%] top-[50%] translate-y-[-50%] z-10"
                 alt="Carl icon"
                 :class="[
-                    !isTablet && !isMobile ? 'top-[40%]' : '',
-                    !isPageShort && !isTablet && !isMobile ? 'w-[160px]' : '',
-                    isPageShort && !isTablet && !isMobile ? 'w-[130px]' : '',
-                    isTablet ? 'w-[180px] top-[30%]' : '',
-                    isMobile ? ' w-[160px] top-[40%]' : '',
+                    (!isMobile && !isTablet) ? 
+                        'top-[40%] max-h-[80vw] max-w-[80vw/3]' 
+                        : 'max-h-[200px] max-w-[80vw]',
+                    
+                    !isPageShort && (!isMobile && !isTablet) ? 'w-[160px]' : '',
+                    isPageShort && (!isMobile && !isTablet) ? 'w-[130px]' : '',
+
+                    (isTablet || isMobile) && isImageWide ? 'w-[150px]' : '',
+                    (isTablet || isMobile) && !isImageWide ? 'h-[130px]' : ''
                 ]"
                 v-if="CarlImgPath"
+                loading="lazy"
             />
             <img
                 :src="Bulb"
                 class="absolute z-10 rotate-[20deg]"
                 alt="lightbulb"
                 :class="[
-                    !isTablet && !isMobile ? 'right-[10%] top-[70%]' : '',
-                    !isPageShort && !isTablet && !isMobile ? 'w-[55px]' : '',
-                    isPageShort && !isTablet && !isMobile ? 'w-[50px]' : '',
+                    (!isMobile && !isTablet) ? 'right-[10%] top-[70%]' : '',
+                    !isPageShort && (!isMobile && !isTablet) ? 'w-[55px]' : '',
+                    isPageShort && (!isMobile && !isTablet) ? 'w-[50px]' : '',
                     isTablet ? 'w-[48px] right-[15%] top-[55%]' : '',
                     isMobile ? 'w-[40px] right-[13%] top-[50%]' : '',
                 ]"
+                loading="lazy"
             />
             <img
                 :src="Glasses"
                 class="absolute z-10"
                 alt="glasses"
                 :class="[
-                    !isTablet && !isMobile ? 'left-[13%] top-[68%]' : '',
-                    !isPageShort && !isTablet && !isMobile ? 'w-[60px]' : '',
-                    isPageShort && !isTablet && !isMobile ? 'w-[50px]' : '',
+                    (!isMobile && !isTablet) ? 'left-[13%] top-[68%]' : '',
+                    !isPageShort && (!isMobile && !isTablet) ? 'w-[60px]' : '',
+                    isPageShort && (!isMobile && !isTablet) ? 'w-[50px]' : '',
                     isTablet ? 'w-[48px] left-[12%] top-[22%]' : '',
                     isMobile ? 'w-[40px] left-[10%] top-[20%]' : '',
                 ]"
+                loading="lazy"
             />
         </div>
-        <div v-if="!isMobile && !isTablet" class="z-0">
+        <div v-if="(!isMobile && !isTablet)" class="z-0">
             <svg 
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 1440 320" 

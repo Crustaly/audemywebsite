@@ -1,4 +1,12 @@
 <script setup>
+
+import Banner from "../../components/AccountPages/Banner.vue";
+import Header from "../../components/Header/Header.vue";
+import Footer from "../../components/Footer/Footer.vue";
+
+import { useDeviceType } from "../../Utilities/checkDeviceType";
+const { isMobile, isTablet } = useDeviceType();
+
 import { ref, onMounted } from "vue";
 import { useRouter } from "vue-router";
 
@@ -9,7 +17,7 @@ const confirmPassword = ref("");
 const token = ref("");
 const router = useRouter();
 
-let errorMessage = ref("")
+let errorMessage = ref("");
 
 onMounted(() => {
     // Get the token from the URL query parameters
@@ -75,7 +83,7 @@ const resetConfirm = async (event) => {
         errors.value = true;
         errorMessage.value = "Passwords do not match or is not at least 8 characters long";
         return;
-    }else{
+    } else {
         errors.value = false;
         // API call to reset password
         try {
@@ -116,114 +124,174 @@ const resetConfirm = async (event) => {
         }
     }
 };
+
 </script>
 
-<template>
-    <div
-        class="w-full h-screen overflow-hidden bg-[#FFDABA] flex justify-between mobile:flex-row"
-    >
-        <div
-            class="w-5/12 md:w-full sm:w-full relative flex items-center jusitfy-center"
-        >
-            <div
-                class="w-full flex flex-col justify-center items-center gap-14 z-10"
-            >
-                <img
-                    src="/assets/images/LoginImg/icons.svg"
-                    alt="logo icon"
-                    class="w-[50%] h-[50%]"
-                />
-                <img
-                    src="/assets/images/LoginImg/logo-icon.svg"
-                    alt="logo icon"
-                    class="w-[45%] h-[45%]"
-                />
-            </div>
-            <img
-                src="/assets/images/LoginImg/wave-icon.svg"
-                alt="wave icon"
-                class="absolute -bottom-[15%] right-0 w-full -z-1"
-            />
-        </div>
 
-        <div class="w-7/12 md:w-full sm:w-full bg-white flex flex-col items-center justify-center border-2">
+
+<template>
+    <div 
+        :class="[
+            'relative', 
+            !isTablet && !isMobile ? 'px-14' : '',
+            isTablet ? 'px-6' : '',
+            isMobile ? 'px-8' : ''
+        ]" 
+        ref="content"
+    >
+    <Header :logoPath="'/assets/images/header/header-logo-2.png'" />
+    </div>
+    <div 
+        id="reset-password-container"
+        :class="[
+            !isTablet && !isMobile ? 'px-20' : '',
+            isTablet ? 'px-10' : '',
+            isMobile ? 'px-5' : ''
+        ]"
+    >
+        <Banner
+            id="reset-password-banner"
+            :CarlImgPath="'/assets/images/impact/globe-icon.svg'" 
+            :isImageWide="false"
+            bgColor="#B1C7D0"
+            curveColor="#E5F0F5"
+            :isPageShort="true"
+        />
+        <div 
+            id="reset-password-form-container"
+            class="pt-[20px] pb-[20px] mb-[40px] mt-[40px] text-center"
+            :class="[
+                !isTablet && !isMobile ? 'mt-[0px] mb-[0px]' : '',
+            ]"
+        >
+            <h1 class="text-[#151E22] mobile:text-[28px] text-[35px]">
+                Create a new password
+            </h1>
             <form
                 @submit="resetConfirm"
                 method="post"
-                class="max-h-[350px] w-full flex flex-col justify-center items-center gap-[5%] my-4"
+                class="w-[80%] ml-[10%] mt-[20px] pt-[20px] pb-[20px]"
             >
-                <div
-                    class="text-[#151E22] text-center w-7/12 mb-10 mobile:w-full  mobile:mb-4"
-                >
-                    <h1 class="text-[36px] mobile:text-[24px]">Create a new Password</h1>
+                <!-- PASSWORD FIELD -->
+                <div>
+                    <label
+                        for="password"
+                        class="block text-[#0C0D0D] font-semibold"
+                    >
+                        Password
+                    </label>
+                    <input
+                        v-model="password"
+                        type="password"
+                        class="w-[80%] outline-none border border-black h-[48px] px-4 rounded-[8px]"
+                        id="password"
+                        name="password"
+                        placeholder="Create your best password"
+                    />
                 </div>
-                
-                <div class="w-7/12 max-w-[450px]">
-                    <!-- PASSWORD FIELD -->
-                    <div class="mb-[8px] mobile:w-full">
-                        <label
-                            for="password"
-                            class="block text-[#0C0D0D] font-semiBold"
-                            >Password</label
+                <!-- ERROR MESSAGES FOR PASSWORD --> 
+                <div class="reset-password-error" :class="{ 'text-red-700': errors, 'text-[#2F3E45]': !errors }">
+                    <div role="alert">
+                        <span class="block sm:inline">
+                            Your password must be at least 8 characters long.
+                        </span>
+                    </div>
+                </div>
+                <!-- CONFIRM PASSWORD FIELD -->
+                <div>
+                    <label
+                        for="confirm_password"
+                        class="block text-[#0C0D0D] font-semibold"
+                    >
+                        Confirm Password
+                    </label>
+                    <input
+                        v-model="confirmPassword"
+                        type="password"
+                        class="w-[80%] outline-none border border-black h-[48px] px-4 rounded-[8px]"
+                        id="confirm_password"
+                        name="confirm_password"
+                        placeholder="Confirm your password"
+                    />
+                </div>
+                <!-- ERROR MESSAGES FOR PASSWORD CONFIRMATION --> 
+                <div class="reset-password-error" v-if="errors">
+                    <div role="alert" class="text-red-700">
+                        <span class="block sm:inline">
+                            Passwords do not match.
+                        </span>
+                    </div>
+                </div>
+                <!-- CHECK IF RESET PASSWORD LINK EXPIRED -->
+                 <div class="mt-8 mb-3" v-if="linkExpired">
+                    <div
+                        class="bg-red-100 border-red-500 text-red-800 mb-6 p-3 ml-[10%] rounded-lg border-2 shadow-md min-h-[56px] text-base font-medium w-[80%]"
+                        role="alert"
+                    >
+                        <p>Password reset link expired!</p>
+                        <br>
+                        <a
+                            href="./forgot-password"
+                            class="text-[#087BB4] hover:text-[#0C587D] underline font-medium"
                         >
-                        <input
-                            v-model="password"
-                            type="password"
-                            class="w-full outline-none border-2 border-black h-[48px] px-4 rounded-[8px]"
-                            id="password"
-                            name="password"
-                            placeholder="Create your best password"
-                        />
+                            Generate a new link?
+                        </a>
                     </div>
-
-                    <div class="mb-6" :class="{ 'text-red-700': errors, 'text-[#2F3E45]': !errors }">
-                        <div role="alert">
-                            <span class="block sm:inline">Your password must be at least 8 characters long</span>
-                        </div>
-                    </div>
-
-                    <!-- CONFIRM PASSWORD FIELD -->
-                    <div class="mb-[8px] mobile:w-full">
-                        <label
-                            for="confirm_password"
-                            class="block text-[#0C0D0D] font-semiBold"
-                            >Confirm Password</label
-                        >
-                        <input
-                            v-model="confirmPassword"
-                            type="password"
-                            class="w-full outline-none border-2 border-black h-[48px] px-4 rounded-[8px]"
-                            id="confirm_password"
-                            name="confirm_password"
-                            placeholder="Confirm your password"
-                        />
-                    </div>
-                    <div class="mb-6" v-if="errors">
-                        <div role="alert" class="text-red-700">
-                            <span class="block sm:inline">Passwords do not match</span>
-                        </div>
-                    </div>
-                    <div class="mb-6" v-if="linkExpired">
-                        <div role="alert" class="text-red-700">
-                            <span class="block sm:inline">Password reset link expired!</span>
-                            <a
-                                href="./forgot-password"
-                                class="underline text-[#087BB4] font-medium"
-                                >Generate a new link?</a
-                            >
-                        </div>
-                    </div>
-                    <div class="flex justify-center w-full pt-4"> 
-                        <button
-                            type="submit"
-                            class="w-full py-3 font-bold rounded-[8px] bg-[#FE892A] hover:bg-[#ff8d33] border-2 border-black shadow-[4px_4px_0px_black] text-black"
-                        >
-                            Reset Password
-                        </button>
-                    </div>
+                </div>
+                <!-- RESET / SUBMIT NEW PASSWORD BUTTON -->
+                <div class="mt-[40px] mb-[40px] w-full">
+                    <button
+                        type="submit"
+                        class="h-[55px] w-[280px] font-semibold text-white rounded-[8px] bg-[#087BB4] hover:bg-[#0C587D] hover:cursor-pointer border-2 border-black font-semibold shadow-[4px_4px_0px_black]"
+                    >
+                        Reset Password
+                    </button>
                 </div>
             </form>
         </div>
-
     </div>
+    <Footer />
 </template>
+
+
+
+<style scoped>
+/* * * * * Default: Mobile view (max-width: 639px) * * * * */
+
+form label, .reset-password-error {
+    margin-bottom: 5px;
+    text-align: left;
+    width: 80%;
+    margin-left: 10%;
+}
+
+form input {
+    margin-bottom: 20px;
+}
+
+.reset-password-error {
+    margin-bottom: 20px;
+}
+
+/* * * * * Large Devices (≥1025px) * * * * */
+@media only screen and (min-width: 1025px) {
+    
+    #reset-password-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+    }
+
+    #reset-password-banner {
+        grid-area: 1 / span 1;
+        height: 100%;
+    }
+
+    #reset-password-form-container {
+        margin-top: 0px;
+        margin-bottom: 0px;
+        grid-area: 1 / span 2;
+    }
+
+}
+
+</style>
