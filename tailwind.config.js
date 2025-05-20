@@ -36,6 +36,7 @@ export default {
         'warning-state': '#FFCC00',
         'info-state': '#0063F7',
         'success-state': '#06C270',
+        'audemy-blue': '#087BB4',
       },
       keyframes: {
         'fade-slide-in': {

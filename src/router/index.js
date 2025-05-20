@@ -15,6 +15,11 @@ import AboutUs from '../pages/AboutUs/AboutUs.vue';
 import Impact from '../pages/Impact/Impact.vue';
 import Troubleshooting from '../pages/Troubleshooting/Troubleshooting.vue';
 // import SpellingBee from "../pages/GameZone/GameZoneList/SpellingBee/SpellingBee.vue";
+import MainDashboard from "../pages/Dashboard/MainDashboard.vue";
+import StudentList from "../pages/Dashboard/StudentList.vue";
+import TeacherDashboard from "../pages/Dashboard/TeacherDashboard.vue";
+import GamesDashboard from "../pages/Dashboard/GamesDashboard.vue";
+import DashboardSummary from "../pages/Dashboard/DashboardSummary.vue";
 
 const routes = [
   { path: '/home', redirect: '/' },
@@ -137,6 +142,32 @@ const routes = [
     name: 'ColorGame',
     component: () => import('../pages/GameZone/GameZoneList/ColorGame.vue'),
   },
+  {
+    path: '/dashboard',
+    component: MainDashboard,
+    children: [
+      {
+        path: '',
+        name: 'DashboardSummary',
+        component: DashboardSummary,
+      },
+      {
+        path: '/studentlist',
+        name: 'studentlist',
+        component: StudentList,
+      },
+      {
+        path: '/teacher',
+        name: 'teacher',
+        component: TeacherDashboard,
+      },
+      {
+        path: '/games',
+        name: 'games',
+        component: GamesDashboard,
+      },
+    ],
+  },  
 ];
 
 const router = createRouter({
