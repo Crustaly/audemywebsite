@@ -40,6 +40,10 @@
         "distDir": "dist",
         "buildCommand": "vite build"
       }
+    },
+    {
+      "src": "src/pages/api/db/get_user_count.js",
+      "use": "@vercel/node"
     }
   ],
   "rewrites": [
@@ -74,6 +78,10 @@
     {
       "source": "/api/reset-password",
       "destination": "/src/pages/api/reset-password.js"
+    },
+    {
+      "source": "/api/db/get_user_count",
+      "destination": "/src/pages/api/db/get_user_count.js"
     },
     {
       "source": "/(.*)",
