@@ -13,6 +13,11 @@ Disallow: /api/forgot-password.js
 
 Disallow: /login
 Disallow: /signup
+Disallow: /forgot-password
+Disallow: /reset-password
+Disallow: /reset-link-sent
+Disallow: /reset-confirm
+Disallow: /reset-landing-page
 
 Disallow: /*.env$
 Disallow: /*.log$
