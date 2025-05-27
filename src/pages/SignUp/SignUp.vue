@@ -1,601 +1,586 @@
 <template>
-    <ScrollUpButton />
-    <div 
-        :class="[
-            'relative', 
-            !isTablet && !isMobile ? 'px-14' : '',
-            isTablet ? 'px-6' : '',
-            isMobile ? 'px-8' : ''
-        ]" 
-        ref="content"
-    >
+  <ScrollUpButton />
+  <div
+    :class="[
+      'relative',
+      !isTablet && !isMobile ? 'px-14' : '',
+      isTablet ? 'px-6' : '',
+      isMobile ? 'px-8' : '',
+    ]"
+    ref="content"
+  >
     <Header :logoPath="'/assets/images/header/header-logo-2.png'" />
-    </div>
-    <div 
-        id="signup-container"
-        :class="[
-            !isTablet && !isMobile ? 'px-20' : '',
-            isTablet ? 'px-10' : '',
-            isMobile ? 'px-5' : ''
-        ]"
+  </div>
+  <div
+    id="signup-container"
+    :class="[
+      !isTablet && !isMobile ? 'px-20' : '',
+      isTablet ? 'px-10' : '',
+      isMobile ? 'px-5' : '',
+    ]"
+  >
+    <!-- Mobile-first decorative, custom banner -->
+    <Banner
+      id="signup-banner"
+      :CarlImgPath="'/assets/images/SignUpImg/signup-carl.png'"
+      bgColor="#B1C7D0"
+      curveColor="#E5F0F5"
+    />
+    <!-- SIGN UP FORM -->
+    <div
+      id="signup-form-container"
+      class="pt-[20px] pb-[20px] mb-[40px] mt-[40px] text-center"
+      :class="[!isTablet && !isMobile ? 'mt-[0px] mb-[0px]' : '']"
     >
-        <!-- Mobile-first decorative, custom banner -->
-        <Banner 
-            id="signup-banner"
-            :CarlImgPath="'/assets/images/SignUpImg/signup-carl.png'" 
-            bgColor="#B1C7D0"
-            curveColor="#E5F0F5"
-        />
-        <!-- SIGN UP FORM -->
-        <div 
-            id="signup-form-container"
-            class="pt-[20px] pb-[20px] mb-[40px] mt-[40px] text-center"
-            :class="[
-                !isTablet && !isMobile ? 'mt-[0px] mb-[0px]' : '',
-            ]"
-        >
-            <h1 class="text-[#151E22] mobile:text-[28px] text-[35px]">
-                Sign up to get started!
-            </h1>
+      <h1 class="text-[#151E22] mobile:text-[28px] text-[35px]">
+        Sign up to get started!
+      </h1>
 
-            <!-- Google OAuth Login -->
-            <div class="mt-[20px] pt-[20px] pb-[20px]" aria-label="Google Login" aria-labelledby="Google Login">
-                <GoogleLogin
-                    :callback="callback"
-                />
-            </div>
+      <!-- Google OAuth Login -->
+      <div
+        class="mt-[20px] pt-[20px] pb-[20px]"
+        aria-label="Google Login"
+        aria-labelledby="Google Login"
+      >
+        <GoogleLogin :callback="callback" />
+      </div>
 
-            <!-- Decorative "or" Divider -->
-            <div
-                class="flex text-gray-500 w-full justify-center items-center gap-2 mt-4"
-                aria-hidden="true"
-            >
-            <div>
-                <hr class="w-[180px] h-0.5 bg-gray-500 rounded-sm" />
-            </div>
-            <div>or</div>
-            <div>
-                <hr class="w-[180px] h-0.5 bg-gray-500 rounded-sm" />
-            </div>
-            </div>
-
-            <!-- FORM FIELD -->
-            <form ref="signupForm" class="mt-[20px] pt-[20px] pb-[20px]">
-                <!-- FIRST & LAST NAME -->
-                <div id="full-name-grid">
-                    <div id="first-name-fields">
-                        <label
-                            class="block text-[#0C0D0D] font-semibold"
-                            for="first_name"
-                        >
-                            First Name
-                        </label>
-                        <input
-                            type="text"
-                            class="outline-none border border-black h-[48px] px-4 rounded-[8px] w-[80%]"
-                            id="first_name"
-                            name="first_name"
-                            placeholder="Enter your first name"
-                        />
-                    </div>
-                    <div id="last-name-fields">
-                        <label
-                            class="block text-[#0C0D0D] font-semibold"
-                            for="last_name"
-                        >
-                            Last Name
-                        </label>
-                        <input
-                            type="text"
-                            class="outline-none border border-black h-[48px] px-4 rounded-[8px] w-[80%]"
-                            id="last_name"
-                            name="last_name"
-                            placeholder="Enter your last name"
-                        />
-                    </div>
-                </div>
-                <!-- SCHOOL FIELD -->
-                <div class="w-full">
-                    <label
-                        for="school_name"
-                        class="block text-[#0C0D0D] font-semibold"
-                    >
-                        School
-                    </label>
-                    <input
-                        type="text"
-                        class="w-[80%] outline-none border border-black h-[48px] px-4 rounded-[8px]"
-                        id="school_name"
-                        name="school_name"
-                        placeholder="Enter your school's name"
-                    />
-                </div>
-                <!-- EMAIL FIELD -->
-                <div class="w-full">
-                    <label
-                        class="block text-[#0C0D0D] font-semibold"
-                        for="email"
-                        >Email</label
-                    >
-                    <input
-                        type="email"
-                        class="w-[80%] outline-none border border-black h-[48px] px-4 rounded-[8px]"
-                        id="email"
-                        name="email"
-                        placeholder="Enter your email address"
-                    />
-                </div>
-                <!-- PASSWORD FIELD -->
-                <div class="w-full">
-                    <label
-                        for="password"
-                        class="block text-[#0C0D0D] font-semibold"
-                    >
-                        Password
-                    </label>
-                    <input
-                        v-model="password"
-                        type="password"
-                        class="w-[80%] outline-none border border-black h-[48px] px-4 rounded-[8px]"
-                        id="password"
-                        name="password"
-                        placeholder="Create your best password"
-                        @input="validatePasswords"
-                    />
-                </div>
-                <!-- CONFIRM PASSWORD FIELD -->
-                <div class="mb-[16px] mobile:w-full relative">
-                    <label
-                        for="confirm_password"
-                        class="block text-[#0C0D0D] font-semibold"
-                    >
-                        Confirm Password
-                    </label>
-                    <input
-                        v-model="confirmPassword"
-                        type="password"
-                        class="w-[80%] outline-none border border-black h-[48px] px-4 rounded-[8px]"
-                        id="confirm_password"
-                        name="confirm_password"
-                        placeholder="Confirm your password"
-                        @input="validatePasswords"
-                        @blur="handleConfirmBlur"
-                    />
-                </div>
-                <!-- Password match feedback container (Using computed properties) -->
-                <div
-                    v-show="confirmTouched"
-                    class="mb-6 p-3 ml-[10%] rounded-lg border-2 shadow-md min-h-[56px] text-base font-medium w-[80%]"
-                    :class="feedbackClass"
-                    v-if="feedbackMessage !== 'cleared'"
-                >
-                    <p class="font-medium" role="alert">
-                        {{ feedbackMessage }}
-                    </p>
-                </div>
-                <div
-                    id="login-grid"
-                    class="text-[16px] font-semibold text-[#0C0D0D] mobile:text-[14px] mobile:px-4"
-                >
-                    <p id="login-caption" class="mt-[10px] mb-[10px]">
-                        Already have an Audemy account?
-                    </p>
-                    <div id="login-link">
-                        <a href="login" class="text-[#087BB4] w-auto hover:text-[#0C587D] underline">
-                            Log in
-                        </a>
-                    </div>
-                </div>
-                <!-- GET STARTED BTN -->
-                <div class="mt-[40px] mb-[40px] w-full">
-                    <button
-                        type="button"
-                        @click="submitForm"
-                        class="h-[55px] w-[280px] font-semibold text-white rounded-[8px] bg-[#087BB4] hover:bg-[#0C587D] hover:cursor-pointer border-2 border-black font-semibold shadow-[4px_4px_0px_black]"
-                        value="Get Started"
-                    >
-                        Get Started
-                    </button>
-                </div>
-            </form>
+      <!-- Decorative "or" Divider -->
+      <div
+        class="flex text-gray-500 w-full justify-center items-center gap-2 mt-4"
+        aria-hidden="true"
+      >
+        <div>
+          <hr class="w-[180px] h-0.5 bg-gray-500 rounded-sm" />
         </div>
+        <div>or</div>
+        <div>
+          <hr class="w-[180px] h-0.5 bg-gray-500 rounded-sm" />
+        </div>
+      </div>
+
+      <!-- FORM FIELD -->
+      <form ref="signupForm" class="mt-[20px] pt-[20px] pb-[20px]">
+        <!-- FIRST & LAST NAME -->
+        <div id="full-name-grid">
+          <div id="first-name-fields">
+            <label class="block text-[#0C0D0D] font-semibold" for="first_name">
+              First Name
+            </label>
+            <input
+              type="text"
+              class="outline-none border border-black h-[48px] px-4 rounded-[8px] w-[80%]"
+              id="first_name"
+              name="first_name"
+              placeholder="Enter your first name"
+            />
+          </div>
+          <div id="last-name-fields">
+            <label class="block text-[#0C0D0D] font-semibold" for="last_name">
+              Last Name
+            </label>
+            <input
+              type="text"
+              class="outline-none border border-black h-[48px] px-4 rounded-[8px] w-[80%]"
+              id="last_name"
+              name="last_name"
+              placeholder="Enter your last name"
+            />
+          </div>
+        </div>
+        <!-- SCHOOL FIELD -->
+        <div class="w-full">
+          <label for="school_name" class="block text-[#0C0D0D] font-semibold">
+            School
+          </label>
+          <input
+            type="text"
+            class="w-[80%] outline-none border border-black h-[48px] px-4 rounded-[8px]"
+            id="school_name"
+            name="school_name"
+            placeholder="Enter your school's name"
+          />
+        </div>
+        <!-- EMAIL FIELD -->
+        <div class="w-full">
+          <label class="block text-[#0C0D0D] font-semibold" for="email"
+            >Email</label
+          >
+          <input
+            type="email"
+            class="w-[80%] outline-none border border-black h-[48px] px-4 rounded-[8px]"
+            id="email"
+            name="email"
+            placeholder="Enter your email address"
+          />
+        </div>
+        <!-- PASSWORD FIELD -->
+        <div class="w-full">
+          <label for="password" class="block text-[#0C0D0D] font-semibold">
+            Password
+          </label>
+          <input
+            v-model="password"
+            type="password"
+            class="w-[80%] outline-none border border-black h-[48px] px-4 rounded-[8px]"
+            id="password"
+            name="password"
+            placeholder="Create your best password"
+            @input="validatePasswords"
+          />
+        </div>
+        <!-- CONFIRM PASSWORD FIELD -->
+        <div class="mb-[16px] mobile:w-full relative">
+          <label
+            for="confirm_password"
+            class="block text-[#0C0D0D] font-semibold"
+          >
+            Confirm Password
+          </label>
+          <input
+            v-model="confirmPassword"
+            type="password"
+            class="w-[80%] outline-none border border-black h-[48px] px-4 rounded-[8px]"
+            id="confirm_password"
+            name="confirm_password"
+            placeholder="Confirm your password"
+            @input="validatePasswords"
+            @blur="handleConfirmBlur"
+          />
+        </div>
+        <!-- Password match feedback container (Using computed properties) -->
+        <div
+          v-show="confirmTouched"
+          class="mb-6 p-3 ml-[10%] rounded-lg border-2 shadow-md min-h-[56px] text-base font-medium w-[80%]"
+          :class="feedbackClass"
+          v-if="feedbackMessage !== 'cleared'"
+        >
+          <p class="font-medium" role="alert">
+            {{ feedbackMessage }}
+          </p>
+        </div>
+        <div
+          id="login-grid"
+          class="text-[16px] font-semibold text-[#0C0D0D] mobile:text-[14px] mobile:px-4"
+        >
+          <p id="login-caption" class="mt-[10px] mb-[10px]">
+            Already have an Audemy account?
+          </p>
+          <div id="login-link">
+            <a
+              href="login"
+              class="text-[#087BB4] w-auto hover:text-[#0C587D] underline"
+            >
+              Log in
+            </a>
+          </div>
+        </div>
+        <!-- GET STARTED BTN -->
+        <div class="mt-[40px] mb-[40px] w-full">
+          <button
+            type="button"
+            @click="submitForm"
+            class="h-[55px] w-[280px] font-semibold text-white rounded-[8px] bg-[#087BB4] hover:bg-[#0C587D] hover:cursor-pointer border-2 border-black font-semibold shadow-[4px_4px_0px_black]"
+            value="Get Started"
+          >
+            Get Started
+          </button>
+        </div>
+      </form>
     </div>
+  </div>
   <Footer />
 </template>
 
-
-
 <script setup>
-
 // Components
-import Header from "../../components/Header/Header.vue";
-import Footer from "../../components/Footer/Footer.vue";
-import ScrollUpButton from "../../components/ScrollUpButton/ScrollUpButton.vue";
-import Banner from "../../components/AccountPages/Banner.vue";
+import Header from '../../components/Header/Header.vue';
+import Footer from '../../components/Footer/Footer.vue';
+import ScrollUpButton from '../../components/ScrollUpButton/ScrollUpButton.vue';
+import Banner from '../../components/AccountPages/Banner.vue';
 
-import { useDeviceType } from "../../Utilities/checkDeviceType";
+import { useDeviceType } from '../../Utilities/checkDeviceType';
 const { isMobile, isTablet } = useDeviceType();
 
-import { ref, watch, onMounted, computed } from "vue";
+import { ref, watch, onMounted, computed } from 'vue';
 
 const signupForm = ref(null);
 const passwordsMatch = ref(false);
 const showFeedback = ref(true);
-const password = ref("");
-const confirmPassword = ref("");
+const password = ref('');
+const confirmPassword = ref('');
 const confirmTouched = ref(false);
 const formSubmitted = ref(false);
-const debugMessage = ref("Please confirm your password");
+const debugMessage = ref('Please confirm your password');
 
-import Cookies from "js-cookie";
+import Cookies from 'js-cookie';
 
 const showErrorAlert = (message) => {
-    alert(message); // Using standard alert for simplicity
+  alert(message); // Using standard alert for simplicity
 };
 
 const submitForm = async (event) => {
-    event.preventDefault(); // Prevent default form submission behavior
+  event.preventDefault(); // Prevent default form submission behavior
 
-    // Set formSubmitted to true
-    formSubmitted.value = true;
+  // Set formSubmitted to true
+  formSubmitted.value = true;
 
-    // Force validation check before submission
-    validatePasswords();
+  // Force validation check before submission
+  validatePasswords();
 
-    // Check if passwords match
-    if (!passwordsMatch.value) {
-        debugMessage.value = "Form submission stopped: passwords don't match";
-        return;
+  // Check if passwords match
+  if (!passwordsMatch.value) {
+    debugMessage.value = "Form submission stopped: passwords don't match";
+    return;
+  }
+
+  try {
+    const response = await fetch('/api/auth/signup', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        user: {
+          first_name: signupForm.value.first_name.value,
+          last_name: signupForm.value.last_name.value,
+          // birthday: signupForm.value.birthday.value,
+          school_name: signupForm.value.school_name.value,
+          email: signupForm.value.email.value,
+          password: signupForm.value.password.value,
+          confirm_password: signupForm.value.confirm_password.value,
+        },
+      }),
+    });
+
+    if (!response.ok) {
+      // For non-JSON responses, try to get text content
+      const contentType = response.headers.get('content-type');
+      if (!contentType || !contentType.includes('application/json')) {
+        const errorText = await response.text();
+        console.error('Non-JSON error response:', errorText);
+      }
+
+      // Now handle based on status code
+      switch (response.status) {
+        case 400:
+          showErrorAlert('Bad request: Please check your input');
+          break;
+        case 401:
+          showErrorAlert('Unauthorized: Invalid credentials');
+          break;
+        case 403:
+          showErrorAlert(
+            "Forbidden: You don't have permission to access this resource"
+          );
+          break;
+        case 404:
+          showErrorAlert('Resource not found');
+          break;
+        case 405:
+          showErrorAlert('Method not allowed');
+          break;
+        case 429:
+          showErrorAlert('Too many requests: Please try again later');
+          break;
+        case 500:
+          showErrorAlert('Internal server error. Please try again later.');
+          break;
+        case 502:
+          showErrorAlert('Internal server error. Please try again later.');
+          break;
+        case 503:
+          showErrorAlert('Internal server error. Please try again later.');
+          break;
+        case 504:
+          showErrorAlert('Internal server error. Please try again later.');
+          break;
+        default:
+          // Try to get error message from response if it's JSON
+          let errorMessage = 'Something went wrong';
+          if (contentType && contentType.includes('application/json')) {
+            try {
+              const data = await response.json();
+              errorMessage = data.error || errorMessage;
+            } catch (e) {
+              console.error('Error parsing JSON:', e);
+            }
+          }
+          alert(`Signup error: ${errorMessage}`);
+      }
+
+      // Instead of throwing an error, just return to stop execution
+      return;
     }
 
-    try {
-        const response = await fetch("/api/auth/signup", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                user: {
-                    first_name: signupForm.value.first_name.value,
-                    last_name: signupForm.value.last_name.value,
-                    // birthday: signupForm.value.birthday.value,
-                    school_name: signupForm.value.school_name.value,
-                    email: signupForm.value.email.value,
-                    password: signupForm.value.password.value,
-                    confirm_password: signupForm.value.confirm_password.value,
-                },
-            }),
-        });
+    // Continue with normal execution if response is OK
+    const data = await response.json();
 
-        if (!response.ok) {
-            // For non-JSON responses, try to get text content
-            const contentType = response.headers.get("content-type");
-            if (!contentType || !contentType.includes("application/json")) {
-                const errorText = await response.text();
-                console.error("Non-JSON error response:", errorText);
-            }
-            
-            // Now handle based on status code
-            switch (response.status) {
-                case 400:
-                    showErrorAlert("Bad request: Please check your input");
-                    break;
-                case 401:
-                    showErrorAlert("Unauthorized: Invalid credentials");
-                    break;
-                case 403:
-                    showErrorAlert("Forbidden: You don't have permission to access this resource");
-                    break;
-                case 404:
-                    showErrorAlert("Resource not found");
-                    break;
-                case 405:
-                    showErrorAlert("Method not allowed");
-                    break;
-                case 429:
-                    showErrorAlert("Too many requests: Please try again later");
-                    break;
-                case 500:
-                    showErrorAlert("Internal server error. Please try again later.");
-                    break;
-                case 502:
-                    showErrorAlert("Internal server error. Please try again later.");
-                    break;
-                case 503:
-                    showErrorAlert("Internal server error. Please try again later.");
-                    break;
-                case 504:
-                    showErrorAlert("Internal server error. Please try again later.");
-                    break;
-                default:
-                    // Try to get error message from response if it's JSON
-                    let errorMessage = 'Something went wrong';
-                    if (contentType && contentType.includes("application/json")) {
-                        try {
-                            const data = await response.json();
-                            errorMessage = data.error || errorMessage;
-                        } catch (e) {
-                            console.error("Error parsing JSON:", e);
-                        }
-                    }
-                    alert(`Signup error: ${errorMessage}`);
-            }
-            
-            // Instead of throwing an error, just return to stop execution
-            return;
+    console.log('Success:', data);
+    //! Go To login
+    console.log('Signup Successful', data);
+
+    const loginResponse = await fetch('/api/auth/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        user: {
+          email: signupForm.value.email.value,
+          password: signupForm.value.password.value,
+        },
+      }),
+    });
+
+    if (!loginResponse.ok) {
+      const loginContentType = loginResponse.headers.get('content-type');
+      let loginData;
+
+      if (loginContentType && loginContentType.includes('application/json')) {
+        try {
+          loginData = await loginResponse.json();
+        } catch (e) {
+          console.error('Error parsing login JSON:', e);
         }
+      }
 
-        // Continue with normal execution if response is OK
-        const data = await response.json();
+      switch (loginResponse.status) {
+        case 400:
+          alert('Invalid login request. Please check your information.');
+          break;
+        case 401:
+          alert('Invalid email or password. Please try again.');
+          break;
+        case 404:
+          alert('Account not found. Please check your email.');
+          break;
+        case 429:
+          alert('Too many login attempts. Please try again later.');
+          break;
+        case 500:
+          showErrorAlert('Internal server error. Please try again later.');
+          break;
+        case 502:
+          showErrorAlert('Internal server error. Please try again later.');
+          break;
+        case 503:
+          showErrorAlert('Internal server error. Please try again later.');
+          break;
+        case 504:
+          showErrorAlert('Internal server error. Please try again later.');
+          break;
+        default:
+          alert(
+            `Login error: ${(loginData && loginData.error) || 'Something went wrong'}`
+          );
+      }
 
-        console.log("Success:", data);
-        //! Go To login
-        console.log("Signup Successful", data);
-
-        const loginResponse = await fetch("/api/auth/login", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                user: {
-                    email: signupForm.value.email.value,
-                    password: signupForm.value.password.value,
-                },
-            }),
-        });
-
-        if (!loginResponse.ok) {
-            const loginContentType = loginResponse.headers.get("content-type");
-            let loginData;
-            
-            if (loginContentType && loginContentType.includes("application/json")) {
-                try {
-                    loginData = await loginResponse.json();
-                } catch (e) {
-                    console.error("Error parsing login JSON:", e);
-                }
-            }
-            
-            switch (loginResponse.status) {
-                case 400:
-                    alert('Invalid login request. Please check your information.');
-                    break;
-                case 401:
-                    alert('Invalid email or password. Please try again.');
-                    break;
-                case 404:
-                    alert('Account not found. Please check your email.');
-                    break;
-                case 429:
-                    alert('Too many login attempts. Please try again later.');
-                    break;
-                case 500:
-                    showErrorAlert("Internal server error. Please try again later.");
-                    break;
-                case 502:
-                    showErrorAlert("Internal server error. Please try again later.");
-                    break;
-                case 503:
-                    showErrorAlert("Internal server error. Please try again later.");
-                    break;
-                case 504:
-                    showErrorAlert("Internal server error. Please try again later.");
-                    break;
-                default:
-                    alert(`Login error: ${(loginData && loginData.error) || 'Something went wrong'}`);
-            }
-            
-            // Return without throwing error to prevent dual alerts
-            return;
-        }
-
-        const loginData = await loginResponse.json();
-        console.log("Login Successful", loginData);
-
-        if (loginData.token) {
-            Cookies.set("audemyUserSession", JSON.stringify(loginData.token), {
-                expires: 7, // Set the cookie to expire in 7 days
-                secure: true,
-            });
-            window.location.href = "/game-zone";
-        } else {
-            showErrorAlert("Token not found");
-            return;
-        }
-        signupForm.value?.reset?.();
-
-    } catch (error) {
-        console.error("Error:", error.message);
-        // Only show error alert if it hasn't been shown by the code above
-        showErrorAlert(`Error: ${error.message}`);
+      // Return without throwing error to prevent dual alerts
+      return;
     }
+
+    const loginData = await loginResponse.json();
+    console.log('Login Successful', loginData);
+
+    if (loginData.token) {
+      Cookies.set('audemyUserSession', JSON.stringify(loginData.token), {
+        expires: 7, // Set the cookie to expire in 7 days
+        secure: true,
+      });
+      window.location.href = '/game-zone';
+    } else {
+      showErrorAlert('Token not found');
+      return;
+    }
+    signupForm.value?.reset?.();
+  } catch (error) {
+    console.error('Error:', error.message);
+    // Only show error alert if it hasn't been shown by the code above
+    showErrorAlert(`Error: ${error.message}`);
+  }
 };
 
 const validatePasswords = () => {
-    // Always show feedback
-    showFeedback.value = true;
+  // Always show feedback
+  showFeedback.value = true;
 
-    if (password.value && confirmPassword.value) {
-        // Both fields have values, set match status
-        passwordsMatch.value = password.value === confirmPassword.value;
-        debugMessage.value = passwordsMatch.value
-            ? "Passwords are a match."
-            : "Passwords do not match.";
-    } else if (confirmTouched.value && confirmPassword.value === "") {
-        // If user has interacted with confirm field but it's now empty
-        passwordsMatch.value = false;
-        debugMessage.value = "Please confirm your password";
-    } else if (formSubmitted.value) {
-        // If form was submitted but confirm password is empty
-        passwordsMatch.value = false;
-        debugMessage.value = "Please confirm your password";
-    } else if (confirmPassword.value) {
-        // Confirm password has a value but doesn't match
-        passwordsMatch.value = false;
-        debugMessage.value = "Passwords do not match.";
-    } else {
-        // Confirm password is empty and never touched
-        passwordsMatch.value = null;
-        debugMessage.value = "Please confirm your password";
-    }
+  if (password.value && confirmPassword.value) {
+    // Both fields have values, set match status
+    passwordsMatch.value = password.value === confirmPassword.value;
+    debugMessage.value = passwordsMatch.value
+      ? 'Passwords are a match.'
+      : 'Passwords do not match.';
+  } else if (confirmTouched.value && confirmPassword.value === '') {
+    // If user has interacted with confirm field but it's now empty
+    passwordsMatch.value = false;
+    debugMessage.value = 'Please confirm your password';
+  } else if (formSubmitted.value) {
+    // If form was submitted but confirm password is empty
+    passwordsMatch.value = false;
+    debugMessage.value = 'Please confirm your password';
+  } else if (confirmPassword.value) {
+    // Confirm password has a value but doesn't match
+    passwordsMatch.value = false;
+    debugMessage.value = 'Passwords do not match.';
+  } else {
+    // Confirm password is empty and never touched
+    passwordsMatch.value = null;
+    debugMessage.value = 'Please confirm your password';
+  }
 
-    // console.log("passwordsMatch after:", passwordsMatch.value);
+  // console.log("passwordsMatch after:", passwordsMatch.value);
 };
 
 const handleConfirmBlur = () => {
-    confirmTouched.value = true;
-    validatePasswords();
+  confirmTouched.value = true;
+  validatePasswords();
 };
 
 onMounted(() => {
-    // Force feedback to show for debugging
-    showFeedback.value = true;
-    validatePasswords();
+  // Force feedback to show for debugging
+  showFeedback.value = true;
+  validatePasswords();
 });
 
 // Watch both password fields for changes
 watch(password, () => {
-    validatePasswords();
+  validatePasswords();
 });
 
 watch(confirmPassword, () => {
-    validatePasswords();
+  validatePasswords();
 });
 
 // Reset formSubmitted when either password changes
 watch([password, confirmPassword], () => {
-    // Reset formSubmitted whenever either password changes after form submission
-    if (formSubmitted.value) {
-        formSubmitted.value = false;
-    }
+  // Reset formSubmitted whenever either password changes after form submission
+  if (formSubmitted.value) {
+    formSubmitted.value = false;
+  }
 
-    // If user is typing in confirm field, mark it as touched
-    if (confirmPassword.value) {
-        confirmTouched.value = true;
-    }
+  // If user is typing in confirm field, mark it as touched
+  if (confirmPassword.value) {
+    confirmTouched.value = true;
+  }
 });
 
 const feedbackMessage = computed(() => {
-    if (passwordsMatch.value === true) {
-        return "Yeye! Passwords are a match!";
-    } else if (passwordsMatch.value === false) {
-        // Check if user cleared any password fields
-        if (password.value === "") {
-            if (confirmPassword.value === "") {
-                return "cleared";
-            } else {
-                return "Please enter a password.";
-            }
-        } else if (confirmPassword.value === "") {
-            return "Please confirm your password.";
-        } else {
-            return "Oops! Passwords do not match. Please Try again.";
-        }
+  if (passwordsMatch.value === true) {
+    return 'Yeye! Passwords are a match!';
+  } else if (passwordsMatch.value === false) {
+    // Check if user cleared any password fields
+    if (password.value === '') {
+      if (confirmPassword.value === '') {
+        return 'cleared';
+      } else {
+        return 'Please enter a password.';
+      }
+    } else if (confirmPassword.value === '') {
+      return 'Please confirm your password.';
     } else {
-        // Case: passwordsMatch.value === null
-        return "Please confirm your password.";
+      return 'Oops! Passwords do not match. Please Try again.';
     }
+  } else {
+    // Case: passwordsMatch.value === null
+    return 'Please confirm your password.';
+  }
 });
 
 const feedbackClass = computed(() => {
-    if (passwordsMatch.value === true) {
-        return "bg-green-100 border-green-500 text-green-800";
-    } else if (passwordsMatch.value === false) {
-        return "bg-red-100 border-red-500 text-red-800";
-    } else {
-        return "bg-gray-100 border-gray-400 text-gray-800";
-    }
+  if (passwordsMatch.value === true) {
+    return 'bg-green-100 border-green-500 text-green-800';
+  } else if (passwordsMatch.value === false) {
+    return 'bg-red-100 border-red-500 text-red-800';
+  } else {
+    return 'bg-gray-100 border-gray-400 text-gray-800';
+  }
 });
-
 </script>
-
-
 
 <style scoped>
 /* * * * * Default: Mobile view (max-width: 639px) * * * * */
 
 form label {
-    margin-bottom: 5px;
-    text-align: left;
-    width: 80%;
-    margin-left: 10%;
+  margin-bottom: 5px;
+  text-align: left;
+  width: 80%;
+  margin-left: 10%;
 }
 
 form input {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 /* * * * * Large Devices (≥1025px) * * * * */
 @media only screen and (min-width: 1025px) {
-    
-    #signup-container {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
-    }
+  #signup-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+  }
 
-    #signup-banner {
-        grid-area: 1 / span 1;
-        height: 100%;
-    }
+  #signup-banner {
+    grid-area: 1 / span 1;
+    height: 100%;
+  }
 
-    #signup-form-container {
-        margin-top: 0px;
-        margin-bottom: 0px;
-        grid-area: 1 / span 2;
-    }
+  #signup-form-container {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    grid-area: 1 / span 2;
+  }
 
-    #full-name-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr); /* 2 equal columns */
-        margin-left: 10%;
-        margin-right: 10%;
-    }
+  #full-name-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 equal columns */
+    margin-left: 10%;
+    margin-right: 10%;
+  }
 
-    #first-name-fields {
-        grid-column: 1;
-        text-align: left;
-    }
+  #first-name-fields {
+    grid-column: 1;
+    text-align: left;
+  }
 
-    #first-name-fields, #last-name-fields {
-        width: 111%;
-        /* Parent full-name-grid is set to 80% width, so enlarge name fields */
-    }
+  #first-name-fields,
+  #last-name-fields {
+    width: 111%;
+    /* Parent full-name-grid is set to 80% width, so enlarge name fields */
+  }
 
-    #last-name-fields {
-        grid-column: 2;
-    }
+  #last-name-fields {
+    grid-column: 2;
+  }
 
-    #first-name-fields label {
-        margin: 0 0 5px 0; /* Reset margins, except margin-bottom: 5px; */
-    }
+  #first-name-fields label {
+    margin: 0 0 5px 0; /* Reset margins, except margin-bottom: 5px; */
+  }
 
-    #last-name-fields label {
-        margin-left: 10%;
-    }
+  #last-name-fields label {
+    margin-left: 10%;
+  }
 
-    #login-grid {
-        display: grid;
-        grid-template-columns: auto auto;
-        margin-left: 10%;
-        margin-right: 10%;
-    }
+  #login-grid {
+    display: grid;
+    grid-template-columns: auto auto;
+    margin-left: 10%;
+    margin-right: 10%;
+  }
 
-    #login-caption, #login-link {
-        margin-top: 0px;
-        margin-bottom: 0px;
-    }
+  #login-caption,
+  #login-link {
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
 
-    #login-caption {
-        grid-column: 1;
-        text-align: left;
-    }
+  #login-caption {
+    grid-column: 1;
+    text-align: left;
+  }
 
-    #login-link {
-        grid-column: 2;
-        text-align: right;
-    }
-
+  #login-link {
+    grid-column: 2;
+    text-align: right;
+  }
 }
-
 </style>

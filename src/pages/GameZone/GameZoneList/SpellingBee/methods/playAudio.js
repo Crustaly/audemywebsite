@@ -6,15 +6,16 @@ export function playAudio(round, audioPlayer) {
 
   if (audioPlayer.value) {
     //Play Audio
-    audioPlayer.value.src = audioSrc
+    audioPlayer.value.src = audioSrc;
     //Load new audio file
-    audioPlayer.value.load()
+    audioPlayer.value.load();
 
     //Wait for load of file
     //play() is already async by default
-    audioPlayer.value.play() // Play the audio
-      .catch(error => {
-        console.error("Error playing audio:", error); // Handle any playback errors
+    audioPlayer.value
+      .play() // Play the audio
+      .catch((error) => {
+        console.error('Error playing audio:', error); // Handle any playback errors
       });
   }
 }
