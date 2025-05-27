@@ -13,10 +13,8 @@ const links = [
 const sitemap = new SitemapStream({ hostname: 'https://audemy.org' });
 const writeStream = createWriteStream('./public/sitemap.xml');
 
-streamToPromise(sitemap).then(() =>
-  console.log('Sitemap generated.')
-);
+streamToPromise(sitemap).then(() => console.log('Sitemap generated.'));
 
 sitemap.pipe(writeStream);
-links.forEach(link => sitemap.write(link));
+links.forEach((link) => sitemap.write(link));
 sitemap.end();

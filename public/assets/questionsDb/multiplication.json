@@ -1,187 +1,162 @@
 {
-    "MultiplicationGame": {
-        "Questions": {
-            "Easy": [
-                { "Q": "What is 1 × 2?", "A": ["2", "two"] },
-                { "Q": "What is 2 × 3?", "A": ["6", "six"] },
-                { "Q": "What is 4 × 1?", "A": ["4", "four"] },
-                { "Q": "What is 3 × 2?", "A": ["6", "six"] },
-                { "Q": "What is 5 × 0?", "A": ["0", "zero"] },
-                { "Q": "What is 6 × 1?", "A": ["6", "six"] },
-                { "Q": "What is 2 × 4?", "A": ["8", "eight"] },
-                { "Q": "What is 7 × 2?", "A": ["14", "fourteen"] },
-                { "Q": "What is 8 × 1?", "A": ["8", "eight"] },
-                { "Q": "What is 3 × 5?", "A": ["15", "fifteen"] },
-                { "Q": "What is 4 × 2?", "A": ["8", "eight"] },
-                { "Q": "What is 1 × 1?", "A": ["1", "one"] },
-                { "Q": "What is 9 × 0?", "A": ["0", "zero"] },
-                { "Q": "What is 0 × 3?", "A": ["0", "zero"] },
-                { "Q": "What is 5 × 4?", "A": ["20", "twenty"] },
-                {
-                    "Q": "What is 7 × 3?",
-                    "A": ["21", "twenty-one", "twenty one"]
-                },
-                {
-                    "Q": "What is 6 × 4?",
-                    "A": ["24", "twenty-four", "twenty four"]
-                },
-                { "Q": "What is 9 × 2?", "A": ["18", "eighteen"] },
-                { "Q": "What is 10 × 2?", "A": ["20", "twenty"] },
-                {
-                    "Q": "What is 11 × 2?",
-                    "A": ["22", "twenty-two", "twenty two"]
-                },
-                {
-                    "Q": "What is 12 × 2?",
-                    "A": ["24", "twenty-four", "twenty four"]
-                },
-                {
-                    "Q": "What is 8 × 3?",
-                    "A": ["24", "twenty-four", "twenty four"]
-                },
-                {
-                    "Q": "What is 5 × 5?",
-                    "A": ["25", "twenty-five", "twenty five"]
-                }
-            ],
-            "Medium": [
-                { "Q": "What is 10 × 15?", "A": ["150", "one hundred fifty"] },
-                {
-                    "Q": "What is 12 × 14?",
-                    "A": [
-                        "168",
-                        "one hundred sixty-eight",
-                        "one hundred sixty eight"
-                    ]
-                },
-                {
-                    "Q": "What is 11 × 13?",
-                    "A": [
-                        "143",
-                        "one hundred forty-three",
-                        "one hundred forty three"
-                    ]
-                },
-                {
-                    "Q": "What is 9 × 16?",
-                    "A": [
-                        "144",
-                        "one hundred forty-four",
-                        "one hundred forty four"
-                    ]
-                },
-                {
-                    "Q": "What is 8 × 17?",
-                    "A": [
-                        "136",
-                        "one hundred thirty-six",
-                        "one hundred thirty six"
-                    ]
-                },
-                { "Q": "What is 15 × 10?", "A": ["150", "one hundred fifty"] },
-                {
-                    "Q": "What is 14 × 11?",
-                    "A": [
-                        "154",
-                        "one hundred fifty-four",
-                        "one hundred fifty four"
-                    ]
-                },
-                {
-                    "Q": "What is 13 × 12?",
-                    "A": [
-                        "156",
-                        "one hundred fifty-six",
-                        "one hundred fifty six"
-                    ]
-                },
-                { "Q": "What is 10 × 20?", "A": ["200", "two hundred"] },
-                {
-                    "Q": "What is 18 × 7?",
-                    "A": [
-                        "126",
-                        "one hundred twenty-six",
-                        "one hundred twenty six"
-                    ]
-                },
-                {
-                    "Q": "What is 19 × 6?",
-                    "A": ["114", "one hundred fourteen"]
-                },
-                { "Q": "What is 20 × 5?", "A": ["100", "one hundred"] }
-            ],
-            "Hard": [
-                {
-                    "Q": "What is 100 × 200?",
-                    "A": ["20000", "20,000", "twenty thousand"]
-                },
-                {
-                    "Q": "What is 150 × 250?",
-                    "A": [
-                        "37500",
-                        "37,500",
-                        "thirty-seven thousand five hundred",
-                        "thirty seven thousand five hundred"
-                    ]
-                },
-                {
-                    "Q": "What is 125 × 375?",
-                    "A": [
-                        "46875",
-                        "46,875",
-                        "forty-six thousand eight hundred seventy-five",
-                        "forty six thousand eight hundred seventy five"
-                    ]
-                },
-                {
-                    "Q": "What is 300 × 400?",
-                    "A": ["120000", "120,000", "one hundred twenty thousand"]
-                },
-                {
-                    "Q": "What is 225 × 275?",
-                    "A": [
-                        "61875",
-                        "61,875",
-                        "sixty-one thousand eight hundred seventy-five",
-                        "sixty one thousand eight hundred seventy five"
-                    ]
-                },
-                {
-                    "Q": "What is 500 × 500?",
-                    "A": ["250000", "250,000", "two hundred fifty thousand"]
-                },
-                {
-                    "Q": "What is 450 × 550?",
-                    "A": [
-                        "247500",
-                        "247,500",
-                        "two hundred forty-seven thousand five hundred",
-                        "two hundred forty seven thousand five hundred"
-                    ]
-                },
-                {
-                    "Q": "What is 600 × 400?",
-                    "A": ["240000", "240,000", "two hundred forty thousand"]
-                },
-                {
-                    "Q": "What is 800 × 200?",
-                    "A": ["160000", "160,000", "one hundred sixty thousand"]
-                },
-                {
-                    "Q": "What is 900 × 100?",
-                    "A": ["90000", "90,000", "ninety thousand"]
-                },
-                {
-                    "Q": "What is 750 × 250?",
-                    "A": [
-                        "187500",
-                        "187,500",
-                        "one hundred eighty-seven thousand five hundred",
-                        "one hundred eighty seven thousand five hundred"
-                    ]
-                },
-                { "Q": "What is 1000 × 1000?", "A": ["1000000", "1,000,000", "one million"] }
-            ]
+  "MultiplicationGame": {
+    "Questions": {
+      "Easy": [
+        { "Q": "What is 1 × 2?", "A": ["2", "two"] },
+        { "Q": "What is 2 × 3?", "A": ["6", "six"] },
+        { "Q": "What is 4 × 1?", "A": ["4", "four"] },
+        { "Q": "What is 3 × 2?", "A": ["6", "six"] },
+        { "Q": "What is 5 × 0?", "A": ["0", "zero"] },
+        { "Q": "What is 6 × 1?", "A": ["6", "six"] },
+        { "Q": "What is 2 × 4?", "A": ["8", "eight"] },
+        { "Q": "What is 7 × 2?", "A": ["14", "fourteen"] },
+        { "Q": "What is 8 × 1?", "A": ["8", "eight"] },
+        { "Q": "What is 3 × 5?", "A": ["15", "fifteen"] },
+        { "Q": "What is 4 × 2?", "A": ["8", "eight"] },
+        { "Q": "What is 1 × 1?", "A": ["1", "one"] },
+        { "Q": "What is 9 × 0?", "A": ["0", "zero"] },
+        { "Q": "What is 0 × 3?", "A": ["0", "zero"] },
+        { "Q": "What is 5 × 4?", "A": ["20", "twenty"] },
+        {
+          "Q": "What is 7 × 3?",
+          "A": ["21", "twenty-one", "twenty one"]
+        },
+        {
+          "Q": "What is 6 × 4?",
+          "A": ["24", "twenty-four", "twenty four"]
+        },
+        { "Q": "What is 9 × 2?", "A": ["18", "eighteen"] },
+        { "Q": "What is 10 × 2?", "A": ["20", "twenty"] },
+        {
+          "Q": "What is 11 × 2?",
+          "A": ["22", "twenty-two", "twenty two"]
+        },
+        {
+          "Q": "What is 12 × 2?",
+          "A": ["24", "twenty-four", "twenty four"]
+        },
+        {
+          "Q": "What is 8 × 3?",
+          "A": ["24", "twenty-four", "twenty four"]
+        },
+        {
+          "Q": "What is 5 × 5?",
+          "A": ["25", "twenty-five", "twenty five"]
         }
+      ],
+      "Medium": [
+        { "Q": "What is 10 × 15?", "A": ["150", "one hundred fifty"] },
+        {
+          "Q": "What is 12 × 14?",
+          "A": ["168", "one hundred sixty-eight", "one hundred sixty eight"]
+        },
+        {
+          "Q": "What is 11 × 13?",
+          "A": ["143", "one hundred forty-three", "one hundred forty three"]
+        },
+        {
+          "Q": "What is 9 × 16?",
+          "A": ["144", "one hundred forty-four", "one hundred forty four"]
+        },
+        {
+          "Q": "What is 8 × 17?",
+          "A": ["136", "one hundred thirty-six", "one hundred thirty six"]
+        },
+        { "Q": "What is 15 × 10?", "A": ["150", "one hundred fifty"] },
+        {
+          "Q": "What is 14 × 11?",
+          "A": ["154", "one hundred fifty-four", "one hundred fifty four"]
+        },
+        {
+          "Q": "What is 13 × 12?",
+          "A": ["156", "one hundred fifty-six", "one hundred fifty six"]
+        },
+        { "Q": "What is 10 × 20?", "A": ["200", "two hundred"] },
+        {
+          "Q": "What is 18 × 7?",
+          "A": ["126", "one hundred twenty-six", "one hundred twenty six"]
+        },
+        {
+          "Q": "What is 19 × 6?",
+          "A": ["114", "one hundred fourteen"]
+        },
+        { "Q": "What is 20 × 5?", "A": ["100", "one hundred"] }
+      ],
+      "Hard": [
+        {
+          "Q": "What is 100 × 200?",
+          "A": ["20000", "20,000", "twenty thousand"]
+        },
+        {
+          "Q": "What is 150 × 250?",
+          "A": [
+            "37500",
+            "37,500",
+            "thirty-seven thousand five hundred",
+            "thirty seven thousand five hundred"
+          ]
+        },
+        {
+          "Q": "What is 125 × 375?",
+          "A": [
+            "46875",
+            "46,875",
+            "forty-six thousand eight hundred seventy-five",
+            "forty six thousand eight hundred seventy five"
+          ]
+        },
+        {
+          "Q": "What is 300 × 400?",
+          "A": ["120000", "120,000", "one hundred twenty thousand"]
+        },
+        {
+          "Q": "What is 225 × 275?",
+          "A": [
+            "61875",
+            "61,875",
+            "sixty-one thousand eight hundred seventy-five",
+            "sixty one thousand eight hundred seventy five"
+          ]
+        },
+        {
+          "Q": "What is 500 × 500?",
+          "A": ["250000", "250,000", "two hundred fifty thousand"]
+        },
+        {
+          "Q": "What is 450 × 550?",
+          "A": [
+            "247500",
+            "247,500",
+            "two hundred forty-seven thousand five hundred",
+            "two hundred forty seven thousand five hundred"
+          ]
+        },
+        {
+          "Q": "What is 600 × 400?",
+          "A": ["240000", "240,000", "two hundred forty thousand"]
+        },
+        {
+          "Q": "What is 800 × 200?",
+          "A": ["160000", "160,000", "one hundred sixty thousand"]
+        },
+        {
+          "Q": "What is 900 × 100?",
+          "A": ["90000", "90,000", "ninety thousand"]
+        },
+        {
+          "Q": "What is 750 × 250?",
+          "A": [
+            "187500",
+            "187,500",
+            "one hundred eighty-seven thousand five hundred",
+            "one hundred eighty seven thousand five hundred"
+          ]
+        },
+        {
+          "Q": "What is 1000 × 1000?",
+          "A": ["1000000", "1,000,000", "one million"]
+        }
+      ]
     }
+  }
 }

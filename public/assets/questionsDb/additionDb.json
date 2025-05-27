@@ -1,196 +1,196 @@
 {
-    "AdditionGame": {
-        "Questions": {
-            "Easy": [
-                {
-                    "Q": "If there are 1 cat and 2 dogs, how many animals are there?",
-                    "A": ["3", "three"]
-                },
-                {
-                    "Q": "If there are 2 cows and 3 chickens, how many animals are there?",
-                    "A": ["5", "five"]
-                },
-                {
-                    "Q": "If there are 4 rabbits and 1 turtle, how many animals are there?",
-                    "A": ["5", "five"]
-                },
-                {
-                    "Q": "If there are 3 birds and 2 fish, how many animals are there?",
-                    "A": ["5", "five"]
-                },
-                {
-                    "Q": "If there are 5 horses and 0 sheep, how many animals are there?",
-                    "A": ["5", "five"]
-                },
-                {
-                    "Q": "If there are 6 ducks and 1 goose, how many animals are there?",
-                    "A": ["7", "seven"]
-                },
-                {
-                    "Q": "If there are 2 pigs and 4 goats, how many animals are there?",
-                    "A": ["6", "six"]
-                },
-                {
-                    "Q": "If there are 7 frogs and 2 lizards, how many animals are there?",
-                    "A": ["9", "nine"]
-                },
-                {
-                    "Q": "If there are 8 squirrels and 1 rabbit, how many animals are there?",
-                    "A": ["9", "nine"]
-                },
-                {
-                    "Q": "If there are 3 foxes and 5 raccoons, how many animals are there?",
-                    "A": ["8", "eight"]
-                }
-            ],
-            "Medium": [
-                {
-                    "Q": "If there are 14 dogs and 12 cats, how many animals are there?",
-                    "A": ["26", "twenty-six", "twenty six"]
-                },
-                {
-                    "Q": "If there are 18 horses and 10 cows, how many animals are there?",
-                    "A": ["28", "twenty-eight", "twenty eight"]
-                },
-                {
-                    "Q": "If there are 20 geese and 15 ducks, how many animals are there?",
-                    "A": ["35", "thirty-five", "thirty five"]
-                },
-                {
-                    "Q": "If there are 11 snakes and 9 lizards, how many animals are there?",
-                    "A": ["20", "twenty"]
-                },
-                {
-                    "Q": "If there are 16 eagles and 17 hawks, how many animals are there?",
-                    "A": ["33", "thirty-three", "thirty three"]
-                },
-                {
-                    "Q": "If there are 22 foxes and 8 raccoons, how many animals are there?",
-                    "A": ["30", "thirty"]
-                },
-                {
-                    "Q": "If there are 19 owls and 6 bats, how many animals are there?",
-                    "A": ["25", "twenty-five", "twenty five"]
-                },
-                {
-                    "Q": "If there are 13 zebras and 14 gazelles, how many animals are there?",
-                    "A": ["27", "twenty-seven", "twenty seven"]
-                },
-                {
-                    "Q": "If there are 21 rabbits and 9 guinea pigs, how many animals are there?",
-                    "A": ["30", "thirty"]
-                },
-                {
-                    "Q": "If there are 23 kangaroos and 7 koalas, how many animals are there?",
-                    "A": ["30", "thirty"]
-                },
-                {
-                    "Q": "If there are 17 scorpions and 13 tarantulas, how many animals are there?",
-                    "A": ["30", "thirty"]
-                },
-                {
-                    "Q": "If there are 15 dolphins and 10 seals, how many animals are there?",
-                    "A": ["25", "twenty-five", "twenty five"]
-                },
-                {
-                    "Q": "If there are 20 bears and 5 wolves, how many animals are there?",
-                    "A": ["25", "twenty-five", "twenty five"]
-                },
-                {
-                    "Q": "If there are 12 jaguars and 18 cheetahs, how many animals are there?",
-                    "A": ["30", "thirty"]
-                },
-                {
-                    "Q": "If there are 24 bees and 6 wasps, how many animals are there?",
-                    "A": ["30", "thirty"]
-                },
-                {
-                    "Q": "If there are 28 beetles and 2 ants, how many animals are there?",
-                    "A": ["30", "thirty"]
-                },
-                {
-                    "Q": "If there are 16 gorillas and 14 chimpanzees, how many animals are there?",
-                    "A": ["30", "thirty"]
-                },
-                {
-                    "Q": "If there are 19 deer and 8 wild boars, how many animals are there?",
-                    "A": ["27", "twenty-seven", "twenty seven"]
-                },
-                {
-                    "Q": "If there are 14 crocodiles and 10 alligators, how many animals are there?",
-                    "A": ["24", "twenty-four", "twenty four"]
-                },
-                {
-                    "Q": "If there are 25 turkeys and 5 quails, how many animals are there?",
-                    "A": ["30", "thirty"]
-                },
-                {
-                    "Q": "If there are 13 seals and 17 penguins, how many animals are there?",
-                    "A": ["30", "thirty"]
-                }
-            ],
-            "Hard": [
-                {
-                    "Q": "If there are 300 tigers and 500 lions, how many animals are there?",
-                    "A": ["800", "eight hundred"]
-                },
-                {
-                    "Q": "If there are 400 dolphins and 600 whales, how many animals are there?",
-                    "A": ["1000", "one thousand", "1 thousand"]
-                },
-                {
-                    "Q": "If there are 350 eagles and 650 falcons, how many animals are there?",
-                    "A": ["1000", "one thousand", "1 thousand"]
-                },
-                {
-                    "Q": "If there are 275 crocodiles and 725 alligators, how many animals are there?",
-                    "A": ["1000", "one thousand", "1 thousand"]
-                },
-                {
-                    "Q": "If there are 900 beetles and 100 bees, how many animals are there?",
-                    "A": ["1000", "one thousand", "1 thousand"]
-                },
-                {
-                    "Q": "If there are 450 snakes and 550 frogs, how many animals are there?",
-                    "A": ["1000", "one thousand", "1 thousand"]
-                },
-                {
-                    "Q": "If there are 700 ants and 300 termites, how many animals are there?",
-                    "A": ["1000", "one thousand", "1 thousand"]
-                },
-                {
-                    "Q": "If there are 500 cheetahs and 600 panthers, how many animals are there?",
-                    "A": ["1100", "one thousand one hundred"]
-                },
-                {
-                    "Q": "If there are 750 monkeys and 350 gorillas, how many animals are there?",
-                    "A": ["1100", "one thousand one hundred"]
-                },
-                {
-                    "Q": "If there are 1200 crabs and 800 lobsters, how many animals are there?",
-                    "A": ["2000", "two thousand", "2 thousand"]
-                },
-                {
-                    "Q": "If there are 1500 fireflies and 1500 moths, how many animals are there?",
-                    "A": ["3000", "three thousand", "3 thousand"]
-                },
-                {
-                    "Q": "If there are 3500 sharks and 1500 rays, how many animals are there?",
-                    "A": ["5000", "five thousand", "5 thousand"]
-                },
-                {
-                    "Q": "If there are 2500 scorpions and 2500 tarantulas, how many animals are there?",
-                    "A": ["5000", "five thousand", "5 thousand"]
-                },
-                {
-                    "Q": "If there are 4000 sparrows and 3000 pigeons, how many animals are there?",
-                    "A": ["7000", "seven thousand", "7 thousand"]
-                },
-                {
-                    "Q": "If there are 10,000 ants and 5000 spiders, how many animals are there?",
-                    "A": ["15000", "fifteen thousand", "15 thousand"]
-                }
-            ]
+  "AdditionGame": {
+    "Questions": {
+      "Easy": [
+        {
+          "Q": "If there are 1 cat and 2 dogs, how many animals are there?",
+          "A": ["3", "three"]
+        },
+        {
+          "Q": "If there are 2 cows and 3 chickens, how many animals are there?",
+          "A": ["5", "five"]
+        },
+        {
+          "Q": "If there are 4 rabbits and 1 turtle, how many animals are there?",
+          "A": ["5", "five"]
+        },
+        {
+          "Q": "If there are 3 birds and 2 fish, how many animals are there?",
+          "A": ["5", "five"]
+        },
+        {
+          "Q": "If there are 5 horses and 0 sheep, how many animals are there?",
+          "A": ["5", "five"]
+        },
+        {
+          "Q": "If there are 6 ducks and 1 goose, how many animals are there?",
+          "A": ["7", "seven"]
+        },
+        {
+          "Q": "If there are 2 pigs and 4 goats, how many animals are there?",
+          "A": ["6", "six"]
+        },
+        {
+          "Q": "If there are 7 frogs and 2 lizards, how many animals are there?",
+          "A": ["9", "nine"]
+        },
+        {
+          "Q": "If there are 8 squirrels and 1 rabbit, how many animals are there?",
+          "A": ["9", "nine"]
+        },
+        {
+          "Q": "If there are 3 foxes and 5 raccoons, how many animals are there?",
+          "A": ["8", "eight"]
         }
+      ],
+      "Medium": [
+        {
+          "Q": "If there are 14 dogs and 12 cats, how many animals are there?",
+          "A": ["26", "twenty-six", "twenty six"]
+        },
+        {
+          "Q": "If there are 18 horses and 10 cows, how many animals are there?",
+          "A": ["28", "twenty-eight", "twenty eight"]
+        },
+        {
+          "Q": "If there are 20 geese and 15 ducks, how many animals are there?",
+          "A": ["35", "thirty-five", "thirty five"]
+        },
+        {
+          "Q": "If there are 11 snakes and 9 lizards, how many animals are there?",
+          "A": ["20", "twenty"]
+        },
+        {
+          "Q": "If there are 16 eagles and 17 hawks, how many animals are there?",
+          "A": ["33", "thirty-three", "thirty three"]
+        },
+        {
+          "Q": "If there are 22 foxes and 8 raccoons, how many animals are there?",
+          "A": ["30", "thirty"]
+        },
+        {
+          "Q": "If there are 19 owls and 6 bats, how many animals are there?",
+          "A": ["25", "twenty-five", "twenty five"]
+        },
+        {
+          "Q": "If there are 13 zebras and 14 gazelles, how many animals are there?",
+          "A": ["27", "twenty-seven", "twenty seven"]
+        },
+        {
+          "Q": "If there are 21 rabbits and 9 guinea pigs, how many animals are there?",
+          "A": ["30", "thirty"]
+        },
+        {
+          "Q": "If there are 23 kangaroos and 7 koalas, how many animals are there?",
+          "A": ["30", "thirty"]
+        },
+        {
+          "Q": "If there are 17 scorpions and 13 tarantulas, how many animals are there?",
+          "A": ["30", "thirty"]
+        },
+        {
+          "Q": "If there are 15 dolphins and 10 seals, how many animals are there?",
+          "A": ["25", "twenty-five", "twenty five"]
+        },
+        {
+          "Q": "If there are 20 bears and 5 wolves, how many animals are there?",
+          "A": ["25", "twenty-five", "twenty five"]
+        },
+        {
+          "Q": "If there are 12 jaguars and 18 cheetahs, how many animals are there?",
+          "A": ["30", "thirty"]
+        },
+        {
+          "Q": "If there are 24 bees and 6 wasps, how many animals are there?",
+          "A": ["30", "thirty"]
+        },
+        {
+          "Q": "If there are 28 beetles and 2 ants, how many animals are there?",
+          "A": ["30", "thirty"]
+        },
+        {
+          "Q": "If there are 16 gorillas and 14 chimpanzees, how many animals are there?",
+          "A": ["30", "thirty"]
+        },
+        {
+          "Q": "If there are 19 deer and 8 wild boars, how many animals are there?",
+          "A": ["27", "twenty-seven", "twenty seven"]
+        },
+        {
+          "Q": "If there are 14 crocodiles and 10 alligators, how many animals are there?",
+          "A": ["24", "twenty-four", "twenty four"]
+        },
+        {
+          "Q": "If there are 25 turkeys and 5 quails, how many animals are there?",
+          "A": ["30", "thirty"]
+        },
+        {
+          "Q": "If there are 13 seals and 17 penguins, how many animals are there?",
+          "A": ["30", "thirty"]
+        }
+      ],
+      "Hard": [
+        {
+          "Q": "If there are 300 tigers and 500 lions, how many animals are there?",
+          "A": ["800", "eight hundred"]
+        },
+        {
+          "Q": "If there are 400 dolphins and 600 whales, how many animals are there?",
+          "A": ["1000", "one thousand", "1 thousand"]
+        },
+        {
+          "Q": "If there are 350 eagles and 650 falcons, how many animals are there?",
+          "A": ["1000", "one thousand", "1 thousand"]
+        },
+        {
+          "Q": "If there are 275 crocodiles and 725 alligators, how many animals are there?",
+          "A": ["1000", "one thousand", "1 thousand"]
+        },
+        {
+          "Q": "If there are 900 beetles and 100 bees, how many animals are there?",
+          "A": ["1000", "one thousand", "1 thousand"]
+        },
+        {
+          "Q": "If there are 450 snakes and 550 frogs, how many animals are there?",
+          "A": ["1000", "one thousand", "1 thousand"]
+        },
+        {
+          "Q": "If there are 700 ants and 300 termites, how many animals are there?",
+          "A": ["1000", "one thousand", "1 thousand"]
+        },
+        {
+          "Q": "If there are 500 cheetahs and 600 panthers, how many animals are there?",
+          "A": ["1100", "one thousand one hundred"]
+        },
+        {
+          "Q": "If there are 750 monkeys and 350 gorillas, how many animals are there?",
+          "A": ["1100", "one thousand one hundred"]
+        },
+        {
+          "Q": "If there are 1200 crabs and 800 lobsters, how many animals are there?",
+          "A": ["2000", "two thousand", "2 thousand"]
+        },
+        {
+          "Q": "If there are 1500 fireflies and 1500 moths, how many animals are there?",
+          "A": ["3000", "three thousand", "3 thousand"]
+        },
+        {
+          "Q": "If there are 3500 sharks and 1500 rays, how many animals are there?",
+          "A": ["5000", "five thousand", "5 thousand"]
+        },
+        {
+          "Q": "If there are 2500 scorpions and 2500 tarantulas, how many animals are there?",
+          "A": ["5000", "five thousand", "5 thousand"]
+        },
+        {
+          "Q": "If there are 4000 sparrows and 3000 pigeons, how many animals are there?",
+          "A": ["7000", "seven thousand", "7 thousand"]
+        },
+        {
+          "Q": "If there are 10,000 ants and 5000 spiders, how many animals are there?",
+          "A": ["15000", "fifteen thousand", "15 thousand"]
+        }
+      ]
     }
+  }
 }
