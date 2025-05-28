@@ -8,7 +8,7 @@
         class="text-black font-semibold py-2 px-4 rounded-lg flex items-center gap-2"
       >
         <img
-          src="/public/assets/gameImages/buttons/info.png"
+          src="/assets/gameImages/buttons/info.png"
           alt="Icon"
           class="w-6 h-6"
         />
