@@ -4,7 +4,7 @@
   >
     <div class="flex justify-center">
       <img
-        src="/public/assets/images/impact/globe 1.svg"
+        src="/assets/images/impact/globe 1.svg"
         alt="Under Construction"
       />
     </div>
