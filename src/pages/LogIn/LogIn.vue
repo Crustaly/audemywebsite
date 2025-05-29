@@ -1,5 +1,9 @@
 <template>
   <ScrollUpButton />
+  <div v-if="isLoading" class="loading-overlay">
+      <div class="spinner"></div>
+      <p>Loading...</p>
+  </div>
   <div
     :class="[
       'relative',
@@ -206,6 +210,7 @@ const userSession = ref(null);
 const userProfile = ref(null);
 const school = ref(''); // Store school input
 const showSchoolForm = ref(false); // Control form visibility
+const isLoading = ref(false); // For loading state
 const router = useRouter();
 var OAuthResponse = ref(null);
 
@@ -316,6 +321,8 @@ const login = async (event) => {
     return;
   }
 
+  isLoading.value = true; // Show loading UI
+
   try {
     const response = await fetch('/api/auth/login', {
       method: 'POST',
@@ -366,66 +373,74 @@ const login = async (event) => {
   } catch (error) {
     console.error('Error:', error);
     showErrorAlert('Connection error: Please check your internet connection');
+  } finally {
+    isLoading.value = false; // Hide loading UI
   }
 };
 
 const callback = async (response) => {
   OAuthResponse = response.credential;
-  if (response?.credential) {
-    try {
-      const decoded = jwtDecode(response.credential);
-      userProfile.value = {
-        name: decoded.name,
-        email: decoded.email,
-        imageUrl: decoded.picture,
-      };
-    } catch (error) {
-      console.error('Failed to decode JWT:', error);
-      showErrorAlert('Failed to process Google login');
-      return;
-    }
-  }
+  isLoading.value = true; // Show loading UI
 
-  const dbResponse = await fetch(
-    `/api/db/get_user?email=${userProfile.value.email}`,
-    {
-      method: 'GET',
-      headers: { 'Content-Type': 'application/json' },
-    }
-  );
-
-  if (!dbResponse.ok) {
-    const errorData = await dbResponse.json().catch(() => ({}));
-    handleApiError(
-      dbResponse.status,
-      errorData.message || 'Failed to retrieve user data'
-    );
-    return;
-  }
-
-  const dbData = await dbResponse.json();
-  console.log('DB Response:', dbData);
-
-  if (!dbData || !dbData.email) {
-    console.log('User not found, prompting for school...');
-    showSchoolForm.value = true;
-  } else {
-    Cookies.set(
-      'audemyUserSession',
-      JSON.stringify({
-        token: OAuthResponse,
-        user: userProfile.value,
-      }),
-      {
-        expires: 7,
+  try {
+      if (response?.credential) {
+        try {
+          const decoded = jwtDecode(response.credential);
+          userProfile.value = {
+              name: decoded.name,
+              email: decoded.email,
+              imageUrl: decoded.picture,
+          };
+        } catch (error) {
+          console.error("Failed to decode JWT:", error);
+          showErrorAlert("Failed to process Google login");
+          return;
+        }
       }
-    );
-    userSession.value = {
-      token: OAuthResponse,
-      user: userProfile.value,
-    };
 
-    router.push('/game-zone');
+      const dbResponse = await fetch(
+        `/api/db/get_user?email=${userProfile.value.email}`,
+        {
+            method: "GET",
+            headers: { "Content-Type": "application/json" },
+        }
+      );
+
+      if (!dbResponse.ok) {
+        const errorData = await dbResponse.json().catch(() => ({}));
+        handleApiError(dbResponse.status, errorData.message || "Failed to retrieve user data");
+        return;
+      }
+
+      const dbData = await dbResponse.json();
+      console.log("DB Response:", dbData);
+
+      if (!dbData || !dbData.email) {
+        console.log("User not found, prompting for school...");
+        showSchoolForm.value = true;
+      } else {
+          Cookies.set(
+            "audemyUserSession",
+            JSON.stringify({
+                token: OAuthResponse,
+                user: userProfile.value,
+            }),
+            {
+                expires: 7,
+            }
+          );
+          userSession.value = {
+            token: OAuthResponse,
+            user: userProfile.value,
+          };
+
+        router.push("/game-zone");
+      }
+  } catch (error) {
+    console.error("Error:", error);
+    showErrorAlert("Connection error: Please check your internet connection");
+  } finally {
+    isLoading.value = false; // Hide loading UI
   }
 };
 
@@ -434,6 +449,8 @@ const updateSchool = async () => {
     alert('Please enter your school name.');
     return;
   }
+
+  isLoading.value = true; // Show loading UI
 
   try {
     const response = await fetch(`/api/db/update_user_school`, {
@@ -481,6 +498,8 @@ const updateSchool = async () => {
   } catch (error) {
     console.error('Error updating school:', error);
     showErrorAlert('Connection error: Please check your internet connection');
+  } finally {
+    isLoading.value = false; // Hide loading UI
   }
 };
 
@@ -537,6 +556,20 @@ input {
 #forgot-password-link {
   grid-column: 2;
   text-align: right;
+}
+
+.loading-overlay {
+    position: fixed; 
+    top: 0;          
+    left: 0;         
+    width: 100%;     
+    height: 100%;    
+    background-color: rgba(255, 255, 255, 0.8);
+    display: flex;             
+    flex-direction: column;    
+    justify-content: center;   
+    align-items: center;      
+    z-index: 9999;
 }
 
 /* * * * * Large Devices (≥1025px) * * * * */

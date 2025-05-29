@@ -1,5 +1,9 @@
 <template>
   <ScrollUpButton />
+  <div v-if="isLoading" class="loading-overlay">
+    <div class="spinner"></div>
+    <p>Loading...</p>
+  </div>
   <div
     :class="[
       'relative',
@@ -212,6 +216,7 @@ const confirmPassword = ref('');
 const confirmTouched = ref(false);
 const formSubmitted = ref(false);
 const debugMessage = ref('Please confirm your password');
+const isLoading = ref(false);
 
 import Cookies from 'js-cookie';
 
@@ -233,6 +238,8 @@ const submitForm = async (event) => {
     debugMessage.value = "Form submission stopped: passwords don't match";
     return;
   }
+
+  isLoading.value = true; // Show loading UI
 
   try {
     const response = await fetch('/api/auth/signup', {
@@ -398,6 +405,8 @@ const submitForm = async (event) => {
     console.error('Error:', error.message);
     // Only show error alert if it hasn't been shown by the code above
     showErrorAlert(`Error: ${error.message}`);
+  } finally {
+    isLoading.value = false; // Hide loading UI
   }
 };
 
@@ -510,6 +519,20 @@ form label {
 
 form input {
   margin-bottom: 20px;
+}
+
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.8); 
+  display: flex;
+  flex-direction: column; 
+  justify-content: center; 
+  align-items: center; 
+  z-index: 9999; 
 }
 
 /* * * * * Large Devices (≥1025px) * * * * */
