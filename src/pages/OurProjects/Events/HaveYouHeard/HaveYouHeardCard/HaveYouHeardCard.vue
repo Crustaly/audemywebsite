@@ -8,6 +8,7 @@ const path = '/assets/images/our-projects/';
 </script>
 
 <template>
+  <!--
   <div v-if="!smallScreen" class="w-2/3 flex flex-row items-center h-auto">
     <div class="">
       <div
@@ -41,5 +42,22 @@ const path = '/assets/images/our-projects/';
         ></h4>
       </div>
     </div>
+  </div>
+  -->
+  <div class="flex gap-10 items-center">
+
+    <div
+      class="w-[76px] h-[76px] rounded-[8px] border-[1.5px] border-[#0C0D0D] shadow-[4px_4px_0px_#0C0D0D] flex justify-center items-center"
+    >
+      <img :src="path + icon" alt="icon" class="w-[90%] h-[90%]" />
+    </div>
+
+    <div class="w-10/12 flex">
+      <h4
+        class="text-left text-body-text-color font-poppins max-w-[95%] text-[20px] font-[400]"
+        v-html="text"
+      ></h4>
+    </div>
+
   </div>
 </template>
