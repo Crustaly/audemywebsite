@@ -13,6 +13,7 @@ const errors = ref(false); // flag to display error on frontend
 const email = ref(''); // email input field value
 const router = useRouter();
 const errorMessage = ref('');
+const isLoading = ref(false); // For loading state
 
 const showErrorAlert = (message) => {
   errors.value = true;
@@ -26,6 +27,8 @@ const sendResetEmail = async (event) => {
   // prevent default form submission which would reload the page
   event.preventDefault();
   console.log('Sending reset email to:', email.value);
+
+  isLoading.value = true; // Show loading UI
 
   // API call to send reset email
   try {
@@ -95,11 +98,17 @@ const sendResetEmail = async (event) => {
     console.error('Error: ', error);
     errors.value = true;
     alert('Network error. Please check your connection and try again.');
+  } finally {
+    isLoading.value = false; // Hide loading UI
   }
 };
 </script>
 
 <template>
+  <div v-if="isLoading" class="loading-overlay">
+      <div class="spinner"></div>
+      <p>Loading...</p>
+  </div>
   <div
     :class="[
       'relative',
@@ -209,6 +218,20 @@ label {
 
 input {
   margin-bottom: 20px;
+}
+
+.loading-overlay {
+    position: fixed; 
+    top: 0;          
+    left: 0;         
+    width: 100%;     
+    height: 100%;    
+    background-color: rgba(255, 255, 255, 0.8);
+    display: flex;             
+    flex-direction: column;    
+    justify-content: center;   
+    align-items: center;      
+    z-index: 9999;
 }
 
 #login-grid {
