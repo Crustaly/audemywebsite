@@ -95,13 +95,13 @@
           </button>
         </li>
         <li v-else id="login-btn-item">
-          <router-link
+          <RouterLink
             id="login-btn-desktop"
             to="/login"
             class="flex justify-center items-center login-button text-white font-bold py-3 px-6 rounded-lg border-[1.5px] shadow-[3px_4px_0px_#0C0D0D] border-black bg-[#087BB4] hover:bg-[#0C587D]"
           >
             Log in
-          </router-link>
+          </RouterLink>
         </li>
       </ul>
     </nav>
@@ -190,7 +190,7 @@
             </button>
           </li>
           <li v-else>
-            <router-link
+            <RouterLink
               to="/login"
               @click="closeMenu"
               class="flex justify-center items-center login-button w-full text-white font-bold py-3 px-6 rounded-lg border-[1.5px] shadow-[3px_4px_0px_#0C0D0D] border-black bg-[#087BB4] hover:bg-[#0C587D] mt-8"
@@ -211,7 +211,7 @@
                 <path d="m12 5 7 7-7 7"></path>
               </svg>
               &nbsp;Log in
-            </router-link>
+            </RouterLink>
           </li>
         </ul>
       </nav>
