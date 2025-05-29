@@ -202,7 +202,7 @@ import { jwtDecode } from 'jwt-decode';
 import Cookies from 'js-cookie';
 
 const errors = ref(false);
-const errorMessage = ref('Invalid email and password combination. Try again!');
+const errorMessage = ref('An unexpected error occurred. Please try again later.');
 const email = ref('');
 const password = ref('');
 var authKey = ref('');
@@ -269,40 +269,38 @@ const showErrorAlert = (message) => {
 const handleApiError = (status, message) => {
   switch (status) {
     case 400:
-      showErrorAlert('Bad request: ' + (message || 'Please check your input'));
+      showErrorAlert(message || 'Bad request: Please check your input');
       break;
     case 401:
-      showErrorAlert('Unauthorized: ' + (message || 'Invalid credentials'));
+      showErrorAlert(message || 'Unauthorized: Invalid credentials');
       break;
     case 403:
-      showErrorAlert(
-        "Forbidden: You don't have permission to access this resource"
-      );
+      showErrorAlert(message || "Forbidden: You don't have permission to access this resource");
       break;
     case 404:
-      showErrorAlert('Resource not found');
+      showErrorAlert(message || 'Resource not found');
       break;
     case 405:
-      showErrorAlert('Method not allowed');
+      showErrorAlert(message || 'Method not allowed');
       break;
     case 429:
-      showErrorAlert('Too many requests: Please try again later');
+      showErrorAlert(message || 'Too many requests: Please try again later');
       break;
     case 500:
-      showErrorAlert('Internal server error. Please try again later.');
+      showErrorAlert(message || 'Internal server error. Please try again later.');
       break;
     case 502:
-      showErrorAlert('Internal server error. Please try again later.');
+      showErrorAlert(message || 'Internal server error. Please try again later.');
       break;
     case 503:
-      showErrorAlert('Internal server error. Please try again later.');
+      showErrorAlert(message || 'Internal server error. Please try again later.');
       break;
     case 504:
-      showErrorAlert('Internal server error. Please try again later.');
+      showErrorAlert(message || 'Internal server error. Please try again later.');
       break;
     default:
       // Handle other errors
-      showErrorAlert('Unexpected error occurred.');
+      showErrorAlert(message || 'Unexpected error occurred.');
   }
 };
 
@@ -314,9 +312,8 @@ const resetErrors = () => {
 
 const login = async (event) => {
   event.preventDefault();
-  errors.value = false;
   if (!email.value || !password.value) {
-    errors.value = true;
+    handleApiError(400, 'Email and password are required');
     resetErrors();
     return;
   }
@@ -357,7 +354,7 @@ const login = async (event) => {
     // console.log("Response Data:", data);
 
     if (!response.ok) {
-      handleApiError(response.status, data.message || 'Failed to login');
+      handleApiError(response.status, data.error || 'Failed to login');
       return;
     }
 
