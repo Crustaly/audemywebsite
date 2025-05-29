@@ -103,7 +103,12 @@ onUnmounted(() => {
     </div>
   </div>
   -->
-  <div>
+  <div class="relative">
+    <img
+      src="/assets/images/our-projects/Mask group.png"
+      class="absolute -z-10 -right-8 -top-32 md:-right-14"
+      alt="Mask Group Image"
+    />
     <div class="text-center">
       <h2 class="text-sm uppercase tracking-[3.6px]">Education Events</h2>
       <h3 class="text-[32px] md:text-4.5xl">Have you heard about the events we organize?</h3>
