@@ -54,8 +54,12 @@
     </div>
   </div>
   -->
-  <div class="md:flex">
-
+  <div class="relative  md:flex">
+    <img
+      src="/assets/images/our-projects/lightred-background.png"
+      class="absolute w-screen h-[180%] -top-48 -left-8 -z-10 md:-left-14"
+      style="max-width: none;"
+    />
     <div class="hidden md:block md:w-1/2 md:justify-items-center">
       <img
       src="/assets/images/our-projects/Group 1205.png"
