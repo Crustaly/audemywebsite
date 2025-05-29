@@ -1,5 +1,4 @@
 <script setup>
-import { onMounted, onUnmounted, ref } from 'vue';
 import Card from './Card/Card.vue';
 
 const items = [
@@ -19,23 +18,10 @@ const items = [
     text: `Our game interface is keyboard-friendly, enabling blind and visually impaired students to navigate, select games, and answer questions with simple keystrokes.`,
   },
 ];
-
-let smallScreen = ref(window.innerWidth <= 450);
-
-const updateScreenWidth = () => {
-  smallScreen.value = window.innerWidth <= 450;
-};
-
-onMounted(() => {
-  window.addEventListener('resize', updateScreenWidth);
-});
-
-onUnmounted(() => {
-  window.removeEventListener('resize', updateScreenWidth);
-});
 </script>
 
 <template>
+  <!--
   <div
     class="relative flex flex-col py-[8rem] items-center justify-start mobile:justify-center w-full h-auto mb-36 tablet:mb-[265px] mobile:mb-[12px] mobile:mt-0 mobile:pt-0 mobile:pb-0"
   >
@@ -79,16 +65,28 @@ onUnmounted(() => {
       </a>
     </div>
   </div>
+  -->
+  <div class="flex flex-col">
+    <div class="flex flex-col text-center">
+      <h2 class="text-sm uppercase tracking-[3.6px]">Research & Technologies</h2>
+      <h3 class="text-[32px] md:text-4.5xl">What makes our platform accessible and engaging</h3>
+    </div>
+    <div class="flex flex-col my-6 lg:my-10 lg:flex-row lg:gap-10">
+      <Card
+        v-for="(item, index) in items"
+        :key="index"
+        :icon="item.icon"
+        :title="item.title"
+        :text="item.text"
+      />
+    </div>
+    <div class="flex items-center justify-center">
+      <a
+        href="/game-zone"
+        class="font-poppins font-semibold w-[244px] px-9 py-4 border-[1.5px] border-[#0C0D0D] rounded-[8px] bg-primary-color hover:bg-[#0C587D] duration-300 text-base text-center text-[#fff] shadow-[3px_4px_0px_#0C0D0D]"
+      >
+        Try out our games!
+      </a>
+    </div>
+  </div>
 </template>
-
-<style>
-@media screen and (max-width: 450px) {
-  #div_researchtech {
-    flex-wrap: wrap;
-  }
-
-  #div_researchtech > * {
-    flex: 0 0 100%;
-  }
-}
-</style>

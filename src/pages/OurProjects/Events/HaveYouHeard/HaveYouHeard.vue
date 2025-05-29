@@ -29,10 +29,11 @@ onUnmounted(() => {
 </script>
 
 <template>
+  <!--
   <div
     class="flex w-full px-20 relative mobile:flex-col mobile:px-6 mobile:mt-0 mobile:pt-0"
   >
-    <!-- LEFT PORTION -->
+     LEFT PORTION 
     <div
       class="flex flex-col items-start justify-start mobile:justify-center w-1/2 mobile:w-full h-auto mb-5 tablet:mb-[265px] mobile:mb-[129px]"
     >
@@ -71,7 +72,7 @@ onUnmounted(() => {
         </div>
       </div>
 
-      <!-- Div for Instagram Button -->
+       Div for Instagram Button 
       <div
         class="relative flex flex-col py-[8rem] items-center justify-start mobile:justify-center w-full h-auto mb-36 tablet:mb-[265px] mobile:mb-[12px] mobile:mt-0 mobile:pt-0 mobile:pb-0"
       >
@@ -85,20 +86,55 @@ onUnmounted(() => {
       </div>
     </div>
 
-    <!-- RIGHT PORTION -->
+     RIGHT PORTION 
     <div class="w-1/2 mobile:hidden mobile:w-full mobile:mt-10">
-      <!-- Background -->
+       Background 
       <img
         src="/assets/images/our-projects/Mask group.png"
         class="absolute w-[40%] -top-48 right-0 -z-10 mobile:relative mobile:w-full mobile:top-0"
         alt="Mask Group Image"
       />
-      <!-- Image of students w/ Crystal -->
+       Image of students w/ Crystal 
       <img
         src="/assets/images/our-projects/events1.svg"
         alt="Image of students"
         class="relative -top-20 right-28 z-10 object-contain w-full h-max mobile:right-0"
       />
+    </div>
+  </div>
+  -->
+  <div>
+    <div class="text-center">
+      <h2 class="text-sm uppercase tracking-[3.6px]">Education Events</h2>
+      <h3 class="text-[32px] md:text-4.5xl">Have you heard about the events we organize?</h3>
+    </div>
+    <div class="flex flex-col lg:flex-row-reverse">
+      <div class="flex">
+        <img
+          src="/assets/images/our-projects/events-1.svg"
+          alt="Image of students"
+          class=""
+        />
+      </div>
+      <div class="flex flex-col gap-4 my-8">
+        <HaveYouHeardCard
+          v-for="(item, index) in items"
+          :key="index"
+          :icon="item.icon"
+          :text="item.text"
+        />
+      </div>
+    </div>
+    <div
+      class="flex items-center justify-center mt-10"
+    >
+      <a
+        href="https://www.instagram.com/audemyapp/"
+        target="_blank"
+        class="font-poppins font-semibold px-9 py-4 border-[1.5px] border-[#0C0D0D] rounded-[8px] bg-primary-color hover:bg-[#0C587D] duration-300 text-base text-center text-[#fff] shadow-[3px_4px_0px_#0C0D0D] mobile:items-center mobile:text-center"
+      >
+        Follow us on Instagram
+      </a>
     </div>
   </div>
 </template>
