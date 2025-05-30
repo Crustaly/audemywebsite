@@ -51,12 +51,7 @@ import Footer from '../../components/Footer/Footer.vue';
     <div class="px-4 md:px-8">
       <Header :logoPath="'/assets/images/header/header-logo-2.png'" />
     </div>
-
-    <img
-      src="/assets/images/impact/Union.png"
-      class="absolute max-w[100px] -z-10 top-24"
-      alt="Union Image"
-    />
+    
     <div class="flex justify-center px-8 md:px-14 xl:mt-20">
       <div class="md:w-full md:mt-10">
         <ProjectsInAction />
@@ -81,7 +76,7 @@ import Footer from '../../components/Footer/Footer.vue';
       </div>
     </div>
 
-    <div class="flex justify-center px-8 md:px-14 my-20">
+    <div class="flex justify-center px-8 md:px-14 my-36">
       <div class="md:w-full">
         <SocialMedia />
       </div>
@@ -90,7 +85,6 @@ import Footer from '../../components/Footer/Footer.vue';
     <div>
       <Footer />
     </div>
-    
   </div>
  
 </template>

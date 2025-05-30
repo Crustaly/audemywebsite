@@ -52,7 +52,7 @@
       <h2 class="text-sm uppercase tracking-[3.6px]">Social Media Content</h2>
     </div>
     <div class="flex justify-center">
-      <h3 class="text-[32px] md:text-4.5xl">Explore Apple Loo Education</h3>
+      <h3 class="text-[32px] text-center md:text-4.5xl">Explore Apple Loo Education</h3>
     </div>
     <div class="text-body text-xl font-poppins leading-8 text-center">
       <p>Our YouTube channel that educates young students through engaging
