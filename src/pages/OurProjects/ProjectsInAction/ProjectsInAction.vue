@@ -67,7 +67,12 @@ import Carousel from './Carousel.vue';
       </div>
     </div>
   -->
-  <div class="flex flex-col gap-4 md:flex-row lg:gap-10">
+  <div class="flex flex-col gap-4 relative md:flex-row lg:gap-10">
+    <img
+      src="/assets/images/impact/Union.png"
+      class="absolute max-w[100px] -z-10 -top-6 -left-8 md:-left-14 md:-top-14 xl:-top-28 "
+      alt="Union Image"
+    />
     <div class="p-4 md:basis-1/2">
       <div
         class="bg-white rounded-xl border-4 border-[#2A3338] p-2"
