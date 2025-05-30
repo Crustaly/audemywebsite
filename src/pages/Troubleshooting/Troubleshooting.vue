@@ -1,9 +1,9 @@
 <script setup>
 // Components
-import ScrollUpButton from "../../components/ScrollUpButton/ScrollUpButton.vue";
-import Header from "../../components/Header/Header.vue";
-import Footer from "../../components/Footer/Footer.vue";
-import troubleshootingData from "../../assets/troubleshootingDB/troubleshooting.json";
+import ScrollUpButton from '../../components/ScrollUpButton/ScrollUpButton.vue';
+import Header from '../../components/Header/Header.vue';
+import Footer from '../../components/Footer/Footer.vue';
+import troubleshootingData from '../../assets/troubleshootingDB/troubleshooting.json';
 
 const openImageInNewTab = (imageSrc, imageName) => {
   const newTab = window.open();
@@ -31,24 +31,26 @@ const openImageInNewTab = (imageSrc, imageName) => {
       </h2>
     </div>
 
-        <!-- QUESTIONS -->
-        <div
-            class="flex flex-col w-full items-start justify-start mt-3 tablet:mb-[265px] mobile:mb-[129px]"
+    <!-- QUESTIONS -->
+    <div
+      class="flex flex-col w-full items-start justify-start mt-3 tablet:mb-[265px] mobile:mb-[129px]"
+    >
+      <!-- Loop through issues dynamically -->
+      <div
+        v-for="(issue, index) in troubleshootingData.issues"
+        :key="index"
+        class="w-full mb-6 mt-2 p-10 border-8 rounded-lg"
+      >
+        <h3
+          class="text-3xl font-semibold mb-4 text-[#087BB4] flex items-center gap-2"
         >
-            <!-- Loop through issues dynamically -->
-            <div
-                v-for="(issue, index) in troubleshootingData.issues"
-                :key="index"
-                class="w-full mb-6 mt-2 p-10 border-8 rounded-lg"
-            >
-                <h3 class="text-3xl font-semibold mb-4 text-[#087BB4] flex items-center gap-2">
-                    <img
-                        src="/assets/images/troubleshooting/alert.png"
-                        alt="Icon" 
-                        class="w-6 h-6" 
-                    />
-                    {{ issue.name }}
-                </h3>
+          <img
+            src="/assets/images/troubleshooting/alert.png"
+            alt="Icon"
+            class="w-6 h-6"
+          />
+          {{ issue.name }}
+        </h3>
 
         <!-- Loop through the body items (titles, text, and images) -->
         <div v-for="(item, idx) in issue.body" :key="idx">
