@@ -19,12 +19,12 @@ const path = '/assets/images/our-projects/researchtech/';
           <img :src="path + icon" alt="icon" class="w-[90%] h-[90%]" />
         </div>
       </div>
-      <div class="w-3/4 flex flex-col lg:w-full lg:justify-start">
-        <h2 class="text-2xl">
-          <b>{{ title }}</b>
+      <div class="w-3/4 flex flex-col font-poppins lg:w-full lg:justify-start">
+        <h2 class="text-2xl font-semibold ">
+          {{ title }}
         </h2>
         <h4
-          class="text-left text-body-text-color font-poppins max-w-[95%] text-[20px] font-[400]"
+          class="text-left text-body-text-color max-w-[95%] text-[20px] font-[400]"
           v-html="text"
         ></h4>
       </div>

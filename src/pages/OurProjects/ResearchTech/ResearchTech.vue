@@ -21,57 +21,12 @@ const items = [
 </script>
 
 <template>
-  <!--
-  <div
-    class="relative flex flex-col py-[8rem] items-center justify-start mobile:justify-center w-full h-auto mb-36 tablet:mb-[265px] mobile:mb-[12px] mobile:mt-0 mobile:pt-0 mobile:pb-0"
-  >
-    <div class="w-full">
-      <h3
-        class="font-poppins text-small-text-color text-[12px] font-[500] mobile:w-auto text-center tracking-[3.6px]"
-      >
-        RESEARCH & TECHNOLOGIES
-      </h3>
-    </div>
-    <div class="max-w-[519px]">
-      <h2
-        class="text-center font-poppins text-4.5xl tablet:text-[32px] mobile:text-[24px] mobile:text-center font-[400]"
-      >
-        What makes our platform accessible and engaging
-      </h2>
-    </div>
-    <div class="flex justify-center">
-      <div class="max-w-[75%] w-full">
-        <div
-          id="div_researchtech"
-          class="flex justify-between mt-[110px] tablet:mt-[72px] mb-[63px] gap-16 tablet:gap-14 mobile:gap-4 mobile:flex-wrap"
-        >
-          <Card
-            v-for="(item, index) in items"
-            :key="index"
-            :icon="item.icon"
-            :title="item.title"
-            :text="item.text"
-            :smallScreen="smallScreen"
-          />
-        </div>
-      </div>
-    </div>
-    <div class="flex items-center justify-center">
-      <a
-        href="/game-zone"
-        class="font-poppins font-semibold w-[244px] px-9 py-4 border-[1.5px] border-[#0C0D0D] rounded-[8px] bg-primary-color hover:bg-[#0C587D] duration-300 text-base text-center text-[#fff] shadow-[3px_4px_0px_#0C0D0D]"
-      >
-        Try out our games!
-      </a>
-    </div>
-  </div>
-  -->
   <div class="flex flex-col">
-    <div class="flex flex-col text-center">
+    <div class="flex flex-col text-center mb-16">
       <h2 class="text-sm uppercase tracking-[3.6px]">Research & Technologies</h2>
-      <h3 class="text-[32px] md:text-4.5xl">What makes our platform accessible and engaging</h3>
+      <h3 class="text-[32px] font-poppins md:text-4.5xl">What makes our platform accessible and engaging</h3>
     </div>
-    <div class="flex flex-col my-6 lg:my-10 lg:flex-row lg:gap-10">
+    <div class="flex flex-col my-6 lg:my-10 lg:flex-row lg:gap-20">
       <Card
         v-for="(item, index) in items"
         :key="index"
@@ -80,7 +35,7 @@ const items = [
         :text="item.text"
       />
     </div>
-    <div class="flex items-center justify-center">
+    <div class="flex items-center justify-center mt-10">
       <a
         href="/game-zone"
         class="font-poppins font-semibold w-[244px] px-9 py-4 border-[1.5px] border-[#0C0D0D] rounded-[8px] bg-primary-color hover:bg-[#0C587D] duration-300 text-base text-center text-[#fff] shadow-[3px_4px_0px_#0C0D0D]"
