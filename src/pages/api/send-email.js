@@ -145,12 +145,10 @@ export default async function handler(req, res) {
   } catch (error) {
     // Log the error details
     console.error('Detailed Error:', error.message, error.stack);
-    res
-      .status(500)
-      .json({
-        error: 'Failed to send email',
-        details: error.message,
-        stack: error.stack,
-      });
+    res.status(500).json({
+      error: 'Failed to send email',
+      details: error.message,
+      stack: error.stack,
+    });
   }
 }

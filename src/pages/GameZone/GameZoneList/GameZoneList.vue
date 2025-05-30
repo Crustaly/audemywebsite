@@ -37,7 +37,7 @@ watch(() => props.type, (newType, oldType) => {
  -->
 
 <script setup>
-import { ref, defineProps, onBeforeMount, watch } from 'vue';
+import { ref, onBeforeMount, watch } from 'vue';
 import GameZoneCard from '../GameZoneCard/GameZoneCard.vue';
 import { getLanguageGames, getMathGames } from '../GameDB.js';
 import { useRouter } from 'vue-router';

@@ -3,7 +3,7 @@
 import ScrollUpButton from '../../components/ScrollUpButton/ScrollUpButton.vue';
 import Header from '../../components/Header/Header.vue';
 import Footer from '../../components/Footer/Footer.vue';
-import troubleshootingData from '../../../public/assets/troubleshootingDB/troubleshooting.json';
+import troubleshootingData from '../../assets/troubleshootingDB/troubleshooting.json';
 
 const openImageInNewTab = (imageSrc, imageName) => {
   const newTab = window.open();
@@ -45,7 +45,7 @@ const openImageInNewTab = (imageSrc, imageName) => {
           class="text-3xl font-semibold mb-4 text-[#087BB4] flex items-center gap-2"
         >
           <img
-            src="/public/assets/images/troubleshooting/alert.png"
+            src="/assets/images/troubleshooting/alert.png"
             alt="Icon"
             class="w-6 h-6"
           />
