@@ -16,7 +16,7 @@ import Footer from '../../components/Footer/Footer.vue';
     <div class="px-4 md:px-8">
       <Header :logoPath="'/assets/images/header/header-logo-2.png'" />
     </div>
-    
+
     <ScrollUpButton />
 
     <div class="flex justify-center px-8 md:px-14 xl:mt-20">
@@ -53,5 +53,4 @@ import Footer from '../../components/Footer/Footer.vue';
       <Footer />
     </div>
   </div>
- 
 </template>

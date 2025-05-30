@@ -45,7 +45,6 @@ const path = '/assets/images/our-projects/';
   </div>
   -->
   <div class="flex gap-10 items-center">
-
     <div
       class="w-[76px] h-[76px] rounded-[8px] border-[1.5px] border-[#0C0D0D] shadow-[4px_4px_0px_#0C0D0D] flex justify-center items-center"
     >
@@ -58,6 +57,5 @@ const path = '/assets/images/our-projects/';
         v-html="text"
       ></h4>
     </div>
-
   </div>
 </template>

@@ -4,17 +4,21 @@
       <h2 class="text-sm uppercase tracking-[3.6px]">Social Media Content</h2>
     </div>
     <div class="flex justify-center">
-      <h3 class="text-[32px] text-center font-poppins md:text-4.5xl">Explore Apple Loo Education</h3>
+      <h3 class="text-[32px] text-center font-poppins md:text-4.5xl">
+        Explore Apple Loo Education
+      </h3>
     </div>
     <div class="text-body text-xl font-poppins leading-8 text-center mt-5">
-      <p>Our YouTube channel that educates young students through engaging
-      videos.</p>
+      <p>
+        Our YouTube channel that educates young students through engaging
+        videos.
+      </p>
     </div>
-    <div class="relative flex place-content-center mt-10 ">
+    <div class="relative flex place-content-center mt-10">
       <img
-      src="/assets/images/our-projects/tablet.png"
-      class="h-auto w-3/4"
-      alt="Tablet Image"
+        src="/assets/images/our-projects/tablet.png"
+        class="h-auto w-3/4"
+        alt="Tablet Image"
       />
       <img
         src="/assets/images/our-projects/Vector Stroke.png"
@@ -22,17 +26,17 @@
         alt="Vector Stroke Image"
       />
       <div
-      class="absolute top-0 left-[15%] h-[100%] w-[70%] flex items-center justify-center"
+        class="absolute top-0 left-[15%] h-[100%] w-[70%] flex items-center justify-center"
       >
-      <div class="w-full h-full aspect-video max-w-[100%] max-h-[90%] ">
-        <iframe
-        class="w-full h-full rounded-[15px]"
-        src="https://www.youtube.com/embed?listType=playlist&list=UU_QnL2hAtkxcMUNYBUFm6rQ"
-        frameborder="0"
-        allowfullscreen
-        style="pointer-events: auto;"
-        ></iframe>
-      </div>
+        <div class="w-full h-full aspect-video max-w-[100%] max-h-[90%]">
+          <iframe
+            class="w-full h-full rounded-[15px]"
+            src="https://www.youtube.com/embed?listType=playlist&list=UU_QnL2hAtkxcMUNYBUFm6rQ"
+            frameborder="0"
+            allowfullscreen
+            style="pointer-events: auto"
+          ></iframe>
+        </div>
       </div>
     </div>
     <div class="flex justify-center mt-10">

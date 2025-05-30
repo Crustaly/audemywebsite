@@ -23,8 +23,12 @@ const items = [
 <template>
   <div class="flex flex-col">
     <div class="flex flex-col text-center mb-16">
-      <h2 class="text-sm uppercase tracking-[3.6px]">Research & Technologies</h2>
-      <h3 class="text-[32px] font-poppins md:text-4.5xl">What makes our platform accessible and engaging</h3>
+      <h2 class="text-sm uppercase tracking-[3.6px]">
+        Research & Technologies
+      </h2>
+      <h3 class="text-[32px] font-poppins md:text-4.5xl">
+        What makes our platform accessible and engaging
+      </h3>
     </div>
     <div class="flex flex-col my-6 lg:my-10 lg:flex-row lg:gap-20">
       <Card

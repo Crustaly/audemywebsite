@@ -10,7 +10,7 @@ const path = '/assets/images/our-projects/researchtech/';
 </script>
 
 <template>
-  <div class="w-full ">
+  <div class="w-full">
     <div class="flex items-center w-full gap-[15px] py-4 lg:flex-col">
       <div class="w-1/4 flex justify-center lg:w-full lg:justify-start">
         <div
@@ -20,7 +20,7 @@ const path = '/assets/images/our-projects/researchtech/';
         </div>
       </div>
       <div class="w-3/4 flex flex-col font-poppins lg:w-full lg:justify-start">
-        <h2 class="text-2xl font-semibold ">
+        <h2 class="text-2xl font-semibold">
           {{ title }}
         </h2>
         <h4

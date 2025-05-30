@@ -1,17 +1,17 @@
 <script></script>
 
 <template>
-  <div class="relative  md:flex">
+  <div class="relative md:flex">
     <img
       src="/assets/images/our-projects/lightred-background.png"
       class="absolute w-screen h-[150%] -top-60 -left-8 -z-10 md:-top-52 md:-left-14 md:h-[180%] xl:-top-48"
-      style="max-width: none;"
+      style="max-width: none"
     />
     <div class="hidden md:block md:w-1/2 md:justify-items-center">
       <img
-      src="/assets/images/our-projects/Group 1205.png"
-      alt="Caterpillar"
-      class="h-max w-60 lg:w-72"
+        src="/assets/images/our-projects/Group 1205.png"
+        alt="Caterpillar"
+        class="h-max w-60 lg:w-72"
       />
     </div>
 
