@@ -22,7 +22,9 @@ const items = [
     />
     <div class="text-center">
       <h2 class="text-sm uppercase tracking-[3.6px]">Education Events</h2>
-      <h3 class="text-[32px] font-poppins md:text-4.5xl">Have you heard about the events we organize?</h3>
+      <h3 class="text-[32px] font-poppins md:text-4.5xl">
+        Have you heard about the events we organize?
+      </h3>
     </div>
     <div class="flex flex-col lg:flex-row-reverse">
       <div class="flex">
@@ -41,9 +43,7 @@ const items = [
         />
       </div>
     </div>
-    <div
-      class="flex items-center justify-center mt-20"
-    >
+    <div class="flex items-center justify-center mt-20">
       <a
         href="https://www.instagram.com/audemyapp/"
         target="_blank"
