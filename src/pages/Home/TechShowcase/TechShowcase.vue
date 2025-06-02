@@ -19,7 +19,7 @@ const checkDeviceType = () => {
     isTablet.value = true;
     isMobile.value = false;
   } else if (width >= 1024) {
-     // Large devices (laptops/desktops)
+    // Large devices (laptops/desktops)
     isTablet.value = false;
     isMobile.value = false;
   } else {
