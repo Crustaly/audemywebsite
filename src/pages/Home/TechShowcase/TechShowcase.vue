@@ -5,36 +5,52 @@ let isplaying = ref(false);
 let video = ref();
 const isTablet = ref(false);
 const isMobile = ref(false);
+const videoVisible = ref(false); // Lazy load flag
 
-// Check device type
+// Check device type based on window width
 const checkDeviceType = () => {
   const width = window.innerWidth;
   if (width >= 640 && width < 768) {
-    // Small devices (large phones)
     isTablet.value = false;
     isMobile.value = true;
   } else if (width >= 768 && width < 1024) {
-    // Medium devices (tablets)
     isTablet.value = true;
     isMobile.value = false;
   } else if (width >= 1024) {
-    // Large devices (laptops/desktops)
     isTablet.value = false;
     isMobile.value = false;
   } else {
-    // Extra small devices (phones)
     isTablet.value = false;
     isMobile.value = true;
+  }
+};
+
+let observer;
+
+const onVideoIntersect = (entries) => {
+  const [entry] = entries;
+  if (entry.isIntersecting) {
+    videoVisible.value = true;
+    observer.disconnect(); // Prevent future triggers
   }
 };
 
 onMounted(() => {
   checkDeviceType();
   window.addEventListener('resize', checkDeviceType);
+
+  observer = new IntersectionObserver(onVideoIntersect, {
+    root: null,
+    threshold: 0.3,
+  });
+
+  const videoWrapper = document.querySelector('#lazy-video-wrapper');
+  if (videoWrapper) observer.observe(videoWrapper);
 });
 
 onUnmounted(() => {
   window.removeEventListener('resize', checkDeviceType);
+  if (observer) observer.disconnect();
 });
 
 const playVideo = () => {
@@ -44,6 +60,7 @@ const playVideo = () => {
     video.value.play();
   }
 };
+
 let pauseVideo = () => {
   isplaying.value = false;
   video.value.pause();
@@ -69,10 +86,13 @@ let videoStoped = () => {
         src="/assets/images/techShowcase/phone.svg"
         alt="Phone's Image"
       />
-      <div class="absolute w-[90%] left-[4%] h-[86%] top-[7%] mx-auto z-0">
+      <div
+        id="lazy-video-wrapper"
+        class="absolute w-[90%] left-[4%] h-[86%] top-[7%] mx-auto z-0"
+      >
         <div
           v-if="!isplaying"
-          @click="playVideo(this)"
+          @click="playVideo"
           ref="playBut"
           class="absolute z-10 cursor-pointer w-[56px] h-[56px] rounded-[50%] border-[2px] border-[black] bg-[#FE892A] hover:bg-[#D6711F] top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]"
         >
@@ -80,22 +100,27 @@ let videoStoped = () => {
             class="tra absolute w-[22px] h-[22px] top-[50%] left-[50%] translate-x-[-40%] bg-black translate-y-[-50%] rotate-90"
           ></div>
         </div>
+
+        <!-- Lazy-loaded video -->
         <video
+          v-if="videoVisible"
           ref="video"
           @play="playVideo"
           @pause="pauseVideo"
           @ended="videoStoped"
           class="w-full h-full"
+          preload="none"
+          muted
         >
           <source
             src="/src/assets/videoFiles/JJ_Storybuilder_05_2024_Short.mp4"
-            class="w-full"
             type="video/mp4"
           />
           <span>browser does not support the video tag.</span>
         </video>
       </div>
     </div>
+
     <div
       class="max-w-[505px] tablet:max-w-[440px] h-[348px] tablet:h-[309px] mobile:h-[285px] grid justify-self-start mobile:order-1 mobile:items-center mobile:text-center"
       :class="{ 'tablet-text-container': isTablet }"
