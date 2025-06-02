@@ -7,19 +7,23 @@ const isTablet = ref(false);
 const isMobile = ref(false);
 const videoVisible = ref(false); // Lazy load flag
 
-// Check device type based on window width
+// Check device type
 const checkDeviceType = () => {
   const width = window.innerWidth;
   if (width >= 640 && width < 768) {
+    // Small devices (large phones)
     isTablet.value = false;
     isMobile.value = true;
   } else if (width >= 768 && width < 1024) {
+    // Medium devices (tablets)
     isTablet.value = true;
     isMobile.value = false;
   } else if (width >= 1024) {
+     // Large devices (laptops/desktops)
     isTablet.value = false;
     isMobile.value = false;
   } else {
+    // Extra small devices (phones)
     isTablet.value = false;
     isMobile.value = true;
   }
