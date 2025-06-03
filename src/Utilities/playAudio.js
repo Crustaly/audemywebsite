@@ -43,15 +43,16 @@ export async function getTTSAudio(text) {
   }
 }
 
-export function playSound(audioFile) {
-  // Play introduction audio
-  const introAudioPath = '/assets/generalAudio/' + audioFile;
-  console.log('Playing introduction audio:', introAudioPath);
-  const audio = new Audio(introAudioPath);
-  audio.play();
-
-  return audio;
+export async function playSound(audioFile) {
+  try {
+    const introAudioPath = '/assets/generalAudio/' + audioFile;
+    console.log('Playing introduction audio:', introAudioPath);
+    await playAudioPath(introAudioPath);
+  } catch (error) {
+    console.error('Error in playSound:', error);
+  }
 }
+
 let currentAudios = [];
 
 export function playAudioPath(path) {
