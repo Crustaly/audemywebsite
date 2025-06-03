@@ -6,7 +6,7 @@
   </div>
   <div class="flex flex-row justify-center items-center gap-[54px]">
     <div
-      class="w-[524px] h-[200px] bg-audemy-blue rounded-[30px] shadow-lg p-[20px] text-card-background flex flex-col justify-between border-[2px]"
+      class="w-[524px] h-[200px] bg-primary-color rounded-[30px] shadow-lg p-[20px] text-card-background flex flex-col justify-between border-[2px]"
     >
       <div class="flex flex-row justify-between items-center">
         <h1 class="text-[40px] font-[600]">{{ totalUsers }}</h1>
