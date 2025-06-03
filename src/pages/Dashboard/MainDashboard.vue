@@ -2,7 +2,7 @@
   <div>
     <!-- Sidebar -->
     <aside
-      class="fixed top-0 left-0 h-screen w-64 bg-white p-6 flex flex-col shadow-lg border-r-2 border-audemy-blue"
+      class="fixed top-0 left-0 h-screen w-64 bg-white p-6 flex flex-col shadow-lg border-r-2 border-primary-color"
     >
       <!-- Logo -->
       <div class="flex items-center mb-8">
@@ -17,7 +17,7 @@
       <nav class="flex flex-col space-y-4 flex-grow">
         <router-link
           to="/dashboard"
-          class="nav-link-top rounded-[20px] bg-audemy-blue flex items-center shadow-lg p-3"
+          class="nav-link-top rounded-[20px] bg-primary-color flex items-center shadow-lg p-3"
         >
           <img
             src="/assets/images/dashboard/dashboard-icon.png"
@@ -28,7 +28,7 @@
         </router-link>
         <router-link
           to="/studentList"
-          class="nav-link-top rounded-3xl text-audemy-blue flex items-center p-3"
+          class="nav-link-top rounded-3xl text-primary-color flex items-center p-3"
         >
           <img
             src="/assets/images/dashboard/student-icon.png"
@@ -46,7 +46,7 @@
             alt=""
             class="w-5 mr-2 ms-3"
           />
-          <span class="text-audemy-blue">Teacher</span>
+          <span class="text-primary-color">Teacher</span>
         </router-link>
         <router-link
           to="/games"
@@ -57,13 +57,13 @@
             alt=""
             class="w-5 mr-2 ms-3"
           />
-          <span class="text-audemy-blue">Games</span>
+          <span class="text-primary-color">Games</span>
         </router-link>
       </nav>
 
       <!-- Logout -->
       <button
-        class="mt-auto flex items-center p-3 rounded-2xl bg-audemy-blue text-white"
+        class="mt-auto flex items-center p-3 rounded-2xl bg-primary-color text-white"
       >
         <img
           src="/assets/images/dashboard/poweroff-icon.png"
@@ -78,7 +78,7 @@
     <main class="ml-64 flex flex-col">
       <!-- Navbar -->
       <nav
-        class="sticky top-0 z-20 bg-white border-b-2 border-audemy-blue h-[100px] px-6 shadow-md flex items-center"
+        class="sticky top-0 z-20 bg-white border-b-2 border-primary-color h-[100px] px-6 shadow-md flex items-center"
       >
         <!-- Right-aligned content wrapper -->
         <div class="ml-auto flex items-center gap-6">
@@ -87,7 +87,7 @@
             <input
               type="text"
               placeholder="Search"
-              class="w-full placeholder-audemy-blue pl-10 pr-4 py-2 border rounded-xl focus:outline-none"
+              class="w-full placeholder-primary-color pl-10 pr-4 py-2 border rounded-xl focus:outline-none"
             />
             <img
               src="/assets/images/dashboard/search-icon.png"
@@ -104,7 +104,7 @@
               <img
                 src="/assets/images/dashboard/notification-icon.png"
                 alt=""
-                class="w-5  h-6"
+                class="w-5 h-6"
               />
             </button>
             <button
@@ -117,7 +117,7 @@
               />
             </button>
             <button
-              class="p-3 rounded-[20px] bg-audemy-blue flex items-center justify-center"
+              class="p-3 rounded-[20px] bg-primary-color flex items-center justify-center"
             >
               <img
                 src="/assets/images/dashboard/settings-icon.png"
