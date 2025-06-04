@@ -221,7 +221,7 @@ const playNextQuestion = async () => {
 /**
  * Toggles the recording state when the record button is clicked
  */
-const toggleRecording = () => {
+const toggleRecording = async () => {
   if (numOfAudiosPlayed.value < 5 && !isIntroPlaying.value) {
     if (!isRecording.value) {
       isRecording.value = true;
@@ -254,40 +254,30 @@ const toggleRecording = () => {
       if (userWords.some((word) => correctAnswers.includes(word))) {
         score.value++;
         console.log('Correct Answer!');
-        playSound('correctaudio.mp3');
+        await playSound('correctaudio.mp3');
       } else {
         console.log('Wrong Answer!');
-        playSound('incorrectaudio.mp3');
+        await playSound('incorrectaudio.mp3');
+
         console.log('Correct Answer is: ', question['A']);
         const incorectAudio = 'The correct answer is ' + question['A'][0];
-
-        setTimeout(() => {
-          currentAudios.push(playQuestion(incorectAudio));
-        }, 1000);
+        await playQuestion(incorectAudio);
       }
+
+      transcription.value = '';
 
       // Stop listening
       stopListening();
       isRecording.value = false;
       numOfAudiosPlayed.value++;
 
-      // Reset transcription for next question
-      setTimeout(() => {
-        transcription.value = '';
-        console.log('Recording processed and stopped');
+      const isGameOver = numOfAudiosPlayed.value >= 5;
 
-        // Move to next question or end game
-        if (numOfAudiosPlayed.value < 5) {
-          setTimeout(() => {
-            playNextQuestion();
-          }, 2000);
-        } else {
-          console.log('Game Over!');
-          setTimeout(() => {
-            playScore(score.value);
-          }, 2000);
-        }
-      }, 1000);
+      if (!isGameOver) {
+        playNextQuestion();
+      } else {
+        playScore(score.value);
+      }
     }
   }
 };
