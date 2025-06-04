@@ -235,7 +235,9 @@ const formSubmitted = ref(false);
 const debugMessage = ref('Please confirm your password');
 const isLoading = ref(false);
 const errors = ref(false);
-const errorMessage = ref('An unexpected error occurred. Please try again later.');
+const errorMessage = ref(
+  'An unexpected error occurred. Please try again later.'
+);
 
 import Cookies from 'js-cookie';
 
@@ -250,7 +252,14 @@ const showErrorAlert = (message) => {
 const submitForm = async (event) => {
   event.preventDefault(); // Prevent default form submission behavior
 
-  if (!firstName.value || !lastName.value || !schoolName.value || !email.value || !password.value || !confirmPassword.value) {
+  if (
+    !firstName.value ||
+    !lastName.value ||
+    !schoolName.value ||
+    !email.value ||
+    !password.value ||
+    !confirmPassword.value
+  ) {
     showErrorAlert('Please fill in required fields');
     resetErrors();
     return;
@@ -291,16 +300,18 @@ const submitForm = async (event) => {
     });
 
     if (!response.ok) {
-      
       const contentType = response.headers.get('content-type');
-      let extractedMessage = 'An unexpected error occurred. Please try again.'; 
+      let extractedMessage = 'An unexpected error occurred. Please try again.';
       let parsedData = null; // To hold the parsed JSON object if successful
 
       if (contentType && contentType.includes('application/json')) {
         // If it's JSON, try to parse it
         try {
-          parsedData = await response.json(); 
-          extractedMessage = parsedData.error || parsedData.message || `Server error (JSON): Status ${response.status}`;
+          parsedData = await response.json();
+          extractedMessage =
+            parsedData.error ||
+            parsedData.message ||
+            `Server error (JSON): Status ${response.status}`;
         } catch (e) {
           // 5. If JSON parsing fails (e.g., malformed JSON), set a specific message
           extractedMessage = `Could not parse server response (expected JSON). Status: ${response.status}`;
@@ -310,23 +321,34 @@ const submitForm = async (event) => {
         const errorText = await response.text();
         console.error('Non-JSON error response:', errorText);
         try {
-            parsedData = JSON.parse(errorText);
-            extractedMessage = parsedData.error || parsedData.message || errorText;
+          parsedData = JSON.parse(errorText);
+          extractedMessage =
+            parsedData.error || parsedData.message || errorText;
         } catch (e) {
-            extractedMessage = errorText.trim() !== '' ? errorText : `Server error (text): Status ${response.status}`;
+          extractedMessage =
+            errorText.trim() !== ''
+              ? errorText
+              : `Server error (text): Status ${response.status}`;
         }
       }
 
       // Now handle based on status code
       switch (response.status) {
         case 400:
-          showErrorAlert(extractedMessage || 'Bad request: Please check your input');
+          showErrorAlert(
+            extractedMessage || 'Bad request: Please check your input'
+          );
           break;
         case 401:
-          showErrorAlert(extractedMessage || 'Unauthorized: Invalid credentials');
+          showErrorAlert(
+            extractedMessage || 'Unauthorized: Invalid credentials'
+          );
           break;
         case 403:
-          showErrorAlert(extractedMessage || "Forbidden: You don't have permission to access this resource");
+          showErrorAlert(
+            extractedMessage ||
+              "Forbidden: You don't have permission to access this resource"
+          );
           break;
         case 404:
           showErrorAlert(extractedMessage || 'Resource not found');
@@ -335,23 +357,35 @@ const submitForm = async (event) => {
           showErrorAlert(extractedMessage || 'Method not allowed');
           break;
         case 429:
-          showErrorAlert(extractedMessage || 'Too many requests: Please try again later');
+          showErrorAlert(
+            extractedMessage || 'Too many requests: Please try again later'
+          );
           break;
         case 500:
-          showErrorAlert(extractedMessage || 'Internal server error. Please try again later.');
+          showErrorAlert(
+            extractedMessage || 'Internal server error. Please try again later.'
+          );
           break;
         case 502:
-          showErrorAlert(extractedMessage || 'Internal server error. Please try again later.');
+          showErrorAlert(
+            extractedMessage || 'Internal server error. Please try again later.'
+          );
           break;
         case 503:
-          showErrorAlert(extractedMessage || 'Internal server error. Please try again later.');
+          showErrorAlert(
+            extractedMessage || 'Internal server error. Please try again later.'
+          );
           break;
         case 504:
-          showErrorAlert(extractedMessage || 'Internal server error. Please try again later.');
+          showErrorAlert(
+            extractedMessage || 'Internal server error. Please try again later.'
+          );
           break;
         default:
           // Try to get error message from response if it's JSON
-          showErrorAlert(extractedMessage || `Unexpected error: Status ${response.status}`);
+          showErrorAlert(
+            extractedMessage || `Unexpected error: Status ${response.status}`
+          );
       }
 
       // Instead of throwing an error, just return to stop execution
@@ -417,7 +451,9 @@ const submitForm = async (event) => {
           break;
         default:
           alert(
-            `Login error: ${(loginData && loginData.error) || 'Something went wrong'}`
+            `Login error: ${
+              (loginData && loginData.error) || 'Something went wrong'
+            }`
           );
       }
 
@@ -565,12 +601,12 @@ form input {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(255, 255, 255, 0.8); 
+  background-color: rgba(255, 255, 255, 0.8);
   display: flex;
-  flex-direction: column; 
-  justify-content: center; 
-  align-items: center; 
-  z-index: 9999; 
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
 }
 
 /* * * * * Large Devices (≥1025px) * * * * */

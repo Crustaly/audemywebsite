@@ -1,8 +1,8 @@
 <template>
   <ScrollUpButton />
   <div v-if="isLoading" class="loading-overlay">
-      <div class="spinner"></div>
-      <p>Loading...</p>
+    <div class="spinner"></div>
+    <p>Loading...</p>
   </div>
   <div
     :class="[
@@ -202,7 +202,9 @@ import { jwtDecode } from 'jwt-decode';
 import Cookies from 'js-cookie';
 
 const errors = ref(false);
-const errorMessage = ref('An unexpected error occurred. Please try again later.');
+const errorMessage = ref(
+  'An unexpected error occurred. Please try again later.'
+);
 const email = ref('');
 const password = ref('');
 var authKey = ref('');
@@ -275,7 +277,10 @@ const handleApiError = (status, message) => {
       showErrorAlert(message || 'Unauthorized: Invalid credentials');
       break;
     case 403:
-      showErrorAlert(message || "Forbidden: You don't have permission to access this resource");
+      showErrorAlert(
+        message ||
+          "Forbidden: You don't have permission to access this resource"
+      );
       break;
     case 404:
       showErrorAlert(message || 'Resource not found');
@@ -287,16 +292,24 @@ const handleApiError = (status, message) => {
       showErrorAlert(message || 'Too many requests: Please try again later');
       break;
     case 500:
-      showErrorAlert(message || 'Internal server error. Please try again later.');
+      showErrorAlert(
+        message || 'Internal server error. Please try again later.'
+      );
       break;
     case 502:
-      showErrorAlert(message || 'Internal server error. Please try again later.');
+      showErrorAlert(
+        message || 'Internal server error. Please try again later.'
+      );
       break;
     case 503:
-      showErrorAlert(message || 'Internal server error. Please try again later.');
+      showErrorAlert(
+        message || 'Internal server error. Please try again later.'
+      );
       break;
     case 504:
-      showErrorAlert(message || 'Internal server error. Please try again later.');
+      showErrorAlert(
+        message || 'Internal server error. Please try again later.'
+      );
       break;
     default:
       // Handle other errors
@@ -380,62 +393,65 @@ const callback = async (response) => {
   isLoading.value = true; // Show loading UI
 
   try {
-      if (response?.credential) {
-        try {
-          const decoded = jwtDecode(response.credential);
-          userProfile.value = {
-              name: decoded.name,
-              email: decoded.email,
-              imageUrl: decoded.picture,
-          };
-        } catch (error) {
-          console.error("Failed to decode JWT:", error);
-          showErrorAlert("Failed to process Google login");
-          return;
-        }
-      }
-
-      const dbResponse = await fetch(
-        `/api/db/get_user?email=${userProfile.value.email}`,
-        {
-            method: "GET",
-            headers: { "Content-Type": "application/json" },
-        }
-      );
-
-      if (!dbResponse.ok) {
-        const errorData = await dbResponse.json().catch(() => ({}));
-        handleApiError(dbResponse.status, errorData.message || "Failed to retrieve user data");
+    if (response?.credential) {
+      try {
+        const decoded = jwtDecode(response.credential);
+        userProfile.value = {
+          name: decoded.name,
+          email: decoded.email,
+          imageUrl: decoded.picture,
+        };
+      } catch (error) {
+        console.error('Failed to decode JWT:', error);
+        showErrorAlert('Failed to process Google login');
         return;
       }
+    }
 
-      const dbData = await dbResponse.json();
-      console.log("DB Response:", dbData);
-
-      if (!dbData || !dbData.email) {
-        console.log("User not found, prompting for school...");
-        showSchoolForm.value = true;
-      } else {
-          Cookies.set(
-            "audemyUserSession",
-            JSON.stringify({
-                token: OAuthResponse,
-                user: userProfile.value,
-            }),
-            {
-                expires: 7,
-            }
-          );
-          userSession.value = {
-            token: OAuthResponse,
-            user: userProfile.value,
-          };
-
-        router.push("/game-zone");
+    const dbResponse = await fetch(
+      `/api/db/get_user?email=${userProfile.value.email}`,
+      {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' },
       }
+    );
+
+    if (!dbResponse.ok) {
+      const errorData = await dbResponse.json().catch(() => ({}));
+      handleApiError(
+        dbResponse.status,
+        errorData.message || 'Failed to retrieve user data'
+      );
+      return;
+    }
+
+    const dbData = await dbResponse.json();
+    console.log('DB Response:', dbData);
+
+    if (!dbData || !dbData.email) {
+      console.log('User not found, prompting for school...');
+      showSchoolForm.value = true;
+    } else {
+      Cookies.set(
+        'audemyUserSession',
+        JSON.stringify({
+          token: OAuthResponse,
+          user: userProfile.value,
+        }),
+        {
+          expires: 7,
+        }
+      );
+      userSession.value = {
+        token: OAuthResponse,
+        user: userProfile.value,
+      };
+
+      router.push('/game-zone');
+    }
   } catch (error) {
-    console.error("Error:", error);
-    showErrorAlert("Connection error: Please check your internet connection");
+    console.error('Error:', error);
+    showErrorAlert('Connection error: Please check your internet connection');
   } finally {
     isLoading.value = false; // Hide loading UI
   }
@@ -556,17 +572,17 @@ input {
 }
 
 .loading-overlay {
-    position: fixed; 
-    top: 0;          
-    left: 0;         
-    width: 100%;     
-    height: 100%;    
-    background-color: rgba(255, 255, 255, 0.8);
-    display: flex;             
-    flex-direction: column;    
-    justify-content: center;   
-    align-items: center;      
-    z-index: 9999;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
 }
 
 /* * * * * Large Devices (≥1025px) * * * * */
