@@ -121,8 +121,8 @@ const recordButtonClasses = computed(() => [
   isTablet.value
     ? 'w-[200px] h-[60px] pt-5 pr-[30px] pb-5 pl-[30px] gap-[10px] rounded-[20px]'
     : isMobile.value
-      ? 'w-full h-[60px] pt-5 pr-[30px] pb-5 pl-[30px] gap-[10px] rounded-[20px]'
-      : 'gap-2.5 w-[234px] h-[116px] pt-5 pr-7 pb-5 pl-7 rounded-[20px]',
+    ? 'w-full h-[60px] pt-5 pr-[30px] pb-5 pl-[30px] gap-[10px] rounded-[20px]'
+    : 'gap-2.5 w-[234px] h-[116px] pt-5 pr-7 pb-5 pl-7 rounded-[20px]',
   isRecording.value ? 'bg-red-500' : 'bg-[#087BB4]',
   'text-white',
   isButtonDisabled.value ? 'opacity-50 cursor-not-allowed' : '',
@@ -251,7 +251,7 @@ const playNextQuestion = async () => {
 /**
  * Toggles the recording state when the record button is clicked
  */
-const toggleRecording = () => {
+const toggleRecording = async () => {
   if (numOfAudiosPlayed.value < 5 && !isIntroPlaying.value) {
     if (!isRecording.value) {
       isRecording.value = true;
@@ -278,39 +278,31 @@ const toggleRecording = () => {
         ) {
           score.value++;
           console.log('Correct Answer!');
-          playSound('correctaudio.mp3');
+          await playSound('correctaudio.mp3');
         } else {
           console.log('Wrong Answer!');
           const incorrectAudio =
             'The correct answer is ' + currentQuestion.value['A'][0];
-          playSound('incorrectaudio.mp3');
+          await playSound('incorrectaudio.mp3');
 
-          setTimeout(() => {
-            currentAudios.push(playQuestion(incorrectAudio));
-          }, 1000);
+          await playQuestion(incorrectAudio);
         }
       }
+
+      transcription.value = '';
 
       stopListening();
       isListening.value = false;
       isRecording.value = false;
       numOfAudiosPlayed.value++;
 
-      setTimeout(() => {
-        transcription.value = '';
-        console.log('Recording processed and stopped');
+      const isGameOver = numOfAudiosPlayed.value >= 5;
 
-        if (numOfAudiosPlayed.value < 5) {
-          setTimeout(() => {
-            playNextQuestion();
-          }, 2000);
-        } else {
-          console.log('Game Over!');
-          setTimeout(() => {
-            playScore(score.value);
-          }, 2000);
-        }
-      }, 1000);
+      if (!isGameOver) {
+        playNextQuestion();
+      } else {
+        playScore(score.value);
+      }
     }
   }
 };
