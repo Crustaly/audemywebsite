@@ -9,38 +9,48 @@ import HaveYouHeard from './Events/HaveYouHeard/HaveYouHeard.vue';
 import KatyYouthHacks from './Events/KatyYouthHacks/KatyYouthHacks.vue';
 import SocialMedia from './Social/SocialMedia.vue';
 import Footer from '../../components/Footer/Footer.vue';
-
-import { useDeviceType } from '../../Utilities/checkDeviceType';
-const { isMobile, isTablet } = useDeviceType();
 </script>
 
 <template>
-  <ScrollUpButton />
-  <div
-    :class="[
-      'relative',
-      !isTablet && !isMobile ? 'px-14' : '',
-      isTablet ? 'px-6' : '',
-      isMobile ? 'px-8' : '',
-    ]"
-    ref="content"
-  >
-    <Header :logoPath="'/assets/images/header/header-logo-2.png'" />
-  </div>
+  <div class="flex flex-col">
+    <div class="px-4 md:px-8">
+      <Header :logoPath="'/assets/images/header/header-logo-2.png'" />
+    </div>
 
-  <div class="mobile:px-5">
-    <ProjectsInAction />
-    <ResearchTech />
-  </div>
+    <ScrollUpButton />
 
-  <div id="div_events" class="py-10 mobile:px-5">
-    <HaveYouHeard />
-    <KatyYouthHacks />
-  </div>
+    <div class="flex justify-center px-8 md:px-14 xl:mt-20">
+      <div class="md:w-full md:mt-10">
+        <ProjectsInAction />
+      </div>
+    </div>
 
-  <div class="mobile:px-5">
-    <SocialMedia />
-  </div>
+    <div class="flex justify-center px-8 md:px-14 mt-36">
+      <div class="md:w-full">
+        <ResearchTech />
+      </div>
+    </div>
 
-  <Footer />
+    <div class="flex justify-center px-8 md:px-14 mt-36">
+      <div class="md:w-full">
+        <HaveYouHeard />
+      </div>
+    </div>
+
+    <div class="flex justify-center px-8 md:px-14 mt-36">
+      <div class="md:w-full">
+        <KatyYouthHacks />
+      </div>
+    </div>
+
+    <div class="flex justify-center px-8 md:px-14 my-36">
+      <div class="md:w-full">
+        <SocialMedia />
+      </div>
+    </div>
+
+    <div>
+      <Footer />
+    </div>
+  </div>
 </template>

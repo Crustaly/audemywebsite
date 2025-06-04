@@ -118,7 +118,7 @@
 </template>
 
 <script setup>
-import { computed, defineProps } from 'vue';
+import { computed } from 'vue';
 import GamePagesHeader from '../../pages/Header/GamePagesHeader.vue';
 import GamePagesFooter from '../../pages/Footer/GamePagesFooter.vue';
 

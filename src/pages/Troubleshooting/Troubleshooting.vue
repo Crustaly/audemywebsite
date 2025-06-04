@@ -3,7 +3,7 @@
 import ScrollUpButton from '../../components/ScrollUpButton/ScrollUpButton.vue';
 import Header from '../../components/Header/Header.vue';
 import Footer from '../../components/Footer/Footer.vue';
-import troubleshootingData from '../../../public/assets/troubleshootingDB/troubleshooting.json';
+import troubleshootingData from '../../assets/troubleshootingDB/troubleshooting.json';
 
 const openImageInNewTab = (imageSrc, imageName) => {
   const newTab = window.open();

@@ -3,10 +3,7 @@
     class="flex flex-col text-[30px] text-center border-2 border-black rounded-xl p-12"
   >
     <div class="flex justify-center">
-      <img
-        src="/assets/images/impact/globe 1.svg"
-        alt="Under Construction"
-      />
+      <img src="/assets/images/impact/globe 1.svg" alt="Under Construction" />
     </div>
     <div class="font-bold">
       W<span class="text-[24px]">ORK</span> I<span class="text-[24px]">N</span>

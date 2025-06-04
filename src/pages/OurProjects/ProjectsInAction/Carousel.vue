@@ -48,7 +48,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="relative overflow-hidden carousel w-full h-full mobile:hidden">
+  <div class="relative carousel h-48 md:h-60 xl:h-96 overflow-hidden">
     <img
       src="/assets/images/impact/carousel/leftChevron.svg"
       id="left-chevron"
@@ -123,5 +123,3 @@ onMounted(() => {
     />
   </div>
 </template>
-
-<style scoped></style>
