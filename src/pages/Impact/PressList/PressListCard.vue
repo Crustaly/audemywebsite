@@ -20,19 +20,23 @@ const path = '/assets/images/impact/';
       >
         <!-- IMAGE -->
         <div class="w-full">
-          <img
-            :src="path + image"
-            class="w-full h-auto rounded-2xl border-[1px] border-[#E5E5E5]"
-            alt="image"
-          />
+          <a :href="url" target="_blank" rel="noopener noreferrer" class="block">
+            <img
+              :src="path + image"
+              class="w-full h-auto rounded-2xl border-[1px] border-[#E5E5E5] hover:opacity-80 transition-opacity duration-200 cursor-pointer"
+              alt="image"
+            />
+          </a>
         </div>
 
         <!-- TEXT -->
         <div class="mt-8 mobile:mt-4 w-full">
-          <h4
-            class="text-left text-body-text-color font-poppins text-[20px] tablet:text-[16px] font-[600] mobile:text-[16px] mobile:text-center"
-            v-html="text"
-          ></h4>
+          <a :href="url" target="_blank" rel="noopener noreferrer" class="block">
+            <h4
+              class="text-left text-body-text-color font-poppins text-[20px] tablet:text-[16px] font-[600] mobile:text-[16px] mobile:text-center hover:text-blue-600 transition-colors duration-200 cursor-pointer"
+              v-html="text"
+            ></h4>
+          </a>
         </div>
 
         <!-- AUTHOR -->

@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted, onUnmounted, ref } from 'vue';
+import { onMounted, onUnmounted, ref, watch } from 'vue';
 import PressListCard from './PressListCard.vue';
 
 const items = [
@@ -78,10 +78,23 @@ const items = [
 ];
 
 let smallScreen = ref(window.innerWidth <= 450);
+let showAll = ref(false);
 
 const updateScreenWidth = () => {
   smallScreen.value = window.innerWidth <= 450;
 };
+
+const toggleShowAll = () => {
+  showAll.value = !showAll.value;
+};
+
+const displayedItems = ref(items.slice(0, 8));
+
+const updateDisplayedItems = () => {
+  displayedItems.value = showAll.value ? items : items.slice(0, 8);
+};
+
+watch(showAll, updateDisplayedItems);
 
 onMounted(() => {
   window.addEventListener('resize', updateScreenWidth);
@@ -122,9 +135,17 @@ onUnmounted(() => {
         >
           <div
             id="div_about_us"
-            class="grid gap-6 mt-[40px] tablet:mt-[72px] mb-[63px] w-full grid-cols-4 tablet:grid-cols-3 mobile:grid-cols-1"
+            class="grid gap-6 mt-[40px] tablet:mt-[72px] mb-[32px] w-full grid-cols-4 transition-all duration-500 ease-in-out"
           >
-            <div v-for="(item, index) in items" :key="index" class="flex">
+            <div 
+              v-for="(item, index) in displayedItems" 
+              :key="index" 
+              class="flex transition-all duration-300 ease-in-out"
+              :class="{ 
+                'opacity-0 translate-y-4': index >= 8 && !showAll,
+                'opacity-100 translate-y-0': showAll || index < 8
+              }"
+            >
               <div class="flex flex-col h-full w-full min-h-[300px] mb-3">
                 <div class="flex justify-center w-full">
                   <div class="w-full px-4">
@@ -133,12 +154,23 @@ onUnmounted(() => {
                       :text="item.text"
                       :author="item.author"
                       :smallScreen="smallScreen"
+                      :url="item.url"
                       class="h-full"
                     />
                   </div>
                 </div>
               </div>
             </div>
+          </div>
+
+          <!-- Show More/Less Button -->
+          <div class="flex justify-center mb-[31px]">
+            <button
+              @click="toggleShowAll"
+              class="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-poppins font-[500] text-[16px] rounded-lg transition-all duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+            >
+              {{ showAll ? 'Show Less' : 'See More' }}
+            </button>
           </div>
         </div>
       </div>
