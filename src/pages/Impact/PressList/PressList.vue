@@ -88,13 +88,22 @@ const toggleShowAll = () => {
   showAll.value = !showAll.value;
 };
 
-const displayedItems = ref(items.slice(0, 8));
-
-const updateDisplayedItems = () => {
-  displayedItems.value = showAll.value ? items : items.slice(0, 8);
+const getInitialDisplayCount = () => {
+  return smallScreen.value ? 4 : 8;
 };
 
-watch(showAll, updateDisplayedItems);
+const displayedItems = ref(items.slice(0, getInitialDisplayCount()));
+
+const updateDisplayedItems = () => {
+  if (showAll.value) {
+    displayedItems.value = items;
+  } else {
+    const initialCount = getInitialDisplayCount();
+    displayedItems.value = items.slice(0, initialCount);
+  }
+};
+
+watch([showAll, smallScreen], updateDisplayedItems);
 
 onMounted(() => {
   window.addEventListener('resize', updateScreenWidth);
@@ -135,15 +144,15 @@ onUnmounted(() => {
         >
           <div
             id="div_about_us"
-            class="grid gap-6 mt-[40px] tablet:mt-[72px] mb-[32px] w-full grid-cols-4 transition-all duration-500 ease-in-out"
+            class="grid gap-6 mt-[40px] tablet:mt-[72px] mb-[32px] w-full grid-cols-4 mobile:grid-cols-2 transition-all duration-500 ease-in-out"
           >
             <div 
               v-for="(item, index) in displayedItems" 
               :key="index" 
               class="flex transition-all duration-300 ease-in-out"
               :class="{ 
-                'opacity-0 translate-y-4': index >= 8 && !showAll,
-                'opacity-100 translate-y-0': showAll || index < 8
+                'opacity-0 translate-y-4': (smallScreen ? index >= 4 : index >= 8) && !showAll,
+                'opacity-100 translate-y-0': showAll || (smallScreen ? index < 4 : index < 8)
               }"
             >
               <div class="flex flex-col h-full w-full min-h-[300px] mb-3">
@@ -175,7 +184,7 @@ onUnmounted(() => {
         </div>
       </div>
     </div>
-
+    
     <img
       src="/assets/images/impact/orangeStar.png"
       class="absolute left-[18rem] bottom-[0rem]"
