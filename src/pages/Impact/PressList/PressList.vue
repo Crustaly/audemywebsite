@@ -16,6 +16,12 @@ const items = [
     url: 'https://www.intel.com/content/www/us/en/corporate/artificial-intelligence/winners2024.html',
   },
   {
+    image: 'NPR-student-developes-app.png',
+    text: 'High School teen Crystal Yang tells us about Audemy, an app she created for the blind',
+    author: '-- By NPR',
+    url: 'https://www.youtube.com/watch?v=-Cd82j8v7Dc&ab_channel=HoustonPublicMedia',
+  },
+  {
     image: 'acm-chi-2025.png',
     text: 'AI for Accessible Education: Personalized Audio-Based Learning for Blind Students',
     author: '-- By ACM CHI 2025 (Research Publication)',
@@ -30,7 +36,7 @@ const items = [
   {
     image: 'houstonhappens.png',
     text: 'Stay motivated during the school year with Houston Happens!',
-    author: '-- By CW39 Houston',
+    author: '-- By The CW',
     url: 'https://www.youtube.com/watch?v=7y_vTaRb6Mc&t=2382s',
   },
   {
@@ -176,15 +182,15 @@ onUnmounted(() => {
           <div class="flex justify-center mb-[31px]">
             <button
               @click="toggleShowAll"
-              class="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-poppins font-[500] text-[16px] rounded-lg transition-all duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
-            >
+              class="w-[244px] mobile:w-auto font-poppins font-semibold px-[4.20rem] py-4 border-[1.5px] border-[#0C0D0D] rounded-[8px] bg-primary-color hover:bg-[#0C587D] duration-300 text-base text-white shadow-[3px_4px_0px_#0C0D0D]"
+              >
               {{ showAll ? 'Show Less' : 'See More' }}
             </button>
           </div>
         </div>
       </div>
     </div>
-    
+
     <img
       src="/assets/images/impact/orangeStar.png"
       class="absolute left-[18rem] bottom-[0rem]"

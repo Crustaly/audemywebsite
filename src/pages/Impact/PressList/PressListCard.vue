@@ -22,9 +22,9 @@ const path = '/assets/images/impact/';
         <div class="w-full">
           <a :href="url" target="_blank" rel="noopener noreferrer" class="block">
             <img
-              :src="path + image"
-              class="w-full h-auto rounded-2xl border-[1px] border-[#E5E5E5] hover:opacity-80 transition-opacity duration-200 cursor-pointer"
-              alt="image"
+            :src="path + image"
+            class="w-full h-[150px] object-cover rounded-2xl border-[1px] border-[#E5E5E5] hover:opacity-80 transition-opacity duration-200 cursor-pointer"
+            alt="image"
             />
           </a>
         </div>
