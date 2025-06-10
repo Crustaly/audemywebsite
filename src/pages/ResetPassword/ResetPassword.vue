@@ -15,6 +15,7 @@ const password = ref('');
 const confirmPassword = ref('');
 const token = ref('');
 const router = useRouter();
+const isLoading = ref(false); // For loading state
 
 let errorMessage = ref('');
 
@@ -90,6 +91,9 @@ const resetConfirm = async (event) => {
     return;
   } else {
     errors.value = false;
+
+    isLoading.value = true; // Show loading UI
+
     // API call to reset password
     try {
       const resetResponse = await fetch(`/api/reset-password`, {
@@ -123,12 +127,18 @@ const resetConfirm = async (event) => {
       console.error('Error: ', error);
       errorMessage.value =
         'Connection error: Please check your internet connection and try again';
+    } finally {
+      isLoading.value = false; // Hide loading UI
     }
   }
 };
 </script>
 
 <template>
+  <div v-if="isLoading" class="loading-overlay">
+    <div class="spinner"></div>
+    <p>Loading...</p>
+  </div>
   <div
     :class="[
       'relative',
@@ -257,6 +267,20 @@ form label,
   text-align: left;
   width: 80%;
   margin-left: 10%;
+}
+
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
 }
 
 form input {

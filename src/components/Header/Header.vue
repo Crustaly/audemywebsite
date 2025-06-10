@@ -4,7 +4,7 @@
   <header id="header-grid" class="relative h-[115px]">
     <!-- Logo Section -->
     <div id="logo-item" class="text-lg font-bold absolute left-2 top-8 z-10">
-      <RouterLink to="/home">
+      <router-link to="/home">
         <img
           id="header-logo"
           :src="logoPath"
@@ -12,7 +12,7 @@
           class="hover:cursor-pointer h-[51px] w-[155px]"
           v-if="logoPath"
         />
-      </RouterLink>
+      </router-link>
       <p v-if="!logoPath">audemy</p>
     </div>
 
@@ -36,38 +36,38 @@
         ]"
       >
         <li id="home-item">
-          <RouterLink
+          <router-link
             to="/home"
             class="px-2 pb-2 hover:text-[#087bb4] hover:border-b-2 border-[#087bb4]"
-            >Home</RouterLink
+            >Home</router-link
           >
         </li>
         <li id="about-item">
-          <RouterLink
+          <router-link
             to="/about-us"
             class="px-2 pb-2 hover:text-[#087bb4] hover:border-b-2 border-[#087bb4]"
-            >About us</RouterLink
+            >About us</router-link
           >
         </li>
         <li id="projects-item">
-          <RouterLink
+          <router-link
             to="/our-projects"
             class="px-2 pb-2 hover:text-[#087bb4] hover:border-b-2 border-[#087bb4]"
-            >Our projects</RouterLink
+            >Our projects</router-link
           >
         </li>
         <li id="impact-item">
-          <RouterLink
+          <router-link
             to="/impact"
             class="px-2 pb-2 hover:text-[#087bb4] hover:border-b-2 border-[#087bb4]"
-            >Impact</RouterLink
+            >Impact</router-link
           >
         </li>
         <li id="games-item">
-          <RouterLink
+          <router-link
             to="/game-zone"
             class="px-2 pb-2 hover:text-[#087bb4] hover:border-b-2 border-[#087bb4]"
-            >Game zone</RouterLink
+            >Game zone</router-link
           >
         </li>
         <li v-if="userSession" id="logout-btn-item">
@@ -127,43 +127,43 @@
       <nav class="flex-1">
         <ul class="flex flex-col px-6 font-poppins font-semibold">
           <li>
-            <RouterLink
+            <router-link
               to="/home"
               class="block py-4 hover:text-[#087bb4]"
               @click="closeMenu"
-              >Home</RouterLink
+              >Home</router-link
             >
           </li>
           <li>
-            <RouterLink
+            <router-link
               to="/about-us"
               class="block py-4 hover:text-[#087bb4]"
               @click="closeMenu"
-              >About us</RouterLink
+              >About us</router-link
             >
           </li>
           <li>
-            <RouterLink
+            <router-link
               to="/our-projects"
               class="block py-4 hover:text-[#087bb4]"
               @click="closeMenu"
-              >Our projects</RouterLink
+              >Our projects</router-link
             >
           </li>
           <li>
-            <RouterLink
+            <router-link
               to="/impact"
               class="block py-4 hover:text-[#087bb4]"
               @click="closeMenu"
-              >Impact</RouterLink
+              >Impact</router-link
             >
           </li>
           <li>
-            <RouterLink
+            <router-link
               to="/game-zone"
               class="block py-4 hover:text-[#087bb4]"
               @click="closeMenu"
-              >Game zone</RouterLink
+              >Game zone</router-link
             >
           </li>
           <li v-if="userSession">

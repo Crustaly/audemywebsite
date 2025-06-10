@@ -1,5 +1,9 @@
 <template>
   <ScrollUpButton />
+  <div v-if="isLoading" class="loading-overlay">
+    <div class="spinner"></div>
+    <p>Loading...</p>
+  </div>
   <div
     :class="[
       'relative',
@@ -68,6 +72,7 @@
               First Name
             </label>
             <input
+              v-model="firstName"
               type="text"
               class="outline-none border border-black h-[48px] px-4 rounded-[8px] w-[80%]"
               id="first_name"
@@ -80,6 +85,7 @@
               Last Name
             </label>
             <input
+              v-model="lastName"
               type="text"
               class="outline-none border border-black h-[48px] px-4 rounded-[8px] w-[80%]"
               id="last_name"
@@ -94,6 +100,7 @@
             School
           </label>
           <input
+            v-model="schoolName"
             type="text"
             class="w-[80%] outline-none border border-black h-[48px] px-4 rounded-[8px]"
             id="school_name"
@@ -107,6 +114,7 @@
             >Email</label
           >
           <input
+            v-model="email"
             type="email"
             class="w-[80%] outline-none border border-black h-[48px] px-4 rounded-[8px]"
             id="email"
@@ -175,6 +183,15 @@
             </a>
           </div>
         </div>
+        <!-- ERROR MESSAGES -->
+        <div class="mt-8 mb-3" v-if="errors">
+          <div
+            class="bg-red-100 border-red-500 text-red-800 mb-6 p-3 ml-[10%] rounded-lg border-2 shadow-md min-h-[56px] text-base font-medium w-[80%]"
+            role="alert"
+          >
+            <p>{{ errorMessage }}</p>
+          </div>
+        </div>
         <!-- GET STARTED BTN -->
         <div class="mt-[40px] mb-[40px] w-full">
           <button
@@ -207,20 +224,46 @@ import { ref, watch, onMounted, computed } from 'vue';
 const signupForm = ref(null);
 const passwordsMatch = ref(false);
 const showFeedback = ref(true);
+const firstName = ref('');
+const lastName = ref('');
+const schoolName = ref('');
+const email = ref('');
 const password = ref('');
 const confirmPassword = ref('');
 const confirmTouched = ref(false);
 const formSubmitted = ref(false);
 const debugMessage = ref('Please confirm your password');
+const isLoading = ref(false);
+const errors = ref(false);
+const errorMessage = ref(
+  'An unexpected error occurred. Please try again later.'
+);
 
 import Cookies from 'js-cookie';
 
 const showErrorAlert = (message) => {
-  alert(message); // Using standard alert for simplicity
+  errors.value = true;
+  errorMessage.value = message;
+  setTimeout(() => {
+    errors.value = false;
+  }, 5000);
 };
 
 const submitForm = async (event) => {
   event.preventDefault(); // Prevent default form submission behavior
+
+  if (
+    !firstName.value ||
+    !lastName.value ||
+    !schoolName.value ||
+    !email.value ||
+    !password.value ||
+    !confirmPassword.value
+  ) {
+    showErrorAlert('Please fill in required fields');
+    resetErrors();
+    return;
+  }
 
   // Set formSubmitted to true
   formSubmitted.value = true;
@@ -231,8 +274,11 @@ const submitForm = async (event) => {
   // Check if passwords match
   if (!passwordsMatch.value) {
     debugMessage.value = "Form submission stopped: passwords don't match";
+    showErrorAlert('Passwords do not match. Please try again.');
     return;
   }
+
+  isLoading.value = true; // Show loading UI
 
   try {
     const response = await fetch('/api/auth/signup', {
@@ -242,71 +288,104 @@ const submitForm = async (event) => {
       },
       body: JSON.stringify({
         user: {
-          first_name: signupForm.value.first_name.value,
-          last_name: signupForm.value.last_name.value,
+          first_name: first_name.value,
+          last_name: last_name.value,
           // birthday: signupForm.value.birthday.value,
-          school_name: signupForm.value.school_name.value,
-          email: signupForm.value.email.value,
-          password: signupForm.value.password.value,
-          confirm_password: signupForm.value.confirm_password.value,
+          school_name: school_name.value,
+          email: email.value,
+          password: password.value,
+          confirm_password: confirm_password.value,
         },
       }),
     });
 
     if (!response.ok) {
-      // For non-JSON responses, try to get text content
       const contentType = response.headers.get('content-type');
-      if (!contentType || !contentType.includes('application/json')) {
+      let extractedMessage = 'An unexpected error occurred. Please try again.';
+      let parsedData = null; // To hold the parsed JSON object if successful
+
+      if (contentType && contentType.includes('application/json')) {
+        // If it's JSON, try to parse it
+        try {
+          parsedData = await response.json();
+          extractedMessage =
+            parsedData.error ||
+            parsedData.message ||
+            `Server error (JSON): Status ${response.status}`;
+        } catch (e) {
+          // 5. If JSON parsing fails (e.g., malformed JSON), set a specific message
+          extractedMessage = `Could not parse server response (expected JSON). Status: ${response.status}`;
+        }
+      } else {
+        // If it's not JSON, handle as text
         const errorText = await response.text();
         console.error('Non-JSON error response:', errorText);
+        try {
+          parsedData = JSON.parse(errorText);
+          extractedMessage =
+            parsedData.error || parsedData.message || errorText;
+        } catch (e) {
+          extractedMessage =
+            errorText.trim() !== ''
+              ? errorText
+              : `Server error (text): Status ${response.status}`;
+        }
       }
 
       // Now handle based on status code
       switch (response.status) {
         case 400:
-          showErrorAlert('Bad request: Please check your input');
+          showErrorAlert(
+            extractedMessage || 'Bad request: Please check your input'
+          );
           break;
         case 401:
-          showErrorAlert('Unauthorized: Invalid credentials');
+          showErrorAlert(
+            extractedMessage || 'Unauthorized: Invalid credentials'
+          );
           break;
         case 403:
           showErrorAlert(
-            "Forbidden: You don't have permission to access this resource"
+            extractedMessage ||
+              "Forbidden: You don't have permission to access this resource"
           );
           break;
         case 404:
-          showErrorAlert('Resource not found');
+          showErrorAlert(extractedMessage || 'Resource not found');
           break;
         case 405:
-          showErrorAlert('Method not allowed');
+          showErrorAlert(extractedMessage || 'Method not allowed');
           break;
         case 429:
-          showErrorAlert('Too many requests: Please try again later');
+          showErrorAlert(
+            extractedMessage || 'Too many requests: Please try again later'
+          );
           break;
         case 500:
-          showErrorAlert('Internal server error. Please try again later.');
+          showErrorAlert(
+            extractedMessage || 'Internal server error. Please try again later.'
+          );
           break;
         case 502:
-          showErrorAlert('Internal server error. Please try again later.');
+          showErrorAlert(
+            extractedMessage || 'Internal server error. Please try again later.'
+          );
           break;
         case 503:
-          showErrorAlert('Internal server error. Please try again later.');
+          showErrorAlert(
+            extractedMessage || 'Internal server error. Please try again later.'
+          );
           break;
         case 504:
-          showErrorAlert('Internal server error. Please try again later.');
+          showErrorAlert(
+            extractedMessage || 'Internal server error. Please try again later.'
+          );
           break;
         default:
           // Try to get error message from response if it's JSON
-          let errorMessage = 'Something went wrong';
-          if (contentType && contentType.includes('application/json')) {
-            try {
-              const data = await response.json();
-              errorMessage = data.error || errorMessage;
-            } catch (e) {
-              console.error('Error parsing JSON:', e);
-            }
-          }
-          alert(`Signup error: ${errorMessage}`);
+          showErrorAlert(
+            extractedMessage || `Unexpected error: Status ${response.status}`
+          );
       }
 
       // Instead of throwing an error, just return to stop execution
@@ -372,7 +451,9 @@ const submitForm = async (event) => {
           break;
         default:
           alert(
-            `Login error: ${(loginData && loginData.error) || 'Something went wrong'}`
+            `Login error: ${
+              (loginData && loginData.error) || 'Something went wrong'
+            }`
           );
       }
 
@@ -398,6 +479,8 @@ const submitForm = async (event) => {
     console.error('Error:', error.message);
     // Only show error alert if it hasn't been shown by the code above
     showErrorAlert(`Error: ${error.message}`);
+  } finally {
+    isLoading.value = false; // Hide loading UI
   }
 };
 
@@ -510,6 +593,20 @@ form label {
 
 form input {
   margin-bottom: 20px;
+}
+
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
 }
 
 /* * * * * Large Devices (≥1025px) * * * * */

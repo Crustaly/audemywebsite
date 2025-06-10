@@ -1516,11 +1516,11 @@ onMounted(() => {
     </div>
 
     <div>
-      <RouterLink
+      <router-link
         id="play-home-button"
         onclick="window.location.reload()"
         to="/"
-        >Home</RouterLink
+        >Home</router-link
       >
     </div>
   </div>
