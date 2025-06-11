@@ -16,10 +16,16 @@ const items = [
     url: 'https://www.intel.com/content/www/us/en/corporate/artificial-intelligence/winners2024.html',
   },
   {
-    image: 'NPR-student-developes-app.png',
+    image: 'PBS-student-developes-app.png',
     text: 'High School teen Crystal Yang tells us about Audemy, an app she created for the blind',
-    author: '-- By NPR',
+    author: '-- By PBS',
     url: 'https://www.youtube.com/watch?v=-Cd82j8v7Dc&ab_channel=HoustonPublicMedia',
+  },
+  {
+    image: 'NPR-app.jpg',
+    text: 'Audemy, an educational platform for blind and visually impaired students.',
+    author: '-- By NPR',
+    url: 'https://www.houstonpublicmedia.org/articles/shows/hello-houston/2025/06/10/523583/hello-houston-june-10-2025/',
   },
   {
     image: 'acm-chi-2025.png',
