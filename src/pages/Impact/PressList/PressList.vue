@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted, onUnmounted, ref } from 'vue';
+import { onMounted, onUnmounted, ref, watch } from 'vue';
 import PressListCard from './PressListCard.vue';
 
 const items = [
@@ -16,6 +16,18 @@ const items = [
     url: 'https://www.intel.com/content/www/us/en/corporate/artificial-intelligence/winners2024.html',
   },
   {
+    image: 'PBS-student-developes-app.png',
+    text: 'High School teen Crystal Yang tells us about Audemy, an app she created for the blind',
+    author: '-- By PBS',
+    url: 'https://www.youtube.com/watch?v=-Cd82j8v7Dc&ab_channel=HoustonPublicMedia',
+  },
+  {
+    image: 'NPR-app.jpg',
+    text: 'Audemy, an educational platform for blind and visually impaired students.',
+    author: '-- By NPR',
+    url: 'https://www.houstonpublicmedia.org/articles/shows/hello-houston/2025/06/10/523583/hello-houston-june-10-2025/',
+  },
+  {
     image: 'acm-chi-2025.png',
     text: 'AI for Accessible Education: Personalized Audio-Based Learning for Blind Students',
     author: '-- By ACM CHI 2025 (Research Publication)',
@@ -30,7 +42,7 @@ const items = [
   {
     image: 'houstonhappens.png',
     text: 'Stay motivated during the school year with Houston Happens!',
-    author: '-- By CW39 Houston',
+    author: '-- By The CW',
     url: 'https://www.youtube.com/watch?v=7y_vTaRb6Mc&t=2382s',
   },
   {
@@ -78,10 +90,32 @@ const items = [
 ];
 
 let smallScreen = ref(window.innerWidth <= 450);
+let showAll = ref(false);
 
 const updateScreenWidth = () => {
   smallScreen.value = window.innerWidth <= 450;
 };
+
+const toggleShowAll = () => {
+  showAll.value = !showAll.value;
+};
+
+const getInitialDisplayCount = () => {
+  return smallScreen.value ? 4 : 8;
+};
+
+const displayedItems = ref(items.slice(0, getInitialDisplayCount()));
+
+const updateDisplayedItems = () => {
+  if (showAll.value) {
+    displayedItems.value = items;
+  } else {
+    const initialCount = getInitialDisplayCount();
+    displayedItems.value = items.slice(0, initialCount);
+  }
+};
+
+watch([showAll, smallScreen], updateDisplayedItems);
 
 onMounted(() => {
   window.addEventListener('resize', updateScreenWidth);
@@ -122,9 +156,17 @@ onUnmounted(() => {
         >
           <div
             id="div_about_us"
-            class="grid gap-6 mt-[40px] tablet:mt-[72px] mb-[63px] w-full grid-cols-4 tablet:grid-cols-3 mobile:grid-cols-1"
+            class="grid gap-6 mt-[40px] tablet:mt-[72px] mb-[32px] w-full grid-cols-4 mobile:grid-cols-2 transition-all duration-500 ease-in-out"
           >
-            <div v-for="(item, index) in items" :key="index" class="flex">
+            <div 
+              v-for="(item, index) in displayedItems" 
+              :key="index" 
+              class="flex transition-all duration-300 ease-in-out"
+              :class="{ 
+                'opacity-0 translate-y-4': (smallScreen ? index >= 4 : index >= 8) && !showAll,
+                'opacity-100 translate-y-0': showAll || (smallScreen ? index < 4 : index < 8)
+              }"
+            >
               <div class="flex flex-col h-full w-full min-h-[300px] mb-3">
                 <div class="flex justify-center w-full">
                   <div class="w-full px-4">
@@ -133,12 +175,23 @@ onUnmounted(() => {
                       :text="item.text"
                       :author="item.author"
                       :smallScreen="smallScreen"
+                      :url="item.url"
                       class="h-full"
                     />
                   </div>
                 </div>
               </div>
             </div>
+          </div>
+
+          <!-- Show More/Less Button -->
+          <div class="flex justify-center mb-[31px]">
+            <button
+              @click="toggleShowAll"
+              class="w-[244px] mobile:w-auto font-poppins font-semibold px-[4.20rem] py-4 border-[1.5px] border-[#0C0D0D] rounded-[8px] bg-primary-color hover:bg-[#0C587D] duration-300 text-base text-white shadow-[3px_4px_0px_#0C0D0D]"
+              >
+              {{ showAll ? 'Show Less' : 'See More' }}
+            </button>
           </div>
         </div>
       </div>
