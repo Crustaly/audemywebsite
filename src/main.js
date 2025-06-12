@@ -5,7 +5,6 @@ import './style.css';
 // import GoogleSignInPlugin from "vue3-google-signin";
 import vue3GoogleLogin from 'vue3-google-login';
 
-// This will create the Vue application instance
 const app = createApp(App);
 
 app.use(vue3GoogleLogin, {
