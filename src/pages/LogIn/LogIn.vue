@@ -1,9 +1,6 @@
 <template>
   <ScrollUpButton />
-  <div
-    v-if="isLoading"
-    class="fixed inset-0 w-full h-full bg-white bg-opacity-80 flex flex-col justify-center items-center z-[9999]"
-  >
+  <div v-if="isLoading" class="loading-overlay">
     <p>Loading...</p>
   </div>
   <div
