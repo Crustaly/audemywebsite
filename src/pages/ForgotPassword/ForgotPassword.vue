@@ -3,9 +3,6 @@ import Banner from '../../components/AccountPages/Banner.vue';
 import Header from '../../components/Header/Header.vue';
 import Footer from '../../components/Footer/Footer.vue';
 
-import { useDeviceType } from '../../Utilities/checkDeviceType';
-const { isMobile, isTablet } = useDeviceType();
-
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 
@@ -19,6 +16,12 @@ const { errors, errorMessage, showErrorAlert } = useErrorAlert();
 const sendResetEmail = async (event) => {
   // prevent default form submission which would reload the page
   event.preventDefault();
+
+  if (!email.value) {
+    showErrorAlert('Email is required to send reset link.');
+    return;
+  }
+
   console.log('Sending reset email to:', email.value);
 
   isLoading.value = true; // Show loading UI
@@ -98,33 +101,17 @@ const sendResetEmail = async (event) => {
 </script>
 
 <template>
-  <div
-    v-if="isLoading"
-    class="fixed inset-0 w-full h-full bg-white bg-opacity-80 flex flex-col justify-center items-center z-[9999]"
-  >
-    <p>Loading...</p>
-  </div>
-  <div
-    :class="[
-      'relative',
-      !isTablet && !isMobile ? 'px-14' : '',
-      isTablet ? 'px-6' : '',
-      isMobile ? 'px-8' : '',
-    ]"
-    ref="content"
-  >
+  <div v-if="isLoading" class="loading-overlay">Loading...</div>
+  <div class="page-container" ref="content">
     <Header :logoPath="'/assets/images/header/header-logo-2.png'" />
   </div>
   <div
     id="forgot-pw-container"
-    :class="[
-      !isTablet && !isMobile ? 'px-20' : '',
-      isTablet ? 'px-10' : '',
-      isMobile ? 'px-5' : '',
-    ]"
+    class="content-container lg:grid lg:grid-cols-3"
   >
     <Banner
       id="forgot-pw-banner"
+      class="lg:col-span-1 lg:h-full"
       :CarlImgPath="'/assets/images/impact/globe-icon.svg'"
       :isImageWide="false"
       bgColor="#B1C7D0"
@@ -133,31 +120,23 @@ const sendResetEmail = async (event) => {
     />
     <div
       id="forgot-pw-form-container"
-      class="pt-[20px] pb-[20px] mb-[40px] mt-[40px] text-center"
-      :class="[!isTablet && !isMobile ? 'mt-[0px] mb-[0px]' : '']"
+      class="form-container-view-height lg:col-span-2 lg:pb-[50px]"
     >
-      <h1 class="text-[#151E22] mobile:text-[28px] text-[35px]">
-        Let's reset your password
-      </h1>
+      <h1 class="form-title">Let's reset your password</h1>
       <br />
-      <p class="w-[80%] ml-[10%]">
+      <p class="form-description">
         Enter the email associated with your account and we’ll send you a link
         to reset your password.
       </p>
       <!-- FORGOT PASSWORD FORM -->
-      <form
-        @submit="sendResetEmail"
-        method="post"
-        class="w-[80%] ml-[10%] mt-[20px] pt-[20px] pb-[20px]"
-      >
+      <form @submit="sendResetEmail" method="post" class="form-wrapper">
+        <!-- EMAIL INPUT -->
         <div>
-          <label class="block text-[#0C0D0D] font-semibold" for="email">
-            Email Address
-          </label>
+          <label class="form-label" for="email"> Email Address </label>
           <input
             v-model="email"
             type="email"
-            class="w-full outline-none border border-black h-[48px] px-4 rounded-[8px]"
+            class="form-input-full"
             id="email"
             name="email"
             placeholder="Enter your email address"
@@ -166,34 +145,20 @@ const sendResetEmail = async (event) => {
         </div>
         <!-- ERROR MESSAGES -->
         <div class="mt-8 mb-3" v-if="errors">
-          <div
-            class="bg-red-100 border-red-500 text-red-800 mb-6 p-3 ml-[10%] rounded-lg border-2 shadow-md min-h-[56px] text-base font-medium w-[80%]"
-            role="alert"
-          >
+          <div class="error-message" role="alert">
             <p>{{ errorMessage }}</p>
           </div>
         </div>
         <!-- RETURN TO LOGIN OPTION -->
-        <div
-          id="login-grid"
-          class="text-[16px] font-semibold text-[#0C0D0D] mobile:text-[14px] mobile:px-4"
-        >
-          <p id="login-caption" class="mt-[10px] mb-[10px]">Return to Login?</p>
-          <div id="login-link">
-            <a
-              href="login"
-              class="text-[#087BB4] w-auto hover:text-[#0C587D] underline"
-            >
-              Log in
-            </a>
+        <div class="auth-grid">
+          <p class="auth-grid-caption">Return to Login?</p>
+          <div class="auth-grid-link">
+            <a href="login" class="auth-link">Log in</a>
           </div>
         </div>
         <!-- SUBMIT BUTTON -->
-        <div class="mt-[40px] mb-[40px] w-full">
-          <button
-            type="submit"
-            class="h-[55px] w-[280px] font-semibold text-white rounded-[8px] bg-[#087BB4] hover:bg-[#0C587D] hover:cursor-pointer border-2 border-black font-semibold shadow-[4px_4px_0px_black]"
-          >
+        <div class="form-action-container">
+          <button type="submit" class="primary-button">
             Send link to email
           </button>
         </div>
@@ -202,60 +167,3 @@ const sendResetEmail = async (event) => {
   </div>
   <Footer />
 </template>
-
-<style scoped>
-/* * * * * Default: Mobile view (max-width: 639px) * * * * */
-label {
-  margin-bottom: 5px;
-  text-align: left;
-  width: 80%;
-}
-
-input {
-  margin-bottom: 20px;
-}
-
-#login-grid {
-  display: grid;
-  grid-template-columns: auto auto;
-  padding: 0;
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-
-#login-caption,
-#login-link {
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-
-#login-caption {
-  grid-column: 1;
-  text-align: left;
-}
-
-#login-link {
-  grid-column: 2;
-  text-align: right;
-}
-
-/* * * * * Large Devices (≥1025px) * * * * */
-@media only screen and (min-width: 1025px) {
-  #forgot-pw-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
-  }
-
-  #forgot-pw-banner {
-    grid-area: 1 / span 1;
-    height: 100%;
-  }
-
-  #forgot-pw-form-container {
-    margin-top: 0px;
-    margin-bottom: 0px;
-    grid-area: 1 / span 2;
-    padding-bottom: 50px;
-  }
-}
-</style>
