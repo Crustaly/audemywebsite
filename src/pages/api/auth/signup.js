@@ -56,7 +56,9 @@ export default async function handler(req, res) {
       where: { email },
     });
     if (existingUser) {
-      return res.status(400).json({ error: 'User already exists' });
+      return res
+        .status(400)
+        .json({ error: 'User already exists. Please use Log In page.' });
     }
 
     // Hash password
