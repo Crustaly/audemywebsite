@@ -3,9 +3,6 @@ import Banner from '../../components/AccountPages/Banner.vue';
 import Header from '../../components/Header/Header.vue';
 import Footer from '../../components/Footer/Footer.vue';
 
-import { useDeviceType } from '../../Utilities/checkDeviceType';
-const { isMobile, isTablet } = useDeviceType();
-
 import { useRouter } from 'vue-router';
 const router = useRouter();
 
@@ -16,27 +13,16 @@ const toGameZone = () => {
 </script>
 
 <template>
-  <div
-    :class="[
-      'relative',
-      !isTablet && !isMobile ? 'px-14' : '',
-      isTablet ? 'px-6' : '',
-      isMobile ? 'px-8' : '',
-    ]"
-    ref="content"
-  >
+  <div class="page-container" ref="content">
     <Header :logoPath="'/assets/images/header/header-logo-2.png'" />
   </div>
   <div
     id="page-not-found-container"
-    :class="[
-      !isTablet && !isMobile ? 'px-20' : '',
-      isTablet ? 'px-10' : '',
-      isMobile ? 'px-5' : '',
-    ]"
+    class="content-container lg:grid lg:grid-cols-3"
   >
     <Banner
       id="page-not-found-banner"
+      class="lg:col-span-1 lg:h-full"
       :CarlImgPath="'/assets/images/impact/globe-icon.svg'"
       :isImageWide="false"
       bgColor="#B1C7D0"
@@ -45,25 +31,15 @@ const toGameZone = () => {
     />
     <div
       id="page-not-found-form-container"
-      class="pt-[20px] pb-[20px] mb-[40px] mt-[40px] text-center"
-      :class="[!isTablet && !isMobile ? 'mt-[0px] mb-[0px]' : '']"
+      class="form-container-view-height lg:col-span-2 lg:pb-[50px]"
     >
-      <h1 class="text-[#151E22] mobile:text-[28px] text-[35px]">
-        404: Oops! Page doesn't exist!
-      </h1>
+      <h1 class="form-title">404: Oops! Page doesn't exist!</h1>
       <br />
-      <p class="w-[80%] ml-[10%]">Please try again, or check your URL.</p>
+      <p class="form-description">Please try again, or check your URL.</p>
       <!-- RETURN TO GAME ZONE FORM -->
-      <form
-        @submit="toGameZone"
-        method="post"
-        class="w-[80%] ml-[10%] mt-[20px] pt-[20px] pb-[20px]"
-      >
-        <div class="mt-[40px] mb-[40px] w-full">
-          <button
-            type="submit"
-            class="h-[55px] w-[280px] font-semibold text-white rounded-[8px] bg-[#087BB4] hover:bg-[#0C587D] hover:cursor-pointer border-2 border-black font-semibold shadow-[4px_4px_0px_black]"
-          >
+      <form @submit="toGameZone" method="post" class="form-wrapper">
+        <div class="form-action-container">
+          <button type="submit" class="primary-button">
             Return to Game Zone
           </button>
         </div>
@@ -72,25 +48,3 @@ const toGameZone = () => {
   </div>
   <Footer />
 </template>
-
-<style scoped>
-/* * * * * Large Devices (≥1025px) * * * * */
-@media only screen and (min-width: 1025px) {
-  #page-not-found-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
-  }
-
-  #page-not-found-banner {
-    grid-area: 1 / span 1;
-    height: 100%;
-  }
-
-  #page-not-found-form-container {
-    margin-top: 0px;
-    margin-bottom: 0px;
-    grid-area: 1 / span 2;
-    padding-bottom: 50px;
-  }
-}
-</style>

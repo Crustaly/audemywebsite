@@ -7,7 +7,3 @@
 /* * {
   outline: red 1px solid;
 } */
-
-.loading-overlay {
-  @apply fixed inset-0 w-full h-full bg-white bg-opacity-80 flex flex-col justify-center items-center z-[9999];
-}

@@ -1,29 +1,13 @@
 <template>
   <ScrollUpButton />
-  <div v-if="isLoading" class="loading-overlay">
-    <p>Loading...</p>
-  </div>
-  <div
-    :class="[
-      'relative',
-      !isTablet && !isMobile ? 'px-14' : '',
-      isTablet ? 'px-6' : '',
-      isMobile ? 'px-8' : '',
-    ]"
-    ref="content"
-  >
+  <div v-if="isLoading" class="loading-overlay">Loading...</div>
+  <div class="page-container" ref="content">
     <Header :logoPath="'/assets/images/header/header-logo-2.png'" />
   </div>
-  <div
-    id="login-container"
-    :class="[
-      !isTablet && !isMobile ? 'px-20' : '',
-      isTablet ? 'px-10' : '',
-      isMobile ? 'px-5' : '',
-    ]"
-  >
+  <div id="login-container" class="content-container lg:grid lg:grid-cols-3">
     <Banner
       id="login-banner"
+      class="lg:col-span-1 lg:h-full"
       :CarlImgPath="'/assets/images/LoginImg/logo-icon.svg'"
       bgColor="#f5bc8d"
       curveColor="#f8cba6"
@@ -33,37 +17,24 @@
     <div
       v-if="!userSession && !showSchoolForm"
       id="login-form-container"
-      class="pt-[20px] pb-[20px] mb-[40px] mt-[40px] text-center"
-      :class="[!isTablet && !isMobile ? 'mt-[0px] mb-[0px]' : '']"
+      class="form-container-view-height lg:mt-0 lg:mb-0 lg:col-span-2 lg:pb-[50px]"
     >
-      <h1 class="text-[#151E22] mobile:text-[28px] text-[35px]">
-        Hi there, welcome back!
-      </h1>
+      <h1 class="form-title">Hi there, welcome back!</h1>
       <!-- LOG IN FORM -->
-      <form
-        ref="loginForm"
-        @submit="login"
-        method="post"
-        class="w-[80%] ml-[10%] mt-[20px] pt-[20px] pb-[20px]"
-      >
+      <form ref="loginForm" @submit="login" method="post" class="form-wrapper">
         <!-- ERROR MESSAGES -->
-        <div class="mt-8 mb-3" v-if="errors">
-          <div
-            class="bg-red-100 border-red-500 text-red-800 mb-6 p-3 ml-[10%] rounded-lg border-2 shadow-md min-h-[56px] text-base font-medium w-[80%]"
-            role="alert"
-          >
+        <div class="form-error-wrapper" v-if="errors">
+          <div class="error-message" role="alert">
             <p>{{ errorMessage }}</p>
           </div>
         </div>
         <!-- EMAIL FIELD -->
         <div>
-          <label class="block text-[#0C0D0D] font-semibold" for="email">
-            Email Address
-          </label>
+          <label class="form-label" for="email"> Email Address </label>
           <input
             v-model="email"
             type="email"
-            class="w-full outline-none border border-black h-[48px] px-4 rounded-[8px]"
+            class="form-input-full"
             id="email"
             name="email"
             placeholder="Enter your email address"
@@ -72,15 +43,12 @@
         </div>
         <!-- PASSWORD FIELD -->
         <div>
-          <div id="forgot-password-grid">
-            <label for="password" class="text-[#0C0D0D] font-semibold">
+          <div class="grid grid-cols-2">
+            <label for="password" class="form-label col-start-1">
               Password
             </label>
-            <div id="forgot-password-link">
-              <a
-                href="./forgot-password"
-                class="text-[#087BB4] hover:text-[#0C587D] underline font-medium"
-              >
+            <div class="mb-[5px] col-start-2 text-right my-auto">
+              <a href="./forgot-password" class="auth-link">
                 Forgot password?
               </a>
             </div>
@@ -88,52 +56,32 @@
           <input
             v-model="password"
             type="password"
-            class="w-full outline-none border border-black h-[48px] px-4 rounded-[8px]"
+            class="form-input-full"
             id="password"
             name="password"
             placeholder="Enter your password"
           />
         </div>
         <!-- OPTIONAL SIGN UP GRID -->
-        <div
-          id="signup-grid"
-          class="text-[16px] font-semibold mobile:text-[14px] mobile:px-4"
-        >
-          <p id="signup-caption" class="text-[#0C0D0D]">New to Audemy?</p>
-          <div id="signup-link">
-            <a
-              href="signup"
-              class="text-[#087BB4] w-auto hover:text-[#0C587D] underline"
-            >
-              Sign Up
-            </a>
+        <div class="auth-grid">
+          <p class="auth-grid-caption">New to Audemy?</p>
+          <div class="auth-grid-link">
+            <a href="signup" class="auth-link"> Sign Up </a>
           </div>
         </div>
         <!-- GET STARTED BTN -->
-        <div class="mt-[40px] mb-[40px] w-full">
-          <button
-            type="submit"
-            class="h-[55px] w-[280px] py-3 font-bold rounded-[8px] bg-[#FE892A] hover:bg-[#ff8d33] border-2 border-black shadow-[4px_4px_0px_black] text-black"
-          >
-            Log in
-          </button>
+        <div class="form-action-container">
+          <button type="submit" class="secondary-button">Log in</button>
         </div>
         <!-- DECORATIVE "OR" DIVIDER -->
-        <div
-          class="flex text-gray-500 w-full justify-center items-center gap-2 mt-4"
-          aria-hidden="true"
-        >
-          <div>
-            <hr class="w-[180px] h-0.5 bg-gray-500 rounded-sm" />
-          </div>
-          <div>or</div>
-          <div>
-            <hr class="w-[180px] h-0.5 bg-gray-500 rounded-sm" />
-          </div>
+        <div class="divider-container" aria-hidden="true">
+          <hr class="divider-line" />
+          <span>or</span>
+          <hr class="divider-line" />
         </div>
         <!-- GOOGLE OAUTH LOG IN -->
         <div
-          class="mt-[20px] pt-[20px] pb-[20px]"
+          class="auth-provider-container"
           aria-label="Google Login"
           aria-labelledby="Google Login"
         >
@@ -145,37 +93,34 @@
     <div
       v-if="showSchoolForm"
       id="school-form-container"
-      class="pt-[20px] pb-[20px] mb-[40px] mt-[40px]"
-      :class="[!isTablet && !isMobile ? 'mt-[0px] mb-[0px]' : '']"
+      class="form-container-view-height lg:mt-0 lg:mb-0 lg:col-span-2 lg:pb-[50px]"
     >
       <form
         @submit.prevent="updateSchool"
         ref="schoolForm"
         method="post"
-        class="w-[80%] ml-[10%] mt-[20px] pt-[20px] pb-[20px]"
+        class="form-wrapper"
       >
-        <h1 class="text-[#151E22] mobile:text-[28px] text-[35px] text-center">
-          Enter Your School
-        </h1>
+        <h1 class="form-title text-center">Enter Your School</h1>
+        <!-- ERROR MESSAGES -->
+        <div class="form-error-wrapper" v-if="errors">
+          <div class="error-message" role="alert">
+            <p>{{ errorMessage }}</p>
+          </div>
+        </div>
+        <!-- SCHOOL NAME FIELD -->
         <div id="school-form">
-          <label for="school" class="text-[#0C0D0D] font-semibold">
-            School
-          </label>
+          <label for="school" class="form-label"> School </label>
           <input
             v-model="school"
             type="text"
             name="school"
             id="school"
-            class="w-full outline-none border border-black h-[48px] px-4 rounded-[8px]"
+            class="form-input-full"
             placeholder="Enter your school's name"
           />
-          <div class="mt-[40px] mb-[40px] w-full text-center">
-            <button
-              type="submit"
-              class="h-[55px] w-[280px] py-3 font-bold rounded-[8px] text-white bg-[#087BB4] hover:bg-[#0C587D] hover:cursor-pointer border-2 border-black font-semibold shadow-[4px_4px_0px_black]"
-            >
-              Submit
-            </button>
+          <div class="form-action-container">
+            <button type="submit" class="primary-button">Submit</button>
           </div>
         </div>
       </form>
@@ -190,9 +135,6 @@ import Header from '../../components/Header/Header.vue';
 import Footer from '../../components/Footer/Footer.vue';
 import ScrollUpButton from '../../components/ScrollUpButton/ScrollUpButton.vue';
 import Banner from '../../components/AccountPages/Banner.vue';
-
-import { useDeviceType } from '../../Utilities/checkDeviceType';
-const { isMobile, isTablet } = useDeviceType();
 
 import { ref, onMounted } from 'vue';
 import { GoogleLogin } from 'vue3-google-login';
@@ -400,7 +342,14 @@ const callback = async (response) => {
 };
 
 const updateSchool = async () => {
+  if (!school.value) {
+    handleApiError(400, 'School name is required');
+    resetErrors();
+    return;
+  }
+
   isLoading.value = true; // Show loading UI
+
   try {
     await handleSchoolUpdate(
       school,
@@ -425,72 +374,3 @@ const logout = () => {
   router.push('/login');
 };
 </script>
-
-<style scoped>
-/* * * * * Default: Mobile view (max-width: 639px) * * * * */
-
-label {
-  margin-bottom: 5px;
-  text-align: left;
-  width: 80%;
-}
-
-input {
-  margin-bottom: 20px;
-}
-
-#signup-grid,
-#forgot-password-grid {
-  display: grid;
-  grid-template-columns: auto auto;
-}
-
-#signup-caption,
-#signup-link {
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-
-#signup-grid {
-  padding: 0;
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-
-#signup-caption,
-#forgot-password-grid label {
-  grid-column: 1;
-  text-align: left;
-}
-
-#forgot-password-link {
-  margin-bottom: 5px; /* to align with Password label */
-}
-
-#signup-link,
-#forgot-password-link {
-  grid-column: 2;
-  text-align: right;
-}
-
-/* * * * * Large Devices (≥1025px) * * * * */
-@media only screen and (min-width: 1025px) {
-  #login-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
-  }
-
-  #login-banner {
-    grid-area: 1 / span 1;
-    height: 100%;
-  }
-
-  #login-form-container,
-  #school-form-container {
-    margin-top: 0px;
-    margin-bottom: 0px;
-    grid-area: 1 / span 2;
-    padding-bottom: 50px;
-  }
-}
-</style>
