@@ -29,9 +29,11 @@
       :CarlImgPath="'/assets/images/SignUpImg/signup-carl.png'"
       bgColor="#B1C7D0"
       curveColor="#E5F0F5"
+      :isPageShort="showSchoolForm"
     />
     <!-- SIGN UP FORM -->
     <div
+      v-if="!userSession && !showSchoolForm"
       id="signup-form-container"
       class="pt-[20px] pb-[20px] mb-[40px] mt-[40px] text-center"
       :class="[!isTablet && !isMobile ? 'mt-[0px] mb-[0px]' : '']"
@@ -40,7 +42,7 @@
         Sign up to get started!
       </h1>
 
-      <!-- Google OAuth Login -->
+      <!-- Google OAUTH OPTION -->
       <div
         class="mt-[20px] pt-[20px] pb-[20px]"
         aria-label="Google Login"
@@ -48,8 +50,7 @@
       >
         <GoogleLogin :callback="callback" />
       </div>
-
-      <!-- Decorative "or" Divider -->
+      <!-- DECORATIVE "OR" DIVIDER -->
       <div
         class="flex text-gray-500 w-full justify-center items-center gap-2 mt-4"
         aria-hidden="true"
@@ -62,13 +63,21 @@
           <hr class="w-[180px] h-0.5 bg-gray-500 rounded-sm" />
         </div>
       </div>
-
       <!-- FORM FIELD -->
-      <form ref="signupForm" class="mt-[20px] pt-[20px] pb-[20px]">
+      <form
+        ref="signupForm"
+        @submit="submitForm"
+        method="post"
+        class="w-[80%] mt-[20px] ml-[10%] pt-[20px] pb-[20px]"
+        id="signup-form"
+      >
         <!-- FIRST & LAST NAME -->
         <div id="full-name-grid">
           <div id="first-name-fields">
-            <label class="block text-[#0C0D0D] font-semibold" for="first_name">
+            <label
+              class="ml-[10%] block text-[#0C0D0D] font-semibold"
+              for="first_name"
+            >
               First Name
             </label>
             <input
@@ -81,7 +90,10 @@
             />
           </div>
           <div id="last-name-fields">
-            <label class="block text-[#0C0D0D] font-semibold" for="last_name">
+            <label
+              class="ml-[10%] block text-[#0C0D0D] font-semibold"
+              for="last_name"
+            >
               Last Name
             </label>
             <input
@@ -96,7 +108,10 @@
         </div>
         <!-- SCHOOL FIELD -->
         <div class="w-full">
-          <label for="school_name" class="block text-[#0C0D0D] font-semibold">
+          <label
+            for="school_name"
+            class="ml-[10%] block text-[#0C0D0D] font-semibold"
+          >
             School
           </label>
           <input
@@ -110,9 +125,12 @@
         </div>
         <!-- EMAIL FIELD -->
         <div class="w-full">
-          <label class="block text-[#0C0D0D] font-semibold" for="email"
-            >Email</label
+          <label
+            class="ml-[10%] block text-[#0C0D0D] font-semibold"
+            for="email"
           >
+            Email
+          </label>
           <input
             v-model="email"
             type="email"
@@ -124,7 +142,10 @@
         </div>
         <!-- PASSWORD FIELD -->
         <div class="w-full">
-          <label for="password" class="block text-[#0C0D0D] font-semibold">
+          <label
+            for="password"
+            class="ml-[10%] block text-[#0C0D0D] font-semibold"
+          >
             Password
           </label>
           <input
@@ -141,7 +162,7 @@
         <div class="mb-[16px] mobile:w-full relative">
           <label
             for="confirm_password"
-            class="block text-[#0C0D0D] font-semibold"
+            class="ml-[10%] block text-[#0C0D0D] font-semibold"
           >
             Confirm Password
           </label>
@@ -195,13 +216,51 @@
         <!-- GET STARTED BTN -->
         <div class="mt-[40px] mb-[40px] w-full">
           <button
-            type="button"
-            @click="submitForm"
+            type="submit"
             class="h-[55px] w-[280px] font-semibold text-white rounded-[8px] bg-[#087BB4] hover:bg-[#0C587D] hover:cursor-pointer border-2 border-black font-semibold shadow-[4px_4px_0px_black]"
             value="Get Started"
           >
             Get Started
           </button>
+        </div>
+      </form>
+    </div>
+    <!-- SHOW SCHOOL FORM FOR FIRST-TIME GOOGLE OAUTH USERS -->
+    <div
+      v-if="showSchoolForm"
+      id="school-form-container"
+      class="pt-[20px] pb-[20px] mb-[40px] mt-[40px]"
+      :class="[!isTablet && !isMobile ? 'mt-[0px] mb-[0px]' : '']"
+    >
+      <form
+        @submit.prevent="updateSchool"
+        ref="schoolForm"
+        method="post"
+        class="w-[80%] ml-[10%] mt-[20px] pt-[20px] pb-[20px]"
+      >
+        <h1 class="text-[#151E22] mobile:text-[28px] text-[35px] text-center">
+          Enter Your School
+        </h1>
+        <div id="school-form">
+          <label for="school" class="text-[#0C0D0D] font-semibold">
+            School
+          </label>
+          <input
+            v-model="school"
+            type="text"
+            name="school"
+            id="school"
+            class="w-full outline-none border border-black h-[48px] px-4 rounded-[8px]"
+            placeholder="Enter your school's name"
+          />
+          <div class="mt-[40px] mb-[40px] w-full text-center">
+            <button
+              type="submit"
+              class="h-[55px] w-[280px] py-3 font-bold rounded-[8px] text-white bg-[#087BB4] hover:bg-[#0C587D] hover:cursor-pointer border-2 border-black font-semibold shadow-[4px_4px_0px_black]"
+            >
+              Submit
+            </button>
+          </div>
         </div>
       </form>
     </div>
@@ -220,6 +279,17 @@ import { useDeviceType } from '../../Utilities/checkDeviceType';
 const { isMobile, isTablet } = useDeviceType();
 
 import { ref, watch, onMounted, computed } from 'vue';
+import { jwtDecode } from 'jwt-decode';
+import { GoogleLogin } from 'vue3-google-login';
+import Cookies from 'js-cookie';
+import { useRouter } from 'vue-router';
+import { handleGoogleCallback, handleSchoolUpdate } from '../api/auth/google';
+
+var OAuthResponse = ref(null);
+const router = useRouter();
+const userProfile = ref(null);
+const userSession = ref(null);
+const showSchoolForm = ref(false); // Control form visibility
 
 const signupForm = ref(null);
 const passwordsMatch = ref(false);
@@ -234,20 +304,9 @@ const confirmTouched = ref(false);
 const formSubmitted = ref(false);
 const debugMessage = ref('Please confirm your password');
 const isLoading = ref(false);
-const errors = ref(false);
-const errorMessage = ref(
-  'An unexpected error occurred. Please try again later.'
-);
 
-import Cookies from 'js-cookie';
-
-const showErrorAlert = (message) => {
-  errors.value = true;
-  errorMessage.value = message;
-  setTimeout(() => {
-    errors.value = false;
-  }, 5000);
-};
+import { useErrorAlert } from '../../Utilities/useErrorAlert';
+const { errors, errorMessage, showErrorAlert } = useErrorAlert();
 
 const submitForm = async (event) => {
   event.preventDefault(); // Prevent default form submission behavior
@@ -484,6 +543,45 @@ const submitForm = async (event) => {
   }
 };
 
+const callback = async (response) => {
+  OAuthResponse = response.credential;
+  isLoading.value = true; // Show loading UI
+
+  try {
+    await handleGoogleCallback(
+      response,
+      userProfile,
+      showSchoolForm,
+      userSession,
+      router
+    );
+  } catch (error) {
+    console.error(error.message);
+    showErrorAlert(error.message);
+  } finally {
+    isLoading.value = false; // Hide loading UI
+  }
+};
+
+const updateSchool = async () => {
+  isLoading.value = true; // Show loading UI
+  try {
+    await handleSchoolUpdate(
+      school,
+      userProfile,
+      OAuthResponse,
+      userSession,
+      showSchoolForm,
+      router
+    );
+  } catch (error) {
+    console.error(error.message);
+    showErrorAlert(error.message);
+  } finally {
+    isLoading.value = false; // Hide loading UI
+  }
+};
+
 const validatePasswords = () => {
   // Always show feedback
   showFeedback.value = true;
@@ -584,14 +682,13 @@ const feedbackClass = computed(() => {
 <style scoped>
 /* * * * * Default: Mobile view (max-width: 639px) * * * * */
 
-form label {
+label {
   margin-bottom: 5px;
   text-align: left;
   width: 80%;
-  margin-left: 10%;
 }
 
-form input {
+input {
   margin-bottom: 20px;
 }
 
@@ -621,7 +718,8 @@ form input {
     height: 100%;
   }
 
-  #signup-form-container {
+  #signup-form-container,
+  #school-form-container {
     margin-top: 0px;
     margin-bottom: 0px;
     grid-area: 1 / span 2;
