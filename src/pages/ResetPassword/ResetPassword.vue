@@ -9,7 +9,6 @@ const { isMobile, isTablet } = useDeviceType();
 import { ref, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
 
-const errors = ref(false); // flag to display error on frontend
 var linkExpired = ref(false); // flag for link expired error on frontend
 const password = ref('');
 const confirmPassword = ref('');
@@ -17,7 +16,8 @@ const token = ref('');
 const router = useRouter();
 const isLoading = ref(false); // For loading state
 
-let errorMessage = ref('');
+import { useErrorAlert } from '../../Utilities/useErrorAlert';
+const { errors, errorMessage, showErrorAlert } = useErrorAlert();
 
 onMounted(() => {
   // Get the token from the URL query parameters
@@ -29,11 +29,6 @@ onMounted(() => {
       'Invalid password reset link. Please request a new one.';
   }
 });
-
-const showErrorAlert = (message) => {
-  errors.value = true;
-  errorMessage.value = message;
-};
 
 const handleApiError = (status, message) => {
   switch (status) {

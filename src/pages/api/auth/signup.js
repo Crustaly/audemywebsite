@@ -71,7 +71,22 @@ export default async function handler(req, res) {
         password: hashedPassword,
       },
     });
+    // My Progress setup skipped: waiting for My Progress feature to be ready
+    /*
+    const defaultProgress = {
+      progress: Array.from({ length: 16 }, (_, i) => ({
+        game_id: i + 1,
+        difficulty_id: 1,
+      })),
+    };
 
+    await prisma.progress.create({
+      data: {
+        user_id: newUser.user_id,
+        progress_json: defaultProgress,
+      },
+    });
+    */
     return res
       .status(201)
       .json({ message: 'User created successfully', user: newUser });

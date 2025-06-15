@@ -18,6 +18,10 @@
       "use": "@vercel/node"
     },
     {
+      "src": "src/pages/api/auth/google.js",
+      "use": "@vercel/node"
+    },
+    {
       "src": "src/pages/api/auth/signup.js",
       "use": "@vercel/node"
     },
@@ -62,6 +66,10 @@
     {
       "source": "/api/db/update_user_school",
       "destination": "/src/pages/api/db/update_user_school.js"
+    },
+    {
+      "source": "/api/auth/google",
+      "destination": "/src/pages/api/auth/google.js"
     },
     {
       "source": "/api/auth/signup",

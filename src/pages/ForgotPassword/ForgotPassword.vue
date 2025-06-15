@@ -9,19 +9,12 @@ const { isMobile, isTablet } = useDeviceType();
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 
-const errors = ref(false); // flag to display error on frontend
 const email = ref(''); // email input field value
 const router = useRouter();
-const errorMessage = ref('');
 const isLoading = ref(false); // For loading state
 
-const showErrorAlert = (message) => {
-  errors.value = true;
-  errorMessage.value = message;
-  setTimeout(() => {
-    errors.value = false;
-  }, 5000);
-};
+import { useErrorAlert } from '../../Utilities/useErrorAlert';
+const { errors, errorMessage, showErrorAlert } = useErrorAlert();
 
 const sendResetEmail = async (event) => {
   // prevent default form submission which would reload the page
