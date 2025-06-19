@@ -75,4 +75,37 @@ export const gameConfigs = {
     dbKey: 'MultiplicationGame',
     category: 'math',
   },
+
+  oddOneOut: {
+    title: 'Odd One Out',
+    description: "Can you find what doesn't belong?",
+    bgColor: '#FFD2F4',
+    iconSrc: '/assets/gameImages/buttons/gameButtons/oddOneOut.svg',
+    introAudio: '/oddoneout/oddoneoutintro.mp3',
+    dbFile: 'oddOneOutDB.json',
+    dbKey: 'OddOneOutGame',
+    category: 'language',
+  },
+
+  partOfSpeech: {
+    title: 'Part of Speech',
+    description: 'Noun, verb, or adjective?',
+    bgColor: '#6FFFC6',
+    iconSrc: '/assets/gameImages/buttons/gameButtons/pos.svg',
+    introAudio: '/partOfSpeech/partofspeechintro.mp3',
+    dbFile: 'partOfSpeechDB.json',
+    dbKey: 'PartOfSpeechGame',
+    category: 'language',
+  },
+
+  polarPairing: {
+    title: 'Polar Pairing',
+    description: 'Test your vocabulary with polar opposites.',
+    bgColor: '#EAD2B0',
+    iconSrc: '/assets/gameImages/buttons/gameButtons/strawberry.svg',
+    introAudio: '/polarpairing/oppintro.mp3',
+    dbFile: 'polarPairingDB.json',
+    dbKey: 'PolarPairingGame',
+    category: 'language',
+  },
 };
