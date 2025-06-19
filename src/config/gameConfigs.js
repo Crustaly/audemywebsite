@@ -42,4 +42,37 @@ export const gameConfigs = {
     dbKey: 'DivisionGame',
     category: 'math',
   },
+
+  fruitFrenzy: {
+    title: 'Fruit Frenzy',
+    description: 'How many total fruits are there?',
+    bgColor: '#FFC5C5',
+    iconSrc: '/assets/gameImages/buttons/gameButtons/ff.svg',
+    introAudio: '/fruitFrenzy/fruitIntro.mp3',
+    dbFile: 'fruitFrenzy.json',
+    dbKey: 'FruitFrenzy',
+    category: 'math',
+  },
+
+  monkeyMadness: {
+    title: 'Monkey Madness',
+    description: 'Help the monkeys split their bananas!',
+    bgColor: '#F9AEB0',
+    iconSrc: '/assets/gameImages/buttons/gameButtons/mm.svg',
+    introAudio: '/monkeyMadness/monkeyintro.mp3',
+    dbFile: 'monkeyMadnessDB.json',
+    dbKey: 'MonkeyMadnessGame',
+    category: 'math',
+  },
+
+  multiplication: {
+    title: 'Multiplication Madness',
+    description: 'Can you multiply numbers?',
+    bgColor: '#AEB9FF',
+    iconSrc: '/assets/gameImages/buttons/gameButtons/mul.svg',
+    introAudio: '/multiplicationmadness/multiplicationintro.mp3',
+    dbFile: 'multiplication.json',
+    dbKey: 'MultiplicationGame',
+    category: 'math',
+  },
 };
