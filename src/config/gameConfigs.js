@@ -108,4 +108,37 @@ export const gameConfigs = {
     dbKey: 'PolarPairingGame',
     category: 'language',
   },
+
+  shapeShark: {
+    title: 'Shape Shark',
+    description: 'Identify the shape based on its sides.',
+    bgColor: '#8FD5F8',
+    iconSrc: '/assets/gameImages/buttons/gameButtons/ss.svg',
+    introAudio: '/shapeSharks/shapeintro.mp3',
+    dbFile: 'shapeSharkDB.json',
+    dbKey: 'ShapeSharkGame',
+    category: 'math',
+  },
+
+  spellingBee: {
+    title: 'Spelling Bee',
+    description: 'Buzz your way to spelling mastery!',
+    bgColor: '#FAE9B6',
+    iconSrc: '/assets/gameImages/buttons/gameButtons/spellingBee.svg',
+    introAudio: '/spellingBee/spellingintro.mp3',
+    dbFile: 'spellingBeeDB.json',
+    dbKey: 'SpellingBeeGame',
+    category: 'language',
+  },
+
+  subtraction: {
+    title: 'Subtraction Safari',
+    description: 'Subtract animals in safari scenarios!',
+    bgColor: '#9AE2EB',
+    iconSrc: '/assets/gameImages/buttons/gameButtons/subtraction.svg',
+    introAudio: '/subtractionSafari/subtractionintro.mp3',
+    dbFile: 'subtractionDB.json',
+    dbKey: 'SubtractionGame',
+    category: 'math',
+  },
 };
