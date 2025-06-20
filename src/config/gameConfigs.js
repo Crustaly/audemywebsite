@@ -141,4 +141,27 @@ export const gameConfigs = {
     dbKey: 'SubtractionGame',
     category: 'math',
   },
+
+  syllableSorting: {
+    title: 'Syllable Sorting',
+    description: 'Can you count the syllables in a given word?',
+    bgColor: '#BCC5FF',
+    iconSrc: '/assets/gameImages/buttons/gameButtons/book.svg',
+    introAudio: '/syllableSorting/syllableIntro.mp3',
+    dbFile: 'SyllableGameDB.json',
+    dbKey: 'SyllableCountingGame',
+    category: 'language',
+  },
+
+  vocab: {
+    title: 'Vocabulary Vortex',
+    description:
+      'Dive into the vocabulary vortex and match the word to its definition.',
+    bgColor: '#F9AEB0',
+    iconSrc: '/assets/gameImages/buttons/gameButtons/book.svg',
+    introAudio: '/vocabVortex/vortexintro.mp3',
+    dbFile: 'VocabVortexDB.json',
+    dbKey: 'VocabVortexGame',
+    category: 'language',
+  },
 };
