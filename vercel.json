@@ -48,6 +48,10 @@
     {
       "src": "src/pages/api/db/get_user_count.js",
       "use": "@vercel/node"
+    },
+    {
+      "src": "src/pages/api/db/get_students.js",
+      "use": "@vercel/node"
     }
   ],
   "rewrites": [
@@ -90,6 +94,10 @@
     {
       "source": "/api/db/get_user_count",
       "destination": "/src/pages/api/db/get_user_count.js"
+    },
+    {
+      "source": "/api/db/get_students",
+      "destination": "/src/pages/api/db/get_students.js"
     },
     {
       "source": "/(.*)",
