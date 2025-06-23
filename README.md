@@ -24,4 +24,4 @@ Audemy’s educational games are:
 
 🧩 Curriculum-aligned: Covers foundational math, science, and language
 
- Visit audemy.org to learn more
+ Visit audemy.org to learn more, or reach out at crystal [at] audemy [dot] org
