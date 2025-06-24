@@ -27,7 +27,7 @@ const ftrContainerClasses = [
   'gap-y-4',
   'md:[grid-template-columns:0.8fr_1fr_1.3fr]',
   'md:gap-x-8',
-  'lg:[grid-template-columns:1.3fr_0.8fr_0.8fr_1.2fr]',
+  'lg:[grid-template-columns:1.3fr_0.5fr_0.8fr_1.2fr]',
   'lg:gap-x-10',
   'border-b-2',
   'border-primary-color',
