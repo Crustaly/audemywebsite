@@ -1,6 +1,30 @@
 <script setup>
 import { onMounted, onBeforeUnmount, ref } from 'vue';
 
+const scrollUpButtonClasses = [
+  'w-[56px]',
+  'h-[56px]',
+  'border-[2px]',
+  'border-[#0C0D0D]',
+  'rounded-[8px]',
+  'bg-white',
+  'hover:bg-gray-100',
+  'z-50',
+  'flex',
+  'justify-center',
+  'items-center',
+  'fixed',
+  'desktop:bottom-20',
+  'desktop:right-20',
+  'tablet:right-10',
+  'bottom-10',
+  'mobile:right-3',
+  'sm:right-5',
+  'cursor-pointer',
+  'duration-300',
+  'ease-in-out',
+];
+
 const scrollToTop = () => {
   window.scrollTo({
     top: 0,
@@ -26,10 +50,11 @@ onBeforeUnmount(() => {
 <template>
   <div v-if="showButton">
     <button
-      class="w-[56px] h-[56px] border-[2px] border-[#0C0D0D] rounded-[8px] bg-white hover:bg-gray-100 z-50 flex justify-center items-center fixed desktop:bottom-20 desktop:right-20 tablet:right-10 bottom-10 right-5 cursor-pointer duration-300 ease-in-out"
+      :class="scrollUpButtonClasses"
       @click="scrollToTop"
+      aria-label="Scroll to top"
     >
-      <img src="/assets/images/about-us/arrow-up.svg" alt="Arrow Up" />
+      <img src="/assets/images/about-us/arrow-up.svg" alt="" />
     </button>
   </div>
 </template>
