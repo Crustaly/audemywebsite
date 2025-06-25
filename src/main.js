@@ -2,7 +2,6 @@ import { createApp } from 'vue';
 import router from './router/index.js';
 import App from './App.vue';
 import './style.css';
-import './form-style.css';
 // import GoogleSignInPlugin from "vue3-google-signin";
 import vue3GoogleLogin from 'vue3-google-login';
 

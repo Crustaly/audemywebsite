@@ -1,9 +1,6 @@
-@import './footer-style.css';
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* * {
-  outline: red 1px solid;
-} */
+@import './footer-style.css';
+@import './form-style.css';
