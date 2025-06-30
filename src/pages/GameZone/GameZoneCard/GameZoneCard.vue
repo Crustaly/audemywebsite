@@ -36,6 +36,7 @@ const props = defineProps({
         <div
           id="title"
           class="font-poppins text-[50px] tablet:text-[40px] mobile:text-[20px] text-wrap font-semibold"
+          style="@media (max-width: 1020px) and (min-width: 768px) { font-size: 40px; }"
         >
           {{ title }}
         </div>
@@ -44,21 +45,13 @@ const props = defineProps({
         v-if="description"
         id="description"
         class="font-poppins text-[24px] mobile:text-[12px] tablet:text-[20px]"
-        :style="!bgDecoration ? 'text-[#6E777C]' : ''"
+        :style="[
+                  !bgDecoration ? 'color: #6E777C' : '',
+                  '@media (max-width: 1020px) and (min-width: 768px) { display: none; }'
+                ]"
       >
         {{ description }}
       </div>
     </div>
   </button>
 </template>
-<style>
-@media (max-width: 1020px) and (min-width: 768px) {
-  #title {
-    font-size: 40px;
-  }
-
-  #description {
-    display: none;
-  }
-}
-</style>
