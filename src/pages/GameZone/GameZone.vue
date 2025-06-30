@@ -248,13 +248,13 @@ function hideMenuDropdown(menuBtn, currentDropdown) {
       <div class="w-10/12">
         <h2
           id="game-zone-header"
-          class="font-poppins text-black text-[40px] mobile:text-[25px] mobile:text-center M-0"
+          class="font-poppins text-black text-[40px] mobile:text-[25px] mobile:text-center M-0 min-[768px]:max-[1024px]:mt-0"
         >
         <em style="color:#077bb3" class="font-semibold"> Play </em> and <em style="color:#fe892a" class="font-semibold"> learn </em> with us!
         </h2>
         <div
           id="game-zone-grid"
-          class="w-full grid grid-rows-3 gap-5 mb-10 mt-10"
+          class="w-full flex flex-wrap gap-5 mb-10 mt-10"
         >
           <!-- LANGUAGE GAMES FILTER BUTTON -->
           <button
@@ -264,7 +264,7 @@ function hideMenuDropdown(menuBtn, currentDropdown) {
                 ? 'text-[#087BB4] bg-[#e6f3fa] font-semibold border-[#087BB4]'
                 : 'text-[#6E777C] bg-white border-[#6E777C]',
             ]"
-            class="font-poppins mobile:text-[14px] py-2 px-8 rounded-full border"
+            class="font-poppins mobile:text-[14px] py-2 px-24 mobile:px-8 rounded-full border hover:bg-[#e6f3fa]"
             id="lang-filter-btn"
           >
             Language Games
@@ -278,7 +278,7 @@ function hideMenuDropdown(menuBtn, currentDropdown) {
                 ? 'text-[#087BB4] bg-[#e6f3fa] font-semibold border-[#087BB4]'
                 : 'text-[#6E777C] bg-white border-[#6E777C]',
             ]"
-            class="font-poppins mobile:text-[14px] py-2 px-8 rounded-full border"
+            class="font-poppins mobile:text-[14px] py-2 px-24 mobile:px-8 rounded-full border hover:bg-[#e6f3fa]"
             id="math-filter-btn"
           >
             Math Games
@@ -312,7 +312,7 @@ function hideMenuDropdown(menuBtn, currentDropdown) {
 
           <!-- LANGUAGE GAMES MENU -->
           <div
-            class="relative w-full h-full"
+            class="relative ml-[604px]"
             id="lang-menu-div"
             :class="[currentPage === 1 ? 'flex' : 'hidden']"
           >
@@ -326,7 +326,7 @@ function hideMenuDropdown(menuBtn, currentDropdown) {
               aria-controls="lang-dropdown-div"
               :class="[
                 currentPage === 1 ? 'flex' : 'hidden',
-                'w-full items-center justify-center gap-2 font-poppins text-[#6E777C] bg-[#FFFFFF] font-normal border border-[#6E777C] mobile:text-[14px] py-2 px-8 rounded-full',
+                'items-center justify-center gap-2 font-poppins text-[#6E777C] bg-[#FFFFFF] font-normal border border-[#6E777C] mobile:text-[14px] py-2 px-24 mobile:px-8 rounded-full hover:bg-[#e6f3fa]',
               ]"
             >
               <span>Game Menu</span>
@@ -351,7 +351,7 @@ function hideMenuDropdown(menuBtn, currentDropdown) {
               id="lang-dropdown-div"
               @focusout="handleDropdownFocusOut"
               tabindex="-1"
-              class="hidden absolute left-0 top-10 z-10 mt-2 w-full origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black/5 focus:outline-hidden text-center"
+              class="hidden absolute left-0 top-10 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black/5 focus:outline-hidden text-center min-[767px]:max-[803px]:mt-[30px]"
               role="menu"
               aria-orientation="vertical"
               aria-labelledby="lang-menu-btn"
@@ -363,7 +363,7 @@ function hideMenuDropdown(menuBtn, currentDropdown) {
               >
                 <a
                   href="/game/definitionDetective"
-                  class="block px-4 py-2 text-gray-700"
+                  class="block px-4 py-2 text-gray-700 hover:bg-[#e6f3fa] border-b border-gray-300"
                   role="menuitem"
                   id="lang-game-1"
                 >
@@ -371,7 +371,7 @@ function hideMenuDropdown(menuBtn, currentDropdown) {
                 </a>
                 <a
                   href="/game/partofspeech"
-                  class="block px-4 py-2 text-gray-700"
+                  class="block px-4 py-2 text-gray-700 hover:bg-[#e6f3fa] border-b border-gray-300"
                   role="menuitem"
                   id="lang-game-2"
                 >
@@ -379,7 +379,7 @@ function hideMenuDropdown(menuBtn, currentDropdown) {
                 </a>
                 <a
                   href="/game/colorgame"
-                  class="block px-4 py-2 text-gray-700"
+                  class="block px-4 py-2 text-gray-700 hover:bg-[#e6f3fa] border-b border-gray-300"
                   role="menuitem"
                   id="lang-game-3"
                 >
@@ -387,7 +387,7 @@ function hideMenuDropdown(menuBtn, currentDropdown) {
                 </a>
                 <a
                   href="/game/syllableSorting"
-                  class="block px-4 py-2 text-gray-700"
+                  class="block px-4 py-2 text-gray-700 hover:bg-[#e6f3fa] border-b border-gray-300"
                   role="menuitem"
                   id="lang-game-4"
                 >
@@ -395,7 +395,7 @@ function hideMenuDropdown(menuBtn, currentDropdown) {
                 </a>
                 <a
                   href="/game/vocabVortex"
-                  class="block px-4 py-2 text-gray-700"
+                  class="block px-4 py-2 text-gray-700 hover:bg-[#e6f3fa] border-b border-gray-300"
                   role="menuitem"
                   id="lang-game-5"
                 >
@@ -403,7 +403,7 @@ function hideMenuDropdown(menuBtn, currentDropdown) {
                 </a>
                 <a
                   href="/game/polarpairing"
-                  class="block px-4 py-2 text-gray-700"
+                  class="block px-4 py-2 text-gray-700 hover:bg-[#e6f3fa] border-b border-gray-300"
                   role="menuitem"
                   id="lang-game-6"
                 >
@@ -411,7 +411,7 @@ function hideMenuDropdown(menuBtn, currentDropdown) {
                 </a>
                 <a
                   href="/game/oddoneout"
-                  class="block px-4 py-2 text-gray-700"
+                  class="block px-4 py-2 text-gray-700 hover:bg-[#e6f3fa] border-b border-gray-300"
                   role="menuitem"
                   id="lang-game-7"
                 >
@@ -419,7 +419,7 @@ function hideMenuDropdown(menuBtn, currentDropdown) {
                 </a>
                 <a
                   href="/game/spellingbee"
-                  class="block px-4 py-2 text-gray-700"
+                  class="block px-4 py-2 text-gray-700 hover:bg-[#e6f3fa]"
                   role="menuitem"
                   id="lang-game-8"
                 >
@@ -431,7 +431,7 @@ function hideMenuDropdown(menuBtn, currentDropdown) {
 
           <!-- MATH GAMES MENU -->
           <div
-            class="relative w-full h-full"
+            class="relative ml-8"
             id="math-menu-div"
             :class="[currentPage === 2 ? 'flex' : 'hidden']"
           >
@@ -445,7 +445,7 @@ function hideMenuDropdown(menuBtn, currentDropdown) {
               aria-controls="math-dropdown-div"
               :class="[
                 currentPage === 2 ? 'flex' : 'hidden',
-                'w-full items-center justify-center gap-2 font-poppins text-[#6E777C] bg-[#FFFFFF] font-normal border border-[#6E777C] mobile:text-[14px] py-2 px-8 rounded-full',
+                'items-center justify-center gap-2 font-poppins text-[#6E777C] bg-[#FFFFFF] font-normal border border-[#6E777C] mobile:text-[14px] py-2 px-24 mobile:px-8 rounded-full hover:bg-[#e6f3fa]',
               ]"
             >
               <span>Game Menu</span>
@@ -469,7 +469,7 @@ function hideMenuDropdown(menuBtn, currentDropdown) {
               id="math-dropdown-div"
               @focusout="handleDropdownFocusOut"
               tabindex="-1"
-              class="hidden absolute left-0 top-10 z-10 mt-2 w-full origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black/5 focus:outline-hidden text-center"
+              class="hidden absolute left-0 top-10 z-10 mt-2 w-full origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black/5 focus:outline-hidden text-center min-[767px]:max-[803px]:mt-[30px]"
               role="menu"
               aria-orientation="vertical"
               aria-labelledby="math-menu-btn"
@@ -481,7 +481,7 @@ function hideMenuDropdown(menuBtn, currentDropdown) {
               >
                 <a
                   href="/game/fruitfrenzy"
-                  class="block px-4 py-2 text-gray-700"
+                  class="block px-4 py-2 text-gray-700 hover:bg-[#e6f3fa] border-b border-gray-300"
                   role="menuitem"
                   id="math-game-1"
                 >
@@ -489,7 +489,7 @@ function hideMenuDropdown(menuBtn, currentDropdown) {
                 </a>
                 <a
                   href="/game/shapeshark"
-                  class="block px-4 py-2 text-gray-700"
+                  class="block px-4 py-2 text-gray-700 hover:bg-[#e6f3fa] border-b border-gray-300"
                   role="menuitem"
                   id="math-game-2"
                 >
@@ -497,7 +497,7 @@ function hideMenuDropdown(menuBtn, currentDropdown) {
                 </a>
                 <a
                   href="/game/addition"
-                  class="block px-4 py-2 text-gray-700"
+                  class="block px-4 py-2 text-gray-700 hover:bg-[#e6f3fa] border-b border-gray-300"
                   role="menuitem"
                   id="math-game-3"
                 >
@@ -505,7 +505,7 @@ function hideMenuDropdown(menuBtn, currentDropdown) {
                 </a>
                 <a
                   href="/game/subtraction"
-                  class="block px-4 py-2 text-gray-700"
+                  class="block px-4 py-2 text-gray-700 hover:bg-[#e6f3fa] border-b border-gray-300"
                   role="menuitem"
                   id="math-game-4"
                 >
@@ -513,7 +513,7 @@ function hideMenuDropdown(menuBtn, currentDropdown) {
                 </a>
                 <a
                   href="game/multiplicationmadness"
-                  class="block px-4 py-2 text-gray-700"
+                  class="block px-4 py-2 text-gray-700 hover:bg-[#e6f3fa] border-b border-gray-300"
                   role="menuitem"
                   id="math-game-5"
                 >
@@ -521,7 +521,7 @@ function hideMenuDropdown(menuBtn, currentDropdown) {
                 </a>
                 <a
                   href="/game/DivisionDuel"
-                  class="block px-4 py-2 text-gray-700"
+                  class="block px-4 py-2 text-gray-700 hover:bg-[#e6f3fa] border-b border-gray-300"
                   role="menuitem"
                   id="math-game-6"
                 >
@@ -529,7 +529,7 @@ function hideMenuDropdown(menuBtn, currentDropdown) {
                 </a>
                 <a
                   href="/game/monkeymadness"
-                  class="block px-4 py-2 text-gray-700"
+                  class="block px-4 py-2 text-gray-700 hover:bg-[#e6f3fa] border-b border-gray-300"
                   role="menuitem"
                   id="math-game-7"
                 >
@@ -537,7 +537,7 @@ function hideMenuDropdown(menuBtn, currentDropdown) {
                 </a>
                 <a
                   href="/game/carcounting"
-                  class="block px-4 py-2 text-gray-700"
+                  class="block px-4 py-2 text-gray-700 hover:bg-[#e6f3fa]"
                   role="menuitem"
                   id="math-game-8"
                 >
@@ -692,82 +692,3 @@ function hideMenuDropdown(menuBtn, currentDropdown) {
   </div>
   <Footer />
 </template>
-
-<style scoped>
-button:hover,
-#lang-menu-btn:hover,
-#math-menu-btn:hover,
-#science-menu-btn:hover {
-  background-color: #e6f3fa;
-}
-
-#lang-dropdown-options a,
-#math-dropdown-options a,
-#science-dropdown-options a {
-  border-bottom: 1px #d3d3d3 solid;
-}
-
-#lang-dropdown-options a:last-child,
-#math-dropdown-options a:last-child,
-#science-dropdown-options a:last-child {
-  border-bottom: none;
-}
-
-#lang-dropdown-options a:hover,
-#math-dropdown-options a:hover,
-#science-dropdown-options a:hover {
-  background-color: #e6f3fa;
-}
-
-/* * * * * Edge Case: 'Language Games' button expands horizontally between 767px–803px widths * * * * */
-/* Shift both Language and Math dropdowns downward to avoid overlap with expanded button */
-@media only screen and (min-width: 767px) and (max-width: 803px) {
-  #lang-dropdown-div,
-  #math-dropdown-div,
-  #science-dropdown-div {
-    margin-top: 30px;
-  }
-}
-
-/* * * * * Medium Viewports (width ≥768px and <= 1024px) * * * * */
-@media only screen and (min-width: 768px) and (max-width: 1024px) {
-  #game-zone-header {
-    margin-top: 0;
-  }
-
-  #game-zone-grid {
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: auto; /* switches to single row */
-  }
-}
-
-/* * * * * Large Viewports (width ≥ 1025px) * * * * */
-@media only screen and (min-width: 1025px) {
-  #game-zone-header {
-    margin-top: 0;
-  }
-
-  #game-zone-grid {
-    grid-template-areas: 'lang math science . . . menu'; /* Updated grid-template-areas */
-    grid-template-rows: auto;
-  }
-
-  #lang-filter-btn {
-    grid-area: lang;
-  }
-
-  #math-filter-btn {
-    grid-area: math;
-  }
-
-  #science-filter-btn {
-    grid-area: science;
-  }
-
-  #lang-menu-div,
-  #math-menu-div,
-  #science-menu-div {
-    grid-area: menu;
-  }
-}
-</style>
