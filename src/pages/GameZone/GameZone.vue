@@ -20,6 +20,8 @@ onMounted(() => {
 
   if (category === 'math') {
     changeCurrentPage(2); // Math Games
+  } else if (category === 'science') {
+    changeCurrentPage(3); // Science Games
   } else {
     changeCurrentPage(1); // Language Games or default
   }
@@ -31,6 +33,7 @@ onMounted(() => {
 // Reactive flags to track dropdown visibility for each game menu (for 'aria-expanded')
 const isLangMenuOpen = ref(false);
 const isMathMenuOpen = ref(false);
+const isScienceMenuOpen = ref(false);
 
 // Updates Language menu visibility flag
 const changeIsLangMenuOpen = (bool) => {
@@ -40,6 +43,11 @@ const changeIsLangMenuOpen = (bool) => {
 // Updates Math menu visibility flag
 const changeIsMathMenuOpen = (bool) => {
   isMathMenuOpen.value = bool;
+};
+
+// Updates Science menu visibility flag
+const changeIsScienceMenuOpen = (bool) => {
+  isScienceMenuOpen.value = bool;
 };
 
 function activateGameMenu(event) {
@@ -57,8 +65,10 @@ function activateGameMenu(event) {
     // Update reactive flag based on currentPage
     if (currentPage.value === 1) {
       changeIsLangMenuOpen(false);
-    } else {
+    } else if (currentPage.value === 2) {
       changeIsMathMenuOpen(false);
+    } else {
+      changeIsScienceMenuOpen(false);
     }
   } else {
     menuBtn.style.backgroundColor = '#e6f3fa';
@@ -73,8 +83,10 @@ function activateGameMenu(event) {
     // Update reactive flag based on currentPage
     if (currentPage.value === 1) {
       changeIsLangMenuOpen(true);
-    } else {
+    } else if (currentPage.value === 2) {
       changeIsMathMenuOpen(true);
+    } else {
+      changeIsScienceMenuOpen(true);
     }
   }
   // Toggle visibility of dropdown
@@ -94,64 +106,78 @@ function deactivateGameMenu(menuBtn) {
   svgArrow.style.fill = '#6E777C';
 }
 
-// Toggles visibility of the active dropdown menu (Language or Math)
+// Toggles visibility of the active dropdown menu
 function toggleDropdown() {
+  let dropdown, isVisible;
+
   if (currentPage.value === 1) {
     // Toggle Language dropdown visibility
-    const langDropdown = document.getElementById('lang-dropdown-div');
-    langDropdown.classList.toggle('hidden');
-
+    dropdown = document.getElementById('lang-dropdown-div');
+    dropdown.classList.toggle('hidden');
     // Update reactive flag for Language menu
-    const isLangVisible = !langDropdown.classList.contains('hidden');
-    changeIsLangMenuOpen(isLangVisible);
+    isVisible = !dropdown.classList.contains('hidden');
+    changeIsLangMenuOpen(isVisible);
+  } else if (currentPage.value === 2) {
+    dropdown = document.getElementById('math-dropdown-div');
+    dropdown.classList.toggle('hidden');
+    isVisible = !dropdown.classList.contains('hidden');
+    changeIsMathMenuOpen(isVisible);
   } else {
-    // Toggle Math dropdown visibility
-    const mathDropdown = document.getElementById('math-dropdown-div');
-    mathDropdown.classList.toggle('hidden');
-
-    // Update reactive flag for Math menu
-    const isMathVisible = !mathDropdown.classList.contains('hidden');
-    changeIsMathMenuOpen(isMathVisible);
+    dropdown = document.getElementById('science-dropdown-div');
+    dropdown.classList.toggle('hidden');
+    isVisible = !dropdown.classList.contains('hidden');
+    changeIsScienceMenuOpen(isVisible);
   }
 }
 
 function handlePageSwitch(newPage) {
-  // Deactivate and reset styling for the opposite menu button
-  let oppositeMenuBtn = document.getElementById('lang-menu-btn');
-  let oppositeDropdown = document.getElementById('lang-dropdown-div');
+  const pages = {
+    1: {
+      btn: 'lang-menu-btn',
+      dropdown: 'lang-dropdown-div',
+    },
+    2: {
+      btn: 'math-menu-btn',
+      dropdown: 'math-dropdown-div',
+    },
+    3: {
+      btn: 'science-menu-btn',
+      dropdown: 'science-dropdown-div',
+    },
+  };
 
-  if (newPage === 1) {
-    // Opposite page = Math Games
-    oppositeMenuBtn = document.getElementById('math-menu-btn');
-    oppositeDropdown = document.getElementById('math-dropdown-div');
-  }
+  // Deactivate and hide menus for all other pages
+  for (const page in pages) {
+    if (parseInt(page) !== newPage) {
+      const { btn, dropdown } = pages[page];
+      const menuBtn = document.getElementById(btn);
+      const dropdownDiv = document.getElementById(dropdown);
 
-  deactivateGameMenu(oppositeMenuBtn);
-
-  // Hide the opposite dropdown if it's currently visible
-  if (!oppositeDropdown.classList.contains('hidden')) {
-    oppositeDropdown.classList.add('hidden');
+      if (menuBtn) deactivateGameMenu(menuBtn);
+      if (dropdownDiv && !dropdownDiv.classList.contains('hidden')) {
+        dropdownDiv.classList.add('hidden');
+      }
+    }
   }
 
   // Update the current page
   changeCurrentPage(newPage);
 
   // Update reactive flags to reflect menu states for new page
-  if (newPage === 1) {
-    changeIsLangMenuOpen(true);
-    changeIsMathMenuOpen(false);
-  } else {
-    changeIsMathMenuOpen(true);
-    changeIsLangMenuOpen(false);
-  }
+  changeIsLangMenuOpen(newPage === 1);
+  changeIsMathMenuOpen(newPage === 2);
+  changeIsScienceMenuOpen(newPage === 3);
 }
 
 function handleMenuBlur(event) {
+  const pageMap = {
+    1: 'lang-dropdown-div',
+    2: 'math-dropdown-div',
+    3: 'science-dropdown-div',
+  };
+  const dropdownId = pageMap[currentPage.value];
   // Determine the currently active dropdown
-  let currentDropdown = document.getElementById('math-dropdown-div');
-  if (currentPage.value === 1) {
-    currentDropdown = document.getElementById('lang-dropdown-div');
-  }
+  const currentDropdown = document.getElementById(dropdownId);
 
   // Keep menu open if focus moved into the dropdown options (e.g., tabbing through it)
   if (currentDropdown.contains(event.relatedTarget)) {
@@ -170,11 +196,13 @@ function handleDropdownFocusOut(event) {
     return;
   }
 
-  // Otherwise, close dropdown and deactivate the corresponding menu button
-  let menuBtn = document.getElementById('lang-menu-btn');
-  if (currentPage.value === 2) {
-    menuBtn = document.getElementById('math-menu-btn');
-  }
+  const pageMap = {
+    1: 'lang-menu-btn',
+    2: 'math-menu-btn',
+    3: 'science-menu-btn',
+  };
+  const menuBtnId = pageMap[currentPage.value];
+  const menuBtn = document.getElementById(menuBtnId);
 
   hideMenuDropdown(menuBtn, currentDropdown);
 }
@@ -189,8 +217,10 @@ function hideMenuDropdown(menuBtn, currentDropdown) {
   // Update reactive flag
   if (currentPage.value === 1) {
     changeIsLangMenuOpen(false);
-  } else {
+  } else if (currentPage.value === 2) {
     changeIsMathMenuOpen(false);
+  } else {
+    changeIsScienceMenuOpen(false);
   }
 }
 </script>
@@ -253,10 +283,25 @@ function hideMenuDropdown(menuBtn, currentDropdown) {
           >
             Math Games
           </button>
-          <!--button
-            @click="changeCurrentPage(3)"
-            :class="
+
+          <!-- SCIENCE GAMES FILTER BUTTON -->
+          <button
+            @click="handlePageSwitch(3)"
+            :class="[
               currentPage == 3
+                ? 'text-[#087BB4] bg-[#e6f3fa] font-semibold border-[#087BB4]'
+                : 'text-[#6E777C] bg-white border-[#6E777C]',
+            ]"
+            class="font-poppins mobile:text-[14px] py-2 px-8 rounded-full border"
+            id="science-filter-btn"
+          >
+            Science Games
+          </button>
+
+          <!--button
+            @click="changeCurrentPage(4)"
+            :class="
+              currentPage == 4
                 ? 'text-[#087BB4] font-semibold'
                 : 'text-[#6E777C]'
             "
@@ -501,12 +546,144 @@ function hideMenuDropdown(menuBtn, currentDropdown) {
               </div>
             </div>
           </div>
+
+          <div
+            class="relative w-full h-full"
+            id="science-menu-div"
+            :class="[currentPage === 3 ? 'flex' : 'hidden']"
+          >
+            <button
+              type="button"
+              id="science-menu-btn"
+              @click="activateGameMenu"
+              @blur="handleMenuBlur"
+              :aria-expanded="isScienceMenuOpen"
+              aria-haspopup="true"
+              aria-controls="science-dropdown-div"
+              :class="[
+                currentPage === 3 ? 'flex' : 'hidden',
+                'w-full items-center justify-center gap-2 font-poppins text-[#6E777C] bg-[#FFFFFF] font-normal border border-[#6E777C] mobile:text-[14px] py-2 px-8 rounded-full',
+              ]"
+            >
+              <span>Game Menu</span>
+              <svg
+                class="size-5 text-gray-400"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                aria-hidden="true"
+                data-slot="icon"
+                :class="[currentPage === 3 ? 'fill-[#6E777C]' : 'hidden']"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </button>
+            <div
+              id="science-dropdown-div"
+              @focusout="handleDropdownFocusOut"
+              tabindex="-1"
+              class="hidden absolute left-0 top-10 z-10 mt-2 w-full origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black/5 focus:outline-hidden text-center"
+              role="menu"
+              aria-orientation="vertical"
+              aria-labelledby="science-menu-btn"
+            >
+              <div
+                id="science-dropdown-options"
+                class="py-1 text-[15px]"
+                role="none"
+              >
+                <a
+                  href="/game/mattermixup"
+                  class="block px-4 py-2 text-gray-700"
+                  role="menuitem"
+                  id="science-game-1"
+                >
+                  Matter Mix-Up
+                </a>
+                <a
+                  href="/game/tinycelltown"
+                  class="block px-4 py-2 text-gray-700"
+                  role="menuitem"
+                  id="science-game-2"
+                >
+                  Tiny Cell Town
+                </a>
+                <a
+                  href="/game/weatherwhiz"
+                  class="block px-4 py-2 text-gray-700"
+                  role="menuitem"
+                  id="science-game-3"
+                >
+                  Weather Whiz
+                </a>
+                <a
+                  href="/game/spacecase"
+                  class="block px-4 py-2 text-gray-700"
+                  role="menuitem"
+                  id="science-game-4"
+                >
+                  Space Case
+                </a>
+                <a
+                  href="/game/dinodetectives"
+                  class="block px-4 py-2 text-gray-700"
+                  role="menuitem"
+                  id="science-game-5"
+                >
+                  Dino Detectives
+                </a>
+                <a
+                  href="/game/germsquad"
+                  class="block px-4 py-2 text-gray-700"
+                  role="menuitem"
+                  id="science-game-6"
+                >
+                  Germ Squad
+                </a>
+                <a
+                  href="/game/ecorangers"
+                  class="block px-4 py-2 text-gray-700"
+                  role="menuitem"
+                  id="science-game-7"
+                >
+                  Eco Rangers
+                </a>
+                <a
+                  href="/game/soundexplorer"
+                  class="block px-4 py-2 text-gray-700"
+                  role="menuitem"
+                  id="science-game-8"
+                >
+                  Sound Explorer
+                </a>
+                <a
+                  href="/game/robotrepair"
+                  class="block px-4 py-2 text-gray-700"
+                  role="menuitem"
+                  id="science-game-9"
+                >
+                  Robot Repair Lab
+                </a>
+                <a
+                  href="/game/plantpower"
+                  class="block px-4 py-2 text-gray-700"
+                  role="menuitem"
+                  id="science-game-10"
+                >
+                  Plant Power
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
         <div>
-          <div v-if="currentPage != 3">
+          <div v-if="currentPage != 4">
             <GameZoneList :type="currentPage" />
           </div>
-          <div v-if="currentPage === 3">
+          <div v-if="currentPage === 4">
             <GameProgress />
           </div>
         </div>
@@ -519,22 +696,26 @@ function hideMenuDropdown(menuBtn, currentDropdown) {
 <style scoped>
 button:hover,
 #lang-menu-btn:hover,
-#math-menu-btn:hover {
+#math-menu-btn:hover,
+#science-menu-btn:hover {
   background-color: #e6f3fa;
 }
 
 #lang-dropdown-options a,
-#math-dropdown-options a {
+#math-dropdown-options a,
+#science-dropdown-options a {
   border-bottom: 1px #d3d3d3 solid;
 }
 
 #lang-dropdown-options a:last-child,
-#math-dropdown-options a:last-child {
+#math-dropdown-options a:last-child,
+#science-dropdown-options a:last-child {
   border-bottom: none;
 }
 
 #lang-dropdown-options a:hover,
-#math-dropdown-options a:hover {
+#math-dropdown-options a:hover,
+#science-dropdown-options a:hover {
   background-color: #e6f3fa;
 }
 
@@ -542,7 +723,8 @@ button:hover,
 /* Shift both Language and Math dropdowns downward to avoid overlap with expanded button */
 @media only screen and (min-width: 767px) and (max-width: 803px) {
   #lang-dropdown-div,
-  #math-dropdown-div {
+  #math-dropdown-div,
+  #science-dropdown-div {
     margin-top: 30px;
   }
 }
@@ -566,7 +748,7 @@ button:hover,
   }
 
   #game-zone-grid {
-    grid-template-areas: 'lang math . . . . menu';
+    grid-template-areas: 'lang math science . . . menu'; /* Updated grid-template-areas */
     grid-template-rows: auto;
   }
 
@@ -578,8 +760,13 @@ button:hover,
     grid-area: math;
   }
 
+  #science-filter-btn {
+    grid-area: science;
+  }
+
   #lang-menu-div,
-  #math-menu-div {
+  #math-menu-div,
+  #science-menu-div {
     grid-area: menu;
   }
 }

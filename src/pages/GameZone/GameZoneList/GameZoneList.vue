@@ -39,17 +39,27 @@ watch(() => props.type, (newType, oldType) => {
 <script setup>
 import { ref, onBeforeMount, watch } from 'vue';
 import GameZoneCard from '../GameZoneCard/GameZoneCard.vue';
-import { getLanguageGames, getMathGames } from '../GameDB.js';
+import { getLanguageGames, getMathGames, getScienceGames } from '../GameDB.js';
 import { useRouter } from 'vue-router';
 
 const props = defineProps({
   type: Number,
 });
 
-const getGames = (type) =>
-  (games.value = type === 1 ? getLanguageGames() : getMathGames());
 const games = ref([]);
 const router = useRouter();
+
+const getGames = (type) => {
+  if (type === 1) {
+    games.value = getLanguageGames();
+  } else if (type === 2) {
+    games.value = getMathGames();
+  } else if (type === 3) {
+    games.value = getScienceGames();
+  } else {
+    games.value = []; // Default to empty if type is unknown
+  }
+};
 
 const openGame = (url) => {
   router.push(url);
