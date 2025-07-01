@@ -159,3 +159,96 @@ export const getMathGames = () => {
     },
   ];
 };
+
+export const getScienceGames = () => {
+  return [
+    {
+      icon: basedPath + 'matter.svg',
+      title: 'Matter Mix-Up',
+      url: '/game/mattermixup',
+      textColor: '#323232',
+      bgColor: '#4dd4ff',
+      description:
+        'Help identify solids, liquids, and gases before they evaporate!',
+    },
+    {
+      icon: basedPath + 'matter.svg', // Placeholder icon
+      title: 'Tiny Cell Town',
+      url: '/game/tinycelltown',
+      textColor: '#323232',
+      bgColor: '#ff8c69',
+      description:
+        'Guide an alien through the microscopic city of a human cell.',
+    },
+    {
+      icon: basedPath + 'matter.svg', // Placeholder icon
+      title: 'Weather Whiz',
+      url: '/game/weatherwhiz',
+      textColor: '#323232',
+      bgColor: '#a3a3a3',
+      description:
+        'Interpret the sky’s mood swings before the thunder has a tantrum.',
+    },
+    {
+      icon: basedPath + 'matter.svg', // Placeholder icon
+      title: 'Space Case',
+      url: '/game/spacecase',
+      textColor: '#FFFFFF',
+      bgColor: '#3c4f9e',
+      description:
+        'Help a forgetful astronaut remember basic facts about space.',
+    },
+    {
+      icon: basedPath + 'matter.svg', // Placeholder icon
+      title: 'Dino Detectives',
+      url: '/game/dinodetectives',
+      textColor: '#323232',
+      bgColor: '#c08b5f',
+      description: 'Use clues from bones and roars to identify ancient beasts.',
+    },
+    {
+      icon: basedPath + 'matter.svg', // Placeholder icon
+      title: 'Germ Squad',
+      url: '/game/germsquad',
+      textColor: '#FFFFFF',
+      bgColor: '#eb5e5e',
+      description:
+        'Name the culprits behind a fever before the party gets out of hand.',
+    },
+    {
+      icon: basedPath + 'matter.svg', // Placeholder icon
+      title: 'Eco Rangers',
+      url: '/game/ecorangers',
+      textColor: '#323232',
+      bgColor: '#52c687',
+      description:
+        'Identify environmental threats and help restore balance to nature.',
+    },
+    {
+      icon: basedPath + 'matter.svg', // Placeholder icon
+      title: 'Sound Explorer',
+      url: '/game/soundexplorer',
+      textColor: '#FFFFFF',
+      bgColor: '#7a52c6',
+      description: 'Measure and decode sound waves to escape an echoing cave.',
+    },
+    {
+      icon: basedPath + 'matter.svg', // Placeholder icon
+      title: 'Robot Repair Lab',
+      url: '/game/robotrepair',
+      textColor: '#323232',
+      bgColor: '#0EA1EA',
+      description:
+        'Reprogram glitching science robots before they short-circuit the lab.',
+    },
+    {
+      icon: basedPath + 'matter.svg', // Placeholder icon
+      title: 'Plant Power',
+      url: '/game/plantpower',
+      textColor: '#323232',
+      bgColor: '#ffc84d',
+      description:
+        'Learn the parts of a plant by listening to their whispered secrets.',
+    },
+  ];
+};
