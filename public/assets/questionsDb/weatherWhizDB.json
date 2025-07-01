@@ -1,0 +1,72 @@
+{
+  "WeatherWhizGame": {
+    "Questions": {
+      "Easy": [
+        {
+          "Q": "What causes a bright flash in a storm?",
+          "A": ["Lightning"]
+        },
+        {
+          "Q": "What causes a bright flash in a storm?",
+          "A": ["Lightning"]
+        },
+        {
+          "Q": "What causes a bright flash in a storm?",
+          "A": ["Lightning"]
+        },
+        {
+          "Q": "What causes a bright flash in a storm?",
+          "A": ["Lightning"]
+        },
+        {
+          "Q": "What causes a bright flash in a storm?",
+          "A": ["Lightning"]
+        }
+      ],
+      "Medium": [
+        {
+          "Q": "What causes a bright flash in a storm?",
+          "A": ["Lightning"]
+        },
+        {
+          "Q": "What causes a bright flash in a storm?",
+          "A": ["Lightning"]
+        },
+        {
+          "Q": "What causes a bright flash in a storm?",
+          "A": ["Lightning"]
+        },
+        {
+          "Q": "What causes a bright flash in a storm?",
+          "A": ["Lightning"]
+        },
+        {
+          "Q": "What causes a bright flash in a storm?",
+          "A": ["Lightning"]
+        }
+      ],
+      "Hard": [
+        {
+          "Q": "What causes a bright flash in a storm?",
+          "A": ["Lightning"]
+        },
+        {
+          "Q": "What causes a bright flash in a storm?",
+          "A": ["Lightning"]
+        },
+        {
+          "Q": "What causes a bright flash in a storm?",
+          "A": ["Lightning"]
+        },
+        {
+          "Q": "What causes a bright flash in a storm?",
+          "A": ["Lightning"]
+        },
+        {
+          "Q": "What causes a bright flash in a storm?",
+          "A": ["Lightning"]
+        }
+      ]
+    }
+  }
+}

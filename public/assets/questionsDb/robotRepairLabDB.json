@@ -1,0 +1,72 @@
+{
+  "RobotRepairGame": {
+    "Questions": {
+      "Easy": [
+        {
+          "Q": "What metal is attracted to magnets?",
+          "A": ["Iron"]
+        },
+        {
+          "Q": "What metal is attracted to magnets?",
+          "A": ["Iron"]
+        },
+        {
+          "Q": "What metal is attracted to magnets?",
+          "A": ["Iron"]
+        },
+        {
+          "Q": "What metal is attracted to magnets?",
+          "A": ["Iron"]
+        },
+        {
+          "Q": "What metal is attracted to magnets?",
+          "A": ["Iron"]
+        }
+      ],
+      "Medium": [
+        {
+          "Q": "What metal is attracted to magnets?",
+          "A": ["Iron"]
+        },
+        {
+          "Q": "What metal is attracted to magnets?",
+          "A": ["Iron"]
+        },
+        {
+          "Q": "What metal is attracted to magnets?",
+          "A": ["Iron"]
+        },
+        {
+          "Q": "What metal is attracted to magnets?",
+          "A": ["Iron"]
+        },
+        {
+          "Q": "What metal is attracted to magnets?",
+          "A": ["Iron"]
+        }
+      ],
+      "Hard": [
+        {
+          "Q": "What metal is attracted to magnets?",
+          "A": ["Iron"]
+        },
+        {
+          "Q": "What metal is attracted to magnets?",
+          "A": ["Iron"]
+        },
+        {
+          "Q": "What metal is attracted to magnets?",
+          "A": ["Iron"]
+        },
+        {
+          "Q": "What metal is attracted to magnets?",
+          "A": ["Iron"]
+        },
+        {
+          "Q": "What metal is attracted to magnets?",
+          "A": ["Iron"]
+        }
+      ]
+    }
+  }
+}

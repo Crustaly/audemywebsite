@@ -1,0 +1,72 @@
+{
+  "DinoDetectivesGame": {
+    "Questions": {
+      "Easy": [
+        {
+          "Q": "What dinosaur had three horns on its head?",
+          "A": ["Triceratops"]
+        },
+        {
+          "Q": "What dinosaur had three horns on its head?",
+          "A": ["Triceratops"]
+        },
+        {
+          "Q": "What dinosaur had three horns on its head?",
+          "A": ["Triceratops"]
+        },
+        {
+          "Q": "What dinosaur had three horns on its head?",
+          "A": ["Triceratops"]
+        },
+        {
+          "Q": "What dinosaur had three horns on its head?",
+          "A": ["Triceratops"]
+        }
+      ],
+      "Medium": [
+        {
+          "Q": "What dinosaur had three horns on its head?",
+          "A": ["Triceratops"]
+        },
+        {
+          "Q": "What dinosaur had three horns on its head?",
+          "A": ["Triceratops"]
+        },
+        {
+          "Q": "What dinosaur had three horns on its head?",
+          "A": ["Triceratops"]
+        },
+        {
+          "Q": "What dinosaur had three horns on its head?",
+          "A": ["Triceratops"]
+        },
+        {
+          "Q": "What dinosaur had three horns on its head?",
+          "A": ["Triceratops"]
+        }
+      ],
+      "Hard": [
+        {
+          "Q": "What dinosaur had three horns on its head?",
+          "A": ["Triceratops"]
+        },
+        {
+          "Q": "What dinosaur had three horns on its head?",
+          "A": ["Triceratops"]
+        },
+        {
+          "Q": "What dinosaur had three horns on its head?",
+          "A": ["Triceratops"]
+        },
+        {
+          "Q": "What dinosaur had three horns on its head?",
+          "A": ["Triceratops"]
+        },
+        {
+          "Q": "What dinosaur had three horns on its head?",
+          "A": ["Triceratops"]
+        }
+      ]
+    }
+  }
+}
