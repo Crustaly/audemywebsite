@@ -1,0 +1,72 @@
+{
+  "PlantPowerGame": {
+    "Questions": {
+      "Easy": [
+        {
+          "Q": "What part of a plant makes food?",
+          "A": ["Leaf"]
+        },
+        {
+          "Q": "What part of a plant makes food?",
+          "A": ["Leaf"]
+        },
+        {
+          "Q": "What part of a plant makes food?",
+          "A": ["Leaf"]
+        },
+        {
+          "Q": "What part of a plant makes food?",
+          "A": ["Leaf"]
+        },
+        {
+          "Q": "What part of a plant makes food?",
+          "A": ["Leaf"]
+        }
+      ],
+      "Medium": [
+        {
+          "Q": "What part of a plant makes food?",
+          "A": ["Leaf"]
+        },
+        {
+          "Q": "What part of a plant makes food?",
+          "A": ["Leaf"]
+        },
+        {
+          "Q": "What part of a plant makes food?",
+          "A": ["Leaf"]
+        },
+        {
+          "Q": "What part of a plant makes food?",
+          "A": ["Leaf"]
+        },
+        {
+          "Q": "What part of a plant makes food?",
+          "A": ["Leaf"]
+        }
+      ],
+      "Hard": [
+        {
+          "Q": "What part of a plant makes food?",
+          "A": ["Leaf"]
+        },
+        {
+          "Q": "What part of a plant makes food?",
+          "A": ["Leaf"]
+        },
+        {
+          "Q": "What part of a plant makes food?",
+          "A": ["Leaf"]
+        },
+        {
+          "Q": "What part of a plant makes food?",
+          "A": ["Leaf"]
+        },
+        {
+          "Q": "What part of a plant makes food?",
+          "A": ["Leaf"]
+        }
+      ]
+    }
+  }
+}

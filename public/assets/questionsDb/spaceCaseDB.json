@@ -1,0 +1,72 @@
+{
+  "SpaceCaseGame": {
+    "Questions": {
+      "Easy": [
+        {
+          "Q": "What planet is known for its rings?",
+          "A": ["Saturn"]
+        },
+        {
+          "Q": "What planet is known for its rings?",
+          "A": ["Saturn"]
+        },
+        {
+          "Q": "What planet is known for its rings?",
+          "A": ["Saturn"]
+        },
+        {
+          "Q": "What planet is known for its rings?",
+          "A": ["Saturn"]
+        },
+        {
+          "Q": "What planet is known for its rings?",
+          "A": ["Saturn"]
+        }
+      ],
+      "Medium": [
+        {
+          "Q": "What planet is known for its rings?",
+          "A": ["Saturn"]
+        },
+        {
+          "Q": "What planet is known for its rings?",
+          "A": ["Saturn"]
+        },
+        {
+          "Q": "What planet is known for its rings?",
+          "A": ["Saturn"]
+        },
+        {
+          "Q": "What planet is known for its rings?",
+          "A": ["Saturn"]
+        },
+        {
+          "Q": "What planet is known for its rings?",
+          "A": ["Saturn"]
+        }
+      ],
+      "Hard": [
+        {
+          "Q": "What planet is known for its rings?",
+          "A": ["Saturn"]
+        },
+        {
+          "Q": "What planet is known for its rings?",
+          "A": ["Saturn"]
+        },
+        {
+          "Q": "What planet is known for its rings?",
+          "A": ["Saturn"]
+        },
+        {
+          "Q": "What planet is known for its rings?",
+          "A": ["Saturn"]
+        },
+        {
+          "Q": "What planet is known for its rings?",
+          "A": ["Saturn"]
+        }
+      ]
+    }
+  }
+}
