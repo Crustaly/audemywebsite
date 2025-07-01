@@ -1,0 +1,92 @@
+{
+  "MatterMixUpGame": {
+    "Questions": {
+      "Easy": [
+        {
+          "Q": "What state of matter is steam?",
+          "A": ["Gas"]
+        },
+        {
+          "Q": "What state of matter is an ice cube?",
+          "A": ["Solid"]
+        },
+        {
+          "Q": "What state of matter is the air you breathe?",
+          "A": ["Gas"]
+        },
+        {
+          "Q": "What state of matter is a wooden block?",
+          "A": ["Solid"]
+        },
+        {
+          "Q": "What state of matter is water in a glass?",
+          "A": ["Liquid"]
+        },
+        {
+          "Q": "If you freeze water, what state does it become?",
+          "A": ["Solid"]
+        },
+        {
+          "Q": "What state of matter is honey?",
+          "A": ["Liquid"]
+        },
+        {
+          "Q": "What state of matter is a rock?",
+          "A": ["Solid"]
+        },
+        {
+          "Q": "What state of matter is milk?",
+          "A": ["Liquid"]
+        },
+        {
+          "Q": "What state of matter is helium in a balloon?",
+          "A": ["Gas"]
+        }
+      ],
+      "Medium": [
+        {
+          "Q": "What is the process of a liquid turning into a gas called?",
+          "A": ["Evaporation"]
+        },
+        {
+          "Q": "What is the process of a solid turning directly into a gas called?",
+          "A": ["Sublimation"]
+        },
+        {
+          "Q": "What is the process of a gas turning into a liquid called?",
+          "A": ["Condensation"]
+        },
+        {
+          "Q": "What state of matter has a definite volume but no definite shape?",
+          "A": ["Liquid"]
+        },
+        {
+          "Q": "What state of matter has particles that are tightly packed and vibrate in place?",
+          "A": ["Solid"]
+        }
+      ],
+      "Hard": [
+        {
+          "Q": "What is the fourth state of matter, found in stars and lightning?",
+          "A": ["Plasma"]
+        },
+        {
+          "Q": "At what temperature, in Celsius, does water freeze?",
+          "A": ["Zero"]
+        },
+        {
+          "Q": "What state of matter expands to fill any container it is in?",
+          "A": ["Gas"]
+        },
+        {
+          "Q": "What is the process of a liquid turning into a solid called?",
+          "A": ["Freezing"]
+        },
+        {
+          "Q": "The resistance of a liquid to flow is called its what?",
+          "A": ["Viscosity"]
+        }
+      ]
+    }
+  }
+}
