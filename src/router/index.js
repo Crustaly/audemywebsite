@@ -15,11 +15,11 @@ import AboutUs from '../pages/AboutUs/AboutUs.vue';
 import Impact from '../pages/Impact/Impact.vue';
 import Troubleshooting from '../pages/Troubleshooting/Troubleshooting.vue';
 // import SpellingBee from "../pages/GameZone/GameZoneList/SpellingBee/SpellingBee.vue";
-import MainDashboard from "../pages/Dashboard/MainDashboard.vue";
-import StudentList from "../pages/Dashboard/StudentList.vue";
-import TeacherDashboard from "../pages/Dashboard/TeacherDashboard.vue";
-import GamesDashboard from "../pages/Dashboard/GamesDashboard.vue";
-import DashboardSummary from "../pages/Dashboard/DashboardSummary.vue";
+import MainDashboard from '../pages/Dashboard/MainDashboard.vue';
+import StudentList from '../pages/Dashboard/StudentList.vue';
+import TeacherDashboard from '../pages/Dashboard/TeacherDashboard.vue';
+import GamesDashboard from '../pages/Dashboard/GamesDashboard.vue';
+import DashboardSummary from '../pages/Dashboard/DashboardSummary.vue';
 
 const routes = [
   { path: '/home', redirect: '/' },
