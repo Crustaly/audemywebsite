@@ -168,38 +168,38 @@ export const getScienceGames = () => {
       url: '/game/mattermixup',
       textColor: '#323232',
       bgColor: '#4dd4ff',
-      description:
-        'Help identify solids, liquids, and gases before they evaporate!',
+      bgDecoration: true,
+      bgImage: '/assets/gameImages/bg.svg',
+      description:'Help identify solids, liquids, and gases before they evaporate!',
     },
     {
-      icon: basedPath + 'matter.svg', // Placeholder icon
+      icon: basedPath + 'cells.png',
       title: 'Tiny Cell Town',
       url: '/game/tinycelltown',
       textColor: '#323232',
       bgColor: '#ff8c69',
-      description:
-        'Guide an alien through the microscopic city of a human cell.',
+      description:'Guide an alien through the microscopic city of a human cell.',
     },
     {
-      icon: basedPath + 'matter.svg', // Placeholder icon
+      icon: basedPath + 'weather.png',
       title: 'Weather Whiz',
       url: '/game/weatherwhiz',
       textColor: '#323232',
       bgColor: '#a3a3a3',
-      description:
-        'Interpret the sky’s mood swings before the thunder has a tantrum.',
+      description:'Interpret the sky’s mood swings before the thunder has a tantrum.',
     },
     {
-      icon: basedPath + 'matter.svg', // Placeholder icon
+      icon: basedPath + 'astronaut.png',
       title: 'Space Case',
       url: '/game/spacecase',
       textColor: '#FFFFFF',
       bgColor: '#3c4f9e',
-      description:
-        'Help a forgetful astronaut remember basic facts about space.',
+      bgDecoration: true,
+      bgImage: '/assets/gameImages/bg-star.png',
+      description:'Help a forgetful astronaut remember basic facts about space.',
     },
     {
-      icon: basedPath + 'matter.svg', // Placeholder icon
+      icon: basedPath + 'dino.png',
       title: 'Dino Detectives',
       url: '/game/dinodetectives',
       textColor: '#323232',
@@ -207,25 +207,23 @@ export const getScienceGames = () => {
       description: 'Use clues from bones and roars to identify ancient beasts.',
     },
     {
-      icon: basedPath + 'matter.svg', // Placeholder icon
+      icon: basedPath + 'germ.png',
       title: 'Germ Squad',
       url: '/game/germsquad',
       textColor: '#FFFFFF',
       bgColor: '#eb5e5e',
-      description:
-        'Name the culprits behind a fever before the party gets out of hand.',
+      description:'Name the culprits behind a fever before the party gets out of hand.',
     },
     {
-      icon: basedPath + 'matter.svg', // Placeholder icon
+      icon: basedPath + 'landscape.png',
       title: 'Eco Rangers',
       url: '/game/ecorangers',
       textColor: '#323232',
       bgColor: '#52c687',
-      description:
-        'Identify environmental threats and help restore balance to nature.',
+      description:'Identify environmental threats and help restore balance to nature.',
     },
     {
-      icon: basedPath + 'matter.svg', // Placeholder icon
+      icon: basedPath + 'sound.png',
       title: 'Sound Explorer',
       url: '/game/soundexplorer',
       textColor: '#FFFFFF',
@@ -233,22 +231,20 @@ export const getScienceGames = () => {
       description: 'Measure and decode sound waves to escape an echoing cave.',
     },
     {
-      icon: basedPath + 'matter.svg', // Placeholder icon
+      icon: basedPath + 'robot.png',
       title: 'Robot Repair Lab',
       url: '/game/robotrepair',
       textColor: '#323232',
       bgColor: '#0EA1EA',
-      description:
-        'Reprogram glitching science robots before they short-circuit the lab.',
+      description:'Reprogram glitching science robots before they short-circuit the lab.',
     },
     {
-      icon: basedPath + 'matter.svg', // Placeholder icon
+      icon: basedPath + 'alocasia.png', // Placeholder icon
       title: 'Plant Power',
       url: '/game/plantpower',
       textColor: '#323232',
       bgColor: '#ffc84d',
-      description:
-        'Learn the parts of a plant by listening to their whispered secrets.',
+      description:'Learn the parts of a plant by listening to their whispered secrets.',
     },
   ];
 };
