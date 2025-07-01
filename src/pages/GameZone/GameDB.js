@@ -163,7 +163,7 @@ export const getMathGames = () => {
 export const getScienceGames = () => {
   return [
     {
-      icon: basedPath + 'matter.svg',
+      icon: basedPath + 'matter.png',
       title: 'Matter Mix-Up',
       url: '/game/mattermixup',
       textColor: '#323232',
@@ -204,6 +204,8 @@ export const getScienceGames = () => {
       url: '/game/dinodetectives',
       textColor: '#323232',
       bgColor: '#c08b5f',
+      bgDecoration: true,
+      bgImage: '/assets/gameImages/bg-dino.png',
       description: 'Use clues from bones and roars to identify ancient beasts.',
     },
     {
@@ -228,6 +230,8 @@ export const getScienceGames = () => {
       url: '/game/soundexplorer',
       textColor: '#FFFFFF',
       bgColor: '#7a52c6',
+      bgDecoration: true,
+      bgImage: '/assets/gameImages/bg-sound.png',
       description: 'Measure and decode sound waves to escape an echoing cave.',
     },
     {
@@ -236,10 +240,12 @@ export const getScienceGames = () => {
       url: '/game/robotrepair',
       textColor: '#323232',
       bgColor: '#0EA1EA',
+      bgDecoration: true,
+      bgImage: '/assets/gameImages/bg-robo.png',
       description:'Reprogram glitching science robots before they short-circuit the lab.',
     },
     {
-      icon: basedPath + 'alocasia.png', // Placeholder icon
+      icon: basedPath + 'alocasia.png',
       title: 'Plant Power',
       url: '/game/plantpower',
       textColor: '#323232',
