@@ -142,6 +142,61 @@ const routes = [
     name: 'ColorGame',
     component: () => import('../pages/GameZone/GameZoneList/ColorGame.vue'),
   },
+
+  // Science Games
+
+  {
+    path: '/game/mattermixup',
+    name: 'MatterMixUp',
+    component: () => import('../pages/GameZone/GameZoneList/MatterMixUp.vue'), // Placeholder path
+  },
+  {
+    path: '/game/tinycelltown',
+    name: 'TinyCellTown',
+    component: () => import('../pages/GameZone/GameZoneList/TinyCellTown.vue'), // Placeholder path
+  },
+  {
+    path: '/game/weatherwhiz',
+    name: 'WeatherWhiz',
+    component: () => import('../pages/GameZone/GameZoneList/WeatherWhiz.vue'), // Placeholder path
+  },
+  {
+    path: '/game/spacecase',
+    name: 'SpaceCase',
+    component: () => import('../pages/GameZone/GameZoneList/SpaceCase.vue'), // Placeholder path
+  },
+  {
+    path: '/game/dinodetectives',
+    name: 'DinoDetectives',
+    component: () =>
+      import('../pages/GameZone/GameZoneList/DinoDetectives.vue'), // Placeholder path
+  },
+  {
+    path: '/game/germsquad',
+    name: 'GermSquad',
+    component: () => import('../pages/GameZone/GameZoneList/GermSquad.vue'), // Placeholder path
+  },
+  {
+    path: '/game/ecorangers',
+    name: 'EcoRangers',
+    component: () => import('../pages/GameZone/GameZoneList/EcoRangers.vue'), // Placeholder path
+  },
+  {
+    path: '/game/soundexplorer',
+    name: 'SoundExplorer',
+    component: () => import('../pages/GameZone/GameZoneList/SoundExplorer.vue'), // Placeholder path
+  },
+  {
+    path: '/game/robotrepair',
+    name: 'RobotRepair',
+    component: () => import('../pages/GameZone/GameZoneList/RobotRepair.vue'), // Placeholder path
+  },
+  {
+    path: '/game/plantpower',
+    name: 'PlantPower',
+    component: () => import('../pages/GameZone/GameZoneList/PlantPower.vue'), // Placeholder path
+  },
+
   {
     path: '/dashboard',
     component: MainDashboard,
@@ -167,7 +222,7 @@ const routes = [
         component: GamesDashboard,
       },
     ],
-  },  
+  },
 ];
 
 const router = createRouter({
