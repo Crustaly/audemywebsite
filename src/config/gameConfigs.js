@@ -173,10 +173,11 @@ export const gameConfigs = {
       'Help identify solids, liquids, and gases before they evaporate!',
     bgColor: '#94DDFF',
     iconSrc: '/assets/gameImages/buttons/gameButtons/matter.svg',
-    introAudio: '/matterMixUp/congrats.mp3', // Placeholder audio
     dbFile: 'matterMixUpDB.json',
     dbKey: 'MatterMixUpGame',
     category: 'science',
+    introText:
+      'A team of kitchen chemists just knocked over a tray of experiments—solids, liquids, and gases are everywhere. Can you help them identify what’s what before it all evaporates?',
   },
 
   tinyCellTown: {
@@ -184,10 +185,11 @@ export const gameConfigs = {
     description: 'Guide an alien through the microscopic city of a human cell.',
     bgColor: '#FFB39A',
     iconSrc: '/assets/gameImages/buttons/gameButtons/matter.svg', // Placeholder icon
-    introAudio: '/tinyCellTown/congrats.mp3', // Placeholder audio
     dbFile: 'tinyCellTownDB.json',
     dbKey: 'TinyCellTownGame',
     category: 'science',
+    introText:
+      "An alien crash-landed inside a human cell and can't tell a nucleus from a ribosome. Guide them through this microscopic city before they mistake mitochondria for a microwave.",
   },
 
   weatherWhiz: {
@@ -196,10 +198,11 @@ export const gameConfigs = {
       "Interpret the sky's mood swings before the thunder has a tantrum.",
     bgColor: '#CFCFCF',
     iconSrc: '/assets/gameImages/buttons/gameButtons/matter.svg', // Placeholder icon
-    introAudio: '/weatherWhiz/congrats.mp3', // Placeholder audio
     dbFile: 'weatherWhizDB.json',
     dbKey: 'WeatherWhizGame',
     category: 'science',
+    introText:
+      "You’re now a certified Sky Translator. When clouds mumble and lightning shouts, it’s your job to interpret the sky's mood swings before the thunder throws another tantrum.",
   },
 
   spaceCase: {
@@ -207,10 +210,11 @@ export const gameConfigs = {
     description: 'Help a forgetful astronaut remember basic facts about space.',
     bgColor: '#A0B2E8',
     iconSrc: '/assets/gameImages/buttons/gameButtons/matter.svg', // Placeholder icon
-    introAudio: '/spaceCase/congrats.mp3', // Placeholder audio
     dbFile: 'spaceCaseDB.json',
     dbKey: 'SpaceCaseGame',
     category: 'science',
+    introText:
+      "An astronaut forgot everything about space! You’re mission control. Feed them facts fast, or they might land on a moon thinking it's a marshmallow.",
   },
 
   dinoDetectives: {
@@ -218,10 +222,11 @@ export const gameConfigs = {
     description: 'Use clues from bones and roars to identify ancient beasts.',
     bgColor: '#DCC3A1',
     iconSrc: '/assets/gameImages/buttons/gameButtons/matter.svg', // Placeholder icon
-    introAudio: '/dinoDetectives/congrats.mp3', // Placeholder audio
     dbFile: 'dinoDetectivesDB.json',
     dbKey: 'DinoDetectivesGame',
     category: 'science',
+    introText:
+      'A new dinosaur skeleton was just unearthed, but it’s missing its name! Use clues from bones and roars to identify these ancient beasts before they vanish into dust.',
   },
 
   germSquad: {
@@ -230,10 +235,11 @@ export const gameConfigs = {
       'Name the culprits behind a fever before the party gets out of hand.',
     bgColor: '#FF9A9A',
     iconSrc: '/assets/gameImages/buttons/gameButtons/matter.svg', // Placeholder icon
-    introAudio: '/germSquad/congrats.mp3', // Placeholder audio
     dbFile: 'germSquadDB.json',
     dbKey: 'GermSquadGame',
     category: 'science',
+    introText:
+      "You're on a mission inside a sick body. Bacteria are throwing a party and only science can stop them. Can you name the culprits before the fever hits max?",
   },
 
   ecoRangers: {
@@ -242,10 +248,11 @@ export const gameConfigs = {
       'Identify environmental threats and help restore balance to nature.',
     bgColor: '#A2EAB8',
     iconSrc: '/assets/gameImages/buttons/gameButtons/matter.svg', // Placeholder icon
-    introAudio: '/ecoRangers/congrats.mp3', // Placeholder audio
     dbFile: 'ecoRangersDB.json',
     dbKey: 'EcoRangersGame',
     category: 'science',
+    introText:
+      'The animals are voting someone off the island... and pollution is the top suspect! Help the ecosystem restore balance by identifying environmental threats and natural defenders.',
   },
 
   soundExplorer: {
@@ -253,10 +260,11 @@ export const gameConfigs = {
     description: 'Measure and decode sound waves to escape an echoing cave.',
     bgColor: '#C0A2EA',
     iconSrc: '/assets/gameImages/buttons/gameButtons/matter.svg', // Placeholder icon
-    introAudio: '/soundExplorer/congrats.mp3', // Placeholder audio
     dbFile: 'soundExplorerDB.json',
     dbKey: 'SoundExplorerGame',
     category: 'science',
+    introText:
+      "You're trapped in a cave where everything speaks in sound waves. Use your ears to measure, decode, and respond before the cave echoes you into confusion.",
   },
 
   robotRepair: {
@@ -265,10 +273,11 @@ export const gameConfigs = {
       'Reprogram glitching science robots before they short-circuit the lab.',
     bgColor: '#A2DCEA',
     iconSrc: '/assets/gameImages/buttons/gameButtons/matter.svg', // Placeholder icon
-    introAudio: '/robotRepair/congrats.mp3', // Placeholder audio
     dbFile: 'robotRepairDB.json',
     dbKey: 'RobotRepairGame',
     category: 'science',
+    introText:
+      'A team of science robots is glitching! Their sensors are scrambled and they’re confusing magnets with muffins. You’re their only hope—reprogram them before they short-circuit the lab!',
   },
 
   plantPower: {
@@ -277,9 +286,10 @@ export const gameConfigs = {
       'Learn the parts of a plant by listening to their whispered secrets.',
     bgColor: '#FFE59A',
     iconSrc: '/assets/gameImages/buttons/gameButtons/matter.svg', // Placeholder icon
-    introAudio: '/plantPower/congrats.mp3', // Placeholder audio
     dbFile: 'plantPowerDB.json',
     dbKey: 'PlantPowerGame',
     category: 'science',
+    introText:
+      'You’ve been shrunk into a garden where plants whisper their secrets—but only if you know their parts. Solve each clue before the flowers fall asleep again.',
   },
 };

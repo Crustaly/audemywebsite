@@ -6,6 +6,8 @@ import {
   playSound,
   stopAudios,
   playScore,
+  playMusic,
+  stopMusic,
 } from '../Utilities/playAudio';
 import { startListening, stopListening } from '../Utilities/speechRecognition';
 import { useDeviceDetection } from './useDeviceDetection';
@@ -216,17 +218,37 @@ export function useGameCore(gameConfig) {
 
     generateQuestions();
 
-    watch(playButton, (newVal) => {
+    watch(playButton, async (newVal) => {
       if (newVal) {
         isIntroPlaying.value = true;
-        const introAudio = playIntro(gameConfig.introAudio);
-        currentAudios.push(introAudio);
-        introAudio.onended = () => {
+
+        // Check if the game uses the new TTS intro system
+        if (gameConfig.introText) {
+          // Start the background music
+          const musicPath = '/assets/generalAudio/happy-kids-333364.mp3';
+          playMusic(musicPath);
+
+          console.log('Playing intro via TTS...');
+          await playQuestion(gameConfig.introText); // Wait for TTS to finish
+          stopMusic(); // Stop music after TTS intro
           isIntroPlaying.value = false;
           if (isDesktop.value) {
             playNextQuestion();
           }
-        };
+        } else {
+          console.log('Playing pre-recorded intro audio...');
+
+          const introAudio = playIntro(gameConfig.introAudio);
+          currentAudios.push(introAudio);
+
+          // This event fires when the pre-recorded audio file ends
+          introAudio.onended = () => {
+            isIntroPlaying.value = false;
+            if (isDesktop.value) {
+              playNextQuestion();
+            }
+          };
+        }
       }
     });
   });

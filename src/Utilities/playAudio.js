@@ -1,3 +1,28 @@
+let backgroundMusic;
+
+export function playMusic(musicPath) {
+  // Stop any previously playing music to avoid overlap
+  if (backgroundMusic) {
+    backgroundMusic.pause();
+  }
+
+  console.log('Playing background music:', musicPath);
+  backgroundMusic = new Audio(musicPath);
+  backgroundMusic.loop = true; // Make the music loop
+  backgroundMusic.volume = 0.1; // Set volume to a reasonable level
+  backgroundMusic
+    .play()
+    .catch((e) => console.error('Music playback failed:', e));
+}
+
+export function stopMusic() {
+  if (backgroundMusic) {
+    console.log('Stopping background music.');
+    backgroundMusic.pause();
+    backgroundMusic.currentTime = 0;
+  }
+}
+
 export function playIntro(audioFile) {
   // Play introduction audio
   const introAudioPath = '/assets' + audioFile;
