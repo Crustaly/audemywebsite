@@ -1,0 +1,72 @@
+{
+  "SoundExplorerGame": {
+    "Questions": {
+      "Easy": [
+        {
+          "Q": "What unit measures sound loudness?",
+          "A": ["Decibel"]
+        },
+        {
+          "Q": "What unit measures sound loudness?",
+          "A": ["Decibel"]
+        },
+        {
+          "Q": "What unit measures sound loudness?",
+          "A": ["Decibel"]
+        },
+        {
+          "Q": "What unit measures sound loudness?",
+          "A": ["Decibel"]
+        },
+        {
+          "Q": "What unit measures sound loudness?",
+          "A": ["Decibel"]
+        }
+      ],
+      "Medium": [
+        {
+          "Q": "What unit measures sound loudness?",
+          "A": ["Decibel"]
+        },
+        {
+          "Q": "What unit measures sound loudness?",
+          "A": ["Decibel"]
+        },
+        {
+          "Q": "What unit measures sound loudness?",
+          "A": ["Decibel"]
+        },
+        {
+          "Q": "What unit measures sound loudness?",
+          "A": ["Decibel"]
+        },
+        {
+          "Q": "What unit measures sound loudness?",
+          "A": ["Decibel"]
+        }
+      ],
+      "Hard": [
+        {
+          "Q": "What unit measures sound loudness?",
+          "A": ["Decibel"]
+        },
+        {
+          "Q": "What unit measures sound loudness?",
+          "A": ["Decibel"]
+        },
+        {
+          "Q": "What unit measures sound loudness?",
+          "A": ["Decibel"]
+        },
+        {
+          "Q": "What unit measures sound loudness?",
+          "A": ["Decibel"]
+        },
+        {
+          "Q": "What unit measures sound loudness?",
+          "A": ["Decibel"]
+        }
+      ]
+    }
+  }
+}

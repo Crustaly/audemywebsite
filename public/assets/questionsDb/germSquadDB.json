@@ -1,0 +1,72 @@
+{
+  "GermSquadGame": {
+    "Questions": {
+      "Easy": [
+        {
+          "Q": "What tiny organism causes strep throat?",
+          "A": ["Bacteria"]
+        },
+        {
+          "Q": "What tiny organism causes strep throat?",
+          "A": ["Bacteria"]
+        },
+        {
+          "Q": "What tiny organism causes strep throat?",
+          "A": ["Bacteria"]
+        },
+        {
+          "Q": "What tiny organism causes strep throat?",
+          "A": ["Bacteria"]
+        },
+        {
+          "Q": "What tiny organism causes strep throat?",
+          "A": ["Bacteria"]
+        }
+      ],
+      "Medium": [
+        {
+          "Q": "What tiny organism causes strep throat?",
+          "A": ["Bacteria"]
+        },
+        {
+          "Q": "What tiny organism causes strep throat?",
+          "A": ["Bacteria"]
+        },
+        {
+          "Q": "What tiny organism causes strep throat?",
+          "A": ["Bacteria"]
+        },
+        {
+          "Q": "What tiny organism causes strep throat?",
+          "A": ["Bacteria"]
+        },
+        {
+          "Q": "What tiny organism causes strep throat?",
+          "A": ["Bacteria"]
+        }
+      ],
+      "Hard": [
+        {
+          "Q": "What tiny organism causes strep throat?",
+          "A": ["Bacteria"]
+        },
+        {
+          "Q": "What tiny organism causes strep throat?",
+          "A": ["Bacteria"]
+        },
+        {
+          "Q": "What tiny organism causes strep throat?",
+          "A": ["Bacteria"]
+        },
+        {
+          "Q": "What tiny organism causes strep throat?",
+          "A": ["Bacteria"]
+        },
+        {
+          "Q": "What tiny organism causes strep throat?",
+          "A": ["Bacteria"]
+        }
+      ]
+    }
+  }
+}
