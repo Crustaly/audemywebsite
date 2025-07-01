@@ -225,7 +225,7 @@ export function useGameCore(gameConfig) {
         // Check if the game uses the new TTS intro system
         if (gameConfig.introText) {
           // Start the background music
-          const musicPath = '/assets/generalAudio/happy-kids-333364.mp3';
+          const musicPath = '/assets/generalAudio/happy-kids-cut.mp3';
           playMusic(musicPath);
 
           console.log('Playing intro via TTS...');
