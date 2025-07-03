@@ -129,6 +129,8 @@ export function useGameCore(gameConfig) {
         console.log('User Answer:', finalTranscript);
         console.log('Correct Answer:', question['A']);
 
+        await new Promise((resolve) => setTimeout(resolve, 2000));
+
         const isCorrect = validateAnswer(finalTranscript, question);
 
         if (isCorrect) {
