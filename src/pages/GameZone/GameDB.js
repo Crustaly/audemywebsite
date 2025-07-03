@@ -170,7 +170,8 @@ export const getScienceGames = () => {
       bgColor: '#4dd4ff',
       bgDecoration: true,
       bgImage: '/assets/gameImages/bg.svg',
-      description:'Help identify solids, liquids, and gases before they evaporate!',
+      description:
+        'Help identify solids, liquids, and gases before they evaporate!',
     },
     {
       icon: basedPath + 'cells.png',
@@ -178,25 +179,28 @@ export const getScienceGames = () => {
       url: '/game/tinycelltown',
       textColor: '#323232',
       bgColor: '#ff8c69',
-      description:'Guide an alien through the microscopic city of a human cell.',
+      description:
+        'Guide an alien through the microscopic city of a human cell.',
     },
     {
       icon: basedPath + 'weather.png',
       title: 'Weather Whiz',
       url: '/game/weatherwhiz',
       textColor: '#323232',
-      bgColor: '#a3a3a3',
-      description:'Interpret the sky’s mood swings before the thunder has a tantrum.',
+      bgColor: '#B19CD9',
+      description:
+        'Interpret the sky’s mood swings before the thunder has a tantrum.',
     },
     {
       icon: basedPath + 'astronaut.png',
       title: 'Space Case',
       url: '/game/spacecase',
-      textColor: '#FFFFFF',
-      bgColor: '#3c4f9e',
+      textColor: '#323232',
+      bgColor: '#d1d5db',
       bgDecoration: true,
       bgImage: '/assets/gameImages/bg-star.png',
-      description:'Help a forgetful astronaut remember basic facts about space.',
+      description:
+        'Help a forgetful astronaut remember basic facts about space.',
     },
     {
       icon: basedPath + 'dino.png',
@@ -212,9 +216,10 @@ export const getScienceGames = () => {
       icon: basedPath + 'germ.png',
       title: 'Germ Squad',
       url: '/game/germsquad',
-      textColor: '#FFFFFF',
-      bgColor: '#eb5e5e',
-      description:'Name the culprits behind a fever before the party gets out of hand.',
+      textColor: '#323232',
+      bgColor: '#a7f3d0',
+      description:
+        'Name the culprits behind a fever before the party gets out of hand.',
     },
     {
       icon: basedPath + 'landscape.png',
@@ -222,14 +227,15 @@ export const getScienceGames = () => {
       url: '/game/ecorangers',
       textColor: '#323232',
       bgColor: '#52c687',
-      description:'Identify environmental threats and help restore balance to nature.',
+      description:
+        'Identify environmental threats and help restore balance to nature.',
     },
     {
       icon: basedPath + 'sound.png',
       title: 'Sound Explorer',
       url: '/game/soundexplorer',
-      textColor: '#FFFFFF',
-      bgColor: '#7a52c6',
+      textColor: '#323232',
+      bgColor: '#fed7aa',
       bgDecoration: true,
       bgImage: '/assets/gameImages/bg-sound.png',
       description: 'Measure and decode sound waves to escape an echoing cave.',
@@ -242,7 +248,8 @@ export const getScienceGames = () => {
       bgColor: '#0EA1EA',
       bgDecoration: true,
       bgImage: '/assets/gameImages/bg-robo.png',
-      description:'Reprogram glitching science robots before they short-circuit the lab.',
+      description:
+        'Reprogram glitching science robots before they short-circuit the lab.',
     },
     {
       icon: basedPath + 'alocasia.png',
@@ -250,7 +257,8 @@ export const getScienceGames = () => {
       url: '/game/plantpower',
       textColor: '#323232',
       bgColor: '#ffc84d',
-      description:'Learn the parts of a plant by listening to their whispered secrets.',
+      description:
+        'Learn the parts of a plant by listening to their whispered secrets.',
     },
   ];
 };
