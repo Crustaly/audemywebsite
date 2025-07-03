@@ -273,7 +273,7 @@ export const gameConfigs = {
       'Reprogram glitching science robots before they short-circuit the lab.',
     bgColor: '#A2DCEA',
     iconSrc: '/assets/gameImages/buttons/gameButtons/robot.png',
-    dbFile: 'robotRepairDB.json',
+    dbFile: 'robotRepairLabDB.json',
     dbKey: 'RobotRepairGame',
     category: 'science',
     introText:
