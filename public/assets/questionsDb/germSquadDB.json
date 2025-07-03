@@ -7,64 +7,84 @@
           "A": ["Bacteria"]
         },
         {
-          "Q": "What tiny organism causes strep throat?",
-          "A": ["Bacteria"]
+          "Q": "What do you use with water to wash germs off your hands?",
+          "A": ["Soap"]
         },
         {
-          "Q": "What tiny organism causes strep throat?",
-          "A": ["Bacteria"]
+          "Q": "What type of germ causes the common cold and the flu?",
+          "A": ["Virus"]
         },
         {
-          "Q": "What tiny organism causes strep throat?",
-          "A": ["Bacteria"]
+          "Q": "What is the shot that helps your body fight off certain germs?",
+          "A": ["Vaccine"]
         },
         {
-          "Q": "What tiny organism causes strep throat?",
-          "A": ["Bacteria"]
+          "Q": "What do you call it when your body's temperature gets very high to fight infection?",
+          "A": ["Fever"]
+        },
+        {
+          "Q": "What tool do scientists use to see extremely tiny germs?",
+          "A": ["Microscope"]
+        },
+        {
+          "Q": "What is the sudden, noisy burst of air from your mouth and nose called?",
+          "A": ["Sneeze"]
+        },
+        {
+          "Q": "What is the name for the body's defense system against germs?",
+          "A": ["Immune"]
+        },
+        {
+          "Q": "What sticky fluid in your nose and throat helps trap germs?",
+          "A": ["Mucus"]
+        },
+        {
+          "Q": "What is the sharp sound your body makes to clear your throat?",
+          "A": ["Cough"]
         }
       ],
       "Medium": [
         {
-          "Q": "What tiny organism causes strep throat?",
-          "A": ["Bacteria"]
+          "Q": "What type of medicine is used to kill bacteria, but does not work on viruses?",
+          "A": ["Antibiotic"]
         },
         {
-          "Q": "What tiny organism causes strep throat?",
-          "A": ["Bacteria"]
+          "Q": "What proteins does your immune system create to recognize and neutralize germs?",
+          "A": ["Antibodies"]
         },
         {
-          "Q": "What tiny organism causes strep throat?",
-          "A": ["Bacteria"]
+          "Q": "What type of fungus can grow on old bread?",
+          "A": ["Mold"]
         },
         {
-          "Q": "What tiny organism causes strep throat?",
-          "A": ["Bacteria"]
+          "Q": "What word describes a disease that can be easily spread from one person to another?",
+          "A": ["Contagious"]
         },
         {
-          "Q": "What tiny organism causes strep throat?",
-          "A": ["Bacteria"]
+          "Q": "What is the process of heating liquids to kill harmful bacteria called?",
+          "A": ["Pasteurization"]
         }
       ],
       "Hard": [
         {
-          "Q": "What tiny organism causes strep throat?",
-          "A": ["Bacteria"]
+          "Q": "What scientist is credited with discovering penicillin?",
+          "A": ["Fleming"]
         },
         {
-          "Q": "What tiny organism causes strep throat?",
-          "A": ["Bacteria"]
+          "Q": "What is it called when a disease spreads rapidly and affects many people in a community?",
+          "A": ["Epidemic"]
         },
         {
-          "Q": "What tiny organism causes strep throat?",
-          "A": ["Bacteria"]
+          "Q": "What is an epidemic that has spread across multiple countries or continents called?",
+          "A": ["Pandemic"]
         },
         {
-          "Q": "What tiny organism causes strep throat?",
-          "A": ["Bacteria"]
+          "Q": "What single-celled organism, a type of protist, causes malaria?",
+          "A": ["Protozoa"]
         },
         {
-          "Q": "What tiny organism causes strep throat?",
-          "A": ["Bacteria"]
+          "Q": "What is the study of viruses and the diseases they cause called?",
+          "A": ["Virology"]
         }
       ]
     }

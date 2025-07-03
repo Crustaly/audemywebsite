@@ -3,68 +3,88 @@
     "Questions": {
       "Easy": [
         {
-          "Q": "What cell part makes energy?",
+          "Q": "What part of the cell is the 'powerhouse' that makes energy?",
           "A": ["Mitochondria"]
         },
         {
-          "Q": "What cell part makes energy?",
-          "A": ["Mitochondria"]
+          "Q": "What is the 'brain' or control center of the cell?",
+          "A": ["Nucleus"]
         },
         {
-          "Q": "What cell part makes energy?",
-          "A": ["Mitochondria"]
+          "Q": "What is the jelly-like substance that fills the inside of a cell?",
+          "A": ["Cytoplasm"]
         },
         {
-          "Q": "What cell part makes energy?",
-          "A": ["Mitochondria"]
+          "Q": "What is the outside layer of an animal cell called?",
+          "A": ["Membrane"]
         },
         {
-          "Q": "What cell part makes energy?",
-          "A": ["Mitochondria"]
+          "Q": "In a plant cell, what part uses sunlight to make food?",
+          "A": ["Chloroplast"]
+        },
+        {
+          "Q": "What is the storage bubble in a cell that holds water, food, and waste?",
+          "A": ["Vacuole"]
+        },
+        {
+          "Q": "What is the stiff, strong outer layer of a plant cell?",
+          "A": ["Wall"]
+        },
+        {
+          "Q": "What tiny factories in a cell build proteins?",
+          "A": ["Ribosomes"]
+        },
+        {
+          "Q": "What are all living things, like people and plants, made of?",
+          "A": ["Cells"]
+        },
+        {
+          "Q": "Are trees made of animal cells or plant cells?",
+          "A": ["Plant"]
         }
       ],
       "Medium": [
         {
-          "Q": "What cell part makes energy?",
-          "A": ["Mitochondria"]
+          "Q": "Inside the nucleus, what thread-like structures hold all the cell's information?",
+          "A": ["Chromosomes"]
         },
         {
-          "Q": "What cell part makes energy?",
-          "A": ["Mitochondria"]
+          "Q": "What acts like a delivery service, packaging and shipping proteins in the cell?",
+          "A": ["Golgi"]
         },
         {
-          "Q": "What cell part makes energy?",
-          "A": ["Mitochondria"]
+          "Q": "What part of the cell acts like a recycling center to break down waste?",
+          "A": ["Lysosome"]
         },
         {
-          "Q": "What cell part makes energy?",
-          "A": ["Mitochondria"]
+          "Q": "What network of tubes helps move materials around inside the cell?",
+          "A": ["Reticulum"]
         },
         {
-          "Q": "What cell part makes energy?",
-          "A": ["Mitochondria"]
+          "Q": "What is the process of a cell dividing to make two new cells called?",
+          "A": ["Mitosis"]
         }
       ],
       "Hard": [
         {
-          "Q": "What cell part makes energy?",
-          "A": ["Mitochondria"]
+          "Q": "What is the name for the process that mitochondria use to get energy from food?",
+          "A": ["Respiration"]
         },
         {
-          "Q": "What cell part makes energy?",
-          "A": ["Mitochondria"]
+          "Q": "What tough material makes a plant's cell wall so strong?",
+          "A": ["Cellulose"]
         },
         {
-          "Q": "What cell part makes energy?",
-          "A": ["Mitochondria"]
+          "Q": "What part of the nucleus is in charge of making ribosomes?",
+          "A": ["Nucleolus"]
         },
         {
-          "Q": "What cell part makes energy?",
-          "A": ["Mitochondria"]
+          "Q": "In animal cells, what small parts help with cell division?",
+          "A": ["Centrioles"]
         },
         {
-          "Q": "What cell part makes energy?",
-          "A": ["Mitochondria"]
+          "Q": "What green chemical inside chloroplasts absorbs sunlight?",
+          "A": ["Chlorophyll"]
         }
       ]
     }

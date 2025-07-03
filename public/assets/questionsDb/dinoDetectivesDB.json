@@ -7,64 +7,84 @@
           "A": ["Triceratops"]
         },
         {
-          "Q": "What dinosaur had three horns on its head?",
-          "A": ["Triceratops"]
+          "Q": "What dinosaur is famous for the large bony plates on its back?",
+          "A": ["Stegosaurus"]
         },
         {
-          "Q": "What dinosaur had three horns on its head?",
-          "A": ["Triceratops"]
+          "Q": "What dinosaur's name means 'tyrant lizard king'?",
+          "A": ["Tyrannosaurus"]
         },
         {
-          "Q": "What dinosaur had three horns on its head?",
-          "A": ["Triceratops"]
+          "Q": "What dinosaur had a bony club at the end of its tail?",
+          "A": ["Ankylosaurus"]
         },
         {
-          "Q": "What dinosaur had three horns on its head?",
-          "A": ["Triceratops"]
+          "Q": "What fast-running dinosaur's name means 'swift robber'?",
+          "A": ["Velociraptor"]
+        },
+        {
+          "Q": "What dinosaur is known for its very long neck?",
+          "A": ["Brachiosaurus"]
+        },
+        {
+          "Q": "What type of scientist studies dinosaur fossils?",
+          "A": ["Paleontologist"]
+        },
+        {
+          "Q": "What dinosaur had a large sail-like fin on its back?",
+          "A": ["Spinosaurus"]
+        },
+        {
+          "Q": "Which famous period is known as the 'Age of Dinosaurs'?",
+          "A": ["Jurassic"]
+        },
+        {
+          "Q": "What is the term for a fossilized dinosaur footprint?",
+          "A": ["Track"]
         }
       ],
       "Medium": [
         {
-          "Q": "What dinosaur had three horns on its head?",
-          "A": ["Triceratops"]
+          "Q": "What dinosaur had a large, hollow crest on its head to make sounds?",
+          "A": ["Parasaurolophus"]
         },
         {
-          "Q": "What dinosaur had three horns on its head?",
-          "A": ["Triceratops"]
+          "Q": "What dinosaur had a distinctive thumb spike on each hand?",
+          "A": ["Iguanodon"]
         },
         {
-          "Q": "What dinosaur had three horns on its head?",
-          "A": ["Triceratops"]
+          "Q": "In which geological period did the Tyrannosaurus Rex live?",
+          "A": ["Cretaceous"]
         },
         {
-          "Q": "What dinosaur had three horns on its head?",
-          "A": ["Triceratops"]
+          "Q": "What dinosaur's name means 'double beam', referring to its chevron bones?",
+          "A": ["Diplodocus"]
         },
         {
-          "Q": "What dinosaur had three horns on its head?",
-          "A": ["Triceratops"]
+          "Q": "What massive sea reptile was a top predator in the Cretaceous ocean?",
+          "A": ["Mosasaurus"]
         }
       ],
       "Hard": [
         {
-          "Q": "What dinosaur had three horns on its head?",
-          "A": ["Triceratops"]
+          "Q": "What dinosaur had a thick, dome-shaped skull for head-butting?",
+          "A": ["Pachycephalosaurus"]
         },
         {
-          "Q": "What dinosaur had three horns on its head?",
-          "A": ["Triceratops"]
+          "Q": "What was the largest known flying reptile of the dinosaur age?",
+          "A": ["Quetzalcoatlus"]
         },
         {
-          "Q": "What dinosaur had three horns on its head?",
-          "A": ["Triceratops"]
+          "Q": "What dinosaur's name means 'different lizard'?",
+          "A": ["Allosaurus"]
         },
         {
-          "Q": "What dinosaur had three horns on its head?",
-          "A": ["Triceratops"]
+          "Q": "What is the scientific term for fossilized dinosaur droppings?",
+          "A": ["Coprolite"]
         },
         {
-          "Q": "What dinosaur had three horns on its head?",
-          "A": ["Triceratops"]
+          "Q": "What southern giant's name means 'giant southern lizard'?",
+          "A": ["Giganotosaurus"]
         }
       ]
     }

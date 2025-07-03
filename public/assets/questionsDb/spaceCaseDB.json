@@ -3,68 +3,88 @@
     "Questions": {
       "Easy": [
         {
-          "Q": "What planet is known for its rings?",
+          "Q": "What planet is known for its beautiful rings?",
           "A": ["Saturn"]
         },
         {
-          "Q": "What planet is known for its rings?",
-          "A": ["Saturn"]
+          "Q": "What giant star is at the center of our solar system?",
+          "A": ["Sun"]
         },
         {
-          "Q": "What planet is known for its rings?",
-          "A": ["Saturn"]
+          "Q": "What is the name of the planet we all live on?",
+          "A": ["Earth"]
         },
         {
-          "Q": "What planet is known for its rings?",
-          "A": ["Saturn"]
+          "Q": "What is the nickname for Mars because of its color?",
+          "A": ["Red"]
         },
         {
-          "Q": "What planet is known for its rings?",
-          "A": ["Saturn"]
+          "Q": "What do we call the person who travels to space in a rocket?",
+          "A": ["Astronaut"]
+        },
+        {
+          "Q": "What shines in the sky at night and orbits the Earth?",
+          "A": ["Moon"]
+        },
+        {
+          "Q": "What is the biggest planet in our solar system?",
+          "A": ["Jupiter"]
+        },
+        {
+          "Q": "What vehicle is used to fly into outer space?",
+          "A": ["Rocket"]
+        },
+        {
+          "Q": "What is a pattern of stars in the night sky called?",
+          "A": ["Constellation"]
+        },
+        {
+          "Q": "What tiny, twinkling lights do you see in the night sky?",
+          "A": ["Stars"]
         }
       ],
       "Medium": [
         {
-          "Q": "What planet is known for its rings?",
-          "A": ["Saturn"]
+          "Q": "What planet is closest to the Sun?",
+          "A": ["Mercury"]
         },
         {
-          "Q": "What planet is known for its rings?",
-          "A": ["Saturn"]
+          "Q": "What blue planet is the farthest from the Sun?",
+          "A": ["Neptune"]
         },
         {
-          "Q": "What planet is known for its rings?",
-          "A": ["Saturn"]
+          "Q": "What invisible force pulls you down and keeps planets orbiting the Sun?",
+          "A": ["Gravity"]
         },
         {
-          "Q": "What planet is known for its rings?",
-          "A": ["Saturn"]
+          "Q": "What is a large rock that orbits the sun called?",
+          "A": ["Asteroid"]
         },
         {
-          "Q": "What planet is known for its rings?",
-          "A": ["Saturn"]
+          "Q": "What is a ball of ice and dust with a long tail that flies through space?",
+          "A": ["Comet"]
         }
       ],
       "Hard": [
         {
-          "Q": "What planet is known for its rings?",
-          "A": ["Saturn"]
+          "Q": "What is the giant storm on Jupiter called the Great Red ___?",
+          "A": ["Spot"]
         },
         {
-          "Q": "What planet is known for its rings?",
-          "A": ["Saturn"]
+          "Q": "What is the name of the galaxy we live in?",
+          "A": ["Milkyway"]
         },
         {
-          "Q": "What planet is known for its rings?",
-          "A": ["Saturn"]
+          "Q": "What tool do scientists use to see faraway planets and stars?",
+          "A": ["Telescope"]
         },
         {
-          "Q": "What planet is known for its rings?",
-          "A": ["Saturn"]
+          "Q": "What do you call the path an object takes as it travels around a planet or star?",
+          "A": ["Orbit"]
         },
         {
-          "Q": "What planet is known for its rings?",
-          "A": ["Saturn"]
+          "Q": "What is the name of the largest volcano in our solar system, found on Mars?",
+          "A": ["Olympus"]
         }
       ]
     }
