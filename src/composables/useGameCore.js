@@ -9,12 +9,11 @@ import {
 } from '../Utilities/playAudio';
 import { startListening, stopListening } from '../Utilities/speechRecognition';
 import { useDeviceDetection } from './useDeviceDetection';
+import { useGameQuestions } from './useGameQuestions';
 
 export function useGameCore(gameConfig) {
   const currentAudios = [];
-  const randQueNum = [];
 
-  const numOfAudiosPlayed = ref(0);
   const score = ref(0);
   const isRecording = ref(false);
   const transcription = ref('');
@@ -24,18 +23,7 @@ export function useGameCore(gameConfig) {
   const isButtonCooldown = ref(false);
 
   const { isTablet, isMobile, isDesktop } = useDeviceDetection();
-  const questionsDb = ref([]);
-
-  const currentQuestion = computed(() => {
-    if (
-      numOfAudiosPlayed.value < 5 &&
-      questionsDb.value.length > 0 &&
-      randQueNum.length > numOfAudiosPlayed.value
-    ) {
-      return questionsDb.value[randQueNum[numOfAudiosPlayed.value]];
-    }
-    return null;
-  });
+  const gameQuestions = useGameQuestions(gameConfig);
 
   const isButtonDisabled = computed(
     () => isIntroPlaying.value || isButtonCooldown.value
@@ -61,57 +49,21 @@ export function useGameCore(gameConfig) {
     return 'Record your answer';
   });
 
-  const generateQuestions = () => {
-    console.log('Generating Questions...');
-    fetch(`/assets/questionsDb/${gameConfig.dbFile}`)
-      .then((response) => response.json())
-      .then((data) => {
-        let allQuestions = [
-          ...data[gameConfig.dbKey]['Questions']['Easy'],
-          ...data[gameConfig.dbKey]['Questions']['Medium'],
-          ...data[gameConfig.dbKey]['Questions']['Hard'],
-        ];
-
-        while (randQueNum.length < 5) {
-          let num = Math.floor(Math.random() * allQuestions.length);
-          if (!randQueNum.includes(num)) {
-            randQueNum.push(num);
-          }
-        }
-        questionsDb.value = allQuestions;
-        console.log('Questions generated!');
-        console.log(questionsDb.value);
-      })
-      .catch((error) => {
-        console.error('Error fetching questions:', error);
-      });
-  };
-
   const playNextQuestion = async () => {
-    if (numOfAudiosPlayed.value < 5 && currentQuestion.value) {
-      console.log(currentQuestion.value);
+    if (
+      gameQuestions.hasMoreQuestions() &&
+      gameQuestions.currentQuestion.value
+    ) {
+      console.log(gameQuestions.currentQuestion.value);
 
       isButtonCooldown.value = true;
-      await playQuestion(currentQuestion.value['Q']);
+      await playQuestion(gameQuestions.currentQuestion.value['Q']);
       isButtonCooldown.value = false;
     }
   };
 
-  const validateAnswer = (finalTranscript, question) => {
-    const userWords = finalTranscript
-      .toLowerCase()
-      .replace(/[.,!?]/g, '')
-      .split(/\s+/);
-
-    const correctAnswers = Array.isArray(question['A'])
-      ? question['A'].map((a) => a.toLowerCase())
-      : [question['A'].toLowerCase()];
-
-    return userWords.some((word) => correctAnswers.includes(word));
-  };
-
   const toggleRecording = async () => {
-    if (numOfAudiosPlayed.value < 5 && !isIntroPlaying.value) {
+    if (gameQuestions.hasMoreQuestions() && !isIntroPlaying.value) {
       if (!isRecording.value) {
         isRecording.value = true;
 
@@ -124,12 +76,15 @@ export function useGameCore(gameConfig) {
 
         const finalTranscript = transcription.value;
 
-        const question = questionsDb.value[randQueNum[numOfAudiosPlayed.value]];
+        const question = gameQuestions.currentQuestion.value;
         console.log('Question is: ', question['Q']);
         console.log('User Answer:', finalTranscript);
         console.log('Correct Answer:', question['A']);
 
-        const isCorrect = validateAnswer(finalTranscript, question);
+        const isCorrect = gameQuestions.validateAnswer(
+          finalTranscript,
+          question
+        );
 
         if (isCorrect) {
           score.value++;
@@ -148,11 +103,9 @@ export function useGameCore(gameConfig) {
 
         stopListening();
         isRecording.value = false;
-        numOfAudiosPlayed.value++;
+        gameQuestions.moveToNextQuestion();
 
-        const isGameOver = numOfAudiosPlayed.value >= 5;
-
-        if (!isGameOver) {
+        if (!gameQuestions.isGameComplete()) {
           playNextQuestion();
         } else {
           playScore(score.value);
@@ -170,7 +123,7 @@ export function useGameCore(gameConfig) {
 
   const repeatQuestion = () => {
     if (
-      numOfAudiosPlayed.value < 5 &&
+      gameQuestions.hasMoreQuestions() &&
       !isIntroPlaying.value &&
       !isButtonCooldown.value
     ) {
@@ -178,7 +131,7 @@ export function useGameCore(gameConfig) {
 
       console.log(
         `Repeating question for ${gameConfig.title} - Question #${
-          numOfAudiosPlayed.value + 1
+          gameQuestions.currentQuestionIndex.value + 1
         }`
       );
 
@@ -196,7 +149,7 @@ export function useGameCore(gameConfig) {
 
   const startFirstQuestion = () => {
     console.log('Starting first question...');
-    numOfAudiosPlayed.value = 1;
+    gameQuestions.moveToNextQuestion();
     playNextQuestion();
   };
 
@@ -214,7 +167,7 @@ export function useGameCore(gameConfig) {
     console.log('Requesting microphone access...');
     requestMicPermission();
 
-    generateQuestions();
+    gameQuestions.generateQuestions();
 
     watch(playButton, (newVal) => {
       if (newVal) {
@@ -241,7 +194,7 @@ export function useGameCore(gameConfig) {
   });
 
   return {
-    numOfAudiosPlayed,
+    numOfAudiosPlayed: gameQuestions.currentQuestionIndex,
     score,
     isRecording,
     transcription,
@@ -251,13 +204,13 @@ export function useGameCore(gameConfig) {
     isTablet,
     isMobile,
     isDesktop,
-    questionsDb,
+    questionsDb: gameQuestions.questionsDb,
     currentAudios,
-    currentQuestion,
+    currentQuestion: gameQuestions.currentQuestion,
     isButtonDisabled,
     recordButtonClasses,
     recordButtonTitle,
-    generateQuestions,
+    generateQuestions: gameQuestions.generateQuestions,
     playNextQuestion,
     toggleRecording,
     goBack,
@@ -266,6 +219,6 @@ export function useGameCore(gameConfig) {
     handleSthNotWorkingButtonClick,
     startGame,
     cleanup,
-    validateAnswer,
+    validateAnswer: gameQuestions.validateAnswer,
   };
 }
