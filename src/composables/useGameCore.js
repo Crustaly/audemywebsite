@@ -8,8 +8,8 @@ import {
   playScore,
 } from '../Utilities/playAudio';
 import { startListening, stopListening } from '../Utilities/speechRecognition';
-import { useDeviceDetection } from './useDeviceDetection';
 import { useGameQuestions } from './useGameQuestions';
+import { useGameUI } from './useGameUI';
 
 export function useGameCore(gameConfig) {
   const currentAudios = [];
@@ -22,32 +22,15 @@ export function useGameCore(gameConfig) {
   const isIntroPlaying = ref(false);
   const isButtonCooldown = ref(false);
 
-  const { isTablet, isMobile, isDesktop } = useDeviceDetection();
   const gameQuestions = useGameQuestions(gameConfig);
 
-  const isButtonDisabled = computed(
-    () => isIntroPlaying.value || isButtonCooldown.value
-  );
+  const gameState = {
+    isIntroPlaying,
+    isButtonCooldown,
+    isRecording,
+  };
 
-  const recordButtonClasses = computed(() => [
-    'flex items-center justify-center shadow-md',
-    isTablet.value
-      ? 'w-[200px] h-[60px] pt-5 pr-[30px] pb-5 pl-[30px] gap-[10px] rounded-[20px]'
-      : isMobile.value
-      ? 'w-full h-[60px] pt-5 pr-[30px] pb-5 pl-[30px] gap-[10px] rounded-[20px]'
-      : 'gap-2.5 w-[234px] h-[116px] pt-5 pr-7 pb-5 pl-7 rounded-[20px]',
-    isRecording.value ? 'bg-red-500' : 'bg-[#087BB4]',
-    'text-white',
-    isButtonDisabled.value ? 'opacity-50 cursor-not-allowed' : '',
-  ]);
-
-  const recordButtonTitle = computed(() => {
-    if (isIntroPlaying.value)
-      return 'Please wait until the introduction finishes';
-    if (isButtonCooldown.value)
-      return 'Please wait until the question finishes playing';
-    return 'Record your answer';
-  });
+  const gameUI = useGameUI(gameState);
 
   const playNextQuestion = async () => {
     if (
@@ -176,7 +159,7 @@ export function useGameCore(gameConfig) {
         currentAudios.push(introAudio);
         introAudio.onended = () => {
           isIntroPlaying.value = false;
-          if (isDesktop.value) {
+          if (gameUI.isDesktop.value) {
             playNextQuestion();
           }
         };
@@ -201,15 +184,15 @@ export function useGameCore(gameConfig) {
     playButton,
     isIntroPlaying,
     isButtonCooldown,
-    isTablet,
-    isMobile,
-    isDesktop,
+    isTablet: gameUI.isTablet,
+    isMobile: gameUI.isMobile,
+    isDesktop: gameUI.isDesktop,
     questionsDb: gameQuestions.questionsDb,
     currentAudios,
     currentQuestion: gameQuestions.currentQuestion,
-    isButtonDisabled,
-    recordButtonClasses,
-    recordButtonTitle,
+    isButtonDisabled: gameUI.isButtonDisabled,
+    recordButtonClasses: gameUI.recordButtonClasses,
+    recordButtonTitle: gameUI.recordButtonTitle,
     generateQuestions: gameQuestions.generateQuestions,
     playNextQuestion,
     toggleRecording,
