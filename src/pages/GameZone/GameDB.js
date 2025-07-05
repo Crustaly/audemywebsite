@@ -163,7 +163,7 @@ export const getMathGames = () => {
 export const getScienceGames = () => {
   return [
     {
-      icon: basedPath + 'matter.svg',
+      icon: basedPath + 'matter.png',
       title: 'Matter Mix-Up',
       url: '/game/mattermixup',
       textColor: '#323232',
@@ -172,7 +172,7 @@ export const getScienceGames = () => {
         'Help identify solids, liquids, and gases before they evaporate!',
     },
     {
-      icon: basedPath + 'matter.svg', // Placeholder icon
+      icon: basedPath + 'cells.png',
       title: 'Tiny Cell Town',
       url: '/game/tinycelltown',
       textColor: '#323232',
@@ -181,7 +181,7 @@ export const getScienceGames = () => {
         'Guide an alien through the microscopic city of a human cell.',
     },
     {
-      icon: basedPath + 'matter.svg', // Placeholder icon
+      icon: basedPath + 'weather.png',
       title: 'Weather Whiz',
       url: '/game/weatherwhiz',
       textColor: '#323232',
@@ -190,24 +190,28 @@ export const getScienceGames = () => {
         'Interpret the sky’s mood swings before the thunder has a tantrum.',
     },
     {
-      icon: basedPath + 'matter.svg', // Placeholder icon
+      icon: basedPath + 'astronaut.png',
       title: 'Space Case',
       url: '/game/spacecase',
       textColor: '#FFFFFF',
       bgColor: '#3c4f9e',
+      bgDecoration: true,
+      bgImage: '/assets/gameImages/bg-star.png',
       description:
         'Help a forgetful astronaut remember basic facts about space.',
     },
     {
-      icon: basedPath + 'matter.svg', // Placeholder icon
+      icon: basedPath + 'dino.png',
       title: 'Dino Detectives',
       url: '/game/dinodetectives',
       textColor: '#323232',
       bgColor: '#c08b5f',
+      bgDecoration: true,
+      bgImage: '/assets/gameImages/bg-dino.png',
       description: 'Use clues from bones and roars to identify ancient beasts.',
     },
     {
-      icon: basedPath + 'matter.svg', // Placeholder icon
+      icon: basedPath + 'germ.png',
       title: 'Germ Squad',
       url: '/game/germsquad',
       textColor: '#FFFFFF',
@@ -216,7 +220,7 @@ export const getScienceGames = () => {
         'Name the culprits behind a fever before the party gets out of hand.',
     },
     {
-      icon: basedPath + 'matter.svg', // Placeholder icon
+      icon: basedPath + 'landscape.png',
       title: 'Eco Rangers',
       url: '/game/ecorangers',
       textColor: '#323232',
@@ -225,24 +229,28 @@ export const getScienceGames = () => {
         'Identify environmental threats and help restore balance to nature.',
     },
     {
-      icon: basedPath + 'matter.svg', // Placeholder icon
+      icon: basedPath + 'sound.png',
       title: 'Sound Explorer',
       url: '/game/soundexplorer',
       textColor: '#FFFFFF',
       bgColor: '#7a52c6',
+      bgDecoration: true,
+      bgImage: '/assets/gameImages/bg-sound.png',
       description: 'Measure and decode sound waves to escape an echoing cave.',
     },
     {
-      icon: basedPath + 'matter.svg', // Placeholder icon
+      icon: basedPath + 'robot.png',
       title: 'Robot Repair Lab',
       url: '/game/robotrepair',
       textColor: '#323232',
       bgColor: '#0EA1EA',
+      bgDecoration: true,
+      bgImage: '/assets/gameImages/bg-robot.png',
       description:
         'Reprogram glitching science robots before they short-circuit the lab.',
     },
     {
-      icon: basedPath + 'matter.svg', // Placeholder icon
+      icon: basedPath + 'alocasia.png',
       title: 'Plant Power',
       url: '/game/plantpower',
       textColor: '#323232',
