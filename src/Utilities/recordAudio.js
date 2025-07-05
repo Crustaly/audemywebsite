@@ -31,7 +31,7 @@ export const recordAudio = (onStart, onStop) => {
         setTimeout(() => {
           mediaRecorder.stop();
           stream.getTracks().forEach((track) => track.stop());
-        }, 5000); // Adjust duration as needed
+        }, 7000); // Adjust duration as needed
       })
       .catch((err) => {
         reject(`Error accessing microphone: ${err.message}`);
