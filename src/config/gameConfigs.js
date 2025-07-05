@@ -177,6 +177,8 @@ export const gameConfigs = {
     dbFile: 'matterMixUpDB.json',
     dbKey: 'MatterMixUpGame',
     category: 'science',
+    introText:
+      'A team of kitchen chemists just knocked over a tray of experiments—solids, liquids, and gases are everywhere. Can you help them identify what’s what before it all evaporates?',
   },
 
   tinyCellTown: {
@@ -188,6 +190,8 @@ export const gameConfigs = {
     dbFile: 'tinyCellTownDB.json',
     dbKey: 'TinyCellTownGame',
     category: 'science',
+    introText:
+      "An alien crash-landed inside a human cell and can't tell a nucleus from a ribosome. Guide them through this microscopic city before they mistake mitochondria for a microwave.",
   },
 
   weatherWhiz: {
@@ -200,6 +204,8 @@ export const gameConfigs = {
     dbFile: 'weatherWhizDB.json',
     dbKey: 'WeatherWhizGame',
     category: 'science',
+    introText:
+      "You’re now a certified Sky Translator. When clouds mumble and lightning shouts, it’s your job to interpret the sky's mood swings before the thunder throws another tantrum.",
   },
 
   spaceCase: {
@@ -211,6 +217,8 @@ export const gameConfigs = {
     dbFile: 'spaceCaseDB.json',
     dbKey: 'SpaceCaseGame',
     category: 'science',
+    introText:
+      "An astronaut forgot everything about space! You’re mission control. Feed them facts fast, or they might land on a moon thinking it's a marshmallow.",
   },
 
   dinoDetectives: {
@@ -222,6 +230,8 @@ export const gameConfigs = {
     dbFile: 'dinoDetectivesDB.json',
     dbKey: 'DinoDetectivesGame',
     category: 'science',
+    introText:
+      'A new dinosaur skeleton was just unearthed, but it’s missing its name! Use clues from bones and roars to identify these ancient beasts before they vanish into dust.',
   },
 
   germSquad: {
@@ -234,6 +244,8 @@ export const gameConfigs = {
     dbFile: 'germSquadDB.json',
     dbKey: 'GermSquadGame',
     category: 'science',
+    introText:
+      "You're on a mission inside a sick body. Bacteria are throwing a party and only science can stop them. Can you name the culprits before the fever hits max?",
   },
 
   ecoRangers: {
@@ -246,6 +258,8 @@ export const gameConfigs = {
     dbFile: 'ecoRangersDB.json',
     dbKey: 'EcoRangersGame',
     category: 'science',
+    introText:
+      'The animals are voting someone off the island... and pollution is the top suspect! Help the ecosystem restore balance by identifying environmental threats and natural defenders.',
   },
 
   soundExplorer: {
@@ -257,6 +271,8 @@ export const gameConfigs = {
     dbFile: 'soundExplorerDB.json',
     dbKey: 'SoundExplorerGame',
     category: 'science',
+    introText:
+      "You're trapped in a cave where everything speaks in sound waves. Use your ears to measure, decode, and respond before the cave echoes you into confusion.",
   },
 
   robotRepair: {
@@ -269,6 +285,8 @@ export const gameConfigs = {
     dbFile: 'robotRepairLabDB.json',
     dbKey: 'RobotRepairGame',
     category: 'science',
+    introText:
+      'A team of science robots is glitching! Their sensors are scrambled and they’re confusing magnets with muffins. You’re their only hope—reprogram them before they short-circuit the lab!',
   },
 
   plantPower: {
@@ -281,5 +299,7 @@ export const gameConfigs = {
     dbFile: 'plantPowerDB.json',
     dbKey: 'PlantPowerGame',
     category: 'science',
+    introText:
+      'You’ve been shrunk into a garden where plants whisper their secrets—but only if you know their parts. Solve each clue before the flowers fall asleep again.',
   },
 };
