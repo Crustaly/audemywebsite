@@ -18,6 +18,7 @@ export function useGameCore(gameConfig) {
   const score = ref(0);
   const isRecording = ref(false);
   const transcription = ref('');
+  const micStartTime = ref(null);
 
   const playButton = ref(false);
   const isIntroPlaying = ref(false);
@@ -114,6 +115,8 @@ export function useGameCore(gameConfig) {
     if (numOfAudiosPlayed.value < 5 && !isIntroPlaying.value) {
       if (!isRecording.value) {
         isRecording.value = true;
+        micStartTime.value = Date.now();
+        console.log('Mic started at:', new Date(micStartTime.value).toLocaleTimeString());
 
         startListening((transcript) => {
           transcription.value = transcript;
@@ -150,6 +153,12 @@ export function useGameCore(gameConfig) {
 
         stopListening();
         isRecording.value = false;
+        if (micStartTime.value) {
+          const micEndTime = Date.now();
+          const micDurationSeconds = ((micEndTime - micStartTime.value) / 1000).toFixed(2);
+          console.log(`Mic was on for ${micDurationSeconds} seconds`);
+          micStartTime.value = null;
+        }
         numOfAudiosPlayed.value++;
 
         const isGameOver = numOfAudiosPlayed.value >= 5;
