@@ -7,64 +7,84 @@
           "A": ["Decibel"]
         },
         {
-          "Q": "What unit measures sound loudness?",
-          "A": ["Decibel"]
+          "Q": "What is the rapid back-and-forth movement that creates sound?",
+          "A": ["Vibration"]
         },
         {
-          "Q": "What unit measures sound loudness?",
-          "A": ["Decibel"]
+          "Q": "What is the bouncing of a sound wave off a surface called?",
+          "A": ["Echo"]
         },
         {
-          "Q": "What unit measures sound loudness?",
-          "A": ["Decibel"]
+          "Q": "What part of your body do you use to hear sounds?",
+          "A": ["Ear"]
         },
         {
-          "Q": "What unit measures sound loudness?",
-          "A": ["Decibel"]
+          "Q": "What word describes how loud or quiet a sound is?",
+          "A": ["Volume"]
+        },
+        {
+          "Q": "What is the name for how high or low a sound is?",
+          "A": ["Pitch"]
+        },
+        {
+          "Q": "What is the loud sound that follows a flash of lightning?",
+          "A": ["Thunder"]
+        },
+        {
+          "Q": "What is the name for an unpleasant or unwanted sound?",
+          "A": ["Noise"]
+        },
+        {
+          "Q": "What do we call the substance, like air or water, that sound travels through?",
+          "A": ["Medium"]
+        },
+        {
+          "Q": "What is a pattern of sounds, silences, and timing in music called?",
+          "A": ["Rhythm"]
         }
       ],
       "Medium": [
         {
-          "Q": "What unit measures sound loudness?",
-          "A": ["Decibel"]
+          "Q": "What unit is used to measure the frequency of sound waves?",
+          "A": ["Hertz"]
         },
         {
-          "Q": "What unit measures sound loudness?",
-          "A": ["Decibel"]
+          "Q": "What is the membrane inside your ear that vibrates when sound hits it?",
+          "A": ["Eardrum"]
         },
         {
-          "Q": "What unit measures sound loudness?",
-          "A": ["Decibel"]
+          "Q": "Through which state of matter does sound generally travel fastest?",
+          "A": ["Solid"]
         },
         {
-          "Q": "What unit measures sound loudness?",
-          "A": ["Decibel"]
+          "Q": "What do you call sound waves with frequencies too high for humans to hear?",
+          "A": ["Ultrasound"]
         },
         {
-          "Q": "What unit measures sound loudness?",
-          "A": ["Decibel"]
+          "Q": "What cords in your throat vibrate to produce your voice?",
+          "A": ["Vocal"]
         }
       ],
       "Hard": [
         {
-          "Q": "What unit measures sound loudness?",
-          "A": ["Decibel"]
+          "Q": "What is the scientific study of sound and its properties called?",
+          "A": ["Acoustics"]
         },
         {
-          "Q": "What unit measures sound loudness?",
-          "A": ["Decibel"]
+          "Q": "What snail-shaped organ in the inner ear converts vibrations into nerve signals?",
+          "A": ["Cochlea"]
         },
         {
-          "Q": "What unit measures sound loudness?",
-          "A": ["Decibel"]
+          "Q": "What effect describes the change in frequency of a wave, like a passing siren?",
+          "A": ["Doppler"]
         },
         {
-          "Q": "What unit measures sound loudness?",
-          "A": ["Decibel"]
+          "Q": "What do you call sound waves with frequencies too low for humans to hear?",
+          "A": ["Infrasound"]
         },
         {
-          "Q": "What unit measures sound loudness?",
-          "A": ["Decibel"]
+          "Q": "What phenomenon occurs when an object vibrates at its natural frequency from an external sound?",
+          "A": ["Resonance"]
         }
       ]
     }

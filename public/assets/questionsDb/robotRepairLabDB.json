@@ -7,64 +7,84 @@
           "A": ["Iron"]
         },
         {
-          "Q": "What metal is attracted to magnets?",
-          "A": ["Iron"]
+          "Q": "What flows through wires to power a robot?",
+          "A": ["Electricity"]
         },
         {
-          "Q": "What metal is attracted to magnets?",
-          "A": ["Iron"]
+          "Q": "What simple machine is a flat, sloped surface, like a ramp?",
+          "A": ["Plane"]
         },
         {
-          "Q": "What metal is attracted to magnets?",
-          "A": ["Iron"]
+          "Q": "What simple machine is used to fasten things, which has a spiral thread?",
+          "A": ["Screw"]
         },
         {
-          "Q": "What metal is attracted to magnets?",
-          "A": ["Iron"]
+          "Q": "What do you call the path that electricity travels on?",
+          "A": ["Circuit"]
+        },
+        {
+          "Q": "What is the 'brain' of a robot that follows instructions?",
+          "A": ["Processor"]
+        },
+        {
+          "Q": "What spinning, toothed wheel is used to change a robot's speed or direction?",
+          "A": ["Gear"]
+        },
+        {
+          "Q": "What do you call the set of instructions that tells a robot what to do?",
+          "A": ["Code"]
+        },
+        {
+          "Q": "What tool is used to tighten or loosen nuts and bolts?",
+          "A": ["Wrench"]
+        },
+        {
+          "Q": "What does a green light on a robot often signal?",
+          "A": ["Go"]
         }
       ],
       "Medium": [
         {
-          "Q": "What metal is attracted to magnets?",
-          "A": ["Iron"]
+          "Q": "What do you call a material that allows electricity to pass through it easily?",
+          "A": ["Conductor"]
         },
         {
-          "Q": "What metal is attracted to magnets?",
-          "A": ["Iron"]
+          "Q": "What material, like rubber, stops the flow of electricity?",
+          "A": ["Insulator"]
         },
         {
-          "Q": "What metal is attracted to magnets?",
-          "A": ["Iron"]
+          "Q": "What electronic component is designed to resist the flow of current?",
+          "A": ["Resistor"]
         },
         {
-          "Q": "What metal is attracted to magnets?",
-          "A": ["Iron"]
+          "Q": "What type of motor is known for its ability to move to a precise position?",
+          "A": ["Servo"]
         },
         {
-          "Q": "What metal is attracted to magnets?",
-          "A": ["Iron"]
+          "Q": "What is the part of a robot's arm that is used for grabbing things?",
+          "A": ["Gripper"]
         }
       ],
       "Hard": [
         {
-          "Q": "What metal is attracted to magnets?",
-          "A": ["Iron"]
+          "Q": "What component allows electricity to flow in only one direction?",
+          "A": ["Diode"]
         },
         {
-          "Q": "What metal is attracted to magnets?",
-          "A": ["Iron"]
+          "Q": "What is the pivot point on which a lever rests or turns?",
+          "A": ["Fulcrum"]
         },
         {
-          "Q": "What metal is attracted to magnets?",
-          "A": ["Iron"]
+          "Q": "Whose law explains the relationship between voltage, current, and resistance?",
+          "A": ["Ohm"]
         },
         {
-          "Q": "What metal is attracted to magnets?",
-          "A": ["Iron"]
+          "Q": "What sensor measures distance by sending out sound waves?",
+          "A": ["Ultrasonic"]
         },
         {
-          "Q": "What metal is attracted to magnets?",
-          "A": ["Iron"]
+          "Q": "What is a component that stores electrical energy in an electric field?",
+          "A": ["Capacitor"]
         }
       ]
     }
