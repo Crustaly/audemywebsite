@@ -68,20 +68,20 @@
   </div>
 
   <div
-    v-show="showControls && !isRecording"
+    v-show="showControls && isRecording"
     id="transcript"
     class="text-center text-xl font-bold pt-2 pb-1"
   >
-    Transcription will take place {{ transcription }}
+    Your Answer {{ transcription }}
   </div>
 
-  <div
+  <!-- <div
     v-show="showControls && !isRecording"
     id="final-transcript"
     class="text-center text-xl font-bold pt-2 pb-1 text-green-700"
   >
     Final Transcription: {{ finalTranscript }}
-  </div>
+  </div> -->
 </template>
 
 <script setup>
