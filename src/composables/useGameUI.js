@@ -5,7 +5,10 @@ export function useGameUI(gameState) {
   const { isTablet, isMobile, isDesktop } = useDeviceDetection();
 
   const isButtonDisabled = computed(
-    () => gameState.isIntroPlaying.value || gameState.isButtonCooldown.value
+    () =>
+      gameState.isIntroPlaying.value ||
+      gameState.isButtonCooldown.value ||
+      (gameState.isRecording.value && !gameState.isFinalResult.value)
   );
 
   const recordButtonClasses = computed(() => [
@@ -25,7 +28,22 @@ export function useGameUI(gameState) {
       return 'Please wait until the introduction finishes';
     if (gameState.isButtonCooldown.value)
       return 'Please wait until the question finishes playing';
+    if (gameState.isRecording.value && !gameState.isFinalResult.value)
+      return 'Processing your speech...';
     return 'Record your answer';
+  });
+
+  const recordButtonText = computed(() => {
+    if (gameState.isRecording.value && !gameState.isFinalResult.value) {
+      return isTablet.value || isMobile.value
+        ? 'Processing...'
+        : 'Processing Speech...';
+    }
+    return gameState.isRecording.value
+      ? 'Stop Recording'
+      : isTablet.value || isMobile.value
+      ? 'Record'
+      : 'Record Answer';
   });
 
   return {
@@ -35,5 +53,6 @@ export function useGameUI(gameState) {
     isButtonDisabled,
     recordButtonClasses,
     recordButtonTitle,
+    recordButtonText,
   };
 }

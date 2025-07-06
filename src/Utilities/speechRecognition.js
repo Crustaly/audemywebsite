@@ -39,45 +39,77 @@ export function preInitSpeechRecognition() {
 }
 
 // Start Listening
-export function startListening(callback, autoStop = true) {
-  // If recognition is already listening, stop it first
+export function startListening(callback, autoStop = true, statusCallback) {
   if (isListening) {
     stopListening();
+    setTimeout(() => {
+      startListening(callback, autoStop, statusCallback);
+    }, 100);
+    return;
   }
 
-  // Ensure recognition object exists
   if (!recognition) {
     preInitSpeechRecognition();
   }
 
-  // Set new parameters for this session
-  recognition.continuous = !autoStop;
-
-  recognition.onresult = (event) => {
-    const transcript = Array.from(event.results)
-      .map((result) => result[0].transcript.toLowerCase())
-      .join('');
-    callback(transcript);
-
-    if (autoStop && event.results[0].isFinal) {
-      stopListening();
-    }
-  };
-
-  recognition.onend = () => {
-    if (!autoStop && isListening) {
-      recognition.start();
-    } else {
-      isListening = false;
-    }
-  };
-
   try {
-    recognition.start();
-    isListening = true;
-  } catch (error) {
-    console.error('Error starting speech recognition:', error);
-  }
+    if (recognition.continuous !== undefined) {
+      recognition.stop();
+    }
+  } catch (error) {}
+
+  setTimeout(() => {
+    try {
+      recognition.continuous = !autoStop;
+      recognition.interimResults = true;
+
+      recognition.onstart = () => {
+        isListening = true;
+        statusCallback && statusCallback('listening');
+        console.log('Speech recognition started');
+      };
+
+      recognition.onresult = (event) => {
+        const transcript = Array.from(event.results)
+          .map((result) => result[0].transcript.toLowerCase())
+          .join('');
+        callback(transcript);
+
+        const isFinal = event.results[event.results.length - 1].isFinal;
+        statusCallback && statusCallback(isFinal ? 'final' : 'interim');
+
+        if (autoStop && isFinal) {
+          stopListening();
+        }
+      };
+
+      recognition.onend = () => {
+        console.log('Speech recognition ended');
+        isListening = false;
+        statusCallback && statusCallback('ended');
+        if (!autoStop && isListening) {
+          try {
+            recognition.start();
+          } catch (error) {
+            console.error('Error restarting recognition:', error);
+            isListening = false;
+          }
+        }
+      };
+
+      recognition.onerror = (event) => {
+        console.error('Speech recognition error:', event.error);
+        isListening = false;
+        statusCallback && statusCallback('error', event.error);
+      };
+
+      recognition.start();
+    } catch (error) {
+      console.error('Error starting speech recognition:', error);
+      isListening = false;
+      statusCallback && statusCallback('error', error);
+    }
+  }, 50);
 }
 
 // Stop Listening
