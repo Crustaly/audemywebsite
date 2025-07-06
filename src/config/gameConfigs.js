@@ -173,7 +173,6 @@ export const gameConfigs = {
       'Help identify solids, liquids, and gases before they evaporate!',
     bgColor: '#94DDFF',
     iconSrc: '/assets/gameImages/buttons/gameButtons/matter.png',
-    introAudio: '/matterMixUp/congrats.mp3', // Placeholder audio
     dbFile: 'matterMixUpDB.json',
     dbKey: 'MatterMixUpGame',
     category: 'science',
@@ -186,7 +185,6 @@ export const gameConfigs = {
     description: 'Guide an alien through the microscopic city of a human cell.',
     bgColor: '#FFB39A',
     iconSrc: '/assets/gameImages/buttons/gameButtons/cells.png',
-    introAudio: '/tinyCellTown/congrats.mp3', // Placeholder audio
     dbFile: 'tinyCellTownDB.json',
     dbKey: 'TinyCellTownGame',
     category: 'science',
@@ -200,7 +198,6 @@ export const gameConfigs = {
       "Interpret the sky's mood swings before the thunder has a tantrum.",
     bgColor: '#CFCFCF',
     iconSrc: '/assets/gameImages/buttons/gameButtons/weather.png',
-    introAudio: '/weatherWhiz/congrats.mp3', // Placeholder audio
     dbFile: 'weatherWhizDB.json',
     dbKey: 'WeatherWhizGame',
     category: 'science',
@@ -213,7 +210,6 @@ export const gameConfigs = {
     description: 'Help a forgetful astronaut remember basic facts about space.',
     bgColor: '#A0B2E8',
     iconSrc: '/assets/gameImages/buttons/gameButtons/astronaut.png',
-    introAudio: '/spaceCase/congrats.mp3', // Placeholder audio
     dbFile: 'spaceCaseDB.json',
     dbKey: 'SpaceCaseGame',
     category: 'science',
@@ -226,7 +222,6 @@ export const gameConfigs = {
     description: 'Use clues from bones and roars to identify ancient beasts.',
     bgColor: '#DCC3A1',
     iconSrc: '/assets/gameImages/buttons/gameButtons/dino.png',
-    introAudio: '/dinoDetectives/congrats.mp3', // Placeholder audio
     dbFile: 'dinoDetectivesDB.json',
     dbKey: 'DinoDetectivesGame',
     category: 'science',
@@ -240,7 +235,6 @@ export const gameConfigs = {
       'Name the culprits behind a fever before the party gets out of hand.',
     bgColor: '#FF9A9A',
     iconSrc: '/assets/gameImages/buttons/gameButtons/germ.png',
-    introAudio: '/germSquad/congrats.mp3', // Placeholder audio
     dbFile: 'germSquadDB.json',
     dbKey: 'GermSquadGame',
     category: 'science',
@@ -254,7 +248,6 @@ export const gameConfigs = {
       'Identify environmental threats and help restore balance to nature.',
     bgColor: '#A2EAB8',
     iconSrc: '/assets/gameImages/buttons/gameButtons/landscape.png',
-    introAudio: '/ecoRangers/congrats.mp3', // Placeholder audio
     dbFile: 'ecoRangersDB.json',
     dbKey: 'EcoRangersGame',
     category: 'science',
@@ -267,7 +260,6 @@ export const gameConfigs = {
     description: 'Measure and decode sound waves to escape an echoing cave.',
     bgColor: '#C0A2EA',
     iconSrc: '/assets/gameImages/buttons/gameButtons/sound.png',
-    introAudio: '/soundExplorer/congrats.mp3', // Placeholder audio
     dbFile: 'soundExplorerDB.json',
     dbKey: 'SoundExplorerGame',
     category: 'science',
@@ -281,7 +273,6 @@ export const gameConfigs = {
       'Reprogram glitching science robots before they short-circuit the lab.',
     bgColor: '#A2DCEA',
     iconSrc: '/assets/gameImages/buttons/gameButtons/robot.png',
-    introAudio: '/robotRepair/congrats.mp3', // Placeholder audio
     dbFile: 'robotRepairLabDB.json',
     dbKey: 'RobotRepairGame',
     category: 'science',
@@ -295,7 +286,6 @@ export const gameConfigs = {
       'Learn the parts of a plant by listening to their whispered secrets.',
     bgColor: '#FFE59A',
     iconSrc: '/assets/gameImages/buttons/gameButtons/alocasia.png',
-    introAudio: '/plantPower/congrats.mp3', // Placeholder audio
     dbFile: 'plantPowerDB.json',
     dbKey: 'PlantPowerGame',
     category: 'science',
