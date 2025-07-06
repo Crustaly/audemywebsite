@@ -39,6 +39,7 @@
           :isIntroPlaying="isIntroPlaying"
           :isButtonCooldown="isButtonCooldown"
           :transcription="transcription"
+          :finalTranscript="finalTranscript"
           :numOfAudiosPlayed="numOfAudiosPlayed"
           @record-click="toggleRecording"
           @repeat-click="repeatQuestion"
@@ -68,6 +69,7 @@ const {
   score,
   isRecording,
   transcription,
+  finalTranscript,
   playButton,
   isIntroPlaying,
   isButtonCooldown,

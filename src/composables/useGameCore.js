@@ -18,6 +18,7 @@ export function useGameCore(gameConfig) {
   const score = ref(0);
   const isRecording = ref(false);
   const transcription = ref('');
+  const finalTranscript = ref('');
   const micStartTime = ref(null);
 
   const playButton = ref(false);
@@ -125,16 +126,16 @@ export function useGameCore(gameConfig) {
         isButtonCooldown.value = true;
         console.log('Processing recording...');
 
-        const finalTranscript = transcription.value;
+        finalTranscript.value = transcription.value;
 
         const question = questionsDb.value[randQueNum[numOfAudiosPlayed.value]];
         console.log('Question is: ', question['Q']);
-        console.log('User Answer:', finalTranscript);
+        console.log('User Answer:', finalTranscript.value);
         console.log('Correct Answer:', question['A']);
 
         await new Promise((resolve) => setTimeout(resolve, 2000));
 
-        const isCorrect = validateAnswer(finalTranscript, question);
+        const isCorrect = validateAnswer(finalTranscript.value, question);
 
         if (isCorrect) {
           score.value++;
@@ -256,6 +257,7 @@ export function useGameCore(gameConfig) {
     score,
     isRecording,
     transcription,
+    finalTranscript,
     playButton,
     isIntroPlaying,
     isButtonCooldown,

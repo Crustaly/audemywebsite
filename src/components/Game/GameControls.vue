@@ -74,6 +74,14 @@
   >
     Transcription will take place {{ transcription }}
   </div>
+
+  <div
+    v-show="showControls && !isRecording"
+    id="final-transcript"
+    class="text-center text-xl font-bold pt-2 pb-1 text-green-700"
+  >
+    Final Transcription: {{ finalTranscript }}
+  </div>
 </template>
 
 <script setup>
@@ -108,7 +116,7 @@ const props = defineProps({
     type: Number,
     required: true,
   },
-  finalTranscript1: {
+  finalTranscript: {
     type: String,
     required: true,
   },
