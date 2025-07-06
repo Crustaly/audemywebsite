@@ -7,7 +7,7 @@ import {
   stopAudios,
   playScore,
 } from '../Utilities/playAudio';
-import { startListening } from '../Utilities/speechRecognition';
+import { startListening, stopListening } from '../Utilities/speechRecognition';
 import { useDeviceDetection } from './useDeviceDetection';
 
 export function useGameCore(gameConfig) {
@@ -166,6 +166,8 @@ export function useGameCore(gameConfig) {
           console.log('Processing recording...');
 
           const finalTranscript = transcription.value;
+
+          stopListening();
 
           const question =
             questionsDb.value[randQueNum[numOfAudiosPlayed.value]];
