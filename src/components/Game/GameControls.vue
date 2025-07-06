@@ -5,8 +5,8 @@
       isTablet
         ? 'flex gap-[25px] mb-6'
         : isMobile
-          ? 'flex flex-col gap-4 mb-6'
-          : 'flex gap-6 mb-6',
+        ? 'flex flex-col gap-4 mb-6'
+        : 'flex gap-6 mb-6',
     ]"
   >
     <button
@@ -17,13 +17,7 @@
       :title="recordButtonTitle"
     >
       <span class="text-lg font-medium">
-        {{
-          isRecording
-            ? 'Stop Recording'
-            : isTablet || isMobile
-              ? 'Record'
-              : 'Record Answer'
-        }}
+        {{ recordButtonText }}
       </span>
       <img
         src="/assets/gameImages/buttons/mic.png"
@@ -39,8 +33,8 @@
         isTablet
           ? 'w-[200px] h-[60px] pt-5 pr-[30px] pb-5 pl-[30px] gap-[10px] rounded-[20px]'
           : isMobile
-            ? 'w-full h-[60px] pt-5 pr-[30px] pb-5 pl-[30px] gap-[10px] rounded-[20px]'
-            : 'gap-2.5 w-[234px] h-[116px] pt-5 pr-7 pb-5 pl-7 rounded-[20px]',
+          ? 'w-full h-[60px] pt-5 pr-[30px] pb-5 pl-[30px] gap-[10px] rounded-[20px]'
+          : 'gap-2.5 w-[234px] h-[116px] pt-5 pr-7 pb-5 pl-7 rounded-[20px]',
         'bg-white border border-[#0096D6] text-[#0096D6]',
         isIntroPlaying || isButtonCooldown
           ? 'opacity-50 cursor-not-allowed'
@@ -52,8 +46,8 @@
         isIntroPlaying
           ? 'Please wait until the introduction finishes'
           : isButtonCooldown
-            ? 'Please wait before repeating the question again'
-            : 'Repeat the current question'
+          ? 'Please wait before repeating the question again'
+          : 'Repeat the current question'
       "
     >
       <span class="text-lg font-medium">{{
@@ -92,6 +86,10 @@ const props = defineProps({
     type: Boolean,
     required: true,
   },
+  isFinalResult: {
+    type: Boolean,
+    required: true,
+  },
   isIntroPlaying: {
     type: Boolean,
     required: true,
@@ -108,6 +106,22 @@ const props = defineProps({
     type: Number,
     required: true,
   },
+  recordButtonText: {
+    type: String,
+    required: true,
+  },
+  recordButtonClasses: {
+    type: Array,
+    required: true,
+  },
+  recordButtonTitle: {
+    type: String,
+    required: true,
+  },
+  isButtonDisabled: {
+    type: Boolean,
+    required: true,
+  },
 });
 
 const showControls = computed(() => {
@@ -118,30 +132,6 @@ const showControls = computed(() => {
 });
 
 const emits = defineEmits(['record-click', 'repeat-click']);
-
-const isButtonDisabled = computed(
-  () => props.isIntroPlaying || props.isButtonCooldown
-);
-
-const recordButtonClasses = computed(() => [
-  'flex items-center justify-center shadow-md',
-  props.isTablet
-    ? 'w-[200px] h-[60px] pt-5 pr-[30px] pb-5 pl-[30px] gap-[10px] rounded-[20px]'
-    : props.isMobile
-      ? 'w-full h-[60px] pt-5 pr-[30px] pb-5 pl-[30px] gap-[10px] rounded-[20px]'
-      : 'gap-2.5 w-[234px] h-[116px] pt-5 pr-7 pb-5 pl-7 rounded-[20px]',
-  props.isRecording ? 'bg-red-500' : 'bg-[#087BB4]',
-  'text-white',
-  isButtonDisabled.value ? 'opacity-50 cursor-not-allowed' : '',
-]);
-
-const recordButtonTitle = computed(() => {
-  if (props.isIntroPlaying)
-    return 'Please wait until the introduction finishes';
-  if (props.isButtonCooldown)
-    return 'Please wait until the question finishes playing';
-  return 'Record your answer';
-});
 
 const onRecordClick = () => {
   emits('record-click');
