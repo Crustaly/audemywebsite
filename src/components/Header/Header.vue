@@ -39,7 +39,7 @@
                     <RouterLink
                         to="/about-us"
                         class="px-2 pb-2 hover:text-[#087bb4] hover:border-b-2 border-[#087bb4]"
-                        >About us</RouterLink
+                        >Our Team</RouterLink
                     >
                 </li>
                 <li id="projects-item">

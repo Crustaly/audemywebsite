@@ -11,6 +11,7 @@ import Sponsors from "./Sponsors/Sponsors.vue";
 import TechShowcase from "./TechShowcase/TechShowcase.vue";
 import Impact from "./Impact/Impact.vue";
 import ScrollUpButton from "../../components/ScrollUpButton/ScrollUpButton.vue";
+import PressList from "../Impact/PressList/PressList.vue";
 
 import { useDeviceType } from "../../Utilities/checkDeviceType";
 const { isMobile, isTablet } = useDeviceType();
@@ -51,6 +52,7 @@ const { isMobile, isTablet } = useDeviceType();
     ]"
   >
     <Events />
+    <PressList />
   </div>
   <Footer />
 </template>

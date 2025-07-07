@@ -73,8 +73,8 @@ onUnmounted(() => {
 
             <!-- Div for Instagram Button -->
             <div
-                class="relative flex flex-col py-[8rem] items-center justify-start mobile:justify-center w-full h-auto mb-36 tablet:mb-[265px] mobile:mb-[12px] mobile:mt-0 mobile:pt-0 mobile:pb-0"
-            >
+                class="relative flex flex-col mt-8 items-start justify-start mobile:items-center mobile:justify-center w-full h-auto"
+                >
                 <a
                     href="https://www.instagram.com/audemyapp/"
                     target="_blank"
@@ -95,9 +95,9 @@ onUnmounted(() => {
             />
             <!-- Image of students w/ Crystal -->
             <img
-                src="/assets/images/our-projects/events1.svg"
+                src="/assets/images/our-projects/event.png"
                 alt="Image of students"
-                class="relative -top-20 right-28 z-10 object-contain w-full h-max mobile:right-0"
+                class="relative -top-20 right-29 z-10 object-contain w-full h-max mobile:right-0"
             />
         </div>
     </div>
