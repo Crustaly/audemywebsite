@@ -56,6 +56,13 @@
                         >Impact</RouterLink
                     >
                 </li>
+                <li id="press-item">
+                    <RouterLink
+                        to="/press"
+                        class="px-2 pb-2 hover:text-[#087bb4] hover:border-b-2 border-[#087bb4]"
+                        >Press & Recognition</RouterLink
+                    >
+                </li>
                 <li id="games-item">
                     <RouterLink
                         to="/game-zone"
@@ -379,15 +386,15 @@ onUnmounted(() => {
     }
 
     #router-links-grid {
-        grid-column: 1 / span 6;
+        grid-column: 1 / span 7;
         display: grid;
         /* Let 'account' = placeholder for Log In / Out button */
-        grid-template-areas: 'home about projects impact games account'; 
+        grid-template-areas: 'home about projects impact press games account'; 
         gap: 10px;
     }
 
     #home-item {
-        grid-column: 1 / span 1;
+    grid-column: 1 / span 1;
     }
 
     #about-item {
@@ -402,12 +409,17 @@ onUnmounted(() => {
         grid-column: 4 / span 1;
     }
 
-    #games-item {
+    #press-item {
         grid-column: 5 / span 1;
     }
 
-    #logout-btn-item, #login-btn-item {
+    #games-item {
         grid-column: 6 / span 1;
+    }
+
+    #logout-btn-item,
+    #login-btn-item {
+        grid-column: 7 / span 1;
     }
 }
 

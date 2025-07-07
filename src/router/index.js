@@ -14,6 +14,7 @@ import ResetLandingPage from "../pages/ResetPassword/ResetLandingPage.vue";
 import AboutUs from "../pages/AboutUs/AboutUs.vue";
 import Impact from "../pages/Impact/Impact.vue";
 import Troubleshooting from "../pages/Troubleshooting/Troubleshooting.vue"
+import Press from "../pages/Press/Press.vue";
 // import SpellingBee from "../pages/GameZone/GameZoneList/SpellingBee/SpellingBee.vue";
 
 const routes = [
@@ -32,6 +33,7 @@ const routes = [
     { path: "/reset-landing-page", name: "Reset Landing Page", component: ResetLandingPage },
     { path: "/:pathMatch(.*)*", name: "not-found", component: NotFound },
     { path: "/troubleshooting", name: "Troubleshooting Page", component: Troubleshooting },
+    { path: "/press", name: "Press & Recognition", component: Press},
     {
         path: "/game/addition",
         name: "AdditionGame",
