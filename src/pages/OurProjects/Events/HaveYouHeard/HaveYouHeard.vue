@@ -29,7 +29,7 @@ const items = [
     <div class="flex flex-col lg:flex-row-reverse">
       <div class="flex">
         <img
-          src="/assets/images/our-projects/events-1.svg"
+          src="/assets/images/our-projects/event.png"
           alt="Image of students"
           class=""
         />
@@ -43,7 +43,7 @@ const items = [
         />
       </div>
     </div>
-    <div class="flex items-center justify-center mt-20">
+    <div class="flex items-center justify-center mt-13">
       <a
         href="https://www.instagram.com/audemyapp/"
         target="_blank"
