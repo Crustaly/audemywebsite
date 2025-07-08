@@ -54,7 +54,7 @@
             to="/about-us"
             class="px-2 pb-2 hover:text-[#087bb4] hover:border-b-2 border-[#087bb4]"
           >
-            About us
+            Our Team
           </router-link>
         </li>
         <li id="projects-item">
@@ -69,9 +69,15 @@
           <router-link
             to="/impact"
             class="px-2 pb-2 hover:text-[#087bb4] hover:border-b-2 border-[#087bb4]"
+            >Impact</router-link
           >
-            Impact
-          </router-link>
+        </li>
+        <li id="press-item">
+            <RouterLink
+                to="/press"
+                class="px-2 pb-2 hover:text-[#087bb4] hover:border-b-2 border-[#087bb4]"
+                >Press & Recognition</RouterLink
+            >
         </li>
         <li id="games-item">
           <router-link
@@ -156,7 +162,7 @@
               class="block py-4 hover:text-[#087bb4]"
               @click="closeMenu"
             >
-              About us
+              Our Team
             </router-link>
           </li>
           <li>
@@ -176,6 +182,15 @@
             >
               Impact
             </router-link>
+          </li>
+          <li>
+            <router-link
+              to="/press"
+              class="block py-4 hover:text-[#087bb4]"
+              @click="closeMenu"
+              >
+              Press & Recognition
+              </router-link>
           </li>
           <li>
             <router-link
@@ -475,10 +490,10 @@ onUnmounted(() => {
   }
 
   #router-links-grid {
-    grid-column: 1 / span 6;
+    grid-column: 1 / span 7;
     display: grid;
     /* Let 'account' = placeholder for Log In / Out button */
-    grid-template-areas: 'home about projects impact games account';
+    grid-template-areas: 'home about projects impact press games account';
     gap: 10px;
   }
 
@@ -498,13 +513,17 @@ onUnmounted(() => {
     grid-column: 4 / span 1;
   }
 
-  #games-item {
+  #press-item{
     grid-column: 5 / span 1;
+  }
+
+  #games-item {
+    grid-column: 6 / span 1;
   }
 
   #logout-btn-item,
   #login-btn-item {
-    grid-column: 6 / span 1;
+    grid-column: 7 / span 1;
   }
 }
 

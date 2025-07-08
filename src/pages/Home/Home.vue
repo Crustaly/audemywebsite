@@ -6,11 +6,11 @@ import Footer from '../../components/Footer/Footer.vue';
 import AboutUs from './AboutUs/AboutUs.vue';
 import CTA from './CTA/CTA.vue';
 import Testimonials from './Testimonials/Testimonials.vue';
-import Events from './Events/Events.vue';
 import Sponsors from './Sponsors/Sponsors.vue';
 import TechShowcase from './TechShowcase/TechShowcase.vue';
 import Impact from './Impact/Impact.vue';
 import ScrollUpButton from '../../components/ScrollUpButton/ScrollUpButton.vue';
+import PressList from '../Impact/PressList/PressList.vue';
 
 import { useDeviceType } from '../../Utilities/checkDeviceType';
 const { isMobile, isTablet } = useDeviceType();
@@ -49,7 +49,7 @@ const { isMobile, isTablet } = useDeviceType();
       isMobile ? 'px-5' : '',
     ]"
   >
-    <Events />
+    <PressList />
   </div>
   <Footer />
 </template>
