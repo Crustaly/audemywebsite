@@ -15,7 +15,7 @@ const openImageInNewTab = (imageSrc, imageName) => {
 <template>
   <ScrollUpButton />
 
-  <div class="px-20 relative" ref="content">
+  <div class="relative px-8 sm:px-8 md:px-6 lg:px-14">
     <Header :logoPath="'/assets/images/header/header-logo-2.png'" />
   </div>
 
