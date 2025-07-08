@@ -1,6 +1,7 @@
 <script setup>
 import { onMounted, onBeforeUnmount, ref } from 'vue';
 
+// ScrollUpButton class strings extracted for readability and maintainability
 const scrollUpButtonClasses = [
   'w-[56px]',
   'h-[56px]',
@@ -54,7 +55,7 @@ onBeforeUnmount(() => {
       @click="scrollToTop"
       aria-label="Scroll to top"
     >
-      <img src="/assets/images/about-us/arrow-up.svg" alt="" />
+      <img src="/assets/images/about-us/arrow-up.svg" alt="Arrow up" />
     </button>
   </div>
 </template>
