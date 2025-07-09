@@ -260,12 +260,11 @@ function hideMenuDropdown(menuBtn, currentDropdown) {
           <button
             @click="handlePageSwitch(1)"
             :class="[
+              'game-filter-btn',
               currentPage == 1
                 ? 'text-[#087BB4] bg-[#e6f3fa] font-semibold border-[#087BB4]'
                 : 'text-[#6E777C] bg-white border-[#6E777C]',
             ]"
-            class="font-poppins mobile:text-[14px] py-2 px-24 mobile:px-8 rounded-full border hover:bg-[#e6f3fa]"
-            id="lang-filter-btn"
           >
             Language Games
           </button>
@@ -274,12 +273,11 @@ function hideMenuDropdown(menuBtn, currentDropdown) {
           <button
             @click="handlePageSwitch(2)"
             :class="[
+              'game-filter-btn',
               currentPage == 2
                 ? 'text-[#087BB4] bg-[#e6f3fa] font-semibold border-[#087BB4]'
                 : 'text-[#6E777C] bg-white border-[#6E777C]',
             ]"
-            class="font-poppins mobile:text-[14px] py-2 px-24 mobile:px-8 rounded-full border hover:bg-[#e6f3fa]"
-            id="math-filter-btn"
           >
             Math Games
           </button>
@@ -312,22 +310,20 @@ function hideMenuDropdown(menuBtn, currentDropdown) {
 
           <!-- LANGUAGE GAMES MENU -->
           <div
-            class="relative ml-[604px]"
+            class="relative ml-8"
             id="lang-menu-div"
             :class="[currentPage === 1 ? 'flex' : 'hidden']"
           >
             <button
               type="button"
               id="lang-menu-btn"
+              class="game-menu-btn"
+              :class="{ flex: currentPage === 1, hidden: currentPage !== 1 }"
               @click="activateGameMenu"
               @blur="handleMenuBlur"
               :aria-expanded="isLangMenuOpen"
               aria-haspopup="true"
               aria-controls="lang-dropdown-div"
-              :class="[
-                currentPage === 1 ? 'flex' : 'hidden',
-                'items-center justify-center gap-2 font-poppins text-[#6E777C] bg-[#FFFFFF] font-normal border border-[#6E777C] mobile:text-[14px] py-2 px-24 mobile:px-8 rounded-full hover:bg-[#e6f3fa]',
-              ]"
             >
               <span>Game Menu</span>
               <svg
@@ -438,15 +434,13 @@ function hideMenuDropdown(menuBtn, currentDropdown) {
             <button
               type="button"
               id="math-menu-btn"
+              class="game-menu-btn"
+              :class="{ flex: currentPage === 2, hidden: currentPage !== 2 }"
               @click="activateGameMenu"
               @blur="handleMenuBlur"
               :aria-expanded="isMathMenuOpen"
               aria-haspopup="true"
               aria-controls="math-dropdown-div"
-              :class="[
-                currentPage === 2 ? 'flex' : 'hidden',
-                'items-center justify-center gap-2 font-poppins text-[#6E777C] bg-[#FFFFFF] font-normal border border-[#6E777C] mobile:text-[14px] py-2 px-24 mobile:px-8 rounded-full hover:bg-[#e6f3fa]',
-              ]"
             >
               <span>Game Menu</span>
               <svg

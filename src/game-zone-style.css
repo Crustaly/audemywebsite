@@ -1,0 +1,29 @@
+@layer components {
+  /* --- Header.vue --- */
+  .nav-link-desktop {
+    @apply px-3 pb-2 hover:text-[#087bb4] hover:border-b-2 border-[#087bb4];
+  }
+  .btn-base {
+    @apply flex justify-center items-center font-bold py-3 px-6 rounded-lg border-[1.5px] shadow-[3px_4px_0px_#0C0D0D] border-black;
+  }
+  .btn-login {
+    @apply text-white bg-[#087BB4] hover:bg-[#0C587D];
+  }
+  .btn-logout {
+    @apply text-black bg-[#FE892A] hover:bg-[#D6711F];
+  }
+  .profile-avatar {
+    @apply w-6 h-6 rounded-full ml-2;
+  }
+
+  /* --- GameZone.vue --- */
+  .game-filter-btn {
+    @apply font-poppins mobile:text-[14px] py-2 px-24 mobile:px-8 rounded-full border hover:bg-[#e6f3fa];
+  }
+  .game-menu-btn {
+    @apply items-center justify-center gap-2 font-poppins text-[#6E777C] bg-white font-normal border border-[#6E777C] mobile:text-[14px] py-2 px-24 mobile:px-8 rounded-full hover:bg-[#e6f3fa];
+  }
+  .game-menu-link {
+    @apply block px-4 py-2 text-gray-700 hover:bg-[#e6f3fa] border-b border-gray-300;
+  }
+}

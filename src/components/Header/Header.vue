@@ -16,15 +16,16 @@
     </div>
 
     <!-- Hamburger Button for Mobile -->
-    <div
-      v-if="isMobileView"
-      class="absolute right-4 top-12 z-30"
-    >
+    <div v-if="isMobileView" class="absolute right-4 top-12 z-30">
       <button @click="toggleMenu" class="text-2xl">&#9776;</button>
     </div>
 
     <!-- Desktop Navigation Links -->
-    <nav id="nav-links-grid"  v-if="!isMobileView" class="absolute right-0 top-0 h-full flex items-center py-2">
+    <nav
+      id="nav-links-grid"
+      v-if="!isMobileView"
+      class="absolute right-0 top-0 h-full flex items-center py-2"
+    >
       <ul
         id="router-links-grid"
         class="font-poppins font-semibold flex items-center"
@@ -69,10 +70,7 @@
           >
         </li>
         <li v-if="userSession" id="logout-btn-item">
-          <button
-            class="flex justify-center items-center bg-[#FE892A] text-black font-bold py-3 px-6 rounded-lg border-[1.5px] shadow-[3px_4px_0px_#0C0D0D] border-black hover:bg-[#D6711F]"
-            @click="logout"
-          >
+          <button :class="['btn-base', 'btn-logout']" @click="logout">
             <!-- Add profile photo -->
             <span id="logout-text-desktop" class="md:text-xs">Logout</span>
             <img
@@ -80,22 +78,19 @@
               v-if="userSession.user && userSession.user.imageUrl"
               :src="userSession.user.imageUrl"
               aria-hidden="true"
-              class="w-6 h-6 rounded-full ml-2"
+              class="profile-avatar"
             />
             <img
               id="default-profile-desktop"
               v-else
               src="../../assets/character/default-profile.png"
               aria-hidden="true"
-              class="w-6 h-6 rounded-full ml-2"
+              class="profile-avatar"
             />
           </button>
         </li>
         <li v-else id="login-btn-item">
-          <router-link
-            to="/login"
-            class="flex justify-center items-center login-button text-white font-bold py-3 px-6 rounded-lg border-[1.5px] shadow-[3px_4px_0px_#0C0D0D] border-black bg-[#087BB4] hover:bg-[#0C587D]"
-          >
+          <router-link to="/login" :class="['btn-base', 'btn-login']">
             Log in
           </router-link>
         </li>
@@ -164,7 +159,7 @@
           </li>
           <li v-if="userSession">
             <button
-              class="flex justify-center items-center w-full mt-4 bg-[#FE892A] text-black font-bold py-3 px-6 rounded-lg border-[1.5px] shadow-[3px_4px_0px_#0C0D0D] border-black hover:bg-[#D6711F]"
+              :class="['btn-base', 'btn-logout', 'w-full', 'mt-4']"
               @click="logout"
             >
               Logout
@@ -174,14 +169,14 @@
                 :src="userSession.user.imageUrl"
                 aria-hidden="true"
                 alt="Google Profile"
-                class="w-6 h-6 rounded-full ml-2"
+                class="profile-avatar"
               />
               <img
                 v-else
                 src="../../assets/character/default-profile.png"
                 aria-hidden="true"
                 alt="Default Profile"
-                class="w-6 h-6 rounded-full ml-2"
+                class="profile-avatar"
               />
             </button>
           </li>
@@ -189,7 +184,7 @@
             <router-link
               to="/login"
               @click="closeMenu"
-              class="flex justify-center items-center login-button w-full text-white font-bold py-3 px-6 rounded-lg border-[1.5px] shadow-[3px_4px_0px_#0C0D0D] border-black bg-[#087BB4] hover:bg-[#0C587D] mt-8"
+              :class="['btn-base', 'btn-login', 'w-full', 'mt-8']"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
