@@ -17,13 +17,50 @@
   }
 
   /* --- GameZone.vue --- */
-  .game-filter-btn {
-    @apply font-poppins mobile:text-[14px] py-2 px-24 mobile:px-8 rounded-full border hover:bg-[#e6f3fa];
+  /* Base for all filter buttons */
+  .game-filter-btn-base {
+    @apply flex items-center justify-center whitespace-nowrap font-poppins text-[14px] py-2 px-24 mobile:px-8 rounded-full border hover:bg-[#e6f3fa];
   }
-  .game-menu-btn {
-    @apply items-center justify-center gap-2 font-poppins text-[#6E777C] bg-white font-normal border border-[#6E777C] mobile:text-[14px] py-2 px-24 mobile:px-8 rounded-full hover:bg-[#e6f3fa];
+  .game-filter-btn-active {
+    @apply text-[#087BB4] bg-[#e6f3fa] font-semibold border-[#087BB4];
   }
+  .game-filter-btn-inactive {
+    @apply text-[#6E777C] bg-white border-[#6E777C];
+  }
+
+  /* Base for all game menu buttons */
+  .game-menu-btn-base {
+    @apply flex items-center justify-center gap-2 font-poppins text-[14px] py-2 px-24 mobile:px-8 rounded-full border whitespace-nowrap mobile:w-full;
+  }
+  .game-menu-btn-active {
+    @apply text-[#087BB4] bg-[#e6f3fa] font-semibold border-[#087BB4];
+  }
+  .game-menu-btn-inactive {
+    @apply text-[#6E777C] bg-white font-normal border border-[#6E777C];
+  }
+
+  /* SVG arrow styling based on parent button state */
+  .svg-arrow {
+    @apply size-5;
+  }
+  .game-menu-btn-active .svg-arrow {
+    @apply fill-[#087BB4];
+  }
+  .game-menu-btn-inactive .svg-arrow {
+    @apply fill-[#6E777C];
+  }
+
+  /* Base for all dropdown menus (the container for options) */
+  .game-menu-dropdown-base {
+    @apply absolute right-0 top-full z-10 mt-2 w-full origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black/5 focus:outline-none text-center;
+  }
+
+  /* Styling for individual links within the dropdown */
   .game-menu-link {
     @apply block px-4 py-2 text-gray-700 hover:bg-[#e6f3fa] border-b border-gray-300;
+  }
+  /* Remove border-b from the last item */
+  .game-menu-link:last-child {
+    @apply border-b-0;
   }
 }
