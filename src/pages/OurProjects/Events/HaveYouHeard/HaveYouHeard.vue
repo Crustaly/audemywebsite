@@ -43,7 +43,7 @@ const items = [
         />
       </div>
     </div>
-    <div class="flex items-center justify-center mt-13">
+    <div class="flex items-center justify-center mt-13 lg:mt-0">
       <a
         href="https://www.instagram.com/audemyapp/"
         target="_blank"
