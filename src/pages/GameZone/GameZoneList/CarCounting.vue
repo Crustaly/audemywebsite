@@ -36,10 +36,15 @@
           :isTablet="isTablet"
           :isMobile="isMobile"
           :isRecording="isRecording"
+          :isFinalResult="isFinalResult"
           :isIntroPlaying="isIntroPlaying"
           :isButtonCooldown="isButtonCooldown"
           :transcription="transcription"
           :numOfAudiosPlayed="numOfAudiosPlayed"
+          :recordButtonText="recordButtonText"
+          :recordButtonClasses="recordButtonClasses"
+          :recordButtonTitle="recordButtonTitle"
+          :isButtonDisabled="isButtonDisabled"
           @record-click="toggleRecording"
           @repeat-click="repeatQuestion"
         />
@@ -86,6 +91,7 @@ const answers = [];
 const numOfAudiosPlayed = ref(0);
 const score = ref(0);
 const isRecording = ref(false);
+const isFinalResult = ref(false);
 const transcription = ref('');
 const isPlaying = ref(false);
 
@@ -102,7 +108,11 @@ const isMobile = ref(false);
 const isDesktop = computed(() => !isTablet.value && !isMobile.value);
 
 const isButtonDisabled = computed(
-  () => isIntroPlaying.value || isButtonCooldown.value
+  () =>
+    isIntroPlaying.value ||
+    isButtonCooldown.value ||
+    isPlaying.value ||
+    (isRecording.value && !isFinalResult.value)
 );
 
 const recordButtonClasses = computed(() => [
@@ -124,7 +134,22 @@ const recordButtonTitle = computed(() => {
     return 'Please wait until the introduction finishes';
   if (isButtonCooldown.value || isPlaying.value)
     return 'Please wait until the question finishes playing';
+  if (isRecording.value && !isFinalResult.value)
+    return 'Processing your speech...';
   return 'Record your answer';
+});
+
+const recordButtonText = computed(() => {
+  if (isRecording.value && !isFinalResult.value) {
+    return isTablet.value || isMobile.value
+      ? 'Processing...'
+      : 'Processing Speech...';
+  }
+  return isRecording.value
+    ? 'Stop Recording'
+    : isTablet.value || isMobile.value
+    ? 'Record'
+    : 'Record Answer';
 });
 
 const repeatButtonTitle = computed(() => {
@@ -287,71 +312,80 @@ const toggleRecording = async () => {
     if (!isRecording.value) {
       // Start recording
       isRecording.value = true;
+      isFinalResult.value = false;
       playSound('ding-sound.mp3');
 
-      startListening((transcript) => {
-        transcription.value = transcript;
-      }, false);
+      startListening(
+        (transcript) => {
+          transcription.value = transcript;
+        },
+        false,
+        (status) => {
+          switch (status) {
+            case 'listening':
+              isFinalResult.value = false;
+              break;
+            case 'interim':
+              isFinalResult.value = false;
+              break;
+            case 'final':
+              isFinalResult.value = true;
+              break;
+            case 'ended':
+              isFinalResult.value = true;
+              break;
+            case 'error':
+              isFinalResult.value = false;
+              break;
+          }
+        }
+      );
     } else {
-      isButtonCooldown.value = true;
-      console.log('Processing recording...');
+      if (isFinalResult.value) {
+        isButtonCooldown.value = true;
+        console.log('Processing recording...');
 
-      // Get the final transcript
-      const finalTranscript = transcription.value;
+        // Get the final transcript
+        const finalTranscript = transcription.value;
 
-      // Process the answer
-      console.log('User Answer:', finalTranscript);
-      console.log('Correct Answer:', randQueNum[numOfAudiosPlayed.value]);
+        stopListening();
 
-      const cleanedInput = finalTranscript
-        .trim()
-        .toLowerCase()
-        .replace(/[^\w\s]/g, ''); // removes punctuation
-      if (
-        cleanedInput.includes(answers[numOfAudiosPlayed.value].toLowerCase())
-      ) {
-        score.value++;
-        console.log('Correct Answer!');
-        await playSound('correctaudio.mp3');
-      } else {
-        console.log('Wrong Answer!');
-        await playSound('incorrectaudio.mp3');
+        // Process the answer
+        console.log('User Answer:', finalTranscript);
+        console.log('Correct Answer:', randQueNum[numOfAudiosPlayed.value]);
 
-        const incorectAudio =
-          'The correct answer is ' + answers[numOfAudiosPlayed.value];
-        await playQuestion(incorectAudio);
+        const cleanedInput = finalTranscript
+          .trim()
+          .toLowerCase()
+          .replace(/[^\w\s]/g, ''); // removes punctuation
+        if (
+          cleanedInput.includes(answers[numOfAudiosPlayed.value].toLowerCase())
+        ) {
+          score.value++;
+          console.log('Correct Answer!');
+          await playSound('correctaudio.mp3');
+        } else {
+          console.log('Wrong Answer!');
+          await playSound('incorrectaudio.mp3');
+
+          const incorectAudio =
+            'The correct answer is ' + answers[numOfAudiosPlayed.value];
+          await playQuestion(incorectAudio);
+        }
+
+        transcription.value = '';
+        isRecording.value = false;
+        isFinalResult.value = false;
+        numOfAudiosPlayed.value++;
+
+        const isGameOver = numOfAudiosPlayed.value >= 5;
+
+        if (!isGameOver) {
+          playNextQuestion();
+        } else {
+          playScore(score.value);
+        }
       }
-
-      transcription.value = '';
-
-      stopListening();
-      isRecording.value = false;
-      numOfAudiosPlayed.value++;
-
-      const isGameOver = numOfAudiosPlayed.value >= 5;
-
-      if (!isGameOver) {
-        playNextQuestion();
-      } else {
-        playScore(score.value);
-      }
-
-      // Reset transcription for next question
-      // setTimeout(() => {
-      //   transcription.value = '';
-      //   console.log('Recording processed and stopped');
-
-      //   if (numOfAudiosPlayed.value < 5) {
-      //     setTimeout(() => {
-      //       playNextQuestion();
-      //     }, 2000);
-      //   } else {
-      //     console.log('Game Over!');
-      //     setTimeout(() => {
-      //       playScore(score.value);
-      //     }, 2000);
-      //   }
-      // }, 1000);
     }
   }
 };
