@@ -30,7 +30,7 @@ const forgotPassword = async (event) => {
   >
     <Banner
       id="reset-link-sent-banner"
-      :CarlImgPath="'/assets/images/impact/globe-icon.svg'"
+      :CarlImgPath="'/assets/images/impact/globe 1.svg'"
       :isImageWide="false"
       bgColor="#B1C7D0"
       curveColor="#E5F0F5"
