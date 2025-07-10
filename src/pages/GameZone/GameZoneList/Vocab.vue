@@ -36,10 +36,15 @@
           :isTablet="isTablet"
           :isMobile="isMobile"
           :isRecording="isRecording"
+          :isFinalResult="isFinalResult"
           :isIntroPlaying="isIntroPlaying"
           :isButtonCooldown="isButtonCooldown"
           :transcription="transcription"
           :numOfAudiosPlayed="numOfAudiosPlayed"
+          :recordButtonText="recordButtonText"
+          :recordButtonClasses="recordButtonClasses"
+          :recordButtonTitle="recordButtonTitle"
+          :isButtonDisabled="isButtonDisabled"
           @record-click="toggleRecording"
           @repeat-click="repeatQuestion"
         />
@@ -64,20 +69,33 @@ import { gameConfigs } from '../../../config/gameConfigs';
 const gameConfig = gameConfigs.vocab;
 
 const {
-  playButton,
   numOfAudiosPlayed,
-  isIntroPlaying,
-  isRecording,
-  isButtonCooldown,
-  transcription,
   score,
-  currentAudios,
+  isRecording,
+  isFinalResult,
+  transcription,
+  playButton,
+  isIntroPlaying,
+  isButtonCooldown,
   isTablet,
   isMobile,
-  startFirstQuestion,
+  isDesktop,
+  questionsDb,
+  currentAudios,
+  currentQuestion,
+  isButtonDisabled,
+  recordButtonClasses,
+  recordButtonTitle,
+  recordButtonText,
+  generateQuestions,
+  playNextQuestion,
   toggleRecording,
-  repeatQuestion,
-  handleSthNotWorkingButtonClick,
   goBack,
+  repeatQuestion,
+  startFirstQuestion,
+  handleSthNotWorkingButtonClick,
+  startGame,
+  cleanup,
+  validateAnswer,
 } = useGameCore(gameConfig);
 </script>
