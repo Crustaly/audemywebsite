@@ -22,7 +22,13 @@
       v-if="isMobileView"
       class="absolute right-4 top-12 z-30"
     >
-      <button @click="toggleMenu" class="text-2xl">&#9776;</button>
+      <button
+        @click="toggleMenu"
+        class="text-2xl"
+        aria-label="Open Navigation Menu"
+      >
+        &#9776;
+      </button>
     </div>
 
     <!-- Desktop Navigation Links -->
@@ -39,36 +45,41 @@
           <router-link
             to="/home"
             class="px-2 pb-2 hover:text-[#087bb4] hover:border-b-2 border-[#087bb4]"
-            >Home</router-link
           >
+            Home
+          </router-link>
         </li>
         <li id="about-item">
           <router-link
             to="/about-us"
             class="px-2 pb-2 hover:text-[#087bb4] hover:border-b-2 border-[#087bb4]"
-            >About us</router-link
           >
+            About us
+          </router-link>
         </li>
         <li id="projects-item">
           <router-link
             to="/our-projects"
             class="px-2 pb-2 hover:text-[#087bb4] hover:border-b-2 border-[#087bb4]"
-            >Our projects</router-link
           >
+            Our projects
+          </router-link>
         </li>
         <li id="impact-item">
           <router-link
             to="/impact"
             class="px-2 pb-2 hover:text-[#087bb4] hover:border-b-2 border-[#087bb4]"
-            >Impact</router-link
           >
+            Impact
+          </router-link>
         </li>
         <li id="games-item">
           <router-link
             to="/game-zone"
             class="px-2 pb-2 hover:text-[#087bb4] hover:border-b-2 border-[#087bb4]"
-            >Game zone</router-link
           >
+            Game zone
+          </router-link>
         </li>
         <li v-if="userSession" id="logout-btn-item">
           <button
@@ -119,7 +130,11 @@
       class="fixed inset-y-0 right-0 bg-white z-50 w-4/5 max-w-xs flex flex-col overflow-hidden"
     >
       <div class="flex justify-end p-7 px-10">
-        <button @click="closeMenu" class="text-4xl hover:text-[#087bb4]">
+        <button
+          @click="closeMenu"
+          class="text-4xl hover:text-[#087bb4]"
+          aria-label="Close Navigation Menu"
+        >
           &times;
         </button>
       </div>
@@ -131,40 +146,45 @@
               to="/home"
               class="block py-4 hover:text-[#087bb4]"
               @click="closeMenu"
-              >Home</router-link
             >
+              Home
+            </router-link>
           </li>
           <li>
             <router-link
               to="/about-us"
               class="block py-4 hover:text-[#087bb4]"
               @click="closeMenu"
-              >About us</router-link
             >
+              About us
+            </router-link>
           </li>
           <li>
             <router-link
               to="/our-projects"
               class="block py-4 hover:text-[#087bb4]"
               @click="closeMenu"
-              >Our projects</router-link
             >
+              Our project
+            </router-link>
           </li>
           <li>
             <router-link
               to="/impact"
               class="block py-4 hover:text-[#087bb4]"
               @click="closeMenu"
-              >Impact</router-link
             >
+              Impact
+            </router-link>
           </li>
           <li>
             <router-link
               to="/game-zone"
               class="block py-4 hover:text-[#087bb4]"
               @click="closeMenu"
-              >Game zone</router-link
             >
+              Game zone
+            </router-link>
           </li>
           <li v-if="userSession">
             <button
