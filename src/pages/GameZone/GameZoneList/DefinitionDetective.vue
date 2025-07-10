@@ -36,10 +36,15 @@
           :isTablet="isTablet"
           :isMobile="isMobile"
           :isRecording="isRecording"
+          :isFinalResult="isFinalResult"
           :isIntroPlaying="isIntroPlaying"
           :isButtonCooldown="isButtonCooldown"
           :transcription="transcription"
           :numOfAudiosPlayed="numOfAudiosPlayed"
+          :recordButtonText="recordButtonText"
+          :recordButtonClasses="recordButtonClasses"
+          :recordButtonTitle="recordButtonTitle"
+          :isButtonDisabled="isButtonDisabled"
           @record-click="toggleRecording"
           @repeat-click="repeatQuestion"
         />
@@ -67,6 +72,7 @@ const {
   numOfAudiosPlayed,
   score,
   isRecording,
+  isFinalResult,
   transcription,
   playButton,
   isIntroPlaying,
@@ -80,6 +86,7 @@ const {
   isButtonDisabled,
   recordButtonClasses,
   recordButtonTitle,
+  recordButtonText,
   generateQuestions,
   playNextQuestion,
   toggleRecording,
