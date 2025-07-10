@@ -6,9 +6,9 @@ const parentFooterClasses = [
   'bg-white',
   'text-primary-color',
   'w-full',
-  'h-[580px]',
-  'md:h-[500px]',
-  'lg:h-[350px]',
+  'h-[620px]',
+  'md:h-[540px]',
+  'lg:h-[380px]',
   'pt-[10%]',
   'pb-[10%]',
   'md:pt-[5%]',
@@ -104,13 +104,16 @@ const socialMediaGridClasses = [
             <a href="/">Home</a>
           </li>
           <li class="ftr-subtext">
-            <a href="/about-us">About Us</a>
+            <a href="/about-us">Our Team</a>
           </li>
           <li class="ftr-subtext">
             <a href="/our-projects">Our Projects</a>
           </li>
           <li class="ftr-subtext">
             <a href="/impact">Impact</a>
+          </li>
+          <li class="ftr-subtext">
+            <a href="/press">Press & Recognition</a>
           </li>
           <li class="ftr-subtext">
             <a href="/game-zone">Game Zone</a>
