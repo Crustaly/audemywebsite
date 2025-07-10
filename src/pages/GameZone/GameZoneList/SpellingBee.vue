@@ -36,10 +36,15 @@
           :isTablet="isTablet"
           :isMobile="isMobile"
           :isRecording="isRecording"
+          :isFinalResult="isFinalResult"
           :isIntroPlaying="isIntroPlaying"
           :isButtonCooldown="isButtonCooldown"
           :transcription="transcription"
           :numOfAudiosPlayed="numOfAudiosPlayed"
+          :recordButtonText="recordButtonText"
+          :recordButtonClasses="recordButtonClasses"
+          :recordButtonTitle="recordButtonTitle"
+          :isButtonDisabled="isButtonDisabled"
           @record-click="toggleRecording"
           @repeat-click="repeatQuestion"
         />
@@ -86,6 +91,7 @@ let questionsDb = [];
 const numOfAudiosPlayed = ref(0);
 const score = ref(0);
 const isRecording = ref(false);
+const isFinalResult = ref(false);
 const transcription = ref('');
 const isListening = ref(false);
 
@@ -113,7 +119,10 @@ const currentQuestion = computed(() => {
 });
 
 const isButtonDisabled = computed(
-  () => isIntroPlaying.value || isButtonCooldown.value
+  () =>
+    isIntroPlaying.value ||
+    isButtonCooldown.value ||
+    (isRecording.value && !isFinalResult.value)
 );
 
 const recordButtonClasses = computed(() => [
@@ -133,7 +142,22 @@ const recordButtonTitle = computed(() => {
     return 'Please wait until the introduction finishes';
   if (isButtonCooldown.value)
     return 'Please wait until the question finishes playing';
+  if (isRecording.value && !isFinalResult.value)
+    return 'Processing your speech...';
   return 'Record your answer';
+});
+
+const recordButtonText = computed(() => {
+  if (isRecording.value && !isFinalResult.value) {
+    return isTablet.value || isMobile.value
+      ? 'Processing...'
+      : 'Processing Speech...';
+  }
+  return isRecording.value
+    ? 'Stop Recording'
+    : isTablet.value || isMobile.value
+    ? 'Record'
+    : 'Record Answer';
 });
 
 // 5. Watch/WatchEffect
@@ -255,53 +279,82 @@ const toggleRecording = async () => {
   if (numOfAudiosPlayed.value < 5 && !isIntroPlaying.value) {
     if (!isRecording.value) {
       isRecording.value = true;
+      isFinalResult.value = false;
       isListening.value = true;
 
-      startListening((transcript) => {
-        transcription.value = transcript;
-      }, false);
-    } else {
-      isButtonCooldown.value = true;
-      console.log('Processing recording...');
-
-      const finalTranscript = transcription.value;
-
-      if (currentQuestion.value) {
-        console.log('Question is: ', currentQuestion.value['Q']);
-        console.log('User Answer:', finalTranscript);
-        console.log('Correct Answer:', currentQuestion.value['A']);
-
-        if (
-          currentQuestion.value['A'].some((answer) =>
-            finalTranscript.trim().toLowerCase().includes(answer.toLowerCase())
-          )
-        ) {
-          score.value++;
-          console.log('Correct Answer!');
-          await playSound('correctaudio.mp3');
-        } else {
-          console.log('Wrong Answer!');
-          const incorrectAudio =
-            'The correct answer is ' + currentQuestion.value['A'][0];
-          await playSound('incorrectaudio.mp3');
-
-          await playQuestion(incorrectAudio);
+      startListening(
+        (transcript) => {
+          transcription.value = transcript;
+        },
+        false,
+        (status) => {
+          switch (status) {
+            case 'listening':
+              isFinalResult.value = false;
+              break;
+            case 'interim':
+              isFinalResult.value = false;
+              break;
+            case 'final':
+              isFinalResult.value = true;
+              break;
+            case 'ended':
+              isFinalResult.value = true;
+              break;
+            case 'error':
+              isFinalResult.value = false;
+              break;
+          }
         }
-      }
+      );
+    } else {
+      if (isFinalResult.value) {
+        isButtonCooldown.value = true;
+        console.log('Processing recording...');
 
-      transcription.value = '';
+        const finalTranscript = transcription.value;
 
-      stopListening();
-      isListening.value = false;
-      isRecording.value = false;
-      numOfAudiosPlayed.value++;
+        stopListening();
 
-      const isGameOver = numOfAudiosPlayed.value >= 5;
+        if (currentQuestion.value) {
+          console.log('Question is: ', currentQuestion.value['Q']);
+          console.log('User Answer:', finalTranscript);
+          console.log('Correct Answer:', currentQuestion.value['A']);
 
-      if (!isGameOver) {
-        playNextQuestion();
-      } else {
-        playScore(score.value);
+          if (
+            currentQuestion.value['A'].some((answer) =>
+              finalTranscript
+                .trim()
+                .toLowerCase()
+                .includes(answer.toLowerCase())
+            )
+          ) {
+            score.value++;
+            console.log('Correct Answer!');
+            await playSound('correctaudio.mp3');
+          } else {
+            console.log('Wrong Answer!');
+            const incorrectAudio =
+              'The correct answer is ' + currentQuestion.value['A'][0];
+            await playSound('incorrectaudio.mp3');
+
+            await playQuestion(incorrectAudio);
+          }
+        }
+
+        transcription.value = '';
+        isListening.value = false;
+        isRecording.value = false;
+        isFinalResult.value = false;
+        numOfAudiosPlayed.value++;
+
+        const isGameOver = numOfAudiosPlayed.value >= 5;
+
+        if (!isGameOver) {
+          playNextQuestion();
+        } else {
+          playScore(score.value);
+        }
       }
     }
   }
