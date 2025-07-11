@@ -12,13 +12,13 @@ import Footer from '../../components/Footer/Footer.vue';
 </script>
 
 <template>
+  <ScrollUpButton />
+
+  <div class="relative px-8 sm:px-8 md:px-6 lg:px-14">
+    <Header :logoPath="'/assets/images/header/header-logo-2.png'" />
+  </div>
+
   <div class="flex flex-col">
-    <div class="px-4 md:px-8">
-      <Header :logoPath="'/assets/images/header/header-logo-2.png'" />
-    </div>
-
-    <ScrollUpButton />
-
     <div class="flex justify-center px-8 md:px-14 xl:mt-20">
       <div class="md:w-full md:mt-10">
         <ProjectsInAction />
@@ -48,9 +48,7 @@ import Footer from '../../components/Footer/Footer.vue';
         <SocialMedia />
       </div>
     </div>
-
-    <div>
-      <Footer />
-    </div>
   </div>
+
+  <Footer />
 </template>
