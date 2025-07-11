@@ -9,9 +9,14 @@ import Footer from '../../components/Footer/Footer.vue';
 import { ref, onMounted } from 'vue';
 
 import { useDeviceType } from '../../Utilities/checkDeviceType';
-const { isMobile, isTablet } = useDeviceType();
 
-import { getLanguageGames, getMathGames, getScienceGames } from './GameDB.js';
+import {
+  getLanguageGames,
+  getMathGames,
+  getScienceGames,
+  getLifeSkillsGames,
+  getBlindSpecificSkillsGames,
+} from './GameDB.js';
 
 /*
  * Extracted lists of objects for dropdown menus:
@@ -36,8 +41,20 @@ const scienceGamesMap = getScienceGames().map(({ title, url }) => ({
   url,
 }));
 
+const lifeSkillGameMap = getLifeSkillsGames().map(({ title, url }) => ({
+  title,
+  url,
+}));
+
+const blindSkillGameMap = getBlindSpecificSkillsGames().map(
+  ({ title, url }) => ({
+    title,
+    url,
+  })
+);
+
 import { computed } from 'vue';
-const totalPages = 3; // TODO: Update to 4 once "My Progress" is ready
+const totalPages = 5; // TODO: Update to 6 once "My Progress" is ready
 
 /*
  * Generates an array of page numbers [1 ... totalPages]
@@ -92,11 +109,11 @@ onMounted(() => {
   if (category === 'math') {
     changeCurrentPage(2);
   } else if (category === 'science') {
-    changeCurrentPage(3);
+    changeCurrentPage(3); // Science Games
   } else if (category === 'life-skills') {
-    changeCurrentPage(4);
+    changeCurrentPage(4); // Life Skills Games
   } else if (category === 'blind-specific-skills') {
-    changeCurrentPage(5);
+    changeCurrentPage(5); // Blind-Specific Skills Games
   } else {
     changeCurrentPage(1); // Default to Language Games
   }
@@ -186,8 +203,29 @@ function toggleDropdown() {
   if (currentPageConfig) {
     const dropdown = document.getElementById(currentPageConfig.id);
     dropdown.classList.toggle('hidden');
-    const isVisible = !dropdown.classList.contains('hidden');
-    currentPageConfig.updater(isVisible);
+    // Update reactive flag for Language menu
+    isVisible = !dropdown.classList.contains('hidden');
+    changeIsLangMenuOpen(isVisible);
+  } else if (currentPage.value === 2) {
+    dropdown = document.getElementById('math-dropdown-div');
+    dropdown.classList.toggle('hidden');
+    isVisible = !dropdown.classList.contains('hidden');
+    changeIsMathMenuOpen(isVisible);
+  } else if (currentPage.value === 3) {
+    dropdown = document.getElementById('science-dropdown-div');
+    dropdown.classList.toggle('hidden');
+    isVisible = !dropdown.classList.contains('hidden');
+    changeIsScienceMenuOpen(isVisible);
+  } else if (currentPage.value === 4) {
+    dropdown = document.getElementById('life-skills-dropdown-div');
+    dropdown.classList.toggle('hidden');
+    isVisible = !dropdown.classList.contains('hidden');
+    changeIsLifeSkillsMenuOpen(isVisible);
+  } else {
+    dropdown = document.getElementById('blind-skills-dropdown-div');
+    dropdown.classList.toggle('hidden');
+    isVisible = !dropdown.classList.contains('hidden');
+    changeIsBlindSkillsMenuOpen(isVisible);
   }
 }
 
@@ -213,11 +251,13 @@ function handlePageSwitch(newPage) {
   }
 
   changeCurrentPage(newPage);
-  changeIsLangMenuOpen(newPage === 1);
-  changeIsMathMenuOpen(newPage === 2);
-  changeIsScienceMenuOpen(newPage === 3);
-  changeIsLifeSkillsMenuOpen(newPage === 4);
-  changeIsBlindSkillsMenuOpen(newPage === 5);
+
+  // Ensure all menus are reset to a closed state
+  changeIsLangMenuOpen(false);
+  changeIsMathMenuOpen(false);
+  changeIsScienceMenuOpen(false);
+  changeIsLifeSkillsMenuOpen(false);
+  changeIsBlindSkillsMenuOpen(false);
 }
 
 function handleMenuBlur(event) {
@@ -522,7 +562,13 @@ function hideMenuDropdown(menuBtn, currentDropdown) {
                 aria-controls="life-skills-dropdown-div"
               >
                 <span>Game Menu</span>
-                <svg class="svg-arrow" viewBox="0 0 20 20" fill="currentColor">
+                <svg
+                  class="svg-arrow"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  aria-hidden="true"
+                  data-slot="icon"
+                >
                   <path
                     fill-rule="evenodd"
                     d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
@@ -545,19 +591,20 @@ function hideMenuDropdown(menuBtn, currentDropdown) {
                   class="py-1 text-[15px]"
                   role="none"
                 >
-                  <!-- Generate game menu links by looping over 'lifeSkillsGames' map entries -->
+                  <!-- Generate game menu links by looping over 'lifeSkillGameMap' entries -->
                   <a
-                    v-for="[title, path] in Object.entries(lifeSkillsGames)"
-                    :key="path"
-                    :href="`/game/${path}`"
+                    v-for="{ title, url } in lifeSkillGameMap"
+                    :key="url"
+                    :href="url"
                     class="game-menu-link"
                     role="menuitem"
-                    >{{ title }}</a
                   >
+                    {{ title }}
+                  </a>
                 </div>
               </div>
             </div>
-            <!-- BLIND SPECIFIC SKILLS GAMES MENU -->
+            <!-- BLIND SKILLS GAMES MENU -->
             <div
               id="blind-skills-menu-div"
               :class="[currentPage === 5 ? 'flex' : 'hidden', 'relative']"
@@ -578,7 +625,13 @@ function hideMenuDropdown(menuBtn, currentDropdown) {
                 aria-controls="blind-skills-dropdown-div"
               >
                 <span>Game Menu</span>
-                <svg class="svg-arrow" viewBox="0 0 20 20" fill="currentColor">
+                <svg
+                  class="svg-arrow"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  aria-hidden="true"
+                  data-slot="icon"
+                >
                   <path
                     fill-rule="evenodd"
                     d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
@@ -586,7 +639,7 @@ function hideMenuDropdown(menuBtn, currentDropdown) {
                   />
                 </svg>
               </button>
-              <!-- BLIND SPECIFIC SKILLS GAMES DROPDOWN OPTIONS -->
+              <!-- BLIND SKILLS GAMES DROPDOWN OPTIONS -->
               <div
                 id="blind-skills-dropdown-div"
                 @focusout="handleDropdownFocusOut"
@@ -597,28 +650,27 @@ function hideMenuDropdown(menuBtn, currentDropdown) {
                 aria-labelledby="blind-skills-menu-btn"
               >
                 <div
-                  id="blind-skills-dropdown"
+                  id="blind-skills-dropdown-options"
                   class="py-1 text-[15px]"
                   role="none"
                 >
-                  <!-- Generate game menu links by looping over 'blindSpecificSkillsGames' map entries -->
+                  <!-- Generate game menu links by looping over 'blindSkillGameMap' map entries -->
                   <a
-                    v-for="[title, path] in Object.entries(
-                      blindSpecificSkillsGames
-                    )"
-                    :key="path"
-                    :href="`/game/${path}`"
+                    v-for="{ title, url } in blindSkillGameMap"
+                    :key="url"
+                    :href="url"
                     class="game-menu-link"
                     role="menuitem"
-                    >{{ title }}</a
                   >
+                    {{ title }}
+                  </a>
                 </div>
               </div>
             </div>
           </div>
         </div>
         <div>
-          <div v-if="currentPage >= 1 && currentPage <= 5">
+          <div v-if="currentPage != 6">
             <GameZoneList :type="currentPage" />
           </div>
           <div v-if="currentPage === 6">
