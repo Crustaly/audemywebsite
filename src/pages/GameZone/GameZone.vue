@@ -1,5 +1,6 @@
 <script setup>
 import Header from '../../components/Header/Header.vue';
+import GameZonePageButton from '../GameZone/GameZoneFilters/GameZonePageButton.vue';
 import GameZoneList from '../GameZone/GameZoneList/GameZoneList.vue';
 import GameProgress from '../GameZone/GameProgress/GameProgress.vue';
 import ScrollUpButton from '../../components/ScrollUpButton/ScrollUpButton.vue';
@@ -10,52 +11,41 @@ import { ref, onMounted } from 'vue';
 import { useDeviceType } from '../../Utilities/checkDeviceType';
 const { isMobile, isTablet } = useDeviceType();
 
-/* The following three game maps help keep code DRY:
- * - 'languageGames', 'mathGames', and 'scienceGames'
- * - Each map pairs a game title with its URL post-fix
- * - Used to dynamically generate <a> links by game type
- * - Future improvement:
- *    - Use a GET API (e.g. get_game_links_info) to fetch from the DB
- *    - Create a reusable 'GameMenuDropdown' component
+import { getLanguageGames, getMathGames, getScienceGames } from './GameDB.js';
+
+/*
+ * Extracted lists of objects for dropdown menus:
+ * - languageGamesMap, mathGamesMap, and scienceGamesMap
+ *
+ * Each object contains game title and URL
+ * - Example format: [{ title: 'Definition Detective', url: '/game/definitionDetective' }, ...]
  */
 
-// Page 1: Language Games
-const languageGames = {
-  'Definition Detective': 'definitionDetective',
-  'Part of Speech': 'partofspeech',
-  'Color Game': 'colorgame',
-  'Syllable Sorting': 'syllableSorting',
-  'Vocabulary Vortex': 'vocabVortex',
-  'Polar Pairing': 'polarpairing',
-  'Odd One Out': 'oddoneout',
-  'Spelling Bee': 'spellingbee',
-};
+const languageGamesMap = getLanguageGames().map(({ title, url }) => ({
+  title,
+  url,
+}));
 
-// Page 2: Math Games
-const mathGames = {
-  'Fruit Frenzy': 'fruitfrenzy',
-  'Shape Shark': 'shapeshark',
-  'Animal Addition': 'addition',
-  'Subtraction Safari': 'subtraction',
-  'Multiplication Madness': 'multiplicationmadness',
-  'Division Duel': 'DivisionDuel',
-  'Monkey Madness': 'monkeymadness',
-  'Car Counting': 'carcounting',
-};
+const mathGamesMap = getMathGames().map(({ title, url }) => ({
+  title,
+  url,
+}));
 
-// Page 3: Science Games
-const scienceGames = {
-  'Matter Mix-Up': 'mattermixup',
-  'Tiny Cell Town': 'tinycelltown',
-  'Weather Whiz': 'weatherwhiz',
-  'Space Case': 'spacecase',
-  'Dino Detectives': 'dinodetectives',
-  'Germ Squad': 'germsquad',
-  'Eco Rangers': 'ecorangers',
-  'Sound Explorer': 'soundexplorer',
-  'Robot Repair Lab': 'robotrepair',
-  'Plant Power': 'plantpower',
-};
+const scienceGamesMap = getScienceGames().map(({ title, url }) => ({
+  title,
+  url,
+}));
+
+import { computed } from 'vue';
+const totalPages = 3; // TODO: Update to 4 once "My Progress" is ready
+
+/*
+ * Generates an array of page numbers [1 ... totalPages]
+ * Used in v-for to render GameZonePageButton's dynamically
+ */
+const pageNumberList = computed(() =>
+  Array.from({ length: totalPages }, (_, i) => i + 1)
+);
 
 // Page 4: Life Skills Games
 const lifeSkillsGames = {
@@ -310,67 +300,14 @@ function hideMenuDropdown(menuBtn, currentDropdown) {
           class="w-full flex flex-wrap gap-5 mb-10 mt-10 items-start"
         >
           <div class="flex flex-wrap gap-5 mobile:w-full mobile:justify-center">
-            <!-- LANGUAGE GAMES FILTER BUTTON -->
-            <button
-              @click="handlePageSwitch(1)"
-              :class="[
-                'game-filter-btn-base',
-                currentPage == 1
-                  ? 'game-filter-btn-active'
-                  : 'game-filter-btn-inactive',
-              ]"
-            >
-              Language Games
-            </button>
-            <!-- MATH GAMES FILTER BUTTON -->
-            <button
-              @click="handlePageSwitch(2)"
-              :class="[
-                'game-filter-btn-base',
-                currentPage == 2
-                  ? 'game-filter-btn-active'
-                  : 'game-filter-btn-inactive',
-              ]"
-            >
-              Math Games
-            </button>
-            <!-- SCIENCE GAMES FILTER BUTTON -->
-            <button
-              @click="handlePageSwitch(3)"
-              :class="[
-                'game-filter-btn-base',
-                currentPage == 3
-                  ? 'game-filter-btn-active'
-                  : 'game-filter-btn-inactive',
-              ]"
-              id="science-filter-btn"
-            >
-              Science Games
-            </button>
-            <!-- LIFE SKILLS GAMES FILTER BUTTON -->
-            <button
-              @click="handlePageSwitch(4)"
-              :class="[
-                'game-filter-btn-base',
-                currentPage == 4
-                  ? 'game-filter-btn-active'
-                  : 'game-filter-btn-inactive',
-              ]"
-            >
-              Life Skills
-            </button>
-            <!-- BLIND SPECIFIC SKILLS GAMES FILTER BUTTON -->
-            <button
-              @click="handlePageSwitch(5)"
-              :class="[
-                'game-filter-btn-base',
-                currentPage == 5
-                  ? 'game-filter-btn-active'
-                  : 'game-filter-btn-inactive',
-              ]"
-            >
-              Blind-Specific Skills
-            </button>
+            <!-- GENERATE PAGE BUTTONS FOR GAME CATEGORIES (WIP: and 'My Progress') -->
+            <GameZonePageButton
+              v-for="pageNumber in pageNumberList"
+              :key="pageNumber"
+              :pageNumber="pageNumber"
+              :currentPage="currentPage"
+              @click="handlePageSwitch(pageNumber)"
+            />
           </div>
           <div
             class="relative flex flex-grow justify-end gap-5 mobile:w-full mobile:justify-center mobile:mt-4"
@@ -425,11 +362,11 @@ function hideMenuDropdown(menuBtn, currentDropdown) {
                   class="py-1 text-[15px]"
                   role="none"
                 >
-                  <!-- Generate game menu links by looping over 'languageGames' map entries -->
+                  <!-- Generate game menu links by looping over 'languageGamesMap' entries -->
                   <a
-                    v-for="[title, path] in Object.entries(languageGames)"
-                    :key="path"
-                    :href="`/game/${path}`"
+                    v-for="{ title, url } in languageGamesMap"
+                    :key="url"
+                    :href="url"
                     class="game-menu-link"
                     role="menuitem"
                   >
@@ -488,11 +425,11 @@ function hideMenuDropdown(menuBtn, currentDropdown) {
                   class="py-1 text-[15px]"
                   role="none"
                 >
-                  <!-- Generate game menu links by looping over 'mathGames' map entries -->
+                  <!-- Generate game menu links by looping over 'mathGamesMap' map entries -->
                   <a
-                    v-for="[title, path] in Object.entries(mathGames)"
-                    :key="path"
-                    :href="`/game/${path}`"
+                    v-for="{ title, url } in mathGamesMap"
+                    :key="url"
+                    :href="url"
                     class="game-menu-link"
                     role="menuitem"
                   >
@@ -551,11 +488,11 @@ function hideMenuDropdown(menuBtn, currentDropdown) {
                   class="py-1 text-[15px]"
                   role="none"
                 >
-                  <!-- Generate game menu links by looping over 'scienceGames' map entries -->
+                  <!-- Generate game menu links by looping over 'scienceGamesMap' map entries -->
                   <a
-                    v-for="[title, path] in Object.entries(scienceGames)"
-                    :key="path"
-                    :href="`/game/${path}`"
+                    v-for="{ title, url } in scienceGamesMap"
+                    :key="url"
+                    :href="url"
                     class="game-menu-link"
                     role="menuitem"
                   >

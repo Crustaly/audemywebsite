@@ -132,8 +132,8 @@ export const getMathGames = () => {
       title: 'Division Duel',
       url: 'game/DivisionDuel',
       textColor: '#323232',
-      bgColor: '#00C275', // Bright Green
-      description: 'Divide the given numers!',
+      bgColor: '#00C275',
+      description: 'Divide the given numbers!',
     },
     {
       icon: basedPath + 'mm.svg',
