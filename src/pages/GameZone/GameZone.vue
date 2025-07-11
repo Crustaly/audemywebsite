@@ -11,7 +11,7 @@ import { useDeviceType } from '../../Utilities/checkDeviceType';
 const { isMobile, isTablet } = useDeviceType();
 
 /* The following three game maps help keep code DRY:
- * - 'mathGames', languageGames', and 'scienceGames'
+ * - 'languageGames', 'mathGames', and 'scienceGames'
  * - Each map pairs a game title with its URL post-fix
  * - Used to dynamically generate <a> links by game type
  * - Future improvement:
@@ -19,20 +19,7 @@ const { isMobile, isTablet } = useDeviceType();
  *    - Create a reusable 'GameMenuDropdown' component
  */
 
-
-// Page 1: Math Games
-const mathGames = {
-  'Fruit Frenzy': 'fruitfrenzy',
-  'Shape Shark': 'shapeshark',
-  'Animal Addition': 'addition',
-  'Subtraction Safari': 'subtraction',
-  'Multiplication Madness': 'multiplicationmadness',
-  'Division Duel': 'DivisionDuel',
-  'Monkey Madness': 'monkeymadness',
-  'Car Counting': 'carcounting',
-};
-
-// Page 2: Language Games
+// Page 1: Language Games
 const languageGames = {
   'Definition Detective': 'definitionDetective',
   'Part of Speech': 'partofspeech',
@@ -42,6 +29,18 @@ const languageGames = {
   'Polar Pairing': 'polarpairing',
   'Odd One Out': 'oddoneout',
   'Spelling Bee': 'spellingbee',
+};
+
+// Page 2: Math Games
+const mathGames = {
+  'Fruit Frenzy': 'fruitfrenzy',
+  'Shape Shark': 'shapeshark',
+  'Animal Addition': 'addition',
+  'Subtraction Safari': 'subtraction',
+  'Multiplication Madness': 'multiplicationmadness',
+  'Division Duel': 'DivisionDuel',
+  'Monkey Madness': 'monkeymadness',
+  'Car Counting': 'carcounting',
 };
 
 // Page 3: Science Games
