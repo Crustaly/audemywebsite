@@ -1,0 +1,74 @@
+{
+  "BusStopBrainstormGame": {
+    "Questions": {
+      "Easy": [
+        { "Q": "What card or paper lets you ride the bus?", "A": ["Ticket"] },
+        {
+          "Q": "What large vehicle transports many people around a city?",
+          "A": ["Bus"]
+        },
+        { "Q": "Where do you wait for the bus?", "A": ["Bus-stop"] },
+        { "Q": "What do you pay with to ride the bus?", "A": ["Fare"] },
+        {
+          "Q": "What is the person who drives the bus called?",
+          "A": ["Driver"]
+        },
+        { "Q": "What do you call the path the bus takes?", "A": ["Route"] },
+        {
+          "Q": "What should you pull to signal you want to get off the bus?",
+          "A": ["Cord"]
+        },
+        { "Q": "Where do you sit on the bus?", "A": ["Seat"] },
+        {
+          "Q": "What do you hold onto if you are standing on the bus?",
+          "A": ["Pole"]
+        },
+        {
+          "Q": "What do you call the list of times the bus arrives?",
+          "A": ["Schedule"]
+        }
+      ],
+      "Medium": [
+        {
+          "Q": "What do you call it when you change from one bus to another?",
+          "A": ["Transfer"]
+        },
+        {
+          "Q": "What is the front window of the bus called?",
+          "A": ["Windshield"]
+        },
+        {
+          "Q": "What do you call the main station for buses?",
+          "A": ["Terminal"]
+        },
+        { "Q": "What do you call it when a bus arrives late?", "A": ["Delay"] },
+        {
+          "Q": "What is the area at the front of the bus where you pay?",
+          "A": ["Farebox"]
+        }
+      ],
+      "Hard": [
+        {
+          "Q": "What do you call a bus that travels long distances between cities?",
+          "A": ["Coach"]
+        },
+        {
+          "Q": "What is the system of all public transportation in a city called?",
+          "A": ["Transit"]
+        },
+        {
+          "Q": "What do you call a bus route that makes very few stops?",
+          "A": ["Express"]
+        },
+        {
+          "Q": "What do you call the part of the bus stop that provides cover from rain?",
+          "A": ["Shelter"]
+        },
+        {
+          "Q": "What do you call the automated voice that announces the stops?",
+          "A": ["Announcer"]
+        }
+      ]
+    }
+  }
+}

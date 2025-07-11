@@ -1,0 +1,86 @@
+{
+  "DoorwayDecisionsGame": {
+    "Questions": {
+      "Easy": [
+        {
+          "Q": "What kind of door handle do you need to turn to open?",
+          "A": ["Knob"]
+        },
+        {
+          "Q": "What kind of door opens by itself when you get close?",
+          "A": ["Automatic"]
+        },
+        {
+          "Q": "What do you do to a door with a flat bar handle?",
+          "A": ["Push"]
+        },
+        {
+          "Q": "What do you do to a door with a handle you can grab?",
+          "A": ["Pull"]
+        },
+        {
+          "Q": "What is the name for the frame around a door?",
+          "A": ["Doorframe"]
+        },
+        { "Q": "What sound does a closing door often make?", "A": ["Click"] },
+        {
+          "Q": "What do you call the side of the door that moves?",
+          "A": ["Hinge"]
+        },
+        {
+          "Q": "What do you call a door made of glass that you can see through?",
+          "A": ["Sliding"]
+        },
+        { "Q": "What do you use to lock or unlock a door?", "A": ["Key"] },
+        {
+          "Q": "What sound might an old door make when it opens?",
+          "A": ["Creak"]
+        }
+      ],
+      "Medium": [
+        {
+          "Q": "What do you call a door that spins around in a circle?",
+          "A": ["Revolving"]
+        },
+        {
+          "Q": "What kind of heavy door is designed to stop fires?",
+          "A": ["Fire-door"]
+        },
+        {
+          "Q": "What is the flat part at the bottom of a doorway that you step over?",
+          "A": ["Threshold"]
+        },
+        {
+          "Q": "What kind of handle is a long bar that you pull down?",
+          "A": ["Lever"]
+        },
+        {
+          "Q": "What sound might an automatic door make to signal it's opening?",
+          "A": ["Swish"]
+        }
+      ],
+      "Hard": [
+        {
+          "Q": "What is the mechanism that automatically closes a door slowly?",
+          "A": ["Closer"]
+        },
+        {
+          "Q": "What is the name for the metal plate on a doorframe where the latch catches?",
+          "A": ["Strike-plate"]
+        },
+        {
+          "Q": "What type of door is split into a top and bottom half that can open separately?",
+          "A": ["Dutch"]
+        },
+        {
+          "Q": "What do you call a door that is hidden in a wall?",
+          "A": ["Secret"]
+        },
+        {
+          "Q": "What sound indicates that a door has been successfully locked?",
+          "A": ["Thud"]
+        }
+      ]
+    }
+  }
+}

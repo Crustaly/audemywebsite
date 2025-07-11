@@ -1,0 +1,80 @@
+{
+  "StreetSmartGame": {
+    "Questions": {
+      "Easy": [
+        {
+          "Q": "What sound often tells you it’s safe to cross the street?",
+          "A": ["Beep"]
+        },
+        {
+          "Q": "What is the name for the special walking stick you use?",
+          "A": ["Cane"]
+        },
+        {
+          "Q": "What is the painted area on the road where people should cross?",
+          "A": ["Crosswalk"]
+        },
+        {
+          "Q": "What color traffic light means 'stop' for cars?",
+          "A": ["Red"]
+        },
+        {
+          "Q": "What color traffic light means 'go' for cars?",
+          "A": ["Green"]
+        },
+        { "Q": "What is the edge of the sidewalk called?", "A": ["Curb"] },
+        { "Q": "What is the sound a car engine makes?", "A": ["Vroom"] },
+        {
+          "Q": "What should you do with your ears before crossing a street?",
+          "A": ["Listen"]
+        },
+        {
+          "Q": "What do you call the flow of cars on a road?",
+          "A": ["Traffic"]
+        },
+        {
+          "Q": "What do you call the path for people to walk on next to a street?",
+          "A": ["Sidewalk"]
+        }
+      ],
+      "Medium": [
+        {
+          "Q": "What do you call a traffic signal that you can hear?",
+          "A": ["Audible"]
+        },
+        {
+          "Q": "What is the name for the raised bumps at a crosswalk that you can feel?",
+          "A": ["Tactile"]
+        },
+        {
+          "Q": "What do you call an intersection with four different streets?",
+          "A": ["Four-way"]
+        },
+        { "Q": "What does a car's horn signal?", "A": ["Warning"] },
+        { "Q": "What is the name of the sound a siren makes?", "A": ["Wail"] }
+      ],
+      "Hard": [
+        {
+          "Q": "What do you call the safe, grassy area between two sides of a busy road?",
+          "A": ["Median"]
+        },
+        {
+          "Q": "What kind of vehicle runs on a track in the middle of the street?",
+          "A": ["Trolley"]
+        },
+        {
+          "Q": "What is the term for judging how far away a sound is?",
+          "A": ["Localization"]
+        },
+        {
+          "Q": "What does a very fast beeping signal at a crosswalk usually mean?",
+          "A": ["Hurry"]
+        },
+        {
+          "Q": "What do you call a street that only allows traffic in one direction?",
+          "A": ["One-way"]
+        }
+      ]
+    }
+  }
+}

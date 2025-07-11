@@ -1,0 +1,77 @@
+{
+  "HealthCheckGame": {
+    "Questions": {
+      "Easy": [
+        { "Q": "What body part do you use to smell?", "A": ["Nose"] },
+        { "Q": "What body part do you use to see?", "A": ["Eye"] },
+        { "Q": "What body part do you use to hear?", "A": ["Ear"] },
+        {
+          "Q": "What should you do to your hands before eating?",
+          "A": ["Wash"]
+        },
+        { "Q": "What do you use to clean your teeth?", "A": ["Toothbrush"] },
+        {
+          "Q": "How many glasses of water should you aim to drink a day?",
+          "A": ["Eight"]
+        },
+        {
+          "Q": "What is it called when your body feels sick?",
+          "A": ["Illness"]
+        },
+        { "Q": "What is a common sign of a cold?", "A": ["Cough"] },
+        {
+          "Q": "What should you do every night to rest your body?",
+          "A": ["Sleep"]
+        },
+        {
+          "Q": "What is the name for a doctor who treats children?",
+          "A": ["Pediatrician"]
+        }
+      ],
+      "Medium": [
+        {
+          "Q": "What do you call the types of food you eat every day?",
+          "A": ["Diet"]
+        },
+        {
+          "Q": "What is physical activity that you do to stay healthy?",
+          "A": ["Exercise"]
+        },
+        {
+          "Q": "What do you get to protect yourself from certain diseases?",
+          "A": ["Vaccine"]
+        },
+        {
+          "Q": "What is the name for the bones that make up your spine?",
+          "A": ["Vertebrae"]
+        },
+        {
+          "Q": "What is the sticky film on your teeth called?",
+          "A": ["Plaque"]
+        }
+      ],
+      "Hard": [
+        {
+          "Q": "What do you call the tiny living things that can make you sick?",
+          "A": ["Germs"]
+        },
+        {
+          "Q": "What is the name for the body's system that fights off illness?",
+          "A": ["Immune"]
+        },
+        {
+          "Q": "What is the mineral that makes your bones strong?",
+          "A": ["Calcium"]
+        },
+        {
+          "Q": "What is the name for the measure of your body's heat?",
+          "A": ["Temperature"]
+        },
+        {
+          "Q": "What vitamin do you get from being in the sunlight?",
+          "A": ["D"]
+        }
+      ]
+    }
+  }
+}

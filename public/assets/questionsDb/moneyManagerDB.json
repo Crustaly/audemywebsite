@@ -1,0 +1,83 @@
+{
+  "MoneyManagerGame": {
+    "Questions": {
+      "Easy": [
+        { "Q": "What is the opposite of spending?", "A": ["Saving"] },
+        { "Q": "What is it called when you buy something?", "A": ["Purchase"] },
+        {
+          "Q": "What is the money you receive for doing chores or as a gift?",
+          "A": ["Allowance"]
+        },
+        {
+          "Q": "What is the place where you keep your money safe?",
+          "A": ["Bank"]
+        },
+        {
+          "Q": "What do you call a plan for how you will spend your money?",
+          "A": ["Budget"]
+        },
+        {
+          "Q": "What is it called when you give money to help others?",
+          "A": ["Donate"]
+        },
+        {
+          "Q": "What do you call something you want but don't need?",
+          "A": ["Want"]
+        },
+        {
+          "Q": "What do you call something you must have, like food or shelter?",
+          "A": ["Need"]
+        },
+        {
+          "Q": "What is the money you earn from a job called?",
+          "A": ["Income"]
+        },
+        {
+          "Q": "What is the price or amount of money an item costs?",
+          "A": ["Cost"]
+        }
+      ],
+      "Medium": [
+        {
+          "Q": "What is it called when you put money aside for a big purchase in the future?",
+          "A": ["Goal"]
+        },
+        {
+          "Q": "What do you call the money the bank pays you for keeping your money with them?",
+          "A": ["Interest"]
+        },
+        {
+          "Q": "What is it called when something costs less than usual?",
+          "A": ["Sale"]
+        },
+        { "Q": "What do you call your spending habits?", "A": ["Expenses"] },
+        {
+          "Q": "What is a small, portable case for holding money?",
+          "A": ["Wallet"]
+        }
+      ],
+      "Hard": [
+        {
+          "Q": "What is it called when you buy something without planning to?",
+          "A": ["Impulse"]
+        },
+        {
+          "Q": "What do you call it when you trade goods or services without using money?",
+          "A": ["Barter"]
+        },
+        {
+          "Q": "What is it called when the value of money goes down over time?",
+          "A": ["Inflation"]
+        },
+        {
+          "Q": "What do you call it when you put money into something hoping to make more money?",
+          "A": ["Invest"]
+        },
+        {
+          "Q": "What is the tax you pay when you buy something?",
+          "A": ["Sales-tax"]
+        }
+      ]
+    }
+  }
+}

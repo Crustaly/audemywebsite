@@ -1,0 +1,77 @@
+{
+  "KitchenTimerTroubleGame": {
+    "Questions": {
+      "Easy": [
+        {
+          "Q": "What kitchen appliance keeps food cold?",
+          "A": ["Refrigerator"]
+        },
+        { "Q": "What appliance do you use to bake cookies?", "A": ["Oven"] },
+        { "Q": "What appliance can toast bread?", "A": ["Toaster"] },
+        { "Q": "What appliance heats up food very fast?", "A": ["Microwave"] },
+        { "Q": "What part of the oven gets hot for cooking?", "A": ["Stove"] },
+        {
+          "Q": "What appliance is used for mixing cake batter?",
+          "A": ["Mixer"]
+        },
+        {
+          "Q": "What do you use to measure time while cooking?",
+          "A": ["Timer"]
+        },
+        {
+          "Q": "What is it called when you cook food for too long?",
+          "A": ["Overcook"]
+        },
+        {
+          "Q": "What is it called when you don't cook food long enough?",
+          "A": ["Undercook"]
+        },
+        { "Q": "What appliance washes your dishes?", "A": ["Dishwasher"] }
+      ],
+      "Medium": [
+        {
+          "Q": "What appliance can make frozen fruit into a smoothie?",
+          "A": ["Blender"]
+        },
+        {
+          "Q": "What do you call the temperature you set your oven to?",
+          "A": ["Degree"]
+        },
+        {
+          "Q": "What do you call it when you heat an oven before you put food in?",
+          "A": ["Preheat"]
+        },
+        {
+          "Q": "What small appliance can cook rice perfectly?",
+          "A": ["Rice-cooker"]
+        },
+        {
+          "Q": "What is the top part of the stove called where you place pots?",
+          "A": ["Burner"]
+        }
+      ],
+      "Hard": [
+        {
+          "Q": "What setting on a microwave reduces its power?",
+          "A": ["Power-level"]
+        },
+        {
+          "Q": "What does a beeping sound from an oven usually mean?",
+          "A": ["Done"]
+        },
+        {
+          "Q": "What do you call the process of warming up leftover food?",
+          "A": ["Reheat"]
+        },
+        {
+          "Q": "What type of oven uses a fan to circulate hot air?",
+          "A": ["Convection"]
+        },
+        {
+          "Q": "What do you call the process of melting solid food, like frozen chicken?",
+          "A": ["Thaw"]
+        }
+      ]
+    }
+  }
+}

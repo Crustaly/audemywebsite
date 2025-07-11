@@ -1,0 +1,86 @@
+{
+  "SocialSenseGame": {
+    "Questions": {
+      "Easy": [
+        {
+          "Q": "What feeling means being happy for someone else?",
+          "A": ["Joy"]
+        },
+        {
+          "Q": "What emotion do you feel when something is funny?",
+          "A": ["Laughter"]
+        },
+        {
+          "Q": "What feeling do you have when you are upset or hurt?",
+          "A": ["Sadness"]
+        },
+        {
+          "Q": "What do you say to greet someone in the morning?",
+          "A": ["Hello"]
+        },
+        { "Q": "What do you say when you leave?", "A": ["Goodbye"] },
+        {
+          "Q": "What do you say when you receive something nice?",
+          "A": ["Thanks"]
+        },
+        {
+          "Q": "What do you do with your ears during a conversation?",
+          "A": ["Listen"]
+        },
+        { "Q": "What emotion might a loud, fast voice show?", "A": ["Anger"] },
+        {
+          "Q": "What emotion might a quiet, slow voice show?",
+          "A": ["Sadness"]
+        },
+        {
+          "Q": "What do you call it when you wait for your turn to speak?",
+          "A": ["Patience"]
+        }
+      ],
+      "Medium": [
+        {
+          "Q": "What do you call the rise and fall of someone's voice?",
+          "A": ["Intonation"]
+        },
+        {
+          "Q": "What do you call the feeling of understanding someone else's feelings?",
+          "A": ["Empathy"]
+        },
+        {
+          "Q": "What do you call it when someone's tone of voice doesn't match their words?",
+          "A": ["Sarcasm"]
+        },
+        {
+          "Q": "What do you do when you want to join a conversation?",
+          "A": ["Interrupt"]
+        },
+        {
+          "Q": "What is the name for the unspoken rules of a conversation?",
+          "A": ["Etiquette"]
+        }
+      ],
+      "Hard": [
+        {
+          "Q": "What do you call a hint that someone wants to end a conversation?",
+          "A": ["Cue"]
+        },
+        {
+          "Q": "What is it called when you repeat what someone said to show you understand?",
+          "A": ["Paraphrasing"]
+        },
+        {
+          "Q": "What is the feeling of being worried or uneasy?",
+          "A": ["Anxiety"]
+        },
+        {
+          "Q": "What do you call the feeling of being very interested in a conversation?",
+          "A": ["Engagement"]
+        },
+        {
+          "Q": "What is the feeling of being annoyed or bothered?",
+          "A": ["Irritation"]
+        }
+      ]
+    }
+  }
+}

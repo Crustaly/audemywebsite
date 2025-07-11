@@ -1,0 +1,50 @@
+{
+  "TimeTamerGame": {
+    "Questions": {
+      "Easy": [
+        { "Q": "How many minutes are in one hour?", "A": ["Sixty"] },
+        { "Q": "How many seconds are in one minute?", "A": ["Sixty"] },
+        { "Q": "How many hours are in one day?", "A": ["Twenty-four"] },
+        { "Q": "What tool do you use to tell time?", "A": ["Clock"] },
+        { "Q": "What part of the day has the sun?", "A": ["Day"] },
+        { "Q": "What part of the day has the moon?", "A": ["Night"] },
+        {
+          "Q": "What do you call the time exactly in the middle of the day?",
+          "A": ["Noon"]
+        },
+        {
+          "Q": "What do you call the time exactly in the middle of the night?",
+          "A": ["Midnight"]
+        },
+        { "Q": "How many days are in a week?", "A": ["Seven"] },
+        { "Q": "How many months are in a year?", "A": ["Twelve"] }
+      ],
+      "Medium": [
+        { "Q": "What hand on a clock points to the hour?", "A": ["Short"] },
+        { "Q": "What hand on a clock points to the minute?", "A": ["Long"] },
+        { "Q": "What does 'A.M.' refer to?", "A": ["Morning"] },
+        { "Q": "What does 'P.M.' refer to?", "A": ["Evening"] },
+        { "Q": "How many days are in a leap year?", "A": ["366"] }
+      ],
+      "Hard": [
+        { "Q": "What do you call a period of ten years?", "A": ["Decade"] },
+        {
+          "Q": "What do you call a period of one hundred years?",
+          "A": ["Century"]
+        },
+        {
+          "Q": "What is the name for the time it takes the Earth to orbit the sun?",
+          "A": ["Year"]
+        },
+        {
+          "Q": "What is the name for the device that wakes you up in the morning?",
+          "A": ["Alarm"]
+        },
+        {
+          "Q": ": What do you call the different areas of the world with different times?",
+          "A": ["Timezones"]
+        }
+      ]
+    }
+  }
+}
