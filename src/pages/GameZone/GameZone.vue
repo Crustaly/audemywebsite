@@ -10,6 +10,54 @@ import { ref, onMounted } from 'vue';
 import { useDeviceType } from '../../Utilities/checkDeviceType';
 const { isMobile, isTablet } = useDeviceType();
 
+/* The following three game maps help keep code DRY:
+ * - 'mathGames', languageGames', and 'scienceGames'
+ * - Each map pairs a game title with its URL post-fix
+ * - Used to dynamically generate <a> links by game type
+ * - Future improvement:
+ *    - Use a GET API (e.g. get_game_links_info) to fetch from the DB
+ *    - Create a reusable 'GameMenuDropdown' component
+ */
+
+
+// Page 1: Math Games
+const mathGames = {
+  'Fruit Frenzy': 'fruitfrenzy',
+  'Shape Shark': 'shapeshark',
+  'Animal Addition': 'addition',
+  'Subtraction Safari': 'subtraction',
+  'Multiplication Madness': 'multiplicationmadness',
+  'Division Duel': 'DivisionDuel',
+  'Monkey Madness': 'monkeymadness',
+  'Car Counting': 'carcounting',
+};
+
+// Page 2: Language Games
+const languageGames = {
+  'Definition Detective': 'definitionDetective',
+  'Part of Speech': 'partofspeech',
+  'Color Game': 'colorgame',
+  'Syllable Sorting': 'syllableSorting',
+  'Vocabulary Vortex': 'vocabVortex',
+  'Polar Pairing': 'polarpairing',
+  'Odd One Out': 'oddoneout',
+  'Spelling Bee': 'spellingbee',
+};
+
+// Page 3: Science Games
+const scienceGames = {
+  'Matter Mix-Up': 'mattermixup',
+  'Tiny Cell Town': 'tinycelltown',
+  'Weather Whiz': 'weatherwhiz',
+  'Space Case': 'spacecase',
+  'Dino Detectives': 'dinodetectives',
+  'Germ Squad': 'germsquad',
+  'Eco Rangers': 'ecorangers',
+  'Sound Explorer': 'soundexplorer',
+  'Robot Repair Lab': 'robotrepair',
+  'Plant Power': 'plantpower',
+};
+
 const currentPage = ref(1);
 const changeCurrentPage = (page) => {
   currentPage.value = page;
@@ -230,15 +278,7 @@ function hideMenuDropdown(menuBtn, currentDropdown) {
   <div
     class="relative bg-white h-full overflow-x-hidden flex flex-col justify-center"
   >
-    <div
-      :class="[
-        'relative',
-        !isTablet && !isMobile ? 'px-14' : '',
-        isTablet ? 'px-6' : '',
-        isMobile ? 'px-8' : '',
-      ]"
-      ref="content"
-    >
+    <div class="relative px-8 sm:px-8 md:px-6 lg:px-14" ref="content">
       <Header
         :textColor="'text-black'"
         :logoPath="'/assets/images/header/header-logo-2.png'"
@@ -348,69 +388,15 @@ function hideMenuDropdown(menuBtn, currentDropdown) {
                   class="py-1 text-[15px]"
                   role="none"
                 >
+                  <!-- Generate game menu links by looping over 'languageGames' map entries -->
                   <a
-                    href="/game/definitionDetective"
+                    v-for="[title, path] in Object.entries(languageGames)"
+                    :key="path"
+                    :href="`/game/${path}`"
                     class="game-menu-link"
                     role="menuitem"
-                    id="lang-game-1"
                   >
-                    Definition Detective
-                  </a>
-                  <a
-                    href="/game/partofspeech"
-                    class="game-menu-link"
-                    role="menuitem"
-                    id="lang-game-2"
-                  >
-                    Part of Speech
-                  </a>
-                  <a
-                    href="/game/colorgame"
-                    class="game-menu-link"
-                    role="menuitem"
-                    id="lang-game-3"
-                  >
-                    Color Game
-                  </a>
-                  <a
-                    href="/game/syllableSorting"
-                    class="game-menu-link"
-                    role="menuitem"
-                    id="lang-game-4"
-                  >
-                    Syllable Sorting
-                  </a>
-                  <a
-                    href="/game/vocabVortex"
-                    class="game-menu-link"
-                    role="menuitem"
-                    id="lang-game-5"
-                  >
-                    Vocabulary Vortex
-                  </a>
-                  <a
-                    href="/game/polarpairing"
-                    class="game-menu-link"
-                    role="menuitem"
-                    id="lang-game-6"
-                  >
-                    Polar Pairing
-                  </a>
-                  <a
-                    href="/game/oddoneout"
-                    class="game-menu-link"
-                    role="menuitem"
-                    id="lang-game-7"
-                  >
-                    Odd One Out
-                  </a>
-                  <a
-                    href="/game/spellingbee"
-                    class="game-menu-link !border-b-0"
-                    role="menuitem"
-                    id="lang-game-8"
-                  >
-                    Spelling Bee
+                    {{ title }}
                   </a>
                 </div>
               </div>
@@ -465,75 +451,20 @@ function hideMenuDropdown(menuBtn, currentDropdown) {
                   class="py-1 text-[15px]"
                   role="none"
                 >
+                  <!-- Generate game menu links by looping over 'mathGames' map entries -->
                   <a
-                    href="/game/fruitfrenzy"
+                    v-for="[title, path] in Object.entries(mathGames)"
+                    :key="path"
+                    :href="`/game/${path}`"
                     class="game-menu-link"
                     role="menuitem"
-                    id="math-game-1"
                   >
-                    Fruit Frenzy
-                  </a>
-                  <a
-                    href="/game/shapeshark"
-                    class="game-menu-link"
-                    role="menuitem"
-                    id="math-game-2"
-                  >
-                    Shape Shark
-                  </a>
-                  <a
-                    href="/game/addition"
-                    class="game-menu-link"
-                    role="menuitem"
-                    id="math-game-3"
-                  >
-                    Animal Addition
-                  </a>
-                  <a
-                    href="/game/subtraction"
-                    class="game-menu-link"
-                    role="menuitem"
-                    id="math-game-4"
-                  >
-                    Subtraction Safari
-                  </a>
-                  <a
-                    href="game/multiplicationmadness"
-                    class="game-menu-link"
-                    role="menuitem"
-                    id="math-game-5"
-                  >
-                    Multiplication Madness
-                  </a>
-                  <a
-                    href="/game/DivisionDuel"
-                    class="game-menu-link"
-                    role="menuitem"
-                    id="math-game-6"
-                  >
-                    Division Duel
-                  </a>
-                  <a
-                    href="/game/monkeymadness"
-                    class="game-menu-link"
-                    role="menuitem"
-                    id="math-game-7"
-                  >
-                    Monkey Madness
-                  </a>
-                  <a
-                    href="/game/carcounting"
-                    class="game-menu-link !border-b-0"
-                    role="menuitem"
-                    id="math-game-8"
-                  >
-                    Car Counting
+                    {{ title }}
                   </a>
                 </div>
               </div>
             </div>
             <!-- SCIENCE GAMES MENU -->
-
             <div
               id="science-menu-div"
               :class="[currentPage === 3 ? 'flex' : 'hidden', 'relative']"
@@ -582,85 +513,15 @@ function hideMenuDropdown(menuBtn, currentDropdown) {
                   class="py-1 text-[15px]"
                   role="none"
                 >
+                  <!-- Generate game menu links by looping over 'scienceGames' map entries -->
                   <a
-                    href="/game/mattermixup"
+                    v-for="[title, path] in Object.entries(scienceGames)"
+                    :key="path"
+                    :href="`/game/${path}`"
                     class="game-menu-link"
                     role="menuitem"
-                    id="science-game-1"
                   >
-                    Matter Mix-Up
-                  </a>
-                  <a
-                    href="/game/tinycelltown"
-                    class="game-menu-link"
-                    role="menuitem"
-                    id="science-game-2"
-                  >
-                    Tiny Cell Town
-                  </a>
-                  <a
-                    href="/game/weatherwhiz"
-                    class="game-menu-link"
-                    role="menuitem"
-                    id="science-game-3"
-                  >
-                    Weather Whiz
-                  </a>
-                  <a
-                    href="/game/spacecase"
-                    class="game-menu-link"
-                    role="menuitem"
-                    id="science-game-4"
-                  >
-                    Space Case
-                  </a>
-                  <a
-                    href="/game/dinodetectives"
-                    class="game-menu-link"
-                    role="menuitem"
-                    id="science-game-5"
-                  >
-                    Dino Detectives
-                  </a>
-                  <a
-                    href="/game/germsquad"
-                    class="game-menu-link"
-                    role="menuitem"
-                    id="science-game-6"
-                  >
-                    Germ Squad
-                  </a>
-                  <a
-                    href="/game/ecorangers"
-                    class="game-menu-link"
-                    role="menuitem"
-                    id="science-game-7"
-                  >
-                    Eco Rangers
-                  </a>
-                  <a
-                    href="/game/soundexplorer"
-                    class="game-menu-link"
-                    role="menuitem"
-                    id="science-game-8"
-                  >
-                    Sound Explorer
-                  </a>
-                  <a
-                    href="/game/robotrepair"
-                    class="game-menu-link !border-b-0"
-                    role="menuitem"
-                    id="science-game-9"
-                  >
-                    Robot Repair Lab
-                  </a>
-                  <a
-                    href="/game/plantpower"
-                    class="game-menu-link !border-b-0"
-                    role="menuitem"
-                    id="science-game-10"
-                  >
-                    Plant Power
+                    {{ title }}
                   </a>
                 </div>
               </div>
