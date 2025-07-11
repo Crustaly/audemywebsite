@@ -150,53 +150,199 @@ const routes = [
   {
     path: '/game/mattermixup',
     name: 'MatterMixUp',
-    component: () => import('../pages/GameZone/GameZoneList/MatterMixUp.vue'), // Placeholder path
+    component: () => import('../pages/GameZone/GameZoneList/MatterMixUp.vue'),
   },
   {
     path: '/game/tinycelltown',
     name: 'TinyCellTown',
-    component: () => import('../pages/GameZone/GameZoneList/TinyCellTown.vue'), // Placeholder path
+    component: () => import('../pages/GameZone/GameZoneList/TinyCellTown.vue'),
   },
   {
     path: '/game/weatherwhiz',
     name: 'WeatherWhiz',
-    component: () => import('../pages/GameZone/GameZoneList/WeatherWhiz.vue'), // Placeholder path
+    component: () => import('../pages/GameZone/GameZoneList/WeatherWhiz.vue'),
   },
   {
     path: '/game/spacecase',
     name: 'SpaceCase',
-    component: () => import('../pages/GameZone/GameZoneList/SpaceCase.vue'), // Placeholder path
+    component: () => import('../pages/GameZone/GameZoneList/SpaceCase.vue'),
   },
   {
     path: '/game/dinodetectives',
     name: 'DinoDetectives',
     component: () =>
-      import('../pages/GameZone/GameZoneList/DinoDetectives.vue'), // Placeholder path
+      import('../pages/GameZone/GameZoneList/DinoDetectives.vue'),
   },
   {
     path: '/game/germsquad',
     name: 'GermSquad',
-    component: () => import('../pages/GameZone/GameZoneList/GermSquad.vue'), // Placeholder path
+    component: () => import('../pages/GameZone/GameZoneList/GermSquad.vue'),
   },
   {
     path: '/game/ecorangers',
     name: 'EcoRangers',
-    component: () => import('../pages/GameZone/GameZoneList/EcoRangers.vue'), // Placeholder path
+    component: () => import('../pages/GameZone/GameZoneList/EcoRangers.vue'),
   },
   {
     path: '/game/soundexplorer',
     name: 'SoundExplorer',
-    component: () => import('../pages/GameZone/GameZoneList/SoundExplorer.vue'), // Placeholder path
+    component: () => import('../pages/GameZone/GameZoneList/SoundExplorer.vue'),
   },
   {
     path: '/game/robotrepair',
     name: 'RobotRepair',
-    component: () => import('../pages/GameZone/GameZoneList/RobotRepair.vue'), // Placeholder path
+    component: () => import('../pages/GameZone/GameZoneList/RobotRepair.vue'),
   },
   {
     path: '/game/plantpower',
     name: 'PlantPower',
-    component: () => import('../pages/GameZone/GameZoneList/PlantPower.vue'), // Placeholder path
+    component: () => import('../pages/GameZone/GameZoneList/PlantPower.vue'),
+  },
+
+  // --- NEW LIFE SKILLS ROUTES ADDED BELOW ---
+
+  {
+    path: '/game/groceryGrab',
+    name: 'GroceryGrab',
+    component: () => import('../pages/GameZone/GameZoneList/GroceryGrab.vue'),
+  },
+  {
+    path: '/game/moneyMatch',
+    name: 'MoneyMatch',
+    component: () => import('../pages/GameZone/GameZoneList/MoneyMatch.vue'),
+  },
+  {
+    path: '/game/laundryLegend',
+    name: 'LaundryLegend',
+    component: () => import('../pages/GameZone/GameZoneList/LaundryLegend.vue'),
+  },
+  {
+    path: '/game/kitchenCues',
+    name: 'KitchenCues',
+    component: () => import('../pages/GameZone/GameZoneList/KitchenCues.vue'),
+  },
+  {
+    path: '/game/dressToImpress',
+    name: 'DressToImpress',
+    component: () =>
+      import('../pages/GameZone/GameZoneList/DressToImpress.vue'),
+  },
+  {
+    path: '/game/safetySirens',
+    name: 'SafetySirens',
+    component: () => import('../pages/GameZone/GameZoneList/SafetySirens.vue'),
+  },
+  {
+    path: '/game/scheduleShuffle',
+    name: 'ScheduleShuffle',
+    component: () =>
+      import('../pages/GameZone/GameZoneList/ScheduleShuffle.vue'),
+  },
+  {
+    path: '/game/cleanMachine',
+    name: 'CleanMachine',
+    component: () => import('../pages/GameZone/GameZoneList/CleanMachine.vue'),
+  },
+  {
+    path: '/game/healthCheck',
+    name: 'HealthCheck',
+    component: () => import('../pages/GameZone/GameZoneList/HealthCheck.vue'),
+  },
+  {
+    path: '/game/timeTamer',
+    name: 'TimeTamer',
+    component: () => import('../pages/GameZone/GameZoneList/TimeTamer.vue'),
+  },
+  {
+    path: '/game/kitchenTimerTrouble',
+    name: 'KitchenTimerTrouble',
+    component: () =>
+      import('../pages/GameZone/GameZoneList/KitchenTimerTrouble.vue'),
+  },
+  {
+    path: '/game/busStopBrainstorm',
+    name: 'BusStopBrainstorm',
+    component: () =>
+      import('../pages/GameZone/GameZoneList/BusStopBrainstorm.vue'),
+  },
+  {
+    path: '/game/moneyManager',
+    name: 'MoneyManager',
+    component: () => import('../pages/GameZone/GameZoneList/MoneyManager.vue'),
+  },
+  {
+    path: '/game/healthyPlate',
+    name: 'HealthyPlate',
+    component: () => import('../pages/GameZone/GameZoneList/HealthyPlate.vue'),
+  },
+
+  // --- NEW BLIND-SPECIFIC SKILLS ROUTES ADDED BELOW ---
+
+  {
+    path: '/game/streetSmart',
+    name: 'StreetSmart',
+    component: () => import('../pages/GameZone/GameZoneList/StreetSmart.vue'),
+  },
+  {
+    path: '/game/caneCompanion',
+    name: 'CaneCompanion',
+    component: () => import('../pages/GameZone/GameZoneList/CaneCompanion.vue'),
+  },
+  {
+    path: '/game/doorwayDecisions',
+    name: 'DoorwayDecisions',
+    component: () =>
+      import('../pages/GameZone/GameZoneList/DoorwayDecisions.vue'),
+  },
+  {
+    path: '/game/elevatorExperience',
+    name: 'ElevatorExperience',
+    component: () =>
+      import('../pages/GameZone/GameZoneList/ElevatorExperience.vue'),
+  },
+  {
+    path: '/game/transitTime',
+    name: 'TransitTime',
+    component: () => import('../pages/GameZone/GameZoneList/TransitTime.vue'),
+  },
+  {
+    path: '/game/moneyMatters',
+    name: 'MoneyMatters',
+    component: () => import('../pages/GameZone/GameZoneList/MoneyMatters.vue'),
+  },
+  {
+    path: '/game/kitchenKnowHow',
+    name: 'KitchenKnowHow',
+    component: () =>
+      import('../pages/GameZone/GameZoneList/KitchenKnowHow.vue'),
+  },
+  {
+    path: '/game/phoneFriend',
+    name: 'PhoneFriend',
+    component: () => import('../pages/GameZone/GameZoneList/PhoneFriend.vue'),
+  },
+  {
+    path: '/game/medicationManager',
+    name: 'MedicationManager',
+    component: () =>
+      import('../pages/GameZone/GameZoneList/MedicationManager.vue'),
+  },
+  {
+    path: '/game/obstacleAwareness',
+    name: 'ObstacleAwareness',
+    component: () =>
+      import('../pages/GameZone/GameZoneList/ObstacleAwareness.vue'),
+  },
+  {
+    path: '/game/socialSense',
+    name: 'SocialSense',
+    component: () => import('../pages/GameZone/GameZoneList/SocialSense.vue'),
+  },
+  {
+    path: '/game/askingForAssistance',
+    name: 'AskingForAssistance',
+    component: () =>
+      import('../pages/GameZone/GameZoneList/AskingForAssistance.vue'),
   },
 
   {

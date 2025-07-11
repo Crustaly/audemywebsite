@@ -39,7 +39,13 @@ watch(() => props.type, (newType, oldType) => {
 <script setup>
 import { ref, onBeforeMount, watch } from 'vue';
 import GameZoneCard from '../GameZoneCard/GameZoneCard.vue';
-import { getLanguageGames, getMathGames, getScienceGames } from '../GameDB.js';
+import {
+  getLanguageGames,
+  getMathGames,
+  getScienceGames,
+  getLifeSkillsGames,
+  getBlindSpecificSkillsGames,
+} from '../GameDB.js';
 import { useRouter } from 'vue-router';
 
 const props = defineProps({
@@ -56,6 +62,10 @@ const getGames = (type) => {
     games.value = getMathGames();
   } else if (type === 3) {
     games.value = getScienceGames();
+  } else if (type === 4) {
+    games.value = getLifeSkillsGames();
+  } else if (type === 5) {
+    games.value = getBlindSpecificSkillsGames();
   } else {
     games.value = []; // Default to empty if type is unknown
   }
