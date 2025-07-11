@@ -23,7 +23,9 @@ const gamePagesMap = {
   1: 'Language',
   2: 'Math',
   3: 'Science',
-  4: 'My Progress', // Future page in GameZone
+  4: 'Life Skills',
+  5: 'Blind-Specific Skills',
+  6: 'My Progress', // Future page in GameZone
 };
 </script>
 
