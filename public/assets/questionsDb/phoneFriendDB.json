@@ -1,0 +1,89 @@
+{
+  "PhoneFriendGame": {
+    "Questions": {
+      "Easy": [
+        {
+          "Q": "What command do you say to start a phone call?",
+          "A": ["Call"]
+        },
+        {
+          "Q": "What command do you say to end a phone call?",
+          "A": ["Hangup"]
+        },
+        {
+          "Q": "What feature reads the screen out loud to you?",
+          "A": ["VoiceOver"]
+        },
+        { "Q": "What is the name of Apple's voice assistant?", "A": ["Siri"] },
+        {
+          "Q": "What is the name of Google's voice assistant?",
+          "A": ["Assistant"]
+        },
+        {
+          "Q": "What command would you say to send a text message?",
+          "A": ["Text"]
+        },
+        {
+          "Q": "What do you say to have your messages read to you?",
+          "A": ["Read"]
+        },
+        {
+          "Q": "What do you call the sound your phone makes when someone is calling?",
+          "A": ["Ringtone"]
+        },
+        {
+          "Q": "What command do you use to set a reminder for later?",
+          "A": ["Remind"]
+        },
+        {
+          "Q": "What command do you use to check the weather?",
+          "A": ["Weather"]
+        }
+      ],
+      "Medium": [
+        {
+          "Q": "What gesture, using three fingers, often reads the screen from the top?",
+          "A": ["Swipe-down"]
+        },
+        {
+          "Q": "What is the name for the sound feedback you get when you touch the screen?",
+          "A": ["Haptic"]
+        },
+        {
+          "Q": "What do you call the feature that describes images out loud?",
+          "A": ["Image-description"]
+        },
+        {
+          "Q": "What command do you use to increase the speaking rate of your screen reader?",
+          "A": ["Faster"]
+        },
+        {
+          "Q": "What command do you use to decrease the speaking rate?",
+          "A": ["Slower"]
+        }
+      ],
+      "Hard": [
+        {
+          "Q": "What is the name of the screen reader feature on Android phones?",
+          "A": ["TalkBack"]
+        },
+        {
+          "Q": "What part of the screen reader lets you change settings like 'words' or 'characters'?",
+          "A": ["Rotor"]
+        },
+        {
+          "Q": "What gesture often moves to the next item on the screen?",
+          "A": ["Swipe-right"]
+        },
+        {
+          "Q": "What do you call the process of using your voice to write a text message?",
+          "A": ["Dictation"]
+        },
+        {
+          "Q": "What feature allows you to use your camera to identify objects?",
+          "A": ["Magnifier"]
+        }
+      ]
+    }
+  }
+}

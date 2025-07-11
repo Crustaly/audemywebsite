@@ -1,0 +1,74 @@
+{
+  "KitchenCuesGame": {
+    "Questions": {
+      "Easy": [
+        { "Q": "What tool would you use to flip a pancake?", "A": ["Spatula"] },
+        { "Q": "What tool do you use to eat soup?", "A": ["Spoon"] },
+        { "Q": "What tool do you use to cut food?", "A": ["Knife"] },
+        { "Q": "What appliance do you use to bake a cake?", "A": ["Oven"] },
+        { "Q": "What appliance keeps your food cold?", "A": ["Refrigerator"] },
+        {
+          "Q": "What do you wear to protect your clothes while cooking?",
+          "A": ["Apron"]
+        },
+        {
+          "Q": "What do you call the instructions for cooking a dish?",
+          "A": ["Recipe"]
+        },
+        {
+          "Q": "What do you call the meal you eat in the morning?",
+          "A": ["Breakfast"]
+        },
+        {
+          "Q": "What do you call the meal you eat in the evening?",
+          "A": ["Dinner"]
+        },
+        {
+          "Q": "What do you use to stir ingredients in a bowl?",
+          "A": ["Whisk"]
+        }
+      ],
+      "Medium": [
+        {
+          "Q": "What do you use to measure ingredients like flour and sugar?",
+          "A": ["Cup"]
+        },
+        {
+          "Q": "What appliance heats food up very quickly?",
+          "A": ["Microwave"]
+        },
+        {
+          "Q": "What do you call it when you cook food in hot oil?",
+          "A": ["Fry"]
+        },
+        {
+          "Q": "What do you call it when you cook food in an oven?",
+          "A": ["Bake"]
+        },
+        {
+          "Q": "What appliance is used to blend fruits into a smoothie?",
+          "A": ["Blender"]
+        }
+      ],
+      "Hard": [
+        {
+          "Q": "What do you call it when you cut food into very small pieces?",
+          "A": ["Mince"]
+        },
+        {
+          "Q": "What is it called when you let food, like meat, soak in a sauce before cooking?",
+          "A": ["Marinate"]
+        },
+        {
+          "Q": "What do you call the process of cooking food slowly in liquid?",
+          "A": ["Simmer"]
+        },
+        { "Q": "What tool protects your hands from hot pans?", "A": ["Mitt"] },
+        {
+          "Q": "What kitchen tool is used to drain water from pasta?",
+          "A": ["Colander"]
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "LaundryLegendGame": {
+    "Questions": {
+      "Easy": [
+        {
+          "Q": "What do you add to the machine to make clothes clean?",
+          "A": ["Detergent"]
+        },
+        { "Q": "What machine washes your clothes?", "A": ["Washer"] },
+        { "Q": "What machine dries your clothes?", "A": ["Dryer"] },
+        {
+          "Q": "What should you separate your clothes by before washing?",
+          "A": ["Color"]
+        },
+        {
+          "Q": "What temperature water should you use for white clothes?",
+          "A": ["Hot"]
+        },
+        {
+          "Q": "What temperature water should you use for dark clothes?",
+          "A": ["Cold"]
+        },
+        {
+          "Q": "What do you call a piece of clothing you wear on your foot?",
+          "A": ["Sock"]
+        },
+        {
+          "Q": "What do you call a piece of clothing you wear on your top half?",
+          "A": ["Shirt"]
+        },
+        {
+          "Q": "What do you call a tough spot or mark on clothes?",
+          "A": ["Stain"]
+        },
+        {
+          "Q": "What should you do with your clothes after they are dry?",
+          "A": ["Fold"]
+        }
+      ],
+      "Medium": [
+        {
+          "Q": "What do you add to the wash to make clothes softer?",
+          "A": ["Softener"]
+        },
+        {
+          "Q": "What do you call the fuzzy stuff you clean out of the dryer filter?",
+          "A": ["Lint"]
+        },
+        {
+          "Q": "What do you call a large bag or container for dirty clothes?",
+          "A": ["Hamper"]
+        },
+        {
+          "Q": "What chemical can be used to make white clothes whiter?",
+          "A": ["Bleach"]
+        },
+        { "Q": "What is another word for clothing?", "A": ["Garment"] }
+      ],
+      "Hard": [
+        {
+          "Q": "What cycle on a washer is for clothes that are not very dirty?",
+          "A": ["Quick"]
+        },
+        {
+          "Q": "What cycle is best for sweaters and other easily damaged clothes?",
+          "A": ["Delicate"]
+        },
+        { "Q": "What do you call a clothesline, but indoors?", "A": ["Rack"] },
+        {
+          "Q": "What do you call it when colors from one shirt get on another?",
+          "A": ["Bleeding"]
+        },
+        {
+          "Q": "What is the clothing care symbol for 'do not wash'?",
+          "A": ["X"]
+        }
+      ]
+    }
+  }
+}

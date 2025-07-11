@@ -1,0 +1,77 @@
+{
+  "KitchenKnowHowGame": {
+    "Questions": {
+      "Easy": [
+        {
+          "Q": "What sound means water is getting hot and ready to boil?",
+          "A": ["Bubbling"]
+        },
+        { "Q": "What sound does bacon make in a hot pan?", "A": ["Sizzle"] },
+        {
+          "Q": "What sound does a microwave make when it's finished?",
+          "A": ["Beep"]
+        },
+        {
+          "Q": "What appliance makes a whirring sound to blend food?",
+          "A": ["Blender"]
+        },
+        {
+          "Q": "What sound does a knife make when chopping vegetables?",
+          "A": ["Chop"]
+        },
+        { "Q": "What does a timer tell you?", "A": ["Time"] },
+        {
+          "Q": "What sound does a toaster make when the toast is ready?",
+          "A": ["Pop"]
+        },
+        {
+          "Q": "What appliance hums to keep food cold?",
+          "A": ["Refrigerator"]
+        },
+        {
+          "Q": "What sound do you hear when pouring milk into a glass?",
+          "A": ["Pour"]
+        },
+        { "Q": "What is the sound of stirring soup in a pot?", "A": ["Stir"] }
+      ],
+      "Medium": [
+        {
+          "Q": "What sound does dropping something into hot oil make?",
+          "A": ["Sputter"]
+        },
+        {
+          "Q": "What sound does a pressure cooker make to release steam?",
+          "A": ["Hiss"]
+        },
+        { "Q": "What sound does an electric mixer make?", "A": ["Whir"] },
+        {
+          "Q": "What do you call the sound of a gas stove igniting?",
+          "A": ["Click"]
+        },
+        { "Q": "What sound does cracking an egg make?", "A": ["Crack"] }
+      ],
+      "Hard": [
+        {
+          "Q": "What sound indicates that a liquid is beginning to boil gently?",
+          "A": ["Simmer"]
+        },
+        {
+          "Q": "What sound does a talking microwave make to tell you the power level?",
+          "A": ["Voice"]
+        },
+        {
+          "Q": "What is the name for using sound to measure the amount of liquid in a cup?",
+          "A": ["Pitch"]
+        },
+        {
+          "Q": "What sound does carbonation make when you open a soda?",
+          "A": ["Fizz"]
+        },
+        {
+          "Q": "What does a rhythmic ticking sound in the kitchen usually mean?",
+          "A": ["Timer"]
+        }
+      ]
+    }
+  }
+}

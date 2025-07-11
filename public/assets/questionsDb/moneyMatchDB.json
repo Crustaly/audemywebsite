@@ -1,0 +1,50 @@
+{
+  "MoneyMatchGame": {
+    "Questions": {
+      "Easy": [
+        { "Q": "What coin is worth 25 cents?", "A": ["Quarter"] },
+        { "Q": "What coin is worth 10 cents?", "A": ["Dime"] },
+        { "Q": "What coin is worth 5 cents?", "A": ["Nickel"] },
+        { "Q": "What brown coin is worth 1 cent?", "A": ["Penny"] },
+        { "Q": "What is the paper form of money called?", "A": ["Bill"] },
+        { "Q": "How many pennies equal one dollar?", "A": ["Hundred"] },
+        { "Q": "How many quarters make one dollar?", "A": ["Four"] },
+        { "Q": "What do you call money that you owe?", "A": ["Debt"] },
+        { "Q": "What do you get back when you overpay?", "A": ["Change"] },
+        { "Q": "What is the symbol for a dollar?", "A": ["$"] }
+      ],
+      "Medium": [
+        {
+          "Q": "What U.S. president is on the front of the quarter?",
+          "A": ["Washington"]
+        },
+        {
+          "Q": "What U.S. president is on the front of the penny?",
+          "A": ["Lincoln"]
+        },
+        {
+          "Q": "What building is shown on the back of a U.S. penny?",
+          "A": ["Memorial"]
+        },
+        { "Q": "What material are most U.S. coins made of?", "A": ["Metal"] },
+        {
+          "Q": "What do you call a small container used for saving coins?",
+          "A": ["Piggybank"]
+        }
+      ],
+      "Hard": [
+        { "Q": "What bird is on the back of a U.S. quarter?", "A": ["Eagle"] },
+        {
+          "Q": "What is the face or front side of a coin called?",
+          "A": ["Heads"]
+        },
+        { "Q": "What is the back side of a coin called?", "A": ["Tails"] },
+        { "Q": "What is another name for a one-dollar bill?", "A": ["Single"] },
+        {
+          "Q": "What is the place where a country's money is officially made?",
+          "A": ["Mint"]
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "CaneCompanionGame": {
+    "Questions": {
+      "Easy": [
+        {
+          "Q": "What surface feels soft and uneven under your cane?",
+          "A": ["Grass"]
+        },
+        { "Q": "What is the part of the cane that you hold?", "A": ["Grip"] },
+        {
+          "Q": "What is the part of the cane that touches the ground?",
+          "A": ["Tip"]
+        },
+        {
+          "Q": "What hard, smooth surface are most sidewalks made of?",
+          "A": ["Concrete"]
+        },
+        {
+          "Q": "What does your cane help you find so you don't trip?",
+          "A": ["Obstacles"]
+        },
+        {
+          "Q": "What does a tap against something tall and thin, like a sign, often mean?",
+          "A": ["Pole"]
+        },
+        {
+          "Q": "What do you call it when you move your cane back and forth?",
+          "A": ["Sweep"]
+        },
+        {
+          "Q": "What should you use your cane to find before you go up or down?",
+          "A": ["Stairs"]
+        },
+        { "Q": "What color is a mobility cane?", "A": ["White"] },
+        {
+          "Q": "What should you do if your cane finds an unexpected object?",
+          "A": ["Stop"]
+        }
+      ],
+      "Medium": [
+        {
+          "Q": "What technique involves sweeping the cane in a half-circle in front of you?",
+          "A": ["Arc"]
+        },
+        {
+          "Q": "What kind of cane can you collapse to make it smaller?",
+          "A": ["Folding"]
+        },
+        {
+          "Q": "What does a hollow sound under your cane often warn you about?",
+          "A": ["Drop-off"]
+        },
+        {
+          "Q": "What technique involves tapping the ground to find objects?",
+          "A": ["Tapping"]
+        },
+        {
+          "Q": "What material is a cane shaft often made from?",
+          "A": ["Graphite"]
+        }
+      ],
+      "Hard": [
+        {
+          "Q": "What cane technique keeps the tip on the ground at all times?",
+          "A": ["Constant-contact"]
+        },
+        {
+          "Q": "What kind of tip is shaped like a ball and rolls along the ground?",
+          "A": ["Roller"]
+        },
+        {
+          "Q": "What do you call the technique of lightly touching a wall with your cane to walk straight?",
+          "A": ["Trailing"]
+        },
+        {
+          "Q": "What type of cane is extra long and used for navigating very open spaces?",
+          "A": ["Guide"]
+        },
+        {
+          "Q": "What is the proper way to hold a cane, similar to a handshake?",
+          "A": ["Handshake"]
+        }
+      ]
+    }
+  }
+}

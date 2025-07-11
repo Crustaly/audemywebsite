@@ -1,0 +1,80 @@
+{
+  "MedicationManagerGame": {
+    "Questions": {
+      "Easy": [
+        {
+          "Q": "What do you swallow with water to help you feel better?",
+          "A": ["Pill"]
+        },
+        {
+          "Q": "Who is the person you see when you are sick?",
+          "A": ["Doctor"]
+        },
+        { "Q": "Where do you go to get your medicine?", "A": ["Pharmacy"] },
+        {
+          "Q": "What liquid medicine do you often drink from a spoon?",
+          "A": ["Syrup"]
+        },
+        {
+          "Q": "What do you call the time you are supposed to take your medicine?",
+          "A": ["Time"]
+        },
+        { "Q": "What do you put on a small cut?", "A": ["Bandage"] },
+        { "Q": "What do you drink your pill with?", "A": ["Water"] },
+        {
+          "Q": "What meal do you often take medicine after?",
+          "A": ["Breakfast"]
+        },
+        {
+          "Q": "What do you set to remind you to take your medicine?",
+          "A": ["Alarm"]
+        },
+        { "Q": "What should you do before taking any medicine?", "A": ["Ask"] }
+      ],
+      "Medium": [
+        {
+          "Q": "What do you call the instructions written on the medicine bottle?",
+          "A": ["Label"]
+        },
+        {
+          "Q": "What is the specific amount of medicine you are supposed to take?",
+          "A": ["Dose"]
+        },
+        {
+          "Q": "What is it called when you feel better after being sick?",
+          "A": ["Recovery"]
+        },
+        {
+          "Q": "What do you call an unwanted reaction to a medicine?",
+          "A": ["Side-effect"]
+        },
+        {
+          "Q": "What is the container you get your pills in called?",
+          "A": ["Bottle"]
+        }
+      ],
+      "Hard": [
+        {
+          "Q": "How many times a day do you take medicine if it says 'BID'?",
+          "A": ["Twice"]
+        },
+        {
+          "Q": "How many times a day do you take medicine if it says 'TID'?",
+          "A": ["Thrice"]
+        },
+        {
+          "Q": "What is the name for the special cap that is hard for children to open?",
+          "A": ["Child-proof"]
+        },
+        {
+          "Q": "What do you call the paper with extra information inside the medicine box?",
+          "A": ["Insert"]
+        },
+        {
+          "Q": "What does it mean to take medicine on an empty stomach?",
+          "A": ["Before-eating"]
+        }
+      ]
+    }
+  }
+}

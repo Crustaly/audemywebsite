@@ -1,0 +1,65 @@
+{
+  "CleanMachineGame": {
+    "Questions": {
+      "Easy": [
+        { "Q": "What tool do you use to sweep the floor?", "A": ["Broom"] },
+        {
+          "Q": "What do you use with a broom to pick up dirt?",
+          "A": ["Dustpan"]
+        },
+        { "Q": "What machine do you use to clean carpets?", "A": ["Vacuum"] },
+        { "Q": "What do you use to wash dishes?", "A": ["Sponge"] },
+        { "Q": "Where do you put your trash?", "A": ["Trashcan"] },
+        { "Q": "What do you use to wipe up spills?", "A": ["Towel"] },
+        { "Q": "What do you do to your bed every morning?", "A": ["Make"] },
+        {
+          "Q": "What liquid do you use with a sponge to clean dishes?",
+          "A": ["Soap"]
+        },
+        { "Q": "What do you use to clean windows?", "A": ["Squeegee"] },
+        {
+          "Q": "What do you call it when you put your toys away?",
+          "A": ["Tidy"]
+        }
+      ],
+      "Medium": [
+        { "Q": "What tool do you use to wash hard floors?", "A": ["Mop"] },
+        {
+          "Q": "What do you call the task of dusting surfaces?",
+          "A": ["Dusting"]
+        },
+        {
+          "Q": "What do you call it when you sort items for recycling?",
+          "A": ["Sort"]
+        },
+        {
+          "Q": "What room in the house is for washing yourself?",
+          "A": ["Bathroom"]
+        },
+        { "Q": "What do you use to scrub the toilet?", "A": ["Brush"] }
+      ],
+      "Hard": [
+        {
+          "Q": "What do you call a cleaning substance that kills germs?",
+          "A": ["Disinfectant"]
+        },
+        {
+          "Q": "What is the term for making a room neat and orderly?",
+          "A": ["Organize"]
+        },
+        {
+          "Q": "What do you call the mixture of soap and water?",
+          "A": ["Suds"]
+        },
+        {
+          "Q": "What do you use to make wood furniture shiny?",
+          "A": ["Polish"]
+        },
+        {
+          "Q": "What do you call a deep, thorough cleaning of a room?",
+          "A": ["Spring-cleaning"]
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "TransitTimeGame": {
+    "Questions": {
+      "Easy": [
+        { "Q": "What word means your stop is coming up?", "A": ["Next"] },
+        {
+          "Q": "What is the vehicle that runs on a track underground?",
+          "A": ["Subway"]
+        },
+        {
+          "Q": "What is the vehicle that runs on a track above ground?",
+          "A": ["Train"]
+        },
+        {
+          "Q": "What do you call the place where you wait for a train?",
+          "A": ["Platform"]
+        },
+        { "Q": "What do you call the money you pay to ride?", "A": ["Fare"] },
+        {
+          "Q": "What sound do the doors of a train or bus often make before closing?",
+          "A": ["Beep"]
+        },
+        {
+          "Q": "What do you call the person who operates the train?",
+          "A": ["Conductor"]
+        },
+        { "Q": "What is the front of the train called?", "A": ["Engine"] },
+        {
+          "Q": "What do you call it when you get on a bus or train?",
+          "A": ["Board"]
+        },
+        {
+          "Q": "What do you call it when you get off a bus or train?",
+          "A": ["Exit"]
+        }
+      ],
+      "Medium": [
+        {
+          "Q": "What do you call the different cars of a train?",
+          "A": ["Carriages"]
+        },
+        {
+          "Q": "What do you call the automated voice that announces stops?",
+          "A": ["Announcer"]
+        },
+        {
+          "Q": "What do you call a card you tap to pay your fare?",
+          "A": ["Pass"]
+        },
+        {
+          "Q": "What do you call a bus or train that is full of people?",
+          "A": ["Crowded"]
+        },
+        {
+          "Q": "What is the last stop on a train or bus line called?",
+          "A": ["Terminal"]
+        }
+      ],
+      "Hard": [
+        {
+          "Q": "What is the gap between the platform and the train called?",
+          "A": ["Gap"]
+        },
+        {
+          "Q": "What do you call the system of all public transportation in a city?",
+          "A": ["Transit"]
+        },
+        {
+          "Q": "What do you call a train route that makes fewer stops to go faster?",
+          "A": ["Express"]
+        },
+        {
+          "Q": "What is the rotating gate you walk through to enter a subway station?",
+          "A": ["Turnstile"]
+        },
+        {
+          "Q": "What do you call the unique sound a specific transit card makes when tapped?",
+          "A": ["Chime"]
+        }
+      ]
+    }
+  }
+}
