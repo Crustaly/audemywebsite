@@ -3,54 +3,6 @@ import { onMounted, onUnmounted, ref, watch } from 'vue';
 import PressListCard from './PressListCard.vue';
 
 const items = [
-{
-    image: 'ISTE.png',
-    text: 'Students and Educators Are Shaping the Future',
-    author: '-- ISTE',
-    url: 'https://conference.iste.org/2025/program/search/detail_session.php?id=118237270',
-  },
-  {
-    image: 'national_ai.png',
-    text: 'Audemy, a bold education innovation at the edtech event of the year!',
-    author: '-- National AI Conference',
-    url: 'https://www.hccs.edu/about-hcc/news/articles/hcc-to-host-2025-national-conference-on-artificial-intelligence-in-april.html',
-  },
-  {
-    image: 'BoldJourney.png',
-    text: 'Crystal Yang’s Journey',
-    author: '-- By Bold Journey',
-    url: 'https://boldjourney.com/meet-crystal-yang/',
-  },
-  {
-    image: 'Voyage.png',
-    text: 'Inspiring Conversations with Crystal Yang of Audemy',
-    author: '-- By Voyage Houston',
-    url: 'https://voyagehouston.com/interview/inspiring-conversations-with-crystal-yang-of-audemy',
-  },
-  {
-    image: 'Canvas.png',
-    text: 'Meet Crystal Yang!',
-    author: '-- By Canvas rebel',
-    url: 'https://canvasrebel.com/meet-crystal-yang/',
-  },
-  {
-    image: 'Authority.png',
-    text: 'Crystal Yang of Audemy Is Helping To Change Our World',
-    author: '-- By Authority Magazine',
-    url: 'https://medium.com/authority-magazine/social-impact-heroes-why-how-crystal-yang-of-audemy-is-helping-to-change-our-world-59d47f21ac81',
-  },
-  {
-    image: 'Flipboard.png',
-    text: 'Crystal’s Games Are Changing Education for Blind Students Nationwide',
-    author: '-- By Flipboard edu',
-    url: 'https://flipboardedu.substack.com/p/she-solved-a-friends-problem-now',
-  },
-  {
-    image: 'Devpost.png',
-    text: 'How Crystal’s love for hackathons inspired her to host her own',
-    author: '-- By Devpost',
-    url: 'https://info.devpost.com/blog/user-story-crystal',
-  },
   {
     image: 'katy-student-develops.png',
     text: 'Katy ISD student develops online tool to help blind students',
@@ -64,22 +16,34 @@ const items = [
     url: 'https://www.intel.com/content/www/us/en/corporate/artificial-intelligence/winners2024.html',
   },
   {
-    image: 'PBS-student-developes-app.png',
-    text: 'High School teen Crystal Yang tells us about Audemy, an app she created for the blind',
-    author: '-- By PBS',
-    url: 'https://www.youtube.com/watch?v=-Cd82j8v7Dc&ab_channel=HoustonPublicMedia',
-  },
-  {
     image: 'NPR-app.jpg',
     text: 'Audemy, an educational platform for blind and visually impaired students.',
     author: '-- By NPR',
     url: 'https://www.houstonpublicmedia.org/articles/shows/hello-houston/2025/06/10/523583/hello-houston-june-10-2025/',
   },
   {
+    image: 'PBS-student-developes-app.png',
+    text: 'High School teen Crystal Yang tells us about Audemy, an app she created for the blind',
+    author: '-- By PBS',
+    url: 'https://www.youtube.com/watch?v=-Cd82j8v7Dc&ab_channel=HoustonPublicMedia',
+  },
+  {
     image: 'acm-chi-2025.png',
     text: 'AI for Accessible Education: Personalized Audio-Based Learning for Blind Students',
     author: '-- By ACM CHI 2025 (Research Publication)',
     url: 'https://arxiv.org/abs/2504.17117',
+  },
+  {
+    image: 'ISTE.png',
+    text: 'Students and Educators Are Shaping the Future',
+    author: '-- ISTE',
+    url: 'https://conference.iste.org/2025/program/search/detail_session.php?id=118237270',
+  },
+  {
+    image: 'national_ai.png',
+    text: 'Audemy, a bold education innovation at the edtech event of the year!',
+    author: '-- National AI Conference',
+    url: 'https://www.hccs.edu/about-hcc/news/articles/hcc-to-host-2025-national-conference-on-artificial-intelligence-in-april.html',
   },
   {
     image: 'students2.png',
@@ -106,10 +70,16 @@ const items = [
     url: 'https://www.yahoo.com/news/katy-isd-student-develops-online-223852490.html?guce_referrer=aHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS8&guce_referrer_sig=AQAAAGGYGPaUqvUCacJ9ExqIFOi7nLlL2Y9NFLcw4cprR1LeexxAbnW5xbK0h8dRPsLum2VnRzbOrFiZ31vzoDnh5Z4lKt2r1Ub_9xVjfD2iLOmXHS8pVYwN-vbuuBQmmIBkKYrqH3xw0my8NZzI5cwqOdUKjODwY97Bm77FRpleNdKM&guccounter=2',
   },
   {
-    image: 'devpost.png',
-    text: 'User story: How Crystal’s love for hackathons inspired her to host her own',
+    image: 'Devpost.png',
+    text: 'How Crystal’s love for hackathons inspired her to host her own',
     author: '-- By Devpost',
     url: 'https://info.devpost.com/blog/user-story-crystal',
+  },
+  {
+    image: 'Flipboard.png',
+    text: 'Crystal’s Games Are Changing Education for Blind Students Nationwide',
+    author: '-- By Flipboard edu',
+    url: 'https://flipboardedu.substack.com/p/she-solved-a-friends-problem-now',
   },
   {
     image: 'acm-icmi-2024.png',
@@ -118,22 +88,28 @@ const items = [
     url: 'https://dl.acm.org/doi/10.1145/3610661.3617150',
   },
   {
-    image: 'authority-magazine.png',
-    text: 'Social Impact Heroes: Why & How Crystal Yang of Audemy Is Helping To Change Our World',
+    image: 'Authority.png',
+    text: 'Crystal Yang of Audemy Is Helping To Change Our World',
     author: '-- By Authority Magazine',
     url: 'https://medium.com/authority-magazine/social-impact-heroes-why-how-crystal-yang-of-audemy-is-helping-to-change-our-world-59d47f21ac81',
   },
   {
-    image: 'meet-crystal-yang.png',
-    text: 'Meet Crystal Yang',
+    image: 'Canvas.png',
+    text: 'Meet Crystal Yang!',
     author: '-- By Canvas rebel',
     url: 'https://canvasrebel.com/meet-crystal-yang/',
   },
   {
-    image: 'voyage-houston.png',
+    image: 'Voyage.png',
     text: 'Inspiring Conversations with Crystal Yang of Audemy',
     author: '-- By Voyage Houston',
     url: 'https://voyagehouston.com/interview/inspiring-conversations-with-crystal-yang-of-audemy',
+  },
+  {
+    image: 'BoldJourney.png',
+    text: 'Crystal Yang’s Journey',
+    author: '-- By Bold Journey',
+    url: 'https://boldjourney.com/meet-crystal-yang/',
   },
 ];
 
