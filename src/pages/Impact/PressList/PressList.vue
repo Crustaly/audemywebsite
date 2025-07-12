@@ -3,6 +3,54 @@ import { onMounted, onUnmounted, ref, watch } from 'vue';
 import PressListCard from './PressListCard.vue';
 
 const items = [
+{
+    image: 'ISTE.png',
+    text: 'Students and Educators Are Shaping the Future',
+    author: '-- ISTE',
+    url: 'https://conference.iste.org/2025/program/search/detail_session.php?id=118237270',
+  },
+  {
+    image: 'national_ai.png',
+    text: 'Audemy, a bold education innovation at the edtech event of the year!',
+    author: '-- National AI Conference',
+    url: 'https://www.hccs.edu/about-hcc/news/articles/hcc-to-host-2025-national-conference-on-artificial-intelligence-in-april.html',
+  },
+  {
+    image: 'BoldJourney.png',
+    text: 'Crystal Yang’s Journey',
+    author: '-- By Bold Journey',
+    url: 'https://boldjourney.com/meet-crystal-yang/',
+  },
+  {
+    image: 'Voyage.png',
+    text: 'Inspiring Conversations with Crystal Yang of Audemy',
+    author: '-- By Voyage Houston',
+    url: 'https://voyagehouston.com/interview/inspiring-conversations-with-crystal-yang-of-audemy',
+  },
+  {
+    image: 'Canvas.png',
+    text: 'Meet Crystal Yang!',
+    author: '-- By Canvas rebel',
+    url: 'https://canvasrebel.com/meet-crystal-yang/',
+  },
+  {
+    image: 'Authority.png',
+    text: 'Crystal Yang of Audemy Is Helping To Change Our World',
+    author: '-- By Authority Magazine',
+    url: 'https://medium.com/authority-magazine/social-impact-heroes-why-how-crystal-yang-of-audemy-is-helping-to-change-our-world-59d47f21ac81',
+  },
+  {
+    image: 'Flipboard.png',
+    text: 'Crystal’s Games Are Changing Education for Blind Students Nationwide',
+    author: '-- By Flipboard edu',
+    url: 'https://flipboardedu.substack.com/p/she-solved-a-friends-problem-now',
+  },
+  {
+    image: 'Devpost.png',
+    text: 'How Crystal’s love for hackathons inspired her to host her own',
+    author: '-- By Devpost',
+    url: 'https://info.devpost.com/blog/user-story-crystal',
+  },
   {
     image: 'katy-student-develops.png',
     text: 'Katy ISD student develops online tool to help blind students',
