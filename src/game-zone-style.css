@@ -3,7 +3,7 @@
 @layer components {
   /* Base for all filter buttons */
   .game-filter-btn-base {
-    @apply flex items-center justify-center whitespace-nowrap font-poppins text-[14px] py-2 px-24 mobile:px-8 rounded-full border hover:bg-[#e6f3fa];
+    @apply flex items-center justify-center whitespace-nowrap font-poppins text-[14px] py-2 px-10 mobile:px-8 rounded-full border hover:bg-[#e6f3fa];
   }
   .game-filter-btn-active {
     @apply text-[#087BB4] bg-[#e6f3fa] font-semibold border-[#087BB4];
@@ -14,7 +14,7 @@
 
   /* Base for all game menu buttons */
   .game-menu-btn-base {
-    @apply flex items-center justify-center gap-2 font-poppins text-[14px] py-2 px-24 mobile:px-8 rounded-full border whitespace-nowrap mobile:w-full;
+    @apply flex items-center justify-center gap-2 font-poppins text-[14px] py-2 px-10 mobile:px-8 rounded-full border whitespace-nowrap mobile:w-full;
   }
   .game-menu-btn-active {
     @apply text-[#087BB4] bg-[#e6f3fa] font-semibold border-[#087BB4];

@@ -385,7 +385,7 @@ function hideMenuDropdown(menuBtn, currentDropdown) {
                 id="lang-menu-btn"
                 :class="[
                   'game-menu-btn-base',
-                  currentPage === 1
+                  isLangMenuOpen
                     ? 'game-menu-btn-active'
                     : 'game-menu-btn-inactive',
                 ]"
@@ -415,7 +415,7 @@ function hideMenuDropdown(menuBtn, currentDropdown) {
                 id="lang-dropdown-div"
                 @focusout="handleDropdownFocusOut"
                 tabindex="-1"
-                class="game-menu-dropdown-base"
+                class="game-menu-dropdown-base hidden"
                 role="menu"
                 aria-orientation="vertical"
                 aria-labelledby="lang-menu-btn"
@@ -448,7 +448,7 @@ function hideMenuDropdown(menuBtn, currentDropdown) {
                 id="math-menu-btn"
                 :class="[
                   'game-menu-btn-base',
-                  currentPage === 2
+                  isMathMenuOpen
                     ? 'game-menu-btn-active'
                     : 'game-menu-btn-inactive',
                 ]"
@@ -478,7 +478,7 @@ function hideMenuDropdown(menuBtn, currentDropdown) {
                 id="math-dropdown-div"
                 @focusout="handleDropdownFocusOut"
                 tabindex="-1"
-                class="game-menu-dropdown-base"
+                class="game-menu-dropdown-base hidden"
                 role="menu"
                 aria-orientation="vertical"
                 aria-labelledby="math-menu-btn"
@@ -516,7 +516,7 @@ function hideMenuDropdown(menuBtn, currentDropdown) {
                 aria-controls="science-dropdown-div"
                 :class="[
                   'game-menu-btn-base',
-                  currentPage === 3
+                  isScienceMenuOpen
                     ? 'game-menu-btn-active'
                     : 'game-menu-btn-inactive',
                 ]"
@@ -541,7 +541,7 @@ function hideMenuDropdown(menuBtn, currentDropdown) {
                 id="science-dropdown-div"
                 @focusout="handleDropdownFocusOut"
                 tabindex="-1"
-                class="game-menu-dropdown-base"
+                class="game-menu-dropdown-base hidden"
                 role="menu"
                 aria-orientation="vertical"
                 aria-labelledby="science-menu-btn"
@@ -574,7 +574,7 @@ function hideMenuDropdown(menuBtn, currentDropdown) {
                 id="life-skills-menu-btn"
                 :class="[
                   'game-menu-btn-base',
-                  currentPage === 4
+                  isLifeSkillsMenuOpen
                     ? 'game-menu-btn-active'
                     : 'game-menu-btn-inactive',
                 ]"
@@ -598,7 +598,7 @@ function hideMenuDropdown(menuBtn, currentDropdown) {
                 id="life-skills-dropdown-div"
                 @focusout="handleDropdownFocusOut"
                 tabindex="-1"
-                class="game-menu-dropdown-base"
+                class="game-menu-dropdown-base hidden"
                 role="menu"
                 aria-orientation="vertical"
                 aria-labelledby="life-skills-menu-btn"
@@ -630,7 +630,7 @@ function hideMenuDropdown(menuBtn, currentDropdown) {
                 id="blind-skills-menu-btn"
                 :class="[
                   'game-menu-btn-base',
-                  currentPage === 5
+                  isBlindSkillsMenuOpen
                     ? 'game-menu-btn-active'
                     : 'game-menu-btn-inactive',
                 ]"
@@ -654,7 +654,7 @@ function hideMenuDropdown(menuBtn, currentDropdown) {
                 id="blind-skills-dropdown-div"
                 @focusout="handleDropdownFocusOut"
                 tabindex="-1"
-                class="game-menu-dropdown-base"
+                class="game-menu-dropdown-base hidden"
                 role="menu"
                 aria-orientation="vertical"
                 aria-labelledby="blind-skills-menu-btn"
