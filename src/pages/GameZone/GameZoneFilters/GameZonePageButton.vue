@@ -45,7 +45,7 @@ const gamePagesMap = {
   >
     <span>
       {{ gamePagesMap[pageNumber] }}
-      <span v-show="pageNumber !== 4"> Games</span>
+      <span v-show="pageNumber !== 6"> Games</span>
     </span>
   </button>
 </template>
