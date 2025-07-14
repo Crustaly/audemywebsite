@@ -21,7 +21,7 @@
 
       <a
         href="/game-zone"
-        class="font-poppins mobile:w-full px-18 py-4 border-[1.5px] border-[#0C0D0D] rounded-[8px] bg-[#FE892A] hover:bg-[#D6711F] text-base text-center text-[#0D0C0C] shadow-[3px_4px_0px_#0C0D0D] font-semibold self-start duration-300"
+        class="font-poppins mobile:w-full px-16 py-4 border-[1.5px] border-[#0C0D0D] rounded-[8px] bg-[#FE892A] hover:bg-[#D6711F] text-base text-center text-[#0D0C0C] shadow-[3px_4px_0px_#0C0D0D] font-semibold self-start duration-300"
       >
         Play our games!
       </a>
