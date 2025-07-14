@@ -129,18 +129,18 @@ let videoStoped = () => {
       class="max-w-[505px] tablet:max-w-[440px] h-[348px] tablet:h-[309px] mobile:h-[285px] grid justify-self-start mobile:order-1 mobile:items-center mobile:text-center"
       :class="{ 'tablet-text-container': isTablet }"
     >
-      <h1
-        class="font-poppins text-[40px] tablet:text-[32px] mobile:text-[24px] leading-[60px] tablet:leading-[48px] mobile:leading-[36px] text-[#151E22]"
-      >
-        Enjoy learning thanks to inclusive technology!
-      </h1>
+     <h1
+  class="font-poppins text-[40px] tablet:text-[32px] mobile:text-[24px] leading-[60px] tablet:leading-[48px] mobile:leading-[36px] text-[#151E22]"
+>
+  Learning is more fun when it <span style="color: #077bb3; font-weight: 700;">talks back</span>.
+</h1>
+
       <p
         class="font-poppins text-[20px] tablet:text-[16px] leading-[30px] tablet:leading-[24px] text-[#2F3E45]"
       >
-        We are committed to researching and investing in the latest
-        technologies, like the
-        <span class="font-[600]">Conversational Interface Game</span> we
-        developed that was featured at renowned conferences.
+       We’ve built <strong>50+ accessible audio games</strong> that make learning joyful, inclusive, and interactive—designed for blind and visually impaired students to learn through play.  
+So far, students have solved <strong>100,000+ learning challenges</strong> on our platform!
+
       </p>
       <div class="flex mobile:mx-0 items-end">
         <a
