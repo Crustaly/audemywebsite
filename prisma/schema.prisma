@@ -23,7 +23,7 @@ enum Category {
   LANGUAGE
   SCIENCE
   LIFE
-  BLIND
+  INDEPENDENCE
 }
 model Game {
   game_id   Int       @id @unique @default(autoincrement()) 

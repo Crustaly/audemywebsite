@@ -15,7 +15,7 @@ import {
   getMathGames,
   getScienceGames,
   getLifeSkillsGames,
-  getBlindSpecificSkillsGames,
+  getIndependenceSkillsGames,
 } from './GameDB.js';
 
 /*
@@ -46,7 +46,7 @@ const lifeSkillGameMap = getLifeSkillsGames().map(({ title, url }) => ({
   url,
 }));
 
-const blindSkillGameMap = getBlindSpecificSkillsGames().map(
+const independenceSkillGameMap = getIndependenceSkillsGames().map(
   ({ title, url }) => ({
     title,
     url,
@@ -78,8 +78,8 @@ onMounted(() => {
     changeCurrentPage(3); // Science Games
   } else if (category === 'life-skills') {
     changeCurrentPage(4); // Life Skills Games
-  } else if (category === 'blind-specific-skills') {
-    changeCurrentPage(5); // Blind-Specific Skills Games
+  } else if (category === 'independence-skills') {
+    changeCurrentPage(5); // Independence Skills Games
   } else {
     changeCurrentPage(1); // Default to Language Games
   }
@@ -93,7 +93,7 @@ const isLangMenuOpen = ref(false);
 const isMathMenuOpen = ref(false);
 const isScienceMenuOpen = ref(false);
 const isLifeSkillsMenuOpen = ref(false);
-const isBlindSkillsMenuOpen = ref(false);
+const isIndependenceSkillsMenuOpen = ref(false);
 
 // Updater functions for visibility flags
 const changeIsLangMenuOpen = (bool) => (isLangMenuOpen.value = bool);
@@ -101,8 +101,8 @@ const changeIsMathMenuOpen = (bool) => (isMathMenuOpen.value = bool);
 const changeIsScienceMenuOpen = (bool) => (isScienceMenuOpen.value = bool);
 const changeIsLifeSkillsMenuOpen = (bool) =>
   (isLifeSkillsMenuOpen.value = bool);
-const changeIsBlindSkillsMenuOpen = (bool) =>
-  (isBlindSkillsMenuOpen.value = bool);
+const changeisIndependenceSkillsMenuOpen = (bool) =>
+  (isIndependenceSkillsMenuOpen.value = bool);
 
 function activateGameMenu(event) {
   const menuBtn = event.currentTarget;
@@ -120,7 +120,7 @@ function activateGameMenu(event) {
     else if (currentPage.value === 2) changeIsMathMenuOpen(false);
     else if (currentPage.value === 3) changeIsScienceMenuOpen(false);
     else if (currentPage.value === 4) changeIsLifeSkillsMenuOpen(false);
-    else if (currentPage.value === 5) changeIsBlindSkillsMenuOpen(false);
+    else if (currentPage.value === 5) changeisIndependenceSkillsMenuOpen(false);
   } else {
     menuBtn.style.backgroundColor = '#e6f3fa';
     menuBtn.style.fontWeight = '600';
@@ -133,7 +133,7 @@ function activateGameMenu(event) {
     else if (currentPage.value === 2) changeIsMathMenuOpen(true);
     else if (currentPage.value === 3) changeIsScienceMenuOpen(true);
     else if (currentPage.value === 4) changeIsLifeSkillsMenuOpen(true);
-    else if (currentPage.value === 5) changeIsBlindSkillsMenuOpen(true);
+    else if (currentPage.value === 5) changeisIndependenceSkillsMenuOpen(true);
   }
   // Toggle visibility of dropdown
   toggleDropdown();
@@ -160,8 +160,8 @@ function toggleDropdown() {
     3: { id: 'science-dropdown-div', updater: changeIsScienceMenuOpen },
     4: { id: 'life-skills-dropdown-div', updater: changeIsLifeSkillsMenuOpen },
     5: {
-      id: 'blind-skills-dropdown-div',
-      updater: changeIsBlindSkillsMenuOpen,
+      id: 'independence-skills-dropdown-div',
+      updater: changeisIndependenceSkillsMenuOpen,
     },
   };
 
@@ -188,10 +188,10 @@ function toggleDropdown() {
     isVisible = !dropdown.classList.contains('hidden');
     changeIsLifeSkillsMenuOpen(isVisible);
   } else {
-    dropdown = document.getElementById('blind-skills-dropdown-div');
+    dropdown = document.getElementById('independence-skills-dropdown-div');
     dropdown.classList.toggle('hidden');
     isVisible = !dropdown.classList.contains('hidden');
-    changeIsBlindSkillsMenuOpen(isVisible);
+    changeisIndependenceSkillsMenuOpen(isVisible);
   }
 }
 
@@ -201,7 +201,10 @@ function handlePageSwitch(newPage) {
     2: { btn: 'math-menu-btn', dropdown: 'math-dropdown-div' },
     3: { btn: 'science-menu-btn', dropdown: 'science-dropdown-div' },
     4: { btn: 'life-skills-menu-btn', dropdown: 'life-skills-dropdown-div' },
-    5: { btn: 'blind-skills-menu-btn', dropdown: 'blind-skills-dropdown-div' },
+    5: {
+      btn: 'independence-skills-menu-btn',
+      dropdown: 'independence-skills-dropdown-div',
+    },
   };
 
   for (const page in pages) {
@@ -223,7 +226,7 @@ function handlePageSwitch(newPage) {
   changeIsMathMenuOpen(false);
   changeIsScienceMenuOpen(false);
   changeIsLifeSkillsMenuOpen(false);
-  changeIsBlindSkillsMenuOpen(false);
+  changeisIndependenceSkillsMenuOpen(false);
 }
 
 function handleMenuBlur(event) {
@@ -232,7 +235,7 @@ function handleMenuBlur(event) {
     2: 'math-dropdown-div',
     3: 'science-dropdown-div',
     4: 'life-skills-dropdown-div',
-    5: 'blind-skills-dropdown-div',
+    5: 'independence-skills-dropdown-div',
   };
   const dropdownId = pageMap[currentPage.value];
   // Determine the currently active dropdown
@@ -258,7 +261,7 @@ function handleDropdownFocusOut(event) {
     2: 'math-menu-btn',
     3: 'science-menu-btn',
     4: 'life-skills-menu-btn',
-    5: 'blind-skills-menu-btn',
+    5: 'independence-skills-menu-btn',
   };
   const menuBtnId = pageMap[currentPage.value];
   const menuBtn = document.getElementById(menuBtnId);
@@ -278,7 +281,7 @@ function hideMenuDropdown(menuBtn, currentDropdown) {
   else if (currentPage.value === 2) changeIsMathMenuOpen(false);
   else if (currentPage.value === 3) changeIsScienceMenuOpen(false);
   else if (currentPage.value === 4) changeIsLifeSkillsMenuOpen(false);
-  else if (currentPage.value === 5) changeIsBlindSkillsMenuOpen(false);
+  else if (currentPage.value === 5) changeisIndependenceSkillsMenuOpen(false);
 }
 </script>
 
@@ -570,25 +573,25 @@ function hideMenuDropdown(menuBtn, currentDropdown) {
                 </div>
               </div>
             </div>
-            <!-- BLIND SKILLS GAMES MENU -->
+            <!-- INDEPENDENCE SKILLS GAMES MENU -->
             <div
-              id="blind-skills-menu-div"
+              id="independence-skills-menu-div"
               :class="[currentPage === 5 ? 'flex' : 'hidden', 'relative']"
             >
               <button
                 type="button"
-                id="blind-skills-menu-btn"
+                id="independence-skills-menu-btn"
                 :class="[
                   'game-menu-btn-base',
-                  isBlindSkillsMenuOpen
+                  isIndependenceSkillsMenuOpen
                     ? 'game-menu-btn-active'
                     : 'game-menu-btn-inactive',
                 ]"
                 @click="activateGameMenu"
                 @blur="handleMenuBlur"
-                :aria-expanded="isBlindSkillsMenuOpen"
+                :aria-expanded="isIndependenceSkillsMenuOpen"
                 aria-haspopup="true"
-                aria-controls="blind-skills-dropdown-div"
+                aria-controls="independence-skills-dropdown-div"
               >
                 <span>Game Menu</span>
                 <svg
@@ -605,24 +608,24 @@ function hideMenuDropdown(menuBtn, currentDropdown) {
                   />
                 </svg>
               </button>
-              <!-- BLIND SKILLS GAMES DROPDOWN OPTIONS -->
+              <!-- INDEPENDENCE SKILLS GAMES DROPDOWN OPTIONS -->
               <div
-                id="blind-skills-dropdown-div"
+                id="independence-skills-dropdown-div"
                 @focusout="handleDropdownFocusOut"
                 tabindex="-1"
                 class="game-menu-dropdown-base hidden"
                 role="menu"
                 aria-orientation="vertical"
-                aria-labelledby="blind-skills-menu-btn"
+                aria-labelledby="independence-skills-menu-btn"
               >
                 <div
-                  id="blind-skills-dropdown-options"
+                  id="independence-skills-dropdown-options"
                   class="py-1 text-[15px]"
                   role="none"
                 >
-                  <!-- Generate game menu links by looping over 'blindSkillGameMap' map entries -->
+                  <!-- Generate game menu links by looping over 'independenceSkillGameMap' map entries -->
                   <a
-                    v-for="{ title, url } in blindSkillGameMap"
+                    v-for="{ title, url } in independenceSkillGameMap"
                     :key="url"
                     :href="url"
                     class="game-menu-link"
