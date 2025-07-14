@@ -64,40 +64,6 @@ const pageNumberList = computed(() =>
   Array.from({ length: totalPages }, (_, i) => i + 1)
 );
 
-// Page 4: Life Skills Games
-const lifeSkillsGames = {
-  'Grocery Grab': 'groceryGrab',
-  'Money Match': 'moneyMatch',
-  'Laundry Legend': 'laundryLegend',
-  'Kitchen Cues': 'kitchenCues',
-  'Dress to Impress': 'dressToImpress',
-  'Safety Sirens': 'safetySirens',
-  'Schedule Shuffle': 'scheduleShuffle',
-  'Clean Machine': 'cleanMachine',
-  'Health Check': 'healthCheck',
-  'Time Tamer': 'timeTamer',
-  'Kitchen Timer Trouble': 'kitchenTimerTrouble',
-  'Bus Stop Brainstorm': 'busStopBrainstorm',
-  'Money Manager': 'moneyManager',
-  'Healthy Plate': 'healthyPlate',
-};
-
-// Page 5: Blind-Specific Skills Games
-const blindSpecificSkillsGames = {
-  'Street Smart': 'streetSmart',
-  'Cane Companion': 'caneCompanion',
-  'Doorway Decisions': 'doorwayDecisions',
-  'Elevator Experience': 'elevatorExperience',
-  'Transit Time': 'transitTime',
-  'Money Matters': 'moneyMatters',
-  'Kitchen Know-How': 'kitchenKnowHow',
-  'Phone Friend': 'phoneFriend',
-  'Medication Manager': 'medicationManager',
-  'Obstacle Awareness': 'obstacleAwareness',
-  'Social Sense': 'socialSense',
-  'Asking for Assistance': 'askingForAssistance',
-};
-
 const currentPage = ref(1);
 const changeCurrentPage = (page) => {
   currentPage.value = page;
