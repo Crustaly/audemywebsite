@@ -81,7 +81,7 @@ const developmentStaff = [
   {
     name: 'Prajwala Shambulingappa',
     role: 'Developer',
-    image: '/assets/images/about-us/volunteers/default1.svg',
+    image: '/assets/images/about-us/volunteers/prajwala.png',
   },
   {
     name: 'Ankita Shendge',
