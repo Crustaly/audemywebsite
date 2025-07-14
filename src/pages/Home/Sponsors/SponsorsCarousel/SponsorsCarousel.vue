@@ -5,7 +5,7 @@ const currentIndex = ref(0);
 const items = [
   '/assets/images/sponsors/google.png',
   '/assets/images/sponsors/desmos.png',
-  '/assets/images/sponsors/aops.svg',
+  '/assets/images/sponsors/tacobell.png',
   '/assets/images/sponsors/wolframalpha.svg',
   '/assets/images/sponsors/intel.svg',
   '/assets/images/sponsors/hersheys.svg',

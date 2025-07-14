@@ -38,9 +38,9 @@ import SponsorsCarousel from './SponsorsCarousel/SponsorsCarousel.vue';
         class="w-full scroll-auto grid grid-cols-4 grid-row-a items-center justify-center text-center"
       >
         <img
-          src="/assets/images/sponsors/aops.svg"
-          alt="aops logo"
-          class="mx-auto"
+          src="/assets/images/sponsors/tacobell.png"
+          alt="tacobell logo"
+          class="mx-auto w-40 h-20"
         />
         <img
           src="/assets/images/sponsors/wolframalpha.svg"
