@@ -55,6 +55,8 @@ const routes = [
     name: 'Troubleshooting Page',
     component: Troubleshooting,
   },
+
+  // Language Games
   {
     path: '/game/addition',
     name: 'AdditionGame',
@@ -102,6 +104,8 @@ const routes = [
     name: 'SpellingBee',
     component: () => import('../pages/GameZone/GameZoneList/SpellingBee.vue'),
   },
+
+  // Math Games
   {
     path: '/game/carcounting',
     name: 'CarCounting',
@@ -146,7 +150,6 @@ const routes = [
   },
 
   // Science Games
-
   {
     path: '/game/mattermixup',
     name: 'MatterMixUp',
@@ -199,8 +202,7 @@ const routes = [
     component: () => import('../pages/GameZone/GameZoneList/PlantPower.vue'),
   },
 
-  // --- NEW LIFE SKILLS ROUTES ADDED BELOW ---
-
+  // Life Skills Games
   {
     path: '/game/groceryGrab',
     name: 'GroceryGrab',
@@ -276,8 +278,7 @@ const routes = [
     component: () => import('../pages/GameZone/GameZoneList/HealthyPlate.vue'),
   },
 
-  // --- NEW BLIND-SPECIFIC SKILLS ROUTES ADDED BELOW ---
-
+  // Independence Skills Games
   {
     path: '/game/streetSmart',
     name: 'StreetSmart',

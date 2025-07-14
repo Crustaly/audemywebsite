@@ -383,7 +383,7 @@ export const getLifeSkillsGames = () => {
   ];
 };
 
-export const getBlindSpecificSkillsGames = () => {
+export const getIndependenceSkillsGames = () => {
   return [
     {
       icon: basedPath + 'street.png',

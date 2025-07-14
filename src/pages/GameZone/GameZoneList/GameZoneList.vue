@@ -44,7 +44,7 @@ import {
   getMathGames,
   getScienceGames,
   getLifeSkillsGames,
-  getBlindSpecificSkillsGames,
+  getIndependenceSkillsGames,
 } from '../GameDB.js';
 import { useRouter } from 'vue-router';
 
@@ -65,7 +65,7 @@ const getGames = (type) => {
   } else if (type === 4) {
     games.value = getLifeSkillsGames();
   } else if (type === 5) {
-    games.value = getBlindSpecificSkillsGames();
+    games.value = getIndependenceSkillsGames();
   } else {
     games.value = []; // Default to empty if type is unknown
   }

@@ -467,7 +467,7 @@ export const gameConfigs = {
       'Your dinner plate is talking, and it’s picky! Balance your meal using clues from each food item. If you listen carefully, you’ll serve up something healthy and delicious.',
   },
 
-  // --- BLIND-SPECIFIC SKILLS GAME CONFIGS ---
+  // --- INDEPENDENCE SKILLS GAME CONFIGS ---
 
   streetSmart: {
     title: 'Street Smart',
@@ -476,7 +476,7 @@ export const gameConfigs = {
     iconSrc: '/assets/gameImages/buttons/gameButtons/street.png',
     dbFile: 'streetSmartDB.json',
     dbKey: 'StreetSmartGame',
-    category: 'blind-specific-skills',
+    category: 'independence-skills',
     introText:
       'You’re standing at different street corners, listening closely to traffic sounds, crosswalk signals, and nearby footsteps. Your job is to decide when it’s safe to cross, recognize obstacles, and understand street cues.',
   },
@@ -488,7 +488,7 @@ export const gameConfigs = {
     iconSrc: '/assets/gameImages/buttons/gameButtons/cane.png',
     dbFile: 'caneCompanionDB.json',
     dbKey: 'CaneCompanionGame',
-    category: 'blind-specific-skills',
+    category: 'independence-skills',
     introText:
       'Your white cane is your guide through various environments — city sidewalks, grassy parks, staircases, and ramps. Listen carefully to the cane’s taps and other sounds to help you navigate safely.',
   },
@@ -501,7 +501,7 @@ export const gameConfigs = {
     iconSrc: '/assets/gameImages/buttons/gameButtons/door.png',
     dbFile: 'doorwayDecisionsDB.json',
     dbKey: 'DoorwayDecisionsGame',
-    category: 'blind-specific-skills',
+    category: 'independence-skills',
     introText:
       'You approach many types of doors every day: knobs, push bars, automatic sliding doors, heavy fire doors. You have to figure out how to open or pass through them by touch and sound.',
   },
@@ -513,7 +513,7 @@ export const gameConfigs = {
     iconSrc: '/assets/gameImages/buttons/gameButtons/elevator.png',
     dbFile: 'elevatorExperienceDB.json',
     dbKey: 'ElevatorExperienceGame',
-    category: 'blind-specific-skills',
+    category: 'independence-skills',
     introText:
       'In busy buildings, elevators announce floors, open and close doors, and beep for warnings. Listen to the sounds around you and decide when and how to act safely and politely.',
   },
@@ -525,7 +525,7 @@ export const gameConfigs = {
     iconSrc: '/assets/gameImages/buttons/gameButtons/transit.png',
     dbFile: 'transitTimeDB.json',
     dbKey: 'TransitTimeGame',
-    category: 'blind-specific-skills',
+    category: 'independence-skills',
     introText:
       'You use buses, trains, and subways, relying on announcements, beeps, and crowd noises. It’s your job to figure out stops, board and exit safely, and handle unexpected situations.',
   },
@@ -537,7 +537,7 @@ export const gameConfigs = {
     iconSrc: '/assets/gameImages/buttons/gameButtons/bills.png',
     dbFile: 'moneyMattersDB.json',
     dbKey: 'MoneyMattersGame',
-    category: 'blind-specific-skills',
+    category: 'independence-skills',
     introText:
       'Coins and bills have different sizes, textures, and sounds. You’re learning to identify money by touch and feel to make purchases and count change confidently.',
   },
@@ -549,7 +549,7 @@ export const gameConfigs = {
     iconSrc: '/assets/gameImages/buttons/gameButtons/chef.png',
     dbFile: 'kitchenKnowHowDB.json',
     dbKey: 'KitchenKnowHowGame',
-    category: 'blind-specific-skills',
+    category: 'independence-skills',
     introText:
       'The kitchen is full of sounds — boiling, sizzling, timers, and appliances. Knowing what these sounds mean helps you cook safely and efficiently.',
   },
@@ -561,7 +561,7 @@ export const gameConfigs = {
     iconSrc: '/assets/gameImages/buttons/gameButtons/phone.png',
     dbFile: 'phoneFriendDB.json',
     dbKey: 'PhoneFriendGame',
-    category: 'blind-specific-skills',
+    category: 'independence-skills',
     introText:
       'Using voice commands, talking phones, and audio prompts, you manage calls, messages, and settings without looking at the screen.',
   },
@@ -574,7 +574,7 @@ export const gameConfigs = {
     iconSrc: '/assets/gameImages/buttons/gameButtons/meds.png',
     dbFile: 'medicationManagerDB.json',
     dbKey: 'MedicationManagerGame',
-    category: 'blind-specific-skills',
+    category: 'independence-skills',
     introText:
       'Keeping track of your medications means listening for alarms, remembering schedules, and understanding labels and instructions.',
   },
@@ -586,7 +586,7 @@ export const gameConfigs = {
     iconSrc: '/assets/gameImages/buttons/gameButtons/obstacle.png',
     dbFile: 'obstacleAwarenessDB.json',
     dbKey: 'ObstacleAwarenessGame',
-    category: 'blind-specific-skills',
+    category: 'independence-skills',
     introText:
       'You move through indoor and outdoor spaces where obstacles might appear unexpectedly. Your cane taps and other sounds alert you to objects, people, and changes in terrain.',
   },
@@ -598,7 +598,7 @@ export const gameConfigs = {
     iconSrc: '/assets/gameImages/buttons/gameButtons/social.png',
     dbFile: 'socialSenseDB.json',
     dbKey: 'SocialSenseGame',
-    category: 'blind-specific-skills',
+    category: 'independence-skills',
     introText:
       'Understanding tone, volume, and context helps you interpret conversations and respond appropriately in social situations.',
   },
@@ -610,7 +610,7 @@ export const gameConfigs = {
     iconSrc: '/assets/gameImages/buttons/gameButtons/assistance.png',
     dbFile: 'askingForAssistanceDB.json',
     dbKey: 'AskingForAssistanceGame',
-    category: 'blind-specific-skills',
+    category: 'independence-skills',
     introText:
       'Sometimes you need to ask strangers for help or directions. Knowing how to phrase your request clearly and politely is essential.',
   },
