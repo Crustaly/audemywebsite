@@ -15,8 +15,7 @@
   }
 
   /* --- Mobile Nav Icons --- */
-  #mobile-nav-socials svg:hover,
-  #mobile-nav-socials box-icon:hover {
+  #mobile-nav-socials svg:hover {
     @apply fill-[#087bb4]; /* Hover color for social icons */
   }
 
