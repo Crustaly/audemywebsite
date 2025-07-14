@@ -2,7 +2,7 @@
 
 <template>
   <div
-    class="flex flex-col items-center gap-y-12 self-center pt-80 mobile:pt-64 pb-[18rem] mobile:mt-5 mobile:pb-40 px-20 mobile:px-0 relative z-10"
+  class="flex flex-col items-center gap-y-12 self-center pt-80 mobile:pt-64 pb-[6rem] mobile:mt-5 mobile:pb-16 px-20 mobile:px-0 relative z-10"
   >
     <img
       src="/assets/images/testimonials/testimonials-bg.png"

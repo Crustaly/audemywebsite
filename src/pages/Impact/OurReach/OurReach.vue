@@ -1,6 +1,6 @@
 <script setup></script>
 <template>
-  <div class="max-w-[1032px] mx-auto mt-10 mb-[14rem]">
+  <div class="max-w-[1032px] mx-auto mb-[14rem]">
     <!-- HEADER -->
     <div class="flex flex-col justify-center items-center">
       <div>
