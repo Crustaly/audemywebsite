@@ -4,11 +4,9 @@
       class="w-6/12 mobile:w-full flex flex-col gap-y-4 mobile:items-center mobile:text-center"
     >
       <div class="font-poppins">
-        <h1
-          class="text-4xl tablet:text-[24px] mobile:text-[24px] leading-normal text-title"
-        >
-         Audio Games Powering the Future of Accessible Learning
-        </h1>
+       <h1 class="text-4xl tablet:text-[24px] mobile:text-[24px] leading-normal text-title font-poppins">
+  Audio Games <span class="text-sky-500 font-semibold">Powering the Future</span> of <span class="text-sky-500 font-semibold">Accessible Learning</span>
+</h1>
       </div>
 
       <div>
