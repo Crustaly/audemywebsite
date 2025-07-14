@@ -134,7 +134,7 @@ onUnmounted(() => {
           <h1
             class="font-poppins text-[40px] tablet:text-[32px] mobile:text-[24px] leading-[60px] tablet:leading-[48px] mobile:leading-[36px] text-[#151E22]"
           >
-            Discover Apple Loo<br class="hidden mobile:block" />
+            Discover Audemy Education Videos<br class="hidden mobile:block" />
             on You Tube
           </h1>
           <p
