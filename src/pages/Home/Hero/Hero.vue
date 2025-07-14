@@ -10,11 +10,9 @@
       </div>
 
       <div>
-        <p
-          class="font-poppins text-body text-xl mobile:text-[16px] max-w-md leading-8"
-        >
-         Our AI-powered audio games are transforming access to education—reaching 200,000+ learners worldwide, including 1 in 5 blind children in the U.S.!
-        </p>
+       <p class="font-poppins text-body text-xl mobile:text-[16px] max-w-md leading-8">
+  Our AI-powered audio games are transforming access to education—reaching <strong>200,000+ learners worldwide</strong>, including <strong>1 in 5 blind children in the U.S.</strong>!
+</p>
       </div>
 
       <a
