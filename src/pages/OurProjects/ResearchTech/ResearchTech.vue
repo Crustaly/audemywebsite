@@ -20,7 +20,7 @@ const items2 = [
      Research & Technologies
     </h2>
     <h3 class="text-[32px] font-poppins md:text-4.5xl">
-     What makes our platform accessible and engaging
+     What makes our platform <em style="color:#fe892a;"> accessible and engaging </em>
     </h3>
   </div>
   
@@ -38,7 +38,7 @@ const items2 = [
     
     <div class="max-w-2xl px-4 text-center mb-10">
       <p class="font-poppins text-base text-gray-700 leading-relaxed">
-       We conduct research on accessibility in the field of AI and Computer Science to make sure Audemy's games stay as accessible as possible.
+       We conduct <strong> research on accessibility </strong> in the field of AI and Computer Science to make sure <span style="color:#077bb3" class="font-semibold"> Audemy's games </span> stay as <strong> accessible as possible </strong>.
       </p>
     </div>
     <div
@@ -75,7 +75,7 @@ const items2 = [
     
     <div class="max-w-2xl px-4 text-center mb-10">
       <p class="font-poppins text-base text-gray-700 leading-relaxed">
-       Peer-reviewed studies in 20+ classrooms show Audemy boosts math performance by 28% in just one week.
+       Peer-reviewed studies in <strong> 20+ classrooms </strong> show Audemy boosts math performance by <strong> 28% in just one week</strong>.
       </p>
     </div>
   </div>
