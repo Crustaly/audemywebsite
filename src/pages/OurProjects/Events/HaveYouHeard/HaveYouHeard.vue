@@ -4,11 +4,11 @@ import HaveYouHeardCard from './HaveYouHeardCard/HaveYouHeardCard.vue';
 const items = [
   {
     icon: 'school.svg',
-    text: 'Sessions at schools for the blind to introduce our games to students.',
+    text: ' <strong> Sessions at schools for the blind </strong> to introduce our games to students.',
   },
   {
     icon: 'classroom.svg',
-    text: 'Workshops for BVI individuals on accessing coding resources.',
+    text: ' <strong> Workshops for BVI </strong> individuals on accessing coding resources.',
   },
 ];
 </script>
@@ -23,7 +23,7 @@ const items = [
     <div class="text-center">
       <h2 class="text-sm uppercase tracking-[3.6px]">Education Events</h2>
       <h3 class="text-[32px] font-poppins md:text-4.5xl">
-        Have you heard about the events we organize?
+        Have you heard about the  <span style="color:#077bb3" class="font-semibold"> events we organize </span>?
       </h3>
     </div>
     <div class="flex flex-col lg:flex-row-reverse">

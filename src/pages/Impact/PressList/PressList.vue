@@ -5,25 +5,25 @@ import PressListCard from './PressListCard.vue';
 const items = [
   {
     image: 'katy-student-develops.png',
-    text: 'Katy ISD student develops online tool to help blind students',
+    text: 'Crystal Yang, Founder and CEO of Audemy, develops online tool to help blind students',
     author: '-- By Fox News',
     url: 'https://www.fox26houston.com/news/katy-student-develops-online-tool-help-blind-students',
   },
   {
     image: 'intel-globalImpactAI.png',
-    text: 'Intel Celebrates AI Innovations by Students with Global Impact Festival',
+    text: 'Intel celebrates Crystal Yang, winner of Global AI Impact Festival',
     author: '-- By Intel',
     url: 'https://www.intel.com/content/www/us/en/corporate/artificial-intelligence/winners2024.html',
   },
   {
     image: 'NPR-app.jpg',
-    text: 'Audemy, an educational platform for blind and visually impaired students.',
+    text: 'Crystal Yang on making education accessible for blind students through sound',
     author: '-- By NPR',
     url: 'https://www.houstonpublicmedia.org/articles/shows/hello-houston/2025/06/10/523583/hello-houston-june-10-2025/',
   },
   {
     image: 'PBS-student-developes-app.png',
-    text: 'High School teen Crystal Yang tells us about Audemy, an app she created for the blind',
+    text: 'Houston Students raise $100,000 for Accessibility Hackathon, KatyYouthHacks',
     author: '-- By PBS',
     url: 'https://www.youtube.com/watch?v=-Cd82j8v7Dc&ab_channel=HoustonPublicMedia',
   },

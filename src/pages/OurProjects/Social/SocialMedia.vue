@@ -5,13 +5,13 @@
     </div>
     <div class="flex justify-center">
       <h3 class="text-[32px] text-center font-poppins md:text-4.5xl">
-        Explore Apple Loo Education
+        Explore <span style="color:#077bb3" class="font-semibold"> Apple Loo Education </span> 
       </h3>
     </div>
     <div class="text-body text-xl font-poppins leading-8 text-center mt-5">
       <p>
-        Our YouTube channel that educates young students through engaging
-        videos.
+        Our YouTube channel that  <strong> educates young students through engaging
+          videos. </strong> 
       </p>
     </div>
     <div class="relative flex place-content-center mt-10">
