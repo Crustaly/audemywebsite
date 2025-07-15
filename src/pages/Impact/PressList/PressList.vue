@@ -16,16 +16,16 @@ const items = [
     url: 'https://www.intel.com/content/www/us/en/corporate/artificial-intelligence/winners2024.html',
   },
   {
-    image: 'NPR-app.jpg',
+    image: 'NPR-app.png',
     text: 'Crystal Yang on making education accessible for blind students through sound',
     author: '-- By NPR',
-    url: 'https://www.houstonpublicmedia.org/articles/shows/hello-houston/2025/06/10/523583/hello-houston-june-10-2025/',
+    url: 'https://www.youtube.com/watch?v=-Cd82j8v7Dc&ab_channel=HoustonPublicMedia',
   },
   {
     image: 'PBS-student-developes-app.png',
     text: 'Houston Students raise $100,000 for Accessibility Hackathon, KatyYouthHacks',
-    author: '-- By PBS',
-    url: 'https://www.youtube.com/watch?v=-Cd82j8v7Dc&ab_channel=HoustonPublicMedia',
+    author: '-- By CW',
+    url: 'https://www.youtube.com/watch?v=7y_vTaRb6Mc&t=2382s',
   },
   {
     image: 'acm-chi-2025.png',
@@ -35,33 +35,33 @@ const items = [
   },
   {
     image: 'ISTE.png',
-    text: 'Students and Educators Are Shaping the Future',
+    text: 'Intel presents: How students and educators are shaping the future',
     author: '-- ISTE',
     url: 'https://conference.iste.org/2025/program/search/detail_session.php?id=118237270',
   },
   {
-    image: 'national_ai.png',
-    text: 'Audemy, a bold education innovation at the edtech event of the year!',
-    author: '-- National AI Conference',
-    url: 'https://www.hccs.edu/about-hcc/news/articles/hcc-to-host-2025-national-conference-on-artificial-intelligence-in-april.html',
-  },
-  {
     image: 'students2.png',
-    text: 'Katy ISD student creates audio-based education games for visually impaired children',
+    text: 'Crystal Yang creates audio based education game for visually impaired children.',
     author: '-- By Community Impact',
     url: 'https://communityimpact.com/houston/katy-north/nonprofit/2024/06/27/katy-isd-student-creates-audio-based-education-games-for-visually-impaired-children/',
   },
   {
-    image: 'houstonhappens.png',
-    text: 'Stay motivated during the school year with Houston Happens!',
-    author: '-- By The CW',
-    url: 'https://www.youtube.com/watch?v=7y_vTaRb6Mc&t=2382s',
-  },
-  {
     image: 'points-of-light.png',
-    text: 'Championing Accessibility in Education for Blind and Visually Impaired Students',
+    text: 'Championing Accessibility in Education for Blind and Visually Impaired Students Championing',
     author: '-- By Points of Light',
     url: 'https://www.pointsoflight.org/awards/championing-accessibility-in-education-for-blind-and-visually-impaired-students/',
+  },
+  {
+    image: 'pbs-app.png',
+    text: 'Audemy, an educational platform for blind and visually impaired students.',
+    author: '-- By PBS',
+    url: 'https://www.houstonpublicmedia.org/articles/shows/hello-houston/2025/06/10/523583/hello-houston-june-10-2025/',
+  },
+  {
+    image: 'national_ai.png',
+    text: 'Audemy, a bold education innovation for blind students',
+    author: '-- National AI Conference',
+    url: 'https://www.hccs.edu/about-hcc/news/articles/hcc-to-host-2025-national-conference-on-artificial-intelligence-in-april.html',
   },
   {
     image: 'yahoo-news.png',
@@ -70,7 +70,7 @@ const items = [
     url: 'https://www.yahoo.com/news/katy-isd-student-develops-online-223852490.html?guce_referrer=aHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS8&guce_referrer_sig=AQAAAGGYGPaUqvUCacJ9ExqIFOi7nLlL2Y9NFLcw4cprR1LeexxAbnW5xbK0h8dRPsLum2VnRzbOrFiZ31vzoDnh5Z4lKt2r1Ub_9xVjfD2iLOmXHS8pVYwN-vbuuBQmmIBkKYrqH3xw0my8NZzI5cwqOdUKjODwY97Bm77FRpleNdKM&guccounter=2',
   },
   {
-    image: 'Devpost.png',
+    image: 'devpost.png',
     text: 'How Crystal’s love for hackathons inspired her to host her own',
     author: '-- By Devpost',
     url: 'https://info.devpost.com/blog/user-story-crystal',
