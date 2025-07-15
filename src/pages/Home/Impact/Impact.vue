@@ -40,11 +40,11 @@ import Globe from '/assets/images/impact/globe 1.svg';
         <img :src="Students" alt="Student's Image" class="-translate-y-10" />
         <div class="flex flex-col items-center text-body">
           <h1
-  class="font-poppins font-bold text-7xl text-wrap mobile:text-4xl"
-  style="color: #d96f1f;"
->
-  1 in 5
-</h1>
+          class="font-poppins font-bold text-7xl text-wrap mobile:text-4xl"
+          style="color: #d96f1f;"
+        >
+          1 in 5
+        </h1>
           <p class="font-poppins text-base text-center mobile:text-[12px]">
             blind students<br />
              learning through play
@@ -58,11 +58,11 @@ import Globe from '/assets/images/impact/globe 1.svg';
         <img :src="Problems" alt="Problem's Image" class="-translate-y-10" />
         <div class="flex flex-col items-center text-body">
           <h1
-  class="font-poppins font-bold text-7xl text-wrap mobile:text-4xl"
-  style="color: #077bb3;"
->
-  36
-</h1>
+            class="font-poppins font-bold text-7xl text-wrap mobile:text-4xl"
+            style="color: #077bb3;"
+          >
+            36
+          </h1>
           <p class="font-poppins text-base text-center mobile:text-[12px]">
             parntering <br />
             schools
@@ -76,11 +76,11 @@ import Globe from '/assets/images/impact/globe 1.svg';
         <img :src="Globe" alt="Globo's Image" class="-translate-y-10" />
         <div class="flex flex-col items-center text-body">
           <h1
-  class="font-poppins font-bold text-7xl text-wrap mobile:text-4xl"
-  style="color: #d96f1f;"
->
-  66
-</h1>
+            class="font-poppins font-bold text-7xl text-wrap mobile:text-4xl"
+            style="color: #d96f1f;"
+          >
+            66
+          </h1>
           <p class="font-poppins text-base text-center mobile:text-[12px]">
             countries <br />
             and counting...

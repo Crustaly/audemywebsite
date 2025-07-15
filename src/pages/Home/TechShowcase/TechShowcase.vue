@@ -5,25 +5,21 @@ let isplaying = ref(false);
 let video = ref();
 const isTablet = ref(false);
 const isMobile = ref(false);
-const videoVisible = ref(false); // Lazy load flag
+const videoVisible = ref(false);
 
 // Check device type
 const checkDeviceType = () => {
   const width = window.innerWidth;
   if (width >= 640 && width < 768) {
-    // Small devices (large phones)
     isTablet.value = false;
     isMobile.value = true;
   } else if (width >= 768 && width < 1024) {
-    // Medium devices (tablets)
     isTablet.value = true;
     isMobile.value = false;
   } else if (width >= 1024) {
-    // Large devices (laptops/desktops)
     isTablet.value = false;
     isMobile.value = false;
   } else {
-    // Extra small devices (phones)
     isTablet.value = false;
     isMobile.value = true;
   }
@@ -35,7 +31,7 @@ const onVideoIntersect = (entries) => {
   const [entry] = entries;
   if (entry.isIntersecting) {
     videoVisible.value = true;
-    observer.disconnect(); // Prevent future triggers
+    observer.disconnect();
   }
 };
 
@@ -92,8 +88,16 @@ let videoStoped = () => {
       />
       <div
         id="lazy-video-wrapper"
-        class="absolute w-[90%] left-[4%] h-[86%] top-[7%] mx-auto z-0"
+        class="absolute w-[88%] left-[6%] h-[82%] top-[9%] mx-auto z-0 overflow-hidden rounded-[16px]"
       >
+        <!-- Poster image -->
+        <div
+          v-if="!isplaying"
+          class="w-full h-full bg-cover bg-center"
+          style="background-image: url('/assets/images/techShowcase/video-poster.png');"
+        ></div>
+
+        <!-- Play Button -->
         <div
           v-if="!isplaying"
           @click="playVideo"
@@ -129,19 +133,20 @@ let videoStoped = () => {
       class="max-w-[505px] tablet:max-w-[440px] h-[348px] tablet:h-[309px] mobile:h-[285px] grid justify-self-start mobile:order-1 mobile:items-center mobile:text-center"
       :class="{ 'tablet-text-container': isTablet }"
     >
-     <h1
-  class="font-poppins text-[40px] tablet:text-[32px] mobile:text-[24px] leading-[60px] tablet:leading-[48px] mobile:leading-[36px] text-[#151E22]"
->
-  Learning is more fun when it <span style="color: #077bb3; font-weight: 700;">talks back</span>.
-</h1>
+      <h1
+        class="font-poppins text-[40px] tablet:text-[32px] mobile:text-[24px] leading-[60px] tablet:leading-[48px] mobile:leading-[36px] text-[#151E22]"
+      >
+        Learning is more fun when it
+        <span style="color: #077bb3; font-weight: 700;">talks back</span>.
+      </h1>
 
       <p
         class="font-poppins text-[20px] tablet:text-[16px] leading-[30px] tablet:leading-[24px] text-[#2F3E45]"
       >
-       We’ve built <strong>50+ accessible audio games</strong> that make learning joyful, inclusive, and interactive—designed for blind and visually impaired students to learn through play.  
-So far, students have solved <strong>100,000+ learning challenges</strong> on our platform!
-
+        We’ve built <strong>50+ accessible audio games</strong> that make learning joyful, inclusive, and interactive—designed for blind and visually impaired students to learn through play.  
+        So far, students have solved <strong>100,000+ learning challenges</strong> on our platform!
       </p>
+
       <div class="flex mobile:mx-0 items-end">
         <a
           href="our-projects"

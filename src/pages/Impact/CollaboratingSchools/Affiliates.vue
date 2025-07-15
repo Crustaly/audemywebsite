@@ -106,7 +106,7 @@ const teachers = [
 
 <template>
   <div
-    class="flex flex-row justify-center items-center w-full mobile:w-[80vw] mobile:-ml-10"
+    class="flex flex-row justify-left items-center w-full mobile:w-[80vw] mobile:-ml-10"
   >
     <button
       @click="changeCurrentPage(1)"
@@ -119,7 +119,7 @@ const teachers = [
     >
       Affiliated Schools
     </button>
-    <button
+    <!-- button
       @click="changeCurrentPage(2)"
       :class="
         currentPage == 2
@@ -129,7 +129,7 @@ const teachers = [
       class="w-1/2 font-poppins font-[600] p-3 rounded-tl-[8px] rounded-tr-[8px] h-[50px] flex justify-center items-center"
     >
       Affiliated Teachers
-    </button>
+    </button-->
   </div>
 
   <div
@@ -143,14 +143,14 @@ const teachers = [
         :link="school.link"
       />
     </div>
-    <div v-if="currentPage === 2" class="overflow-y-auto h-[200px]">
+    <!--div v-if="currentPage === 2" class="overflow-y-auto h-[200px]">
       <TeachersList
         v-for="(teacher, index) in teachers"
         :key="index"
         :name="teacher.name"
         :link="teacher.link"
       />
-    </div>
+    </div-->
     <img
       src="/assets/images/impact/glasses.svg"
       class="absolute -right-[1rem] -bottom-[1.3rem]"

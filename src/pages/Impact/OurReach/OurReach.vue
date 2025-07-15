@@ -27,16 +27,40 @@
         <img
           src="/assets/images/impact/students 1.svg"
           alt="Student Icon"
-          class="mx-auto relative -top-12"
+          class="mx-auto relative -top-16 w-[250px] h-[250px]"
         />
-        <div>
-          <h3 class="font-poppins text-3xl mb-2">5,000+</h3>
-          <p class="font-poppins text-lg mt-2 font-semibold">
-            Blind students impacted
+        <div class="flex flex-col items-center text-body">
+          <h1
+          class="font-poppins font-bold text-7xl text-wrap mobile:text-4xl"
+          style="color: #d96f1f;"
+        >
+          1 in 5
+        </h1>
+          <p class="font-poppins text-base text-center mobile:text-[12px]">
+            blind students<br />
+             learning through play
           </p>
-          <p class="font-poppins text-sm mt-2 text-[#2f3e45]">
-            Our educational games and initiatives have increased global access
-            for blind and visually impaired students.
+        </div>
+      </div>
+
+      <div
+        class="bg-[#E5F0F5] border-2 border-[#c5dbe2] p-5 rounded-lg text-center w-[300px] relative translate-y-8 mobile:translate-y-0"
+      >
+        <img
+          src="/assets/images/impact/problems 1.svg"
+          alt="Problems Solved Icon"
+          class="mx-auto relative -top-16 w-[250px] h-[250px]"
+        />
+        <div class="flex flex-col items-center text-body">
+          <h1
+            class="font-poppins font-bold text-7xl text-wrap mobile:text-4xl"
+            style="color: #077bb3;"
+          >
+            36
+          </h1>
+          <p class="font-poppins text-base text-center mobile:text-[12px]">
+            parntering <br />
+            schools
           </p>
         </div>
       </div>
@@ -45,34 +69,22 @@
         class="bg-[#E5F0F5] border-2 border-[#c5dbe2] p-5 rounded-lg text-center w-[300px] relative"
       >
         <img
-          src="/assets/images/impact/problems 1.svg"
-          alt="Problems Solved Icon"
-          class="mx-auto relative -top-12"
-        />
-        <h3 class="font-poppins text-3xl mb-2">100,000+</h3>
-        <p class="font-poppins text-lg mt-2 font-semibold">Problems solved</p>
-        <p class="font-poppins text-sm mt-2 text-[#2f3e45]">
-          Users have solved and engaged in learning by answering questions
-          through our educational games.
-        </p>
-      </div>
-
-      <div
-        class="bg-[#E5F0F5] border-2 border-[#c5dbe2] p-5 rounded-lg text-center w-[300px] relative"
-      >
-        <img
           src="/assets/images/impact/globe 1.svg"
           alt="Collaborating Schools Icon"
-          class="mx-auto relative -top-12"
+          class="mx-auto relative -top-16 w-[250px] h-[250px]"
         />
-        <h3 class="font-poppins text-3xl mb-2">19+</h3>
-        <p class="font-poppins text-lg mt-2 font-semibold">
-          Collaborating schools for the blind
-        </p>
-        <p class="font-poppins text-sm mt-2 text-[#2f3e45]">
-          Audemy has been used by students and tested by teachers at schools
-          nationwide level.
-        </p>
+        <div class="flex flex-col items-center text-body">
+          <h1
+            class="font-poppins font-bold text-7xl text-wrap mobile:text-4xl"
+            style="color: #d96f1f;"
+          >
+            66
+          </h1>
+          <p class="font-poppins text-base text-center mobile:text-[12px]">
+            countries <br />
+            and counting...
+          </p>
+        </div>
       </div>
     </div>
   </div>
