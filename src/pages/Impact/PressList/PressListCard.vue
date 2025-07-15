@@ -20,7 +20,7 @@ const path = '/assets/images/impact/';
         class="flex flex-col justify-evenly h-auto rounded-[8px] mobile:px-4 mobile:justify-center mobile:items-center"
       >
         <!-- NEWS NETWORK (AUTHOR) -->
-        <h2 class="text-center text-[22px] font-bold mb-4 font-poppins" v-html="network"></h2>
+        <h2 class="text-center text-[22px] font-bold mb-4 font-poppins tablet:text-[14px] font-[600] mobile:text-[14px] mobile:text-center" v-html="network"></h2>
 
         <!-- IMAGE -->
         <div class="w-full">
@@ -37,7 +37,7 @@ const path = '/assets/images/impact/';
         <div class="mt-8 mobile:mt-4 w-full">
           <a :href="url" target="_blank" rel="noopener noreferrer" class="block">
             <h4
-              class="text-left text-body-text-color font-poppins text-[20px] tablet:text-[16px] font-[600] mobile:text-[16px] mobile:text-center hover:text-blue-600 transition-colors duration-200 cursor-pointer"
+              class="text-left text-body-text-color font-poppins text-[18px] tablet:text-[14px] font-[600] mobile:text-[14px] mobile:text-center hover:text-blue-600 transition-colors duration-200 cursor-pointer"
               v-html="text"
             ></h4>
           </a>
