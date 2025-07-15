@@ -15,7 +15,7 @@
         <h2
           class="text-center font-poppins text-4.5xl tablet:text-[32px] mobile:text-[24px] mobile:text-center font-[400]"
         >
-          Transforming lives, one child at a time
+          Transforming lives, <em style="color:#fe892a;"> one child at a time </em> 
         </h2>
       </div>
     </div>

@@ -4,6 +4,7 @@ const props = defineProps({
   image: String,
   text: String,
   author: String,
+  network: String,
   url: String,
 });
 const path = '/assets/images/impact/';
@@ -18,6 +19,9 @@ const path = '/assets/images/impact/';
       <div
         class="flex flex-col justify-evenly h-auto rounded-[8px] mobile:px-4 mobile:justify-center mobile:items-center"
       >
+        <!-- NEWS NETWORK (AUTHOR) -->
+        <h2 class="text-center text-[22px] font-bold mb-4 font-poppins" v-html="network"></h2>
+
         <!-- IMAGE -->
         <div class="w-full">
           <a :href="url" target="_blank" rel="noopener noreferrer" class="block">
