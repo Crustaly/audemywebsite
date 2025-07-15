@@ -18,7 +18,7 @@ import Affiliates from './Affiliates.vue';
       <h2
         class="text-left ml-[2rem] font-poppins text-4.5xl tablet:text-[32px] mobile:text-[24px] mobile:text-center font-[400] mobile:ml-0"
       >
-        Collaborating Schools
+      Collaborating <em style="color:#fe892a;"> Schools </em>
       </h2>
     </div>
 
@@ -46,8 +46,8 @@ import Affiliates from './Affiliates.vue';
         <p
           class="w-[504px] text-body text-xl font-poppins leading-8 mobile:ml-0 mobile:w-fit-content mobile:text-center"
         >
-          As we expand our services, we'd love to have you partner with us on
-          this exciting journey!
+          As we expand our services, we'd love to have you  <strong> partner with us on
+          this exciting journey </strong>!
         </p>
       </div>
 

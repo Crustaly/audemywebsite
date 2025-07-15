@@ -6,109 +6,109 @@ const items = [
   {
     image: 'katy-student-develops.png',
     text: 'Crystal Yang, Founder and CEO of Audemy, develops online tool to help blind students',
-    author: '-- By Fox News',
+    network: 'Fox News',
     url: 'https://www.fox26houston.com/news/katy-student-develops-online-tool-help-blind-students',
   },
   {
     image: 'intel-globalImpactAI.png',
     text: 'Intel celebrates Crystal Yang, winner of Global AI Impact Festival',
-    author: '-- By Intel',
+    network: 'Intel',
     url: 'https://www.intel.com/content/www/us/en/corporate/artificial-intelligence/winners2024.html',
   },
   {
     image: 'NPR-app.png',
     text: 'Crystal Yang on making education accessible for blind students through sound',
-    author: '-- By NPR',
+    network: 'NPR',
     url: 'https://www.youtube.com/watch?v=-Cd82j8v7Dc&ab_channel=HoustonPublicMedia',
   },
   {
     image: 'PBS-student-developes-app.png',
     text: 'Houston Students raise $100,000 for Accessibility Hackathon, KatyYouthHacks',
-    author: '-- By CW',
+    network: 'CW',
     url: 'https://www.youtube.com/watch?v=7y_vTaRb6Mc&t=2382s',
   },
   {
     image: 'acm-chi-2025.png',
-    text: 'AI for Accessible Education: Personalized Audio-Based Learning for Blind Students',
-    author: '-- By ACM CHI 2025 (Research Publication)',
+    text: 'AI for Accessible Education: Personalized Audio-Based Learning for Blind Students (Research Publication)',
+    network: 'ACM CHI 2025',
     url: 'https://arxiv.org/abs/2504.17117',
   },
   {
     image: 'ISTE.png',
     text: 'Intel presents: How students and educators are shaping the future',
-    author: '-- ISTE',
+    network: 'ISTE',
     url: 'https://conference.iste.org/2025/program/search/detail_session.php?id=118237270',
   },
   {
     image: 'students2.png',
     text: 'Crystal Yang creates audio based education game for visually impaired children.',
-    author: '-- By Community Impact',
+    network: 'Community Impact',
     url: 'https://communityimpact.com/houston/katy-north/nonprofit/2024/06/27/katy-isd-student-creates-audio-based-education-games-for-visually-impaired-children/',
   },
   {
     image: 'points-of-light.png',
     text: 'Championing Accessibility in Education for Blind and Visually Impaired Students Championing',
-    author: '-- By Points of Light',
+    network: 'Points of Light',
     url: 'https://www.pointsoflight.org/awards/championing-accessibility-in-education-for-blind-and-visually-impaired-students/',
   },
   {
     image: 'pbs-app.png',
     text: 'Audemy, an educational platform for blind and visually impaired students.',
-    author: '-- By PBS',
+    network: 'PBS',
     url: 'https://www.houstonpublicmedia.org/articles/shows/hello-houston/2025/06/10/523583/hello-houston-june-10-2025/',
   },
   {
     image: 'national_ai.png',
     text: 'Audemy, a bold education innovation for blind students',
-    author: '-- National AI Conference',
+    network: 'National AI Conference',
     url: 'https://www.hccs.edu/about-hcc/news/articles/hcc-to-host-2025-national-conference-on-artificial-intelligence-in-april.html',
   },
   {
     image: 'yahoo-news.png',
     text: 'Katy ISD student develops online tool to help blind students',
-    author: '-- By Yahoo News',
+    network: 'Yahoo News',
     url: 'https://www.yahoo.com/news/katy-isd-student-develops-online-223852490.html?guce_referrer=aHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS8&guce_referrer_sig=AQAAAGGYGPaUqvUCacJ9ExqIFOi7nLlL2Y9NFLcw4cprR1LeexxAbnW5xbK0h8dRPsLum2VnRzbOrFiZ31vzoDnh5Z4lKt2r1Ub_9xVjfD2iLOmXHS8pVYwN-vbuuBQmmIBkKYrqH3xw0my8NZzI5cwqOdUKjODwY97Bm77FRpleNdKM&guccounter=2',
   },
   {
     image: 'devpost.png',
     text: 'How Crystal’s love for hackathons inspired her to host her own',
-    author: '-- By Devpost',
+    network: 'Devpost',
     url: 'https://info.devpost.com/blog/user-story-crystal',
   },
   {
     image: 'Flipboard.png',
     text: 'Crystal’s Games Are Changing Education for Blind Students Nationwide',
-    author: '-- By Flipboard edu',
+    network: 'Flipboard edu',
     url: 'https://flipboardedu.substack.com/p/she-solved-a-friends-problem-now',
   },
   {
     image: 'acm-icmi-2024.png',
-    text: 'HEARD-LE: An Intelligent Conversational Interface for Wordle',
-    author: '-- By ACM ICMI 2024 (Research Publication)',
+    text: 'HEARD-LE: An Intelligent Conversational Interface for Wordle (Research Publication)',
+    network: 'ACM ICMI 2024',
     url: 'https://dl.acm.org/doi/10.1145/3610661.3617150',
   },
   {
     image: 'Authority.png',
     text: 'Crystal Yang of Audemy Is Helping To Change Our World',
-    author: '-- By Authority Magazine',
+    network: 'Authority Magazine',
     url: 'https://medium.com/authority-magazine/social-impact-heroes-why-how-crystal-yang-of-audemy-is-helping-to-change-our-world-59d47f21ac81',
   },
   {
     image: 'Canvas.png',
     text: 'Meet Crystal Yang!',
-    author: '-- By Canvas rebel',
+    network: 'By Canvas rebel',
     url: 'https://canvasrebel.com/meet-crystal-yang/',
   },
   {
     image: 'Voyage.png',
     text: 'Inspiring Conversations with Crystal Yang of Audemy',
-    author: '-- By Voyage Houston',
+    network: 'Voyage Houston',
     url: 'https://voyagehouston.com/interview/inspiring-conversations-with-crystal-yang-of-audemy',
   },
   {
     image: 'BoldJourney.png',
     text: 'Crystal Yang’s Journey',
-    author: '-- By Bold Journey',
+    network: 'Bold Journey',
     url: 'https://boldjourney.com/meet-crystal-yang/',
   },
 ];
@@ -169,7 +169,7 @@ onUnmounted(() => {
           <h2
             class="text-left font-poppins text-4.5xl tablet:text-[32px] mobile:text-[24px] mobile:text-center mobile: items-center mobile:justify-center mobile:-mx-14 font-[400]"
           >
-            Trusted by Leading Publications
+            Trusted by <em style="color:#fe892a;"> Leading Publications </em>
           </h2>
         </div>
       </div>
@@ -197,7 +197,7 @@ onUnmounted(() => {
                     <PressListCard
                       :image="item.image"
                       :text="item.text"
-                      :author="item.author"
+                      :network="item.network"
                       :smallScreen="smallScreen"
                       :url="item.url"
                       class="h-full"
