@@ -21,9 +21,6 @@ model User {
 enum Category {
   MATH
   LANGUAGE
-  SCIENCE
-  LIFE
-  INDEPENDENCE
 }
 model Game {
   game_id   Int       @id @unique @default(autoincrement()) 
