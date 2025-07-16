@@ -1,88 +1,146 @@
 <script setup>
-import Header from "../../components/Header/Header.vue";
-import GameZoneList from "../GameZone/GameZoneList/GameZoneList.vue";
-import GameProgress from "../GameZone/GameProgress/GameProgress.vue";
-import ScrollUpButton from "../../components/ScrollUpButton/ScrollUpButton.vue";
-import Footer from "../../components/Footer/Footer.vue";
+import Header from '../../components/Header/Header.vue';
+import GameZonePageButton from '../GameZone/GameZoneFilters/GameZonePageButton.vue';
+import GameZoneList from '../GameZone/GameZoneList/GameZoneList.vue';
+import GameProgress from '../GameZone/GameProgress/GameProgress.vue';
+import ScrollUpButton from '../../components/ScrollUpButton/ScrollUpButton.vue';
+import Footer from '../../components/Footer/Footer.vue';
 
-import { ref, onMounted, onUnmounted } from "vue";
+import { ref, onMounted } from 'vue';
 
-import { useDeviceType } from "../../Utilities/checkDeviceType";
-const { isMobile, isTablet } = useDeviceType();
+import { useDeviceType } from '../../Utilities/checkDeviceType';
+
+import {
+  getLanguageGames,
+  getMathGames,
+  getScienceGames,
+  getLifeSkillsGames,
+  getIndependenceSkillsGames,
+} from './GameDB.js';
+
+/*
+ * Extracted lists of objects for dropdown menus:
+ * - languageGamesMap, mathGamesMap, and scienceGamesMap
+ *
+ * Each object contains game title and URL
+ * - Example format: [{ title: 'Definition Detective', url: '/game/definitionDetective' }, ...]
+ */
+
+const languageGamesMap = getLanguageGames().map(({ title, url }) => ({
+  title,
+  url,
+}));
+
+const mathGamesMap = getMathGames().map(({ title, url }) => ({
+  title,
+  url,
+}));
+
+const scienceGamesMap = getScienceGames().map(({ title, url }) => ({
+  title,
+  url,
+}));
+
+const lifeSkillGameMap = getLifeSkillsGames().map(({ title, url }) => ({
+  title,
+  url,
+}));
+
+const independenceSkillGameMap = getIndependenceSkillsGames().map(
+  ({ title, url }) => ({
+    title,
+    url,
+  })
+);
+
+import { computed } from 'vue';
+const totalPages = 5; // TODO: Update to 6 once "My Progress" is ready
+
+/*
+ * Generates an array of page numbers [1 ... totalPages]
+ * Used in v-for to render GameZonePageButton's dynamically
+ */
+const pageNumberList = computed(() =>
+  Array.from({ length: totalPages }, (_, i) => i + 1)
+);
 
 const currentPage = ref(1);
 const changeCurrentPage = (page) => {
-    currentPage.value = page;
+  currentPage.value = page;
 };
 
 onMounted(() => {
-  const category = sessionStorage.getItem("gameCategory");
+  const category = sessionStorage.getItem('gameCategory');
 
-  if (category === "math") {
-    changeCurrentPage(2); // Math Games
+  if (category === 'math') {
+    changeCurrentPage(2);
+  } else if (category === 'science') {
+    changeCurrentPage(3); // Science Games
+  } else if (category === 'life-skills') {
+    changeCurrentPage(4); // Life Skills Games
+  } else if (category === 'independence-skills') {
+    changeCurrentPage(5); // Independence Skills Games
   } else {
-    changeCurrentPage(1); // Language Games or default
+    changeCurrentPage(1); // Default to Language Games
   }
 
   // Clear it after use
-  sessionStorage.removeItem("gameCategory");
+  sessionStorage.removeItem('gameCategory');
 });
-
-
 
 // Reactive flags to track dropdown visibility for each game menu (for 'aria-expanded')
 const isLangMenuOpen = ref(false);
 const isMathMenuOpen = ref(false);
+const isScienceMenuOpen = ref(false);
+const isLifeSkillsMenuOpen = ref(false);
+const isIndependenceSkillsMenuOpen = ref(false);
 
-// Updates Language menu visibility flag
-const changeIsLangMenuOpen = (bool) => {
-  isLangMenuOpen.value = bool;
-};
-
-// Updates Math menu visibility flag
-const changeIsMathMenuOpen = (bool) => {
-  isMathMenuOpen.value = bool;
-};
+// Updater functions for visibility flags
+const changeIsLangMenuOpen = (bool) => (isLangMenuOpen.value = bool);
+const changeIsMathMenuOpen = (bool) => (isMathMenuOpen.value = bool);
+const changeIsScienceMenuOpen = (bool) => (isScienceMenuOpen.value = bool);
+const changeIsLifeSkillsMenuOpen = (bool) =>
+  (isLifeSkillsMenuOpen.value = bool);
+const changeisIndependenceSkillsMenuOpen = (bool) =>
+  (isIndependenceSkillsMenuOpen.value = bool);
 
 function activateGameMenu(event) {
   const menuBtn = event.currentTarget;
 
   // Conditionally activate and style menu button
-  const isMenuActive = menuBtn.style.getPropertyValue('color') === 'rgb(8, 123, 180)' ? true : false;
+  const isMenuActive =
+    menuBtn.style.getPropertyValue('color') === 'rgb(8, 123, 180)'
+      ? true
+      : false;
   if (isMenuActive) {
-    // Deactivate and reset styling for menu 
+    // Deactivate and reset styling for menu
     deactivateGameMenu(menuBtn);
 
-    // Update reactive flag based on currentPage
-    if (currentPage.value === 1) {
-      changeIsLangMenuOpen(false);
-    } else {
-      changeIsMathMenuOpen(false);
-    }
-
+    if (currentPage.value === 1) changeIsLangMenuOpen(false);
+    else if (currentPage.value === 2) changeIsMathMenuOpen(false);
+    else if (currentPage.value === 3) changeIsScienceMenuOpen(false);
+    else if (currentPage.value === 4) changeIsLifeSkillsMenuOpen(false);
+    else if (currentPage.value === 5) changeisIndependenceSkillsMenuOpen(false);
   } else {
     menuBtn.style.backgroundColor = '#e6f3fa';
     menuBtn.style.fontWeight = '600';
     menuBtn.style.color = '#087BB4';
     menuBtn.style.borderColor = '#087BB4';
-
-    // Style arrow (svg)
     const svgArrow = menuBtn.querySelector('svg');
     svgArrow.style.fill = '#087BB4';
 
-    // Update reactive flag based on currentPage
-    if (currentPage.value === 1) {
-      changeIsLangMenuOpen(true);
-    } else {
-      changeIsMathMenuOpen(true);
-    }
+    if (currentPage.value === 1) changeIsLangMenuOpen(true);
+    else if (currentPage.value === 2) changeIsMathMenuOpen(true);
+    else if (currentPage.value === 3) changeIsScienceMenuOpen(true);
+    else if (currentPage.value === 4) changeIsLifeSkillsMenuOpen(true);
+    else if (currentPage.value === 5) changeisIndependenceSkillsMenuOpen(true);
   }
   // Toggle visibility of dropdown
   toggleDropdown();
 }
 
 // Deactivates the game menu button by resetting its styles
-function deactivateGameMenu(menuBtn) { 
+function deactivateGameMenu(menuBtn) {
   // Reset button
   menuBtn.style.backgroundColor = '#FFFFFF';
   menuBtn.style.fontWeight = 'normal';
@@ -92,68 +150,96 @@ function deactivateGameMenu(menuBtn) {
   // Reset arrow (svg)
   const svgArrow = menuBtn.querySelector('svg');
   svgArrow.style.fill = '#6E777C';
+}
 
-} 
-
-// Toggles visibility of the active dropdown menu (Language or Math)
+// Toggles visibility of the active dropdown menu
 function toggleDropdown() {
-  if (currentPage.value === 1) {
-    // Toggle Language dropdown visibility
-    const langDropdown = document.getElementById("lang-dropdown-div");
-    langDropdown.classList.toggle('hidden');
+  const pageMap = {
+    1: { id: 'lang-dropdown-div', updater: changeIsLangMenuOpen },
+    2: { id: 'math-dropdown-div', updater: changeIsMathMenuOpen },
+    3: { id: 'science-dropdown-div', updater: changeIsScienceMenuOpen },
+    4: { id: 'life-skills-dropdown-div', updater: changeIsLifeSkillsMenuOpen },
+    5: {
+      id: 'independence-skills-dropdown-div',
+      updater: changeisIndependenceSkillsMenuOpen,
+    },
+  };
 
+  const currentPageConfig = pageMap[currentPage.value];
+  if (currentPageConfig) {
+    const dropdown = document.getElementById(currentPageConfig.id);
+    dropdown.classList.toggle('hidden');
     // Update reactive flag for Language menu
-    const isLangVisible = !langDropdown.classList.contains('hidden');
-    changeIsLangMenuOpen(isLangVisible);
-
+    isVisible = !dropdown.classList.contains('hidden');
+    changeIsLangMenuOpen(isVisible);
+  } else if (currentPage.value === 2) {
+    dropdown = document.getElementById('math-dropdown-div');
+    dropdown.classList.toggle('hidden');
+    isVisible = !dropdown.classList.contains('hidden');
+    changeIsMathMenuOpen(isVisible);
+  } else if (currentPage.value === 3) {
+    dropdown = document.getElementById('science-dropdown-div');
+    dropdown.classList.toggle('hidden');
+    isVisible = !dropdown.classList.contains('hidden');
+    changeIsScienceMenuOpen(isVisible);
+  } else if (currentPage.value === 4) {
+    dropdown = document.getElementById('life-skills-dropdown-div');
+    dropdown.classList.toggle('hidden');
+    isVisible = !dropdown.classList.contains('hidden');
+    changeIsLifeSkillsMenuOpen(isVisible);
   } else {
-    // Toggle Math dropdown visibility
-    const mathDropdown = document.getElementById("math-dropdown-div");
-    mathDropdown.classList.toggle('hidden');
-
-    // Update reactive flag for Math menu
-    const isMathVisible = !mathDropdown.classList.contains('hidden');
-    changeIsMathMenuOpen(isMathVisible); 
+    dropdown = document.getElementById('independence-skills-dropdown-div');
+    dropdown.classList.toggle('hidden');
+    isVisible = !dropdown.classList.contains('hidden');
+    changeisIndependenceSkillsMenuOpen(isVisible);
   }
 }
 
 function handlePageSwitch(newPage) {
-  // Deactivate and reset styling for the opposite menu button
-  let oppositeMenuBtn = document.getElementById('lang-menu-btn');
-  let oppositeDropdown = document.getElementById('lang-dropdown-div');
+  const pages = {
+    1: { btn: 'lang-menu-btn', dropdown: 'lang-dropdown-div' },
+    2: { btn: 'math-menu-btn', dropdown: 'math-dropdown-div' },
+    3: { btn: 'science-menu-btn', dropdown: 'science-dropdown-div' },
+    4: { btn: 'life-skills-menu-btn', dropdown: 'life-skills-dropdown-div' },
+    5: {
+      btn: 'independence-skills-menu-btn',
+      dropdown: 'independence-skills-dropdown-div',
+    },
+  };
 
-  if (newPage === 1) {
-    // Opposite page = Math Games
-    oppositeMenuBtn = document.getElementById('math-menu-btn');
-    oppositeDropdown = document.getElementById('math-dropdown-div');
-  } 
-
-  deactivateGameMenu(oppositeMenuBtn);
-
-  // Hide the opposite dropdown if it's currently visible
-  if (!oppositeDropdown.classList.contains('hidden')) {
-    oppositeDropdown.classList.add('hidden');
+  for (const page in pages) {
+    if (parseInt(page) !== newPage) {
+      const { btn, dropdown } = pages[page];
+      const menuBtn = document.getElementById(btn);
+      const dropdownDiv = document.getElementById(dropdown);
+      if (menuBtn) deactivateGameMenu(menuBtn);
+      if (dropdownDiv && !dropdownDiv.classList.contains('hidden')) {
+        dropdownDiv.classList.add('hidden');
+      }
+    }
   }
-  
-  // Update the current page
+
   changeCurrentPage(newPage);
 
-  // Update reactive flags to reflect menu states for new page
-  if (newPage === 1) {
-    changeIsLangMenuOpen(true);
-    changeIsMathMenuOpen(false);
-  } else {
-    changeIsMathMenuOpen(true);
-    changeIsLangMenuOpen(false);
-  }
+  // Ensure all menus are reset to a closed state
+  changeIsLangMenuOpen(false);
+  changeIsMathMenuOpen(false);
+  changeIsScienceMenuOpen(false);
+  changeIsLifeSkillsMenuOpen(false);
+  changeisIndependenceSkillsMenuOpen(false);
 }
 
 function handleMenuBlur(event) {
+  const pageMap = {
+    1: 'lang-dropdown-div',
+    2: 'math-dropdown-div',
+    3: 'science-dropdown-div',
+    4: 'life-skills-dropdown-div',
+    5: 'independence-skills-dropdown-div',
+  };
+  const dropdownId = pageMap[currentPage.value];
   // Determine the currently active dropdown
-  let currentDropdown = document.getElementById('math-dropdown-div');
-  if (currentPage.value === 1) {
-    currentDropdown = document.getElementById('lang-dropdown-div');
-  } 
+  const currentDropdown = document.getElementById(dropdownId);
 
   // Keep menu open if focus moved into the dropdown options (e.g., tabbing through it)
   if (currentDropdown.contains(event.relatedTarget)) {
@@ -168,15 +254,17 @@ function handleDropdownFocusOut(event) {
   const currentDropdown = event.currentTarget;
 
   // Keep dropdown open if focus is still within it (e.g., tabbing through it)
-  if (currentDropdown.contains(event.relatedTarget)) {
-    return;
-  }
+  if (currentDropdown.contains(event.relatedTarget)) return;
 
-  // Otherwise, close dropdown and deactivate the corresponding menu button
-  let menuBtn = document.getElementById('lang-menu-btn');
-  if (currentPage.value === 2) {
-    menuBtn = document.getElementById('math-menu-btn');
-  }
+  const pageMap = {
+    1: 'lang-menu-btn',
+    2: 'math-menu-btn',
+    3: 'science-menu-btn',
+    4: 'life-skills-menu-btn',
+    5: 'independence-skills-menu-btn',
+  };
+  const menuBtnId = pageMap[currentPage.value];
+  const menuBtn = document.getElementById(menuBtnId);
 
   hideMenuDropdown(menuBtn, currentDropdown);
 }
@@ -188,235 +276,373 @@ function hideMenuDropdown(menuBtn, currentDropdown) {
   // Hides opened dropdown
   currentDropdown.classList.add('hidden');
 
-  // Update reactive flag 
-  if (currentPage.value === 1) {
-    changeIsLangMenuOpen(false);
-  } else {
-    changeIsMathMenuOpen(false);
-  }
+  // Update reactive flag
+  if (currentPage.value === 1) changeIsLangMenuOpen(false);
+  else if (currentPage.value === 2) changeIsMathMenuOpen(false);
+  else if (currentPage.value === 3) changeIsScienceMenuOpen(false);
+  else if (currentPage.value === 4) changeIsLifeSkillsMenuOpen(false);
+  else if (currentPage.value === 5) changeisIndependenceSkillsMenuOpen(false);
 }
-
 </script>
-
-
 
 <template>
   <ScrollUpButton />
   <div
     class="relative bg-white h-full overflow-x-hidden flex flex-col justify-center"
   >
-    <div 
-      :class="[
-        'relative', 
-        !isTablet && !isMobile ? 'px-14' : '',
-        isTablet ? 'px-6' : '',
-        isMobile ? 'px-8' : ''
-      ]" 
-      ref="content"
-    >
+    <div class="relative px-8 sm:px-8 md:px-6 lg:px-14" ref="content">
       <Header
         :textColor="'text-black'"
         :logoPath="'/assets/images/header/header-logo-2.png'"
       />
     </div>
-    <div class="w-full pt-10 flex align-center justify-center">
+    <div class="w-full pt-10 flex items-center justify-center">
       <div class="w-10/12">
-        <h2 id="game-zone-header" class="font-poppins text-black text-[40px] mobile:text-[25px] mobile:text-center M-0">
-          Play and learn with us!
+        <h2
+          id="game-zone-header"
+          class="font-poppins text-black text-[40px] mobile:text-[25px] mobile:text-center M-0 min-[768px]:max-[1024px]:mt-0"
+        >
+        <em style="color:#077bb3" class="font-semibold"> Play </em> and <em style="color:#fe892a" class="font-semibold"> learn </em> with us!
         </h2>
-        <div id="game-zone-grid" class="w-full grid grid-rows-3 gap-5 mb-10 mt-10">
-
-          <!-- LANGUAGE GAMES FILTER BUTTON -->
-          <button
-            @click="handlePageSwitch(1)"
-            :class="[
-              currentPage == 1
-                ? 'text-[#087BB4] bg-[#e6f3fa] font-semibold border-[#087BB4]'
-                : 'text-[#6E777C] bg-white border-[#6E777C]'
-            ]"
-            class="font-poppins mobile:text-[14px] py-2 px-8 rounded-full border"
-            id="lang-filter-btn"
+        <div
+          id="game-zone-grid"
+          class="w-full flex flex-wrap gap-5 mb-10 mt-10 items-start"
+        >
+          <div class="flex flex-wrap gap-5 mobile:w-full mobile:justify-center">
+            <!-- GENERATE PAGE BUTTONS FOR GAME CATEGORIES (WIP: and 'My Progress') -->
+            <GameZonePageButton
+              v-for="pageNumber in pageNumberList"
+              :key="pageNumber"
+              :pageNumber="pageNumber"
+              :currentPage="currentPage"
+              @click="handlePageSwitch(pageNumber)"
+            />
+          </div>
+          <div
+            class="relative flex flex-grow justify-end gap-5 mobile:w-full mobile:justify-center mobile:mt-4"
           >
-            Language Games
-          </button>
-
-          <!-- MATH GAMES FILTER BUTTON -->
-          <button
-            @click="handlePageSwitch(2)"
-            :class="[
-              currentPage == 2
-                ? 'text-[#087BB4] bg-[#e6f3fa] font-semibold border-[#087BB4]'
-                : 'text-[#6E777C] bg-white border-[#6E777C]'
-            ]"
-            class="font-poppins mobile:text-[14px] py-2 px-8 rounded-full border"
-            id="math-filter-btn"
-          >
-            Math Games
-          </button>
-          <!--button
-            @click="changeCurrentPage(3)"
-            :class="
-              currentPage == 3
-                ? 'text-[#087BB4] font-semibold'
-                : 'text-[#6E777C]'
-            "
-            class="font-poppins mobile:text-[14px]"
-          >
-            My Progress
-          </button-->
-
-          <!-- LANGUAGE GAMES MENU -->
-          <div class="relative w-full h-full" 
-              id="lang-menu-div"
-              :class="[
-                currentPage === 1 ? 'flex' : 'hidden'
-              ]"
-          >
-            <button type="button" 
-                    id="lang-menu-btn"
-                    @click="activateGameMenu"
-                    @blur="handleMenuBlur"
-                    :aria-expanded="isLangMenuOpen"
-                    aria-haspopup="true"
-                    aria-controls="lang-dropdown-div"
-                    :class="[
-                      currentPage === 1 ? 'flex' : 'hidden',
-                      'w-full items-center justify-center gap-2 font-poppins text-[#6E777C] bg-[#FFFFFF] font-normal border border-[#6E777C] mobile:text-[14px] py-2 px-8 rounded-full'
-                    ]"
-            >
-              <span>Game Menu</span>
-                <svg class="inline size-5 text-gray-400 fill-[#6E777C]" 
-                      viewBox="0 0 20 20" 
-                      fill="currentColor" 
-                      aria-hidden="true" 
-                      data-slot="icon"
-                      :class="[
-                          currentPage === 1
-                          ? 'fill-[#6E777C]'
-                          : 'hidden'
-                      ]"
-                >
-                  <path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
-              </svg>
-            </button>
-    
-            <!-- LANGUAGE GAMES DROPDOWN OPTIONS -->
+            <!-- LANGUAGE GAMES MENU -->
             <div
+              id="lang-menu-div"
+              :class="[currentPage === 1 ? 'flex' : 'hidden', 'relative']"
+            >
+              <button
+                type="button"
+                id="lang-menu-btn"
+                :class="[
+                  'game-menu-btn-base',
+                  isLangMenuOpen
+                    ? 'game-menu-btn-active'
+                    : 'game-menu-btn-inactive',
+                ]"
+                @click="activateGameMenu"
+                @blur="handleMenuBlur"
+                :aria-expanded="isLangMenuOpen"
+                aria-haspopup="true"
+                aria-controls="lang-dropdown-div"
+              >
+                <span>Game Menu</span>
+                <svg
+                  class="svg-arrow"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  aria-hidden="true"
+                  data-slot="icon"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </button>
+              <!-- LANGUAGE GAMES DROPDOWN OPTIONS -->
+              <div
                 id="lang-dropdown-div"
                 @focusout="handleDropdownFocusOut"
                 tabindex="-1"
-                class="hidden absolute left-0 top-10 z-10 mt-2 w-full origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black/5 focus:outline-hidden text-center" 
-                role="menu" 
-                aria-orientation="vertical" 
+                class="game-menu-dropdown-base hidden"
+                role="menu"
+                aria-orientation="vertical"
                 aria-labelledby="lang-menu-btn"
-            >
-              <div id="lang-dropdown-options" class="py-1 text-[15px]" role="none">             
-                <a href="/game/definitionDetective" class="block px-4 py-2 text-gray-700" role="menuitem" id="lang-game-1">
-                  Definition Detective
-                </a>
-                <a href="/game/partofspeech" class="block px-4 py-2 text-gray-700" role="menuitem" id="lang-game-2">
-                  Part of Speech
-                </a>
-                <a href="/game/colorgame" class="block px-4 py-2 text-gray-700" role="menuitem" id="lang-game-3">
-                  Color Game
-                </a>
-                <a href="/game/syllableSorting" class="block px-4 py-2 text-gray-700" role="menuitem" id="lang-game-4">
-                  Syllable Sorting
-                </a>
-                <a href="/game/vocabVortex" class="block px-4 py-2 text-gray-700" role="menuitem" id="lang-game-5">
-                  Vocabulary Vortex
-                </a>
-                <a href="/game/polarpairing" class="block px-4 py-2 text-gray-700" role="menuitem" id="lang-game-6">
-                  Polar Pairing
-                </a>
-                <a href="/game/oddoneout" class="block px-4 py-2 text-gray-700" role="menuitem" id="lang-game-7">
-                  Odd One Out
-                </a>
-                <a href="/game/spellingbee" class="block px-4 py-2 text-gray-700" role="menuitem" id="lang-game-8">
-                  Spelling Bee
-                </a>
+              >
+                <div
+                  id="lang-dropdown-options"
+                  class="py-1 text-[15px]"
+                  role="none"
+                >
+                  <!-- Generate game menu links by looping over 'languageGamesMap' entries -->
+                  <a
+                    v-for="{ title, url } in languageGamesMap"
+                    :key="url"
+                    :href="url"
+                    class="game-menu-link"
+                    role="menuitem"
+                  >
+                    {{ title }}
+                  </a>
+                </div>
               </div>
             </div>
-          </div>
-          
-          <!-- MATH GAMES MENU -->
-          <div class="relative w-full h-full" 
+            <!-- MATH GAMES MENU -->
+            <div
               id="math-menu-div"
-              :class="[
-                currentPage === 2 ? 'flex' : 'hidden'
-              ]"
-          >
-            <button type="button" 
-                    id="math-menu-btn"
-                    @click="activateGameMenu"
-                    @blur="handleMenuBlur"
-                    :aria-expanded="isMathMenuOpen"
-                    aria-haspopup="true"
-                    aria-controls="math-dropdown-div"
-                    :class="[
-                      currentPage === 2 ? 'flex' : 'hidden',
-                      'w-full items-center justify-center gap-2 font-poppins text-[#6E777C] bg-[#FFFFFF] font-normal border border-[#6E777C] mobile:text-[14px] py-2 px-8 rounded-full'
-                    ]"
+              :class="[currentPage === 2 ? 'flex' : 'hidden', 'relative']"
             >
-              <span>Game Menu</span>
-                <svg class="size-5 text-gray-400" 
-                      viewBox="0 0 20 20" 
-                      fill="currentColor" 
-                      aria-hidden="true" 
-                      data-slot="icon"
-                      :class="[
-                          currentPage === 2
-                          ? 'fill-[#6E777C]'
-                          : 'hidden'
-                      ]"
+              <button
+                type="button"
+                id="math-menu-btn"
+                :class="[
+                  'game-menu-btn-base',
+                  isMathMenuOpen
+                    ? 'game-menu-btn-active'
+                    : 'game-menu-btn-inactive',
+                ]"
+                @click="activateGameMenu"
+                @blur="handleMenuBlur"
+                :aria-expanded="isMathMenuOpen"
+                aria-haspopup="true"
+                aria-controls="math-dropdown-div"
+              >
+                <span>Game Menu</span>
+                <svg
+                  class="svg-arrow"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  aria-hidden="true"
+                  data-slot="icon"
                 >
-                  <path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+                  <path
+                    fill-rule="evenodd"
+                    d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
+                    clip-rule="evenodd"
+                  />
                 </svg>
-            </button>
-            <!-- MATH GAMES DROPDOWN OPTIONS -->
-            <div 
+              </button>
+              <!-- MATH GAMES DROPDOWN OPTIONS -->
+              <div
                 id="math-dropdown-div"
                 @focusout="handleDropdownFocusOut"
                 tabindex="-1"
-                class="hidden absolute left-0 top-10 z-10 mt-2 w-full origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black/5 focus:outline-hidden text-center" 
-                role="menu" 
-                aria-orientation="vertical" 
+                class="game-menu-dropdown-base hidden"
+                role="menu"
+                aria-orientation="vertical"
                 aria-labelledby="math-menu-btn"
+              >
+                <div
+                  id="math-dropdown-options"
+                  class="py-1 text-[15px]"
+                  role="none"
+                >
+                  <!-- Generate game menu links by looping over 'mathGamesMap' map entries -->
+                  <a
+                    v-for="{ title, url } in mathGamesMap"
+                    :key="url"
+                    :href="url"
+                    class="game-menu-link"
+                    role="menuitem"
+                  >
+                    {{ title }}
+                  </a>
+                </div>
+              </div>
+            </div>
+            <!-- SCIENCE GAMES MENU -->
+            <div
+              id="science-menu-div"
+              :class="[currentPage === 3 ? 'flex' : 'hidden', 'relative']"
             >
-              <div id="math-dropdown-options" class="py-1 text-[15px]" role="none">           
-                <a href="/game/fruitfrenzy" class="block px-4 py-2 text-gray-700" role="menuitem" id="math-game-1">
-                  Fruit Frenzy
-                </a>
-                <a href="/game/shapeshark" class="block px-4 py-2 text-gray-700" role="menuitem" id="math-game-2">
-                  Shape Shark
-                </a>
-                <a href="/game/addition" class="block px-4 py-2 text-gray-700" role="menuitem" id="math-game-3">
-                  Animal Addition
-                </a>
-                <a href="/game/subtraction" class="block px-4 py-2 text-gray-700" role="menuitem" id="math-game-4">
-                  Subtraction Safari
-                </a>
-                <a href="game/multiplicationmadness" class="block px-4 py-2 text-gray-700" role="menuitem" id="math-game-5">
-                  Multiplication Madness
-                </a>
-                <a href="/game/DivisionDuel" class="block px-4 py-2 text-gray-700" role="menuitem" id="math-game-6">
-                  Division Duel
-                </a>
-                <a href="/game/monkeymadness" class="block px-4 py-2 text-gray-700" role="menuitem" id="math-game-7">
-                  Monkey Madness
-                </a>
-                <a href="/game/carcounting" class="block px-4 py-2 text-gray-700" role="menuitem" id="math-game-8">
-                  Car Counting
-                </a>
+              <button
+                type="button"
+                id="science-menu-btn"
+                @click="activateGameMenu"
+                @blur="handleMenuBlur"
+                :aria-expanded="isScienceMenuOpen"
+                aria-haspopup="true"
+                aria-controls="science-dropdown-div"
+                :class="[
+                  'game-menu-btn-base',
+                  isScienceMenuOpen
+                    ? 'game-menu-btn-active'
+                    : 'game-menu-btn-inactive',
+                ]"
+              >
+                <span>Game Menu</span>
+                <svg
+                  class="svg-arrow"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  aria-hidden="true"
+                  data-slot="icon"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </button>
+              <!-- SCIENCE GAMES DROPDOWN OPTIONS -->
+              <div
+                id="science-dropdown-div"
+                @focusout="handleDropdownFocusOut"
+                tabindex="-1"
+                class="game-menu-dropdown-base hidden"
+                role="menu"
+                aria-orientation="vertical"
+                aria-labelledby="science-menu-btn"
+              >
+                <div
+                  id="science-dropdown-options"
+                  class="py-1 text-[15px]"
+                  role="none"
+                >
+                  <!-- Generate game menu links by looping over 'scienceGamesMap' map entries -->
+                  <a
+                    v-for="{ title, url } in scienceGamesMap"
+                    :key="url"
+                    :href="url"
+                    class="game-menu-link"
+                    role="menuitem"
+                  >
+                    {{ title }}
+                  </a>
+                </div>
+              </div>
+            </div>
+            <!-- LIFE SKILLS GAMES MENU -->
+            <div
+              id="life-skills-menu-div"
+              :class="[currentPage === 4 ? 'flex' : 'hidden', 'relative']"
+            >
+              <button
+                type="button"
+                id="life-skills-menu-btn"
+                :class="[
+                  'game-menu-btn-base',
+                  isLifeSkillsMenuOpen
+                    ? 'game-menu-btn-active'
+                    : 'game-menu-btn-inactive',
+                ]"
+                @click="activateGameMenu"
+                @blur="handleMenuBlur"
+                :aria-expanded="isLifeSkillsMenuOpen"
+                aria-haspopup="true"
+                aria-controls="life-skills-dropdown-div"
+              >
+                <span>Game Menu</span>
+                <svg
+                  class="svg-arrow"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  aria-hidden="true"
+                  data-slot="icon"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </button>
+              <!-- LIFE SKILLS GAMES DROPDOWN OPTIONS -->
+              <div
+                id="life-skills-dropdown-div"
+                @focusout="handleDropdownFocusOut"
+                tabindex="-1"
+                class="game-menu-dropdown-base hidden"
+                role="menu"
+                aria-orientation="vertical"
+                aria-labelledby="life-skills-menu-btn"
+              >
+                <div
+                  id="life-skills-dropdown-options"
+                  class="py-1 text-[15px]"
+                  role="none"
+                >
+                  <!-- Generate game menu links by looping over 'lifeSkillGameMap' entries -->
+                  <a
+                    v-for="{ title, url } in lifeSkillGameMap"
+                    :key="url"
+                    :href="url"
+                    class="game-menu-link"
+                    role="menuitem"
+                  >
+                    {{ title }}
+                  </a>
+                </div>
+              </div>
+            </div>
+            <!-- INDEPENDENCE SKILLS GAMES MENU -->
+            <div
+              id="independence-skills-menu-div"
+              :class="[currentPage === 5 ? 'flex' : 'hidden', 'relative']"
+            >
+              <button
+                type="button"
+                id="independence-skills-menu-btn"
+                :class="[
+                  'game-menu-btn-base',
+                  isIndependenceSkillsMenuOpen
+                    ? 'game-menu-btn-active'
+                    : 'game-menu-btn-inactive',
+                ]"
+                @click="activateGameMenu"
+                @blur="handleMenuBlur"
+                :aria-expanded="isIndependenceSkillsMenuOpen"
+                aria-haspopup="true"
+                aria-controls="independence-skills-dropdown-div"
+              >
+                <span>Game Menu</span>
+                <svg
+                  class="svg-arrow"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  aria-hidden="true"
+                  data-slot="icon"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </button>
+              <!-- INDEPENDENCE SKILLS GAMES DROPDOWN OPTIONS -->
+              <div
+                id="independence-skills-dropdown-div"
+                @focusout="handleDropdownFocusOut"
+                tabindex="-1"
+                class="game-menu-dropdown-base hidden"
+                role="menu"
+                aria-orientation="vertical"
+                aria-labelledby="independence-skills-menu-btn"
+              >
+                <div
+                  id="independence-skills-dropdown-options"
+                  class="py-1 text-[15px]"
+                  role="none"
+                >
+                  <!-- Generate game menu links by looping over 'independenceSkillGameMap' map entries -->
+                  <a
+                    v-for="{ title, url } in independenceSkillGameMap"
+                    :key="url"
+                    :href="url"
+                    class="game-menu-link"
+                    role="menuitem"
+                  >
+                    {{ title }}
+                  </a>
+                </div>
               </div>
             </div>
           </div>
         </div>
         <div>
-          <div v-if="currentPage != 3">
+          <div v-if="currentPage != 6">
             <GameZoneList :type="currentPage" />
           </div>
-          <div v-if="currentPage === 3">
+          <div v-if="currentPage === 6">
             <GameProgress />
           </div>
         </div>
@@ -425,69 +651,3 @@ function hideMenuDropdown(menuBtn, currentDropdown) {
   </div>
   <Footer />
 </template>
-
-
-
-<style scoped>
-
-button:hover, #lang-menu-btn:hover, #math-menu-btn:hover {
-  background-color: #e6f3fa; 
-}
-
-#lang-dropdown-options a, #math-dropdown-options a {
-  border-bottom: 1px #D3D3D3 solid;
-}
-
-#lang-dropdown-options a:last-child, #math-dropdown-options a:last-child {
-  border-bottom: none;
-}
-
-#lang-dropdown-options a:hover, #math-dropdown-options a:hover {
-  background-color: #e6f3fa;
-}
-
-/* * * * * Edge Case: 'Language Games' button expands horizontally between 767px–803px widths * * * * */
-/* Shift both Language and Math dropdowns downward to avoid overlap with expanded button */
-@media only screen and (min-width: 767px) and (max-width: 803px) {
-  #lang-dropdown-div, #math-dropdown-div {
-    margin-top: 30px;
-  }
-}
-
-/* * * * * Medium Viewports (width ≥768px and <= 1024px) * * * * */
-@media only screen and (min-width: 768px) and (max-width: 1024px) {
-  #game-zone-header {
-    margin-top: 0;
-  }
-
-  #game-zone-grid {
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: auto; /* switches to single row */
-  }
-}
-
-/* * * * * Large Viewports (width ≥ 1025px) * * * * */
-@media only screen and (min-width: 1025px) {
-  #game-zone-header {
-    margin-top: 0;
-  }
-
-  #game-zone-grid {
-    grid-template-areas: 'lang math . . . . menu';
-    grid-template-rows: auto;
-  }
-
-  #lang-filter-btn {
-    grid-area: lang;
-  }
-
-  #math-filter-btn {
-    grid-area: math;
-  }
-
-  #lang-menu-div, #math-menu-div {
-    grid-area: menu;
-  }
-}
-
-</style>

@@ -1,0 +1,77 @@
+{
+  "AskingForAssistanceGame": {
+    "Questions": {
+      "Easy": [
+        { "Q": "What word means 'please assist me'?", "A": ["Help"] },
+        {
+          "Q": "What polite phrase do you use to get someone's attention?",
+          "A": ["Excuse-me"]
+        },
+        { "Q": "What do you say after someone helps you?", "A": ["Thank-you"] },
+        {
+          "Q": "What do you call the information someone gives you to find a place?",
+          "A": ["Directions"]
+        },
+        { "Q": "What do you call a person you don't know?", "A": ["Stranger"] },
+        {
+          "Q": "What should your tone of voice be when asking for help?",
+          "A": ["Polite"]
+        },
+        {
+          "Q": "What is it called when you ask someone to read something to you?",
+          "A": ["Read"]
+        },
+        {
+          "Q": "What do you ask when you don't know where you are?",
+          "A": ["Where"]
+        },
+        { "Q": "What do you ask to find out what time it is?", "A": ["Time"] },
+        {
+          "Q": "What is the name of the person who works in a store?",
+          "A": ["Employee"]
+        }
+      ],
+      "Medium": [
+        {
+          "Q": "What is a clear and easy-to-understand way of asking a question?",
+          "A": ["Specific"]
+        },
+        {
+          "Q": "What should you do to show you are listening to the answer?",
+          "A": ["Nod"]
+        },
+        {
+          "Q": "What do you call it when you ask for more details?",
+          "A": ["Clarification"]
+        },
+        {
+          "Q": "What is the name of a place where you can ask for information?",
+          "A": ["Desk"]
+        },
+        { "Q": "What do you call a person who can guide you?", "A": ["Guide"] }
+      ],
+      "Hard": [
+        {
+          "Q": "What is it called when you give someone a reference point, like 'the tall building'?",
+          "A": ["Landmark"]
+        },
+        {
+          "Q": "What do you call it when you ask for help in a way that is not demanding?",
+          "A": ["Request"]
+        },
+        {
+          "Q": "What do you call it when you sense someone is busy and decide not to ask for help?",
+          "A": ["Judgement"]
+        },
+        {
+          "Q": "What is it called when you explain what kind of help you need?",
+          "A": ["Describe"]
+        },
+        {
+          "Q": "What do you call it when you trust the information someone gives you?",
+          "A": ["Trust"]
+        }
+      ]
+    }
+  }
+}

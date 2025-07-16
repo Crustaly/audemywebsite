@@ -1,0 +1,71 @@
+{
+  "ScheduleShuffleGame": {
+    "Questions": {
+      "Easy": [
+        { "Q": "What meal comes first in the day?", "A": ["Breakfast"] },
+        { "Q": "What meal do you usually eat around noon?", "A": ["Lunch"] },
+        { "Q": "What is the last meal of the day called?", "A": ["Dinner"] },
+        {
+          "Q": "What do you call the time you are supposed to go to bed?",
+          "A": ["Bedtime"]
+        },
+        { "Q": "Where do you go during the day to learn?", "A": ["School"] },
+        {
+          "Q": "What is the name for a short meal between main meals?",
+          "A": ["Snack"]
+        },
+        { "Q": "What day comes after Friday?", "A": ["Saturday"] },
+        { "Q": "What day comes before Wednesday?", "A": ["Tuesday"] },
+        {
+          "Q": "What do we call Saturday and Sunday together?",
+          "A": ["Weekend"]
+        },
+        {
+          "Q": "What do you call the jobs you have to do around the house?",
+          "A": ["Chores"]
+        }
+      ],
+      "Medium": [
+        {
+          "Q": "What tool do you use to see what day it is?",
+          "A": ["Calendar"]
+        },
+        {
+          "Q": "What do you call an event you have to go to?",
+          "A": ["Appointment"]
+        },
+        {
+          "Q": "What do you call a list of things you need to do?",
+          "A": ["To-do"]
+        },
+        {
+          "Q": "What do you call the time after school and before dinner?",
+          "A": ["Afternoon"]
+        },
+        { "Q": "What is the first day of the school week?", "A": ["Monday"] }
+      ],
+      "Hard": [
+        {
+          "Q": "What do you call it when you have to do something regularly, like every Tuesday?",
+          "A": ["Routine"]
+        },
+        {
+          "Q": "What do you call it when you plan your tasks based on what's most important?",
+          "A": ["Prioritize"]
+        },
+        {
+          "Q": "What do you call the time between sunset and sunrise?",
+          "A": ["Night"]
+        },
+        {
+          "Q": "What is the name for a book where you write down your schedule?",
+          "A": ["Planner"]
+        },
+        {
+          "Q": "What do you call a break from school in the summer?",
+          "A": ["Vacation"]
+        }
+      ]
+    }
+  }
+}

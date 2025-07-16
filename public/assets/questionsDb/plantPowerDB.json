@@ -1,0 +1,92 @@
+{
+  "PlantPowerGame": {
+    "Questions": {
+      "Easy": [
+        {
+          "Q": "What part of a plant makes food?",
+          "A": ["Leaf"]
+        },
+        {
+          "Q": "What part of a plant soaks up water from the soil?",
+          "A": ["Roots"]
+        },
+        {
+          "Q": "What part of a plant holds it up straight and tall?",
+          "A": ["Stem"]
+        },
+        {
+          "Q": "What is the colorful part of a plant that attracts insects?",
+          "A": ["Flower"]
+        },
+        {
+          "Q": "What does a plant need from the sky to get energy?",
+          "A": ["Sun"]
+        },
+        {
+          "Q": "What clear liquid do all plants need to survive?",
+          "A": ["Water"]
+        },
+        {
+          "Q": "What does a flower make that can grow into a new plant?",
+          "A": ["Seed"]
+        },
+        {
+          "Q": "What gas do plants release into the air that animals breathe?",
+          "A": ["Oxygen"]
+        },
+        {
+          "Q": "What is the sweet liquid made by flowers that bees and hummingbirds drink?",
+          "A": ["Nectar"]
+        },
+        {
+          "Q": "In what part of a plant does a seed often grow and stay protected?",
+          "A": ["Fruit"]
+        }
+      ],
+      "Medium": [
+        {
+          "Q": "What is the process where plants use sunlight to make their own food?",
+          "A": ["Photosynthesis"]
+        },
+        {
+          "Q": "What is the green pigment in leaves that captures sunlight?",
+          "A": ["Chlorophyll"]
+        },
+        {
+          "Q": "What is the process of a seed sprouting and beginning to grow?",
+          "A": ["Germination"]
+        },
+        {
+          "Q": "What is the transfer of pollen between flowers called?",
+          "A": ["Pollination"]
+        },
+        {
+          "Q": "What are the tiny pores on a leaf that allow it to breathe?",
+          "A": ["Stomata"]
+        }
+      ],
+      "Hard": [
+        {
+          "Q": "What tubes transport water from a plant's roots to its leaves?",
+          "A": ["Xylem"]
+        },
+        {
+          "Q": "What tubes transport sugar from the leaves to the rest of the plant?",
+          "A": ["Phloem"]
+        },
+        {
+          "Q": "What is the process of a plant releasing water vapor from its leaves?",
+          "A": ["Transpiration"]
+        },
+        {
+          "Q": "What is the scientific study of plants called?",
+          "A": ["Botany"]
+        },
+        {
+          "Q": "What is the male part of a flower that produces pollen called?",
+          "A": ["Stamen"]
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,45 @@
+/* --- Header.vue --- */
+
+@layer components {
+  /* --- Navigation Links --- */
+  .navbar-link-desktop {
+    @apply px-2 pb-2 hover:text-primary-color hover:border-b-2 border-primary-color;
+  }
+
+  .navbar-link-mobile {
+    @apply block py-4 hover:text-primary-color;
+  }
+
+  #router-links-grid > li {
+    @apply self-center; /* Align links vertically with logo */
+  }
+
+  /* --- Mobile Nav Icons --- */
+  #mobile-nav-socials svg:hover {
+    @apply fill-[#087bb4]; /* Hover color for social icons */
+  }
+
+  /* --- Mobile Nav Button --- */
+  #nav-btn-item button:hover {
+    @apply text-primary-color; /* Text color hover for hamburger button */
+  }
+
+  /* --- Profile Icon --- */
+  .navbar-profile-desktop {
+    @apply w-6 h-6 rounded-full ml-2 md:m-0 lg:ml-2; /* Google or default avatar */
+  }
+
+  /* --- Account Buttons --- */
+  .base-account-btn {
+    /* Shared Login/Logout button styles */
+    @apply flex justify-center items-center font-bold py-3 px-6 rounded-lg border-[1.5px] shadow-[3px_4px_0px_#0C0D0D] border-black;
+  }
+
+  .base-login-btn {
+    @apply base-account-btn text-white bg-[#087BB4] hover:bg-[#0C587D];
+  }
+
+  .base-logout-btn {
+    @apply base-account-btn text-black bg-[#FE892A] hover:bg-[#D6711F];
+  }
+}

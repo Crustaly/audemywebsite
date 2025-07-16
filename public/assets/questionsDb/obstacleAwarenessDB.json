@@ -1,0 +1,71 @@
+{
+  "ObstacleAwarenessGame": {
+    "Questions": {
+      "Easy": [
+        { "Q": "What object is round and rolls?", "A": ["Ball"] },
+        { "Q": "What piece of furniture do you sit on?", "A": ["Chair"] },
+        { "Q": "What piece of furniture do you eat at?", "A": ["Table"] },
+        { "Q": "What do you open to go into a room?", "A": ["Door"] },
+        {
+          "Q": "What do you walk up or down to change floors?",
+          "A": ["Stairs"]
+        },
+        { "Q": "What is a small step up or down called?", "A": ["Step"] },
+        {
+          "Q": "What do you call the things that block your path?",
+          "A": ["Obstacles"]
+        },
+        {
+          "Q": "What sound does it make when your cane hits a wall?",
+          "A": ["Tap"]
+        },
+        {
+          "Q": "What is a short, thin object you might find on the sidewalk?",
+          "A": ["Pole"]
+        },
+        { "Q": "What do you call the edge of a sidewalk?", "A": ["Curb"] }
+      ],
+      "Medium": [
+        {
+          "Q": "What is the sound of footsteps approaching you?",
+          "A": ["Footsteps"]
+        },
+        {
+          "Q": "What kind of floor covering is soft and plush?",
+          "A": ["Carpet"]
+        },
+        { "Q": "What kind of floor is hard and smooth?", "A": ["Tile"] },
+        {
+          "Q": "What do you call an object that is not where it's supposed to be?",
+          "A": ["Unexpected"]
+        },
+        {
+          "Q": "What do you call the sound of people talking in a room?",
+          "A": ["Chatter"]
+        }
+      ],
+      "Hard": [
+        {
+          "Q": "What do you call the area above your head where you might hit something?",
+          "A": ["Head-height"]
+        },
+        {
+          "Q": "What is a low-hanging object, like a tree branch, called?",
+          "A": ["Branch"]
+        },
+        {
+          "Q": "What do you call a sign that is standing on the sidewalk?",
+          "A": ["A-frame"]
+        },
+        {
+          "Q": "What do you call the process of remembering where obstacles are?",
+          "A": ["Mapping"]
+        },
+        {
+          "Q": "What is a sudden, unexpected drop in the ground called?",
+          "A": ["Pothole"]
+        }
+      ]
+    }
+  }
+}

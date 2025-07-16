@@ -1,9 +1,8 @@
-<script setup>
-</script>
+<script setup></script>
 
 <template>
   <div
-    class="flex flex-col items-center gap-y-12 self-center pt-80 mobile:pt-64 pb-[18rem] mobile:mt-5 mobile:pb-40 px-20 mobile:px-0 relative z-10"
+  class="flex flex-col items-center gap-y-12 self-center pt-80 mobile:pt-64 pb-[6rem] mobile:mt-5 mobile:pb-16 px-20 mobile:px-0 relative z-10"
   >
     <img
       src="/assets/images/testimonials/testimonials-bg.png"
@@ -21,7 +20,9 @@
       </p>
     </div>
 
-    <div class="flex items-center justify-center h-auto w-full mobile:overflow-x-auto mobile:overflow-y-hidden">
+    <div
+      class="flex items-center justify-center h-auto w-full mobile:overflow-x-auto mobile:overflow-y-hidden"
+    >
       <div class="w-[85%] tablet:w-[95%] mobile:w-[95%]">
         <div
           class="flex justify-around items-center w-full min-h-[400px] mobile:min-h-[450px] mobile:gap-8"
@@ -36,12 +37,17 @@
                 class="absolute top-[-2.5rem] left-[0rem] z-10 pulse"
               />
 
-              <div class="max-w-52 w-full flex flex-col gap-y-4 mobile:justify-between mobile:h-full font-poppins">
+              <div
+                class="max-w-52 w-full flex flex-col gap-y-4 mobile:justify-between mobile:h-full font-poppins"
+              >
                 <p class="">
-                  “Audemy has been an invaluable tool within my classroom. My students who played the games were very into it, and the games cover tons of educational topics like math and language!”
+                  “Audemy has been an invaluable tool within my classroom. My
+                  students who played the games were very into it, and the games
+                  cover tons of educational topics like math and language!”
                 </p>
                 <h2 class="text-small">
-                  &mdash; Teacher from the Texas School for the Blind and Visually Impaired
+                  &mdash; Teacher from the Texas School for the Blind and
+                  Visually Impaired
                 </h2>
               </div>
             </div>
@@ -57,9 +63,12 @@
                 class="absolute top-[2rem] right-[-2rem] mobile:right-[-1.4rem] z-10 pulse"
               />
 
-              <div class="max-w-52 w-full flex flex-col gap-y-4 mobile:justify-between mobile:h-full font-poppins">
+              <div
+                class="max-w-52 w-full flex flex-col gap-y-4 mobile:justify-between mobile:h-full font-poppins"
+              >
                 <p class="">
-                  “Audemy’s games provide accessible and engaging educational content for our blind students.”
+                  “Audemy’s games provide accessible and engaging educational
+                  content for our blind students. We encourage parents and other teachers to check it out as well.”
                 </p>
                 <h3 class="text-small">
                   &mdash; Staff from Kansas School for the Blind
@@ -78,11 +87,14 @@
                 class="absolute bottom-[-2.5rem] right-[1rem] z-10 pulse"
               />
 
-              <div class="max-w-52 w-full flex flex-col gap-y-4 mobile:justify-between mobile:h-full font-poppins">
+              <div
+                class="max-w-52 w-full flex flex-col gap-y-4 mobile:justify-between mobile:h-full font-poppins"
+              >
                 <p class="">
-                  “Audemy’s audio games are really cool! My favorite game was car counting because I love cars and math.”
+                  “Audemy’s audio games are really cool! My favorite game was
+                  car counting because I love cars and math.”
                 </p>
-                <h4 class="text-small">&mdash; Blind Student from Houston</h4>
+                <h4 class="text-small">&mdash; Adam, a Blind Student from Houston</h4>
               </div>
             </div>
           </div>

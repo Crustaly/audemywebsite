@@ -1,0 +1,59 @@
+/* footer-style.css: 
+ * 
+ * - Shared Tailwind utility classes for <Footer /> 
+ * - Default: Mobile-first Views
+ */
+
+@layer components {
+  /* Typography (subheader & subtext) */
+  .ftr-subheader {
+    @apply text-base font-semibold mb-2;
+  }
+
+  .ftr-subtext {
+    @apply text-sm font-normal mb-2;
+  }
+
+  /* Link Containers */
+  #quick-links-items a {
+    @apply block;
+  }
+
+  /* Link Styling */
+  #quick-links-items a,
+  .social-link,
+  #contact-items a {
+    /* Prevent layout shift on hover with transparent bottom border */
+    @apply pb-[0.215rem] w-full inline-block border-b border-b-transparent;
+  }
+
+  /* Hover state: Underline text links only (not icons) */
+  #quick-links-items a:hover,
+  .social-link:hover,
+  #contact-items a:hover {
+    @apply text-black border-b border-black;
+  }
+
+  /* Social Media: Text Links */
+  .social-icon-link {
+    /* 
+     * Accessibility: 
+     * - Touch area: 24×24px (w-6 h-6) + p-1 padding = ≥28×28px total
+     * - Meets/exceeds WCAG 2.2 AA target size minimum
+     */
+    @apply w-6 h-6 p-1 justify-self-end md:justify-self-start lg:justify-self-center;
+  }
+
+  /* Social Media: Icon Buttons */
+  .social-brand {
+    /* Accessibility: 
+     * - Icon size: 20×20px (w-5 h-5)
+     * - Additional padding provided by parent (.social-icon-link)
+     */
+    @apply w-5 h-5 fill-[#357aaf];
+  }
+
+  .social-brand:hover {
+    @apply fill-black;
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "MoneyMattersGame": {
+    "Questions": {
+      "Easy": [
+        { "Q": "Which U.S. coin is the smallest in size?", "A": ["Dime"] },
+        { "Q": "Which U.S. coin is the largest in size?", "A": ["Quarter"] },
+        { "Q": "Which coin has rough edges?", "A": ["Quarter"] },
+        { "Q": "Which coin has smooth edges?", "A": ["Penny"] },
+        { "Q": "What is the paper money called?", "A": ["Bill"] },
+        {
+          "Q": "Are all U.S. bills the same size or different sizes?",
+          "A": ["Same"]
+        },
+        { "Q": "What is another name for a one-dollar bill?", "A": ["Single"] },
+        { "Q": "Which is worth more, a dime or a nickel?", "A": ["Dime"] },
+        { "Q": "Which is worth more, a penny or a nickel?", "A": ["Nickel"] },
+        {
+          "Q": "What do you call it when you organize bills by their value?",
+          "A": ["Sorting"]
+        }
+      ],
+      "Medium": [
+        {
+          "Q": "How can you tell the difference between a one-dollar bill and a five-dollar bill without looking?",
+          "A": ["Folding"]
+        },
+        { "Q": "What is the texture of a newer U.S. bill?", "A": ["Crisp"] },
+        { "Q": "What is the texture of an older U.S. bill?", "A": ["Soft"] },
+        { "Q": "What coin is thicker, a nickel or a dime?", "A": ["Nickel"] },
+        {
+          "Q": "What do you call the raised design on a coin that you can feel?",
+          "A": ["Relief"]
+        }
+      ],
+      "Hard": [
+        {
+          "Q": "What is the name for an app that can identify currency for you?",
+          "A": ["Reader"]
+        },
+        {
+          "Q": "What material is U.S. paper currency mostly made of?",
+          "A": ["Cotton"]
+        },
+        {
+          "Q": "What is the edge of a dime and quarter called?",
+          "A": ["Reeded"]
+        },
+        {
+          "Q": "Which U.S. bill has a unique tactile feature for identification?",
+          "A": ["Hundred"]
+        },
+        {
+          "Q": "What is the process of using a machine to identify bills by sound?",
+          "A": ["Scanning"]
+        }
+      ]
+    }
+  }
+}

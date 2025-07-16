@@ -1,8 +1,8 @@
+@import './header-style.css';
+@import './form-style.css';
+@import './game-zone-style.css';
+@import './footer-style.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-
-/* * {
-  outline: red 1px solid;
-} */

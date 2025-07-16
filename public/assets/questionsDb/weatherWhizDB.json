@@ -1,0 +1,92 @@
+{
+  "WeatherWhizGame": {
+    "Questions": {
+      "Easy": [
+        {
+          "Q": "What causes a bright flash of light in a storm?",
+          "A": ["Lightning"]
+        },
+        {
+          "Q": "What is the loud rumbling sound that follows lightning?",
+          "A": ["Thunder"]
+        },
+        {
+          "Q": "What are the white, fluffy things in the sky that are made of water droplets?",
+          "A": ["Clouds"]
+        },
+        {
+          "Q": "What frozen white flakes fall from the sky in winter?",
+          "A": ["Snow"]
+        },
+        {
+          "Q": "What do we call the air when it's moving?",
+          "A": ["Wind"]
+        },
+        {
+          "Q": "What do we call water falling from the clouds?",
+          "A": ["Rain"]
+        },
+        {
+          "Q": "What colorful arch appears in the sky after it rains and the sun comes out?",
+          "A": ["Rainbow"]
+        },
+        {
+          "Q": "What is the name of the warmest season of the year?",
+          "A": ["Summer"]
+        },
+        {
+          "Q": "What is the name of the coldest season of the year?",
+          "A": ["Winter"]
+        },
+        {
+          "Q": "What do we call it when the ground gets covered in a thin layer of ice crystals?",
+          "A": ["Frost"]
+        }
+      ],
+      "Medium": [
+        {
+          "Q": "What is a dangerous, spinning column of air that touches the ground?",
+          "A": ["Tornado"]
+        },
+        {
+          "Q": "What is a giant, powerful storm that forms over the ocean?",
+          "A": ["Hurricane"]
+        },
+        {
+          "Q": "What do you call a very long time with no rain at all?",
+          "A": ["Drought"]
+        },
+        {
+          "Q": "What is a big, severe snowstorm with very strong winds called?",
+          "A": ["Blizzard"]
+        },
+        {
+          "Q": "What are the small, hard balls of ice that can fall from the sky during a storm?",
+          "A": ["Hail"]
+        }
+      ],
+      "Hard": [
+        {
+          "Q": "What is the name for a scientist who studies and predicts the weather?",
+          "A": ["Meteorologist"]
+        },
+        {
+          "Q": "What is the process called when the sun's heat turns water into vapor?",
+          "A": ["Evaporation"]
+        },
+        {
+          "Q": "What is it called when water vapor in the air gets cold and turns back into a liquid cloud?",
+          "A": ["Condensation"]
+        },
+        {
+          "Q": "What is the scientific word for any form of water that falls from clouds?",
+          "A": ["Precipitation"]
+        },
+        {
+          "Q": "What tool do we use to measure how hot or cold the air is?",
+          "A": ["Thermometer"]
+        }
+      ]
+    }
+  }
+}

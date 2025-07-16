@@ -1,0 +1,86 @@
+{
+  "HealthyPlateGame": {
+    "Questions": {
+      "Easy": [
+        {
+          "Q": "What should you drink plenty of to stay hydrated?",
+          "A": ["Water"]
+        },
+        {
+          "Q": "What food group includes apples and bananas?",
+          "A": ["Fruits"]
+        },
+        {
+          "Q": "What food group includes carrots and broccoli?",
+          "A": ["Vegetables"]
+        },
+        { "Q": "What food group includes milk and cheese?", "A": ["Dairy"] },
+        { "Q": "What food group includes bread and rice?", "A": ["Grains"] },
+        {
+          "Q": "What food group includes chicken and beans?",
+          "A": ["Protein"]
+        },
+        {
+          "Q": "What sweet treat should you eat only sometimes?",
+          "A": ["Candy"]
+        },
+        {
+          "Q": "What is a healthy meal to start your day?",
+          "A": ["Breakfast"]
+        },
+        {
+          "Q": "What kind of milk is considered healthier than whole milk?",
+          "A": ["Skim"]
+        },
+        {
+          "Q": "What is a healthy way to cook chicken instead of frying?",
+          "A": ["Bake"]
+        }
+      ],
+      "Medium": [
+        {
+          "Q": "What is the part of food that helps you digest, found in fruits and vegetables?",
+          "A": ["Fiber"]
+        },
+        {
+          "Q": "What mineral found in dairy products helps build strong bones?",
+          "A": ["Calcium"]
+        },
+        {
+          "Q": "What do you call the information on a food package that tells you what's inside?",
+          "A": ["Label"]
+        },
+        {
+          "Q": "What substance in sugary drinks is bad for your teeth?",
+          "A": ["Sugar"]
+        },
+        {
+          "Q": "What do you call a meal that has a good mix of all food groups?",
+          "A": ["Balanced"]
+        }
+      ],
+      "Hard": [
+        {
+          "Q": "What type of grain is healthier than white bread?",
+          "A": ["Whole"]
+        },
+        {
+          "Q": "What are the units of energy you get from food called?",
+          "A": ["Calories"]
+        },
+        {
+          "Q": "What is the unhealthy type of fat you should avoid?",
+          "A": ["Saturated"]
+        },
+        {
+          "Q": "What do you call the vitamins and minerals in food?",
+          "A": ["Nutrients"]
+        },
+        {
+          "Q": "What do you call a person who does not eat meat?",
+          "A": ["Vegetarian"]
+        }
+      ]
+    }
+  }
+}

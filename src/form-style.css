@@ -1,0 +1,86 @@
+@layer components {
+  /* --- General Page & Form Structure --- */
+  .page-container {
+    @apply relative px-8 sm:px-8 md:px-6 lg:px-14;
+  }
+  .content-container {
+    @apply px-20 tablet:px-10 mobile:px-5;
+  }
+  .form-container {
+    @apply pt-5 pb-5 mb-10 text-center;
+  }
+  .form-container-view-height {
+    @apply form-container mt-10 lg:mt-0;
+  }
+  .form-wrapper {
+    @apply w-4/5 mx-auto mt-5 pt-5 pb-5; /* Replaced ml-[10%] with mx-auto for better centering */
+  }
+  .form-title {
+    @apply text-title mobile:text-[28px] text-4.5xl;
+  }
+
+  /* --- Inputs & Labels --- */
+  .form-label {
+    @apply block text-left text-body font-semibold mb-[5px];
+  }
+  .form-input-full {
+    @apply mb-5 w-full outline-none border border-black h-12 px-4 rounded-lg;
+  }
+
+  /* --- Buttons --- */
+  .auth-button {
+    @apply h-[55px] w-[80%] sm:w-[280px] font-bold rounded-lg border-2 border-black shadow-[4px_4px_0px_black];
+  }
+  .primary-button {
+    @apply auth-button text-white bg-primary-color hover:bg-opacity-90;
+  }
+  .secondary-button {
+    @apply auth-button text-black bg-secondary-color hover:bg-opacity-90;
+  }
+
+  /* --- Links & Dividers --- */
+  .auth-link {
+    @apply text-primary-color hover:text-opacity-80 underline font-medium;
+  }
+  .divider-container {
+    @apply flex text-gray-500 w-full justify-center items-center gap-2 mt-4;
+  }
+  .divider-line {
+    @apply w-44 h-px bg-gray-500 rounded-sm;
+  }
+  .form-description {
+    @apply w-4/5 mx-auto;
+  }
+  .form-action-container {
+    @apply mt-10 mb-10 w-full text-center;
+  }
+  .form-error-wrapper {
+    @apply mt-8 mb-3;
+  }
+  .form-hint {
+    @apply text-left w-full mb-5;
+  }
+
+  /* --- Misc --- */
+  .feedback-box {
+    @apply mb-6 p-3 rounded-lg border-2 shadow-md min-h-[56px] text-base font-medium;
+  }
+  .error-message {
+    @apply bg-red-100 border-error-state text-red-800 p-3 rounded-lg border-2 shadow-md min-h-[56px] text-base font-medium w-full;
+  }
+  .auth-grid {
+    @apply grid grid-cols-2 text-base font-semibold p-0 my-5 mobile:text-sm;
+  }
+  .auth-grid-caption {
+    @apply text-body my-auto col-start-1 text-left;
+  }
+  .auth-grid-link {
+    @apply my-auto col-start-2 text-right;
+  }
+  .auth-provider-container {
+    @apply mt-5 pt-5 pb-5;
+  }
+  .loading-overlay {
+    @apply fixed inset-0 w-full h-full bg-white bg-opacity-80 flex flex-col justify-center items-center z-[9999];
+  }
+}

@@ -2,6 +2,7 @@
 
 Audemy is a 501(c)(3) nonprofit organization reimagining education through the lens of accessibility, inclusion, and intelligent design. We build open-source tools, creative media, and assistive technologies that empower blind and visiually impaired learners.
 
+=======
 Our mission is to ensure that every child, regardless of ability or background, has access to joyful, high-quality education.
 
 OUR REACH:

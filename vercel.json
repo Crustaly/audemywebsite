@@ -1,83 +1,127 @@
 {
-    "version": 2,
-    "builds": [
+  "version": 2,
+  "builds": [
+    {
+      "src": "src/pages/api/generate_audio.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "src/pages/api/test_db.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "src/pages/api/db/get_user.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "src/pages/api/db/update_user_school.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "src/pages/api/auth/google.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "src/pages/api/auth/signup.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "src/pages/api/auth/login.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "src/pages/api/send-email.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "src/pages/api/reset-password.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist",
+        "buildCommand": "vite build"
+      }
+    },
+    {
+      "src": "src/pages/api/db/get_user_count.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "src/pages/api/db/get_students.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/api/generate-tts",
+      "destination": "/src/pages/api/generate_audio.js"
+    },
+    {
+      "source": "/api/test_db",
+      "destination": "/src/pages/api/test_db.js"
+    },
+    {
+      "source": "/api/db/get_user",
+      "destination": "/src/pages/api/db/get_user.js"
+    },
+    {
+      "source": "/api/db/update_user_school",
+      "destination": "/src/pages/api/db/update_user_school.js"
+    },
+    {
+      "source": "/api/auth/google",
+      "destination": "/src/pages/api/auth/google.js"
+    },
+    {
+      "source": "/api/auth/signup",
+      "destination": "/src/pages/api/auth/signup.js"
+    },
+    {
+      "source": "/api/auth/login",
+      "destination": "/src/pages/api/auth/login.js"
+    },
+    {
+      "source": "/api/send-email",
+      "destination": "/src/pages/api/send-email.js"
+    },
+    {
+      "source": "/api/reset-password",
+      "destination": "/src/pages/api/reset-password.js"
+    },
+    {
+      "source": "/api/db/get_user_count",
+      "destination": "/src/pages/api/db/get_user_count.js"
+    },
+    {
+      "source": "/api/db/get_students",
+      "destination": "/src/pages/api/db/get_students.js"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)\\.(js|css|woff2?|ttf|eot|svg|png|jpg|jpeg|gif|webp|avif|ico)",
+      "headers": [
         {
-            "src": "src/pages/api/generate_audio.js",
-            "use": "@vercel/node"
-        },
-        {
-            "src": "src/pages/api/test_db.js",
-            "use": "@vercel/node"
-        },
-        {
-            "src": "src/pages/api/db/get_user.js",
-            "use": "@vercel/node"
-        },
-        {
-            "src": "src/pages/api/db/update_user_school.js",
-            "use": "@vercel/node"
-        },
-        {
-            "src": "src/pages/api/auth/signup.js",
-            "use": "@vercel/node"
-        },
-        {
-            "src": "src/pages/api/auth/login.js",
-            "use": "@vercel/node"
-        },
-        {
-            "src": "src/pages/api/send-email.js",
-            "use": "@vercel/node"
-        },
-        {
-            "src": "src/pages/api/reset-password.js",
-            "use": "@vercel/node"
-        },
-        {
-            "src": "package.json",
-            "use": "@vercel/static-build",
-            "config": {
-                "distDir": "dist",
-                "buildCommand": "vite build"
-            }
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
         }
-    ],
-    "rewrites": [
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
         {
-            "source": "/api/generate-tts",
-            "destination": "/src/pages/api/generate_audio.js"
-        },
-        {
-            "source": "/api/test_db",
-            "destination": "/src/pages/api/test_db.js"
-        },
-        {
-            "source": "/api/db/get_user",
-            "destination": "/src/pages/api/db/get_user.js"
-        },
-        {
-            "source": "/api/db/update_user_school",
-            "destination": "/src/pages/api/db/update_user_school.js"
-        },
-        {
-            "source": "/api/auth/signup",
-            "destination": "/src/pages/api/auth/signup.js"
-        },
-        {
-            "source": "/api/auth/login",
-            "destination": "/src/pages/api/auth/login.js"
-        },
-        {
-            "source": "/api/send-email",
-            "destination": "/src/pages/api/send-email.js"
-        },
-        {
-            "source": "/api/reset-password",
-            "destination": "/src/pages/api/reset-password.js"
-        },
-        {
-            "source": "/(.*)",
-            "destination": "/"
+          "key": "Cache-Control",
+          "value": "no-cache"
         }
-    ]
+      ]
+    }
+  ]
 }

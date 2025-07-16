@@ -1,3 +1,28 @@
+let backgroundMusic;
+
+export function playMusic(musicPath) {
+  // Stop any previously playing music to avoid overlap
+  if (backgroundMusic) {
+    backgroundMusic.pause();
+  }
+
+  console.log('Playing background music:', musicPath);
+  backgroundMusic = new Audio(musicPath);
+  backgroundMusic.loop = true; // Make the music loop
+  backgroundMusic.volume = 0.1; // Set volume to a reasonable level
+  backgroundMusic
+    .play()
+    .catch((e) => console.error('Music playback failed:', e));
+}
+
+export function stopMusic() {
+  if (backgroundMusic) {
+    console.log('Stopping background music.');
+    backgroundMusic.pause();
+    backgroundMusic.currentTime = 0;
+  }
+}
+
 export function playIntro(audioFile) {
   // Play introduction audio
   const introAudioPath = '/assets' + audioFile;
@@ -43,15 +68,16 @@ export async function getTTSAudio(text) {
   }
 }
 
-export function playSound(audioFile) {
-  // Play introduction audio
-  const introAudioPath = '/assets/generalAudio/' + audioFile;
-  console.log('Playing introduction audio:', introAudioPath);
-  const audio = new Audio(introAudioPath);
-  audio.play();
-
-  return audio;
+export async function playSound(audioFile) {
+  try {
+    const introAudioPath = '/assets/generalAudio/' + audioFile;
+    console.log('Playing introduction audio:', introAudioPath);
+    await playAudioPath(introAudioPath);
+  } catch (error) {
+    console.error('Error in playSound:', error);
+  }
 }
+
 let currentAudios = [];
 
 export function playAudioPath(path) {

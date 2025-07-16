@@ -1,227 +1,212 @@
 <script setup>
-import { ref, onMounted } from "vue";
-import { useRouter } from "vue-router";
+import Banner from '../../components/AccountPages/Banner.vue';
+import Header from '../../components/Header/Header.vue';
+import Footer from '../../components/Footer/Footer.vue';
 
-const errors = ref(false);              // flag to display error on frontend
-var linkExpired = ref(false);           // flag for link expired error on frontend
-const password = ref("");
-const confirmPassword = ref("");
-const token = ref("");
+import { ref, onMounted } from 'vue';
+import { useRouter } from 'vue-router';
+
+var linkExpired = ref(false); // flag for link expired error on frontend
+const password = ref('');
+const confirmPassword = ref('');
+const token = ref('');
 const router = useRouter();
+const isLoading = ref(false); // For loading state
+
+import { useErrorAlert } from '../../Utilities/useErrorAlert';
+const { errors, errorMessage, showErrorAlert } = useErrorAlert();
 
 onMounted(() => {
-    // Get the token from the URL query parameters
-    const query = new URLSearchParams(window.location.search);
-    token.value = query.get("token");
+  // Get the token from the URL query parameters
+  const query = new URLSearchParams(window.location.search);
+  token.value = query.get('token');
 
-    if (!token.value) {
-        errorMessage.value = "Invalid password reset link. Please request a new one.";
-    }
+  if (!token.value) {
+    errorMessage.value =
+      'Invalid password reset link. Please request a new one.';
+  }
 });
 
-const showErrorAlert = (message) => {
-    errors.value = true;
-    errorMessage.value = message;
-};
-
 const handleApiError = (status, message) => {
-    switch(status) {
-        case 400:
-            errorMessage.value = "Bad request: " + (message || "Please check your input");
-            break;
-        case 401:
-            linkExpired.value = true;
-            errorMessage.value = "Password reset link is invalid or has expired";
-            break;
-        case 403:
-            errorMessage.value = "Forbidden: You don't have permission to reset this password";
-            break;
-        case 404:
-            errorMessage.value = "User not found";
-            break;
-        case 405:
-            errorMessage.value = "Method not allowed";
-            break;
-        case 429:
-            errorMessage.value = "Too many requests: Please try again later";
-            break;
-        case 500:
-            linkExpired.value = true;
-            errorMessage.value = "Internal server error: Password reset link may have expired";
-            break;
-        default:
-            errorMessage.value = message || "An error occurred during password reset";
-    }
+  switch (status) {
+    case 400:
+      errorMessage.value =
+        'Bad request: ' + (message || 'Please check your input');
+      break;
+    case 401:
+      linkExpired.value = true;
+      errorMessage.value = 'Password reset link is invalid or has expired';
+      break;
+    case 403:
+      errorMessage.value =
+        "Forbidden: You don't have permission to reset this password";
+      break;
+    case 404:
+      errorMessage.value = 'User not found';
+      break;
+    case 405:
+      errorMessage.value = 'Method not allowed';
+      break;
+    case 429:
+      errorMessage.value = 'Too many requests: Please try again later';
+      break;
+    case 500:
+      linkExpired.value = true;
+      errorMessage.value =
+        'Internal server error: Password reset link may have expired';
+      break;
+    default:
+      errorMessage.value = message || 'An error occurred during password reset';
+  }
 };
 
 const resetConfirm = async (event) => {
-    event.preventDefault();     // prevent default form submission which would reload the page
+  event.preventDefault(); // prevent default form submission which would reload the page
 
-    // Reset error states
+  // Reset error states
+  errors.value = false;
+  linkExpired.value = false;
+  errorMessage.value = '';
+
+  if (!token.value) {
+    errorMessage.value =
+      'Invalid password reset link. Please request a new one.';
+    return;
+  }
+
+  // pre-condition checks for the password and confirm password fields
+  if (password.value != confirmPassword.value || password.value.length < 8) {
+    // Set the flag to true to display the error message on the frontend
+    errors.value = true;
+    errorMessage.value =
+      'Passwords do not match or is not at least 8 characters long';
+    return;
+  } else {
     errors.value = false;
-    linkExpired.value = false;
-    errorMessage.value = "";
 
-    if (!token.value) {
-        errorMessage.value = "Invalid password reset link. Please request a new one.";
-        return;
-    }
+    isLoading.value = true; // Show loading UI
 
-    // pre-condition checks for the password and confirm password fields
-    if ((password.value != confirmPassword.value) || (password.value.length < 8)) {
-        // Set the flag to true to display the error message on the frontend
-        errors.value = true;
-        errorMessage.value = "Passwords do not match or is not at least 8 characters long";
-        return;
-    }else{
-        errors.value = false;
-        // API call to reset password
+    // API call to reset password
+    try {
+      const resetResponse = await fetch(`/api/reset-password`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          token: token.value,
+          newPassword: password.value,
+        }),
+      });
+
+      // Handle the response from the API based on the status code
+      console.log('Reset Password response:', resetResponse.status);
+      if (!resetResponse.ok) {
+        // Get response body if available
+        let errorData = {};
         try {
-            const resetResponse = await fetch(
-                `/api/reset-password`,
-                {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({
-                        token: token.value,
-                        newPassword: password.value,
-                    }),
-                }
-            );
-
-            // Handle the response from the API based on the status code
-            console.log("Reset Password response:", resetResponse.status);
-            if (!resetResponse.ok) {
-            // Get response body if available
-            let errorData = {};
-            try {
-                errorData = await resetResponse.json();
-            } catch (e) {
-                // If response body can't be parsed as JSON, continue with empty error data
-            }
-            
-            handleApiError(resetResponse.status, errorData.message);
-            return;
+          errorData = await resetResponse.json();
+        } catch (e) {
+          // If response body can't be parsed as JSON, continue with empty error data
         }
 
-        // Route to reset-confirm page if password reset was successful
-        router.push("/reset-confirm");
-        
+        handleApiError(resetResponse.status, errorData.message);
+        return;
+      }
+
+      // Route to reset-confirm page if password reset was successful
+      router.push('/reset-confirm');
     } catch (error) {
-            // Throw error and set the flag to true to display the error message on the frontend
-            console.error("Error: ", error);
-            errorMessage.value = "Connection error: Please check your internet connection and try again";
-        }
+      // Throw error and set the flag to true to display the error message on the frontend
+      console.error('Error: ', error);
+      errorMessage.value =
+        'Connection error: Please check your internet connection and try again';
+    } finally {
+      isLoading.value = false; // Hide loading UI
     }
+  }
 };
 </script>
 
 <template>
+  <div v-if="isLoading" class="loading-overlay">Loading...</div>
+  <div class="page-container" ref="content">
+    <Header :logoPath="'/assets/images/header/header-logo-2.png'" />
+  </div>
+  <div
+    id="reset-password-container"
+    class="content-container lg:grid lg:grid-cols-3"
+  >
+    <Banner
+      id="reset-password-banner"
+      class="lg:col-span-1 lg:h-full"
+      :CarlImgPath="'/assets/images/impact/globe 1.svg'"
+      :isImageWide="false"
+      bgColor="#B1C7D0"
+      curveColor="#E5F0F5"
+      :isPageShort="true"
+    />
     <div
-        class="w-full h-screen overflow-hidden bg-[#FFDABA] flex justify-between mobile:flex-row"
+      id="reset-password-form-container"
+      class="form-container-view-height lg:col-span-2"
     >
+      <h1 class="form-title">Create a new password</h1>
+      <form @submit="resetConfirm" method="post" class="form-wrapper">
+        <!-- PASSWORD FIELD -->
+        <div>
+          <label for="password" class="form-label"> Password </label>
+          <input
+            v-model="password"
+            type="password"
+            class="form-input-full"
+            id="password"
+            name="password"
+            placeholder="Create your best password"
+          />
+        </div>
+        <!-- HINT MESSAGES FOR PASSWORD -->
         <div
-            class="w-5/12 md:w-full sm:w-full relative flex items-center jusitfy-center"
+          class="form-hint"
+          :class="{ 'text-red-700': errors, 'text-body': !errors }"
         >
-            <div
-                class="w-full flex flex-col justify-center items-center gap-14 z-10"
-            >
-                <img
-                    src="/assets/images/LoginImg/icons.svg"
-                    alt="logo icon"
-                    class="w-[50%] h-[50%]"
-                />
-                <img
-                    src="/assets/images/LoginImg/logo-icon.svg"
-                    alt="logo icon"
-                    class="w-[45%] h-[45%]"
-                />
-            </div>
-            <img
-                src="/assets/images/LoginImg/wave-icon.svg"
-                alt="wave icon"
-                class="absolute -bottom-[15%] right-0 w-full -z-1"
-            />
+          <div role="alert">
+            <span>Your password must be at least 8 characters long.</span>
+          </div>
         </div>
-
-        <div class="w-7/12 md:w-full sm:w-full bg-white flex flex-col items-center justify-center border-2">
-            <form
-                @submit="resetConfirm"
-                method="post"
-                class="max-h-[350px] w-full flex flex-col justify-center items-center gap-[5%] my-4"
-            >
-                <div
-                    class="text-[#151E22] text-center w-7/12 mb-10 mobile:w-full  mobile:mb-4"
-                >
-                    <h1 class="text-[36px] mobile:text-[24px]">Create a new Password</h1>
-                </div>
-                
-                <div class="w-7/12 max-w-[450px]">
-                    <!-- PASSWORD FIELD -->
-                    <div class="mb-[8px] mobile:w-full">
-                        <label
-                            for="password"
-                            class="block text-[#0C0D0D] font-semiBold"
-                            >Password</label
-                        >
-                        <input
-                            v-model="password"
-                            type="password"
-                            class="w-full outline-none border-2 border-black h-[48px] px-4 rounded-[8px]"
-                            id="password"
-                            name="password"
-                            placeholder="Create your best password"
-                        />
-                    </div>
-
-                    <div class="mb-6" :class="{ 'text-red-700': errors, 'text-[#2F3E45]': !errors }">
-                        <div role="alert">
-                            <span class="block sm:inline">Your password must be at least 8 characters long</span>
-                        </div>
-                    </div>
-
-                    <!-- CONFIRM PASSWORD FIELD -->
-                    <div class="mb-[8px] mobile:w-full">
-                        <label
-                            for="confirm_password"
-                            class="block text-[#0C0D0D] font-semiBold"
-                            >Confirm Password</label
-                        >
-                        <input
-                            v-model="confirmPassword"
-                            type="password"
-                            class="w-full outline-none border-2 border-black h-[48px] px-4 rounded-[8px]"
-                            id="confirm_password"
-                            name="confirm_password"
-                            placeholder="Confirm your password"
-                        />
-                    </div>
-                    <div class="mb-6" v-if="errors">
-                        <div role="alert" class="text-red-700">
-                            <span class="block sm:inline">Passwords do not match</span>
-                        </div>
-                    </div>
-                    <div class="mb-6" v-if="linkExpired">
-                        <div role="alert" class="text-red-700">
-                            <span class="block sm:inline">Password reset link expired!</span>
-                            <a
-                                href="./forgot-password"
-                                class="underline text-[#087BB4] font-medium"
-                                >Generate a new link?</a
-                            >
-                        </div>
-                    </div>
-                    <div class="flex justify-center w-full pt-4"> 
-                        <button
-                            type="submit"
-                            class="w-full py-3 font-bold rounded-[8px] bg-[#FE892A] hover:bg-[#ff8d33] border-2 border-black shadow-[4px_4px_0px_black] text-black"
-                        >
-                            Reset Password
-                        </button>
-                    </div>
-                </div>
-            </form>
+        <!-- CONFIRM PASSWORD FIELD -->
+        <div>
+          <label for="confirm_password" class="form-label">
+            Confirm Password
+          </label>
+          <input
+            v-model="confirmPassword"
+            type="password"
+            class="form-input-full"
+            id="confirm_password"
+            name="confirm_password"
+            placeholder="Confirm your password"
+          />
         </div>
-
+        <!-- ERROR MESSAGES FOR PASSWORD CONFIRMATION -->
+        <div class="form-hint" v-if="errors">
+          <div role="alert" class="text-red-700">
+            <span>Passwords do not match.</span>
+          </div>
+        </div>
+        <!-- CHECK IF RESET PASSWORD LINK EXPIRED -->
+        <div class="form-error-wrapper" v-if="linkExpired">
+          <div class="error-message" role="alert">
+            <p>Password reset link expired!</p>
+            <br />
+            <a href="./forgot-password" class="auth-link">
+              Generate a new link?
+            </a>
+          </div>
+        </div>
+        <!-- RESET / SUBMIT NEW PASSWORD BUTTON -->
+        <div class="form-action-container">
+          <button type="submit" class="primary-button">Reset Password</button>
+        </div>
+      </form>
     </div>
+  </div>
+  <Footer />
 </template>
