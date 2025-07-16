@@ -1,3 +1,17 @@
+/*
+ * form-style.css: Shared Tailwind classes for auth forms and password toggle and checklist (WIP)
+ * 
+ * Relevant files (.vue):
+ * - LogIn (including School form)
+ * - SignUp, 
+ * - ForgotPassword, ResetLinkSent,
+ * - ResetLandingPage, ResetPassword, ResetConfirm
+ * - NotFound
+ * 
+ * Relevant Components:
+ * - PasswordToggle & (WIP) PasswordChecklist
+ */
+
 @layer components {
   /* --- General Page & Form Structure --- */
   .page-container {
@@ -59,6 +73,17 @@
   }
   .form-hint {
     @apply text-left w-full mb-5;
+  }
+
+  /* --- Password Visibility Toggle --- */
+  .password-toggle-button {
+    /* Align styling and hover effects with Google OAuth button */
+    @apply h-[35px] w-auto rounded-lg border border-gray-300 px-2 hover:bg-[#e6ebf8] hover:border-[#d5e3fa];
+  }
+
+  .password-toggle-flex {
+    /* Layout container for Show/Hide Password icon + label */
+    @apply inline-flex items-center cursor-pointer;
   }
 
   /* --- Misc --- */

@@ -2,6 +2,7 @@
 import Banner from '../../components/AccountPages/Banner.vue';
 import Header from '../../components/Header/Header.vue';
 import Footer from '../../components/Footer/Footer.vue';
+import PasswordToggle from '../../components/AccountPages/PasswordToggle.vue';
 
 import { ref, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
@@ -9,6 +10,7 @@ import { useRouter } from 'vue-router';
 var linkExpired = ref(false); // flag for link expired error on frontend
 const password = ref('');
 const confirmPassword = ref('');
+const showPassword = ref(false); // Toggle password visibility
 const token = ref('');
 const router = useRouter();
 const isLoading = ref(false); // For loading state
@@ -155,11 +157,13 @@ const resetConfirm = async (event) => {
           <label for="password" class="form-label"> Password </label>
           <input
             v-model="password"
-            type="password"
+            :type="showPassword ? 'text' : 'password'"
             class="form-input-full"
             id="password"
             name="password"
             placeholder="Create your best password"
+            minlength="8"
+            maxlength="15"
           />
         </div>
         <!-- HINT MESSAGES FOR PASSWORD -->
@@ -178,13 +182,21 @@ const resetConfirm = async (event) => {
           </label>
           <input
             v-model="confirmPassword"
-            type="password"
+            :type="showPassword ? 'text' : 'password'"
             class="form-input-full"
             id="confirm_password"
             name="confirm_password"
             placeholder="Confirm your password"
+            minlength="8"
+            maxlength="15"
           />
         </div>
+        <!-- TOGGLE PASSWORD VISIBILITY -->
+        <PasswordToggle
+          :showPassword="showPassword"
+          @password-toggle="showPassword = !showPassword"
+          class="mb-8"
+        />
         <!-- ERROR MESSAGES FOR PASSWORD CONFIRMATION -->
         <div class="form-hint" v-if="errors">
           <div role="alert" class="text-red-700">
