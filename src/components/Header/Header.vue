@@ -70,7 +70,7 @@
             Impact
           </router-link>
         </li>
-        <li id="impact-item">
+        <li id="press-item">
           <router-link to="/press" class="navbar-link-desktop">
             Press & Recognition
           </router-link>
@@ -343,7 +343,7 @@ const navLinksGridClasses = [
   'md:col-start-1',
   'md:col-span-6',
   'md:grid',
-  'md:[grid-template-columns:repeat(6,auto)]',
+  'md:[grid-template-columns:repeat(7,auto)]',
   'font-poppins',
   'font-semibold',
   'md:gap-x-2',
