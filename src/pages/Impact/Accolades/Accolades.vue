@@ -41,7 +41,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="flex w-full px-20 mb-20 relative">
+  <div class="flex w-full px-20 relative">
     <!-- MAIN CONTENT -->
     <div
       class="flex flex-col items-center justify-center mobile:justify-center w-full h-[10%] mb-36 tablet:mb-[265px] mobile:mb-[129px]"
@@ -58,7 +58,7 @@ onUnmounted(() => {
         <h2
           class="text-left font-poppins text-4.5xl tablet:text-[32px] mobile:text-[24px] mobile:text-center font-[400]"
         >
-          A testament to our work
+          A <span style="color:#077bb3" class="font-semibold"> testament </span> to our work
         </h2>
       </div>
 

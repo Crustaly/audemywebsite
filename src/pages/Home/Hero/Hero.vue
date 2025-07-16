@@ -4,27 +4,23 @@
       class="w-6/12 mobile:w-full flex flex-col gap-y-4 mobile:items-center mobile:text-center"
     >
       <div class="font-poppins">
-        <h1
-          class="text-4xl tablet:text-[24px] mobile:text-[24px] leading-normal text-title"
-        >
-          Learning Made Fun and Inclusive
-        </h1>
+      <h1 class="text-4xl tablet:text-[24px] mobile:text-[24px] leading-normal text-title font-poppins">
+  Audio Games <span style="color:#077bb3" class="font-semibold">Powering the Future</span> of <span style="color:#077bb3" class="font-semibold">Accessible Learning</span>
+</h1>
+
       </div>
 
       <div>
-        <p
-          class="font-poppins text-body text-xl mobile:text-[16px] max-w-md leading-8"
-        >
-          Try our free audio-based games—interactive, accessible, and built to
-          empower blind and visually impaired children through fun learning.
-        </p>
+       <p class="font-poppins text-body text-xl mobile:text-[16px] max-w-md leading-8">
+  Our AI-powered audio games are transforming access to education—reaching <strong>200,000+ learners worldwide</strong>, including <strong>1 in 5 blind children in the U.S.</strong>!
+</p>
       </div>
 
       <a
         href="/game-zone"
         class="font-poppins mobile:w-full px-16 py-4 border-[1.5px] border-[#0C0D0D] rounded-[8px] bg-[#FE892A] hover:bg-[#D6711F] text-base text-center text-[#0D0C0C] shadow-[3px_4px_0px_#0C0D0D] font-semibold self-start duration-300"
       >
-        Play a game
+        Play our games!
       </a>
     </div>
     <div class="w-6/12 mobile:w-full mobile:mb-14">

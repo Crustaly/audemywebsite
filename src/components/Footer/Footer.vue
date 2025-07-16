@@ -1,11 +1,14 @@
 <script setup>
+// Extracted footer class arrays for readability and maintainability
+
+// Root <footer> wrapper
 const parentFooterClasses = [
-  'bg-card-background',
+  'bg-white',
   'text-primary-color',
   'w-full',
-  'h-[580px]',
-  'md:h-[500px]',
-  'lg:h-[350px]',
+  'h-[620px]',
+  'md:h-[540px]',
+  'lg:h-[380px]',
   'pt-[10%]',
   'pb-[10%]',
   'md:pt-[5%]',
@@ -15,9 +18,25 @@ const parentFooterClasses = [
   'font-poppins',
 ];
 
-/* Note: Custom grid-template-columns used to:
- * - Improve WCAG spacing (columns, margins, scroll-up button)
- * - Prevent email address from wrapping
+// Main grid container inside footer
+/* Footer Layout Behavior (mobile-first, down to 320px):
+ *
+ * A) Mobile + sm:
+ *   - Row 1: [Logo]
+ *   - Row 2: [Quick Links] [Social Media]
+ *   - Row 3: [Contact]
+ *
+ * B) md (≥768px):
+ *   - Row 1: [Logo]
+ *   - Row 2 (3-col grid): [Quick Links] [Social Media] [Contact]
+ *
+ * C) lg (≥1024px):
+ *   - Single horizontal row with 4 cols:
+ *     [Logo] [Quick Links] [Social Media] [Contact]
+ *
+ * D) Custom grid:
+ *    - Improves spacing, margins, & scroll-up button alignment
+ *    - Prevents wrapping (e.g., email address)
  */
 const ftrContainerClasses = [
   'grid',
@@ -30,6 +49,9 @@ const ftrContainerClasses = [
   'lg:[grid-template-columns:1.3fr_0.5fr_0.8fr_1.2fr]',
   'lg:gap-x-10',
   'border-b-2',
+  'border-t-2',
+  'pb-4',
+  'pt-4',
   'border-primary-color',
   'ml-[17%]',
   'mr-[17%]',
@@ -39,9 +61,9 @@ const ftrContainerClasses = [
   'lg:mr-[8%]',
 ];
 
-/* Mobile: Custom grid-template-columns used to:
- * - Ensure underline fits on hover without overflow
- * - Accommodate Instagram (longest text link)
+/* Social media layout (Mobile):
+ * - Custom grid to avoid text/link overflow on hover
+ * - Accommodate long link names like "Instagram"
  */
 const socialMediaGridClasses = [
   'grid',
@@ -57,9 +79,14 @@ const socialMediaGridClasses = [
       <div
         id="ftr-logo-item"
         class="flex justify-center items-center lg:self-end col-span-2 md:col-span-3 lg:col-span-1 mb-[5%] md:mb-8 lg:mb-8"
-        aria-hidden="true"
       >
-        <a id="logo-link" href="/" class="border-b-transparent border-b-0">
+        <a
+          id="logo-link"
+          href="/"
+          class="border-b-transparent border-b-0"
+          aria-hidden="true"
+          tabindex="-1"
+        >
           <img
             id="ftr-logo"
             :src="'../assets/images/header/header-logo-2.png'"
@@ -77,13 +104,16 @@ const socialMediaGridClasses = [
             <a href="/">Home</a>
           </li>
           <li class="ftr-subtext">
-            <a href="/about-us">About Us</a>
+            <a href="/about-us">Our Team</a>
           </li>
           <li class="ftr-subtext">
             <a href="/our-projects">Our Projects</a>
           </li>
           <li class="ftr-subtext">
             <a href="/impact">Impact</a>
+          </li>
+          <li class="ftr-subtext">
+            <a href="/press">Press & Recognition</a>
           </li>
           <li class="ftr-subtext">
             <a href="/game-zone">Game Zone</a>
@@ -107,6 +137,7 @@ const socialMediaGridClasses = [
               href="https://www.instagram.com/audemyapp"
               target="_blank"
               aria-hidden="true"
+              tabindex="-1"
               class="social-icon-link"
             >
               <svg
@@ -133,6 +164,7 @@ const socialMediaGridClasses = [
               href="https://www.linkedin.com/company/audemy/"
               target="_blank"
               aria-hidden="true"
+              tabindex="-1"
               class="social-icon-link"
             >
               <svg
@@ -159,6 +191,7 @@ const socialMediaGridClasses = [
               href="https://github.com/Crustaly/audemywebsite"
               target="_blank"
               aria-hidden="true"
+              tabindex="-1"
               class="social-icon-link"
             >
               <svg
@@ -172,12 +205,13 @@ const socialMediaGridClasses = [
               </svg>
             </a>
           </li>
-          <!-- X (afa Twitter) -->
+          <!-- X (fka Twitter) -->
           <li class="ftr-subtext" :class="socialMediaGridClasses">
             <a
               href="https://x.com/AudemyApp"
               target="_blank"
               class="social-link"
+              aria-label="X (fka Twitter)"
             >
               X
             </a>
@@ -186,6 +220,7 @@ const socialMediaGridClasses = [
               target="_blank"
               class="social-icon-link"
               aria-hidden="true"
+              tabindex="-1"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -203,7 +238,6 @@ const socialMediaGridClasses = [
             <a
               href="https://www.youtube.com/@applelooeducationalvideosf1743/featured"
               target="_blank"
-              aria-hidden="true"
               class="social-link"
             >
               YouTube
@@ -211,8 +245,9 @@ const socialMediaGridClasses = [
             <a
               href="https://www.youtube.com/@applelooeducationalvideosf1743/featured"
               target="_blank"
-              aria-label="Visit Audemy's Instagram"
               class="social-icon-link"
+              aria-hidden="true"
+              tabindex="-1"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"

@@ -20,6 +20,7 @@ import StudentList from '../pages/Dashboard/StudentList.vue';
 import TeacherDashboard from '../pages/Dashboard/TeacherDashboard.vue';
 import GamesDashboard from '../pages/Dashboard/GamesDashboard.vue';
 import DashboardSummary from '../pages/Dashboard/DashboardSummary.vue';
+import Press from '../pages/Press/Press.vue';
 
 const routes = [
   { path: '/home', redirect: '/' },
@@ -28,6 +29,7 @@ const routes = [
   { path: '/our-projects', name: 'Our-Projects', component: OurProjects },
   { path: '/impact', name: 'Impact', component: Impact },
   { path: '/about-us', name: 'About-Us', component: AboutUs },
+  { path: '/press', name: 'Press', component: Press},
   { path: '/login', name: 'LogIn', component: LogIn },
   { path: '/signup', name: 'Sign Up', component: SignUp },
   {

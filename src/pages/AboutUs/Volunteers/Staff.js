@@ -11,9 +11,9 @@ const managementStaff = [
     image: '/assets/images/about-us/volunteers/anmol.png',
   },
   {
-    name: 'Aruesha Srivastava',
-    role: 'Chief Operating Officer',
-    image: '/assets/images/about-us/volunteers/aruesha.png',
+    name: 'Shrikrishna Bhat',
+    role: 'Lead Developer and Systems Architect',
+    image: '/assets/images/about-us/volunteers/shrikrishna.png',
   },
 ];
 const founderStaff = [
@@ -25,6 +25,11 @@ const founderStaff = [
 ];
 
 const designStaff = [
+  {
+    name: 'Elsa Fajar',
+    role: 'Lead UI/UX Designer',
+    image: '/assets/images/about-us/volunteers/default3.svg',
+  },
   {
     name: 'Jessie Zhang',
     role: 'UI/UX Designer',
@@ -50,14 +55,14 @@ const designStaff = [
     role: 'Illustrator',
     image: '/assets/images/about-us/volunteers/priya.png',
   },
+  {
+    name: 'Aisha Naveed',
+    role: 'Artist',
+    image: '/assets/images/about-us/volunteers/default1.svg',
+  },
 ];
 
 const developmentStaff = [
-  {
-    name: 'Shrikrishna Bhat',
-    role: 'Lead Developer and Systems Architect',
-    image: '/assets/images/about-us/volunteers/shrikrishna.png',
-  },
   {
     name: 'Josephraj Velpula',
     role: 'Developer',
@@ -76,7 +81,7 @@ const developmentStaff = [
   {
     name: 'Prajwala Shambulingappa',
     role: 'Developer',
-    image: '/assets/images/about-us/volunteers/default1.svg',
+    image: '/assets/images/about-us/volunteers/prajwala.png',
   },
   {
     name: 'Ankita Shendge',
@@ -152,6 +157,86 @@ const developmentStaff = [
     name: 'Shyaka Chaste',
     role: 'Developer',
     image: '/assets/images/about-us/volunteers/shyaka.png',
+  },
+  {
+    name: 'Jennifer Chhie',
+    role: 'Developer',
+    image: '/assets/images/about-us/volunteers/jennifer.png',
+  },
+  {
+    name: 'Brian Ference',
+    role: 'Project Manager',
+    image: '/assets/images/about-us/volunteers/brian.png',
+  },
+  {
+    name: 'Carter Sargent',
+    role: 'Accessibility Specialist',
+    image: '/assets/images/about-us/volunteers/default2.svg',
+  },
+  {
+    name: 'Jennifer Shi',
+    role: 'Accessibility Specialist',
+    image: '/assets/images/about-us/volunteers/default1.svg',
+  },
+  {
+    name: 'Shobha Sudha Kamath',
+    role: 'Developer',
+    image: '/assets/images/about-us/volunteers/default3.svg',
+  },
+  {
+    name: 'Zainab Rizvi',
+    role: 'Developer',
+    image: '/assets/images/about-us/volunteers/default1.svg',
+  },
+  {
+    name: 'Aaron Baumgarten',
+    role: 'Developer',
+    image: '/assets/images/about-us/volunteers/default2.svg',
+  },
+  {
+    name: 'Maria Schrijnder van Velzen',
+    role: 'Developer',
+    image: '/assets/images/about-us/volunteers/default3.svg',
+  },
+  {
+    name: 'Sai Vardhan',
+    role: 'Developer',
+    image: '/assets/images/about-us/volunteers/default1.svg',
+  },
+  {
+    name: 'Chau Le',
+    role: 'Developer',
+    image: '/assets/images/about-us/volunteers/default2.svg',
+  },
+  {
+    name: 'Swetha Batta',
+    role: 'Developer',
+    image: '/assets/images/about-us/volunteers/default3.svg',
+  },
+  {
+    name: 'Dhanshri Agarwal',
+    role: 'Developer',
+    image: '/assets/images/about-us/volunteers/default1.svg',
+  },
+  {
+    name: 'Akshay Jayaram',
+    role: 'Developer',
+    image: '/assets/images/about-us/volunteers/default2.svg',
+  },
+  {
+    name: 'Zining Cen',
+    role: 'Developer',
+    image: '/assets/images/about-us/volunteers/default3.svg',
+  },
+  {
+    name: 'Ellie Karyo',
+    role: 'Developer',
+    image: '/assets/images/about-us/volunteers/default1.svg',
+  },
+  {
+    name: 'Yashwanth',
+    role: 'Developer',
+    image: '/assets/images/about-us/volunteers/yashwanth.png',
   },
 ];
 

@@ -2,7 +2,7 @@
 
 <template>
   <div
-    class="flex flex-col items-center gap-y-12 self-center pt-80 mobile:pt-64 pb-[18rem] mobile:mt-5 mobile:pb-40 px-20 mobile:px-0 relative z-10"
+  class="flex flex-col items-center gap-y-12 self-center pt-80 mobile:pt-64 pb-[6rem] mobile:mt-5 mobile:pb-16 px-20 mobile:px-0 relative z-10"
   >
     <img
       src="/assets/images/testimonials/testimonials-bg.png"
@@ -68,7 +68,7 @@
               >
                 <p class="">
                   “Audemy’s games provide accessible and engaging educational
-                  content for our blind students.”
+                  content for our blind students. We encourage parents and other teachers to check it out as well.”
                 </p>
                 <h3 class="text-small">
                   &mdash; Staff from Kansas School for the Blind
@@ -94,7 +94,7 @@
                   “Audemy’s audio games are really cool! My favorite game was
                   car counting because I love cars and math.”
                 </p>
-                <h4 class="text-small">&mdash; Blind Student from Houston</h4>
+                <h4 class="text-small">&mdash; Adam, a Blind Student from Houston</h4>
               </div>
             </div>
           </div>

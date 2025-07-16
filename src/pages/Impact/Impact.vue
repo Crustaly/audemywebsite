@@ -4,7 +4,6 @@ import ScrollUpButton from '../../components/ScrollUpButton/ScrollUpButton.vue';
 import Header from '../../components/Header/Header.vue';
 import Footer from '../../components/Footer/Footer.vue';
 import Accolades from './Accolades/Accolades.vue';
-import PressList from './PressList/PressList.vue';
 import OurReach from './OurReach/OurReach.vue';
 import CollaboratingSchools from './CollaboratingSchools/CollaboratingSchools.vue';
 
@@ -28,7 +27,6 @@ const { isMobile, isTablet } = useDeviceType();
   </div>
 
   <CollaboratingSchools />
-  <PressList />
   <Accolades />
   <OurReach />
 
