@@ -159,14 +159,24 @@ const developmentStaff = [
     image: '/assets/images/about-us/volunteers/shyaka.png',
   },
   {
-    name: 'Jennifer Shi',
-    role: 'Accessibility Specialist',
-    image: '/assets/images/about-us/volunteers/default2.svg',
+    name: 'Jennifer Chhie',
+    role: 'Developer',
+    image: '/assets/images/about-us/volunteers/jennifer.png',
   },
   {
     name: 'Brian Ference',
     role: 'Project Manager',
     image: '/assets/images/about-us/volunteers/brian.png',
+  },
+  {
+    name: 'Carter Sargent',
+    role: 'Accessibility Specialist',
+    image: '/assets/images/about-us/volunteers/default2.svg',
+  },
+  {
+    name: 'Jennifer Shi',
+    role: 'Accessibility Specialist',
+    image: '/assets/images/about-us/volunteers/default1.svg',
   },
   {
     name: 'Shobha Sudha Kamath',
