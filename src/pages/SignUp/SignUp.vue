@@ -97,12 +97,14 @@
           <label for="password" class="form-label"> Password </label>
           <input
             v-model="password"
-            type="password"
+            :type="showPassword ? 'text' : 'password'"
             class="form-input-full"
             id="password"
             name="password"
             placeholder="Create your best password"
             @input="validatePasswords"
+            minlength="8"
+            maxlength="15"
           />
         </div>
         <!-- CONFIRM PASSWORD FIELD -->
@@ -112,23 +114,32 @@
           </label>
           <input
             v-model="confirmPassword"
-            type="password"
+            :type="showPassword ? 'text' : 'password'"
             class="form-input-full"
             id="confirm_password"
             name="confirm_password"
             placeholder="Confirm your password"
             @input="validatePasswords"
             @blur="handleConfirmBlur"
+            minlength="8"
+            maxlength="15"
           />
         </div>
+        <!-- TOGGLE PASSWORD VISIBILITY -->
+        <PasswordToggle
+          :showPassword="showPassword"
+          @password-toggle="showPassword = !showPassword"
+          class="mb-8"
+        />
         <!-- Password match feedback container (Using computed properties) -->
+        <!-- Accessibility: feedback is muted while typing; final error announced on submit -->
         <div
           v-show="confirmTouched"
           class="feedback-box"
           :class="feedbackClass"
           v-if="feedbackMessage !== 'cleared'"
         >
-          <p class="font-medium" role="alert">
+          <p class="font-medium" aria-hidden="true">
             {{ feedbackMessage }}
           </p>
         </div>
@@ -148,7 +159,7 @@
         <!-- GET STARTED BTN -->
         <div class="form-action-container">
           <button
-            type="button"
+            type="submit"
             @click="submitForm"
             class="primary-button"
             value="Get Started"
@@ -197,6 +208,7 @@ import Header from '../../components/Header/Header.vue';
 import Footer from '../../components/Footer/Footer.vue';
 import ScrollUpButton from '../../components/ScrollUpButton/ScrollUpButton.vue';
 import Banner from '../../components/AccountPages/Banner.vue';
+import PasswordToggle from '../../components/AccountPages/PasswordToggle.vue';
 
 import { ref, watch, onMounted, computed } from 'vue';
 import { jwtDecode } from 'jwt-decode';
@@ -220,6 +232,7 @@ const schoolName = ref('');
 const email = ref('');
 const password = ref('');
 const confirmPassword = ref('');
+const showPassword = ref(false); // Toggle password visibility
 const confirmTouched = ref(false);
 const formSubmitted = ref(false);
 const debugMessage = ref('Please confirm your password');
@@ -256,10 +269,18 @@ const submitForm = async (event) => {
   // Force validation check before submission
   validatePasswords();
 
-  // Check if passwords match
+  // Stop form submission if passwords don't match
   if (!passwordsMatch.value) {
     debugMessage.value = "Form submission stopped: passwords don't match";
     showErrorAlert('Passwords do not match. Please try again.');
+    return;
+  } else if (password.value.length < 8) {
+    // Stop submission if password is too short
+    debugMessage.value =
+      'Form submission stopped: password length is less than 8';
+    showErrorAlert(
+      'Passwords match but are too short. Please create a stronger password.'
+    );
     return;
   }
 
@@ -515,9 +536,15 @@ const validatePasswords = () => {
   if (password.value && confirmPassword.value) {
     // Both fields have values, set match status
     passwordsMatch.value = password.value === confirmPassword.value;
-    debugMessage.value = passwordsMatch.value
-      ? 'Passwords are a match.'
-      : 'Passwords do not match.';
+    // Check if password is at least 8 chars long
+    if (passwordsMatch.value) {
+      debugMessage.value =
+        password.value.length < 8
+          ? 'Passwords match but are too short! Use at least 8 characters.'
+          : 'Passwords are a match.';
+    } else {
+      debugMessage.value = 'Passwords do not match.';
+    }
   } else if (confirmTouched.value && confirmPassword.value === '') {
     // If user has interacted with confirm field but it's now empty
     passwordsMatch.value = false;
@@ -574,7 +601,9 @@ watch([password, confirmPassword], () => {
 
 const feedbackMessage = computed(() => {
   if (passwordsMatch.value === true) {
-    return 'Yeye! Passwords are a match!';
+    return password.value.length < 8
+      ? 'Oops! Passwords match but are too short! Use at least 8 characters.'
+      : 'Yeye! Passwords are a match!';
   } else if (passwordsMatch.value === false) {
     // Check if user cleared any password fields
     if (password.value === '') {
@@ -597,7 +626,9 @@ const feedbackMessage = computed(() => {
 
 const feedbackClass = computed(() => {
   if (passwordsMatch.value === true) {
-    return 'bg-green-100 border-green-500 text-green-800';
+    return password.value.length < 8
+      ? 'bg-red-100 border-red-500 text-red-800'
+      : 'bg-green-100 border-green-500 text-green-800';
   } else if (passwordsMatch.value === false) {
     return 'bg-red-100 border-red-500 text-red-800';
   } else {
