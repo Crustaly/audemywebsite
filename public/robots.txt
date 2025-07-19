@@ -24,4 +24,4 @@ Disallow: /*.env$
 Disallow: /*.log$
 Disallow: /*.json$
 
-Sitemap: https://audemy.crustaly.com/sitemap.xml
+Sitemap: https://audemy.org/sitemap.xml
