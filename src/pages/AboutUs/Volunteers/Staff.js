@@ -174,11 +174,6 @@ const developmentStaff = [
     image: '/assets/images/about-us/volunteers/default2.svg',
   },
   {
-    name: 'Jennifer Shi',
-    role: 'Accessibility Specialist',
-    image: '/assets/images/about-us/volunteers/default1.svg',
-  },
-  {
     name: 'Shobha Sudha Kamath',
     role: 'Developer',
     image: '/assets/images/about-us/volunteers/default3.svg',

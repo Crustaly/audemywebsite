@@ -6,9 +6,10 @@ const parentFooterClasses = [
   'bg-white',
   'text-primary-color',
   'w-full',
-  'h-[620px]',
-  'md:h-[540px]',
-  'lg:h-[380px]',
+  'h-[850px]',
+  'sm:h-[900px]',
+  'md:h-[750px]',
+  'lg:h-[620px]',
   'pt-[10%]',
   'pb-[10%]',
   'md:pt-[5%]',
@@ -25,6 +26,7 @@ const parentFooterClasses = [
  *   - Row 1: [Logo]
  *   - Row 2: [Quick Links] [Social Media]
  *   - Row 3: [Contact]
+ *   - Row 4: [Bio & Policies]
  *
  * B) md (≥768px):
  *   - Row 1: [Logo]
@@ -36,18 +38,16 @@ const parentFooterClasses = [
  *
  * D) Custom grid:
  *    - Improves spacing, margins, & scroll-up button alignment
- *    - Prevents wrapping (e.g., email address)
  */
 const ftrContainerClasses = [
   'grid',
   'grid-cols-2',
-  'gap-x-4',
-  'sm:gap-x-[4.5rem]',
+  'gap-x-8',
+  'sm:gap-x-24',
   'gap-y-4',
-  'md:[grid-template-columns:0.8fr_1fr_1.3fr]',
+  'md:grid-cols-3',
   'md:gap-x-8',
-  'lg:[grid-template-columns:1.3fr_0.5fr_0.8fr_1.2fr]',
-  'lg:gap-x-10',
+  'lg:[grid-template-columns:1.3fr_0.5fr_0.8fr_0.8fr]',
   'border-b-2',
   'border-t-2',
   'pb-4',
@@ -59,6 +59,7 @@ const ftrContainerClasses = [
   'md:mr-[10%]',
   'lg:ml-[8%]',
   'lg:mr-[8%]',
+  'lg:pt-[3%]',
 ];
 
 /* Social media layout (Mobile):
@@ -205,34 +206,6 @@ const socialMediaGridClasses = [
               </svg>
             </a>
           </li>
-          <!-- X (fka Twitter) -->
-          <li class="ftr-subtext" :class="socialMediaGridClasses">
-            <a
-              href="https://x.com/AudemyApp"
-              target="_blank"
-              class="social-link"
-              aria-label="X (fka Twitter)"
-            >
-              X
-            </a>
-            <a
-              href="https://x.com/AudemyApp"
-              target="_blank"
-              class="social-icon-link"
-              aria-hidden="true"
-              tabindex="-1"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="bi bi-twitter-x social-brand"
-                viewBox="0 0 16 16"
-              >
-                <path
-                  d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"
-                />
-              </svg>
-            </a>
-          </li>
           <!-- YouTube -->
           <li class="ftr-subtext" :class="socialMediaGridClasses">
             <a
@@ -262,20 +235,35 @@ const socialMediaGridClasses = [
           </li>
         </ul>
       </div>
-      <!-- Third Row (mobile): Contacts -->
+      <!-- Third Row (mobile): Contact -->
       <div id="contact-items" class="col-span-2 md:col-span-1 mb-[5%]">
-        <p class="ftr-subheader">Contacts</p>
+        <p class="ftr-subheader">Contact</p>
         <ul>
           <li class="ftr-subtext">
-            <a
-              href="mailto:connect.audemy@gmail.com"
-              class="break-all md:max-w-full"
-            >
-              connect.audemy@gmail.com
+            <a href="mailto:connect@audemy.org" class="break-all md:max-w-full">
+              connect@audemy.org
             </a>
           </li>
+        </ul>
+      </div>
+      <!-- Fourth Row (mobile): Bio & Website Policies -->
+      <div
+        id="policies-items"
+        class="col-span-2 mt-[15%] md:col-span-3 md:text-center lg:col-span-4 lg:mt-[5%]"
+      >
+        <!-- Bio -->
+        <p class="ftr-bio">
+          Audemy is a U.S.-based 501(c)(3) nonprofit organization (EIN: 99-2595553).
+        </p>
+        <!-- Simple flex for single column (mobile, small) or row (md, lg) layout -->
+        <ul class="md:flex md:flex-row md:gap-10 md:justify-center">
+          <!-- Copyright -->
+          <li class="ftr-bio">&copy; 2024 Audemy</li>
           <li class="ftr-subtext">
-            <a href="tel:+1888668442">+1 (888) 668-442</a>
+            <a href="/accessibility-statement">Accessibility Statement</a>
+          </li>
+          <li class="ftr-subtext">
+            <a href="/privacy-policy">Privacy Policy</a>
           </li>
         </ul>
       </div>

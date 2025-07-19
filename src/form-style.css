@@ -4,7 +4,7 @@
     @apply relative px-8 sm:px-8 md:px-6 lg:px-14;
   }
   .content-container {
-    @apply px-20 tablet:px-10 mobile:px-5;
+    @apply font-poppins px-20 tablet:px-10 mobile:px-5;
   }
   .form-container {
     @apply pt-5 pb-5 mb-10 text-center;

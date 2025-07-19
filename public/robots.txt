@@ -19,6 +19,8 @@ Disallow: /reset-password
 Disallow: /reset-link-sent
 Disallow: /reset-confirm
 Disallow: /reset-landing-page
+Disallow: /accessibility-statement
+Disallow: /privacy-policy
 
 Disallow: /*.env$
 Disallow: /*.log$
