@@ -14,6 +14,10 @@
     @apply text-sm font-normal mb-2;
   }
 
+  .ftr-bio {
+    @apply text-black text-sm mb-4;
+  }
+
   /* Link Containers */
   #quick-links-items a {
     @apply block;
@@ -22,7 +26,8 @@
   /* Link Styling */
   #quick-links-items a,
   .social-link,
-  #contact-items a {
+  #contact-items a,
+  #policies-items a {
     /* Prevent layout shift on hover with transparent bottom border */
     @apply pb-[0.215rem] w-full inline-block border-b border-b-transparent;
   }
@@ -30,7 +35,8 @@
   /* Hover state: Underline text links only (not icons) */
   #quick-links-items a:hover,
   .social-link:hover,
-  #contact-items a:hover {
+  #contact-items a:hover,
+  #policies-items a:hover {
     @apply text-black border-b border-black;
   }
 

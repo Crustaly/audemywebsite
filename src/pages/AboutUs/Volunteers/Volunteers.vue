@@ -46,7 +46,7 @@ onMounted(() => {
         </h4>
         <div class="flex items-center justify-center">
           <a
-            href="mailto:connect.audemy@gmail.com"
+            href="mailto:connect@audemy.org"
             class="w-[240px] h-[60px] font-poppins font-semibold px-4 py-4 font-[16px] border-[1.5px] border-[#0C0D0D] rounded-[8px] bg-primary-color hover:bg-[#0C587D] duration-300 text-base text-center text-[#fff] shadow-[3px_4px_0px_#0C0D0D] mobile:w-[200px] mobile:h-[50px] mobile:px-2 mobile:text-sm"
           >
             Join the team
