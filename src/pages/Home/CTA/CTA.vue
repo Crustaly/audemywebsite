@@ -19,14 +19,14 @@
         class="flex mobile:flex-col justify-between mobile:gap-[20px] mobile:mx-[16px] items-center"
       >
         <a
-          href="mailto:connect.audemy@gmail.com"
+          href="mailto:connect@audemy.org"
           target="_blank"
           class="font-poppins font-[600] w-[236.07px] mobile:w-full h-[56px] leading-[56px] tablet:h-[60px] tablet:leading-[60px] border-[1.5px] border-[#0C0D0D] rounded-[8px] bg-[#087BB4] hover:bg-[#0C587D] text-[16px] text-center text-white shadow-[4px_4px_0px_#0C0D0D]"
         >
           Donate for the cause
         </a>
         <a
-          href="mailto:connect.audemy@gmail.com"
+          href="mailto:connect@audemy.org"
           target="_blank"
           class="font-poppins font-[600] w-[236.07px] mobile:w-full h-[56px] leading-[56px] tablet:h-[60px] tablet:leading-[60px] border-[1.5px] border-[#0C0D0D] rounded-[8px] bg-[#FE892A] hover:bg-[#D6711F] text-[16px] text-center text-[#0D0C0C] shadow-[4px_4px_0px_#0C0D0D]"
         >

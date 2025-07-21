@@ -55,7 +55,7 @@ import Affiliates from './Affiliates.vue';
         class="text-end w-1/2 mobile:w-full mobile:flex mobile:justify-center"
       >
         <a
-          href="mailto:connect.audemy@gmail.com"
+          href="mailto:connect@audemy.org"
           target="_blank"
           class="w-[244px] mobile:w-auto font-poppins font-semibold px-[4.20rem] py-4 border-[1.5px] border-[#0C0D0D] rounded-[8px] bg-primary-color hover:bg-[#0C587D] duration-300 text-base text-white shadow-[3px_4px_0px_#0C0D0D]"
         >
