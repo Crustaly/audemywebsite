@@ -3,6 +3,7 @@ const managementStaff = [
     name: 'Eleonora Paoli',
     role: 'Lead Designer',
     image: '/assets/images/about-us/volunteers/eleonora.png',
+    linkedin: 'https://www.linkedin.com/in/paolieleonora/',
     website: 'https://www.eleonorapaoli.com/',
     email: 'eleonorabh@gmail.com',
   },
@@ -11,6 +12,7 @@ const managementStaff = [
     name: 'Anmol Bal',
     role: 'Chief Financial Officer',
     image: '/assets/images/about-us/volunteers/anmol.png',
+    email: 'allybal1286@gmail.com',
   },
   {
     name: 'Shrikrishna Bhat',
@@ -44,6 +46,7 @@ const designStaff = [
     name: 'Jessie Zhang',
     role: 'UI/UX Designer',
     image: '/assets/images/about-us/volunteers/jessie.png',
+    linkedin: 'https://www.linkedin.com/in/zjessie/',
     email: 'jessiezhangjz1@gmail.com',
   },
   {
@@ -56,6 +59,7 @@ const designStaff = [
     name: 'Samantha Rodrigues',
     role: 'UX/UI Designer',
     image: '/assets/images/about-us/volunteers/samantha.png',
+    linkedin: 'https://www.linkedin.com/in/samanthaanna/',
     email: 'samanthanna.r@gmail.com',
   },
   {
@@ -199,6 +203,7 @@ const developmentStaff = [
     name: 'May Lynn',
     role: 'Developer',
     image: '/assets/images/about-us/volunteers/may.png',
+    linkedin: 'https://www.linkedin.com/in/may-lynn-espinola-a0120b206/',
     email: 'maylynnespinola@gmail.com',
   },
   {
@@ -349,6 +354,7 @@ const socialmediaStaff = [
     name: 'Jeslyn Chang',
     role: 'Social Media',
     image: '/assets/images/about-us/volunteers/jeslyn.png',
+    linkedin: 'https://www.linkedin.com/in/jeslynchang/',
     email: 'jeslynchang80@gmail.com',
   },
   {
@@ -360,11 +366,13 @@ const socialmediaStaff = [
     name: 'Vicky Yu',
     role: 'Video Editor',
     image: '/assets/images/about-us/volunteers/vicky.png',
+    linkedin: 'https://www.linkedin.com/in/vicky588/',
   },
   {
     name: 'Carlos Renan',
     role: 'Video Editor',
     image: '/assets/images/about-us/volunteers/carlos.png',
+    linkedin: 'https://www.linkedin.com/in/1carlosrenan/',
   },
 ];
 
