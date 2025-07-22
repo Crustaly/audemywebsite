@@ -21,7 +21,7 @@ import Globe from '/assets/images/impact/globe 1.svg';
      <p
   class="font-poppins text-body text-xl leading-8 text-wrap max-w-[65%] tablet:max-w-[85%] mobile:text-[16px] mobile:text-center mobile:max-w-full"
 >
-  At Audemy, we’re <strong>closing the learning gap</strong> with <strong>AI-powered audio games</strong> designed to be <strong>fun, interactive, and fully accessible</strong>—so blind and visually impaired students can <strong>learn, play, and thrive</strong> on their own terms.
+  At Audemy, we’re <strong>closing the learning gap</strong> with <strong>AI-powered audio games</strong> designed to be fun, interactive, and fully accessible so blind and visually impaired students can <strong>learn, play, and thrive</strong> on their own terms.
 </p>
 
       <a

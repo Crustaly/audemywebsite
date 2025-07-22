@@ -121,7 +121,7 @@ let videoStoped = () => {
           muted
         >
           <source
-            src="/src/assets/videoFiles/JJ_Storybuilder_05_2024_Short.mp4"
+            src="/src/assets/videoFiles/JJ_Storybuilder_05_2024_Short_1.mp4"
             type="video/mp4"
           />
           <span>browser does not support the video tag.</span>
