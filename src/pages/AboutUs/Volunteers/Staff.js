@@ -66,7 +66,8 @@ const designStaff = [
     name: 'Katerina Rabadzhyiska',
     role: 'UX/UI Designer',
     image: '/assets/images/about-us/volunteers/katerina.png',
-    email: 'katerinarabadzhyiska@gmail.com'
+    linkedin: 'https://www.linkedin.com/in/katerina-rabadzhyiska-93989233b/',
+    email: 'katerinarabadzhyiska@gmail.com',
   },
   {
     name: 'Priya Patel',
@@ -148,6 +149,7 @@ const developmentStaff = [
     role: 'Developer',
     image: '/assets/images/about-us/volunteers/default1.svg',
     github: 'https://github.com/HyperEnginer',
+    linkedin: 'https://www.linkedin.com/in/faruk-saridanismet-440563283/',
     email: 'asaridanismet@gmail.com',
   },
   {
@@ -170,6 +172,7 @@ const developmentStaff = [
     name: 'Sherman Hamo Rasho',
     role: 'Developer',
     image: '/assets/images/about-us/volunteers/sherman.png',
+    linkedin: 'https://www.linkedin.com/in/sherman-hamo-rasho-45a3472a2/',
     website: 'https://shersuz.com/',
     email: 'shermanhamorashoca@gmail.com',
   },
@@ -215,6 +218,8 @@ const developmentStaff = [
     name: 'Shyaka Chaste',
     role: 'Developer',
     image: '/assets/images/about-us/volunteers/shyaka.png',
+    github: 'https://github.com/shyakachaste',
+    linkedin: 'https://www.linkedin.com/in/shyakachaste/',
   },
   {
     name: 'Jennifer Chhie',
@@ -336,6 +341,7 @@ const outreachStaff = [
     name: 'Soujash Wawdhane',
     role: 'Outreach',
     image: '/assets/images/about-us/volunteers/soujash.png',
+    linkedin: 'https://www.linkedin.com/in/soujashw/',
   },
   {
     name: 'Ilemona Jacob',
