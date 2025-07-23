@@ -30,12 +30,9 @@
           class="mx-auto relative -top-16 w-[250px] h-[250px]"
         />
         <div class="flex flex-col items-center text-body">
-          <h1
-          class="font-poppins font-bold text-7xl text-wrap mobile:text-4xl"
-          style="color: #d96f1f;"
-        >
-          1 in 5
-        </h1>
+          <h1 class="font-serif font-bold text-7xl mobile:text-4xl text-[#d96f1f]">
+            1 <span class="tracking-wide"> in </span> 5
+          </h1>
           <p class="font-poppins text-base text-center mobile:text-[12px]">
             blind students<br />
              learning through play
@@ -53,7 +50,7 @@
         />
         <div class="flex flex-col items-center text-body">
           <h1
-            class="font-poppins font-bold text-7xl text-wrap mobile:text-4xl"
+            class="font-serif font-bold text-7xl text-wrap mobile:text-4xl"
             style="color: #077bb3;"
           >
             36
@@ -75,7 +72,7 @@
         />
         <div class="flex flex-col items-center text-body">
           <h1
-            class="font-poppins font-bold text-7xl text-wrap mobile:text-4xl"
+            class="font-serif font-bold text-7xl text-wrap mobile:text-4xl"
             style="color: #d96f1f;"
           >
             66
