@@ -1,5 +1,5 @@
 /*
- * form-style.css: Shared Tailwind classes for auth forms and password toggle and checklist (WIP)
+ * form-style.css: Shared Tailwind classes for auth forms and password toggle and checklist
  * 
  * Relevant files (.vue):
  * - LogIn (including School form)
@@ -9,7 +9,7 @@
  * - NotFound
  * 
  * Relevant Components:
- * - PasswordToggle & (WIP) PasswordChecklist
+ * - PasswordToggle, PasswordChecklist, and CheckmarkIcon
  */
 
 @layer components {
@@ -84,6 +84,31 @@
   .password-toggle-flex {
     /* Layout container for Show/Hide Password icon + label */
     @apply inline-flex items-center cursor-pointer;
+  }
+
+  /* --- Password Checklist & Checkmark Icon --- */
+  /* Subtitle underline and alignment */
+  .checklist-subtitle {
+    @apply border-b border-primary-color text-left;
+  }
+
+  .checklist-subtitle p {
+    @apply font-semibold text-primary-color;
+  }
+
+  /* Shared grid layout */
+  .checklist-grid {
+    @apply grid grid-cols-8;
+  }
+
+  /* Icon column */
+  .checkmark-icon {
+    @apply col-span-1 text-center lg:text-right;
+  }
+
+  /* Password criteria (text) column */
+  .checklist-req {
+    @apply col-span-7 text-left;
   }
 
   /* --- Misc --- */

@@ -134,16 +134,25 @@
         <!-- Password match feedback container (Using computed properties) -->
         <!-- Accessibility: feedback is muted while typing; final error announced on submit -->
         <div
-          v-show="confirmTouched"
+          v-show="confirmTouched && matchAndInputMessage !== 'cleared'"
           class="feedback-box"
           :class="feedbackClass"
-          v-if="feedbackMessage !== 'cleared'"
         >
           <p class="font-medium" aria-hidden="true">
-            {{ feedbackMessage }}
+            {{ matchAndInputMessage }}
           </p>
         </div>
-
+        <!-- PASSWORD STRENGTH CHECKLIST -->
+        <!-- TODO: Add fade effects to PasswordChecklist, errorMessage, and matchAndInputMessage -->
+        <PasswordChecklist
+          v-show="isWeakPassword || !passwordsMatch"
+          :hasEnoughChars="hasEnoughChars"
+          :hasPersonalInfo="hasPersonalInfo"
+          :hasLowercase="hasLowercase"
+          :hasUppercase="hasUppercase"
+          :hasNumber="hasNumber"
+          :hasSpecialChar="hasSpecialChar"
+        />
         <div class="auth-grid text-center lg:text-left">
           <p class="auth-grid-caption">Already have an Audemy account?</p>
           <div class="auth-grid-link">
@@ -209,6 +218,7 @@ import Footer from '../../components/Footer/Footer.vue';
 import ScrollUpButton from '../../components/ScrollUpButton/ScrollUpButton.vue';
 import Banner from '../../components/AccountPages/Banner.vue';
 import PasswordToggle from '../../components/AccountPages/PasswordToggle.vue';
+import PasswordChecklist from '../../components/AccountPages/PasswordChecklist.vue';
 
 import { ref, watch, onMounted, computed } from 'vue';
 import { jwtDecode } from 'jwt-decode';
@@ -241,6 +251,39 @@ const isLoading = ref(false);
 import { useErrorAlert } from '../../Utilities/useErrorAlert';
 const { errors, errorMessage, showErrorAlert } = useErrorAlert();
 
+// Reusable Composables
+import { usePasswordCriteria } from '../../composables/usePasswordCriteria.js';
+import { usePasswordFeedback } from '../../composables/usePasswordFeedback.js';
+
+// Reactive flags from usePasswordCriteria() used by <PasswordChecklist>
+// to render dynamic icons and validate password strength
+const {
+  hasEnoughChars,
+  hasPersonalInfo,
+  hasLowercase,
+  hasUppercase,
+  hasNumber,
+  hasSpecialChar,
+  checkCriteriaPassed,
+  isWeakPassword,
+} = usePasswordCriteria({
+  password,
+  firstName,
+  lastName,
+  email,
+});
+
+// usePasswordFeedback(): Returns live feedback and styling based on password inputs
+const { matchAndInputMessage, feedbackClass, getPasswordStrengthMessage } =
+  usePasswordFeedback({
+    password,
+    confirmPassword,
+    passwordsMatch,
+    isWeakPassword,
+    hasEnoughChars,
+    hasPersonalInfo,
+  });
+
 const resetErrors = () => {
   setTimeout(() => {
     errors.value = false;
@@ -266,21 +309,20 @@ const submitForm = async (event) => {
   // Set formSubmitted to true
   formSubmitted.value = true;
 
-  // Force validation check before submission
+  // Ensure passwords meet strength criteria and match before submission
+  checkCriteriaPassed();
   validatePasswords();
 
-  // Stop form submission if passwords don't match
+  // Check if passwords match and meet strength criteria
   if (!passwordsMatch.value) {
-    debugMessage.value = "Form submission stopped: passwords don't match";
+    debugMessage.value = "Form submission stopped: Passwords don't match.";
     showErrorAlert('Passwords do not match. Please try again.');
     return;
-  } else if (password.value.length < 8) {
-    // Stop submission if password is too short
-    debugMessage.value =
-      'Form submission stopped: password length is less than 8';
-    showErrorAlert(
-      'Passwords match but are too short. Please create a stronger password.'
-    );
+  } else if (isWeakPassword.value) {
+    // Stop submission if password is weak
+    const message = getPasswordStrengthMessage();
+    debugMessage.value = 'Form submission stopped: ' + message;
+    showErrorAlert(message);
     return;
   }
 
@@ -533,37 +575,26 @@ const validatePasswords = () => {
   // Always show feedback
   showFeedback.value = true;
 
-  if (password.value && confirmPassword.value) {
-    // Both fields have values, set match status
-    passwordsMatch.value = password.value === confirmPassword.value;
-    // Check if password is at least 8 chars long
-    if (passwordsMatch.value) {
-      debugMessage.value =
-        password.value.length < 8
-          ? 'Passwords match but are too short! Use at least 8 characters.'
-          : 'Passwords are a match.';
-    } else {
-      debugMessage.value = 'Passwords do not match.';
-    }
-  } else if (confirmTouched.value && confirmPassword.value === '') {
-    // If user has interacted with confirm field but it's now empty
-    passwordsMatch.value = false;
-    debugMessage.value = 'Please confirm your password';
-  } else if (formSubmitted.value) {
-    // If form was submitted but confirm password is empty
-    passwordsMatch.value = false;
-    debugMessage.value = 'Please confirm your password';
-  } else if (confirmPassword.value) {
-    // Confirm password has a value but doesn't match
-    passwordsMatch.value = false;
-    debugMessage.value = 'Passwords do not match.';
-  } else {
-    // Confirm password is empty and never touched
-    passwordsMatch.value = null;
-    debugMessage.value = 'Please confirm your password';
-  }
+  // Build (+=) conditional debugMessage
+  debugMessage.value = 'debugMessage: ';
 
-  // console.log("passwordsMatch after:", passwordsMatch.value);
+  if (password.value && confirmPassword.value) {
+    // Both passwords filled: Recompute match status
+    passwordsMatch.value = password.value === confirmPassword.value;
+
+    // Generate feedback based on match and password strength
+    debugMessage.value += passwordsMatch.value
+      ? getPasswordStrengthMessage()
+      : "Passwords don't match.";
+  } else {
+    // If confirm field is untouched: Set match status = null
+    // Otherwise: mismatch passwords
+    passwordsMatch.value = !confirmTouched.value ? null : false;
+
+    // matchAndInputMessage: Computed from usePasswordFeedback()
+    // Based on match status & if password inputs are filled
+    debugMessage.value += matchAndInputMessage.value;
+  }
 };
 
 const handleConfirmBlur = () => {
@@ -577,13 +608,10 @@ onMounted(() => {
   validatePasswords();
 });
 
-// Watch both password fields for changes
-watch(password, () => {
-  validatePasswords();
-});
-
-watch(confirmPassword, () => {
-  validatePasswords();
+// Watch password and personal info fields for changes
+watch([password, firstName, lastName, email], () => {
+  // Handles password strength checklist
+  checkCriteriaPassed();
 });
 
 // Reset formSubmitted when either password changes
@@ -597,42 +625,9 @@ watch([password, confirmPassword], () => {
   if (confirmPassword.value) {
     confirmTouched.value = true;
   }
-});
 
-const feedbackMessage = computed(() => {
-  if (passwordsMatch.value === true) {
-    return password.value.length < 8
-      ? 'Oops! Passwords match but are too short! Use at least 8 characters.'
-      : 'Yeye! Passwords are a match!';
-  } else if (passwordsMatch.value === false) {
-    // Check if user cleared any password fields
-    if (password.value === '') {
-      if (confirmPassword.value === '') {
-        return 'cleared';
-      } else {
-        return 'Please enter a password.';
-      }
-    } else if (confirmPassword.value === '') {
-      return 'Please confirm your password.';
-    } else {
-      return 'Oops! Passwords do not match. Please Try again.';
-    }
-  } else {
-    // Case: passwordsMatch.value === null
-    return 'Please confirm your password.';
-  }
-  return 'Please confirm your password.'; // Null case
-});
-
-const feedbackClass = computed(() => {
-  if (passwordsMatch.value === true) {
-    return password.value.length < 8
-      ? 'bg-red-100 border-red-500 text-red-800'
-      : 'bg-green-100 border-green-500 text-green-800';
-  } else if (passwordsMatch.value === false) {
-    return 'bg-red-100 border-red-500 text-red-800';
-  } else {
-    return 'bg-gray-100 border-gray-400 text-gray-800';
-  }
+  // Check password strength and confirmation match
+  checkCriteriaPassed();
+  validatePasswords();
 });
 </script>
