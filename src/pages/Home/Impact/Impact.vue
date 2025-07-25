@@ -14,7 +14,7 @@ import Globe from '/assets/images/impact/globe 1.svg';
       <h1
         class="font-poppins text-3xl max-w-[90%] leading-normal text-title mobile:text-[22px] mobile:max-w-full"
       >
-        Over 70% of blind students fall behind in school.
+        Over 70% of students who are blind fall behind in school.
         <em style="color: #fe892a">We're changing that.</em>
       </h1>
 
@@ -48,7 +48,7 @@ import Globe from '/assets/images/impact/globe 1.svg';
             1 <span class="font-merri tracking-wide"> in </span> 5
           </h1>
           <p class="font-poppins text-base text-center mobile:text-[12px]">
-            blind students<br />
+            students who are blind<br />
             learning through play
           </p>
         </div>
