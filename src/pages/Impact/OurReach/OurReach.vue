@@ -37,8 +37,8 @@
             1 <span class="tracking-wide"> in </span> 5
           </h1>
           <p class="font-poppins text-base text-center mobile:text-[12px]">
-            blind students<br />
-            learning through play
+            students who are blind<br />
+             learning through play
           </p>
         </div>
       </div>
