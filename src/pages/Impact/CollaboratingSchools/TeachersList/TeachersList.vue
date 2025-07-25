@@ -25,8 +25,8 @@ const props = defineProps({
 
     <!-- Educators List -->
     <div v-if="school.educators && school.educators.length > 0" class="ml-6">
-      <div 
-        v-for="(educator, index) in school.educators" 
+      <div
+        v-for="(educator, index) in school.educators"
         :key="index"
         class="mb-2"
       >
@@ -37,16 +37,20 @@ const props = defineProps({
             class="mr-2 w-3 h-3"
             alt="Arrow Icon"
           />
-          <span class="text-[14px] text-body-text-color font-poppins tablet:text-[16px] font-[400]">
+          <span
+            class="text-[14px] text-body-text-color font-poppins tablet:text-[16px] font-[400]"
+          >
             {{ educator.name }}
           </span>
         </div>
-        
+
         <!-- Educator Email -->
         <div class="flex flex-row items-center ml-5">
-          <span class="text-[14px] text-body-text-color font-poppins tablet:text-[16px] font-[400]">
-            Email: 
-            <a 
+          <span
+            class="text-[14px] text-body-text-color font-poppins tablet:text-[16px] font-[400]"
+          >
+            Email:
+            <a
               :href="`mailto:${educator.email}`"
               class="hover:text-blue-800 underline"
             >

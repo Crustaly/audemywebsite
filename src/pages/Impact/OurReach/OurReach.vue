@@ -15,7 +15,8 @@
         <h2
           class="text-center font-poppins text-4.5xl tablet:text-[32px] mobile:text-[24px] mobile:text-center font-[400]"
         >
-          Transforming lives, <em style="color:#fe892a;"> one child at a time </em> 
+          Transforming lives,
+          <em style="color: #fe892a"> one child at a time </em>
         </h2>
       </div>
     </div>
@@ -30,12 +31,14 @@
           class="mx-auto relative -top-16 w-[250px] h-[250px]"
         />
         <div class="flex flex-col items-center text-body">
-          <h1 class="font-serif font-bold text-7xl mobile:text-4xl text-[#d96f1f]">
+          <h1
+            class="font-serif font-bold text-7xl mobile:text-4xl text-[#d96f1f]"
+          >
             1 <span class="tracking-wide"> in </span> 5
           </h1>
           <p class="font-poppins text-base text-center mobile:text-[12px]">
             blind students<br />
-             learning through play
+            learning through play
           </p>
         </div>
       </div>
@@ -51,7 +54,7 @@
         <div class="flex flex-col items-center text-body">
           <h1
             class="font-serif font-bold text-7xl text-wrap mobile:text-4xl"
-            style="color: #077bb3;"
+            style="color: #077bb3"
           >
             36
           </h1>
@@ -73,7 +76,7 @@
         <div class="flex flex-col items-center text-body">
           <h1
             class="font-serif font-bold text-7xl text-wrap mobile:text-4xl"
-            style="color: #d96f1f;"
+            style="color: #d96f1f"
           >
             66
           </h1>

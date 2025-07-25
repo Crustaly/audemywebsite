@@ -58,7 +58,9 @@ onUnmounted(() => {
         <h2
           class="text-left font-poppins text-4.5xl tablet:text-[32px] mobile:text-[24px] mobile:text-center font-[400]"
         >
-          A <span style="color:#077bb3" class="font-semibold"> testament </span> to our work
+          A
+          <span style="color: #077bb3" class="font-semibold"> testament </span>
+          to our work
         </h2>
       </div>
 

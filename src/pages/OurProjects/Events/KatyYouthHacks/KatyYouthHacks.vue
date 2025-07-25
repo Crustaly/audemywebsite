@@ -20,7 +20,9 @@
         <h2 class="text-sm uppercase tracking-[3.6px]">Educational Events</h2>
       </div>
       <div class="flex justify-start">
-        <h3 class="text-[32px] font-poppins md:text-4.5xl"> <em style="color:#fe892a;"> Katy Youth </em> Hacks</h3>
+        <h3 class="text-[32px] font-poppins md:text-4.5xl">
+          <em style="color: #fe892a"> Katy Youth </em> Hacks
+        </h3>
       </div>
       <div class="md:hidden flex justify-center">
         <img
@@ -31,9 +33,13 @@
       </div>
       <div class="flex my-10">
         <p class="text-body text-xl font-poppins leading-8">
-          An accessibility-focused hackathon empowering innovation for people with disabilities.
-          Learn <strong> project development, business pitching, and accessible design </strong> — and compete for 
-          <strong> $70,000+ in prizes </strong> from leading corporate sponsors.
+          An accessibility-focused hackathon empowering innovation for people
+          with disabilities. Learn
+          <strong>
+            project development, business pitching, and accessible design
+          </strong>
+          — and compete for <strong> $70,000+ in prizes </strong> from leading
+          corporate sponsors.
         </p>
       </div>
       <div class="flex justify-start mt-5">

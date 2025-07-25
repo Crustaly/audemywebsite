@@ -169,7 +169,7 @@ onUnmounted(() => {
           <h2
             class="text-left font-poppins text-4.5xl tablet:text-[32px] mobile:text-[24px] mobile:text-center mobile: items-center mobile:justify-center mobile:-mx-14 font-[400]"
           >
-            Trusted by <em style="color:#fe892a;"> Leading Publications </em>
+            Trusted by <em style="color: #fe892a"> Leading Publications </em>
           </h2>
         </div>
       </div>
@@ -182,13 +182,15 @@ onUnmounted(() => {
             id="div_about_us"
             class="grid gap-6 mt-[40px] tablet:mt-[72px] mb-[32px] w-full grid-cols-4 mobile:grid-cols-2 transition-all duration-500 ease-in-out"
           >
-            <div 
-              v-for="(item, index) in displayedItems" 
-              :key="index" 
+            <div
+              v-for="(item, index) in displayedItems"
+              :key="index"
               class="flex transition-all duration-300 ease-in-out"
-              :class="{ 
-                'opacity-0 translate-y-4': (smallScreen ? index >= 4 : index >= 8) && !showAll,
-                'opacity-100 translate-y-0': showAll || (smallScreen ? index < 4 : index < 8)
+              :class="{
+                'opacity-0 translate-y-4':
+                  (smallScreen ? index >= 4 : index >= 8) && !showAll,
+                'opacity-100 translate-y-0':
+                  showAll || (smallScreen ? index < 4 : index < 8),
               }"
             >
               <div class="flex flex-col h-full w-full min-h-[300px] mb-3">
@@ -213,7 +215,7 @@ onUnmounted(() => {
             <button
               @click="toggleShowAll"
               class="w-[244px] mobile:w-auto font-poppins font-semibold px-[4.20rem] py-4 border-[1.5px] border-[#0C0D0D] rounded-[8px] bg-primary-color hover:bg-[#0C587D] duration-300 text-base text-white shadow-[3px_4px_0px_#0C0D0D]"
-              >
+            >
               {{ showAll ? 'Show Less' : 'See More' }}
             </button>
           </div>

@@ -20,18 +20,28 @@ const path = '/assets/images/our-projects/';
       >
         <!-- IMAGE -->
         <div class="w-full">
-          <a :href="url" target="_blank" rel="noopener noreferrer" class="block">
+          <a
+            :href="url"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="block"
+          >
             <img
-            :src="path + image"
-            class="w-full h-[150px] object-cover rounded-2xl border-[1px] border-[#E5E5E5] hover:opacity-80 transition-opacity duration-200 cursor-pointer"
-            alt="image"
+              :src="path + image"
+              class="w-full h-[150px] object-cover rounded-2xl border-[1px] border-[#E5E5E5] hover:opacity-80 transition-opacity duration-200 cursor-pointer"
+              alt="image"
             />
           </a>
         </div>
 
         <!-- TEXT -->
         <div class="mt-8 mobile:mt-4 w-full">
-          <a :href="url" target="_blank" rel="noopener noreferrer" class="block">
+          <a
+            :href="url"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="block"
+          >
             <h4
               class="text-center text-[#0C0D0D] font-poppins text-[18px] font-normal leading-snug"
               v-html="text"
