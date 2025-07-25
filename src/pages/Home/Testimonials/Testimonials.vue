@@ -24,7 +24,7 @@ const testimonials = [
     image: '/assets/images/testimonials/testimonial4.png',
     text: `“Audemy’s audio games are really cool! My favorite game was car counting because I love cars and math.”`,
     name: 'Adam',
-    role: 'a Student who is blind from Houston',
+    role: 'A Student who is blind from Houston',
   },
 ]
 
