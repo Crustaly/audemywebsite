@@ -111,6 +111,60 @@ const items = [
     network: 'Bold Journey',
     url: 'https://boldjourney.com/meet-crystal-yang/',
   },
+  {
+    image: 'C-hubworld.png',
+    text: 'Learn Without Limits with Audemy!',
+    network: 'C-hubworld',
+    url: 'https://www.instagram.com/c_hubworld/reel/DLkIX7TSlqK/',
+  },
+  {
+    image: 'Devdiscourse.png',
+    text: 'AI-powered audio learning boosts accessibility for visually impaired students',
+    network: 'Dev Discourse',
+    url: 'https://www.devdiscourse.com/article/education/3358683-ai-powered-audio-learning-boosts-accessibility-for-visually-impaired-students',
+  },
+  {
+    image: 'Disabilitynewsdigest.png',
+    text: 'Crystal Yang, is transforming education for blind and visually impaired students through Audemy',
+    network: 'Disability Newsdigest',
+    url: 'https://disabilitynewsdigest.substack.com/p/the-last-leg-promotes-disability',
+  },
+  {
+    image: 'stanford.png',
+    text: 'Audemy, an Al platform for Accessible Education through personalized Audio-Based Learning for Blind Students',
+    network: 'Stanford Scale',
+    url: 'https://scale.stanford.edu/genai/repository/al-accessible-education-personalized-audio-based-learning-blind-students',
+  },
+  {
+    image: 'EV.png',
+    text: 'Crystal Yang, develops online tool to help blind students',
+    network: 'EV',
+    url: 'https://www.elvenezolanohouston.com/estudiante-de-katy-isd-desarrolla-herramienta-online-para-ayudar-a-alumnos-ciegos/',
+  },
+  {
+    image: 'iheart.png',
+    text: 'Crystal Yang’s inspiring journey with Audemy',
+    network: 'iheart radio',
+    url: 'https://www.iheart.com/podcast/269-hello-houston-the-commuter-271597362/episode/hello-houston-the-commuter-cut-280206632/',
+  },
+  {
+    image: 'Youth.png',
+    text: 'Crystal Yang of Audemy is addressing a real need in our education system by creating fun, accessible learning experiences.',
+    network: 'Youth Service America',
+    url: 'https://ysa.org/crystalyang/',
+  },
+  {
+    image: 'WIT.png',
+    text: '"Don’t Optimize for Perfection. Optimize for Progress." Crystal Yang',
+    network: 'WIT Media',
+    url: 'https://www.instagram.com/reel/DMO34LeONU5/',
+  },
+  {
+    image: 'Tech.png',
+    text: 'Crystal Yang created an educational app that has been used by more than 7,000 blind students.',
+    network: 'Tech & Learning',
+    url: 'https://www.techlearning.com/how-to/using-ai-and-tech-for-accessibility-5-tips-for-educators-and-students?utm_source=facebook&utm_medium=social&utm_campaign=dhfacebook&utm_content=null',
+  },
 ];
 
 let smallScreen = ref(window.innerWidth <= 450);
