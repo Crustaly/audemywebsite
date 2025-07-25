@@ -42,7 +42,7 @@ const props = defineProps({
             <h4 class="font-poppins text-[18px] w-full mb-3">
               {{ volunteer.role }}
             </h4>
-            
+
             <!-- Social Media Icons -->
             <div class="flex justify-center gap-3 mt-2">
               <!-- LinkedIn Icon (shown for everyone) -->
@@ -59,7 +59,7 @@ const props = defineProps({
                   class="w-6 h-6"
                 />
               </a>
-              
+
               <!-- GitHub Icon (shown only for devs) -->
               <a
                 v-if="volunteer.github"

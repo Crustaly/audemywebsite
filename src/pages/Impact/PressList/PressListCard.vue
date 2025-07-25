@@ -20,7 +20,9 @@ const path = '/assets/images/impact/';
         class="flex flex-col items-center justify-evenly h-auto rounded-[8px] gap-4 mobile:px-4"
       >
         <!-- NEWS NETWORK (HEADING) -->
-        <div class="w-full flex items-center justify-center h-[60px] text-center px-2">
+        <div
+          class="w-full flex items-center justify-center h-[60px] text-center px-2"
+        >
           <h2
             class="text-[26px] font-bold font-poppins tablet:text-[14px] font-[600] mobile:text-[14px]"
             v-html="network"
@@ -29,7 +31,12 @@ const path = '/assets/images/impact/';
 
         <!-- IMAGE -->
         <div class="w-full flex justify-center">
-          <a :href="url" target="_blank" rel="noopener noreferrer" class="block w-full">
+          <a
+            :href="url"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="block w-full"
+          >
             <img
               :src="path + image"
               class="w-full h-[150px] object-cover rounded-2xl border-[1px] border-[#E5E5E5] hover:opacity-80 transition-opacity duration-200 cursor-pointer"
@@ -40,7 +47,12 @@ const path = '/assets/images/impact/';
 
         <!-- TEXT/DESCRIPTION -->
         <div class="w-full text-center px-2">
-          <a :href="url" target="_blank" rel="noopener noreferrer" class="block">
+          <a
+            :href="url"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="block"
+          >
             <h4
               class="text-gray-500 font-poppins font-[600] text-[16px] tablet:text-[14px] mobile:text-[14px] hover:text-blue-600 transition-colors duration-200 cursor-pointer"
               v-html="text"

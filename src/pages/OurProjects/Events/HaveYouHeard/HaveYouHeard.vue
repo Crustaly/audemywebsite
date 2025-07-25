@@ -23,7 +23,10 @@ const items = [
     <div class="text-center">
       <h2 class="text-sm uppercase tracking-[3.6px]">Education Events</h2>
       <h3 class="text-[32px] font-poppins md:text-4.5xl">
-        Have you heard about the  <span style="color:#077bb3" class="font-semibold"> events we organize </span>?
+        Have you heard about the
+        <span style="color: #077bb3" class="font-semibold">
+          events we organize </span
+        >?
       </h3>
     </div>
     <div class="flex flex-col lg:flex-row-reverse">

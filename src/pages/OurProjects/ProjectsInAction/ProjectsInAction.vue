@@ -31,10 +31,19 @@ import Carousel from './Carousel.vue';
     </div>
     <div class="flex items-center font-poppins text-center md:basis-1/2">
       <div class="flex flex-col gap-6 text-start">
-        <h2 class="text-[32px] md:text-4.5xl">Discover how we make  <span style="color:#077bb3" class="font-semibold"> education accessible </span></h2>
+        <h2 class="text-[32px] md:text-4.5xl">
+          Discover how we make
+          <span style="color: #077bb3" class="font-semibold">
+            education accessible
+          </span>
+        </h2>
 
         <p class="text-lg text-body leading-8 lg:text-xl">
-          <strong> Our innovative technologies and educational initiatives </strong> provide fun learning for <strong> blind and visually impaired individuals</strong>.
+          <strong>
+            Our innovative technologies and educational initiatives
+          </strong>
+          provide fun learning for
+          <strong> blind and visually impaired individuals</strong>.
         </p>
       </div>
     </div>

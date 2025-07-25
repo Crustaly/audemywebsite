@@ -27,9 +27,8 @@ export default async function handler(req, res) {
         school: true,
       },
     });
-    
-    return res.status(200).json(students);
 
+    return res.status(200).json(students);
   } catch (error) {
     console.error('Error fetching students:', error);
     return res.status(500).json({ error: 'Internal Server Error' });

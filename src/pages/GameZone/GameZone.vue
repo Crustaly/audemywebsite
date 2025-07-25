@@ -302,7 +302,8 @@ function hideMenuDropdown(menuBtn, currentDropdown) {
           id="game-zone-header"
           class="font-poppins text-black text-[40px] mobile:text-[25px] mobile:text-center M-0 min-[768px]:max-[1024px]:mt-0"
         >
-        <em style="color:#077bb3" class="font-semibold"> Play </em> and <em style="color:#fe892a" class="font-semibold"> learn </em> with us!
+          <em style="color: #077bb3" class="font-semibold"> Play </em> and
+          <em style="color: #fe892a" class="font-semibold"> learn </em> with us!
         </h2>
         <div
           id="game-zone-grid"

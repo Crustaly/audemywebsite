@@ -253,7 +253,8 @@ const socialMediaGridClasses = [
       >
         <!-- Bio -->
         <p class="ftr-bio">
-          Audemy is a U.S.-based 501(c)(3) nonprofit organization (EIN: 99-2595553).
+          Audemy is a U.S.-based 501(c)(3) nonprofit organization (EIN:
+          99-2595553).
         </p>
         <!-- Simple flex for single column (mobile, small) or row (md, lg) layout -->
         <ul class="md:flex md:flex-row md:gap-10 md:justify-center">
