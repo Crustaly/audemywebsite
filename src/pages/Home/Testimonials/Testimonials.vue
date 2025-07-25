@@ -1,211 +1,140 @@
 <script setup>
-import { ref } from 'vue'
-
-const currentIndex = ref(0)
+import { ref, computed } from 'vue'
 
 const testimonials = [
   {
     image: '/assets/images/testimonials/testimonial1.png',
-    text: `“I appreciate Audemy.org for offering a wide variety of academic games, particularly those focused on nourishing spelling, life skills and independence...”`,
-    author: 'Stephanie Bissonette',
-    role: 'Director of Children Services at the Vermont Association for the Blind'
+    text: `“I appreciate Audemy.org for offering a wide variety of academic games, particularly those focused on nourishing spelling, life skills and independence. The option to reward my students at the end of their lessons with 5 quick educational questions/games, fits in well into our busy schedule.”`,
+    name: 'Stephanie Bissonette',
+    role: 'Director of Children Services at the Vermont Association for the Blind (sbissonette@vabvi.org)',
   },
   {
     image: '/assets/images/testimonials/testimonial2.png',
-    text: `“Audemy has been an invaluable tool within my classroom. My students who played the games were very into it...”`,
-    author: 'Teacher from the Texas School for the Blind and Visually Impaired',
-    role: ''
+    text: `“Audemy has been an invaluable tool within my classroom. My students who played the games were very into it, and the games cover tons of educational topics like math and language!”`,
+    name: 'Teacher',
+    role: 'Texas School for the Blind and Visually Impaired',
   },
   {
     image: '/assets/images/testimonials/testimonial3.png',
-    text: `“Audemy’s games provide accessible and engaging educational content for our blind students...”`,
-    author: 'Staff from Kansas School for the Blind',
-    role: ''
+    text: `“Audemy’s games provide accessible and engaging educational content for our blind students. We encourage parents and other teachers to check it out as well.”`,
+    name: 'Staff',
+    role: 'Kansas School for the Blind',
   },
   {
     image: '/assets/images/testimonials/testimonial4.png',
     text: `“Audemy’s audio games are really cool! My favorite game was car counting because I love cars and math.”`,
-    author: 'Adam',
-    role: 'A Blind Student from Houston'
-  }
+    name: 'Adam',
+    role: 'a Student who is blind from Houston',
+  },
 ]
+
+const currentIndex = ref(0)
+
+const visibleTestimonials = computed(() => {
+  const total = testimonials.length
+  return [
+    testimonials[(currentIndex.value + 0) % total],
+    testimonials[(currentIndex.value + 1) % total],
+    testimonials[(currentIndex.value + 2) % total],
+  ]
+})
+
+function next() {
+  currentIndex.value = (currentIndex.value + 1) % testimonials.length
+}
 
 function prev() {
   currentIndex.value =
-    currentIndex.value === 0 ? testimonials.length - 1 : currentIndex.value - 1
-}
-
-function next() {
-  currentIndex.value =
-    currentIndex.value === testimonials.length - 1 ? 0 : currentIndex.value + 1
+    (currentIndex.value - 1 + testimonials.length) % testimonials.length
 }
 </script>
 
 <template>
-<<<<<<< HEAD
   <div
     class="flex flex-col items-center gap-y-12 self-center pt-80 mobile:pt-64 pb-[6rem] mobile:mt-5 mobile:pb-16 px-20 mobile:px-0 relative z-10"
   >
+    <!-- Background image -->
     <img
       src="/assets/images/testimonials/testimonials-bg.png"
-      class="absolute top-[4rem] -z-10 h-[60rem] fill"
+      class="absolute top-[4rem] -z-10 h-[70rem] fill"
       alt="Background image"
     />
 
-    <div class="font-poppins flex flex-col gap-y-3 mobile:px-5">
-      <h1 class="text-4.5xl text-center text-title mobile:text-[24px]">
+    <!-- Section Title -->
+    <div class="font-poppins flex flex-col gap-y-3 mobile:px-5 text-center">
+      <h1 class="text-4.5xl text-title mobile:text-[24px]">
         What people are saying
       </h1>
-      <p class="text-body text-xl mobile:text-[16px] mobile:text-center">
+      <p class="text-body text-xl mobile:text-[16px]">
         Our learners are our top priority, and we strive to make their
         experience unique and enriching.
       </p>
     </div>
-=======
-  <section class="relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden">
->>>>>>> e676304 (replaced blind students into students who are blind and Testimonials)
 
-    <div
-      class="relative z-10 flex flex-col items-center gap-y-12 px-6 md:px-20 py-16 max-w-7xl w-full"
-    >
-      <!-- Heading -->
-      <div class="font-poppins text-center">
-        <h1 class="text-4.5xl text-title mobile:text-[24px]">What people are saying</h1>
-        <p class="text-body text-xl mobile:text-[16px] mt-2">
-          Our learners are our top priority, and we strive to make their experience unique and enriching.
-        </p>
-      </div>
-
-<<<<<<< HEAD
-              <div
-                class="max-w-52 w-full flex flex-col gap-y-4 mobile:justify-between mobile:h-full font-poppins"
-              >
-                <p class="">
-                  “Audemy has been an invaluable tool within my classroom. My
-                  students who played the games were very into it, and the games
-                  cover tons of educational topics like math and language!”
-                </p>
-                <h2 class="text-small">
-                  &mdash; Teacher from the Texas School for the Blind and
-                  Visually Impaired
-                </h2>
-              </div>
-            </div>
-          </div>
-
-          <div class="w-4/12 mobile:w-[285px]">
-            <div
-              class="relative bg-[#fff] shadow-[3px_4px_0px_#0C0D0D] border-2 border-[#2A3338] py-20 mobile:py-16 px-8 rounded-lg min-h-[443px] w-11/12 mobile:w-[285px] mobile:h-[280px]"
-            >
-              <img
-                src="/assets/images/testimonials/chatBalloon.svg"
-                alt="Chat balloon"
-                class="absolute top-[2rem] right-[-2rem] mobile:right-[-1.4rem] z-10 pulse"
-              />
-
-              <div
-                class="max-w-52 w-full flex flex-col gap-y-4 mobile:justify-between mobile:h-full font-poppins"
-              >
-                <p class="">
-                  “Audemy’s games provide accessible and engaging educational
-                  content for our blind students. We encourage parents and other
-                  teachers to check it out as well.”
-                </p>
-                <h3 class="text-small">
-                  &mdash; Staff from Kansas School for the Blind
-                </h3>
-              </div>
-            </div>
-          </div>
-
-          <div class="w-4/12 mobile:w-[285px]">
-            <div
-              class="relative bg-[#fff] shadow-[3px_4px_0px_#0C0D0D] border-2 border-[#2A3338] py-20 mobile:py-16 px-8 rounded-lg min-h-[443px] w-11/12 mobile:w-[285px] mobile:h-[280px]"
-            >
-              <img
-                src="/assets/images/testimonials/orangeStar.svg"
-                alt="Yellow star"
-                class="absolute bottom-[-2.5rem] right-[1rem] z-10 pulse"
-              />
-
-              <div
-                class="max-w-52 w-full flex flex-col gap-y-4 mobile:justify-between mobile:h-full font-poppins"
-              >
-                <p class="">
-                  “Audemy’s audio games are really cool! My favorite game was
-                  car counting because I love cars and math.”
-                </p>
-                <h4 class="text-small">
-                  &mdash; Adam, a Blind Student from Houston
-                </h4>
-              </div>
-            </div>
-          </div>
-=======
-      <!-- Testimonial Card -->
-      <div
-        class="flex flex-col md:flex-row bg-white shadow-xl rounded-lg overflow-hidden w-full max-w-4xl"
+    <!-- Carousel Area -->
+    <div class="relative w-full max-w-[92rem] px-4 mobile:px-2">
+      <!-- Left arrow -->
+      <button
+        @click="prev"
+        class="absolute left-2 top-1/2 -translate-y-1/2 z-10 text-3xl text-[#2A3338] font-bold hover:scale-125 transition"
       >
-        <div class="w-full md:w-1/2 h-64 md:h-auto">
+        ‹
+      </button>
+
+      <!-- Testimonial Cards -->
+      <div class="flex gap-6 justify-center overflow-hidden">
+        <div
+          v-for="(testimonial, index) in visibleTestimonials"
+          :key="index"
+          class="bg-white border-2 border-[#2A3338] shadow-[3px_4px_0px_#0C0D0D] rounded-lg flex flex-col items-center text-center px-6 py-8 mobile:px-4 mobile:py-6 w-[320px] h-[520px]"
+        >
+          <!-- Image -->
           <img
-            :src="testimonials[currentIndex].image"
+            :src="testimonial.image"
             alt="testimonial image"
-            class="w-full h-full object-cover"
+            class="w-full h-[160px] object-cover rounded-md mb-4"
           />
-        </div>
-        <div class="w-full md:w-1/2 p-6 flex flex-col justify-center">
-          <p class="text-xl italic mb-4 font-poppins">
-            {{ testimonials[currentIndex].text }}
+
+          <!-- Scrollable Text Content -->
+          <div class="overflow-y-auto no-scrollbar max-h-[220px] mb-4 px-1">
+            <p class="text-sm text-gray-700 font-poppins leading-relaxed whitespace-pre-wrap">
+              {{ testimonial.text }}
+            </p>
+          </div>
+
+          <!-- Name -->
+          <p class="text-[15px] font-semibold font-poppins text-[#2A3338] mt-2">
+            – {{ testimonial.name }}
           </p>
-          <p class="font-semi-bold mt-2 font-poppins text-body">— {{ testimonials[currentIndex].author }}</p>
-          <p class="text-sm mt-4 font-poppins text-body" v-if="testimonials[currentIndex].role">
-            {{ testimonials[currentIndex].role }}
+
+          <!-- Role -->
+          <p class="text-sm text-[#2A3338] mt-2 font-poppins leading-snug">
+            {{ testimonial.role }}
           </p>
->>>>>>> e676304 (replaced blind students into students who are blind and Testimonials)
         </div>
       </div>
 
-      <!-- Arrows -->
-      <div class="flex gap-6 mt-4">
-        <button
-          @click="prev"
-          class="w-10 h-10 rounded-full border border-gray-400 flex items-center justify-center hover:bg-gray-100"
-        >
-          ←
-        </button>
-        <button
-          @click="next"
-          class="w-10 h-10 rounded-full border border-gray-400 flex items-center justify-center hover:bg-gray-100"
-        >
-          →
-        </button>
-      </div>
+      <!-- Right arrow -->
+      <button
+        @click="next"
+        class="absolute right-2 top-1/2 -translate-y-1/2 z-10 text-3xl text-[#2A3338] font-bold hover:scale-125 transition"
+      >
+        ›
+      </button>
     </div>
-  </section>
+  </div>
 </template>
 
 <style scoped>
-.pulse {
-  animation: pulse 1.1s infinite;
+.no-scrollbar::-webkit-scrollbar {
+  width: 0;
+  height: 0;
 }
-@keyframes pulse {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.2);
-  }
-  100% {
-    transform: scale(1);
-  }
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
-.text-title {
-  color: #0c0d0d;
-}
-.text-body {
-  color: #5a5a5a;
-}
-.font-poppins {
-  font-family: 'Poppins', sans-serif;
+.fill {
+  width: -webkit-fill-available;
 }
 </style>
