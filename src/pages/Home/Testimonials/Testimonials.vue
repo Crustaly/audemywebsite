@@ -61,7 +61,7 @@ function prev() {
     />
 
     <!-- Section Title -->
-    <div class="font-poppins flex flex-col gap-y-3 mobile:px-5 text-center">
+    <div class="font-poppins flex flex-col gap-y-3 mobile:px-5 text-center relative">
       <h1 class="text-4.5xl text-title mobile:text-[24px]">
         What people are saying
       </h1>
@@ -76,9 +76,13 @@ function prev() {
       <!-- Left arrow -->
       <button
         @click="prev"
-        class="absolute left-2 top-1/2 -translate-y-1/2 z-10 text-3xl text-[#2A3338] font-bold hover:scale-125 transition"
+        class="absolute left-2 top-1/2 -translate-y-1/2 z-10 hover:scale-125 transition"
       >
-        ‹
+        <img
+          src="/assets/images/testimonials/arrow.png"
+          alt="Previous"
+          class="w-12 h-12 rotate-180"
+        />
       </button>
 
       <!-- Testimonial Cards -->
@@ -117,9 +121,13 @@ function prev() {
       <!-- Right arrow -->
       <button
         @click="next"
-        class="absolute right-2 top-1/2 -translate-y-1/2 z-10 text-3xl text-[#2A3338] font-bold hover:scale-125 transition"
+        class="absolute right-2 top-1/2 -translate-y-1/2 z-10 hover:scale-125 transition"
       >
-        ›
+        <img
+          src="/assets/images/testimonials/arrow.png"
+          alt="Next"
+          class="w-12 h-12"
+        />
       </button>
     </div>
   </div>
