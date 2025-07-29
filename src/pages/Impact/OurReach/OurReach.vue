@@ -59,7 +59,7 @@
             36
           </h1>
           <p class="font-poppins text-base text-center mobile:text-[12px]">
-            parntering <br />
+            partnering <br />
             schools
           </p>
         </div>
