@@ -165,7 +165,7 @@ onMounted(() => {
   watch(playButton, (newVal) => {
     if (newVal) {
       isIntroPlaying.value = true;
-      const introAudio = playIntro('/carCounting/carCountIntro.mp3');
+      const introAudio = playIntro('/gameIntroAudio/carCountIntro.mp3');
       currentAudios.push(introAudio);
       introAudio.onended = () => {
         isIntroPlaying.value = false;
