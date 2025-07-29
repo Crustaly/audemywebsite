@@ -4,16 +4,28 @@
       class="w-6/12 mobile:w-full flex flex-col gap-y-4 mobile:items-center mobile:text-center"
     >
       <div class="font-poppins">
-      <h1 class="text-4xl tablet:text-[24px] mobile:text-[24px] leading-normal text-title font-poppins">
-  Audio Games <span style="color:#077bb3" class="font-semibold">Powering the Future</span> of <span style="color:#077bb3" class="font-semibold">Accessible Learning</span>
-</h1>
-
+        <h1
+          class="text-4xl tablet:text-[24px] mobile:text-[24px] leading-normal text-title font-poppins"
+        >
+          Audio Games
+          <span style="color: #077bb3" class="font-semibold"
+            >Powering the Future</span
+          >
+          of
+          <span style="color: #077bb3" class="font-semibold"
+            >Accessible Learning</span
+          >
+        </h1>
       </div>
 
       <div>
-       <p class="font-poppins text-body text-xl mobile:text-[16px] max-w-md leading-8">
-  Our AI-powered audio games are transforming access to education—reaching <strong>200,000+ learners worldwide</strong>, including <strong>1 in 5 blind children in the U.S.</strong>!
-</p>
+        <p
+          class="font-poppins text-body text-xl mobile:text-[16px] max-w-md leading-8"
+        >
+          Our AI-powered audio games are transforming access to
+          education—reaching <strong>200,000+ learners worldwide</strong>,
+          including <strong>1 in 5 blind children in the U.S.</strong>!
+        </p>
       </div>
 
       <a

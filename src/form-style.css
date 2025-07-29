@@ -1,10 +1,24 @@
+/*
+ * form-style.css: Shared Tailwind classes for auth forms and password toggle and checklist
+ * 
+ * Relevant files (.vue):
+ * - LogIn (including School form)
+ * - SignUp, 
+ * - ForgotPassword, ResetLinkSent,
+ * - ResetLandingPage, ResetPassword, ResetConfirm
+ * - NotFound
+ * 
+ * Relevant Components:
+ * - PasswordToggle, PasswordChecklist, and CheckmarkIcon
+ */
+
 @layer components {
   /* --- General Page & Form Structure --- */
   .page-container {
     @apply relative px-8 sm:px-8 md:px-6 lg:px-14;
   }
   .content-container {
-    @apply px-20 tablet:px-10 mobile:px-5;
+    @apply font-poppins px-20 tablet:px-10 mobile:px-5;
   }
   .form-container {
     @apply pt-5 pb-5 mb-10 text-center;
@@ -59,6 +73,42 @@
   }
   .form-hint {
     @apply text-left w-full mb-5;
+  }
+
+  /* --- Password Visibility Toggle --- */
+  .password-toggle-button {
+    /* Align styling and hover effects with Google OAuth button */
+    @apply h-[35px] w-auto rounded-lg border border-gray-300 px-2 hover:bg-[#e6ebf8] hover:border-[#d5e3fa];
+  }
+
+  .password-toggle-flex {
+    /* Layout container for Show/Hide Password icon + label */
+    @apply inline-flex items-center cursor-pointer;
+  }
+
+  /* --- Password Checklist & Checkmark Icon --- */
+  /* Subtitle underline and alignment */
+  .checklist-subtitle {
+    @apply border-b border-primary-color text-left;
+  }
+
+  .checklist-subtitle p {
+    @apply font-semibold text-primary-color;
+  }
+
+  /* Shared grid layout */
+  .checklist-grid {
+    @apply grid grid-cols-8;
+  }
+
+  /* Icon column */
+  .checkmark-icon {
+    @apply col-span-1 text-center lg:text-right;
+  }
+
+  /* Password criteria (text) column */
+  .checklist-req {
+    @apply col-span-7 text-left;
   }
 
   /* --- Misc --- */

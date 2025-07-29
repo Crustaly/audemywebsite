@@ -94,7 +94,9 @@ let videoStoped = () => {
         <div
           v-if="!isplaying"
           class="w-full h-full bg-cover bg-center"
-          style="background-image: url('/assets/images/techShowcase/video-poster.png');"
+          style="
+            background-image: url('/assets/images/techShowcase/video-poster.png');
+          "
         ></div>
 
         <!-- Play Button -->
@@ -121,7 +123,7 @@ let videoStoped = () => {
           muted
         >
           <source
-            src="/src/assets/videoFiles/JJ_Storybuilder_05_2024_Short.mp4"
+            src="/src/assets/videoFiles/JJ_Storybuilder_05_2024_Short_1.mp4"
             type="video/mp4"
           />
           <span>browser does not support the video tag.</span>
@@ -137,14 +139,16 @@ let videoStoped = () => {
         class="font-poppins text-[40px] tablet:text-[32px] mobile:text-[24px] leading-[60px] tablet:leading-[48px] mobile:leading-[36px] text-[#151E22]"
       >
         Learning is more fun when it
-        <span style="color: #077bb3; font-weight: 700;">talks back</span>.
+        <span style="color: #077bb3; font-weight: 700">talks back</span>.
       </h1>
 
       <p
         class="font-poppins text-[20px] tablet:text-[16px] leading-[30px] tablet:leading-[24px] text-[#2F3E45]"
       >
-        We’ve built <strong>50+ accessible audio games</strong> that make learning joyful, inclusive, and interactive—designed for blind and visually impaired students to learn through play.  
-        So far, students have solved <strong>100,000+ learning challenges</strong> on our platform!
+        We’ve built <strong>50+ accessible audio games</strong> that make
+        learning joyful, inclusive, and interactive—designed for blind and
+        visually impaired students to learn through play. So far, students have
+        solved <strong>100,000+ learning challenges</strong> on our platform!
       </p>
 
       <div class="flex mobile:mx-0 items-end">

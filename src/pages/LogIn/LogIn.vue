@@ -30,7 +30,7 @@
         </div>
         <!-- EMAIL FIELD -->
         <div>
-          <label class="form-label" for="email"> Email Address </label>
+          <label class="form-label" for="email">Email Address</label>
           <input
             v-model="email"
             type="email"
@@ -55,21 +55,29 @@
           </div>
           <input
             v-model="password"
-            type="password"
+            :type="showPassword ? 'text' : 'password'"
             class="form-input-full"
             id="password"
             name="password"
             placeholder="Enter your password"
+            minlength="8"
+            maxlength="15"
+          />
+          <!-- TOGGLE PASSWORD VISIBILITY -->
+          <PasswordToggle
+            :showPassword="showPassword"
+            @password-toggle="showPassword = !showPassword"
+            class="mb-0"
           />
         </div>
         <!-- OPTIONAL SIGN UP GRID -->
         <div class="auth-grid">
           <p class="auth-grid-caption">New to Audemy?</p>
           <div class="auth-grid-link">
-            <a href="signup" class="auth-link"> Sign Up </a>
+            <a href="signup" class="auth-link">Sign Up</a>
           </div>
         </div>
-        <!-- GET STARTED BTN -->
+        <!-- LOGIN BUTTON -->
         <div class="form-action-container">
           <button type="submit" class="secondary-button">Log in</button>
         </div>
@@ -110,7 +118,7 @@
         </div>
         <!-- SCHOOL NAME FIELD -->
         <div id="school-form">
-          <label for="school" class="form-label"> School </label>
+          <label for="school" class="form-label">School</label>
           <input
             v-model="school"
             type="text"
@@ -135,6 +143,7 @@ import Header from '../../components/Header/Header.vue';
 import Footer from '../../components/Footer/Footer.vue';
 import ScrollUpButton from '../../components/ScrollUpButton/ScrollUpButton.vue';
 import Banner from '../../components/AccountPages/Banner.vue';
+import PasswordToggle from '../../components/AccountPages/PasswordToggle.vue';
 
 import { ref, onMounted } from 'vue';
 import { GoogleLogin } from 'vue3-google-login';
@@ -150,6 +159,7 @@ const userSession = ref(null);
 const userProfile = ref(null);
 const school = ref(''); // Store school input
 const showSchoolForm = ref(false); // Control form visibility
+const showPassword = ref(false); // Toggle password visibility
 const isLoading = ref(false); // For loading state
 const router = useRouter();
 var OAuthResponse = ref(null);

@@ -14,7 +14,6 @@ OUR REACH:
 
 💵 $200,000 raised from Intel, Taco Bell Foundation, NCWIT, and local scholarships
 
-
 Audemy’s educational games are:
 
 🎙️ Audio-based: Designed for screen-free learning
@@ -25,4 +24,4 @@ Audemy’s educational games are:
 
 🧩 Curriculum-aligned: Covers foundational math, science, and language
 
- Visit audemy.org to learn more, or reach out at crystal [at] audemy [dot] org
+Visit audemy.org to learn more, or reach out at crystal [at] audemy [dot] org

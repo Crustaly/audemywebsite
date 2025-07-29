@@ -18,7 +18,7 @@ import Affiliates from './Affiliates.vue';
       <h2
         class="text-left ml-[2rem] font-poppins text-4.5xl tablet:text-[32px] mobile:text-[24px] mobile:text-center font-[400] mobile:ml-0"
       >
-      Collaborating <em style="color:#fe892a;"> Schools </em>
+        Collaborating <em style="color: #fe892a"> Schools </em>
       </h2>
     </div>
 
@@ -46,8 +46,8 @@ import Affiliates from './Affiliates.vue';
         <p
           class="w-[504px] text-body text-xl font-poppins leading-8 mobile:ml-0 mobile:w-fit-content mobile:text-center"
         >
-          As we expand our services, we'd love to have you  <strong> partner with us on
-          this exciting journey </strong>!
+          As we expand our services, we'd love to have you
+          <strong> partner with us on this exciting journey </strong>!
         </p>
       </div>
 
@@ -55,7 +55,7 @@ import Affiliates from './Affiliates.vue';
         class="text-end w-1/2 mobile:w-full mobile:flex mobile:justify-center"
       >
         <a
-          href="mailto:connect.audemy@gmail.com"
+          href="mailto:connect@audemy.org"
           target="_blank"
           class="w-[244px] mobile:w-auto font-poppins font-semibold px-[4.20rem] py-4 border-[1.5px] border-[#0C0D0D] rounded-[8px] bg-primary-color hover:bg-[#0C587D] duration-300 text-base text-white shadow-[3px_4px_0px_#0C0D0D]"
         >
