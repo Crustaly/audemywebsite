@@ -162,44 +162,6 @@ export const getMathGames = () => {
 export const getScienceGames = () => {
   return [
     {
-      icon: basedPath + 'matter.png',
-      title: 'Matter Mix-Up',
-      url: '/game/mattermixup',
-      textColor: '#323232',
-      bgColor: '#4dd4ff', // Light Blue
-      description:
-        'Help identify solids, liquids, and gases before they evaporate!',
-    },
-    {
-      icon: basedPath + 'cells.png',
-      title: 'Tiny Cell Town',
-      url: '/game/tinycelltown',
-      textColor: '#323232',
-      bgColor: '#a7f3d0', // Mint Green
-      description:
-        'Guide an alien through the microscopic city of a human cell.',
-    },
-    {
-      icon: basedPath + 'weather.png',
-      title: 'Weather Whiz',
-      url: '/game/weatherwhiz',
-      textColor: '#323232',
-      bgColor: '#B19CD9', // Lavender
-      description:
-        'Interpret the sky’s mood swings before the thunder has a tantrum.',
-    },
-    {
-      icon: basedPath + 'astronaut.png',
-      title: 'Space Case',
-      url: '/game/spacecase',
-      textColor: '#323232',
-      bgColor: '#d1d5db', // Light Gray
-      bgDecoration: true,
-      bgImage: '/assets/gameImages/bg-star.png',
-      description:
-        'Help a forgetful astronaut remember basic facts about space.',
-    },
-    {
       icon: basedPath + 'dino.png',
       title: 'Dino Detectives',
       url: '/game/dinodetectives',
@@ -236,6 +198,44 @@ export const getScienceGames = () => {
       bgDecoration: true,
       bgImage: '/assets/gameImages/bg-sound.png',
       description: 'Measure and decode sound waves to escape an echoing cave.',
+    },
+    {
+      icon: basedPath + 'matter.png',
+      title: 'Matter Mix-Up',
+      url: '/game/mattermixup',
+      textColor: '#323232',
+      bgColor: '#4dd4ff', // Light Blue
+      description:
+        'Help identify solids, liquids, and gases before they evaporate!',
+    },
+    {
+      icon: basedPath + 'cells.png',
+      title: 'Tiny Cell Town',
+      url: '/game/tinycelltown',
+      textColor: '#323232',
+      bgColor: '#a7f3d0', // Mint Green
+      description:
+        'Guide an alien through the microscopic city of a human cell.',
+    },
+    {
+      icon: basedPath + 'weather.png',
+      title: 'Weather Whiz',
+      url: '/game/weatherwhiz',
+      textColor: '#323232',
+      bgColor: '#B19CD9', // Lavender
+      description:
+        'Interpret the sky’s mood swings before the thunder has a tantrum.',
+    },
+    {
+      icon: basedPath + 'astronaut.png',
+      title: 'Space Case',
+      url: '/game/spacecase',
+      textColor: '#323232',
+      bgColor: '#d1d5db', // Light Gray
+      bgDecoration: true,
+      bgImage: '/assets/gameImages/bg-star.png',
+      description:
+        'Help a forgetful astronaut remember basic facts about space.',
     },
     {
       icon: basedPath + 'robot.png',

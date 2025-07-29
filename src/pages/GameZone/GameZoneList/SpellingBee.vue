@@ -130,8 +130,8 @@ const recordButtonClasses = computed(() => [
   isTablet.value
     ? 'w-[200px] h-[60px] pt-5 pr-[30px] pb-5 pl-[30px] gap-[10px] rounded-[20px]'
     : isMobile.value
-      ? 'w-full h-[60px] pt-5 pr-[30px] pb-5 pl-[30px] gap-[10px] rounded-[20px]'
-      : 'gap-2.5 w-[234px] h-[116px] pt-5 pr-7 pb-5 pl-7 rounded-[20px]',
+    ? 'w-full h-[60px] pt-5 pr-[30px] pb-5 pl-[30px] gap-[10px] rounded-[20px]'
+    : 'gap-2.5 w-[234px] h-[116px] pt-5 pr-7 pb-5 pl-7 rounded-[20px]',
   isRecording.value ? 'bg-red-500' : 'bg-[#087BB4]',
   'text-white',
   isButtonDisabled.value ? 'opacity-50 cursor-not-allowed' : '',
@@ -156,8 +156,8 @@ const recordButtonText = computed(() => {
   return isRecording.value
     ? 'Stop Recording'
     : isTablet.value || isMobile.value
-      ? 'Record'
-      : 'Record Answer';
+    ? 'Record'
+    : 'Record Answer';
 });
 
 // 5. Watch/WatchEffect
@@ -178,7 +178,7 @@ onMounted(() => {
   watch(playButton, (newVal) => {
     if (newVal) {
       isIntroPlaying.value = true;
-      const introAudio = playIntro('/spellingBee/spellingintro.mp3');
+      const introAudio = playIntro('/gameIntroAudio/spellingIntro.mp3');
       currentAudios.push(introAudio);
       introAudio.onended = () => {
         isIntroPlaying.value = false;
