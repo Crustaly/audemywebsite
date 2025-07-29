@@ -144,7 +144,7 @@ const items = [
   {
     image: 'iheart.png',
     text: 'Crystal Yang’s inspiring journey with Audemy',
-    network: 'iheart radio',
+    network: 'iHeart radio',
     url: 'https://www.iheart.com/podcast/269-hello-houston-the-commuter-271597362/episode/hello-houston-the-commuter-cut-280206632/',
   },
   {
