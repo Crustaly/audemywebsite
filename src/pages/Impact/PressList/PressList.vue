@@ -47,7 +47,7 @@ const items = [
   },
   {
     image: 'points-of-light.png',
-    text: 'Championing Accessibility in Education for Blind and Visually Impaired Students Championing',
+    text: 'Championing Accessibility in Education for Blind and Visually Impaired Students.',
     network: 'Points of Light',
     url: 'https://www.pointsoflight.org/awards/championing-accessibility-in-education-for-blind-and-visually-impaired-students/',
   },
