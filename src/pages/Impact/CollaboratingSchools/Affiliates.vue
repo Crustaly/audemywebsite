@@ -209,6 +209,9 @@ const teachers = [
       />
     </div>
     <div v-if="currentPage === 2" class="overflow-y-auto h-[200px]">
+      <p class="ml-8 sm:ml-0 text-[18px] sm:text-[12px] xs:text-[10px] text-gray-700 text-left sm:text-center font-thin font-poppins pb-4">
+        Thank you to our participating teachers and organization leaders for helping us spread Audemy out to their school, organization, and beyond.
+      </p>
       <TeachersList
         v-for="(teacher, index) in teachers"
         :key="index"
