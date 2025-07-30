@@ -18,24 +18,40 @@ const props = defineProps({
   },
 });
 
-// Map page numbers to game category names for button labels
+// Map page numbers to their corresponding icon + category title
 const gamePagesMap = {
-  1: 'Language',
-  2: 'Math',
-  3: 'Science',
-  4: 'Life Skills',
-  5: 'Independence Skills',
-  6: 'My Progress', // Future page in GameZone
+  1: {
+    icon: '/assets/gameImages/landingPageImages/all-language-games-icon.png',
+    title: 'Language',
+  },
+  2: {
+    icon: '/assets/gameImages/landingPageImages/all-math-games-icon.png',
+    title: 'Math',
+  },
+  3: {
+    icon: '/assets/gameImages/landingPageImages/all-science-games-icon.png',
+    title: 'Science',
+  },
+  4: {
+    icon: '/assets/gameImages/landingPageImages/all-life-skills-games-icon.png',
+    title: 'Life Skills',
+  },
+  5: {
+    icon: '/assets/gameImages/landingPageImages/all-independence-skills-games-icon.png',
+    title: 'Independence Skills',
+  },
+  /* WIP: Future page in GameZone */
+  6: {
+    icon: '',
+    title: 'My Progress',
+  },
 };
 </script>
 
 <template>
-  <!-- 
-    TODO (Refactor): 
-    - Add click handler (@click="handlePageSwitch(pageNumber)") 
-    - and move related logic and state management into this component 
-  -->
+  <!-- Accessibility: Append 'Games' for screen readers; visually hidden for sighted users -->
   <button
+    :aria-label="`${gamePagesMap[pageNumber].title} Games`"
     :class="[
       'game-filter-btn-base',
       currentPage == pageNumber
@@ -43,9 +59,12 @@ const gamePagesMap = {
         : 'game-filter-btn-inactive',
     ]"
   >
-    <span>
-      {{ gamePagesMap[pageNumber] }}
-      <span v-show="pageNumber !== 6"> Games</span>
+    <!-- Use pageNumber to fetch matching icon and title from gamePagesMap -->
+    <span aria-hidden="true">
+      <span class="flex justify-center m-2">
+        <img :src="gamePagesMap[pageNumber].icon" class="h-[30px] w-[30px]" />
+      </span>
+      <span>{{ gamePagesMap[pageNumber].title }}</span>
     </span>
   </button>
 </template>
