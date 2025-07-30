@@ -30,14 +30,19 @@ const testimonials = [
     image: '/assets/images/impact/arizonaStudent.png',
     text: `“Hello! My name is Denise Bean, Youth Service Librarian for the Iowa Library for the Blind and Print Disabled, and one of the greatest joys of my work is building meaningful connections with children who are blind or have low vision. During one of our 28 virtual Summer Reading Program events, we introduced a game called Audemy, and what an unforgettable experience it was! The children lit up with excitement, laughter filled the room, and the joy was contagious.”`,
     name: 'Denise Bean',
-    role: 'Youth service librarian from the Iowa library for the blind',
+    role: 'Youth service librarian from the Iowa Library for the Blind (Denise.Bean@blind.state.ia.us)',
   },
   {
     image: '/assets/images/impact/5b46078e-65e0-42c8-a658-2939c6676a21.jpeg',
-    text: `“Audemy is not only easy to use, but it’s also beautifully adaptable to meet a wide range of learning levels. From fun audio cues to thoughtfully chosen topics for all levels, the game offers an inclusive and engaging way to learn and play. It was a hit with our group, and they couldn’t wait to play again!
-            Audemy isn’t just for our library programs, it would be a perfect fit for public libraries everywhere. A huge thank you to Crystal for designing this game with such care and intention. She truly thought of everything to make sure every player feels included."`,
+    text: `“Audemy is not only easy to use, but it’s also beautifully adaptable to meet a wide range of learning levels. From fun audio cues to thoughtfully chosen topics for all levels, the game offers an inclusive and engaging way to learn and play. It was a hit with our group, and they couldn’t wait to play again!`,
     name: 'Staff',
-    role: 'Iowa center for the blind',
+    role: 'Iowa Center for the Blind',
+  },
+  {
+    image: '/assets/images/impact/carousel/carousel1.jpg',
+    text: `“Audemy isn’t just for our library programs, it would be a perfect fit for public libraries everywhere. A huge thank you to Crystal for designing this game with such care and intention. She truly thought of everything to make sure every player feels included."`,
+    name: 'Librarian',
+    role: 'for Blind Students',
   },
 ]
 
