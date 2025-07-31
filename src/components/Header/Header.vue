@@ -77,13 +77,15 @@
         </li>
         <!-- TODO: This GameZone link is to be used when user auth is implemented -->
         <!-- li id="games-item">
-          <router-link to="/game-zone" class="navbar-link-desktop">
+          <router-link to="/game-zone-landing-page" class="navbar-link-desktop">
             Game Zone
           </router-link>
         </li-->
         <li id="games-item">
-          <router-link to="/game-zone" 
-          class="base-login-btn md:p-[15px] lg:p-[12px] lg:px-4">
+          <router-link
+            to="/game-zone-landing-page"
+            class="base-login-btn md:p-[15px] lg:p-[12px] lg:px-4"
+          >
             Game Zone
           </router-link>
         </li>
@@ -201,7 +203,7 @@
           <!-- TODO: This GameZone link is to be used when user auth is implemented -->
           <!-- li>
             <router-link
-              to="/game-zone"
+              to="/game-zone-landing-page"
               class="navbar-link-mobile"
               @click="closeMenu"
             >
@@ -209,7 +211,7 @@
             </router-link>
           </li-->
           <router-link
-            to="/game-zone"
+            to="/game-zone-landing-page"
             @click="closeMenu"
             class="base-login-btn w-full mt-8"
           >

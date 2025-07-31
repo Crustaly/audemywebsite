@@ -14,6 +14,12 @@
 
     <!-- Right side - Navigation and Login -->
     <div class="flex items-center gap-8">
+      <!-- NOTE:
+        - Login/Logout button temporarily hidden
+          until Privacy Policy is updated or My Progress feature is ready
+        - Related code commented out (lines 22–67)
+      -->
+      <!--
       <div v-if="userSession">
         <button
           class="flex justify-center items-center bg-[#FE892A] text-black font-bold py-3 px-6 rounded-lg border-[1.5px] shadow-[3px_4px_0px_#0C0D0D] border-black hover:bg-[#D6711F]"
@@ -58,6 +64,7 @@
           </svg>
         </router-link>
       </div>
+      -->
     </div>
   </header>
   <!-- Alert -->

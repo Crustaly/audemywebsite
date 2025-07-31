@@ -2,6 +2,7 @@ import { createWebHistory, createRouter } from 'vue-router';
 
 import Home from '../pages/Home/Home.vue';
 import OurProjects from '../pages/OurProjects/OurProjects.vue';
+import GameZoneLandingPage from '../pages/GameZone/GameZoneLandingPage.vue';
 import GameZone from '../pages/GameZone/GameZone.vue';
 import LogIn from '../pages/LogIn/LogIn.vue';
 import NotFound from '../pages/NotFound/NotFound.vue';
@@ -29,6 +30,11 @@ const routes = [
   { path: '/home', redirect: '/' },
   { path: '/', name: 'Home', component: Home },
   { path: '/game-zone', name: 'Game-Zone', component: GameZone },
+  {
+    path: '/game-zone-landing-page',
+    name: 'Game-Zone-Landing-Page',
+    component: GameZoneLandingPage,
+  },
   { path: '/our-projects', name: 'Our-Projects', component: OurProjects },
   { path: '/impact', name: 'Impact', component: Impact },
   { path: '/about-us', name: 'About-Us', component: AboutUs },

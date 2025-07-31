@@ -3,24 +3,25 @@
 @layer components {
   /* Base for all filter buttons */
   .game-filter-btn-base {
-    @apply flex items-center justify-center whitespace-nowrap font-poppins text-[14px] py-2 px-10 mobile:px-8 rounded-full border hover:bg-[#e6f3fa];
+    @apply flex items-center justify-center whitespace-nowrap font-poppins text-[14px] py-2 px-10 mobile:px-8 rounded-full border hover:bg-[#e6f3fa] ease-in duration-300;
   }
   .game-filter-btn-active {
     @apply text-[#087BB4] bg-[#e6f3fa] font-semibold border-[#087BB4];
   }
   .game-filter-btn-inactive {
-    @apply text-[#6E777C] bg-white border-[#6E777C];
+    @apply text-[#000000] bg-white border-[#000000];
   }
 
-  /* Base for all game menu buttons */
-  .game-menu-btn-base {
-    @apply flex items-center justify-center gap-2 font-poppins text-[14px] py-2 px-10 mobile:px-8 rounded-full border whitespace-nowrap mobile:w-full;
+  /* Base for Game Zone 'action' buttons: 'Game Menu' & 'View All Categories' */
+  .game-action-btn-base {
+    @apply flex items-center justify-center gap-2 font-poppins text-[14px] py-2 px-10 mobile:px-8 rounded-full border whitespace-nowrap mobile:w-full hover:bg-[#e6f3fa] ease-in duration-300;
   }
   .game-menu-btn-active {
     @apply text-[#087BB4] bg-[#e6f3fa] font-semibold border-[#087BB4];
   }
-  .game-menu-btn-inactive {
-    @apply text-[#6E777C] bg-white font-normal border border-[#6E777C];
+  .game-menu-btn-inactive,
+  .view-all-categories-btn {
+    @apply text-[#000000] bg-white font-normal border border-[#000000];
   }
 
   /* SVG arrow styling based on parent button state */
@@ -31,7 +32,7 @@
     @apply fill-[#087BB4];
   }
   .game-menu-btn-inactive .svg-arrow {
-    @apply fill-[#6E777C];
+    @apply fill-[#000000];
   }
 
   /* Base for all dropdown menus (the container for options) */
@@ -41,7 +42,7 @@
 
   /* Styling for individual links within the dropdown */
   .game-menu-link {
-    @apply block px-4 py-2 text-gray-700 hover:bg-[#e6f3fa] border-b border-gray-300;
+    @apply block px-4 py-2 text-gray-700 hover:bg-[#e6f3fa] border-b border-gray-300 ease-in duration-300;
   }
   /* Remove border-b from the last item */
   .game-menu-link:last-child {

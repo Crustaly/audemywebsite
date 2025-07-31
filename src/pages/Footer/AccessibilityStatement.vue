@@ -6,9 +6,9 @@ import Footer from '../../components/Footer/Footer.vue';
 import { useRouter } from 'vue-router';
 const router = useRouter();
 
-const toGameZone = () => {
-  // Route to game-zone page when button is clicked
-  router.push('/game-zone');
+const toGameZoneLandingPage = () => {
+  // Route to Game Zone Landing Page when button is clicked
+  router.push('/game-zone-landing-page');
 };
 </script>
 
@@ -75,7 +75,7 @@ const toGameZone = () => {
         </p>
       </div>
       <!-- RETURN TO GAME ZONE FORM -->
-      <form @submit="toGameZone" method="post" class="form-wrapper">
+      <form @submit="toGameZoneLandingPage" method="post" class="form-wrapper">
         <div class="form-action-container">
           <button type="submit" class="primary-button">
             Return to Game Zone

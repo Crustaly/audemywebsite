@@ -117,7 +117,7 @@ const socialMediaGridClasses = [
             <a href="/press">Press & Recognition</a>
           </li>
           <li class="ftr-subtext">
-            <a href="/game-zone">Game Zone</a>
+            <a href="/game-zone-landing-page">Game Zone</a>
           </li>
         </ul>
       </div>

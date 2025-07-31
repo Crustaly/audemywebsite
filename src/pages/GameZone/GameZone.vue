@@ -6,7 +6,8 @@ import GameProgress from '../GameZone/GameProgress/GameProgress.vue';
 import ScrollUpButton from '../../components/ScrollUpButton/ScrollUpButton.vue';
 import Footer from '../../components/Footer/Footer.vue';
 
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, watch } from 'vue';
+import { useRoute, useRouter } from 'vue-router';
 
 import { useDeviceType } from '../../Utilities/checkDeviceType';
 
@@ -20,7 +21,8 @@ import {
 
 /*
  * Extracted lists of objects for dropdown menus:
- * - languageGamesMap, mathGamesMap, and scienceGamesMap
+ * - languageGamesMap, mathGamesMap, scienceGamesMap,
+ * - lifeSkillGameMap, independenceSkillGameMap, etc.
  *
  * Each object contains game title and URL
  * - Example format: [{ title: 'Definition Detective', url: '/game/definitionDetective' }, ...]
@@ -57,8 +59,8 @@ import { computed } from 'vue';
 const totalPages = 5; // TODO: Update to 6 once "My Progress" is ready
 
 /*
- * Generates an array of page numbers [1 ... totalPages]
- * Used in v-for to render GameZonePageButton's dynamically
+ * Returns an array [1 ... totalPages] for rendering <GameZonePageButton /> (via v-for)
+ * "Page 0" is reserved for navigating back to <GameZoneLandingPage />
  */
 const pageNumberList = computed(() =>
   Array.from({ length: totalPages }, (_, i) => i + 1)
@@ -69,7 +71,33 @@ const changeCurrentPage = (page) => {
   currentPage.value = page;
 };
 
+const route = useRoute();
+const router = useRouter();
+
+/* Validates 'page' query parameter in '/game-zone' URL
+ * Set via <GameZoneLandingPage />
+ * Invalid query param: Display error message
+ */
+const isValidPageParam = ref(true);
+
 onMounted(() => {
+  // Try: query parameter (if navigating from Game Zone Landing Page)
+  if (route.query.page) {
+    const pageParam = Number(route.query.page);
+    // Check if valid page param: Must be a number within [1, totalPages]
+    if (!isNaN(pageParam) && pageParam >= 1 && pageParam <= totalPages) {
+      isValidPageParam.value = true;
+      changeCurrentPage(pageParam);
+      return;
+    } else {
+      // Fallback: Reset and mark page parameter as invalid
+      // Cases: isNaN (ex: "abc"), or Number is not within [1, totalPages]
+      isValidPageParam.value = false;
+      return;
+    }
+  }
+
+  // Otherwise, retrieve `sessionStorage` (Already in Game Zone)
   const category = sessionStorage.getItem('gameCategory');
 
   if (category === 'math') {
@@ -144,12 +172,12 @@ function deactivateGameMenu(menuBtn) {
   // Reset button
   menuBtn.style.backgroundColor = '#FFFFFF';
   menuBtn.style.fontWeight = 'normal';
-  menuBtn.style.color = '#6E777C';
-  menuBtn.style.borderColor = '#6E777C';
+  menuBtn.style.color = '#000000';
+  menuBtn.style.borderColor = '#000000';
 
   // Reset arrow (svg)
   const svgArrow = menuBtn.querySelector('svg');
-  svgArrow.style.fill = '#6E777C';
+  svgArrow.style.fill = '#000000';
 }
 
 // Toggles visibility of the active dropdown menu
@@ -196,6 +224,30 @@ function toggleDropdown() {
 }
 
 function handlePageSwitch(newPage) {
+  /*
+   * Default behavior:
+   * - Resets query param flag
+   * - Clears any query param from URL (no page refresh)
+   *
+   * Handles 2 edge cases:
+   * - 1. Navigating from Landing Page with valid query param,
+   *      then switches to another page within Game Zone
+   * - 2. Error message currently shown (invalid query param in URL),
+   *      then user clicks on a valid page button
+   */
+  isValidPageParam.value = true;
+  router.push({
+    path: route.path,
+    query: {},
+  });
+
+  // Special case: If newPage is 0, navigate back to Landing Page
+  // (User clicks on "Back" button within Game Zone)
+  if (newPage == 0) {
+    router.push('/game-zone-landing-page');
+  }
+
+  // Otherwise, proceed with regular page switch
   const pages = {
     1: { btn: 'lang-menu-btn', dropdown: 'lang-dropdown-div' },
     2: { btn: 'math-menu-btn', dropdown: 'math-dropdown-div' },
@@ -302,15 +354,15 @@ function hideMenuDropdown(menuBtn, currentDropdown) {
           id="game-zone-header"
           class="font-poppins text-black text-[40px] mobile:text-[25px] mobile:text-center M-0 min-[768px]:max-[1024px]:mt-0"
         >
-          <em style="color: #077bb3" class="font-semibold"> Play </em> and
-          <em style="color: #fe892a" class="font-semibold"> learn </em> with us!
+          <em style="color: #077bb3"> Play </em> and
+          <em style="color: #fe892a"> learn </em> with us!
         </h2>
         <div
           id="game-zone-grid"
           class="w-full flex flex-wrap gap-5 mb-10 mt-10 items-start"
         >
-          <div class="flex flex-wrap gap-5 mobile:w-full mobile:justify-center">
-            <!-- GENERATE PAGE BUTTONS FOR GAME CATEGORIES (WIP: and 'My Progress') -->
+          <div class="flex flex-wrap gap-5 w-full justify-center">
+            <!-- RENDER PAGE BUTTONS FOR GAME CATEGORIES (includes WIP: 'My Progress') -->
             <GameZonePageButton
               v-for="pageNumber in pageNumberList"
               :key="pageNumber"
@@ -319,332 +371,371 @@ function hideMenuDropdown(menuBtn, currentDropdown) {
               @click="handlePageSwitch(pageNumber)"
             />
           </div>
+          <!-- FLEX CONTAINER: 'View All Categories' Button + 'Games Menu' Dropdown 
+              - Mobile / Small Screens (Column): Btn (top), Menu (bottom)
+              - Medium+ Screens (Row): Btn (left), Menu (right) 
+          -->
           <div
-            class="relative flex flex-grow justify-end gap-5 mobile:w-full mobile:justify-center mobile:mt-4"
+            class="flex justify-between items-center w-full mobile:flex-col mobile:gap-y-10 mobile:mt-5"
           >
-            <!-- LANGUAGE GAMES MENU -->
-            <div
-              id="lang-menu-div"
-              :class="[currentPage === 1 ? 'flex' : 'hidden', 'relative']"
-            >
+            <!-- VIEW ALL CATEGORIES BUTTON (aka Back to Landing Page) -->
+            <div>
               <button
+                @click="handlePageSwitch(0)"
                 type="button"
-                id="lang-menu-btn"
-                :class="[
-                  'game-menu-btn-base',
-                  isLangMenuOpen
-                    ? 'game-menu-btn-active'
-                    : 'game-menu-btn-inactive',
-                ]"
-                @click="activateGameMenu"
-                @blur="handleMenuBlur"
-                :aria-expanded="isLangMenuOpen"
-                aria-haspopup="true"
-                aria-controls="lang-dropdown-div"
+                class="game-action-btn-base view-all-categories-btn"
               >
-                <span>Game Menu</span>
                 <svg
-                  class="svg-arrow"
-                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
                   fill="currentColor"
+                  class="bi bi-grid"
+                  viewBox="0 0 16 16"
                   aria-hidden="true"
-                  data-slot="icon"
                 >
                   <path
-                    fill-rule="evenodd"
-                    d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
-                    clip-rule="evenodd"
+                    d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5zM2.5 2a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5zm6.5.5A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5zM1 10.5A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5zm6.5.5A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5z"
                   />
                 </svg>
+                <span>View All Categories</span>
               </button>
-              <!-- LANGUAGE GAMES DROPDOWN OPTIONS -->
+            </div>
+            <div>
+              <!-- LANGUAGE GAMES MENU -->
               <div
-                id="lang-dropdown-div"
-                @focusout="handleDropdownFocusOut"
-                tabindex="-1"
-                class="game-menu-dropdown-base hidden"
-                role="menu"
-                aria-orientation="vertical"
-                aria-labelledby="lang-menu-btn"
+                id="lang-menu-div"
+                :class="[currentPage === 1 ? 'flex' : 'hidden', 'relative']"
               >
-                <div
-                  id="lang-dropdown-options"
-                  class="py-1 text-[15px]"
-                  role="none"
+                <button
+                  type="button"
+                  id="lang-menu-btn"
+                  :class="[
+                    'game-action-btn-base',
+                    isLangMenuOpen
+                      ? 'game-menu-btn-active'
+                      : 'game-menu-btn-inactive',
+                  ]"
+                  @click="activateGameMenu"
+                  @blur="handleMenuBlur"
+                  :aria-expanded="isLangMenuOpen"
+                  aria-haspopup="true"
+                  aria-controls="lang-dropdown-div"
                 >
-                  <!-- Generate game menu links by looping over 'languageGamesMap' entries -->
-                  <a
-                    v-for="{ title, url } in languageGamesMap"
-                    :key="url"
-                    :href="url"
-                    class="game-menu-link"
-                    role="menuitem"
+                  <span>Game Menu</span>
+                  <svg
+                    class="svg-arrow"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                    aria-hidden="true"
+                    data-slot="icon"
                   >
-                    {{ title }}
-                  </a>
+                    <path
+                      fill-rule="evenodd"
+                      d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                </button>
+                <!-- LANGUAGE GAMES DROPDOWN OPTIONS -->
+                <div
+                  id="lang-dropdown-div"
+                  @focusout="handleDropdownFocusOut"
+                  tabindex="-1"
+                  class="game-menu-dropdown-base hidden"
+                  role="menu"
+                  aria-orientation="vertical"
+                  aria-labelledby="lang-menu-btn"
+                >
+                  <div
+                    id="lang-dropdown-options"
+                    class="py-1 text-[15px]"
+                    role="none"
+                  >
+                    <!-- Generate game menu links by looping over 'languageGamesMap' entries -->
+                    <a
+                      v-for="{ title, url } in languageGamesMap"
+                      :key="url"
+                      :href="url"
+                      class="game-menu-link"
+                      role="menuitem"
+                    >
+                      {{ title }}
+                    </a>
+                  </div>
                 </div>
               </div>
-            </div>
-            <!-- MATH GAMES MENU -->
-            <div
-              id="math-menu-div"
-              :class="[currentPage === 2 ? 'flex' : 'hidden', 'relative']"
-            >
-              <button
-                type="button"
-                id="math-menu-btn"
-                :class="[
-                  'game-menu-btn-base',
-                  isMathMenuOpen
-                    ? 'game-menu-btn-active'
-                    : 'game-menu-btn-inactive',
-                ]"
-                @click="activateGameMenu"
-                @blur="handleMenuBlur"
-                :aria-expanded="isMathMenuOpen"
-                aria-haspopup="true"
-                aria-controls="math-dropdown-div"
-              >
-                <span>Game Menu</span>
-                <svg
-                  class="svg-arrow"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                  aria-hidden="true"
-                  data-slot="icon"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
-                    clip-rule="evenodd"
-                  />
-                </svg>
-              </button>
-              <!-- MATH GAMES DROPDOWN OPTIONS -->
+              <!-- MATH GAMES MENU -->
               <div
-                id="math-dropdown-div"
-                @focusout="handleDropdownFocusOut"
-                tabindex="-1"
-                class="game-menu-dropdown-base hidden"
-                role="menu"
-                aria-orientation="vertical"
-                aria-labelledby="math-menu-btn"
+                id="math-menu-div"
+                :class="[currentPage === 2 ? 'flex' : 'hidden', 'relative']"
               >
-                <div
-                  id="math-dropdown-options"
-                  class="py-1 text-[15px]"
-                  role="none"
+                <button
+                  type="button"
+                  id="math-menu-btn"
+                  :class="[
+                    'game-action-btn-base',
+                    isMathMenuOpen
+                      ? 'game-menu-btn-active'
+                      : 'game-menu-btn-inactive',
+                  ]"
+                  @click="activateGameMenu"
+                  @blur="handleMenuBlur"
+                  :aria-expanded="isMathMenuOpen"
+                  aria-haspopup="true"
+                  aria-controls="math-dropdown-div"
                 >
-                  <!-- Generate game menu links by looping over 'mathGamesMap' map entries -->
-                  <a
-                    v-for="{ title, url } in mathGamesMap"
-                    :key="url"
-                    :href="url"
-                    class="game-menu-link"
-                    role="menuitem"
+                  <span>Game Menu</span>
+                  <svg
+                    class="svg-arrow"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                    aria-hidden="true"
+                    data-slot="icon"
                   >
-                    {{ title }}
-                  </a>
+                    <path
+                      fill-rule="evenodd"
+                      d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                </button>
+                <!-- MATH GAMES DROPDOWN OPTIONS -->
+                <div
+                  id="math-dropdown-div"
+                  @focusout="handleDropdownFocusOut"
+                  tabindex="-1"
+                  class="game-menu-dropdown-base hidden"
+                  role="menu"
+                  aria-orientation="vertical"
+                  aria-labelledby="math-menu-btn"
+                >
+                  <div
+                    id="math-dropdown-options"
+                    class="py-1 text-[15px]"
+                    role="none"
+                  >
+                    <!-- Generate game menu links by looping over 'mathGamesMap' map entries -->
+                    <a
+                      v-for="{ title, url } in mathGamesMap"
+                      :key="url"
+                      :href="url"
+                      class="game-menu-link"
+                      role="menuitem"
+                    >
+                      {{ title }}
+                    </a>
+                  </div>
                 </div>
               </div>
-            </div>
-            <!-- SCIENCE GAMES MENU -->
-            <div
-              id="science-menu-div"
-              :class="[currentPage === 3 ? 'flex' : 'hidden', 'relative']"
-            >
-              <button
-                type="button"
-                id="science-menu-btn"
-                @click="activateGameMenu"
-                @blur="handleMenuBlur"
-                :aria-expanded="isScienceMenuOpen"
-                aria-haspopup="true"
-                aria-controls="science-dropdown-div"
-                :class="[
-                  'game-menu-btn-base',
-                  isScienceMenuOpen
-                    ? 'game-menu-btn-active'
-                    : 'game-menu-btn-inactive',
-                ]"
-              >
-                <span>Game Menu</span>
-                <svg
-                  class="svg-arrow"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                  aria-hidden="true"
-                  data-slot="icon"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
-                    clip-rule="evenodd"
-                  />
-                </svg>
-              </button>
-              <!-- SCIENCE GAMES DROPDOWN OPTIONS -->
+              <!-- SCIENCE GAMES MENU -->
               <div
-                id="science-dropdown-div"
-                @focusout="handleDropdownFocusOut"
-                tabindex="-1"
-                class="game-menu-dropdown-base hidden"
-                role="menu"
-                aria-orientation="vertical"
-                aria-labelledby="science-menu-btn"
+                id="science-menu-div"
+                :class="[currentPage === 3 ? 'flex' : 'hidden', 'relative']"
               >
-                <div
-                  id="science-dropdown-options"
-                  class="py-1 text-[15px]"
-                  role="none"
+                <button
+                  type="button"
+                  id="science-menu-btn"
+                  @click="activateGameMenu"
+                  @blur="handleMenuBlur"
+                  :aria-expanded="isScienceMenuOpen"
+                  aria-haspopup="true"
+                  aria-controls="science-dropdown-div"
+                  :class="[
+                    'game-action-btn-base',
+                    isScienceMenuOpen
+                      ? 'game-menu-btn-active'
+                      : 'game-menu-btn-inactive',
+                  ]"
                 >
-                  <!-- Generate game menu links by looping over 'scienceGamesMap' map entries -->
-                  <a
-                    v-for="{ title, url } in scienceGamesMap"
-                    :key="url"
-                    :href="url"
-                    class="game-menu-link"
-                    role="menuitem"
+                  <span>Game Menu</span>
+                  <svg
+                    class="svg-arrow"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                    aria-hidden="true"
+                    data-slot="icon"
                   >
-                    {{ title }}
-                  </a>
+                    <path
+                      fill-rule="evenodd"
+                      d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                </button>
+                <!-- SCIENCE GAMES DROPDOWN OPTIONS -->
+                <div
+                  id="science-dropdown-div"
+                  @focusout="handleDropdownFocusOut"
+                  tabindex="-1"
+                  class="game-menu-dropdown-base hidden"
+                  role="menu"
+                  aria-orientation="vertical"
+                  aria-labelledby="science-menu-btn"
+                >
+                  <div
+                    id="science-dropdown-options"
+                    class="py-1 text-[15px]"
+                    role="none"
+                  >
+                    <!-- Generate game menu links by looping over 'scienceGamesMap' map entries -->
+                    <a
+                      v-for="{ title, url } in scienceGamesMap"
+                      :key="url"
+                      :href="url"
+                      class="game-menu-link"
+                      role="menuitem"
+                    >
+                      {{ title }}
+                    </a>
+                  </div>
                 </div>
               </div>
-            </div>
-            <!-- LIFE SKILLS GAMES MENU -->
-            <div
-              id="life-skills-menu-div"
-              :class="[currentPage === 4 ? 'flex' : 'hidden', 'relative']"
-            >
-              <button
-                type="button"
-                id="life-skills-menu-btn"
-                :class="[
-                  'game-menu-btn-base',
-                  isLifeSkillsMenuOpen
-                    ? 'game-menu-btn-active'
-                    : 'game-menu-btn-inactive',
-                ]"
-                @click="activateGameMenu"
-                @blur="handleMenuBlur"
-                :aria-expanded="isLifeSkillsMenuOpen"
-                aria-haspopup="true"
-                aria-controls="life-skills-dropdown-div"
-              >
-                <span>Game Menu</span>
-                <svg
-                  class="svg-arrow"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                  aria-hidden="true"
-                  data-slot="icon"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
-                    clip-rule="evenodd"
-                  />
-                </svg>
-              </button>
-              <!-- LIFE SKILLS GAMES DROPDOWN OPTIONS -->
+              <!-- LIFE SKILLS GAMES MENU -->
               <div
-                id="life-skills-dropdown-div"
-                @focusout="handleDropdownFocusOut"
-                tabindex="-1"
-                class="game-menu-dropdown-base hidden"
-                role="menu"
-                aria-orientation="vertical"
-                aria-labelledby="life-skills-menu-btn"
+                id="life-skills-menu-div"
+                :class="[currentPage === 4 ? 'flex' : 'hidden', 'relative']"
               >
-                <div
-                  id="life-skills-dropdown-options"
-                  class="py-1 text-[15px]"
-                  role="none"
+                <button
+                  type="button"
+                  id="life-skills-menu-btn"
+                  :class="[
+                    'game-action-btn-base',
+                    isLifeSkillsMenuOpen
+                      ? 'game-menu-btn-active'
+                      : 'game-menu-btn-inactive',
+                  ]"
+                  @click="activateGameMenu"
+                  @blur="handleMenuBlur"
+                  :aria-expanded="isLifeSkillsMenuOpen"
+                  aria-haspopup="true"
+                  aria-controls="life-skills-dropdown-div"
                 >
-                  <!-- Generate game menu links by looping over 'lifeSkillGameMap' entries -->
-                  <a
-                    v-for="{ title, url } in lifeSkillGameMap"
-                    :key="url"
-                    :href="url"
-                    class="game-menu-link"
-                    role="menuitem"
+                  <span>Game Menu</span>
+                  <svg
+                    class="svg-arrow"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                    aria-hidden="true"
+                    data-slot="icon"
                   >
-                    {{ title }}
-                  </a>
+                    <path
+                      fill-rule="evenodd"
+                      d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                </button>
+                <!-- LIFE SKILLS GAMES DROPDOWN OPTIONS -->
+                <div
+                  id="life-skills-dropdown-div"
+                  @focusout="handleDropdownFocusOut"
+                  tabindex="-1"
+                  class="game-menu-dropdown-base hidden"
+                  role="menu"
+                  aria-orientation="vertical"
+                  aria-labelledby="life-skills-menu-btn"
+                >
+                  <div
+                    id="life-skills-dropdown-options"
+                    class="py-1 text-[15px]"
+                    role="none"
+                  >
+                    <!-- Generate game menu links by looping over 'lifeSkillGameMap' entries -->
+                    <a
+                      v-for="{ title, url } in lifeSkillGameMap"
+                      :key="url"
+                      :href="url"
+                      class="game-menu-link"
+                      role="menuitem"
+                    >
+                      {{ title }}
+                    </a>
+                  </div>
                 </div>
               </div>
-            </div>
-            <!-- INDEPENDENCE SKILLS GAMES MENU -->
-            <div
-              id="independence-skills-menu-div"
-              :class="[currentPage === 5 ? 'flex' : 'hidden', 'relative']"
-            >
-              <button
-                type="button"
-                id="independence-skills-menu-btn"
-                :class="[
-                  'game-menu-btn-base',
-                  isIndependenceSkillsMenuOpen
-                    ? 'game-menu-btn-active'
-                    : 'game-menu-btn-inactive',
-                ]"
-                @click="activateGameMenu"
-                @blur="handleMenuBlur"
-                :aria-expanded="isIndependenceSkillsMenuOpen"
-                aria-haspopup="true"
-                aria-controls="independence-skills-dropdown-div"
-              >
-                <span>Game Menu</span>
-                <svg
-                  class="svg-arrow"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                  aria-hidden="true"
-                  data-slot="icon"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
-                    clip-rule="evenodd"
-                  />
-                </svg>
-              </button>
-              <!-- INDEPENDENCE SKILLS GAMES DROPDOWN OPTIONS -->
+              <!-- INDEPENDENCE SKILLS GAMES MENU -->
               <div
-                id="independence-skills-dropdown-div"
-                @focusout="handleDropdownFocusOut"
-                tabindex="-1"
-                class="game-menu-dropdown-base hidden"
-                role="menu"
-                aria-orientation="vertical"
-                aria-labelledby="independence-skills-menu-btn"
+                id="independence-skills-menu-div"
+                :class="[currentPage === 5 ? 'flex' : 'hidden', 'relative']"
               >
-                <div
-                  id="independence-skills-dropdown-options"
-                  class="py-1 text-[15px]"
-                  role="none"
+                <button
+                  type="button"
+                  id="independence-skills-menu-btn"
+                  :class="[
+                    'game-action-btn-base',
+                    isIndependenceSkillsMenuOpen
+                      ? 'game-menu-btn-active'
+                      : 'game-menu-btn-inactive',
+                  ]"
+                  @click="activateGameMenu"
+                  @blur="handleMenuBlur"
+                  :aria-expanded="isIndependenceSkillsMenuOpen"
+                  aria-haspopup="true"
+                  aria-controls="independence-skills-dropdown-div"
                 >
-                  <!-- Generate game menu links by looping over 'independenceSkillGameMap' map entries -->
-                  <a
-                    v-for="{ title, url } in independenceSkillGameMap"
-                    :key="url"
-                    :href="url"
-                    class="game-menu-link"
-                    role="menuitem"
+                  <span>Game Menu</span>
+                  <svg
+                    class="svg-arrow"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                    aria-hidden="true"
+                    data-slot="icon"
                   >
-                    {{ title }}
-                  </a>
+                    <path
+                      fill-rule="evenodd"
+                      d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                </button>
+                <!-- INDEPENDENCE SKILLS GAMES DROPDOWN OPTIONS -->
+                <div
+                  id="independence-skills-dropdown-div"
+                  @focusout="handleDropdownFocusOut"
+                  tabindex="-1"
+                  class="game-menu-dropdown-base hidden"
+                  role="menu"
+                  aria-orientation="vertical"
+                  aria-labelledby="independence-skills-menu-btn"
+                >
+                  <div
+                    id="independence-skills-dropdown-options"
+                    class="py-1 text-[15px]"
+                    role="none"
+                  >
+                    <!-- Generate game menu links by looping over 'independenceSkillGameMap' map entries -->
+                    <a
+                      v-for="{ title, url } in independenceSkillGameMap"
+                      :key="url"
+                      :href="url"
+                      class="game-menu-link"
+                      role="menuitem"
+                    >
+                      {{ title }}
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div>
-          <div v-if="currentPage != 6">
+        <div class="font-poppins">
+          <div v-if="isValidPageParam && currentPage != 6">
             <GameZoneList :type="currentPage" />
           </div>
-          <div v-if="currentPage === 6">
+          <div v-if="isValidPageParam && currentPage === 6">
             <GameProgress />
+          </div>
+          <!-- EDGE CASE: If invalid page parameter in URL, display error message -->
+          <div v-if="!isValidPageParam" class="text-center p-10 h-[350px]">
+            <p class="text-[18px] md:text-[20px] font-semibold mb-10">
+              Oops! No matching games.
+            </p>
+            <p class="text-[16px]">
+              Please check your URL, or explore any of our available categories
+              above!
+            </p>
           </div>
         </div>
       </div>

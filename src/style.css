@@ -7,8 +7,18 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Shared styles for Privacy Policy & Accessibility Statement pages */
-/* Kept here (not in footer-style.css) since they're full pages, not part of the Footer component */
+/* --- Reusable General-Use Animations and Styles --- */
+/* Decorative white background with subtle grey crossed-line pattern */
+.bg-cross-lines {
+  @apply bg-white bg-[linear-gradient(to_right,#e0e0e0_1px,transparent_1px),linear-gradient(to_bottom,#e0e0e0_1px,transparent_1px)] bg-[size:24px_24px];
+}
+
+/* Hover: Slight zoom in animation */
+.hover-zoom-in:hover {
+  @apply scale-105 transition duration-500;
+}
+
+/* --- Shared Styles for Privacy Policy & Accessibility Statement --- */
 .page-subheader {
   @apply font-semibold text-primary-color text-lg mt-8 mb-2;
 }

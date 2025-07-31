@@ -86,11 +86,13 @@ watch(
 );
 
 const getCardClass = (index) => {
+  // Returns responsive width classes for GameZoneCards
+  // Pattern alternates per row (aka every 4 cards)
   const pattern = [
-    'w-[67%] tablet:w-[50%] mobile:w-[100%]',
-    'w-[30%] tablet:w-[45%] mobile:w-[48%]',
-    'w-[30%] tablet:w-[45%] mobile:w-[48%]',
-    'w-[67%] tablet:w-[50%] mobile:w-[100%]',
+    'w-[55%] tablet:w-[50%] mobile:w-[100%]',
+    'w-[40%] tablet:w-[45%] mobile:w-[48%]',
+    'w-[40%] tablet:w-[45%] mobile:w-[48%]',
+    'w-[55%] tablet:w-[50%] mobile:w-[100%]',
   ];
   return pattern[index % 4];
 };
@@ -115,7 +117,7 @@ const getCardClass = (index) => {
           :description="game.description"
           :bgDecoration="game.bgDecoration ?? false"
           :bgImage="game.bgImage"
-          class="hover:scale-105 hover:transition hover:duration-500"
+          class="hover-zoom-in"
         />
       </div>
     </div>

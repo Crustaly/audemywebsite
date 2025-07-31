@@ -8,7 +8,7 @@ const router = useRouter();
 
 const toGameZone = () => {
   // Route to game-zone page when button is clicked
-  router.push('/game-zone');
+  router.push('/game-zone-landing-page');
 };
 </script>
 

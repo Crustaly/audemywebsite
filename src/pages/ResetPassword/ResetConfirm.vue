@@ -8,7 +8,7 @@ import { useRouter } from 'vue-router';
 const router = useRouter();
 
 const toGameZone = () => {
-  router.push('/game-zone');
+  router.push('/game-zone-landing-page');
 };
 </script>
 
