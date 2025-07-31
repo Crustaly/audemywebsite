@@ -21,6 +21,7 @@ Disallow: /reset-confirm
 Disallow: /reset-landing-page
 Disallow: /accessibility-statement
 Disallow: /privacy-policy
+Disallow: /terms-of-use
 
 Disallow: /*.env$
 Disallow: /*.log$

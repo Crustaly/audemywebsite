@@ -11,7 +11,7 @@ import Footer from '../../components/Footer/Footer.vue';
   <div class="content-container lg:grid lg:grid-cols-3">
     <Banner
       class="lg:col-span-1 lg:h-full"
-      :CarlImgPath="'/assets/images/impact/globe 1.svg'"
+      :CarlImgPath="'/assets/images/impact/students%201.svg'"
       :isImageWide="false"
       bgColor="#B1C7D0"
       curveColor="#E5F0F5"
@@ -24,13 +24,13 @@ import Footer from '../../components/Footer/Footer.vue';
       <br />
       <div class="form-description">
         <p>
-          <i><span class="font-semibold">Last updated:</span> July 18, 2025</i>
+          <i><span class="font-semibold">Last updated:</span> July 30, 2025</i>
         </p>
         <br />
         <p>
-          At Audemy, we respect and take your privacy very seriously. We created
-          this policy to explain—clearly and simply—how we handle your
-          information.
+          At <span class="text-primary-color font-bold">Audemy</span>, we
+          respect and take your privacy very seriously. We created this policy
+          to explain—clearly and simply—how we handle your information.
         </p>
         <h2 class="page-subheader">We Don’t Collect Personal Data</h2>
         <p>
