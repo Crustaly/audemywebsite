@@ -1,11 +1,11 @@
 <script setup>
-import { onMounted, defineProps } from 'vue';
+import { onMounted } from 'vue';
 
 const props = defineProps({
   images: {
     type: Array,
-    required: true
-  }
+    required: true,
+  },
 });
 
 function goToSlide(slide, container) {

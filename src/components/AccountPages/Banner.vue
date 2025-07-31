@@ -10,8 +10,6 @@ import Glasses from '/assets/images/impact/glasses.svg';
 import { useDeviceType } from '../../Utilities/checkDeviceType';
 const { isMobile, isTablet } = useDeviceType();
 
-// import { defineProps } from 'vue';
-
 // isImageWide: true if image width > height.
 // Helps Banner scale image: Reduces width for wide images, or height for tall ones.
 const props = defineProps({
@@ -169,5 +167,3 @@ const props = defineProps({
     </div>
   </div>
 </template>
-
-<style scoped></style>
