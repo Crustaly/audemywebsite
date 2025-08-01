@@ -23,16 +23,17 @@
         id="content"
       >
         <StartQuestionsButton
-          v-show="(isTablet || isMobile) && currentQuestionIndex === 0"
+          v-show="
+            (isTablet || isMobile) &&
+            currentQuestionIndex === 0 &&
+            !isIntroPlaying
+          "
           :isIntroPlaying="isIntroPlaying"
           @start-click="startFirstQuestion"
         />
 
         <GameControls
-          v-show="
-            !(isTablet || isMobile) ||
-            (!isIntroPlaying && currentQuestionIndex > 0)
-          "
+          v-show="!(isTablet || isMobile) || !isIntroPlaying"
           :isTablet="isTablet"
           :isMobile="isMobile"
           :isRecording="isRecording"
@@ -322,6 +323,7 @@ const repeatQuestion = () => {
 const startFirstQuestion = () => {
   console.log('Starting first question...');
   playNextQuestion();
+  moveToNextQuestion();
 };
 
 // 8. Exposed Values
