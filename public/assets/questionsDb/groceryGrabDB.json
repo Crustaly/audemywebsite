@@ -1,81 +1,67 @@
 {
-  "ElevatorExperienceGame": {
+  "GroceryGrabGame": {
     "Questions": {
       "Easy": [
-        { "Q": "Which button opens the elevator doors?", "A": ["Open"] },
-        { "Q": "Which button closes the elevator doors?", "A": ["Close"] },
+        { "Q": "Which aisle can you find milk?", "A": ["Dairy"] },
         {
-          "Q": "What sound does an elevator often make when it arrives at a floor?",
-          "A": ["Ding"]
+          "Q": "Which aisle can you find apples?",
+          "A": ["Fruit", "Fruits", "Produce"]
         },
         {
-          "Q": "What do you press to call the elevator to your floor?",
-          "A": ["Call"]
-        },
-        { "Q": "What do you call the inside of an elevator?", "A": ["Car"] },
-        {
-          "Q": "What do you press to go to a specific floor?",
-          "A": ["Button"]
+          "Q": "Which aisle can you find eggs?",
+          "A": ["Dairy"]
         },
         {
-          "Q": "What button has a picture of a bell on it for emergencies?",
-          "A": ["Alarm"]
+          "Q": "Which aisle can you find carrots?",
+          "A": ["Vegetable", "Vegetables", "Produce"]
         },
         {
-          "Q": "What direction is the elevator going if you press the 'up' arrow?",
-          "A": ["Up"]
+          "Q": "Which aisle can you find biscuits, pastries, and bread?",
+          "A": ["Bakery"]
         },
         {
-          "Q": "What direction is the elevator going if you press the 'down' arrow?",
-          "A": ["Down"]
+          "Q": "Which aisle can you find ice cream?",
+          "A": ["Frozen"]
         },
         {
-          "Q": "What do you call the numbers on the elevator buttons?",
-          "A": ["Floors"]
+          "Q": "Which aisle can you find soda, water, and juice?",
+          "A": ["Beverage", "Beverages", "Drink", "Drinks"]
         }
       ],
       "Medium": [
         {
-          "Q": "What is the raised dot writing found next to elevator buttons?",
-          "A": ["Braille"]
+          "Q": "Which aisle can you find rice?",
+          "A": ["Grains"]
         },
         {
-          "Q": "What do you call the voice that announces the floor numbers?",
-          "A": ["Announcer"]
+          "Q": "Which aisle can you find chicken?",
+          "A": ["Meat", "Meats", "Deli"]
         },
         {
-          "Q": "What do you call it when you wait your turn to enter the elevator?",
-          "A": ["Queue"]
+          "Q": "Which aisle can you find cheese?",
+          "A": ["Dairy"]
         },
         {
-          "Q": "What should you do to let people get out of the elevator before you get in?",
-          "A": ["Wait"]
-        },
-        {
-          "Q": "What is the main floor of a building often called in an elevator?",
-          "A": ["Lobby"]
+          "Q": "Which aisle can you find cereal?",
+          "A": ["Breakfast"]
         }
       ],
       "Hard": [
         {
-          "Q": "What does it mean if an elevator makes a continuous beeping sound?",
-          "A": ["Overload"]
+          "Q": "Which aisle can you find ketchup or mustard?",
+          "A": ["Condiments", "Condiment", "Sauces", "Sauce"]
         },
         {
-          "Q": "What is the name for the system of ropes and pulleys that moves the elevator?",
-          "A": ["Hoist"]
+          "Q": "Which aisle can you find broccoli?",
+          "A": ["Vegetable", "Vegetables", "Produce"]
         },
         {
-          "Q": "In some buildings, what letter represents the ground floor?",
-          "A": ["G"]
+          "Q": "Which aisle can you find fish?",
+          "A": ["Seafood", "Frozen"]
         },
         {
-          "Q": "What is a special key used by service personnel to control the elevator?",
-          "A": ["Service-key"]
-        },
-        {
-          "Q": "What kind of elevator is sometimes found on the outside of a building?",
-          "A": ["Glass"]
+          "Q": "Which aisle can you find orange juice?",
+          "A": ["Drinks", "Drink", "Beverage", "Beverages"]
         }
       ]
     }
