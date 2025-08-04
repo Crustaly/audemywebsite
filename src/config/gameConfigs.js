@@ -80,7 +80,7 @@ export const gameConfigs = {
     title: 'Odd One Out',
     description: "Can you find what doesn't belong?",
     bgColor: '#FFD2F4', // Light Pink
-    iconSrc: '/assets/gameImages/buttons/gameButtons/oddOneOut.svg',
+    iconSrc: '/assets/gameImages/buttons/gameButtons/odd-one-out.png',
     introAudio: '/oddoneout/oddoneoutintro.mp3',
     dbFile: 'oddOneOutDB.json',
     dbKey: 'OddOneOutGame',
@@ -146,7 +146,7 @@ export const gameConfigs = {
     title: 'Syllable Sorting',
     description: 'Can you count the syllables in a given word?',
     bgColor: '#BCC5FF', // Light Periwinkle
-    iconSrc: '/assets/gameImages/buttons/gameButtons/book.svg',
+    iconSrc: '/assets/gameImages/buttons/gameButtons/syllable-sorting.png',
     introAudio: '/syllableSorting/syllableIntro.mp3',
     dbFile: 'SyllableGameDB.json',
     dbKey: 'SyllableCountingGame',
@@ -209,7 +209,7 @@ export const gameConfigs = {
     title: 'Space Case',
     description: 'Help a forgetful astronaut remember basic facts about space.',
     bgColor: '#A0B2E8', // Periwinkle
-    iconSrc: '/assets/gameImages/buttons/gameButtons/astronaut.png',
+    iconSrc: '/assets/gameImages/buttons/gameButtons/space-case.png',
     dbFile: 'spaceCaseDB.json',
     dbKey: 'SpaceCaseGame',
     category: 'science',
@@ -221,7 +221,7 @@ export const gameConfigs = {
     title: 'Dino Detectives',
     description: 'Use clues from bones and roars to identify ancient beasts.',
     bgColor: '#DCC3A1', // Tan
-    iconSrc: '/assets/gameImages/buttons/gameButtons/dino.png',
+    iconSrc: '/assets/gameImages/buttons/gameButtons/dino-detectives.png',
     dbFile: 'dinoDetectivesDB.json',
     dbKey: 'DinoDetectivesGame',
     category: 'science',
@@ -411,7 +411,7 @@ export const gameConfigs = {
     title: 'Time Tamer',
     description: 'Bring order to the hours by solving time-related challenges.',
     bgColor: '#F8F2C9', // Light Cream
-    iconSrc: '/assets/gameImages/buttons/gameButtons/time.png',
+    iconSrc: '/assets/gameImages/buttons/gameButtons/time-tamer.png',
     dbFile: 'timeTamerDB.json',
     dbKey: 'TimeTamerGame',
     category: 'life-skills',
@@ -423,7 +423,7 @@ export const gameConfigs = {
     title: 'Kitchen Timer Trouble',
     description: 'Finish cooking before everything overcooks.',
     bgColor: '#F8C9D5', // Light Salmon
-    iconSrc: '/assets/gameImages/buttons/gameButtons/timer.png',
+    iconSrc: '/assets/gameImages/buttons/gameButtons/kitchen-timer-trouble.png',
     dbFile: 'kitchenTimerTroubleDB.json',
     dbKey: 'KitchenTimerTroubleGame',
     category: 'life-skills',
@@ -459,7 +459,7 @@ export const gameConfigs = {
     title: 'Healthy Plate',
     description: 'Balance your meal using clues from each food item.',
     bgColor: '#F8D5C9', // Light Terracotta
-    iconSrc: '/assets/gameImages/buttons/gameButtons/plate.png',
+    iconSrc: '/assets/gameImages/buttons/gameButtons/healthy-plate.png',
     dbFile: 'healthyPlateDB.json',
     dbKey: 'HealthyPlateGame',
     category: 'life-skills',
@@ -521,8 +521,8 @@ export const gameConfigs = {
   transitTime: {
     title: 'Transit Time',
     description: 'Use announcements and beeps to navigate public transit.',
-    bgColor: '#ADD8E6', // Light Blue
-    iconSrc: '/assets/gameImages/buttons/gameButtons/transit.png',
+    bgColor: '#F8C9C9', // Light Red
+    iconSrc: '/assets/gameImages/buttons/gameButtons/transit-time.png',
     dbFile: 'transitTimeDB.json',
     dbKey: 'TransitTimeGame',
     category: 'independence-skills',
@@ -534,7 +534,7 @@ export const gameConfigs = {
     title: 'Money Matters',
     description: 'Identify money by touch and feel to make purchases.',
     bgColor: '#90EE90', // Light Green
-    iconSrc: '/assets/gameImages/buttons/gameButtons/bills.png',
+    iconSrc: '/assets/gameImages/buttons/gameButtons/money-matters.png',
     dbFile: 'moneyMattersDB.json',
     dbKey: 'MoneyMattersGame',
     category: 'independence-skills',
@@ -558,7 +558,7 @@ export const gameConfigs = {
     title: 'Phone Friend',
     description: 'Manage calls and messages using voice commands.',
     bgColor: '#E6E6FA', // Lavender
-    iconSrc: '/assets/gameImages/buttons/gameButtons/phone.png',
+    iconSrc: '/assets/gameImages/buttons/gameButtons/phone-friend.png',
     dbFile: 'phoneFriendDB.json',
     dbKey: 'PhoneFriendGame',
     category: 'independence-skills',

@@ -8,7 +8,7 @@ export const getLanguageGames = () => {
       textColor: '#323232',
       bgColor: '#06d4f9', // Bright Cyan
       bgDecoration: true,
-      bgImage: '/assets/gameImages/bg-definition.svg',
+      bgImage: '/assets/gameImages/cardBgImages/bg-definition.svg',
       description: 'Find the correct word based on the definition.',
     },
     {
@@ -29,13 +29,13 @@ export const getLanguageGames = () => {
     },
 
     {
-      icon: basedPath + 'book.svg',
+      icon: basedPath + 'syllable-sorting.png',
       title: 'Syllable Sorting',
       url: '/game/syllableSorting',
       textColor: '#323232',
       bgColor: '#6B7FFF', // Bright Blue
       bgDecoration: true,
-      bgImage: '/assets/gameImages/bg-syllable.svg',
+      bgImage: '/assets/gameImages/cardBgImages/bg-syllable.svg',
       description: 'Can you count the syllables in a given word?',
     },
     {
@@ -58,7 +58,7 @@ export const getLanguageGames = () => {
     },
 
     {
-      icon: basedPath + 'oddOneOut.svg',
+      icon: basedPath + 'odd-one-out.png',
       title: 'Odd One Out',
       url: '/game/oddoneout',
       textColor: '#323232',
@@ -73,7 +73,7 @@ export const getLanguageGames = () => {
       textColor: '#323232',
       bgColor: '#F7DA21', // Gold
       bgDecoration: true,
-      bgImage: '/assets/gameImages/bg-spelling.svg',
+      bgImage: '/assets/gameImages/cardBgImages/bg-spelling.svg',
       description: 'Buzz your way to spelling mastery!',
     },
   ];
@@ -113,7 +113,7 @@ export const getMathGames = () => {
       textColor: '#323232',
       bgColor: '#4ad9de', // Teal
       bgDecoration: true,
-      bgImage: '/assets/gameImages/bg-sub.svg',
+      bgImage: '/assets/gameImages/cardBgImages/bg-sub.svg',
       description: 'Subtract animals in safari scenarios!',
     },
 
@@ -124,7 +124,7 @@ export const getMathGames = () => {
       textColor: '#323232',
       bgColor: '#6B7FFF', // Bright Blue
       bgDecoration: true,
-      bgImage: '/assets/gameImages/bg-mul.svg',
+      bgImage: '/assets/gameImages/cardBgImages/bg-mul.svg',
       description: 'Can you multiply numbers?',
     },
     {
@@ -142,7 +142,7 @@ export const getMathGames = () => {
       textColor: '#323232',
       bgColor: '#F56A6C', // Salmon
       bgDecoration: true,
-      bgImage: '/assets/gameImages/bg-mm.svg',
+      bgImage: '/assets/gameImages/cardBgImages/bg-mm.svg',
       description: 'Help the monkeys split their bananas!',
     },
 
@@ -153,7 +153,7 @@ export const getMathGames = () => {
       textColor: '#323232',
       bgColor: '#F7DA21', // Gold
       bgDecoration: true,
-      bgImage: '/assets/gameImages/bg-cc.svg',
+      bgImage: '/assets/gameImages/cardBgImages/bg-cc.svg',
       description: 'How many cars are passing by?',
     },
   ];
@@ -189,24 +189,24 @@ export const getScienceGames = () => {
         'Interpret the sky’s mood swings before the thunder has a tantrum.',
     },
     {
-      icon: basedPath + 'astronaut.png',
+      icon: basedPath + 'space-case.png',
       title: 'Space Case',
       url: '/game/spacecase',
       textColor: '#323232',
-      bgColor: '#d1d5db', // Light Gray
+      bgColor: '#A0B2E8', // Periwinkle
       bgDecoration: true,
-      bgImage: '/assets/gameImages/bg-star.png',
+      bgImage: '/assets/gameImages/cardBgImages/bg-star.png',
       description:
         'Help a forgetful astronaut remember basic facts about space.',
     },
     {
-      icon: basedPath + 'dino.png',
+      icon: basedPath + 'dino-detectives.png',
       title: 'Dino Detectives',
       url: '/game/dinodetectives',
       textColor: '#323232',
       bgColor: '#c08b5f', // Brown
       bgDecoration: true,
-      bgImage: '/assets/gameImages/bg-dino.png',
+      bgImage: '/assets/gameImages/cardBgImages/bg-dino.png',
       description: 'Use clues from bones and roars to identify ancient beasts.',
     },
     {
@@ -234,7 +234,7 @@ export const getScienceGames = () => {
       textColor: '#323232',
       bgColor: '#fed7aa', // Light Orange
       bgDecoration: true,
-      bgImage: '/assets/gameImages/bg-sound.png',
+      bgImage: '/assets/gameImages/cardBgImages/bg-sound.png',
       description: 'Measure and decode sound waves to escape an echoing cave.',
     },
     {
@@ -244,7 +244,7 @@ export const getScienceGames = () => {
       textColor: '#323232',
       bgColor: '#0EA1EA', // Bright Blue
       bgDecoration: true,
-      bgImage: '/assets/gameImages/bg-robot.png',
+      bgImage: '/assets/gameImages/cardBgImages/bg-robot-repair.png',
       description:
         'Reprogram glitching science robots before they short-circuit the lab.',
     },
@@ -340,7 +340,7 @@ export const getLifeSkillsGames = () => {
       description: 'Diagnose basic symptoms and keep everyone healthy.',
     },
     {
-      icon: basedPath + 'time.png',
+      icon: basedPath + 'time-tamer.png',
       title: 'Time Tamer',
       url: '/game/timeTamer',
       textColor: '#323232',
@@ -349,7 +349,7 @@ export const getLifeSkillsGames = () => {
         'Bring order to the hours by solving time-related challenges.',
     },
     {
-      icon: basedPath + 'timer.png',
+      icon: basedPath + 'kitchen-timer-trouble.png',
       title: 'Kitchen Timer Trouble',
       url: '/game/kitchenTimerTrouble',
       textColor: '#323232',
@@ -373,7 +373,7 @@ export const getLifeSkillsGames = () => {
       description: 'Save up for your goal while avoiding surprise expenses.',
     },
     {
-      icon: basedPath + 'plate.png',
+      icon: basedPath + 'healthy-plate.png',
       title: 'Healthy Plate',
       url: '/game/healthyPlate',
       textColor: '#323232',
@@ -419,7 +419,7 @@ export const getIndependenceSkillsGames = () => {
       description: 'Listen to elevator sounds to act safely and politely.',
     },
     {
-      icon: basedPath + 'transit.png',
+      icon: basedPath + 'transit-time.png',
       title: 'Transit Time',
       url: '/game/transitTime',
       textColor: '#323232',
@@ -427,7 +427,7 @@ export const getIndependenceSkillsGames = () => {
       description: 'Use announcements and beeps to navigate public transit.',
     },
     {
-      icon: basedPath + 'bills.png',
+      icon: basedPath + 'money-matters.png',
       title: 'Money Matters',
       url: '/game/moneyMatters',
       textColor: '#323232',
@@ -443,7 +443,7 @@ export const getIndependenceSkillsGames = () => {
       description: 'Knowing what kitchen sounds mean helps you cook safely.',
     },
     {
-      icon: basedPath + 'phone.png',
+      icon: basedPath + 'phone-friend.png',
       title: 'Phone Friend',
       url: '/game/phoneFriend',
       textColor: '#323232',
