@@ -33,17 +33,6 @@
             alt="Decorative cloud"
             style="width: 300px; height: auto"
           />
-          <!-- Paper plane above left cloud -->
-          <div
-            class="absolute"
-            style="width: 82px; height: 82px; top: -350px; left: 50.05px"
-          >
-            <img
-              src="/assets/gameImages/paperPlane.png"
-              alt="Paper plane"
-              style="width: 100%; height: 100%"
-            />
-          </div>
         </div>
         <!-- Right cloud for tablet -->
         <div class="absolute bottom-0 right-0 z-0" style="bottom: 50px">
