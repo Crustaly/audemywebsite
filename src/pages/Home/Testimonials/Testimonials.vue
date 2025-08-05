@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed } from 'vue';
 
 const testimonials = [
   {
@@ -44,26 +44,26 @@ const testimonials = [
     name: 'Librarian',
     role: 'for Blind Students',
   },
-]
+];
 
-const currentIndex = ref(0)
+const currentIndex = ref(0);
 
 const visibleTestimonials = computed(() => {
-  const total = testimonials.length
+  const total = testimonials.length;
   return [
     testimonials[(currentIndex.value + 0) % total],
     testimonials[(currentIndex.value + 1) % total],
     testimonials[(currentIndex.value + 2) % total],
-  ]
-})
+  ];
+});
 
 function next() {
-  currentIndex.value = (currentIndex.value + 1) % testimonials.length
+  currentIndex.value = (currentIndex.value + 1) % testimonials.length;
 }
 
 function prev() {
   currentIndex.value =
-    (currentIndex.value - 1 + testimonials.length) % testimonials.length
+    (currentIndex.value - 1 + testimonials.length) % testimonials.length;
 }
 </script>
 
@@ -79,7 +79,9 @@ function prev() {
     />
 
     <!-- Section Title -->
-    <div class="font-poppins flex flex-col gap-y-3 mobile:px-5 text-center relative">
+    <div
+      class="font-poppins flex flex-col gap-y-3 mobile:px-5 text-center relative"
+    >
       <h1 class="text-4.5xl text-title mobile:text-[24px]">
         What people are saying
       </h1>
@@ -119,7 +121,9 @@ function prev() {
 
           <!-- Scrollable Text Content -->
           <div class="overflow-y-auto no-scrollbar max-h-[220px] mb-4 px-1">
-            <p class="text-sm text-gray-700 font-poppins leading-relaxed whitespace-pre-wrap">
+            <p
+              class="text-sm text-gray-700 font-poppins leading-relaxed whitespace-pre-wrap"
+            >
               {{ testimonial.text }}
             </p>
           </div>
