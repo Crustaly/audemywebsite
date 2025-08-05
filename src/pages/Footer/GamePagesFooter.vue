@@ -1,21 +1,23 @@
 <!-- GamePagesFooter.vue -->
 <template>
-  <header class="flex items-center justify-between px-8 py-4 bg-transparent">
+  <footer
+    class="absolute bottom-1/2 right-[-113px] z-50 rotate-[-90deg] flex items-center justify-between ml-auto bg-cross-lines md-shadow"
+  >
     <!-- Something Not Working? Button -->
-    <div class="fixed bottom-10 left-10 z-50">
+    <div class="whitespace-nowrap">
       <button
         @click="handleSthNotWorkingButtonClick"
-        class="text-black font-semibold py-2 px-4 rounded-lg flex items-center gap-2"
+        class="text-[16px] text-black font-semibold py-2 px-4 rounded-lg flex items-center gap-2"
       >
         <img
           src="/assets/gameImages/buttons/info.png"
-          alt="Icon"
+          aria-hidden="true"
           class="w-6 h-6"
         />
         <span>Something Not Working?</span>
       </button>
     </div>
-  </header>
+  </footer>
 </template>
 
 <script setup>

@@ -1,7 +1,7 @@
 <template>
   <button
     @click="$emit('play-click')"
-    class="bg-[#087bb4] text-white font-bold py-2 px-4 rounded-lg shadow-md hover:bg-[#0d5f8b]"
+    class="page-button text-nowrap bg-[#087bb4] text-white w-[50%]"
   >
     Play
   </button>

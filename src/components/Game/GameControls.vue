@@ -2,17 +2,17 @@
   <div
     v-show="showControls"
     :class="[
+      'justify-center',
       isTablet
         ? 'flex gap-[25px] mb-6'
         : isMobile
-          ? 'flex flex-col gap-4 mb-6'
-          : 'flex gap-6 mb-6',
+        ? 'flex flex-col gap-4 mb-6'
+        : 'flex gap-6 mb-6',
     ]"
   >
     <button
       @click="onRecordClick"
       :class="recordButtonClasses"
-      style="box-shadow: 10px 10px 20px 0px #32323233"
       :disabled="isButtonDisabled"
       :title="recordButtonTitle"
     >
@@ -22,32 +22,31 @@
       <img
         src="/assets/gameImages/buttons/mic.png"
         class="w-6 h-6"
-        alt="Record Icon"
+        aria-hidden="true"
       />
     </button>
 
     <button
       @click="onRepeatClick"
       :class="[
-        'flex items-center justify-center shadow-md',
+        'page-button text-nowrap flex items-center justify-center',
         isTablet
           ? 'w-[200px] h-[60px] pt-5 pr-[30px] pb-5 pl-[30px] gap-[10px] rounded-[20px]'
           : isMobile
-            ? 'w-full h-[60px] pt-5 pr-[30px] pb-5 pl-[30px] gap-[10px] rounded-[20px]'
-            : 'gap-2.5 w-[234px] h-[116px] pt-5 pr-7 pb-5 pl-7 rounded-[20px]',
+          ? 'w-full h-[60px] pt-5 pr-[30px] pb-5 pl-[30px] gap-[10px] rounded-[20px]'
+          : 'gap-2.5 w-[234px] h-[116px] pt-5 pr-7 pb-5 pl-7 rounded-[20px]',
         'bg-white border border-[#0096D6] text-[#0096D6]',
         isIntroPlaying || isButtonCooldown
           ? 'opacity-50 cursor-not-allowed'
           : '',
       ]"
-      style="box-shadow: 10px 10px 20px 0px #32323233"
       :disabled="isIntroPlaying || isButtonCooldown"
       :title="
         isIntroPlaying
           ? 'Please wait until the introduction finishes'
           : isButtonCooldown
-            ? 'Please wait before repeating the question again'
-            : 'Repeat the current question'
+          ? 'Please wait before repeating the question again'
+          : 'Repeat the current question'
       "
     >
       <span class="text-lg font-medium">{{
@@ -56,7 +55,7 @@
       <img
         src="/assets/gameImages/buttons/repeat.png"
         class="w-6 h-6"
-        alt="Repeat Icon"
+        aria-hidden="true"
       />
     </button>
   </div>
@@ -64,9 +63,14 @@
   <div
     v-show="showControls"
     id="transcript"
-    class="text-center text-xl font-bold pt-2 pb-1"
+    class="bg-cross-lines rounded-[16px] p-4 my-4 shadow-md mx-auto mobile:w-[280px] w-[300px] md:w-[500px] flex flex-col gap-y-4 items-center justify-center"
   >
-    You said: {{ transcription }}
+    <div
+      class="text-xl font-bold border-primary-color border-b-2 w-full text-center"
+    >
+      You said:
+    </div>
+    <div>{{ transcription }}</div>
   </div>
 </template>
 
