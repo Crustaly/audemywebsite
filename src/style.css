@@ -8,21 +8,30 @@
 @tailwind utilities;
 
 /* --- Reusable General-Use Animations and Styles --- */
-/* Decorative white background with subtle grey crossed-line pattern */
+
+/* --- Buttons --- */
+.page-button {
+  @apply h-[55px] font-bold rounded-lg border-2 border-black shadow-[4px_4px_0px_black] hover:bg-opacity-90;
+}
+
+/* --- Pattern: White bg with grey crossed-lines --- */
 .bg-cross-lines {
   @apply bg-white bg-[linear-gradient(to_right,#e0e0e0_1px,transparent_1px),linear-gradient(to_bottom,#e0e0e0_1px,transparent_1px)] bg-[size:24px_24px];
 }
 
-/* Hover: Slight zoom in animation */
+/* --- Hover: Slight zoom in animation --- */
 .hover-zoom-in:hover {
   @apply scale-105 transition duration-500;
 }
 
-/* --- Shared Styles for Privacy Policy & Accessibility Statement --- */
+/* --- Currently applied in: legal/info pages; reusable elsewhere --- */
+
+/* --- Typography --- */
 .page-subheader {
   @apply font-semibold text-primary-color text-lg mt-8 mb-2;
 }
 
+/* --- Links --- */
 .page-link {
   @apply text-primary-color hover:underline hover:underline-offset-4;
 }

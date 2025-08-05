@@ -15,52 +15,52 @@
     <div
       class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none"
     >
-      <!-- Sun - Only for desktop -->
-      <div
-        v-show="!isTablet && !isMobile"
-        class="absolute top-20 right-60 w-32 h-32"
-      >
-        <svg viewBox="0 0 100 100" class="w-full h-full">
-          <circle cx="50" cy="50" r="50" fill="#FFD137" />
-        </svg>
+      <!-- Desktop & mobile -->
+      <div v-show="!isTablet" class="absolute top-20 right-20">
+        <img
+          src="/assets/gameImages/moon.png"
+          alt="Decorative moon"
+          :class="isMobile ? 'w-[120px] h-auto' : 'w-[165px] h-auto'"
+        />
       </div>
-      <!-- Clouds - Different for tablet -->
+      <!-- Tablet Only -->
       <template v-if="isTablet">
-        <!-- Left cloud for tablet -->
-        <div class="absolute left-0 z-0" style="bottom: 150px">
+        <!-- Left image -->
+        <div class="absolute left-0 z-0 top-20">
           <img
-            src="/assets/gameImages/cloud-bg-Tab-left.png"
+            src="/assets/gameImages/stars-clouds.png"
             alt="Decorative cloud"
-            style="width: 300px; height: auto"
+            class="w-[230px] h-auto transform -scale-x-100"
           />
         </div>
-        <!-- Right cloud for tablet -->
-        <div class="absolute bottom-0 right-0 z-0" style="bottom: 50px">
+        <!-- Right image -->
+        <div class="absolute right-0 z-0 bottom-[50px]">
           <img
-            src="/assets/gameImages/cloud-bg-Tab-right.png"
-            alt="Decorative cloud"
-            style="width: 300px; height: auto"
+            src="/assets/gameImages/rainbow.png"
+            alt="Decorative rainbow"
+            class="w-[220px] h-auto"
           />
         </div>
       </template>
-      <!-- Clouds for desktop -->
+      <!-- Desktop Only -->
       <template v-else-if="isDesktop">
-        <div class="absolute bottom-0 left-0 z-0" style="bottom: 50px">
+        <!-- Left image -->
+        <div class="absolute bottom-0 left-0 z-0 bottom-[50px]">
           <img
-            src="/assets/gameImages/cloud-bg.png"
-            alt="Decorative cloud"
-            style="width: 400px; height: auto"
+            src="/assets/gameImages/rainbow.png"
+            alt="Decorative rainbow"
+            class="w-[300px] h-auto transform -scale-x-100"
           />
         </div>
       </template>
-      <!-- Mobile-specific clouds -->
+      <!-- Mobile Only -->
       <template v-if="isMobile">
-        <!-- Only right cloud for mobile -->
-        <div class="absolute right-0 z-0" style="bottom: 20px">
+        <!-- Only left image for mobile -->
+        <div class="absolute left-3 bottom-5 z-0">
           <img
-            src="/assets/gameImages/cloud-bg-Tab-right.png"
-            alt="Decorative cloud"
-            style="width: 250px"
+            src="/assets/gameImages/shooting-star.png"
+            alt="Decorative star"
+            class="w-[170px] h-auto"
           />
         </div>
       </template>
@@ -68,33 +68,32 @@
 
     <!-- Main Content -->
     <div class="flex items-center justify-center min-h-[calc(100vh-64px)]">
-      <div class="relative w-full max-w-[800px]">
+      <div class="relative w-[70%]">
         <!-- Back Button Container -->
-        <div v-show="!isMobile" class="absolute top-4 left-4 z-30">
+        <div
+          v-show="!isMobile"
+          class="absolute md:top-1/4 lg:top-1/5 left-[-10%] z-30"
+        >
           <button @click="goBack">
             <img
               src="/assets/gameImages/buttons/arrow-back.svg"
               class="bg-white border-2 rounded-lg border-black h-12 p-2 shadow-md hover:bg-gray-300"
-              alt="Back Button Image"
+              alt="Back to Game Zone"
             />
           </button>
         </div>
 
         <div
           class="flex flex-col justify-center items-center relative z-10 mx-auto"
-          :class="[
-            isMobile
-              ? 'h-[calc(60vh-144px)] w-[95%] mt-16'
-              : 'h-[calc(60vh-64px)] w-[90%]',
-          ]"
+          :class="[isMobile ? 'w-[95%] my-5' : 'w-[90%]']"
         >
           <!-- Back Button for Mobile -->
-          <div v-show="isMobile" class="self-center -mt-32 mb-8">
+          <div v-show="isMobile" class="self-center mb-5">
             <button @click="goBack">
               <img
                 src="/assets/gameImages/buttons/arrow-back.svg"
                 class="bg-white border-2 rounded-lg border-black h-12 p-2 shadow-md hover:bg-gray-300"
-                alt="Back Button Image"
+                alt="Back to Game Zone"
               />
             </button>
           </div>

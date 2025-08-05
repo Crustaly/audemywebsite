@@ -1,6 +1,8 @@
 <!-- GamePagesHeader.vue -->
 <template>
-  <header class="flex items-center justify-between px-8 py-4 bg-transparent">
+  <header
+    class="flex items-center justify-between px-8 py-4 bg-white shadow-md"
+  >
     <!-- Left side - Menu and Logo -->
     <div class="flex items-center gap-6">
       <router-link to="/" class="flex items-center">

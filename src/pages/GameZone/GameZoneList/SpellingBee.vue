@@ -1,6 +1,6 @@
 <template>
   <GameLayout
-    bgColor="#FAE9B6"
+    :bgColor="gameConfig.bgColor"
     :isTablet="isTablet"
     :isMobile="isMobile"
     :currentAudios="currentAudios"
@@ -9,9 +9,9 @@
   >
     <div class="flex flex-col justify-center items-center mb-8">
       <GameHeader
-        iconSrc="/assets/gameImages/buttons/gameButtons/spellingBee.svg"
-        title="Spelling Bee"
-        description="Buzz your way to spelling mastery!"
+        :iconSrc="gameConfig.iconSrc"
+        :title="gameConfig.title"
+        :description="gameConfig.description"
         :isMobile="isMobile"
       />
 
@@ -64,6 +64,10 @@ import GameHeader from '../../../components/Game/GameHeader.vue';
 import PlayButton from '../../../components/Game/PlayButton.vue';
 import StartQuestionsButton from '../../../components/Game/StartQuestionsButton.vue';
 import GameOver from '../../../components/Game/GameOver.vue';
+
+import { gameConfigs } from '../../../config/gameConfigs';
+
+const gameConfig = gameConfigs.spellingBee;
 
 import { requestMicPermission } from '../../../Utilities/requestMicAccess';
 import {
@@ -126,12 +130,12 @@ const isButtonDisabled = computed(
 );
 
 const recordButtonClasses = computed(() => [
-  'flex items-center justify-center shadow-md',
+  'page-button py-5 px-8 text-nowrap flex gap-2.5 items-center justify-center',
   isTablet.value
-    ? 'w-[200px] h-[60px] pt-5 pr-[30px] pb-5 pl-[30px] gap-[10px] rounded-[20px]'
+    ? 'w-[250px] h-[60px]'
     : isMobile.value
-      ? 'w-full h-[60px] pt-5 pr-[30px] pb-5 pl-[30px] gap-[10px] rounded-[20px]'
-      : 'gap-2.5 w-[234px] h-[116px] pt-5 pr-7 pb-5 pl-7 rounded-[20px]',
+    ? 'w-full h-[60px]'
+    : 'w-[250px] h-[116px]',
   isRecording.value ? 'bg-red-500' : 'bg-[#087BB4]',
   'text-white',
   isButtonDisabled.value ? 'opacity-50 cursor-not-allowed' : '',
@@ -156,8 +160,8 @@ const recordButtonText = computed(() => {
   return isRecording.value
     ? 'Stop Recording'
     : isTablet.value || isMobile.value
-      ? 'Record'
-      : 'Record Answer';
+    ? 'Record'
+    : 'Record Answer';
 });
 
 // 5. Watch/WatchEffect

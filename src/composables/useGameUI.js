@@ -12,12 +12,12 @@ export function useGameUI(gameState) {
   );
 
   const recordButtonClasses = computed(() => [
-    'flex items-center justify-center shadow-md',
+    'page-button py-5 px-8 text-nowrap flex gap-2.5 items-center justify-center',
     isTablet.value
-      ? 'w-[200px] h-[60px] pt-5 pr-[30px] pb-5 pl-[30px] gap-[10px] rounded-[20px]'
+      ? 'w-[250px] h-[60px]'
       : isMobile.value
-        ? 'w-full h-[60px] pt-5 pr-[30px] pb-5 pl-[30px] gap-[10px] rounded-[20px]'
-        : 'gap-2.5 w-[234px] h-[116px] pt-5 pr-7 pb-5 pl-7 rounded-[20px]',
+      ? 'w-full h-[60px]'
+      : 'w-[250px] h-[116px]',
     gameState.isRecording.value ? 'bg-red-500' : 'bg-[#087BB4]',
     'text-white',
     isButtonDisabled.value ? 'opacity-50 cursor-not-allowed' : '',
@@ -42,8 +42,8 @@ export function useGameUI(gameState) {
     return gameState.isRecording.value
       ? 'Stop Recording'
       : isTablet.value || isMobile.value
-        ? 'Record'
-        : 'Record Answer';
+      ? 'Record'
+      : 'Record Answer';
   });
 
   return {

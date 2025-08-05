@@ -1,7 +1,7 @@
 <template>
   <button
     @click="$emit('start-click')"
-    class="bg-[#087bb4] text-white font-bold py-2 px-4 rounded-lg shadow-md hover:bg-[#0d5f8b] mb-6"
+    class="page-button text-nowrap bg-[#087bb4] text-white px-10 w-full"
     :disabled="isIntroPlaying"
     :class="{ 'opacity-50 cursor-not-allowed': isIntroPlaying }"
   >
