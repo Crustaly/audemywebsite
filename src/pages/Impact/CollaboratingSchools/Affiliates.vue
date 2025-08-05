@@ -91,9 +91,9 @@ const teachers = [
     educators: [
       {
         name: 'John Castillo',
-        email: 'castilloj@tsbvi.edu'
-      }
-    ]
+        email: 'castilloj@tsbvi.edu',
+      },
+    ],
   },
   {
     name: 'California School for the Blind',
@@ -101,29 +101,29 @@ const teachers = [
     educators: [
       {
         name: 'Allison Mello',
-        email: 'amello@csb-cde.ca.gov'
-      }
-    ]
+        email: 'amello@csb-cde.ca.gov',
+      },
+    ],
   },
   {
-    name: 'St. Lucy\'s School for the Blind',
+    name: "St. Lucy's School for the Blind",
     link: 'https://saintlucyschool.org/',
     educators: [
       {
         name: 'Bryan Kugler',
-        email: 'bkugler@saintlucyschool.org'
-      }
-    ]
+        email: 'bkugler@saintlucyschool.org',
+      },
+    ],
   },
   {
     name: 'Idaho Educational Services for the Deaf and the Blind (IESDB)',
-    link: "https://www.iesdb.org/",
+    link: 'https://www.iesdb.org/',
     educators: [
       {
         name: 'Jeanne-Marie Kopecky',
-        email: 'jeanne-marie.kopecky@iesdb.org'
-      }
-    ]
+        email: 'jeanne-marie.kopecky@iesdb.org',
+      },
+    ],
   },
   {
     name: 'Massachusetts Commission for the Blind',
@@ -131,19 +131,19 @@ const teachers = [
     educators: [
       {
         name: 'John Oliveira',
-        email: 'john.oliveira@mass.gov'
-      }
-    ]
+        email: 'john.oliveira@mass.gov',
+      },
+    ],
   },
   {
     name: 'The Chicago Lighthouse',
     link: 'https://chicagolighthouse.org/',
     educators: [
-    {
+      {
         name: 'Peter Tucic',
-        email: 'peter.tucic@chicagolighthouse.org'
-      }
-    ]
+        email: 'peter.tucic@chicagolighthouse.org',
+      },
+    ],
   },
   {
     name: 'Kansas State School for the Deaf and Blind (KSSDB)',
@@ -151,19 +151,19 @@ const teachers = [
     educators: [
       {
         name: 'Kimberly Rhea',
-        email: 'rhea@kssdb.org'
-      }
-    ]
+        email: 'rhea@kssdb.org',
+      },
+    ],
   },
   {
     name: 'Iowa Department for the Blind',
     link: 'https://blind.iowa.gov/',
     educators: [
-    {
+      {
         name: 'Denise Bean',
-        email: 'denise.bean@blind.state.ia.us'
-      }
-    ]
+        email: 'denise.bean@blind.state.ia.us',
+      },
+    ],
   },
 ];
 </script>
@@ -181,7 +181,7 @@ const teachers = [
       "
       class="w-1/2 font-poppins font-[600] p-3 rounded-tl-[8px] rounded-tr-[8px] h-[50px] flex justify-center items-center"
     >
-    Partnered Educators
+      Partnered Educators
     </button>
 
     <button
@@ -193,7 +193,7 @@ const teachers = [
       "
       class="w-1/2 font-poppins font-[600] p-3 rounded-tl-[8px] rounded-tr-[8px] h-[50px] flex justify-center items-center"
     >
-    Affiliated Schools
+      Affiliated Schools
     </button>
   </div>
 
@@ -209,8 +209,11 @@ const teachers = [
       />
     </div>
     <div v-if="currentPage === 2" class="overflow-y-auto h-[200px]">
-      <p class="ml-8 sm:ml-0 text-[18px] sm:text-[12px] xs:text-[10px] text-gray-700 text-left sm:text-center font-thin font-poppins pb-4">
-        Thank you to our participating teachers and organization leaders for helping us spread Audemy out to their school, organization, and beyond.
+      <p
+        class="ml-8 sm:ml-0 text-[18px] sm:text-[12px] xs:text-[10px] text-gray-700 text-left sm:text-center font-thin font-poppins pb-4"
+      >
+        Thank you to our participating teachers and organization leaders for
+        helping us spread Audemy out to their school, organization, and beyond.
       </p>
       <TeachersList
         v-for="(teacher, index) in teachers"

@@ -1,5 +1,5 @@
 <script setup>
-import Carousel from './Carousel.vue'
+import Carousel from './Carousel.vue';
 
 const impactImages = [
   '/assets/images/impact/carousel/carousel1.jpg',
