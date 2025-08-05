@@ -100,7 +100,7 @@ const items2 = [
 
     <div class="flex items-center justify-center mt-10">
       <a
-        href="/game-zone"
+        href="/game-zone-landing-page"
         class="font-poppins font-semibold w-[244px] px-9 py-4 border-[1.5px] border-[#0C0D0D] rounded-[8px] bg-primary-color hover:bg-[#0C587D] duration-300 text-base text-center text-[#fff] shadow-[3px_4px_0px_#0C0D0D]"
       >
         Try out our games!

@@ -2,11 +2,13 @@ import { createWebHistory, createRouter } from 'vue-router';
 
 import Home from '../pages/Home/Home.vue';
 import OurProjects from '../pages/OurProjects/OurProjects.vue';
+import GameZoneLandingPage from '../pages/GameZone/GameZoneLandingPage.vue';
 import GameZone from '../pages/GameZone/GameZone.vue';
 import LogIn from '../pages/LogIn/LogIn.vue';
 import NotFound from '../pages/NotFound/NotFound.vue';
 import AccessibilityStatement from '../pages/Footer/AccessibilityStatement.vue';
 import PrivacyPolicy from '../pages/Footer/PrivacyPolicy.vue';
+import TermsOfUse from '../pages/Footer/TermsOfUse.vue';
 import SignUp from '../pages/SignUp/SignUp.vue';
 import ForgotPassword from '../pages/ForgotPassword/ForgotPassword.vue';
 import ResetLinkSent from '../pages/ForgotPassword/ResetLinkSent.vue';
@@ -28,6 +30,11 @@ const routes = [
   { path: '/home', redirect: '/' },
   { path: '/', name: 'Home', component: Home },
   { path: '/game-zone', name: 'Game-Zone', component: GameZone },
+  {
+    path: '/game-zone-landing-page',
+    name: 'Game-Zone-Landing-Page',
+    component: GameZoneLandingPage,
+  },
   { path: '/our-projects', name: 'Our-Projects', component: OurProjects },
   { path: '/impact', name: 'Impact', component: Impact },
   { path: '/about-us', name: 'About-Us', component: AboutUs },
@@ -41,6 +48,11 @@ const routes = [
     path: '/privacy-policy',
     name: 'Privacy-Policy',
     component: PrivacyPolicy,
+  },
+  {
+    path: '/terms-of-use',
+    name: 'Terms Of Use',
+    component: TermsOfUse,
   },
   { path: '/login', name: 'LogIn', component: LogIn },
   { path: '/signup', name: 'Sign Up', component: SignUp },

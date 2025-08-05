@@ -145,6 +145,30 @@ const addMarkers = (map) => {
       name: 'Visually Impaired Preschool Services (KY + IN)',
       coordinates: [-85.68384087502888, 38.20048802883136],
     },
+    {
+      name: 'Texas School for the Blind and Visually Impaired (TSBVI)',
+      coordinates: [-97.738678, 30.314152],
+    },
+    {
+      name: "St. Lucy's School for the Blind",
+      coordinates: [-75.031076, 40.055793],
+    },
+    {
+      name: 'Massachusetts Commission for the Blind',
+      coordinates: [-71.0619767, 42.3528239],
+    },
+    {
+      name: 'The Chicago Lighthouse',
+      coordinates: [-87.672749, 41.867319],
+    },
+    {
+      name: 'Kansas State School for the Deaf and Blind (KSSDB)',
+      coordinates: [-94.812687, 38.882099],
+    },
+    {
+      name: 'Iowa Department for the Blind',
+      coordinates: [-93.6231159, 41.589356],
+    },
   ];
 
   locations.forEach((location) => {

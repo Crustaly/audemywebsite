@@ -75,18 +75,28 @@
             Press & Recognition
           </router-link>
         </li>
+        <!-- TODO: This GameZone link is to be used when user auth is implemented -->
+        <!-- li id="games-item">
+          <router-link to="/game-zone-landing-page" class="navbar-link-desktop">
+            Game Zone
+          </router-link>
+        </li-->
         <li id="games-item">
-          <router-link to="/game-zone" class="navbar-link-desktop">
+          <router-link
+            to="/game-zone-landing-page"
+            class="base-login-btn md:p-[15px] lg:p-[12px] lg:px-4"
+          >
             Game Zone
           </router-link>
         </li>
-        <li v-if="userSession" id="logout-btn-item">
+        <!-- TODO: Enable login/logout functionality when user auth is required -->
+        <!-- li v-if="userSession" id="logout-btn-item">
           <button
             id="logout-btn-desktop"
             class="base-logout-btn md:p-[8px] lg:p-[10px] md:grid md:grid-cols-3 md:grid-rows-2 lg:grid-rows-1"
             @click="logout"
           >
-            <!-- Add profile photo -->
+            
             <span
               id="logout-text-desktop"
               class="row-start-1 col-span-3 lg:col-span-2"
@@ -117,7 +127,7 @@
           >
             Log in
           </router-link>
-        </li>
+        </li -->
       </ul>
     </nav>
 
@@ -190,19 +200,43 @@
               Press & Recognition
             </router-link>
           </li>
-          <li>
+          <!-- TODO: This GameZone link is to be used when user auth is implemented -->
+          <!-- li>
             <router-link
-              to="/game-zone"
+              to="/game-zone-landing-page"
               class="navbar-link-mobile"
               @click="closeMenu"
             >
               Game Zone
             </router-link>
-          </li>
-          <li v-if="userSession">
+          </li-->
+          <router-link
+            to="/game-zone-landing-page"
+            @click="closeMenu"
+            class="base-login-btn w-full mt-8"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M5 12h14" />
+              <path d="m12 5 7 7-7 7" />
+            </svg>
+            &nbsp;Game Zone
+          </router-link>
+          <!-- TODO: Enable login/logout functionality when user auth is required -->
+          <!-- li v-if="userSession">
             <button class="base-logout-btn w-full mt-4" @click="logout">
               Logout
-              <!-- Add profile photo -->
+
               <img
                 v-if="userSession.user && userSession.user.imageUrl"
                 :src="userSession.user.imageUrl"
@@ -242,7 +276,7 @@
               </svg>
               &nbsp;Log in
             </router-link>
-          </li>
+          </li-->
         </ul>
       </nav>
 

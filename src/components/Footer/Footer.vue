@@ -117,7 +117,7 @@ const socialMediaGridClasses = [
             <a href="/press">Press & Recognition</a>
           </li>
           <li class="ftr-subtext">
-            <a href="/game-zone">Game Zone</a>
+            <a href="/game-zone-landing-page">Game Zone</a>
           </li>
         </ul>
       </div>
@@ -260,9 +260,15 @@ const socialMediaGridClasses = [
         <ul class="md:flex md:flex-row md:gap-10 md:justify-center">
           <!-- Copyright -->
           <li class="ftr-bio">&copy; 2024 Audemy</li>
+          <!-- Accessibility Statement -->
           <li class="ftr-subtext">
             <a href="/accessibility-statement">Accessibility Statement</a>
           </li>
+          <!-- Terms of Use -->
+          <li class="ftr-subtext">
+            <a href="/terms-of-use">Terms of Use</a>
+          </li>
+          <!-- Privacy Policy -->
           <li class="ftr-subtext">
             <a href="/privacy-policy">Privacy Policy</a>
           </li>

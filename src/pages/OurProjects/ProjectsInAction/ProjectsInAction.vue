@@ -1,5 +1,14 @@
 <script setup>
 import Carousel from './Carousel.vue';
+
+const impactImages = [
+  '/assets/images/impact/carousel/carousel1.jpg',
+  '/assets/images/impact/carousel/carousel2.png',
+  '/assets/images/impact/carousel/carousel3.png',
+  '/assets/images/impact/carousel/carousel4.png',
+  '/assets/images/impact/carousel/carousel5.png',
+  '/assets/images/impact/carousel/carousel6.png',
+];
 </script>
 
 <template>
@@ -25,7 +34,7 @@ import Carousel from './Carousel.vue';
         <div
           class="h-full rounded-xl border-4 border-[#2A3338] overflow-hidden xl:h-96"
         >
-          <Carousel />
+          <Carousel :images="impactImages" />
         </div>
       </div>
     </div>
