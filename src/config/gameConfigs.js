@@ -123,7 +123,7 @@ export const gameConfigs = {
   spellingBee: {
     title: 'Spelling Bee',
     description: 'Buzz your way to spelling mastery!',
-    bgColor: '#FAE9B6', // Light Gold
+    bgColor: '#F8F2C9', // Light cream
     iconSrc: '/assets/gameImages/buttons/gameButtons/spellingBee.svg',
     introAudio: '/spellingBee/spellingintro.mp3',
     dbFile: 'spellingBeeDB.json',
@@ -545,7 +545,7 @@ export const gameConfigs = {
   kitchenKnowHow: {
     title: 'Kitchen Know-How',
     description: 'Knowing what kitchen sounds mean helps you cook safely.',
-    bgColor: '#F0E68C', // Khaki
+    bgColor: '#F8F2C9', // Light Cream
     iconSrc: '/assets/gameImages/buttons/gameButtons/chef.png',
     dbFile: 'kitchenKnowHowDB.json',
     dbKey: 'KitchenKnowHowGame',

@@ -15,52 +15,52 @@
     <div
       class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none"
     >
-      <!-- Sun - Only for desktop -->
-      <div
-        v-show="!isTablet && !isMobile"
-        class="absolute top-20 right-60 w-32 h-32"
-      >
-        <svg viewBox="0 0 100 100" class="w-full h-full">
-          <circle cx="50" cy="50" r="50" fill="#FFD137" />
-        </svg>
+      <!-- Desktop & mobile -->
+      <div v-show="!isTablet" class="absolute top-20 right-20">
+        <img
+          src="/assets/gameImages/moon.png"
+          alt="Decorative moon"
+          :class="isMobile ? 'w-[120px] h-auto' : 'w-[165px] h-auto'"
+        />
       </div>
-      <!-- Clouds - Different for tablet -->
+      <!-- Tablet Only -->
       <template v-if="isTablet">
-        <!-- Left cloud for tablet -->
-        <div class="absolute left-0 z-0 bottom-[150px]">
+        <!-- Left image -->
+        <div class="absolute left-0 z-0 top-20">
           <img
-            src="/assets/gameImages/cloud-bg-Tab-left.png"
+            src="/assets/gameImages/stars-clouds.png"
             alt="Decorative cloud"
-            class="w-[300px] h-auto"
+            class="w-[230px] h-auto transform -scale-x-100"
           />
         </div>
-        <!-- Right cloud for tablet -->
-        <div class="absolute bottom-0 right-0 z-0 bottom-[50px]">
+        <!-- Right image -->
+        <div class="absolute right-0 z-0 bottom-[50px]">
           <img
-            src="/assets/gameImages/cloud-bg-Tab-right.png"
-            alt="Decorative cloud"
-            class="w-[300px] h-auto"
+            src="/assets/gameImages/rainbow.png"
+            alt="Decorative rainbow"
+            class="w-[220px] h-auto"
           />
         </div>
       </template>
-      <!-- Clouds for desktop -->
+      <!-- Desktop Only -->
       <template v-else-if="isDesktop">
+        <!-- Left image -->
         <div class="absolute bottom-0 left-0 z-0 bottom-[50px]">
           <img
-            src="/assets/gameImages/cloud-bg.png"
-            alt="Decorative cloud"
-            class="w-[400px] h-auto"
+            src="/assets/gameImages/rainbow.png"
+            alt="Decorative rainbow"
+            class="w-[300px] h-auto transform -scale-x-100"
           />
         </div>
       </template>
-      <!-- Mobile-specific clouds -->
+      <!-- Mobile Only -->
       <template v-if="isMobile">
-        <!-- Only right cloud for mobile -->
-        <div class="absolute right-0 z-0 bottom-[20px]">
+        <!-- Only left image for mobile -->
+        <div class="absolute left-3 bottom-5 z-0">
           <img
-            src="/assets/gameImages/cloud-bg-Tab-right.png"
-            alt="Decorative cloud"
-            class="w-[250px]"
+            src="/assets/gameImages/shooting-star.png"
+            alt="Decorative star"
+            class="w-[170px] h-auto"
           />
         </div>
       </template>

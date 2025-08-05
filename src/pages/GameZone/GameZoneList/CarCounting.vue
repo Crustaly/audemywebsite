@@ -1,6 +1,6 @@
 <template>
   <GameLayout
-    bgColor="#FBEB86"
+    bgColor="#F8F2C9"
     :isTablet="isTablet"
     :isMobile="isMobile"
     :currentAudios="currentAudios"
