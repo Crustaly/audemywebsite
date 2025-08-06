@@ -1,6 +1,7 @@
 <script setup>
 import Header from '../../components/Header/Header.vue';
 import GameZonePageButton from '../GameZone/GameZoneFilters/GameZonePageButton.vue';
+import GameMenuButton from '../GameZone/GameZoneFilters/GameMenuButton.vue';
 import GameZoneList from '../GameZone/GameZoneList/GameZoneList.vue';
 import GameProgress from '../GameZone/GameProgress/GameProgress.vue';
 import ScrollUpButton from '../../components/ScrollUpButton/ScrollUpButton.vue';
@@ -407,36 +408,13 @@ function hideMenuDropdown(menuBtn, currentDropdown) {
                 id="lang-menu-div"
                 :class="[currentPage === 1 ? 'flex' : 'hidden', 'relative']"
               >
-                <button
-                  type="button"
+                <GameMenuButton
                   id="lang-menu-btn"
-                  :class="[
-                    'game-action-btn-base',
-                    isLangMenuOpen
-                      ? 'game-menu-btn-active'
-                      : 'game-menu-btn-inactive',
-                  ]"
+                  gameType="lang"
+                  :isMenuOpen="isLangMenuOpen"
                   @click="activateGameMenu"
                   @blur="handleMenuBlur"
-                  :aria-expanded="isLangMenuOpen"
-                  aria-haspopup="true"
-                  aria-controls="lang-dropdown-div"
-                >
-                  <span>Game Menu</span>
-                  <svg
-                    class="svg-arrow"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                    aria-hidden="true"
-                    data-slot="icon"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
-                      clip-rule="evenodd"
-                    />
-                  </svg>
-                </button>
+                />
                 <!-- LANGUAGE GAMES DROPDOWN OPTIONS -->
                 <div
                   id="lang-dropdown-div"
@@ -470,36 +448,13 @@ function hideMenuDropdown(menuBtn, currentDropdown) {
                 id="math-menu-div"
                 :class="[currentPage === 2 ? 'flex' : 'hidden', 'relative']"
               >
-                <button
-                  type="button"
+                <GameMenuButton
                   id="math-menu-btn"
-                  :class="[
-                    'game-action-btn-base',
-                    isMathMenuOpen
-                      ? 'game-menu-btn-active'
-                      : 'game-menu-btn-inactive',
-                  ]"
+                  gameType="math"
+                  :isMenuOpen="isMathMenuOpen"
                   @click="activateGameMenu"
                   @blur="handleMenuBlur"
-                  :aria-expanded="isMathMenuOpen"
-                  aria-haspopup="true"
-                  aria-controls="math-dropdown-div"
-                >
-                  <span>Game Menu</span>
-                  <svg
-                    class="svg-arrow"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                    aria-hidden="true"
-                    data-slot="icon"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
-                      clip-rule="evenodd"
-                    />
-                  </svg>
-                </button>
+                />
                 <!-- MATH GAMES DROPDOWN OPTIONS -->
                 <div
                   id="math-dropdown-div"
@@ -533,36 +488,13 @@ function hideMenuDropdown(menuBtn, currentDropdown) {
                 id="science-menu-div"
                 :class="[currentPage === 3 ? 'flex' : 'hidden', 'relative']"
               >
-                <button
-                  type="button"
+                <GameMenuButton
                   id="science-menu-btn"
+                  gameType="science"
+                  :isMenuOpen="isScienceMenuOpen"
                   @click="activateGameMenu"
                   @blur="handleMenuBlur"
-                  :aria-expanded="isScienceMenuOpen"
-                  aria-haspopup="true"
-                  aria-controls="science-dropdown-div"
-                  :class="[
-                    'game-action-btn-base',
-                    isScienceMenuOpen
-                      ? 'game-menu-btn-active'
-                      : 'game-menu-btn-inactive',
-                  ]"
-                >
-                  <span>Game Menu</span>
-                  <svg
-                    class="svg-arrow"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                    aria-hidden="true"
-                    data-slot="icon"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
-                      clip-rule="evenodd"
-                    />
-                  </svg>
-                </button>
+                />
                 <!-- SCIENCE GAMES DROPDOWN OPTIONS -->
                 <div
                   id="science-dropdown-div"
@@ -596,36 +528,13 @@ function hideMenuDropdown(menuBtn, currentDropdown) {
                 id="life-skills-menu-div"
                 :class="[currentPage === 4 ? 'flex' : 'hidden', 'relative']"
               >
-                <button
-                  type="button"
+                <GameMenuButton
                   id="life-skills-menu-btn"
-                  :class="[
-                    'game-action-btn-base',
-                    isLifeSkillsMenuOpen
-                      ? 'game-menu-btn-active'
-                      : 'game-menu-btn-inactive',
-                  ]"
+                  gameType="life-skills"
+                  :isMenuOpen="isLifeSkillsMenuOpen"
                   @click="activateGameMenu"
                   @blur="handleMenuBlur"
-                  :aria-expanded="isLifeSkillsMenuOpen"
-                  aria-haspopup="true"
-                  aria-controls="life-skills-dropdown-div"
-                >
-                  <span>Game Menu</span>
-                  <svg
-                    class="svg-arrow"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                    aria-hidden="true"
-                    data-slot="icon"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
-                      clip-rule="evenodd"
-                    />
-                  </svg>
-                </button>
+                />
                 <!-- LIFE SKILLS GAMES DROPDOWN OPTIONS -->
                 <div
                   id="life-skills-dropdown-div"
@@ -659,36 +568,13 @@ function hideMenuDropdown(menuBtn, currentDropdown) {
                 id="independence-skills-menu-div"
                 :class="[currentPage === 5 ? 'flex' : 'hidden', 'relative']"
               >
-                <button
-                  type="button"
+                <GameMenuButton
                   id="independence-skills-menu-btn"
-                  :class="[
-                    'game-action-btn-base',
-                    isIndependenceSkillsMenuOpen
-                      ? 'game-menu-btn-active'
-                      : 'game-menu-btn-inactive',
-                  ]"
+                  gameType="independence-skills"
+                  :isMenuOpen="isIndependenceSkillsMenuOpen"
                   @click="activateGameMenu"
                   @blur="handleMenuBlur"
-                  :aria-expanded="isIndependenceSkillsMenuOpen"
-                  aria-haspopup="true"
-                  aria-controls="independence-skills-dropdown-div"
-                >
-                  <span>Game Menu</span>
-                  <svg
-                    class="svg-arrow"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                    aria-hidden="true"
-                    data-slot="icon"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
-                      clip-rule="evenodd"
-                    />
-                  </svg>
-                </button>
+                />
                 <!-- INDEPENDENCE SKILLS GAMES DROPDOWN OPTIONS -->
                 <div
                   id="independence-skills-dropdown-div"
