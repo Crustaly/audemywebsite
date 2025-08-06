@@ -153,29 +153,28 @@ function activateGameMenu(event) {
     menuBtn.style.getPropertyValue('color') === 'rgb(8, 123, 180)'
       ? true
       : false;
+
   if (isMenuActive) {
     // Deactivate and reset styling for menu
     deactivateGameMenu(menuBtn);
-
-    if (currentPage.value === 1) changeIsLangMenuOpen(false);
-    else if (currentPage.value === 2) changeIsMathMenuOpen(false);
-    else if (currentPage.value === 3) changeIsScienceMenuOpen(false);
-    else if (currentPage.value === 4) changeIsLifeSkillsMenuOpen(false);
-    else if (currentPage.value === 5) changeisIndependenceSkillsMenuOpen(false);
   } else {
+    // Set active styling for menu
     menuBtn.style.backgroundColor = '#e6f3fa';
     menuBtn.style.fontWeight = '600';
     menuBtn.style.color = '#087BB4';
     menuBtn.style.borderColor = '#087BB4';
     const svgArrow = menuBtn.querySelector('svg');
     svgArrow.style.fill = '#087BB4';
-
-    if (currentPage.value === 1) changeIsLangMenuOpen(true);
-    else if (currentPage.value === 2) changeIsMathMenuOpen(true);
-    else if (currentPage.value === 3) changeIsScienceMenuOpen(true);
-    else if (currentPage.value === 4) changeIsLifeSkillsMenuOpen(true);
-    else if (currentPage.value === 5) changeisIndependenceSkillsMenuOpen(true);
   }
+
+  // Get matching map based on current page
+  const currentPageConfig = gamesPageMap[currentPage.value];
+  if (currentPageConfig) {
+    const updater = currentPageConfig.updater;
+    // Toggle isMenuActive flag
+    updater(isMenuActive ? false : true);
+  }
+
   // Toggle visibility of dropdown
   toggleDropdown();
 }
