@@ -133,14 +133,31 @@ const changeIsLifeSkillsMenuOpen = (bool) =>
 const changeisIndependenceSkillsMenuOpen = (bool) =>
   (isIndependenceSkillsMenuOpen.value = bool);
 
-// (Shared) gamesPageMap: Map page number to matching game dropdown and updater()
+// (Shared) gamesPageMap: Map page number to matching menu button, dropdown, and updater()
 const gamesPageMap = {
-  1: { id: 'lang-dropdown-div', updater: changeIsLangMenuOpen },
-  2: { id: 'math-dropdown-div', updater: changeIsMathMenuOpen },
-  3: { id: 'science-dropdown-div', updater: changeIsScienceMenuOpen },
-  4: { id: 'life-skills-dropdown-div', updater: changeIsLifeSkillsMenuOpen },
+  1: {
+    btnId: 'lang-menu-btn',
+    dropdownId: 'lang-dropdown-div',
+    updater: changeIsLangMenuOpen,
+  },
+  2: {
+    btnId: 'math-menu-btn',
+    dropdownId: 'math-dropdown-div',
+    updater: changeIsMathMenuOpen,
+  },
+  3: {
+    btnId: 'science-menu-btn',
+    dropdownId: 'science-dropdown-div',
+    updater: changeIsScienceMenuOpen,
+  },
+  4: {
+    btnId: 'life-skills-menu-btn',
+    dropdownId: 'life-skills-dropdown-div',
+    updater: changeIsLifeSkillsMenuOpen,
+  },
   5: {
-    id: 'independence-skills-dropdown-div',
+    btnId: 'independence-skills-menu-btn',
+    dropdownId: 'independence-skills-dropdown-div',
     updater: changeisIndependenceSkillsMenuOpen,
   },
 };
@@ -197,10 +214,12 @@ function toggleDropdown() {
   // Get matching map based on current page
   const currentPageConfig = gamesPageMap[currentPage.value];
   if (currentPageConfig) {
-    const dropdown = document.getElementById(currentPageConfig.id);
+    const dropdown = document.getElementById(currentPageConfig.dropdownId);
     dropdown.classList.toggle('hidden');
+
     // Update reactive flag for matching menu
     const isVisible = !dropdown.classList.contains('hidden');
+
     // Dynamically call matching updater()
     const updater = currentPageConfig.updater;
     updater(isVisible);
@@ -235,23 +254,17 @@ function handlePageSwitch(newPage) {
   }
 
   // Otherwise, proceed with regular page switch
-  const pages = {
-    1: { btn: 'lang-menu-btn', dropdown: 'lang-dropdown-div' },
-    2: { btn: 'math-menu-btn', dropdown: 'math-dropdown-div' },
-    3: { btn: 'science-menu-btn', dropdown: 'science-dropdown-div' },
-    4: { btn: 'life-skills-menu-btn', dropdown: 'life-skills-dropdown-div' },
-    5: {
-      btn: 'independence-skills-menu-btn',
-      dropdown: 'independence-skills-dropdown-div',
-    },
-  };
+  for (const mapIndex in gamesPageMap) {
+    if (parseInt(mapIndex) !== newPage) {
+      // Deconstruct gamesPageMap; ignore 'updater()' field
+      const { btnId, dropdownId } = gamesPageMap[mapIndex];
 
-  for (const page in pages) {
-    if (parseInt(page) !== newPage) {
-      const { btn, dropdown } = pages[page];
-      const menuBtn = document.getElementById(btn);
-      const dropdownDiv = document.getElementById(dropdown);
-      if (menuBtn) deactivateGameMenu(menuBtn);
+      const menuBtn = document.getElementById(btnId);
+      if (menuBtn) {
+        deactivateGameMenu(menuBtn);
+      }
+
+      const dropdownDiv = document.getElementById(dropdownId);
       if (dropdownDiv && !dropdownDiv.classList.contains('hidden')) {
         dropdownDiv.classList.add('hidden');
       }
@@ -261,11 +274,11 @@ function handlePageSwitch(newPage) {
   changeCurrentPage(newPage);
 
   // Ensure all menus are reset to a closed state
-  changeIsLangMenuOpen(false);
-  changeIsMathMenuOpen(false);
-  changeIsScienceMenuOpen(false);
-  changeIsLifeSkillsMenuOpen(false);
-  changeisIndependenceSkillsMenuOpen(false);
+  for (const mapIndex in gamesPageMap) {
+    // Deconstruct gamesPageMap; only fetch 'updater()' field
+    const { updater } = gamesPageMap[mapIndex];
+    updater(false);
+  }
 }
 
 function handleMenuBlur(event) {
