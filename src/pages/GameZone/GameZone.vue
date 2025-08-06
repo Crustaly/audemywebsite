@@ -295,31 +295,34 @@ function handleMenuBlur(event) {
     }
 
     // Otherwise, hide menu
+    // Note: Used native 'currentTarget' (vs document.getElementById()) for efficiency
     const menuBtn = event.currentTarget;
     hideMenuDropdown(menuBtn, dropdown);
-    
   } else {
     console.log('handleMenuBlur() error: Invalid page number.');
   }
 }
 
 function handleDropdownFocusOut(event) {
+  // Note: Used native 'currentTarget' (vs document.getElementById()) for efficiency
   const currentDropdown = event.currentTarget;
 
   // Keep dropdown open if focus is still within it (e.g., tabbing through it)
-  if (currentDropdown.contains(event.relatedTarget)) return;
+  if (currentDropdown.contains(event.relatedTarget)) {
+    return;
+  }
 
-  const pageMap = {
-    1: 'lang-menu-btn',
-    2: 'math-menu-btn',
-    3: 'science-menu-btn',
-    4: 'life-skills-menu-btn',
-    5: 'independence-skills-menu-btn',
-  };
-  const menuBtnId = pageMap[currentPage.value];
-  const menuBtn = document.getElementById(menuBtnId);
+  // Get matching map based on current page
+  const currentPageConfig = gamesPageMap[currentPage.value];
 
-  hideMenuDropdown(menuBtn, currentDropdown);
+  // Hide current Game Menu button
+  if (currentPageConfig) {
+    const menuBtnId = currentPageConfig.btnId;
+    const menuBtn = document.getElementById(menuBtnId);
+    hideMenuDropdown(menuBtn, currentDropdown);
+  } else {
+    console.log('handleDropdownFocusOut() error: Invalid page number.');
+  }
 }
 
 function hideMenuDropdown(menuBtn, currentDropdown) {
