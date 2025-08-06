@@ -332,12 +332,14 @@ function hideMenuDropdown(menuBtn, currentDropdown) {
   // Hides opened dropdown
   currentDropdown.classList.add('hidden');
 
-  // Update reactive flag
-  if (currentPage.value === 1) changeIsLangMenuOpen(false);
-  else if (currentPage.value === 2) changeIsMathMenuOpen(false);
-  else if (currentPage.value === 3) changeIsScienceMenuOpen(false);
-  else if (currentPage.value === 4) changeIsLifeSkillsMenuOpen(false);
-  else if (currentPage.value === 5) changeisIndependenceSkillsMenuOpen(false);
+  // Get matching map based on current page
+  const currentPageConfig = gamesPageMap[currentPage.value];
+
+  // Update matching reactive flag
+  if (currentPageConfig) {
+    const updater = currentPageConfig.updater;
+    updater(false);
+  }
 }
 </script>
 
