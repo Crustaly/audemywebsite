@@ -133,6 +133,18 @@ const changeIsLifeSkillsMenuOpen = (bool) =>
 const changeisIndependenceSkillsMenuOpen = (bool) =>
   (isIndependenceSkillsMenuOpen.value = bool);
 
+// (Shared) gamesPageMap: Map page number to matching game dropdown and updater()
+const gamesPageMap = {
+  1: { id: 'lang-dropdown-div', updater: changeIsLangMenuOpen },
+  2: { id: 'math-dropdown-div', updater: changeIsMathMenuOpen },
+  3: { id: 'science-dropdown-div', updater: changeIsScienceMenuOpen },
+  4: { id: 'life-skills-dropdown-div', updater: changeIsLifeSkillsMenuOpen },
+  5: {
+    id: 'independence-skills-dropdown-div',
+    updater: changeisIndependenceSkillsMenuOpen,
+  },
+};
+
 function activateGameMenu(event) {
   const menuBtn = event.currentTarget;
 
@@ -183,44 +195,19 @@ function deactivateGameMenu(menuBtn) {
 
 // Toggles visibility of the active dropdown menu
 function toggleDropdown() {
-  const pageMap = {
-    1: { id: 'lang-dropdown-div', updater: changeIsLangMenuOpen },
-    2: { id: 'math-dropdown-div', updater: changeIsMathMenuOpen },
-    3: { id: 'science-dropdown-div', updater: changeIsScienceMenuOpen },
-    4: { id: 'life-skills-dropdown-div', updater: changeIsLifeSkillsMenuOpen },
-    5: {
-      id: 'independence-skills-dropdown-div',
-      updater: changeisIndependenceSkillsMenuOpen,
-    },
-  };
-
-  const currentPageConfig = pageMap[currentPage.value];
+  // Get matching map based on current page
+  const currentPageConfig = gamesPageMap[currentPage.value];
   if (currentPageConfig) {
     const dropdown = document.getElementById(currentPageConfig.id);
     dropdown.classList.toggle('hidden');
-    // Update reactive flag for Language menu
-    isVisible = !dropdown.classList.contains('hidden');
-    changeIsLangMenuOpen(isVisible);
-  } else if (currentPage.value === 2) {
-    dropdown = document.getElementById('math-dropdown-div');
-    dropdown.classList.toggle('hidden');
-    isVisible = !dropdown.classList.contains('hidden');
-    changeIsMathMenuOpen(isVisible);
-  } else if (currentPage.value === 3) {
-    dropdown = document.getElementById('science-dropdown-div');
-    dropdown.classList.toggle('hidden');
-    isVisible = !dropdown.classList.contains('hidden');
-    changeIsScienceMenuOpen(isVisible);
-  } else if (currentPage.value === 4) {
-    dropdown = document.getElementById('life-skills-dropdown-div');
-    dropdown.classList.toggle('hidden');
-    isVisible = !dropdown.classList.contains('hidden');
-    changeIsLifeSkillsMenuOpen(isVisible);
+    // Update reactive flag for matching menu
+    const isVisible = !dropdown.classList.contains('hidden');
+    // Dynamically call matching updater()
+    const updater = currentPageConfig.updater;
+    updater(isVisible);
   } else {
-    dropdown = document.getElementById('independence-skills-dropdown-div');
-    dropdown.classList.toggle('hidden');
-    isVisible = !dropdown.classList.contains('hidden');
-    changeisIndependenceSkillsMenuOpen(isVisible);
+    console.log('toggleDropdown() error: Invalid page number.');
+    return;
   }
 }
 
