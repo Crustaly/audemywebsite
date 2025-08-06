@@ -282,24 +282,25 @@ function handlePageSwitch(newPage) {
 }
 
 function handleMenuBlur(event) {
-  const pageMap = {
-    1: 'lang-dropdown-div',
-    2: 'math-dropdown-div',
-    3: 'science-dropdown-div',
-    4: 'life-skills-dropdown-div',
-    5: 'independence-skills-dropdown-div',
-  };
-  const dropdownId = pageMap[currentPage.value];
+  // Get matching map based on current page
+  const currentPageConfig = gamesPageMap[currentPage.value];
+
   // Determine the currently active dropdown
-  const currentDropdown = document.getElementById(dropdownId);
+  if (currentPageConfig) {
+    const dropdown = document.getElementById(currentPageConfig.dropdownId);
 
-  // Keep menu open if focus moved into the dropdown options (e.g., tabbing through it)
-  if (currentDropdown.contains(event.relatedTarget)) {
-    return;
+    // Keep menu open if focus moved into the dropdown options (e.g., tabbing through it)
+    if (dropdown.contains(event.relatedTarget)) {
+      return;
+    }
+
+    // Otherwise, hide menu
+    const menuBtn = event.currentTarget;
+    hideMenuDropdown(menuBtn, dropdown);
+    
+  } else {
+    console.log('handleMenuBlur() error: Invalid page number.');
   }
-
-  const menuBtn = event.currentTarget;
-  hideMenuDropdown(menuBtn, currentDropdown);
 }
 
 function handleDropdownFocusOut(event) {
