@@ -25,6 +25,8 @@ import TeacherDashboard from '../pages/Dashboard/TeacherDashboard.vue';
 import GamesDashboard from '../pages/Dashboard/GamesDashboard.vue';
 import DashboardSummary from '../pages/Dashboard/DashboardSummary.vue';
 import Press from '../pages/Press/Press.vue';
+import GameToolkit from '../pages/GameToolkit/GameToolkit.vue';
+import AccessibilityStudio from '../pages/AccessibilityStudio/AccessibilityStudio.vue';
 
 const routes = [
   { path: '/home', redirect: '/' },
@@ -39,6 +41,9 @@ const routes = [
   { path: '/impact', name: 'Impact', component: Impact },
   { path: '/about-us', name: 'About-Us', component: AboutUs },
   { path: '/press', name: 'Press', component: Press },
+  { path: '/game-toolkit', name: 'GameToolkit', component: GameToolkit},
+  { path: '/accessibility-studio', name: 'AccessibilityStudio', component: AccessibilityStudio},
+  
   {
     path: '/accessibility-statement',
     name: 'Accessibility-Statement',
