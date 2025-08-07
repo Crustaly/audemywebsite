@@ -2,6 +2,7 @@
 import Header from '../../components/Header/Header.vue';
 import GameZonePageButton from '../GameZone/GameZoneFilters/GameZonePageButton.vue';
 import GameMenuButton from '../GameZone/GameZoneFilters/GameMenuButton.vue';
+import GameDropdownOptions from '../GameZone/GameZoneFilters/GameDropdownOptions.vue';
 import GameZoneList from '../GameZone/GameZoneList/GameZoneList.vue';
 import GameProgress from '../GameZone/GameProgress/GameProgress.vue';
 import ScrollUpButton from '../../components/ScrollUpButton/ScrollUpButton.vue';
@@ -21,7 +22,7 @@ import {
 /*
  * Extracted lists of objects for dropdown menus:
  * - languageGamesMap, mathGamesMap, scienceGamesMap,
- * - lifeSkillGameMap, independenceSkillGameMap, etc.
+ * - lifeSkillGamesMap, independenceSkillGamesMap, etc.
  *
  * Each object contains game title and URL
  * - Example format: [{ title: 'Definition Detective', url: '/game/definitionDetective' }, ...]
@@ -42,12 +43,12 @@ const scienceGamesMap = getScienceGames().map(({ title, url }) => ({
   url,
 }));
 
-const lifeSkillGameMap = getLifeSkillsGames().map(({ title, url }) => ({
+const lifeSkillGamesMap = getLifeSkillsGames().map(({ title, url }) => ({
   title,
   url,
 }));
 
-const independenceSkillGameMap = getIndependenceSkillsGames().map(
+const independenceSkillGamesMap = getIndependenceSkillsGames().map(
   ({ title, url }) => ({
     title,
     url,
@@ -433,22 +434,7 @@ function hideMenuDropdown(menuBtn, currentDropdown) {
                   aria-orientation="vertical"
                   aria-labelledby="lang-menu-btn"
                 >
-                  <div
-                    id="lang-dropdown-options"
-                    class="py-1 text-[15px]"
-                    role="none"
-                  >
-                    <!-- Generate game menu links by looping over 'languageGamesMap' entries -->
-                    <a
-                      v-for="{ title, url } in languageGamesMap"
-                      :key="url"
-                      :href="url"
-                      class="game-menu-link"
-                      role="menuitem"
-                    >
-                      {{ title }}
-                    </a>
-                  </div>
+                  <GameDropdownOptions :gamesMap="languageGamesMap" />
                 </div>
               </div>
               <!-- MATH GAMES MENU -->
@@ -473,22 +459,7 @@ function hideMenuDropdown(menuBtn, currentDropdown) {
                   aria-orientation="vertical"
                   aria-labelledby="math-menu-btn"
                 >
-                  <div
-                    id="math-dropdown-options"
-                    class="py-1 text-[15px]"
-                    role="none"
-                  >
-                    <!-- Generate game menu links by looping over 'mathGamesMap' map entries -->
-                    <a
-                      v-for="{ title, url } in mathGamesMap"
-                      :key="url"
-                      :href="url"
-                      class="game-menu-link"
-                      role="menuitem"
-                    >
-                      {{ title }}
-                    </a>
-                  </div>
+                  <GameDropdownOptions :gamesMap="mathGamesMap" />
                 </div>
               </div>
               <!-- SCIENCE GAMES MENU -->
@@ -513,22 +484,7 @@ function hideMenuDropdown(menuBtn, currentDropdown) {
                   aria-orientation="vertical"
                   aria-labelledby="science-menu-btn"
                 >
-                  <div
-                    id="science-dropdown-options"
-                    class="py-1 text-[15px]"
-                    role="none"
-                  >
-                    <!-- Generate game menu links by looping over 'scienceGamesMap' map entries -->
-                    <a
-                      v-for="{ title, url } in scienceGamesMap"
-                      :key="url"
-                      :href="url"
-                      class="game-menu-link"
-                      role="menuitem"
-                    >
-                      {{ title }}
-                    </a>
-                  </div>
+                  <GameDropdownOptions :gamesMap="scienceGamesMap" />
                 </div>
               </div>
               <!-- LIFE SKILLS GAMES MENU -->
@@ -553,22 +509,7 @@ function hideMenuDropdown(menuBtn, currentDropdown) {
                   aria-orientation="vertical"
                   aria-labelledby="life-skills-menu-btn"
                 >
-                  <div
-                    id="life-skills-dropdown-options"
-                    class="py-1 text-[15px]"
-                    role="none"
-                  >
-                    <!-- Generate game menu links by looping over 'lifeSkillGameMap' entries -->
-                    <a
-                      v-for="{ title, url } in lifeSkillGameMap"
-                      :key="url"
-                      :href="url"
-                      class="game-menu-link"
-                      role="menuitem"
-                    >
-                      {{ title }}
-                    </a>
-                  </div>
+                  <GameDropdownOptions :gamesMap="lifeSkillGamesMap" />
                 </div>
               </div>
               <!-- INDEPENDENCE SKILLS GAMES MENU -->
@@ -593,22 +534,7 @@ function hideMenuDropdown(menuBtn, currentDropdown) {
                   aria-orientation="vertical"
                   aria-labelledby="independence-skills-menu-btn"
                 >
-                  <div
-                    id="independence-skills-dropdown-options"
-                    class="py-1 text-[15px]"
-                    role="none"
-                  >
-                    <!-- Generate game menu links by looping over 'independenceSkillGameMap' map entries -->
-                    <a
-                      v-for="{ title, url } in independenceSkillGameMap"
-                      :key="url"
-                      :href="url"
-                      class="game-menu-link"
-                      role="menuitem"
-                    >
-                      {{ title }}
-                    </a>
-                  </div>
+                  <GameDropdownOptions :gamesMap="independenceSkillGamesMap" />
                 </div>
               </div>
             </div>
