@@ -20,7 +20,7 @@ const impactImages = [
 </script>
 
 <template>
-  <div class="flex flex-col justify-center items-center">
+  <div class="flex flex-col justify-center items-center mt-20">
     <h3
       class="font-poppins text-[12px] font-[500] tracking-[3.6px] mb-4 text-[#6E777C] text-center"
     >
