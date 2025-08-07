@@ -97,12 +97,13 @@ onMounted(() => {
     }
   }
 
-  // Otherwise, retrieve `sessionStorage` (Already in Game Zone)
+  // If `sessionStorage` exists, use it (Already in Game Zone)
   const category = sessionStorage.getItem('gameCategory');
 
+  // Otherwise: Empty query param (aka `sessionStorage` DNE), default to 'language'
+  const pageNumber = categoryPageMap[category ? category : 'language'];
+
   // Dynamically change current page based on categoryPageMap
-  // (Map format: String to Number)
-  const pageNumber = categoryPageMap[category];
   changeCurrentPage(pageNumber);
 
   // Clear it after use
