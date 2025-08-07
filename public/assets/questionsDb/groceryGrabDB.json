@@ -1,5 +1,5 @@
 {
-  "ElevatorExperienceGame": {
+  "GroceryGrabGame": {
     "Questions": {
       "Easy": [
         { "Q": "Which button opens the elevator doors?", "A": ["Open"] },
