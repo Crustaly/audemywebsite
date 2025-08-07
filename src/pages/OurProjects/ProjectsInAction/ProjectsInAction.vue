@@ -7,12 +7,11 @@ const impactImages = [
   '/assets/images/impact/carousel/carousel3.png',
   '/assets/images/impact/carousel/carousel4.png',
   '/assets/images/impact/carousel/carousel5.png',
-  '/assets/images/impact/carousel/carousel6.png',
 ];
 </script>
 
 <template>
-  <div class="flex flex-col gap-4 relative md:flex-row lg:gap-10">
+  <div class="flex flex-col gap-4 relative md:flex-row lg:gap-10 pb-20">
     <img
       src="/assets/images/impact/Union.png"
       class="absolute max-w[100px] -z-10 -top-6 -left-8 md:-left-14 md:-top-14 xl:-top-28"
