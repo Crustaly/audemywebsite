@@ -7,10 +7,8 @@ import GameProgress from '../GameZone/GameProgress/GameProgress.vue';
 import ScrollUpButton from '../../components/ScrollUpButton/ScrollUpButton.vue';
 import Footer from '../../components/Footer/Footer.vue';
 
-import { ref, onMounted, watch } from 'vue';
+import { ref, onMounted } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
-
-import { useDeviceType } from '../../Utilities/checkDeviceType';
 
 import {
   getLanguageGames,
