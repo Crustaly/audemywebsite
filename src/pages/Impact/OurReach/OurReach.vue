@@ -37,7 +37,7 @@ const impactImages = [
   </div>
 
   <div
-    class="relative w-full flex flex-col items-center px-4 md:px-12 lg:px-24 py-12"
+    class="relative w-full flex flex-col items-center px-4 md:px-12 lg:px-24 py-12 pb-24"
   >
     <!-- Decorative icons -->
     <img
