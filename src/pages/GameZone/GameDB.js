@@ -162,44 +162,6 @@ export const getMathGames = () => {
 export const getScienceGames = () => {
   return [
     {
-      icon: basedPath + 'dino.png',
-      title: 'Dino Detectives',
-      url: '/game/dinodetectives',
-      textColor: '#323232',
-      bgColor: '#c08b5f', // Brown
-      bgDecoration: true,
-      bgImage: '/assets/gameImages/bg-dino.png',
-      description: 'Use clues from bones and roars to identify ancient beasts.',
-    },
-    {
-      icon: basedPath + 'germ.png',
-      title: 'Germ Squad',
-      url: '/game/germsquad',
-      textColor: '#323232',
-      bgColor: '#ff8c69', // Salmon
-      description:
-        'Name the culprits behind a fever before the party gets out of hand.',
-    },
-    {
-      icon: basedPath + 'landscape.png',
-      title: 'Eco Rangers',
-      url: '/game/ecorangers',
-      textColor: '#323232',
-      bgColor: '#52c687', // Green
-      description:
-        'Identify environmental threats and help restore balance to nature.',
-    },
-    {
-      icon: basedPath + 'sound.png',
-      title: 'Sound Explorer',
-      url: '/game/soundexplorer',
-      textColor: '#323232',
-      bgColor: '#fed7aa', // Light Orange
-      bgDecoration: true,
-      bgImage: '/assets/gameImages/bg-sound.png',
-      description: 'Measure and decode sound waves to escape an echoing cave.',
-    },
-    {
       icon: basedPath + 'matter.png',
       title: 'Matter Mix-Up',
       url: '/game/mattermixup',
@@ -236,6 +198,44 @@ export const getScienceGames = () => {
       bgImage: '/assets/gameImages/bg-star.png',
       description:
         'Help a forgetful astronaut remember basic facts about space.',
+    },
+    {
+      icon: basedPath + 'dino.png',
+      title: 'Dino Detectives',
+      url: '/game/dinodetectives',
+      textColor: '#323232',
+      bgColor: '#c08b5f', // Brown
+      bgDecoration: true,
+      bgImage: '/assets/gameImages/bg-dino.png',
+      description: 'Use clues from bones and roars to identify ancient beasts.',
+    },
+    {
+      icon: basedPath + 'germ.png',
+      title: 'Germ Squad',
+      url: '/game/germsquad',
+      textColor: '#323232',
+      bgColor: '#ff8c69', // Salmon
+      description:
+        'Name the culprits behind a fever before the party gets out of hand.',
+    },
+    {
+      icon: basedPath + 'landscape.png',
+      title: 'Eco Rangers',
+      url: '/game/ecorangers',
+      textColor: '#323232',
+      bgColor: '#52c687', // Green
+      description:
+        'Identify environmental threats and help restore balance to nature.',
+    },
+    {
+      icon: basedPath + 'sound.png',
+      title: 'Sound Explorer',
+      url: '/game/soundexplorer',
+      textColor: '#323232',
+      bgColor: '#fed7aa', // Light Orange
+      bgDecoration: true,
+      bgImage: '/assets/gameImages/bg-sound.png',
+      description: 'Measure and decode sound waves to escape an echoing cave.',
     },
     {
       icon: basedPath + 'robot.png',
