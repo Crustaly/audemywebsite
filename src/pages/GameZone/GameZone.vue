@@ -137,8 +137,9 @@ const categoryPageMap = {
   // (WIP) 'my-progress': 6,
 };
 
-// (Shared) gamesPageMap: Map page number to matching menu button, dropdown, and updater()
-const gamesPageMap = {
+// (Shared) pageConfigsMap: Maps page numbers to menu button, dropdown,
+// & state updater() configs
+const pageConfigsMap = {
   1: {
     btnId: 'lang-menu-btn',
     dropdownId: 'lang-dropdown-div',
@@ -189,7 +190,7 @@ function activateGameMenu(event) {
   }
 
   // Get matching map based on current page
-  const currentPageConfig = gamesPageMap[currentPage.value];
+  const currentPageConfig = pageConfigsMap[currentPage.value];
   if (currentPageConfig) {
     const updater = currentPageConfig.updater;
     // Toggle isMenuActive flag
@@ -216,7 +217,7 @@ function deactivateGameMenu(menuBtn) {
 // Toggles visibility of the active dropdown menu
 function toggleDropdown() {
   // Get matching map based on current page
-  const currentPageConfig = gamesPageMap[currentPage.value];
+  const currentPageConfig = pageConfigsMap[currentPage.value];
   if (currentPageConfig) {
     const dropdown = document.getElementById(currentPageConfig.dropdownId);
     dropdown.classList.toggle('hidden');
@@ -258,10 +259,10 @@ function handlePageSwitch(newPage) {
   }
 
   // Otherwise, proceed with regular page switch
-  for (const mapIndex in gamesPageMap) {
+  for (const mapIndex in pageConfigsMap) {
     if (parseInt(mapIndex) !== newPage) {
-      // Deconstruct gamesPageMap; ignore 'updater()' field
-      const { btnId, dropdownId } = gamesPageMap[mapIndex];
+      // Deconstruct pageConfigsMap; ignore 'updater()' field
+      const { btnId, dropdownId } = pageConfigsMap[mapIndex];
 
       const menuBtn = document.getElementById(btnId);
       if (menuBtn) {
@@ -278,16 +279,16 @@ function handlePageSwitch(newPage) {
   changeCurrentPage(newPage);
 
   // Ensure all menus are reset to a closed state
-  for (const mapIndex in gamesPageMap) {
-    // Deconstruct gamesPageMap; only fetch 'updater()' field
-    const { updater } = gamesPageMap[mapIndex];
+  for (const mapIndex in pageConfigsMap) {
+    // Deconstruct pageConfigsMap; only fetch 'updater()' field
+    const { updater } = pageConfigsMap[mapIndex];
     updater(false);
   }
 }
 
 function handleMenuBlur(event) {
   // Get matching map based on current page
-  const currentPageConfig = gamesPageMap[currentPage.value];
+  const currentPageConfig = pageConfigsMap[currentPage.value];
 
   // Determine the currently active dropdown
   if (currentPageConfig) {
@@ -317,7 +318,7 @@ function handleDropdownFocusOut(event) {
   }
 
   // Get matching map based on current page
-  const currentPageConfig = gamesPageMap[currentPage.value];
+  const currentPageConfig = pageConfigsMap[currentPage.value];
 
   // Hide current Game Menu button
   if (currentPageConfig) {
@@ -337,7 +338,7 @@ function hideMenuDropdown(menuBtn, currentDropdown) {
   currentDropdown.classList.add('hidden');
 
   // Get matching map based on current page
-  const currentPageConfig = gamesPageMap[currentPage.value];
+  const currentPageConfig = pageConfigsMap[currentPage.value];
 
   // Update matching reactive flag
   if (currentPageConfig) {
