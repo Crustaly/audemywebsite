@@ -5,7 +5,7 @@ export const gameConfigs = {
     bgColor: '#F8C9E4', // Light Pink
     iconSrc: '/assets/gameImages/buttons/gameButtons/addition.svg',
     introAudio: '/gameIntroAudio/additionIntro.mp3',
-    dbFile: 'additionDb.json',
+    dbFile: 'additionDB.json',
     dbKey: 'AdditionGame',
     category: 'math',
   },
@@ -38,7 +38,7 @@ export const gameConfigs = {
     bgColor: '#e1f7d5', // Light Green
     iconSrc: '/assets/gameImages/buttons/gameButtons/div.svg',
     introAudio: '/gameIntroAudio/divIntro.mp3',
-    dbFile: 'divisionDb.json',
+    dbFile: 'divisionDB.json',
     dbKey: 'DivisionGame',
     category: 'math',
   },
@@ -49,7 +49,7 @@ export const gameConfigs = {
     bgColor: '#FFCCCB', // Light Red
     iconSrc: '/assets/gameImages/buttons/gameButtons/ff.svg',
     introAudio: '/gameIntroAudio/fruitIntro.mp3',
-    dbFile: 'fruitFrenzy.json',
+    dbFile: 'fruitFrenzyDB.json',
     dbKey: 'FruitFrenzy',
     category: 'math',
   },
@@ -71,7 +71,7 @@ export const gameConfigs = {
     bgColor: '#E5D9F2', // Light Purple
     iconSrc: '/assets/gameImages/buttons/gameButtons/mul.svg',
     introAudio: '/gameIntroAudio/multiplicationIntro.mp3',
-    dbFile: 'multiplication.json',
+    dbFile: 'multiplicationDB.json',
     dbKey: 'MultiplicationGame',
     category: 'math',
   },
@@ -148,7 +148,7 @@ export const gameConfigs = {
     bgColor: '#BCC5FF', // Light Periwinkle
     iconSrc: '/assets/gameImages/buttons/gameButtons/syllable-sorting.png',
     introAudio: '/gameIntroAudio/syllableIntro.mp3',
-    dbFile: 'SyllableGameDB.json',
+    dbFile: 'syllableGameDB.json',
     dbKey: 'SyllableCountingGame',
     category: 'language',
   },
@@ -160,7 +160,7 @@ export const gameConfigs = {
     bgColor: '#FFCCCB', // Light Red
     iconSrc: '/assets/gameImages/buttons/gameButtons/book.svg',
     introAudio: '/gameIntroAudio/vortexIntro.mp3',
-    dbFile: 'VocabVortexDB.json',
+    dbFile: 'vocabVortexDB.json',
     dbKey: 'VocabVortexGame',
     category: 'language',
   },
