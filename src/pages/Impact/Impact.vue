@@ -31,11 +31,11 @@ const { isMobile, isTablet } = useDeviceType();
     <Header :logoPath="'/assets/images/header/header-logo-2.png'" />
   </div>
 
-  <div class="flex justify-center px-8 md:px-14 xl:mt-20">
+  <!--div class="flex justify-center px-8 md:px-14 xl:mt-20">
     <div class="md:w-full md:mt-10">
       <ProjectsInAction />
     </div>
-  </div>
+  </div-->
 
   <OurReach />
   
