@@ -173,6 +173,7 @@ export const gameConfigs = {
       'Help identify solids, liquids, and gases before they evaporate!',
     bgColor: '#C9E4F8', // Light Blue
     iconSrc: '/assets/gameImages/buttons/gameButtons/matter.png',
+    introAudio: '/gameIntroAudio/matterIntro.m4a',
     bgmAudio: '/bgmAudio/happy-kids.mp3',
     dbFile: 'matterMixUpDB.json',
     dbKey: 'MatterMixUpGame',
@@ -186,6 +187,7 @@ export const gameConfigs = {
     description: 'Guide an alien through the microscopic city of a human cell.',
     bgColor: '#a7f3d0', // Mint Green
     iconSrc: '/assets/gameImages/buttons/gameButtons/cells.png',
+    introAudio: '/gameIntroAudio/cellIntro.m4a',
     bgmAudio: '/bgmAudio/another-happy-kids.mp3',
     dbFile: 'tinyCellTownDB.json',
     dbKey: 'TinyCellTownGame',
@@ -200,6 +202,7 @@ export const gameConfigs = {
       "Interpret the sky's mood swings before the thunder has a tantrum.",
     bgColor: '#E4C9F8', // Light Purple
     iconSrc: '/assets/gameImages/buttons/gameButtons/weather.png',
+    introAudio: '/gameIntroAudio/weatherIntro.m4a',
     bgmAudio: '/bgmAudio/penguin.mp3',
     dbFile: 'weatherWhizDB.json',
     dbKey: 'WeatherWhizGame',
@@ -213,6 +216,7 @@ export const gameConfigs = {
     description: 'Help a forgetful astronaut remember basic facts about space.',
     bgColor: '#efdcff', // Light Purple
     iconSrc: '/assets/gameImages/buttons/gameButtons/space-case.png',
+    introAudio: '/gameIntroAudio/spaceIntro.m4a',
     bgmAudio: '/bgmAudio/abstract-beauty.mp3',
     dbFile: 'spaceCaseDB.json',
     dbKey: 'SpaceCaseGame',
