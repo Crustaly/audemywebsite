@@ -186,32 +186,44 @@ export function useGameCore(gameConfig) {
       if (newVal) {
         isIntroPlaying.value = true;
 
-        // Check if the game uses the new TTS intro system
-        if (gameConfig.introText) {
-          // Start the background music
-          const musicPath = '/assets/generalAudio/happy-kids.mp3';
-          playMusic(musicPath);
-
-          console.log('Playing intro via TTS...');
-          await playQuestion(gameConfig.introText); // Wait for TTS to finish
-          stopMusic(); // Stop music after TTS intro
-          isIntroPlaying.value = false;
-          if (gameUI.isDesktop.value) {
-            playNextQuestion();
-          }
-        } else {
-          console.log('Playing pre-recorded intro audio...');
-
+        if (gameConfig.introAudio) {
           const introAudio = playIntro(gameConfig.introAudio);
           currentAudios.push(introAudio);
 
+          // If the game has specific background music, play it.
+          if (gameConfig.bgmAudio) {
+            console.log(
+              'Playing pre-recorded intro audio and bgm simultaneously...'
+            );
+            playMusic(gameConfig.bgmAudio);
+          }
+
           // This event fires when the pre-recorded audio file ends
           introAudio.onended = () => {
+            // Add this check to stop the music when the intro is over
+            if (gameConfig.bgmAudio) {
+              stopMusic();
+            }
+
             isIntroPlaying.value = false;
             if (gameUI.isDesktop.value) {
               playNextQuestion();
             }
           };
+        } else {
+          // Start the background music
+          playMusic();
+
+          // Play the intro via TTS
+          console.log('Playing intro via TTS...');
+          await playQuestion(gameConfig.introText); // Wait for TTS to finish
+
+          // Stop music after TTS intro
+          stopMusic();
+          isIntroPlaying.value = false;
+          if (gameUI.isDesktop.value) {
+            playNextQuestion();
+          }
         }
       }
     });

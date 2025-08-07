@@ -238,6 +238,82 @@ export const getScienceGames = () => {
       description: 'Measure and decode sound waves to escape an echoing cave.',
     },
     {
+      icon: basedPath + 'matter.png',
+      title: 'Matter Mix-Up',
+      url: '/game/mattermixup',
+      textColor: '#323232',
+      bgColor: '#4dd4ff', // Light Blue
+      description:
+        'Help identify solids, liquids, and gases before they evaporate!',
+    },
+    {
+      icon: basedPath + 'cells.png',
+      title: 'Tiny Cell Town',
+      url: '/game/tinycelltown',
+      textColor: '#323232',
+      bgColor: '#a7f3d0', // Mint Green
+      description:
+        'Guide an alien through the microscopic city of a human cell.',
+    },
+    {
+      icon: basedPath + 'weather.png',
+      title: 'Weather Whiz',
+      url: '/game/weatherwhiz',
+      textColor: '#323232',
+      bgColor: '#B19CD9', // Lavender
+      description:
+        'Interpret the sky’s mood swings before the thunder has a tantrum.',
+    },
+    {
+      icon: basedPath + 'astronaut.png',
+      title: 'Space Case',
+      url: '/game/spacecase',
+      textColor: '#323232',
+      bgColor: '#d1d5db', // Light Gray
+      bgDecoration: true,
+      bgImage: '/assets/gameImages/bg-star.png',
+      description:
+        'Help a forgetful astronaut remember basic facts about space.',
+    },
+    {
+      icon: basedPath + 'dino.png',
+      title: 'Dino Detectives',
+      url: '/game/dinodetectives',
+      textColor: '#323232',
+      bgColor: '#c08b5f', // Brown
+      bgDecoration: true,
+      bgImage: '/assets/gameImages/bg-dino.png',
+      description: 'Use clues from bones and roars to identify ancient beasts.',
+    },
+    {
+      icon: basedPath + 'germ.png',
+      title: 'Germ Squad',
+      url: '/game/germsquad',
+      textColor: '#323232',
+      bgColor: '#ff8c69', // Salmon
+      description:
+        'Name the culprits behind a fever before the party gets out of hand.',
+    },
+    {
+      icon: basedPath + 'landscape.png',
+      title: 'Eco Rangers',
+      url: '/game/ecorangers',
+      textColor: '#323232',
+      bgColor: '#52c687', // Green
+      description:
+        'Identify environmental threats and help restore balance to nature.',
+    },
+    {
+      icon: basedPath + 'sound.png',
+      title: 'Sound Explorer',
+      url: '/game/soundexplorer',
+      textColor: '#323232',
+      bgColor: '#fed7aa', // Light Orange
+      bgDecoration: true,
+      bgImage: '/assets/gameImages/bg-sound.png',
+      description: 'Measure and decode sound waves to escape an echoing cave.',
+    },
+    {
       icon: basedPath + 'robot.png',
       title: 'Robot Repair Lab',
       url: '/game/robotrepair',
