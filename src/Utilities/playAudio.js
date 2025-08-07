@@ -1,13 +1,14 @@
 let backgroundMusic;
 
-export function playMusic(musicPath) {
+export function playMusic(musicPath = '/bgmAudio/happy-kids.mp3') {
   // Stop any previously playing music to avoid overlap
   if (backgroundMusic) {
     backgroundMusic.pause();
   }
 
-  console.log('Playing background music:', musicPath);
-  backgroundMusic = new Audio(musicPath);
+  const adjustedMusicPath = '/assets' + musicPath;
+  console.log('Playing background music:', adjustedMusicPath);
+  backgroundMusic = new Audio(adjustedMusicPath);
   backgroundMusic.loop = true; // Make the music loop
   backgroundMusic.volume = 0.1; // Set volume to a reasonable level
   backgroundMusic

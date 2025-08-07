@@ -182,7 +182,7 @@ onMounted(() => {
   watch(playButton, (newVal) => {
     if (newVal) {
       isIntroPlaying.value = true;
-      const introAudio = playIntro('/spellingBee/spellingintro.mp3');
+      const introAudio = playIntro('/gameIntroAudio/spellingIntro.mp3');
       currentAudios.push(introAudio);
       introAudio.onended = () => {
         isIntroPlaying.value = false;
