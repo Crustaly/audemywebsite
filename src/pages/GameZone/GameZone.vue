@@ -101,17 +101,10 @@ onMounted(() => {
   // Otherwise, retrieve `sessionStorage` (Already in Game Zone)
   const category = sessionStorage.getItem('gameCategory');
 
-  if (category === 'math') {
-    changeCurrentPage(2);
-  } else if (category === 'science') {
-    changeCurrentPage(3); // Science Games
-  } else if (category === 'life-skills') {
-    changeCurrentPage(4); // Life Skills Games
-  } else if (category === 'independence-skills') {
-    changeCurrentPage(5); // Independence Skills Games
-  } else {
-    changeCurrentPage(1); // Default to Language Games
-  }
+  // Dynamically change current page based on categoryPageMap
+  // (Map format: String to Number)
+  const pageNumber = categoryPageMap[category];
+  changeCurrentPage(pageNumber);
 
   // Clear it after use
   sessionStorage.removeItem('gameCategory');
@@ -132,6 +125,18 @@ const changeIsLifeSkillsMenuOpen = (bool) =>
   (isLifeSkillsMenuOpen.value = bool);
 const changeisIndependenceSkillsMenuOpen = (bool) =>
   (isIndependenceSkillsMenuOpen.value = bool);
+
+// categoryPageMap: Used in onMounted()
+// Dynamically calls changeCurrentPage(), based on session-based 'gameCategory'
+// Note: Quotes required for hyphenated object keys
+const categoryPageMap = {
+  language: 1,
+  math: 2,
+  science: 3,
+  'life-skills': 4,
+  'independence-skills': 5,
+  // (WIP) 'my-progress': 6,
+};
 
 // (Shared) gamesPageMap: Map page number to matching menu button, dropdown, and updater()
 const gamesPageMap = {
