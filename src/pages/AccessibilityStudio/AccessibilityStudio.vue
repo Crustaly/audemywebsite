@@ -379,11 +379,3 @@ import ScrollUpButton from '../../components/ScrollUpButton/ScrollUpButton.vue';
 
   <Footer />
 </template>
-
-<style scoped>
-@media screen and (max-width: 450px) {
-  .grid {
-    grid-template-columns: 1fr;
-  }
-}
-</style>
