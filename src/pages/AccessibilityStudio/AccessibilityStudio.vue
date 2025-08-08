@@ -2,12 +2,28 @@
 import Header from '../../components/Header/Header.vue';
 import Footer from '../../components/Footer/Footer.vue';
 import ScrollUpButton from '../../components/ScrollUpButton/ScrollUpButton.vue';
+
+// Shared, responsive button styles
+const buttonClasses = [
+  'page-button',
+  'font-[600]',
+  'text-center',
+  'duration-300',
+  'text-[16px]',
+  'px-16',
+  'mobile:py-5',
+  'sm:py-3',
+  'md:py-5',
+  'md:px-10',
+  'mobile:h-[90px]',
+  'md:h-[70px]',
+];
 </script>
 
 <template>
   <ScrollUpButton />
 
-  <div class="relative px-8 sm:px-8 md:px-6 lg:px-14">
+  <div class="relative px-8 sm:px-8 md:px-6 lg:px-14 font-poppins">
     <Header :logoPath="'/assets/images/header/header-logo-2.png'" />
 
     <!-- Hero Section -->
@@ -17,18 +33,16 @@ import ScrollUpButton from '../../components/ScrollUpButton/ScrollUpButton.vue';
       <div
         class="lg:w-6/12 w-full flex flex-col gap-y-4 items-center text-center md:text-left lg:text-center mx-10"
       >
-        <div class="font-poppins px-5">
+        <div class="px-5">
           <h1
-            class="text-4xl tablet:text-[24px] mobile:text-[24px] leading-normal text-title font-poppins"
+            class="text-4xl tablet:text-[24px] mobile:text-[24px] leading-normal text-title"
           >
             Making Games Playable for Everyone — From Day One.
           </h1>
         </div>
 
         <div class="my-10 px-5">
-          <p
-            class="font-poppins text-body text-xl mobile:text-[16px] max-w-md leading-8"
-          >
+          <p class="text-body text-xl mobile:text-[16px] max-w-md leading-8">
             Through Audemy Accessibility Studio, we connect indie studios and
             small developers with 30+ blind game testers and assistive tech
             specialists for real-world accessibility testing. Audemy
@@ -39,7 +53,8 @@ import ScrollUpButton from '../../components/ScrollUpButton/ScrollUpButton.vue';
         <!-- Start Test Button -->
         <a
           href="mailto:connect@audemy.org"
-          class="mx-auto font-poppins mobile:w-[70%] px-16 py-4 border-[1.5px] border-[#0C0D0D] rounded-[8px] bg-[#FE892A] hover:bg-[#D6711F] text-base text-center text-[#0D0C0C] shadow-[3px_4px_0px_#0C0D0D] font-semibold self-start duration-300"
+          :class="buttonClasses"
+          class="mx-auto mobile:w-[80%] h-[90px] bg-[#FE892A] text-[#0D0C0C]"
         >
           Start Your Accessibility Test
         </a>
@@ -72,12 +87,12 @@ import ScrollUpButton from '../../components/ScrollUpButton/ScrollUpButton.vue';
               <span class="text-white text-2xl font-bold">!</span>
             </div>
             <h3
-              class="text-left text-body-text-color font-poppins text-[20px] tablet:text-[16px] font-[600] mb-4"
+              class="text-left text-body-text-color text-[20px] tablet:text-[16px] font-[600] mb-4"
             >
               The Problem
             </h3>
             <p
-              class="text-left text-body-text-color font-poppins text-[16px] tablet:text-[14px] font-[400]"
+              class="text-left text-body-text-color text-[16px] tablet:text-[14px] font-[400]"
             >
               Millions of players with disabilities are excluded from gaming due
               to inaccessible design choices.
@@ -94,12 +109,12 @@ import ScrollUpButton from '../../components/ScrollUpButton/ScrollUpButton.vue';
               <span class="text-white text-2xl font-bold">✓</span>
             </div>
             <h3
-              class="text-left text-body-text-color font-poppins text-[20px] tablet:text-[16px] font-[600] mb-4"
+              class="text-left text-body-text-color text-[20px] tablet:text-[16px] font-[600] mb-4"
             >
               The Opportunity
             </h3>
             <p
-              class="text-left text-body-text-color font-poppins text-[16px] tablet:text-[14px] font-[400]"
+              class="text-left text-body-text-color text-[16px] tablet:text-[14px] font-[400]"
             >
               Accessibility is not only the right thing to do — it opens your
               game to new audiences, drives inclusivity, and builds brand
@@ -116,7 +131,7 @@ import ScrollUpButton from '../../components/ScrollUpButton/ScrollUpButton.vue';
     >
       <div class="w-full">
         <h2
-          class="text-center font-poppins text-4.5xl tablet:text-[32px] mobile:text-[24px] mobile:text-center font-[400] mb-5"
+          class="text-center text-4.5xl tablet:text-[32px] mobile:text-[24px] mobile:text-center font-[400] mb-5"
         >
           How the Studio Works
         </h2>
@@ -136,12 +151,12 @@ import ScrollUpButton from '../../components/ScrollUpButton/ScrollUpButton.vue';
                 <span class="text-white text-2xl font-bold">1</span>
               </div>
               <h3
-                class="text-center text-body-text-color font-poppins text-[18px] tablet:text-[16px] font-[600] mb-4"
+                class="text-center text-body-text-color text-[18px] tablet:text-[16px] font-[600] mb-4"
               >
                 Submit Your Build
               </h3>
               <p
-                class="text-center text-body-text-color font-poppins text-[16px] tablet:text-[14px] font-[400]"
+                class="text-center text-body-text-color text-[16px] tablet:text-[14px] font-[400]"
               >
                 Upload your demo or beta version securely.
               </p>
@@ -157,12 +172,12 @@ import ScrollUpButton from '../../components/ScrollUpButton/ScrollUpButton.vue';
                 <span class="text-white text-2xl font-bold">2</span>
               </div>
               <h3
-                class="text-center text-body-text-color font-poppins text-[18px] tablet:text-[16px] font-[600] mb-4"
+                class="text-center text-body-text-color text-[18px] tablet:text-[16px] font-[600] mb-4"
               >
                 Test With Experts & Players
               </h3>
               <p
-                class="text-center text-body-text-color font-poppins text-[16px] tablet:text-[14px] font-[400]"
+                class="text-center text-body-text-color text-[16px] tablet:text-[14px] font-[400]"
               >
                 Our network of 30+ blind gamers and assistive tech specialists
                 test your game.
@@ -179,12 +194,12 @@ import ScrollUpButton from '../../components/ScrollUpButton/ScrollUpButton.vue';
                 <span class="text-white text-2xl font-bold">3</span>
               </div>
               <h3
-                class="text-center text-body-text-color font-poppins text-[18px] tablet:text-[16px] font-[600] mb-4"
+                class="text-center text-body-text-color text-[18px] tablet:text-[16px] font-[600] mb-4"
               >
                 Get Your Accessibility Report
               </h3>
               <p
-                class="text-center text-body-text-color font-poppins text-[16px] tablet:text-[14px] font-[400]"
+                class="text-center text-body-text-color text-[16px] tablet:text-[14px] font-[400]"
               >
                 Actionable feedback, prioritized fixes, and resources to improve
                 accessibility.
@@ -201,7 +216,7 @@ import ScrollUpButton from '../../components/ScrollUpButton/ScrollUpButton.vue';
     >
       <div class="w-full">
         <h2
-          class="text-center font-poppins text-4.5xl tablet:text-[32px] mobile:text-[24px] mobile:text-center font-[400] py-5"
+          class="text-center text-4.5xl tablet:text-[32px] mobile:text-[24px] mobile:text-center font-[400] py-5"
         >
           Who We Work With
         </h2>
@@ -220,7 +235,7 @@ import ScrollUpButton from '../../components/ScrollUpButton/ScrollUpButton.vue';
                 <span class="text-white font-bold">I</span>
               </div>
               <h3
-                class="text-left text-body-text-color font-poppins text-[18px] tablet:text-[16px] font-[600]"
+                class="text-left text-body-text-color text-[18px] tablet:text-[16px] font-[600]"
               >
                 Indie studios
               </h3>
@@ -233,7 +248,7 @@ import ScrollUpButton from '../../components/ScrollUpButton/ScrollUpButton.vue';
                 <span class="text-white font-bold">S</span>
               </div>
               <h3
-                class="text-left text-body-text-color font-poppins text-[18px] tablet:text-[16px] font-[600]"
+                class="text-left text-body-text-color text-[18px] tablet:text-[16px] font-[600]"
               >
                 Solo developers
               </h3>
@@ -246,7 +261,7 @@ import ScrollUpButton from '../../components/ScrollUpButton/ScrollUpButton.vue';
                 <span class="text-white font-bold">P</span>
               </div>
               <h3
-                class="text-left text-body-text-color font-poppins text-[18px] tablet:text-[16px] font-[600]"
+                class="text-left text-body-text-color text-[18px] tablet:text-[16px] font-[600]"
               >
                 Accessibility-minded publishers
               </h3>
@@ -259,7 +274,7 @@ import ScrollUpButton from '../../components/ScrollUpButton/ScrollUpButton.vue';
                 <span class="text-white font-bold">E</span>
               </div>
               <h3
-                class="text-left text-body-text-color font-poppins text-[18px] tablet:text-[16px] font-[600]"
+                class="text-left text-body-text-color text-[18px] tablet:text-[16px] font-[600]"
               >
                 Educational game developers
               </h3>
@@ -275,7 +290,7 @@ import ScrollUpButton from '../../components/ScrollUpButton/ScrollUpButton.vue';
     >
       <div class="w-full">
         <h2
-          class="text-center font-poppins text-4.5xl tablet:text-[32px] mobile:text-[24px] mobile:text-center font-[400] py-5"
+          class="text-center text-4.5xl tablet:text-[32px] mobile:text-[24px] mobile:text-center font-[400] py-5"
         >
           What You Get
         </h2>
@@ -293,12 +308,12 @@ import ScrollUpButton from '../../components/ScrollUpButton/ScrollUpButton.vue';
               </div>
               <div class="flex-1">
                 <h3
-                  class="text-left text-body-text-color font-poppins text-[18px] tablet:text-[16px] font-[600] mb-2"
+                  class="text-left text-body-text-color text-[18px] tablet:text-[16px] font-[600] mb-2"
                 >
                   Detailed accessibility testing report
                 </h3>
                 <p
-                  class="text-left text-body-text-color font-poppins text-[16px] tablet:text-[14px] font-[400]"
+                  class="text-left text-body-text-color text-[16px] tablet:text-[14px] font-[400]"
                 >
                   With screenshots and descriptions
                 </p>
@@ -313,7 +328,7 @@ import ScrollUpButton from '../../components/ScrollUpButton/ScrollUpButton.vue';
               </div>
               <div class="flex-1">
                 <h3
-                  class="text-left text-body-text-color font-poppins text-[18px] tablet:text-[16px] font-[600] mb-2"
+                  class="text-left text-body-text-color text-[18px] tablet:text-[16px] font-[600] mb-2"
                 >
                   Priority list of accessibility fixes
                 </h3>
@@ -328,7 +343,7 @@ import ScrollUpButton from '../../components/ScrollUpButton/ScrollUpButton.vue';
               </div>
               <div class="flex-1">
                 <h3
-                  class="text-left text-body-text-color font-poppins text-[18px] tablet:text-[16px] font-[600] mb-2"
+                  class="text-left text-body-text-color text-[18px] tablet:text-[16px] font-[600] mb-2"
                 >
                   Recommendations for blind and low-vision accessibility
                 </h3>
@@ -343,7 +358,7 @@ import ScrollUpButton from '../../components/ScrollUpButton/ScrollUpButton.vue';
               </div>
               <div class="flex-1">
                 <h3
-                  class="text-left text-body-text-color font-poppins text-[18px] tablet:text-[16px] font-[600] mb-2"
+                  class="text-left text-body-text-color text-[18px] tablet:text-[16px] font-[600] mb-2"
                 >
                   Optional: re-test after changes
                 </h3>
@@ -360,7 +375,7 @@ import ScrollUpButton from '../../components/ScrollUpButton/ScrollUpButton.vue';
     >
       <div class="max-w-[504px] mobile:max-w-[358px] mx-auto p-5">
         <h1
-          class="font-poppins text-[40px] tablet:text-[32px] leading-[60px] tablet:leading-[60px] text-center text-[#151E22]"
+          class="text-[40px] tablet:text-[32px] leading-[60px] tablet:leading-[60px] text-center text-[#151E22]"
         >
           <p>Make your game accessible today.</p>
           <p>Let's talk.</p>
@@ -372,7 +387,8 @@ import ScrollUpButton from '../../components/ScrollUpButton/ScrollUpButton.vue';
           <a
             href="mailto:connect@audemy.org"
             target="_blank"
-            class="font-poppins font-[600] w-[236.07px] mobile:w-full h-[56px] leading-[56px] tablet:h-[60px] tablet:leading-[60px] border-[1.5px] border-[#0C0D0D] rounded-[8px] bg-[#087BB4] hover:bg-[#0C587D] text-[16px] text-center text-white shadow-[4px_4px_0px_#0C0D0D]"
+            :class="buttonClasses"
+            class="h-[70px] tablet:h-[60px] bg-primary-color text-white"
           >
             Book Your Free Test
           </a>
@@ -384,13 +400,11 @@ import ScrollUpButton from '../../components/ScrollUpButton/ScrollUpButton.vue';
     <div class="bg-[#E5F0F5] border-2 border-[#087BB4] rounded-lg p-6 mb-16">
       <div class="text-center">
         <h3
-          class="font-poppins text-[18px] tablet:text-[16px] font-[600] text-[#087BB4] mb-5"
+          class="text-[18px] tablet:text-[16px] font-[600] text-[#087BB4] mb-5"
         >
           Accessibility Commitment
         </h3>
-        <p
-          class="font-poppins text-[16px] tablet:text-[14px] font-[400] text-body"
-        >
+        <p class="text-[16px] tablet:text-[14px] font-[400] text-body">
           We commit to following WCAG 2.1 AA guidelines and beyond — testing
           with real players to ensure meaningful accessibility.
         </p>
