@@ -11,11 +11,13 @@ import ScrollUpButton from '../../components/ScrollUpButton/ScrollUpButton.vue';
     <Header :logoPath="'/assets/images/header/header-logo-2.png'" />
 
     <!-- Hero Section -->
-    <div class="flex items-center mobile:flex-col-reverse gap-x-6 py-8 mt-20">
+    <div
+      class="flex items-center md:flex-row flex-col-reverse gap-x-5 py-8 my-5"
+    >
       <div
-        class="w-6/12 mobile:w-full flex flex-col gap-y-4 mobile:items-center mobile:text-center"
+        class="lg:w-6/12 w-full flex flex-col gap-y-4 items-center text-center md:text-left lg:text-center mx-10"
       >
-        <div class="font-poppins">
+        <div class="font-poppins px-5">
           <h1
             class="text-4xl tablet:text-[24px] mobile:text-[24px] leading-normal text-title font-poppins"
           >
@@ -23,7 +25,7 @@ import ScrollUpButton from '../../components/ScrollUpButton/ScrollUpButton.vue';
           </h1>
         </div>
 
-        <div>
+        <div class="my-10 px-5">
           <p
             class="font-poppins text-body text-xl mobile:text-[16px] max-w-md leading-8"
           >
@@ -34,35 +36,38 @@ import ScrollUpButton from '../../components/ScrollUpButton/ScrollUpButton.vue';
             completely free!
           </p>
         </div>
-
+        <!-- Start Test Button -->
         <a
           href="mailto:connect@audemy.org"
-          class="font-poppins mobile:w-full px-16 py-4 border-[1.5px] border-[#0C0D0D] rounded-[8px] bg-[#FE892A] hover:bg-[#D6711F] text-base text-center text-[#0D0C0C] shadow-[3px_4px_0px_#0C0D0D] font-semibold self-start duration-300"
+          class="mx-auto font-poppins mobile:w-[70%] px-16 py-4 border-[1.5px] border-[#0C0D0D] rounded-[8px] bg-[#FE892A] hover:bg-[#D6711F] text-base text-center text-[#0D0C0C] shadow-[3px_4px_0px_#0C0D0D] font-semibold self-start duration-300"
         >
           Start Your Accessibility Test
         </a>
       </div>
-      <div class="w-6/12 mobile:w-full mobile:mb-14">
+      <div class="lg:w-6/12 w-full my-10 md:my-0">
+        <!-- Accessibility: Hide decorative image -->
         <img
           src="/src/assets/character/audemychargame.png"
-          alt="Accessibility Studio illustration"
-          class="z-10 w-full"
+          alt=""
+          class="z-10 w-[70%] sm:w-[45%] md:w-[85%] lg:w-[65%] mx-auto"
         />
       </div>
     </div>
 
     <!-- Problem & Opportunity Section -->
     <div
-      class="flex flex-col items-center justify-start mobile:justify-center w-full h-auto mb-36 tablet:mb-[265px] mobile:mb-[129px]"
+      class="flex flex-col items-center justify-start mobile:justify-center w-full h-auto py-10 md:py-20 my-10"
     >
-      <div class="max-w-[744px] w-full">
+      <div class="w-full">
         <div
-          class="flex justify-between mt-[110px] tablet:mt-[72px] mb-[63px] gap-16 tablet:gap-14 mobile:gap-4 mobile:flex-col"
+          class="flex justify-between my-16 mx-10 gap-16 tablet:gap-14 mobile:gap-y-12 mobile:flex-col"
         >
           <!-- Problem Card -->
           <div class="w-6/12 mobile:w-full flex flex-col">
+            <!-- Accessibility: Hide decorative icons -->
             <div
               class="w-[76px] h-[76px] tablet:w-[72px] tablet:h-[72px] rounded-[8px] border-[1.5px] border-[#0C0D0D] shadow-[4px_4px_0px_#0C0D0D] flex justify-center items-center mb-[15px] bg-[#FF3B3B]"
+              aria-hidden="true"
             >
               <span class="text-white text-2xl font-bold">!</span>
             </div>
@@ -81,8 +86,10 @@ import ScrollUpButton from '../../components/ScrollUpButton/ScrollUpButton.vue';
 
           <!-- Opportunity Card -->
           <div class="w-6/12 mobile:w-full flex flex-col">
+            <!-- Accessibility: Hide decorative icons -->
             <div
               class="w-[76px] h-[76px] tablet:w-[72px] tablet:h-[72px] rounded-[8px] border-[1.5px] border-[#0C0D0D] shadow-[4px_4px_0px_#0C0D0D] flex justify-center items-center mb-[15px] bg-[#06C270]"
+              aria-hidden="true"
             >
               <span class="text-white text-2xl font-bold">✓</span>
             </div>
@@ -105,19 +112,19 @@ import ScrollUpButton from '../../components/ScrollUpButton/ScrollUpButton.vue';
 
     <!-- How the Studio Works Section -->
     <div
-      class="flex flex-col items-center justify-start mobile:justify-center w-full h-auto mb-36 tablet:mb-[265px] mobile:mb-[129px]"
+      class="flex flex-col items-center justify-start mobile:justify-center w-full h-auto py-10 md:py-10 my-10"
     >
       <div class="w-full">
         <h2
-          class="text-center font-poppins text-4.5xl tablet:text-[32px] mobile:text-[24px] mobile:text-center font-[400] mb-16"
+          class="text-center font-poppins text-4.5xl tablet:text-[32px] mobile:text-[24px] mobile:text-center font-[400] mb-5"
         >
           How the Studio Works
         </h2>
       </div>
       <div class="flex justify-center">
-        <div class="max-w-[744px] w-full">
+        <div class="w-full">
           <div
-            class="flex justify-between mt-[40px] tablet:mt-[72px] mb-[63px] gap-16 tablet:gap-14 mobile:gap-4 mobile:flex-col"
+            class="flex justify-between py-5 px-5 md:gap-x-10 lg:gap-x-24 mobile:gap-y-12 mobile:flex-col"
           >
             <!-- Step 1 -->
             <div
@@ -134,7 +141,7 @@ import ScrollUpButton from '../../components/ScrollUpButton/ScrollUpButton.vue';
                 Submit Your Build
               </h3>
               <p
-                class="text-center text-body-text-color font-poppins text-[14px] tablet:text-[12px] font-[400]"
+                class="text-center text-body-text-color font-poppins text-[16px] tablet:text-[14px] font-[400]"
               >
                 Upload your demo or beta version securely.
               </p>
@@ -155,7 +162,7 @@ import ScrollUpButton from '../../components/ScrollUpButton/ScrollUpButton.vue';
                 Test With Experts & Players
               </h3>
               <p
-                class="text-center text-body-text-color font-poppins text-[14px] tablet:text-[12px] font-[400]"
+                class="text-center text-body-text-color font-poppins text-[16px] tablet:text-[14px] font-[400]"
               >
                 Our network of 30+ blind gamers and assistive tech specialists
                 test your game.
@@ -177,7 +184,7 @@ import ScrollUpButton from '../../components/ScrollUpButton/ScrollUpButton.vue';
                 Get Your Accessibility Report
               </h3>
               <p
-                class="text-center text-body-text-color font-poppins text-[14px] tablet:text-[12px] font-[400]"
+                class="text-center text-body-text-color font-poppins text-[16px] tablet:text-[14px] font-[400]"
               >
                 Actionable feedback, prioritized fixes, and resources to improve
                 accessibility.
@@ -190,11 +197,11 @@ import ScrollUpButton from '../../components/ScrollUpButton/ScrollUpButton.vue';
 
     <!-- Who We Work With Section -->
     <div
-      class="flex flex-col items-center justify-start mobile:justify-center w-full h-auto mb-36 tablet:mb-[265px] mobile:mb-[129px]"
+      class="flex flex-col items-center justify-start mobile:justify-center w-full h-auto my-10"
     >
       <div class="w-full">
         <h2
-          class="text-center font-poppins text-4.5xl tablet:text-[32px] mobile:text-[24px] mobile:text-center font-[400] mb-16"
+          class="text-center font-poppins text-4.5xl tablet:text-[32px] mobile:text-[24px] mobile:text-center font-[400] py-5"
         >
           Who We Work With
         </h2>
@@ -202,11 +209,13 @@ import ScrollUpButton from '../../components/ScrollUpButton/ScrollUpButton.vue';
       <div class="flex justify-center">
         <div class="max-w-[744px] w-full">
           <div
-            class="grid grid-cols-2 tablet:grid-cols-1 mobile:grid-cols-1 gap-8 mt-[40px] tablet:mt-[72px] mb-[63px]"
+            class="grid grid-cols-2 tablet:grid-cols-1 mobile:grid-cols-1 gap-10 px-5 my-10"
           >
             <div class="flex items-center gap-4">
+              <!-- Accessibility: Hide decorative icons ('I', 'S', 'P', 'E' text blocks) -->
               <div
                 class="w-[40px] h-[40px] rounded-[8px] border-[1.5px] border-[#0C0D0D] shadow-[4px_4px_0px_#0C0D0D] flex justify-center items-center bg-[#087BB4]"
+                aria-hidden="true"
               >
                 <span class="text-white font-bold">I</span>
               </div>
@@ -219,6 +228,7 @@ import ScrollUpButton from '../../components/ScrollUpButton/ScrollUpButton.vue';
             <div class="flex items-center gap-4">
               <div
                 class="w-[40px] h-[40px] rounded-[8px] border-[1.5px] border-[#0C0D0D] shadow-[4px_4px_0px_#0C0D0D] flex justify-center items-center bg-[#FE892A]"
+                aria-hidden="true"
               >
                 <span class="text-white font-bold">S</span>
               </div>
@@ -231,6 +241,7 @@ import ScrollUpButton from '../../components/ScrollUpButton/ScrollUpButton.vue';
             <div class="flex items-center gap-4">
               <div
                 class="w-[40px] h-[40px] rounded-[8px] border-[1.5px] border-[#0C0D0D] shadow-[4px_4px_0px_#0C0D0D] flex justify-center items-center bg-[#06C270]"
+                aria-hidden="true"
               >
                 <span class="text-white font-bold">P</span>
               </div>
@@ -243,6 +254,7 @@ import ScrollUpButton from '../../components/ScrollUpButton/ScrollUpButton.vue';
             <div class="flex items-center gap-4">
               <div
                 class="w-[40px] h-[40px] rounded-[8px] border-[1.5px] border-[#0C0D0D] shadow-[4px_4px_0px_#0C0D0D] flex justify-center items-center bg-[#FFCC00]"
+                aria-hidden="true"
               >
                 <span class="text-white font-bold">E</span>
               </div>
@@ -259,21 +271,23 @@ import ScrollUpButton from '../../components/ScrollUpButton/ScrollUpButton.vue';
 
     <!-- What You Get Section -->
     <div
-      class="flex flex-col items-center justify-start mobile:justify-center w-full h-auto mb-36 tablet:mb-[265px] mobile:mb-[129px]"
+      class="flex flex-col items-center justify-start mobile:justify-center w-full h-auto py-5 my-10"
     >
       <div class="w-full">
         <h2
-          class="text-center font-poppins text-4.5xl tablet:text-[32px] mobile:text-[24px] mobile:text-center font-[400] mb-16"
+          class="text-center font-poppins text-4.5xl tablet:text-[32px] mobile:text-[24px] mobile:text-center font-[400] py-5"
         >
           What You Get
         </h2>
       </div>
       <div class="flex justify-center">
         <div class="max-w-[744px] w-full">
-          <div class="flex flex-col gap-6 mt-[40px] tablet:mt-[72px] mb-[63px]">
+          <div class="flex flex-col gap-10 px-5 my-10">
+            <!-- Accessibility: Hide decorative icons in each flex child below -->
             <div class="flex items-start gap-4">
               <div
                 class="w-[40px] h-[40px] rounded-[8px] border-[1.5px] border-[#0C0D0D] shadow-[4px_4px_0px_#0C0D0D] flex justify-center items-center bg-[#087BB4]"
+                aria-hidden="true"
               >
                 <span class="text-white font-bold">📋</span>
               </div>
@@ -284,7 +298,7 @@ import ScrollUpButton from '../../components/ScrollUpButton/ScrollUpButton.vue';
                   Detailed accessibility testing report
                 </h3>
                 <p
-                  class="text-left text-body-text-color font-poppins text-[14px] tablet:text-[12px] font-[400]"
+                  class="text-left text-body-text-color font-poppins text-[16px] tablet:text-[14px] font-[400]"
                 >
                   With screenshots and descriptions
                 </p>
@@ -293,6 +307,7 @@ import ScrollUpButton from '../../components/ScrollUpButton/ScrollUpButton.vue';
             <div class="flex items-start gap-4">
               <div
                 class="w-[40px] h-[40px] rounded-[8px] border-[1.5px] border-[#0C0D0D] shadow-[4px_4px_0px_#0C0D0D] flex justify-center items-center bg-[#FE892A]"
+                aria-hidden="true"
               >
                 <span class="text-white font-bold">⚡</span>
               </div>
@@ -307,6 +322,7 @@ import ScrollUpButton from '../../components/ScrollUpButton/ScrollUpButton.vue';
             <div class="flex items-start gap-4">
               <div
                 class="w-[40px] h-[40px] rounded-[8px] border-[1.5px] border-[#0C0D0D] shadow-[4px_4px_0px_#0C0D0D] flex justify-center items-center bg-[#06C270]"
+                aria-hidden="true"
               >
                 <span class="text-white font-bold">👁️</span>
               </div>
@@ -321,6 +337,7 @@ import ScrollUpButton from '../../components/ScrollUpButton/ScrollUpButton.vue';
             <div class="flex items-start gap-4">
               <div
                 class="w-[40px] h-[40px] rounded-[8px] border-[1.5px] border-[#0C0D0D] shadow-[4px_4px_0px_#0C0D0D] flex justify-center items-center bg-[#FFCC00]"
+                aria-hidden="true"
               >
                 <span class="text-white font-bold">🔄</span>
               </div>
@@ -339,14 +356,16 @@ import ScrollUpButton from '../../components/ScrollUpButton/ScrollUpButton.vue';
 
     <!-- Final Call to Action Section -->
     <div
-      class="mobile:min-w-full tablet:min-w-[504px] mx-auto bg-white mobile:mb-12"
+      class="mobile:min-w-full tablet:min-w-[504px] mx-auto bg-white p-5 my-10"
     >
-      <div class="max-w-[504px] mobile:max-w-[358px] mx-auto pb-[78px]">
+      <div class="max-w-[504px] mobile:max-w-[358px] mx-auto p-5">
         <h1
           class="font-poppins text-[40px] tablet:text-[32px] leading-[60px] tablet:leading-[60px] text-center text-[#151E22]"
         >
-          Make your game accessible today. Let's talk.
+          <p>Make your game accessible today.</p>
+          <p>Let's talk.</p>
         </h1>
+        <!-- Book Test Button -->
         <div
           class="flex mobile:flex-col justify-center mobile:gap-[20px] mobile:mx-[16px] items-center mt-8"
         >
@@ -365,11 +384,13 @@ import ScrollUpButton from '../../components/ScrollUpButton/ScrollUpButton.vue';
     <div class="bg-[#E5F0F5] border-2 border-[#087BB4] rounded-lg p-6 mb-16">
       <div class="text-center">
         <h3
-          class="font-poppins text-[18px] tablet:text-[16px] font-[600] text-[#087BB4] mb-2"
+          class="font-poppins text-[18px] tablet:text-[16px] font-[600] text-[#087BB4] mb-5"
         >
           Accessibility Commitment
         </h3>
-        <p class="font-poppins text-[14px] tablet:text-[12px] text-body">
+        <p
+          class="font-poppins text-[16px] tablet:text-[14px] font-[400] text-body"
+        >
           We commit to following WCAG 2.1 AA guidelines and beyond — testing
           with real players to ensure meaningful accessibility.
         </p>
