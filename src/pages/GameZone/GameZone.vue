@@ -138,33 +138,48 @@ const categoryPageMap = {
   // (WIP) 'my-progress': 6,
 };
 
-// (Shared) pageConfigsMap: Maps page numbers to menu button, dropdown,
-// & state updater() configs
+// (Shared) pageConfigsMap: Map page number to matching game configs
+// Info for menu button, dropdown, updater(), menu state, & game links (URLs)
 const pageConfigsMap = {
   1: {
     btnId: 'lang-menu-btn',
     dropdownId: 'lang-dropdown-div',
     updater: changeIsLangMenuOpen,
+    menuState: isLangMenuOpen,
+    gameType: 'lang',
+    gameLinksMap: languageGamesMap,
   },
   2: {
     btnId: 'math-menu-btn',
     dropdownId: 'math-dropdown-div',
     updater: changeIsMathMenuOpen,
+    menuState: isMathMenuOpen,
+    gameType: 'math',
+    gameLinksMap: mathGamesMap,
   },
   3: {
     btnId: 'science-menu-btn',
     dropdownId: 'science-dropdown-div',
     updater: changeIsScienceMenuOpen,
+    menuState: isScienceMenuOpen,
+    gameType: 'science',
+    gameLinksMap: scienceGamesMap,
   },
   4: {
     btnId: 'life-skills-menu-btn',
     dropdownId: 'life-skills-dropdown-div',
     updater: changeIsLifeSkillsMenuOpen,
+    menuState: isLifeSkillsMenuOpen,
+    gameType: 'life-skills',
+    gameLinksMap: lifeSkillGamesMap,
   },
   5: {
     btnId: 'independence-skills-menu-btn',
     dropdownId: 'independence-skills-dropdown-div',
     updater: changeisIndependenceSkillsMenuOpen,
+    menuState: isIndependenceSkillsMenuOpen,
+    gameType: 'independence-skills',
+    gameLinksMap: independenceSkillGamesMap,
   },
 };
 
@@ -173,9 +188,7 @@ function activateGameMenu(event) {
 
   // Conditionally activate and style menu button
   const isMenuActive =
-    menuBtn.style.getPropertyValue('color') === 'rgb(8, 123, 180)'
-      ? true
-      : false;
+    menuBtn.style.getPropertyValue('color') === 'rgb(8, 123, 180)';
 
   if (isMenuActive) {
     // Deactivate and reset styling for menu
@@ -195,7 +208,7 @@ function activateGameMenu(event) {
   if (currentPageConfig) {
     const updater = currentPageConfig.updater;
     // Toggle isMenuActive flag
-    updater(isMenuActive ? false : true);
+    updater(!isMenuActive);
   }
 
   // Toggle visibility of dropdown
@@ -384,18 +397,20 @@ function hideMenuDropdown(menuBtn, currentDropdown) {
             />
           </div>
           <!-- FLEX CONTAINER: 'View All Categories' Button + 'Games Menu' Dropdown 
-              - Mobile / Small Screens (Column): Btn (top), Menu (bottom)
-              - Medium+ Screens (Row): Btn (left), Menu (right) 
+              1) Mobile / Small Screens (Column): Btn (top), Menu (bottom)
+                - Uses flex column
+              2) Medium+ Screens (Row): Btn (left), Menu (right)
+                - Uses relative + absolute to render one Game Menu & Dropdown at a time
           -->
           <div
-            class="flex justify-between items-center w-full mobile:flex-col mobile:gap-y-10 mobile:mt-5"
+            class="md:relative flex items-center justify-center w-full flex-col gap-y-5 mt-5"
           >
             <!-- VIEW ALL CATEGORIES BUTTON (aka Back to Landing Page) -->
             <div>
               <button
                 @click="handlePageSwitch(0)"
                 type="button"
-                class="game-action-btn-base view-all-categories-btn"
+                class="game-action-btn-base view-all-categories-btn md:absolute md:left-0 md:top-0"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -413,130 +428,40 @@ function hideMenuDropdown(menuBtn, currentDropdown) {
                 <span>View All Categories</span>
               </button>
             </div>
-            <div>
-              <!-- LANGUAGE GAMES MENU -->
+            <!-- GENERATE GAME MENUS & DROPDOWNS PER CATEGORY -->
+            <!-- Medium+ screens: Absolute positioning (top + right), based on relative parent (flex container) -->
+            <div
+              class="h-[45px] w-auto md:h-[20px] relative md:ml-auto md:static"
+            >
               <div
-                id="lang-menu-div"
-                :class="[currentPage === 1 ? 'flex' : 'hidden', 'relative']"
+                v-for="(gameConfigs, gamePage) in pageConfigsMap"
+                :key="gamePage"
+                :class="[
+                  currentPage == gamePage
+                    ? 'flex md:absolute md:top-0 md:right-0'
+                    : 'hidden',
+                ]"
               >
+                <!-- GAME MENU BUTTON -->
+                <!-- Note: Must unwrap the menuState ref because it is nested within a plain object -->
                 <GameMenuButton
-                  id="lang-menu-btn"
-                  gameType="lang"
-                  :isMenuOpen="isLangMenuOpen"
+                  :id="gameConfigs.btnId"
+                  :gameType="gameConfigs.gameType"
+                  :isMenuOpen="gameConfigs.menuState.value"
                   @click="activateGameMenu"
                   @blur="handleMenuBlur"
                 />
-                <!-- LANGUAGE GAMES DROPDOWN OPTIONS -->
+                <!-- DROPDOWN OPTIONS -->
                 <div
-                  id="lang-dropdown-div"
+                  :id="gameConfigs.dropdownId"
                   @focusout="handleDropdownFocusOut"
                   tabindex="-1"
                   class="game-menu-dropdown-base hidden"
                   role="menu"
                   aria-orientation="vertical"
-                  aria-labelledby="lang-menu-btn"
+                  :aria-labelledby="gameConfigs.btnId"
                 >
-                  <GameDropdownOptions :gamesMap="languageGamesMap" />
-                </div>
-              </div>
-              <!-- MATH GAMES MENU -->
-              <div
-                id="math-menu-div"
-                :class="[currentPage === 2 ? 'flex' : 'hidden', 'relative']"
-              >
-                <GameMenuButton
-                  id="math-menu-btn"
-                  gameType="math"
-                  :isMenuOpen="isMathMenuOpen"
-                  @click="activateGameMenu"
-                  @blur="handleMenuBlur"
-                />
-                <!-- MATH GAMES DROPDOWN OPTIONS -->
-                <div
-                  id="math-dropdown-div"
-                  @focusout="handleDropdownFocusOut"
-                  tabindex="-1"
-                  class="game-menu-dropdown-base hidden"
-                  role="menu"
-                  aria-orientation="vertical"
-                  aria-labelledby="math-menu-btn"
-                >
-                  <GameDropdownOptions :gamesMap="mathGamesMap" />
-                </div>
-              </div>
-              <!-- SCIENCE GAMES MENU -->
-              <div
-                id="science-menu-div"
-                :class="[currentPage === 3 ? 'flex' : 'hidden', 'relative']"
-              >
-                <GameMenuButton
-                  id="science-menu-btn"
-                  gameType="science"
-                  :isMenuOpen="isScienceMenuOpen"
-                  @click="activateGameMenu"
-                  @blur="handleMenuBlur"
-                />
-                <!-- SCIENCE GAMES DROPDOWN OPTIONS -->
-                <div
-                  id="science-dropdown-div"
-                  @focusout="handleDropdownFocusOut"
-                  tabindex="-1"
-                  class="game-menu-dropdown-base hidden"
-                  role="menu"
-                  aria-orientation="vertical"
-                  aria-labelledby="science-menu-btn"
-                >
-                  <GameDropdownOptions :gamesMap="scienceGamesMap" />
-                </div>
-              </div>
-              <!-- LIFE SKILLS GAMES MENU -->
-              <div
-                id="life-skills-menu-div"
-                :class="[currentPage === 4 ? 'flex' : 'hidden', 'relative']"
-              >
-                <GameMenuButton
-                  id="life-skills-menu-btn"
-                  gameType="life-skills"
-                  :isMenuOpen="isLifeSkillsMenuOpen"
-                  @click="activateGameMenu"
-                  @blur="handleMenuBlur"
-                />
-                <!-- LIFE SKILLS GAMES DROPDOWN OPTIONS -->
-                <div
-                  id="life-skills-dropdown-div"
-                  @focusout="handleDropdownFocusOut"
-                  tabindex="-1"
-                  class="game-menu-dropdown-base hidden"
-                  role="menu"
-                  aria-orientation="vertical"
-                  aria-labelledby="life-skills-menu-btn"
-                >
-                  <GameDropdownOptions :gamesMap="lifeSkillGamesMap" />
-                </div>
-              </div>
-              <!-- INDEPENDENCE SKILLS GAMES MENU -->
-              <div
-                id="independence-skills-menu-div"
-                :class="[currentPage === 5 ? 'flex' : 'hidden', 'relative']"
-              >
-                <GameMenuButton
-                  id="independence-skills-menu-btn"
-                  gameType="independence-skills"
-                  :isMenuOpen="isIndependenceSkillsMenuOpen"
-                  @click="activateGameMenu"
-                  @blur="handleMenuBlur"
-                />
-                <!-- INDEPENDENCE SKILLS GAMES DROPDOWN OPTIONS -->
-                <div
-                  id="independence-skills-dropdown-div"
-                  @focusout="handleDropdownFocusOut"
-                  tabindex="-1"
-                  class="game-menu-dropdown-base hidden"
-                  role="menu"
-                  aria-orientation="vertical"
-                  aria-labelledby="independence-skills-menu-btn"
-                >
-                  <GameDropdownOptions :gamesMap="independenceSkillGamesMap" />
+                  <GameDropdownOptions :gamesMap="gameConfigs.gameLinksMap" />
                 </div>
               </div>
             </div>
