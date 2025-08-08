@@ -14,17 +14,15 @@ import Globe from '/assets/images/impact/globe 1.svg';
       <h1
         class="font-poppins text-3xl max-w-[90%] leading-normal text-title mobile:text-[22px] mobile:max-w-full"
       >
-        Over 70% of students who are blind fall behind in school.
+        For every 1 million games released, only about ten are fully accessible for blind players.
         <em style="color: #fe892a">We're changing that.</em>
       </h1>
 
       <p
         class="font-poppins text-body text-xl leading-8 text-wrap max-w-[65%] tablet:max-w-[85%] mobile:text-[16px] mobile:text-center mobile:max-w-full"
       >
-        At Audemy, we’re <strong>closing the learning gap</strong> with
-        <strong>AI-powered audio games</strong> designed to be fun, interactive,
-        and fully accessible so blind and visually impaired students can
-        <strong>learn, play, and thrive</strong> on their own terms.
+        At Audemy, we’re <strong>closing the gaming gap</strong> with
+        <strong>AI-powered audio games</strong> designed to be fully accessible for blind and visually impaired gamers.
       </p>
 
       <a
@@ -63,11 +61,11 @@ import Globe from '/assets/images/impact/globe 1.svg';
             class="font-serif font-bold text-7xl text-wrap mobile:text-4xl"
             style="color: #077bb3"
           >
-            36
+            200k
           </h1>
           <p class="font-poppins text-base text-center mobile:text-[12px]">
-            partnering <br />
-            schools
+           blind and visually <br />
+            impaired users
           </p>
         </div>
       </div>
@@ -81,12 +79,11 @@ import Globe from '/assets/images/impact/globe 1.svg';
             class="font-serif font-bold text-7xl text-wrap mobile:text-4xl"
             style="color: #d96f1f"
           >
-            66
+            136
           </h1>
           <p class="font-poppins text-base text-center mobile:text-[12px]">
             countries <br />
-            and counting...
-          </p>
+            and counting...          </p>
         </div>
       </div>
     </div>
