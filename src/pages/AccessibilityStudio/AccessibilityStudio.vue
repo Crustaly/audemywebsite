@@ -43,7 +43,7 @@ const { isMobile, isTablet } = useDeviceType();
         </div>
 
         <a
-          href="mailto:contact@audemy.org"
+          href="mailto:connect@audemy.org"
           class="font-poppins mobile:w-full px-16 py-4 border-[1.5px] border-[#0C0D0D] rounded-[8px] bg-[#FE892A] hover:bg-[#D6711F] text-base text-center text-[#0D0C0C] shadow-[3px_4px_0px_#0C0D0D] font-semibold self-start duration-300"
         >
           Start Your Accessibility Test
@@ -261,7 +261,7 @@ const { isMobile, isTablet } = useDeviceType();
           class="flex mobile:flex-col justify-center mobile:gap-[20px] mobile:mx-[16px] items-center mt-8"
         >
           <a
-            href="mailto:contact@audemy.org"
+            href="mailto:connect@audemy.org"
             target="_blank"
             class="font-poppins font-[600] w-[236.07px] mobile:w-full h-[56px] leading-[56px] tablet:h-[60px] tablet:leading-[60px] border-[1.5px] border-[#0C0D0D] rounded-[8px] bg-[#087BB4] hover:bg-[#0C587D] text-[16px] text-center text-white shadow-[4px_4px_0px_#0C0D0D]"
           >
