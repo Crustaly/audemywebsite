@@ -37,7 +37,7 @@
   }
 
   .studio-icon-card {
-    @apply w-[76px] h-[76px] tablet:w-[72px] tablet:h-[72px] rounded-[8px] border-[1.5px] border-[#0C0D0D] shadow-[4px_4px_0px_#0C0D0D] flex justify-center items-center mb-[15px];
+    @apply bg-[#e7f0f5] w-[76px] h-[76px] tablet:w-[72px] tablet:h-[72px] rounded-[8px] border-[1.5px] border-[#0C0D0D] shadow-[4px_4px_0px_#0C0D0D] flex justify-center items-center mb-[15px];
   }
 
   .studio-steps-card-flex {
@@ -49,7 +49,7 @@
   }
 
   .studio-icon-card-small {
-    @apply w-[40px] h-[40px] p-8 rounded-[8px] border-[1.5px] border-[#0C0D0D] shadow-[4px_4px_0px_#0C0D0D] flex justify-center items-center;
+    @apply bg-[#e7f0f5] w-[50px] h-[50px] p-8 rounded-[8px] border-[1.5px] border-[#0C0D0D] shadow-[4px_4px_0px_#0C0D0D] flex justify-center items-center;
   }
 
   .studio-card-small-flex-col {
