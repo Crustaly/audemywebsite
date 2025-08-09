@@ -2,6 +2,7 @@
 import Header from '../../components/Header/Header.vue';
 import Footer from '../../components/Footer/Footer.vue';
 import ScrollUpButton from '../../components/ScrollUpButton/ScrollUpButton.vue';
+import PageDecorations from '../../components/PageDecorations/PageDecorations.vue';
 </script>
 
 <template>
@@ -19,17 +20,22 @@ import ScrollUpButton from '../../components/ScrollUpButton/ScrollUpButton.vue';
       >
         <div class="px-5">
           <h1 class="studio-header">
-            Making Games Playable for Everyone — From Day One.
+            Making Games Playable for Everyone — From
+            <span class="font-semibold text-primary-color">Day One</span>
           </h1>
         </div>
 
         <div class="my-10 px-5">
           <p class="text-body text-xl mobile:text-[16px] leading-8">
-            Through Audemy Accessibility Studio, we connect indie studios and
-            small developers with 30+ blind game testers and assistive tech
-            specialists for real-world accessibility testing. Audemy
-            Accessibility Studio runs as a non-profit, and all our services are
-            completely free!
+            Through
+            <span class="font-semibold text-primary-color"
+              >Audemy Accessibility Studio</span
+            >, we connect indie studios and small developers with
+            <span class="font-semibold">30+</span> blind game testers and
+            assistive tech specialists for
+            <span class="font-semibold">real-world accessibility testing.</span>
+            Our studio runs as a non-profit, and all our services are completely
+            <span class="font-semibold">free!</span>
           </p>
         </div>
         <!-- Start Test Button -->
@@ -42,8 +48,23 @@ import ScrollUpButton from '../../components/ScrollUpButton/ScrollUpButton.vue';
           </a>
         </div>
       </div>
-      <div class="lg:w-6/12 w-full my-10 md:my-0">
-        <!-- Accessibility: Hide decorative image -->
+      <div
+        class="lg:w-6/12 w-full my-10 md:my-0 md:py-36 lg:py-10 relative"
+        aria-hidden="true"
+      >
+        <!-- Accessibility: Hide decorative SVG, icons, and Carl image -->
+        <svg
+          viewBox="0 0 200 200"
+          xmlns="http://www.w3.org/2000/svg"
+          class="z-0 absolute w-full h-[400px] md:h-[550px] top-0"
+        >
+          <path
+            fill="#e7f0f5"
+            d="M50.5,-66.1C64.6,-59.2,74.8,-43.4,79.4,-26.5C83.9,-9.5,83,8.6,75.4,22.2C67.9,35.9,53.7,45.2,40,50C26.4,54.8,13.2,55.1,-1,56.4C-15.1,57.7,-30.2,60.1,-45.6,55.9C-61,51.6,-76.5,40.8,-79.6,26.9C-82.6,13.1,-73.1,-3.8,-67.1,-21.8C-61.2,-39.8,-59,-58.9,-48.4,-66.9C-37.8,-74.9,-18.9,-71.8,-0.4,-71.3C18.2,-70.8,36.3,-72.9,50.5,-66.1Z"
+            transform="translate(100 100)"
+          />
+        </svg>
+        <PageDecorations />
         <img
           src="/src/assets/character/audemychargame.png"
           alt=""
@@ -61,24 +82,32 @@ import ScrollUpButton from '../../components/ScrollUpButton/ScrollUpButton.vue';
           class="flex justify-between my-16 mx-10 gap-16 tablet:gap-14 mobile:gap-y-12 mobile:flex-col"
         >
           <!-- Problem Card -->
-          <div class="studio-text-card-base studio-text-card-flex">
-            <!-- Accessibility: Hide decorative icons -->
-            <div class="studio-icon-card" aria-hidden="true">
-              <img
-                src="/assets/images/studio/problem.png"
-                alt=""
-                class="w-[50px] absolute"
-              />
+          <div class="studio-text-card-base studio-text-card-flex relative">
+            <div class="studio-card-banner h-1/4 md:h-1/3" aria-hidden="true">
+              <!-- Decorative card banner (empty) -->
             </div>
-            <h3 class="studio-card-subtitle">The Problem</h3>
-            <p class="studio-card-caption">
-              Millions of players with disabilities are excluded from gaming due
-              to inaccessible design choices.
-            </p>
+            <div>
+              <!-- Accessibility: Hide decorative icons -->
+              <div class="studio-icon-card relative" aria-hidden="true">
+                <img
+                  src="/assets/images/studio/problem.png"
+                  alt=""
+                  class="w-[50px] absolute"
+                />
+              </div>
+              <h3 class="studio-card-subtitle">The Problem</h3>
+              <p class="studio-card-caption">
+                Millions of players with disabilities are excluded from gaming
+                due to inaccessible design choices.
+              </p>
+            </div>
           </div>
 
           <!-- Opportunity Card -->
-          <div class="studio-text-card-base studio-text-card-flex">
+          <div class="studio-text-card-base studio-text-card-flex relative">
+            <div class="studio-card-banner h-1/4 md:h-1/3" aria-hidden="true">
+              <!-- Decorative card banner -->
+            </div>
             <!-- Accessibility: Hide decorative icons -->
             <div class="studio-icon-card relative" aria-hidden="true">
               <img
@@ -136,8 +165,8 @@ import ScrollUpButton from '../../components/ScrollUpButton/ScrollUpButton.vue';
               </div>
               <h3 class="studio-card-subtitle">Test With Experts & Players</h3>
               <p class="text-center studio-card-caption">
-                Our network of 30+ blind gamers and assistive tech specialists
-                test your game.
+                Our network of <span class="font-semibold">30+</span> blind
+                gamers and assistive tech specialists test your game.
               </p>
             </div>
 
@@ -165,10 +194,14 @@ import ScrollUpButton from '../../components/ScrollUpButton/ScrollUpButton.vue';
 
     <!-- Who We Work With Section -->
     <div
-      class="flex flex-col items-center justify-start mobile:justify-center w-full h-auto my-10"
+      class="relative flex flex-col items-center justify-start mobile:justify-center w-full h-auto my-10 p-10"
     >
       <div class="w-full">
         <h2 class="studio-header">Who We Work With</h2>
+        <PageDecorations
+          topRightImgPath="/assets/images/studio/sparkles.png"
+          bottomLeftImgPath="/assets/images/studio/shooting-stars.png"
+        />
       </div>
       <div class="flex justify-center">
         <div class="max-w-[744px] w-full">
@@ -302,9 +335,14 @@ import ScrollUpButton from '../../components/ScrollUpButton/ScrollUpButton.vue';
 
     <!-- Final Call to Action Section -->
     <div class="mobile:w-[90%] mx-auto bg-white p-5 my-10">
-      <div class="p-5">
+      <div class="p-16 relative">
+        <PageDecorations />
         <h1 class="studio-header">
-          <p>Make your game accessible today.</p>
+          <p>
+            Make your game
+            <span class="font-semibold text-primary-color">accessible</span>
+            today.
+          </p>
           <p>Let's talk.</p>
         </h1>
         <!-- Book Test Button -->
@@ -322,23 +360,28 @@ import ScrollUpButton from '../../components/ScrollUpButton/ScrollUpButton.vue';
 
     <!-- Accessibility Commitment Banner -->
     <div
-      class="flex items-center gap-5 mobile:flex-col-reverse studio-text-card-base my-8 w-full md:w-[70%] mx-auto"
+      class="relative flex studio-text-card-base my-8 w-full md:w-[70%] mx-auto"
     >
-      <div class="w-4/6 mobile:w-full">
-        <h3 class="studio-card-subtitle border-primary-color border-b-2">
-          Accessibility Commitment
-        </h3>
-        <p class="studio-card-caption py-5">
-          We commit to following WCAG 2.1 AA guidelines and beyond — testing
-          with real players to ensure meaningful accessibility.
-        </p>
+      <div class="studio-card-banner h-[40%]" aria-hidden="true">
+        <!-- Decorative card banner -->
       </div>
-      <div class="w-2/6 mobile:w-full">
-        <img
-          src="/assets/images/impact/students%201.svg"
-          alt=""
-          class="mx-auto"
-        />
+      <div class="z-10 flex gap-5 mobile:flex-col-reverse items-center">
+        <div class="w-4/6 mobile:w-full">
+          <h3 class="studio-card-subtitle mobile:text-black text-white">
+            Accessibility Commitment
+          </h3>
+          <p class="studio-card-caption py-5">
+            We commit to following WCAG 2.1 AA guidelines and beyond — testing
+            with real players to ensure meaningful accessibility.
+          </p>
+        </div>
+        <div class="w-2/6 mobile:w-full">
+          <img
+            src="/assets/images/impact/students%201.svg"
+            alt=""
+            class="mx-auto"
+          />
+        </div>
       </div>
     </div>
   </div>
