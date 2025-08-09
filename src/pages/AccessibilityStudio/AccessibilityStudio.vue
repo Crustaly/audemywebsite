@@ -63,8 +63,12 @@ import ScrollUpButton from '../../components/ScrollUpButton/ScrollUpButton.vue';
           <!-- Problem Card -->
           <div class="studio-text-card-base studio-text-card-flex">
             <!-- Accessibility: Hide decorative icons -->
-            <div class="studio-icon-card bg-[#FF3B3B]" aria-hidden="true">
-              <span class="studio-steps-text">!</span>
+            <div class="studio-icon-card" aria-hidden="true">
+              <img
+                src="/assets/images/studio/problem.png"
+                alt=""
+                class="w-[50px] absolute"
+              />
             </div>
             <h3 class="studio-card-subtitle">The Problem</h3>
             <p class="studio-card-caption">
@@ -76,8 +80,12 @@ import ScrollUpButton from '../../components/ScrollUpButton/ScrollUpButton.vue';
           <!-- Opportunity Card -->
           <div class="studio-text-card-base studio-text-card-flex">
             <!-- Accessibility: Hide decorative icons -->
-            <div class="studio-icon-card bg-[#06C270]" aria-hidden="true">
-              <span class="studio-steps-text">✓</span>
+            <div class="studio-icon-card relative" aria-hidden="true">
+              <img
+                src="/assets/images/studio/opportunity.png"
+                alt=""
+                class="w-[50px] absolute"
+              />
             </div>
             <h3 class="studio-card-subtitle">The Opportunity</h3>
             <p class="studio-card-caption">
@@ -104,8 +112,12 @@ import ScrollUpButton from '../../components/ScrollUpButton/ScrollUpButton.vue';
           >
             <!-- Step 1 -->
             <div class="studio-steps-card-flex">
-              <div class="studio-icon-card bg-[#087BB4]">
-                <span class="studio-steps-text">1</span>
+              <div class="studio-icon-card relative">
+                <img
+                  src="/assets/images/studio/1-digit.png"
+                  class="absolute w-[50px]"
+                  alt="1"
+                />
               </div>
               <h3 class="studio-card-subtitle">Submit Your Build</h3>
               <p class="text-center studio-card-caption">
@@ -115,8 +127,12 @@ import ScrollUpButton from '../../components/ScrollUpButton/ScrollUpButton.vue';
 
             <!-- Step 2 -->
             <div class="studio-steps-card-flex">
-              <div class="studio-icon-card bg-[#FE892A]">
-                <span class="studio-steps-text">2</span>
+              <div class="studio-icon-card relative">
+                <img
+                  src="/assets/images/studio/2-digit.png"
+                  class="absolute w-[50px]"
+                  alt="2"
+                />
               </div>
               <h3 class="studio-card-subtitle">Test With Experts & Players</h3>
               <p class="text-center studio-card-caption">
@@ -127,8 +143,12 @@ import ScrollUpButton from '../../components/ScrollUpButton/ScrollUpButton.vue';
 
             <!-- Step 3 -->
             <div class="studio-steps-card-flex">
-              <div class="studio-icon-card bg-[#06C270]">
-                <span class="studio-steps-text">3</span>
+              <div class="studio-icon-card relative">
+                <img
+                  src="/assets/images/studio/3-digit.png"
+                  class="absolute w-[50px]"
+                  alt="3"
+                />
               </div>
               <h3 class="studio-card-subtitle">
                 Get Your Accessibility Report
@@ -157,40 +177,44 @@ import ScrollUpButton from '../../components/ScrollUpButton/ScrollUpButton.vue';
           >
             <div class="studio-card-small-flex-col">
               <!-- Accessibility: Hide decorative icons -->
-              <div
-                class="studio-icon-card-small bg-[#087BB4]"
-                aria-hidden="true"
-              >
-                <span class="text-white font-bold">I</span>
+              <div class="studio-icon-card-small relative" aria-hidden="true">
+                <img
+                  src="/assets/images/studio/seed.png"
+                  alt=""
+                  class="w-[50px] absolute"
+                />
               </div>
               <h3 class="studio-card-caption-small">Indie studios</h3>
             </div>
             <div class="studio-card-small-flex-col">
-              <div
-                class="studio-icon-card-small bg-[#FE892A]"
-                aria-hidden="true"
-              >
-                <span class="text-white font-bold">S</span>
+              <div class="studio-icon-card-small relative" aria-hidden="true">
+                <img
+                  src="/assets/images/studio/command-line.png"
+                  alt=""
+                  class="w-[50px] absolute"
+                />
               </div>
               <h3 class="studio-card-caption-small">Solo developers</h3>
             </div>
             <div class="studio-card-small-flex-col">
-              <div
-                class="studio-icon-card-small bg-[#06C270]"
-                aria-hidden="true"
-              >
-                <span class="text-white font-bold">P</span>
+              <div class="studio-icon-card-small relative" aria-hidden="true">
+                <img
+                  src="/assets/images/studio/accessibility.png"
+                  alt=""
+                  class="w-[50px] absolute"
+                />
               </div>
               <h3 class="studio-card-caption-small">
                 Accessibility-minded publishers
               </h3>
             </div>
             <div class="studio-card-small-flex-col">
-              <div
-                class="studio-icon-card-small bg-[#FFCC00]"
-                aria-hidden="true"
-              >
-                <span class="text-white font-bold">E</span>
+              <div class="studio-icon-card-small relative" aria-hidden="true">
+                <img
+                  src="/assets/images/studio/education.png"
+                  alt=""
+                  class="w-[50px] absolute"
+                />
               </div>
               <h3 class="studio-card-caption-small">
                 Educational game developers
@@ -213,11 +237,12 @@ import ScrollUpButton from '../../components/ScrollUpButton/ScrollUpButton.vue';
           <div class="flex flex-col gap-10 px-5 my-10">
             <!-- Accessibility: Hide decorative icons in each flex child below -->
             <div class="studio-card-small-flex-row">
-              <div
-                class="studio-icon-card-small bg-[#087BB4]"
-                aria-hidden="true"
-              >
-                <span class="text-white font-bold">📋</span>
+              <div class="studio-icon-card-small relative" aria-hidden="true">
+                <img
+                  src="/assets/images/studio/checklist-v2.png"
+                  alt=""
+                  class="w-[50px] absolute"
+                />
               </div>
               <div class="flex-1">
                 <h3 class="studio-card-caption-small">
@@ -229,11 +254,12 @@ import ScrollUpButton from '../../components/ScrollUpButton/ScrollUpButton.vue';
               </div>
             </div>
             <div class="studio-card-small-flex-row">
-              <div
-                class="studio-icon-card-small bg-[#FE892A]"
-                aria-hidden="true"
-              >
-                <span class="text-white font-bold">⚡</span>
+              <div class="studio-icon-card-small relative" aria-hidden="true">
+                <img
+                  src="/assets/images/studio/fix.png"
+                  alt=""
+                  class="w-[50px] absolute"
+                />
               </div>
               <div class="flex-1">
                 <h3 class="studio-card-caption-small">
@@ -242,11 +268,12 @@ import ScrollUpButton from '../../components/ScrollUpButton/ScrollUpButton.vue';
               </div>
             </div>
             <div class="studio-card-small-flex-row">
-              <div
-                class="studio-icon-card-small bg-[#06C270]"
-                aria-hidden="true"
-              >
-                <span class="text-white font-bold">👁️</span>
+              <div class="studio-icon-card-small relative" aria-hidden="true">
+                <img
+                  src="/assets/images/studio/research.png"
+                  alt=""
+                  class="w-[50px] absolute"
+                />
               </div>
               <div class="flex-1">
                 <h3 class="studio-card-caption-small">
@@ -255,11 +282,12 @@ import ScrollUpButton from '../../components/ScrollUpButton/ScrollUpButton.vue';
               </div>
             </div>
             <div class="studio-card-small-flex-row">
-              <div
-                class="studio-icon-card-small bg-[#FFCC00]"
-                aria-hidden="true"
-              >
-                <span class="text-white font-bold">🔄</span>
+              <div class="studio-icon-card-small relative" aria-hidden="true">
+                <img
+                  src="/assets/images/studio/repeat.png"
+                  alt=""
+                  class="w-[50px] absolute"
+                />
               </div>
               <div class="flex-1">
                 <h3 class="studio-card-caption-small">
@@ -293,12 +321,25 @@ import ScrollUpButton from '../../components/ScrollUpButton/ScrollUpButton.vue';
     </div>
 
     <!-- Accessibility Commitment Banner -->
-    <div class="studio-text-card-base my-8 w-full md:w-[70%] mx-auto">
-      <h3 class="studio-card-subtitle">Accessibility Commitment</h3>
-      <p class="studio-card-caption py-5">
-        We commit to following WCAG 2.1 AA guidelines and beyond — testing with
-        real players to ensure meaningful accessibility.
-      </p>
+    <div
+      class="flex items-center gap-5 mobile:flex-col-reverse studio-text-card-base my-8 w-full md:w-[70%] mx-auto"
+    >
+      <div class="w-4/6 mobile:w-full">
+        <h3 class="studio-card-subtitle border-primary-color border-b-2">
+          Accessibility Commitment
+        </h3>
+        <p class="studio-card-caption py-5">
+          We commit to following WCAG 2.1 AA guidelines and beyond — testing
+          with real players to ensure meaningful accessibility.
+        </p>
+      </div>
+      <div class="w-2/6 mobile:w-full">
+        <img
+          src="/assets/images/impact/students%201.svg"
+          alt=""
+          class="mx-auto"
+        />
+      </div>
     </div>
   </div>
 
