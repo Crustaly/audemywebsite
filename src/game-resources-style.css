@@ -1,67 +1,68 @@
-/* --- AccessibilityStudio.vue --- */
+/* --- Game Resources Style --- */
+/* Currently, shared between GameToolkit.vue & AccessibilityStudio.vue */
 
 @layer components {
   /* --- Typography --- */
-  .studio-card-subtitle {
+  .game-resource-card-subtitle {
     @apply text-[20px] tablet:text-[16px] font-[600] mb-4;
   }
 
-  .studio-card-caption {
+  .game-resource-card-caption {
     @apply text-left text-body text-[16px] tablet:text-[14px] font-[400];
   }
 
-  .studio-card-caption-small {
+  .game-resource-card-caption-small {
     @apply text-left text-[18px] tablet:text-[16px] font-[600] mb-2;
   }
 
-  .studio-header {
+  .game-resource-header {
     @apply text-center text-4.5xl tablet:text-[32px] mobile:text-[24px] mobile:text-center font-[400] py-5;
   }
 
-  .studio-steps-text {
+  .game-resource-steps-text {
     @apply text-white text-2xl font-bold;
   }
 
   /* --- Responsive buttons --- */
-  .studio-btn-flex {
+  .game-resource-btn-flex {
     @apply flex mobile:flex-col justify-center items-center my-10;
   }
 
-  .studio-base-btn {
+  .game-resource-base-btn {
     @apply page-button tracking-wide font-[600] text-center duration-300 text-[16px] w-[300px] h-[70px] md:h-[60px] mobile:h-[80px] py-3 md:py-5;
   }
 
   /* --- Decorative colored banner & icon cards --- */
-  .studio-card-banner {
+  .game-resource-card-banner {
     @apply z-0 bg-[#357ca0] absolute top-0 left-0 w-full rounded-t-md;
   }
 
-  .studio-text-card-base {
+  .game-resource-text-card-base {
     @apply bg-cross-lines border-2 border-black rounded-lg p-10;
   }
 
-  .studio-icon-card {
+  .game-resource-icon-card {
     @apply bg-[#e7f0f5] w-[76px] h-[76px] tablet:w-[72px] tablet:h-[72px] rounded-[8px] border-[1.5px] border-[#0C0D0D] shadow-[4px_4px_0px_#0C0D0D] flex justify-center items-center mb-[15px];
   }
 
-  .studio-icon-card-small {
+  .game-resource-icon-card-small {
     @apply bg-[#e7f0f5] w-[50px] h-[50px] p-8 rounded-[8px] border-[1.5px] border-[#0C0D0D] shadow-[4px_4px_0px_#0C0D0D] flex justify-center items-center;
   }
 
   /* --- Icon cards: Responsive layout --- */
-  .studio-text-card-flex {
+  .game-resource-text-card-flex {
     @apply w-6/12 mobile:w-full flex flex-col;
   }
 
-  .studio-steps-card-flex {
+  .game-resource-steps-card-flex {
     @apply w-4/12 mobile:w-full flex flex-col items-center text-center;
   }
 
-  .studio-card-small-flex-col {
+  .game-resource-card-small-flex-col {
     @apply flex items-center gap-10;
   }
 
-  .studio-card-small-flex-row {
+  .game-resource-card-small-flex-row {
     @apply flex items-start gap-10;
   }
 }

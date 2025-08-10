@@ -841,7 +841,7 @@ const displayedToolkits = computed(() => {
       >
         <!-- Main Page Header -->
         <div class="px-5">
-          <h1 class="studio-header">
+          <h1 class="game-resource-header">
             Mainstream Games, Made
             <span class="font-semibold text-primary-color">Accessible</span>
           </h1>
@@ -901,7 +901,7 @@ const displayedToolkits = computed(() => {
       class="flex flex-col items-center justify-start mobile:justify-center w-full h-auto py-10 md:py-20 my-10"
     >
       <div class="w-full">
-        <h2 class="studio-header">Developer Partnerships</h2>
+        <h2 class="game-resource-header">Developer Partnerships</h2>
       </div>
       <div class="flex justify-center">
         <div class="max-w-[800px] w-full overflow-hidden">
@@ -988,7 +988,7 @@ const displayedToolkits = computed(() => {
       class="flex flex-col items-center justify-start mobile:justify-center w-full h-auto py-10 md:py-10 my-10"
     >
       <div class="w-full">
-        <h2 class="studio-header">Toolkit Gallery</h2>
+        <h2 class="game-resource-header">Toolkit Gallery</h2>
       </div>
       <div class="flex justify-center">
         <div class="mobile:w-[310px] w-[85%]">
@@ -1000,7 +1000,7 @@ const displayedToolkits = computed(() => {
               :key="toolkit.id"
               class="relative bg-cross-lines border-2 border-[#0C0D0D] rounded-lg p-4 shadow-[4px_4px_0px_#0C0D0D] hover:shadow-[6px_6px_0px_#0C0D0D] transition-all duration-300"
             >
-              <div class="studio-card-banner h-1/3" aria-hidden="true">
+              <div class="game-resource-card-banner h-1/3" aria-hidden="true">
                 <!-- Decorative card banner (empty) -->
               </div>
               <div class="flex items-center justify-between mb-3">
@@ -1069,7 +1069,7 @@ const displayedToolkits = computed(() => {
           <div class="md:mx-auto flex justify-center items-center my-16 mx-10">
             <a
               href="#toolkit-database"
-              class="studio-base-btn h-[70px] tablet:h-[60px] bg-primary-color text-white py-3 md:py-5"
+              class="game-resource-base-btn h-[70px] tablet:h-[60px] bg-primary-color text-white py-3 md:py-5"
             >
               View All Toolkits
             </a>
@@ -1083,7 +1083,7 @@ const displayedToolkits = computed(() => {
       class="flex flex-col items-center justify-start mobile:justify-center w-full h-auto py-10 md:py-10 my-10"
     >
       <div class="w-full">
-        <h2 class="studio-header">How it Works</h2>
+        <h2 class="game-resource-header">How it Works</h2>
       </div>
       <div class="flex justify-center">
         <div class="w-full">
@@ -1091,45 +1091,45 @@ const displayedToolkits = computed(() => {
             class="flex justify-between py-5 px-5 md:gap-x-10 lg:gap-x-24 mobile:gap-y-12 mobile:flex-col"
           >
             <!-- Step 1: Test -->
-            <div class="studio-steps-card-flex">
-              <div class="studio-icon-card relative" aria-hidden="true">
+            <div class="game-resource-steps-card-flex">
+              <div class="game-resource-icon-card relative" aria-hidden="true">
                 <img
                   src="/assets/images/game-toolkit/testing.png"
                   class="absolute w-[50px]"
                   alt=""
                 />
               </div>
-              <h3 class="studio-card-subtitle">We Test the Game</h3>
-              <p class="text-center studio-card-caption">
+              <h3 class="game-resource-card-subtitle">We Test the Game</h3>
+              <p class="text-center game-resource-card-caption">
                 Real blind players & assistive tech experts explore game
                 mechanics.
               </p>
             </div>
             <!-- Step 2: Build -->
-            <div class="studio-steps-card-flex">
-              <div class="studio-icon-card relative" aria-hidden="true">
+            <div class="game-resource-steps-card-flex">
+              <div class="game-resource-icon-card relative" aria-hidden="true">
                 <img
                   src="/assets/images/game-toolkit/toolkit.png"
                   class="absolute w-[50px]"
                   alt=""
                 />
               </div>
-              <h3 class="studio-card-subtitle">We Build the Toolkit</h3>
-              <p class="text-center studio-card-caption">
+              <h3 class="game-resource-card-subtitle">We Build the Toolkit</h3>
+              <p class="text-center game-resource-card-caption">
                 Audio guides, tactile maps, and adapted instructions.
               </p>
             </div>
             <!-- Step 3: Share -->
-            <div class="studio-steps-card-flex">
-              <div class="studio-icon-card relative" aria-hidden="true">
+            <div class="game-resource-steps-card-flex">
+              <div class="game-resource-icon-card relative" aria-hidden="true">
                 <img
                   src="/assets/images/game-toolkit/friends.png"
                   class="absolute w-[50px]"
                   alt=""
                 />
               </div>
-              <h3 class="studio-card-subtitle">We Share Globally</h3>
-              <p class="text-center studio-card-caption">
+              <h3 class="game-resource-card-subtitle">We Share Globally</h3>
+              <p class="text-center game-resource-card-caption">
                 Free downloads for players and devs.
               </p>
             </div>
@@ -1147,7 +1147,7 @@ const displayedToolkits = computed(() => {
           topRightImgPath="/assets/images/game-toolkit/game-control.png"
           bottomLeftImgPath="/assets/images/game-toolkit/game-console.png"
         />
-        <h2 class="studio-header">
+        <h2 class="game-resource-header">
           Ready to make gaming <br /><span
             class="font-semibold text-primary-color"
             >accessible?</span
@@ -1158,13 +1158,13 @@ const displayedToolkits = computed(() => {
         >
           <a
             href="#toolkit-database"
-            class="studio-base-btn h-[70px] tablet:h-[60px] bg-[#FE892A] text-[#0D0C0C] mobile:px-5 py-3 md:py-5"
+            class="game-resource-base-btn h-[70px] tablet:h-[60px] bg-[#FE892A] text-[#0D0C0C] mobile:px-5 py-3 md:py-5"
           >
             Download a Toolkit
           </a>
           <a
             href="/accessibility-studio"
-            class="studio-base-btn h-[70px] tablet:h-[60px] bg-primary-color text-white py-3 md:py-5"
+            class="game-resource-base-btn h-[70px] tablet:h-[60px] bg-primary-color text-white py-3 md:py-5"
           >
             Partner with Us
           </a>
@@ -1178,7 +1178,7 @@ const displayedToolkits = computed(() => {
       class="flex flex-col items-center justify-start mobile:justify-center w-full h-auto py-10 md:py-10 my-10"
     >
       <div class="w-full">
-        <h2 class="studio-header">Toolkit Database</h2>
+        <h2 class="game-resource-header">Toolkit Database</h2>
       </div>
 
       <!-- Search Bar -->
@@ -1224,7 +1224,7 @@ const displayedToolkits = computed(() => {
               :key="toolkit.id"
               class="relative bg-cross-lines border-2 border-[#0C0D0D] rounded-lg p-4 shadow-[4px_4px_0px_#0C0D0D] hover:shadow-[6px_6px_0px_#0C0D0D] transition-all duration-300"
             >
-              <div class="studio-card-banner h-1/3" aria-hidden="true">
+              <div class="game-resource-card-banner h-1/3" aria-hidden="true">
                 <!-- Decorative card banner (empty) -->
               </div>
               <div class="flex items-center justify-between mb-3">
