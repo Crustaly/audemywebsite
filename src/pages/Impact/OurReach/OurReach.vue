@@ -82,58 +82,7 @@ const impactImages = [
       </div>
     </div>
 
-    <!-- ✅ Stat Cards Section -->
-    <div class="w-full flex flex-wrap justify-center gap-x-7 gap-y-6 mt-16">
-      <!-- Card 1 -->
-      <div
-        class="bg-card-background w-[280px] flex flex-col items-center rounded-xl border-2 border-[#C5DBE2] pb-3 px-3"
-      >
-        <img :src="Students" alt="Student" class="-translate-y-10" />
-        <div class="flex flex-col items-center text-body">
-          <h1
-            class="font-serif font-semibold text-7xl mobile:text-4xl text-[#d96f1f]"
-          >
-            1 in 5
-          </h1>
-          <p class="font-poppins text-base text-center mobile:text-[12px]">
-            blind students<br />learning through play
-          </p>
-        </div>
-      </div>
-
-      <!-- Card 2 -->
-      <div
-        class="bg-card-background w-[280px] flex flex-col items-center rounded-xl border-2 border-[#C5DBE2] translate-y-1/4 pb-3 px-3"
-      >
-        <img :src="Problems" alt="Problem" class="-translate-y-10" />
-        <div class="flex flex-col items-center text-body">
-          <h1
-            class="font-serif font-bold text-7xl mobile:text-4xl text-[#077bb3]"
-          >
-            36
-          </h1>
-          <p class="font-poppins text-base text-center mobile:text-[12px]">
-            partnering <br />schools
-          </p>
-        </div>
-      </div>
-
-      <!-- Card 3 -->
-      <div
-        class="bg-card-background w-[280px] flex flex-col items-center rounded-xl border-2 border-[#C5DBE2] pb-3 px-3"
-      >
-        <img :src="Globe" alt="Globe" class="-translate-y-10" />
-        <div class="flex flex-col items-center text-body">
-          <h1
-            class="font-serif font-bold text-7xl mobile:text-4xl text-[#d96f1f]"
-          >
-            66
-          </h1>
-          <p class="font-poppins text-base text-center mobile:text-[12px]">
-            countries <br />and counting...
-          </p>
-        </div>
-      </div>
-    </div>
+   
+   
   </div>
 </template>

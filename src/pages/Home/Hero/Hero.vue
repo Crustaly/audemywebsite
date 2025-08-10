@@ -23,7 +23,7 @@
           class="font-poppins text-body text-xl mobile:text-[16px] max-w-md leading-8"
         >
           Our gaming solutions are transforming access to
-          gaming, reaching <strong>200,000+ blind and visually impaired gamers worldwide</strong>,
+          gaming, reaching <strong>100,000+ blind and visually impaired gamers worldwide</strong>,
           including <strong>1 in 5 blind children in the U.S.</strong>!
         </p>
       </div>

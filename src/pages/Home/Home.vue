@@ -9,6 +9,7 @@ import Testimonials from './Testimonials/Testimonials.vue';
 import Sponsors from './Sponsors/Sponsors.vue';
 import TechShowcase from './TechShowcase/TechShowcase.vue';
 import Impact from './Impact/Impact.vue';
+import WhatWeDo from './WhatWeDo/WhatWeDo.vue';
 import ScrollUpButton from '../../components/ScrollUpButton/ScrollUpButton.vue';
 import PressList from '../Impact/PressList/PressList.vue';
 
@@ -30,6 +31,7 @@ const { isMobile, isTablet } = useDeviceType();
     <Header :logoPath="'/assets/images/header/header-logo-2.png'" />
     <Hero />
     <Impact />
+    <WhatWeDo />
   </div>
   <div
     :class="[
