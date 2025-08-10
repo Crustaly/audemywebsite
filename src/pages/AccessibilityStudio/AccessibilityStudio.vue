@@ -377,7 +377,7 @@ import PageDecorations from '../../components/PageDecorations/PageDecorations.vu
         </div>
         <div class="w-2/6 mobile:w-full">
           <img
-            src="/assets/images/impact/students%201.svg"
+            src="/assets/images/impact/carl-pencil.svg"
             alt=""
             class="mx-auto"
           />
