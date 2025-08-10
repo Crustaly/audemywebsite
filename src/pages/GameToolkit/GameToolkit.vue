@@ -3,9 +3,6 @@ import Header from '../../components/Header/Header.vue';
 import Footer from '../../components/Footer/Footer.vue';
 import ScrollUpButton from '../../components/ScrollUpButton/ScrollUpButton.vue';
 
-import { useDeviceType } from '../../Utilities/checkDeviceType';
-const { isMobile, isTablet } = useDeviceType();
-
 // Sample toolkit data - in a real app, this would come from an API
 const toolkits = [
   {
@@ -14,7 +11,7 @@ const toolkits = [
     platform: 'PC',
     platformIcon: '🖥️',
     description: 'Audio navigation system for multiplayer maps',
-    category: 'FPS'
+    category: 'FPS',
   },
   {
     id: 2,
@@ -22,7 +19,7 @@ const toolkits = [
     platform: 'PC',
     platformIcon: '🖥️',
     description: 'Blind-friendly crafting guide and audio cues',
-    category: 'Sandbox'
+    category: 'Sandbox',
   },
   {
     id: 3,
@@ -30,7 +27,7 @@ const toolkits = [
     platform: 'PC',
     platformIcon: '🖥️',
     description: 'Audio feedback system for ability usage',
-    category: 'FPS'
+    category: 'FPS',
   },
   {
     id: 4,
@@ -38,7 +35,7 @@ const toolkits = [
     platform: 'PC',
     platformIcon: '🖥️',
     description: 'Accessible navigation for popular games',
-    category: 'Platform'
+    category: 'Platform',
   },
   {
     id: 5,
@@ -46,7 +43,7 @@ const toolkits = [
     platform: 'Xbox',
     platformIcon: '🎮',
     description: 'Audio commentary and menu navigation',
-    category: 'Sports'
+    category: 'Sports',
   },
   {
     id: 6,
@@ -54,7 +51,7 @@ const toolkits = [
     platform: 'PC',
     platformIcon: '🖥️',
     description: 'Audio building and combat assistance',
-    category: 'Battle Royale'
+    category: 'Battle Royale',
   },
   {
     id: 7,
@@ -62,7 +59,7 @@ const toolkits = [
     platform: 'PS5',
     platformIcon: '🎮',
     description: 'Audio navigation for open world exploration',
-    category: 'Action'
+    category: 'Action',
   },
   {
     id: 8,
@@ -70,7 +67,7 @@ const toolkits = [
     platform: 'PC',
     platformIcon: '🖥️',
     description: 'Audio cues for ability management',
-    category: 'MOBA'
+    category: 'MOBA',
   },
   {
     id: 9,
@@ -78,7 +75,7 @@ const toolkits = [
     platform: 'PC',
     platformIcon: '🖥️',
     description: 'Hero ability audio feedback system',
-    category: 'FPS'
+    category: 'FPS',
   },
   {
     id: 10,
@@ -86,7 +83,7 @@ const toolkits = [
     platform: 'PC',
     platformIcon: '🖥️',
     description: 'Audio navigation for battle royale',
-    category: 'Battle Royale'
+    category: 'Battle Royale',
   },
   {
     id: 11,
@@ -94,7 +91,7 @@ const toolkits = [
     platform: 'Xbox',
     platformIcon: '🎮',
     description: 'Audio cues for car control and positioning',
-    category: 'Sports'
+    category: 'Sports',
   },
   {
     id: 12,
@@ -102,7 +99,7 @@ const toolkits = [
     platform: 'Mobile',
     platformIcon: '📱',
     description: 'Audio navigation for social deduction',
-    category: 'Party'
+    category: 'Party',
   },
   {
     id: 13,
@@ -110,7 +107,7 @@ const toolkits = [
     platform: 'PS5',
     platformIcon: '🎮',
     description: 'Audio guidance for obstacle courses',
-    category: 'Party'
+    category: 'Party',
   },
   {
     id: 14,
@@ -118,7 +115,7 @@ const toolkits = [
     platform: 'PC',
     platformIcon: '🖥️',
     description: 'Audio cues for survivor and killer gameplay',
-    category: 'Horror'
+    category: 'Horror',
   },
   {
     id: 15,
@@ -126,7 +123,7 @@ const toolkits = [
     platform: 'PC',
     platformIcon: '🖥️',
     description: 'Audio feedback for tactical gameplay',
-    category: 'FPS'
+    category: 'FPS',
   },
   {
     id: 16,
@@ -134,7 +131,7 @@ const toolkits = [
     platform: 'PC',
     platformIcon: '🖥️',
     description: 'Audio navigation for raids and strikes',
-    category: 'RPG'
+    category: 'RPG',
   },
   {
     id: 17,
@@ -142,7 +139,7 @@ const toolkits = [
     platform: 'PC',
     platformIcon: '🖥️',
     description: 'Audio addons for MMO accessibility',
-    category: 'MMO'
+    category: 'MMO',
   },
   {
     id: 18,
@@ -150,7 +147,7 @@ const toolkits = [
     platform: 'PC',
     platformIcon: '🖥️',
     description: 'Audio feedback for competitive play',
-    category: 'FPS'
+    category: 'FPS',
   },
   {
     id: 19,
@@ -158,7 +155,7 @@ const toolkits = [
     platform: 'Mobile',
     platformIcon: '📱',
     description: 'Audio navigation for mobile battle royale',
-    category: 'Battle Royale'
+    category: 'Battle Royale',
   },
   {
     id: 20,
@@ -166,7 +163,7 @@ const toolkits = [
     platform: 'PC',
     platformIcon: '🖥️',
     description: 'Audio cues for card game strategy',
-    category: 'Card'
+    category: 'Card',
   },
   {
     id: 21,
@@ -174,7 +171,7 @@ const toolkits = [
     platform: 'PS5',
     platformIcon: '🎮',
     description: 'Audio navigation for story-driven gameplay',
-    category: 'Adventure'
+    category: 'Adventure',
   },
   {
     id: 22,
@@ -182,7 +179,7 @@ const toolkits = [
     platform: 'PS5',
     platformIcon: '🎮',
     description: 'Audio cues for combat and exploration',
-    category: 'Action'
+    category: 'Action',
   },
   {
     id: 23,
@@ -190,7 +187,7 @@ const toolkits = [
     platform: 'PC',
     platformIcon: '🖥️',
     description: 'Audio navigation for western open world',
-    category: 'Action'
+    category: 'Action',
   },
   {
     id: 24,
@@ -198,7 +195,7 @@ const toolkits = [
     platform: 'PC',
     platformIcon: '🖥️',
     description: 'Audio feedback for futuristic RPG',
-    category: 'RPG'
+    category: 'RPG',
   },
   {
     id: 25,
@@ -206,7 +203,7 @@ const toolkits = [
     platform: 'PC',
     platformIcon: '🖥️',
     description: 'Audio cues for challenging combat',
-    category: 'RPG'
+    category: 'RPG',
   },
   {
     id: 26,
@@ -214,15 +211,15 @@ const toolkits = [
     platform: 'PS5',
     platformIcon: '🎮',
     description: 'Audio navigation for web-swinging',
-    category: 'Action'
+    category: 'Action',
   },
   {
     id: 27,
-    name: 'Assassin\'s Creed',
+    name: "Assassin's Creed",
     platform: 'PC',
     platformIcon: '🖥️',
     description: 'Audio feedback for stealth gameplay',
-    category: 'Action'
+    category: 'Action',
   },
   {
     id: 28,
@@ -230,7 +227,7 @@ const toolkits = [
     platform: 'PC',
     platformIcon: '🖥️',
     description: 'Audio cues for survival horror',
-    category: 'Horror'
+    category: 'Horror',
   },
   {
     id: 29,
@@ -238,7 +235,7 @@ const toolkits = [
     platform: 'PC',
     platformIcon: '🖥️',
     description: 'Audio feedback for fighting combos',
-    category: 'Fighting'
+    category: 'Fighting',
   },
   {
     id: 30,
@@ -246,7 +243,7 @@ const toolkits = [
     platform: 'PC',
     platformIcon: '🖥️',
     description: 'Audio cues for brutal combat',
-    category: 'Fighting'
+    category: 'Fighting',
   },
   {
     id: 31,
@@ -254,7 +251,7 @@ const toolkits = [
     platform: 'Switch',
     platformIcon: '🎮',
     description: 'Audio feedback for platform fighting',
-    category: 'Fighting'
+    category: 'Fighting',
   },
   {
     id: 32,
@@ -262,7 +259,7 @@ const toolkits = [
     platform: 'Switch',
     platformIcon: '🎮',
     description: 'Audio cues for racing gameplay',
-    category: 'Racing'
+    category: 'Racing',
   },
   {
     id: 33,
@@ -270,7 +267,7 @@ const toolkits = [
     platform: 'PS5',
     platformIcon: '🎮',
     description: 'Audio feedback for realistic racing',
-    category: 'Racing'
+    category: 'Racing',
   },
   {
     id: 34,
@@ -278,7 +275,7 @@ const toolkits = [
     platform: 'Xbox',
     platformIcon: '🎮',
     description: 'Audio navigation for open-world racing',
-    category: 'Racing'
+    category: 'Racing',
   },
   {
     id: 35,
@@ -286,7 +283,7 @@ const toolkits = [
     platform: 'PC',
     platformIcon: '🖥️',
     description: 'Audio cues for high-speed racing',
-    category: 'Racing'
+    category: 'Racing',
   },
   {
     id: 36,
@@ -294,7 +291,7 @@ const toolkits = [
     platform: 'Switch',
     platformIcon: '🎮',
     description: 'Audio navigation for peaceful life sim',
-    category: 'Simulation'
+    category: 'Simulation',
   },
   {
     id: 37,
@@ -302,7 +299,7 @@ const toolkits = [
     platform: 'PC',
     platformIcon: '🖥️',
     description: 'Audio feedback for life simulation',
-    category: 'Simulation'
+    category: 'Simulation',
   },
   {
     id: 38,
@@ -310,7 +307,7 @@ const toolkits = [
     platform: 'PC',
     platformIcon: '🖥️',
     description: 'Audio cues for farming simulation',
-    category: 'Simulation'
+    category: 'Simulation',
   },
   {
     id: 39,
@@ -318,7 +315,7 @@ const toolkits = [
     platform: 'PC',
     platformIcon: '🖥️',
     description: 'Audio feedback for city building',
-    category: 'Strategy'
+    category: 'Strategy',
   },
   {
     id: 40,
@@ -326,7 +323,7 @@ const toolkits = [
     platform: 'PC',
     platformIcon: '🖥️',
     description: 'Audio cues for turn-based strategy',
-    category: 'Strategy'
+    category: 'Strategy',
   },
   {
     id: 41,
@@ -334,7 +331,7 @@ const toolkits = [
     platform: 'PC',
     platformIcon: '🖥️',
     description: 'Audio feedback for RTS gameplay',
-    category: 'Strategy'
+    category: 'Strategy',
   },
   {
     id: 42,
@@ -342,7 +339,7 @@ const toolkits = [
     platform: 'PC',
     platformIcon: '🖥️',
     description: 'Audio cues for sci-fi strategy',
-    category: 'Strategy'
+    category: 'Strategy',
   },
   {
     id: 43,
@@ -350,7 +347,7 @@ const toolkits = [
     platform: 'PC',
     platformIcon: '🖥️',
     description: 'Audio feedback for historical battles',
-    category: 'Strategy'
+    category: 'Strategy',
   },
   {
     id: 44,
@@ -358,7 +355,7 @@ const toolkits = [
     platform: 'PC',
     platformIcon: '🖥️',
     description: 'Audio cues for tactical combat',
-    category: 'Strategy'
+    category: 'Strategy',
   },
   {
     id: 45,
@@ -366,7 +363,7 @@ const toolkits = [
     platform: 'Switch',
     platformIcon: '🎮',
     description: 'Audio feedback for tactical RPG',
-    category: 'Strategy'
+    category: 'Strategy',
   },
   {
     id: 46,
@@ -374,7 +371,7 @@ const toolkits = [
     platform: 'Switch',
     platformIcon: '🎮',
     description: 'Audio cues for monster battles',
-    category: 'RPG'
+    category: 'RPG',
   },
   {
     id: 47,
@@ -382,7 +379,7 @@ const toolkits = [
     platform: 'PC',
     platformIcon: '🖥️',
     description: 'Audio feedback for JRPG storytelling',
-    category: 'RPG'
+    category: 'RPG',
   },
   {
     id: 48,
@@ -390,7 +387,7 @@ const toolkits = [
     platform: 'Switch',
     platformIcon: '🎮',
     description: 'Audio cues for classic RPG',
-    category: 'RPG'
+    category: 'RPG',
   },
   {
     id: 49,
@@ -398,7 +395,7 @@ const toolkits = [
     platform: 'PC',
     platformIcon: '🖥️',
     description: 'Audio feedback for social RPG',
-    category: 'RPG'
+    category: 'RPG',
   },
   {
     id: 50,
@@ -406,7 +403,7 @@ const toolkits = [
     platform: 'PC',
     platformIcon: '🖥️',
     description: 'Audio navigation for fantasy RPG',
-    category: 'RPG'
+    category: 'RPG',
   },
   {
     id: 51,
@@ -414,7 +411,7 @@ const toolkits = [
     platform: 'PC',
     platformIcon: '🖥️',
     description: 'Audio cues for open-world fantasy',
-    category: 'RPG'
+    category: 'RPG',
   },
   {
     id: 52,
@@ -422,7 +419,7 @@ const toolkits = [
     platform: 'PC',
     platformIcon: '🖥️',
     description: 'Audio feedback for post-apocalyptic RPG',
-    category: 'RPG'
+    category: 'RPG',
   },
   {
     id: 53,
@@ -430,7 +427,7 @@ const toolkits = [
     platform: 'PC',
     platformIcon: '🖥️',
     description: 'Audio cues for sci-fi RPG',
-    category: 'RPG'
+    category: 'RPG',
   },
   {
     id: 54,
@@ -438,15 +435,15 @@ const toolkits = [
     platform: 'PC',
     platformIcon: '🖥️',
     description: 'Audio feedback for fantasy RPG',
-    category: 'RPG'
+    category: 'RPG',
   },
   {
     id: 55,
-    name: 'Baldur\'s Gate',
+    name: "Baldur's Gate",
     platform: 'PC',
     platformIcon: '🖥️',
     description: 'Audio cues for D&D RPG',
-    category: 'RPG'
+    category: 'RPG',
   },
   {
     id: 56,
@@ -454,7 +451,7 @@ const toolkits = [
     platform: 'PC',
     platformIcon: '🖥️',
     description: 'Audio feedback for tactical RPG',
-    category: 'RPG'
+    category: 'RPG',
   },
   {
     id: 57,
@@ -462,7 +459,7 @@ const toolkits = [
     platform: 'PC',
     platformIcon: '🖥️',
     description: 'Audio cues for isometric RPG',
-    category: 'RPG'
+    category: 'RPG',
   },
   {
     id: 58,
@@ -470,7 +467,7 @@ const toolkits = [
     platform: 'PC',
     platformIcon: '🖥️',
     description: 'Audio feedback for tabletop RPG',
-    category: 'RPG'
+    category: 'RPG',
   },
   {
     id: 59,
@@ -478,7 +475,7 @@ const toolkits = [
     platform: 'PC',
     platformIcon: '🖥️',
     description: 'Audio cues for narrative RPG',
-    category: 'RPG'
+    category: 'RPG',
   },
   {
     id: 60,
@@ -486,7 +483,7 @@ const toolkits = [
     platform: 'PC',
     platformIcon: '🖥️',
     description: 'Audio feedback for space RPG',
-    category: 'RPG'
+    category: 'RPG',
   },
   {
     id: 61,
@@ -494,7 +491,7 @@ const toolkits = [
     platform: 'PC',
     platformIcon: '🖥️',
     description: 'Audio cues for space exploration',
-    category: 'Adventure'
+    category: 'Adventure',
   },
   {
     id: 62,
@@ -502,7 +499,7 @@ const toolkits = [
     platform: 'PC',
     platformIcon: '🖥️',
     description: 'Audio feedback for meditative adventure',
-    category: 'Adventure'
+    category: 'Adventure',
   },
   {
     id: 63,
@@ -510,7 +507,7 @@ const toolkits = [
     platform: 'PC',
     platformIcon: '🖥️',
     description: 'Audio cues for emotional platformer',
-    category: 'Adventure'
+    category: 'Adventure',
   },
   {
     id: 64,
@@ -518,7 +515,7 @@ const toolkits = [
     platform: 'PC',
     platformIcon: '🖥️',
     description: 'Audio feedback for metroidvania',
-    category: 'Adventure'
+    category: 'Adventure',
   },
   {
     id: 65,
@@ -526,7 +523,7 @@ const toolkits = [
     platform: 'PC',
     platformIcon: '🖥️',
     description: 'Audio cues for challenging platformer',
-    category: 'Adventure'
+    category: 'Adventure',
   },
   {
     id: 66,
@@ -534,7 +531,7 @@ const toolkits = [
     platform: 'PC',
     platformIcon: '🖥️',
     description: 'Audio feedback for precision platformer',
-    category: 'Adventure'
+    category: 'Adventure',
   },
   {
     id: 67,
@@ -542,7 +539,7 @@ const toolkits = [
     platform: 'PC',
     platformIcon: '🖥️',
     description: 'Audio cues for boss rush platformer',
-    category: 'Adventure'
+    category: 'Adventure',
   },
   {
     id: 68,
@@ -550,7 +547,7 @@ const toolkits = [
     platform: 'PC',
     platformIcon: '🖥️',
     description: 'Audio feedback for roguelike action',
-    category: 'Adventure'
+    category: 'Adventure',
   },
   {
     id: 69,
@@ -558,7 +555,7 @@ const toolkits = [
     platform: 'PC',
     platformIcon: '🖥️',
     description: 'Audio cues for roguelike dungeon crawler',
-    category: 'Adventure'
+    category: 'Adventure',
   },
   {
     id: 70,
@@ -566,7 +563,7 @@ const toolkits = [
     platform: 'PC',
     platformIcon: '🖥️',
     description: 'Audio feedback for deck-building roguelike',
-    category: 'Card'
+    category: 'Card',
   },
   {
     id: 71,
@@ -574,7 +571,7 @@ const toolkits = [
     platform: 'PC',
     platformIcon: '🖥️',
     description: 'Audio cues for deck-building strategy',
-    category: 'Card'
+    category: 'Card',
   },
   {
     id: 72,
@@ -582,7 +579,7 @@ const toolkits = [
     platform: 'PC',
     platformIcon: '🖥️',
     description: 'Audio feedback for standalone card game',
-    category: 'Card'
+    category: 'Card',
   },
   {
     id: 73,
@@ -590,7 +587,7 @@ const toolkits = [
     platform: 'PC',
     platformIcon: '🖥️',
     description: 'Audio cues for digital card game',
-    category: 'Card'
+    category: 'Card',
   },
   {
     id: 74,
@@ -598,7 +595,7 @@ const toolkits = [
     platform: 'PC',
     platformIcon: '🖥️',
     description: 'Audio feedback for anime card game',
-    category: 'Card'
+    category: 'Card',
   },
   {
     id: 75,
@@ -606,7 +603,7 @@ const toolkits = [
     platform: 'PC',
     platformIcon: '🖥️',
     description: 'Audio cues for Dota card game',
-    category: 'Card'
+    category: 'Card',
   },
   {
     id: 76,
@@ -614,7 +611,7 @@ const toolkits = [
     platform: 'PC',
     platformIcon: '🖥️',
     description: 'Audio feedback for League card game',
-    category: 'Card'
+    category: 'Card',
   },
   {
     id: 77,
@@ -622,7 +619,7 @@ const toolkits = [
     platform: 'PC',
     platformIcon: '🖥️',
     description: 'Audio cues for single-player card game',
-    category: 'Card'
+    category: 'Card',
   },
   {
     id: 78,
@@ -630,7 +627,7 @@ const toolkits = [
     platform: 'PC',
     platformIcon: '🖥️',
     description: 'Audio feedback for horror card game',
-    category: 'Card'
+    category: 'Card',
   },
   {
     id: 79,
@@ -638,7 +635,7 @@ const toolkits = [
     platform: 'PC',
     platformIcon: '🖥️',
     description: 'Audio cues for village-building card game',
-    category: 'Card'
+    category: 'Card',
   },
   {
     id: 80,
@@ -646,7 +643,7 @@ const toolkits = [
     platform: 'PC',
     platformIcon: '🖥️',
     description: 'Audio feedback for survival action',
-    category: 'Action'
+    category: 'Action',
   },
   {
     id: 81,
@@ -654,7 +651,7 @@ const toolkits = [
     platform: 'PC',
     platformIcon: '🖥️',
     description: 'Audio cues for roguelike action',
-    category: 'Action'
+    category: 'Action',
   },
   {
     id: 82,
@@ -662,7 +659,7 @@ const toolkits = [
     platform: 'PC',
     platformIcon: '🖥️',
     description: 'Audio feedback for bullet hell roguelike',
-    category: 'Action'
+    category: 'Action',
   },
   {
     id: 83,
@@ -670,7 +667,7 @@ const toolkits = [
     platform: 'PC',
     platformIcon: '🖥️',
     description: 'Audio cues for roguelike dungeon crawler',
-    category: 'Action'
+    category: 'Action',
   },
   {
     id: 84,
@@ -678,7 +675,7 @@ const toolkits = [
     platform: 'PC',
     platformIcon: '🖥️',
     description: 'Audio feedback for platformer roguelike',
-    category: 'Adventure'
+    category: 'Adventure',
   },
   {
     id: 85,
@@ -686,7 +683,7 @@ const toolkits = [
     platform: 'PC',
     platformIcon: '🖥️',
     description: 'Audio cues for spaceship management',
-    category: 'Strategy'
+    category: 'Strategy',
   },
   {
     id: 86,
@@ -694,7 +691,7 @@ const toolkits = [
     platform: 'PC',
     platformIcon: '🖥️',
     description: 'Audio feedback for tactical mech combat',
-    category: 'Strategy'
+    category: 'Strategy',
   },
   {
     id: 87,
@@ -702,7 +699,7 @@ const toolkits = [
     platform: 'PC',
     platformIcon: '🖥️',
     description: 'Audio cues for gothic roguelike',
-    category: 'RPG'
+    category: 'RPG',
   },
   {
     id: 88,
@@ -710,7 +707,7 @@ const toolkits = [
     platform: 'PC',
     platformIcon: '🖥️',
     description: 'Audio feedback for auto-battler roguelike',
-    category: 'Strategy'
+    category: 'Strategy',
   },
   {
     id: 89,
@@ -718,7 +715,7 @@ const toolkits = [
     platform: 'PC',
     platformIcon: '🖥️',
     description: 'Audio cues for sci-fi roguelike',
-    category: 'RPG'
+    category: 'RPG',
   },
   {
     id: 90,
@@ -726,7 +723,7 @@ const toolkits = [
     platform: 'PC',
     platformIcon: '🖥️',
     description: 'Audio feedback for monster collection RPG',
-    category: 'RPG'
+    category: 'RPG',
   },
   {
     id: 91,
@@ -734,7 +731,7 @@ const toolkits = [
     platform: 'PC',
     platformIcon: '🖥️',
     description: 'Audio cues for monster collection MMO',
-    category: 'MMO'
+    category: 'MMO',
   },
   {
     id: 92,
@@ -742,7 +739,7 @@ const toolkits = [
     platform: 'PC',
     platformIcon: '🖥️',
     description: 'Audio feedback for monster survival',
-    category: 'Survival'
+    category: 'Survival',
   },
   {
     id: 93,
@@ -750,7 +747,7 @@ const toolkits = [
     platform: 'PC',
     platformIcon: '🖥️',
     description: 'Audio cues for dinosaur survival',
-    category: 'Survival'
+    category: 'Survival',
   },
   {
     id: 94,
@@ -758,7 +755,7 @@ const toolkits = [
     platform: 'PC',
     platformIcon: '🖥️',
     description: 'Audio feedback for multiplayer survival',
-    category: 'Survival'
+    category: 'Survival',
   },
   {
     id: 95,
@@ -766,7 +763,7 @@ const toolkits = [
     platform: 'PC',
     platformIcon: '🖥️',
     description: 'Audio cues for zombie survival',
-    category: 'Survival'
+    category: 'Survival',
   },
   {
     id: 96,
@@ -774,7 +771,7 @@ const toolkits = [
     platform: 'PC',
     platformIcon: '🖥️',
     description: 'Audio feedback for zombie crafting survival',
-    category: 'Survival'
+    category: 'Survival',
   },
   {
     id: 97,
@@ -782,7 +779,7 @@ const toolkits = [
     platform: 'PC',
     platformIcon: '🖥️',
     description: 'Audio cues for underwater survival',
-    category: 'Survival'
+    category: 'Survival',
   },
   {
     id: 98,
@@ -790,7 +787,7 @@ const toolkits = [
     platform: 'PC',
     platformIcon: '🖥️',
     description: 'Audio feedback for forest survival horror',
-    category: 'Survival'
+    category: 'Survival',
   },
   {
     id: 99,
@@ -798,7 +795,7 @@ const toolkits = [
     platform: 'PC',
     platformIcon: '🖥️',
     description: 'Audio cues for jungle survival',
-    category: 'Survival'
+    category: 'Survival',
   },
   {
     id: 100,
@@ -806,8 +803,8 @@ const toolkits = [
     platform: 'PC',
     platformIcon: '🖥️',
     description: 'Audio feedback for Viking survival',
-    category: 'Survival'
-  }
+    category: 'Survival',
+  },
 ];
 
 import { ref, computed } from 'vue';
@@ -817,10 +814,13 @@ const displayedToolkits = computed(() => {
   if (!searchQuery.value) {
     return toolkits.slice(0, 8);
   }
-  return toolkits.filter(toolkit => 
-    toolkit.name.toLowerCase().includes(searchQuery.value.toLowerCase()) ||
-    toolkit.description.toLowerCase().includes(searchQuery.value.toLowerCase()) ||
-    toolkit.category.toLowerCase().includes(searchQuery.value.toLowerCase())
+  return toolkits.filter(
+    (toolkit) =>
+      toolkit.name.toLowerCase().includes(searchQuery.value.toLowerCase()) ||
+      toolkit.description
+        .toLowerCase()
+        .includes(searchQuery.value.toLowerCase()) ||
+      toolkit.category.toLowerCase().includes(searchQuery.value.toLowerCase())
   );
 });
 </script>
@@ -828,17 +828,9 @@ const displayedToolkits = computed(() => {
 <template>
   <ScrollUpButton />
 
-  <div
-    :class="[
-      'relative',
-      !isTablet && !isMobile ? 'px-14' : '',
-      isTablet ? 'px-6' : '',
-      isMobile ? 'px-8' : '',
-    ]"
-    ref="content"
-  >
-    <Header :logoPath="'/assets/images/header/toolkit.png'" />
-    
+  <div class="relative px-8 sm:px-8 md:px-6 lg:px-14 font-poppins">
+    <Header :logoPath="'/assets/images/header/header-logo-2.png'" />
+
     <!-- Hero Section -->
     <div class="flex items-center mobile:flex-col-reverse gap-x-6 py-8 mt-20">
       <div
@@ -856,7 +848,9 @@ const displayedToolkits = computed(() => {
           <p
             class="font-poppins text-body text-xl mobile:text-[16px] max-w-md leading-8"
           >
-            Blind players in 136 countries are enjoying top titles like Call of Duty, Minecraft, Valorant, and Roblox through our 100+ accessibility toolkits.
+            Blind players in 136 countries are enjoying top titles like Call of
+            Duty, Minecraft, Valorant, and Roblox through our 100+ accessibility
+            toolkits.
           </p>
         </div>
 
@@ -879,10 +873,14 @@ const displayedToolkits = computed(() => {
         />
       </div>
     </div>
- <!-- Developer Partnerships Section -->
-    <div class="flex flex-col items-center justify-start mobile:justify-center w-full h-auto mb-36 tablet:mb-[265px] mobile:mb-[129px]">
+    <!-- Developer Partnerships Section -->
+    <div
+      class="flex flex-col items-center justify-start mobile:justify-center w-full h-auto mb-36 tablet:mb-[265px] mobile:mb-[129px]"
+    >
       <div class="w-full">
-        <h2 class="text-center font-poppins text-4.5xl tablet:text-[32px] mobile:text-[24px] mobile:text-center font-[400] mb-16">
+        <h2
+          class="text-center font-poppins text-4.5xl tablet:text-[32px] mobile:text-[24px] mobile:text-center font-[400] mb-16"
+        >
           Developer Partnerships
         </h2>
       </div>
@@ -891,64 +889,116 @@ const displayedToolkits = computed(() => {
           <div class="logo-carousel mt-[40px] tablet:mt-[72px] mb-[63px]">
             <div class="logo-track">
               <div class="logo-slide">
-                <img src="/src/assets/logos/activision.svg" alt="Activision" class="h-16 w-auto object-contain" />
+                <img
+                  src="/src/assets/logos/activision.svg"
+                  alt="Activision"
+                  class="h-16 w-auto object-contain"
+                />
               </div>
               <div class="logo-slide">
-                <img src="/src/assets/logos/microsoft.png" alt="Microsoft" class="h-16 w-auto object-contain" />
+                <img
+                  src="/src/assets/logos/microsoft.png"
+                  alt="Microsoft"
+                  class="h-16 w-auto object-contain"
+                />
               </div>
               <div class="logo-slide">
-                <img src="/src/assets/logos/riot.png" alt="Riot Games" class="h-16 w-auto object-contain" />
+                <img
+                  src="/src/assets/logos/riot.png"
+                  alt="Riot Games"
+                  class="h-16 w-auto object-contain"
+                />
               </div>
               <div class="logo-slide">
-                <img src="/src/assets/logos/roblox.png" alt="Roblox" class="h-16 w-auto object-contain" />
+                <img
+                  src="/src/assets/logos/roblox.png"
+                  alt="Roblox"
+                  class="h-16 w-auto object-contain"
+                />
               </div>
               <div class="logo-slide">
-                <img src="/src/assets/logos/Minecraft-Logo.png" alt="Minecraft" class="h-16 w-auto object-contain" />
+                <img
+                  src="/src/assets/logos/Minecraft-Logo.png"
+                  alt="Minecraft"
+                  class="h-16 w-auto object-contain"
+                />
               </div>
               <!-- Duplicate logos for seamless loop -->
               <div class="logo-slide">
-                <img src="/src/assets/logos/activision.svg" alt="Activision" class="h-16 w-auto object-contain" />
+                <img
+                  src="/src/assets/logos/activision.svg"
+                  alt="Activision"
+                  class="h-16 w-auto object-contain"
+                />
               </div>
               <div class="logo-slide">
-                <img src="/src/assets/logos/microsoft.png" alt="Microsoft" class="h-16 w-auto object-contain" />
+                <img
+                  src="/src/assets/logos/microsoft.png"
+                  alt="Microsoft"
+                  class="h-16 w-auto object-contain"
+                />
               </div>
               <div class="logo-slide">
-                <img src="/src/assets/logos/riot.png" alt="Riot Games" class="h-16 w-auto object-contain" />
+                <img
+                  src="/src/assets/logos/riot.png"
+                  alt="Riot Games"
+                  class="h-16 w-auto object-contain"
+                />
               </div>
               <div class="logo-slide">
-                <img src="/src/assets/logos/roblox.png" alt="Roblox" class="h-16 w-auto object-contain" />
+                <img
+                  src="/src/assets/logos/roblox.png"
+                  alt="Roblox"
+                  class="h-16 w-auto object-contain"
+                />
               </div>
               <div class="logo-slide">
-                <img src="/src/assets/logos/Minecraft-Logo.png" alt="Minecraft" class="h-16 w-auto object-contain" />
+                <img
+                  src="/src/assets/logos/Minecraft-Logo.png"
+                  alt="Minecraft"
+                  class="h-16 w-auto object-contain"
+                />
               </div>
             </div>
           </div>
-        
         </div>
       </div>
     </div>
     <!-- Toolkit Gallery Section -->
-    <div class="flex flex-col items-center justify-start mobile:justify-center w-full h-auto mb-36 tablet:mb-[265px] mobile:mb-[129px]">
+    <div
+      class="flex flex-col items-center justify-start mobile:justify-center w-full h-auto mb-36 tablet:mb-[265px] mobile:mb-[129px]"
+    >
       <div class="w-full">
-        <h2 class="text-center font-poppins text-4.5xl tablet:text-[32px] mobile:text-[24px] mobile:text-center font-[400] mb-16">
+        <h2
+          class="text-center font-poppins text-4.5xl tablet:text-[32px] mobile:text-[24px] mobile:text-center font-[400] mb-16"
+        >
           Toolkit Gallery
         </h2>
       </div>
       <div class="flex justify-center">
         <div class="max-w-[1200px] w-full">
-          <div class="grid grid-cols-4 tablet:grid-cols-2 mobile:grid-cols-1 gap-6 mt-[40px] tablet:mt-[72px] mb-[63px]">
+          <div
+            class="grid grid-cols-4 tablet:grid-cols-2 mobile:grid-cols-1 gap-6 mt-[40px] tablet:mt-[72px] mb-[63px]"
+          >
             <div
               v-for="toolkit in displayedToolkits.slice(0, 8)"
               :key="toolkit.id"
               class="bg-white border-2 border-[#0C0D0D] rounded-lg p-4 shadow-[4px_4px_0px_#0C0D0D] hover:shadow-[6px_6px_0px_#0C0D0D] transition-all duration-300"
             >
               <div class="flex items-center justify-between mb-3">
-                <h3 class="font-poppins text-[18px] font-[600] text-[#151E22]">{{ toolkit.name }}</h3>
+                <h3 class="font-poppins text-[18px] font-[600] text-[#151E22]">
+                  {{ toolkit.name }}
+                </h3>
                 <span class="text-2xl">{{ toolkit.platformIcon }}</span>
               </div>
-              <p class="font-poppins text-[14px] text-body mb-3">{{ toolkit.description }}</p>
+              <p class="font-poppins text-[14px] text-body mb-3">
+                {{ toolkit.description }}
+              </p>
               <div class="bg-[#E5F0F5] rounded px-2 py-1 inline-block">
-                <span class="font-poppins text-[12px] text-[#087BB4] font-[500]">{{ toolkit.category }}</span>
+                <span
+                  class="font-poppins text-[12px] text-[#087BB4] font-[500]"
+                  >{{ toolkit.category }}</span
+                >
               </div>
             </div>
           </div>
@@ -965,50 +1015,81 @@ const displayedToolkits = computed(() => {
     </div>
 
     <!-- How It Works Section -->
-    <div class="flex flex-col items-center justify-start mobile:justify-center w-full h-auto mb-36 tablet:mb-[265px] mobile:mb-[129px]">
+    <div
+      class="flex flex-col items-center justify-start mobile:justify-center w-full h-auto mb-36 tablet:mb-[265px] mobile:mb-[129px]"
+    >
       <div class="w-full">
-        <h2 class="text-center font-poppins text-4.5xl tablet:text-[32px] mobile:text-[24px] mobile:text-center font-[400] mb-16">
+        <h2
+          class="text-center font-poppins text-4.5xl tablet:text-[32px] mobile:text-[24px] mobile:text-center font-[400] mb-16"
+        >
           How It Works
         </h2>
       </div>
       <div class="flex justify-center">
         <div class="max-w-[744px] w-full">
-          <div class="flex justify-between mt-[40px] tablet:mt-[72px] mb-[63px] gap-16 tablet:gap-14 mobile:gap-4 mobile:flex-col">
+          <div
+            class="flex justify-between mt-[40px] tablet:mt-[72px] mb-[63px] gap-16 tablet:gap-14 mobile:gap-4 mobile:flex-col"
+          >
             <!-- Step 1 -->
-            <div class="w-4/12 mobile:w-full flex flex-col items-center text-center">
-              <div class="w-[76px] h-[76px] tablet:w-[72px] tablet:h-[72px] rounded-[8px] border-[1.5px] border-[#0C0D0D] shadow-[4px_4px_0px_#0C0D0D] flex justify-center items-center mb-[15px] bg-[#087BB4]">
+            <div
+              class="w-4/12 mobile:w-full flex flex-col items-center text-center"
+            >
+              <div
+                class="w-[76px] h-[76px] tablet:w-[72px] tablet:h-[72px] rounded-[8px] border-[1.5px] border-[#0C0D0D] shadow-[4px_4px_0px_#0C0D0D] flex justify-center items-center mb-[15px] bg-[#087BB4]"
+              >
                 <span class="text-white text-2xl font-bold">🎮</span>
               </div>
-              <h3 class="text-center text-body-text-color font-poppins text-[18px] tablet:text-[16px] font-[600] mb-4">
+              <h3
+                class="text-center text-body-text-color font-poppins text-[18px] tablet:text-[16px] font-[600] mb-4"
+              >
                 We Test the Game
               </h3>
-              <p class="text-center text-body-text-color font-poppins text-[14px] tablet:text-[12px] font-[400]">
-                Real blind players & assistive tech experts explore game mechanics.
+              <p
+                class="text-center text-body-text-color font-poppins text-[14px] tablet:text-[12px] font-[400]"
+              >
+                Real blind players & assistive tech experts explore game
+                mechanics.
               </p>
             </div>
 
             <!-- Step 2 -->
-            <div class="w-4/12 mobile:w-full flex flex-col items-center text-center">
-              <div class="w-[76px] h-[76px] tablet:w-[72px] tablet:h-[72px] rounded-[8px] border-[1.5px] border-[#0C0D0D] shadow-[4px_4px_0px_#0C0D0D] flex justify-center items-center mb-[15px] bg-[#FE892A]">
+            <div
+              class="w-4/12 mobile:w-full flex flex-col items-center text-center"
+            >
+              <div
+                class="w-[76px] h-[76px] tablet:w-[72px] tablet:h-[72px] rounded-[8px] border-[1.5px] border-[#0C0D0D] shadow-[4px_4px_0px_#0C0D0D] flex justify-center items-center mb-[15px] bg-[#FE892A]"
+              >
                 <span class="text-white text-2xl font-bold">🔧</span>
               </div>
-              <h3 class="text-center text-body-text-color font-poppins text-[18px] tablet:text-[16px] font-[600] mb-4">
+              <h3
+                class="text-center text-body-text-color font-poppins text-[18px] tablet:text-[16px] font-[600] mb-4"
+              >
                 We Build the Toolkit
               </h3>
-              <p class="text-center text-body-text-color font-poppins text-[14px] tablet:text-[12px] font-[400]">
+              <p
+                class="text-center text-body-text-color font-poppins text-[14px] tablet:text-[12px] font-[400]"
+              >
                 Audio guides, tactile maps, and adapted instructions.
               </p>
             </div>
 
             <!-- Step 3 -->
-            <div class="w-4/12 mobile:w-full flex flex-col items-center text-center">
-              <div class="w-[76px] h-[76px] tablet:w-[72px] tablet:h-[72px] rounded-[8px] border-[1.5px] border-[#0C0D0D] shadow-[4px_4px_0px_#0C0D0D] flex justify-center items-center mb-[15px] bg-[#06C270]">
+            <div
+              class="w-4/12 mobile:w-full flex flex-col items-center text-center"
+            >
+              <div
+                class="w-[76px] h-[76px] tablet:w-[72px] tablet:h-[72px] rounded-[8px] border-[1.5px] border-[#0C0D0D] shadow-[4px_4px_0px_#0C0D0D] flex justify-center items-center mb-[15px] bg-[#06C270]"
+              >
                 <span class="text-white text-2xl font-bold">🌍</span>
               </div>
-              <h3 class="text-center text-body-text-color font-poppins text-[18px] tablet:text-[16px] font-[600] mb-4">
+              <h3
+                class="text-center text-body-text-color font-poppins text-[18px] tablet:text-[16px] font-[600] mb-4"
+              >
                 We Share Globally
               </h3>
-              <p class="text-center text-body-text-color font-poppins text-[14px] tablet:text-[12px] font-[400]">
+              <p
+                class="text-center text-body-text-color font-poppins text-[14px] tablet:text-[12px] font-[400]"
+              >
                 Free downloads for players and devs.
               </p>
             </div>
@@ -1017,10 +1098,10 @@ const displayedToolkits = computed(() => {
       </div>
     </div>
 
-   
-
     <!-- Call to Action Section -->
-    <div class="mobile:min-w-full tablet:min-w-[504px] mx-auto bg-white mobile:mb-12">
+    <div
+      class="mobile:min-w-full tablet:min-w-[504px] mx-auto bg-white mobile:mb-12"
+    >
       <div class="max-w-[504px] mobile:max-w-[358px] mx-auto pb-[78px]">
         <h1
           class="font-poppins text-[40px] tablet:text-[32px] leading-[60px] tablet:leading-[60px] text-center text-[#151E22]"
@@ -1047,13 +1128,18 @@ const displayedToolkits = computed(() => {
     </div>
 
     <!-- Toolkit Database Section -->
-    <div id="toolkit-database" class="flex flex-col items-center justify-start mobile:justify-center w-full h-auto mb-36 tablet:mb-[265px] mobile:mb-[129px]">
+    <div
+      id="toolkit-database"
+      class="flex flex-col items-center justify-start mobile:justify-center w-full h-auto mb-36 tablet:mb-[265px] mobile:mb-[129px]"
+    >
       <div class="w-full">
-        <h2 class="text-center font-poppins text-4.5xl tablet:text-[32px] mobile:text-[24px] mobile:text-center font-[400] mb-16">
+        <h2
+          class="text-center font-poppins text-4.5xl tablet:text-[32px] mobile:text-[24px] mobile:text-center font-[400] mb-16"
+        >
           Toolkit Database
         </h2>
       </div>
-      
+
       <!-- Search Bar -->
       <div class="max-w-[600px] w-full mb-12">
         <div class="relative">
@@ -1072,32 +1158,45 @@ const displayedToolkits = computed(() => {
       <!-- Toolkit Grid -->
       <div class="flex justify-center">
         <div class="max-w-[1200px] w-full">
-          <div class="grid grid-cols-4 tablet:grid-cols-2 mobile:grid-cols-1 gap-6 mb-8">
+          <div
+            class="grid grid-cols-4 tablet:grid-cols-2 mobile:grid-cols-1 gap-6 mb-8"
+          >
             <div
               v-for="toolkit in displayedToolkits"
               :key="toolkit.id"
               class="bg-white border-2 border-[#0C0D0D] rounded-lg p-4 shadow-[4px_4px_0px_#0C0D0D] hover:shadow-[6px_6px_0px_#0C0D0D] transition-all duration-300"
             >
               <div class="flex items-center justify-between mb-3">
-                <h3 class="font-poppins text-[18px] font-[600] text-[#151E22]">{{ toolkit.name }}</h3>
+                <h3 class="font-poppins text-[18px] font-[600] text-[#151E22]">
+                  {{ toolkit.name }}
+                </h3>
                 <span class="text-2xl">{{ toolkit.platformIcon }}</span>
               </div>
-              <p class="font-poppins text-[14px] text-body mb-3">{{ toolkit.description }}</p>
+              <p class="font-poppins text-[14px] text-body mb-3">
+                {{ toolkit.description }}
+              </p>
               <div class="bg-[#E5F0F5] rounded px-2 py-1 inline-block">
-                <span class="font-poppins text-[12px] text-[#087BB4] font-[500]">{{ toolkit.category }}</span>
+                <span
+                  class="font-poppins text-[12px] text-[#087BB4] font-[500]"
+                  >{{ toolkit.category }}</span
+                >
               </div>
             </div>
           </div>
-          
-                     <!-- Results Summary -->
-           <div class="text-center">
-             <p class="font-poppins text-[18px] text-body mb-4">
-               {{ displayedToolkits.length }} toolkits displayed out of our 100+ games!
-               <span v-if="!searchQuery && displayedToolkits.length === 8" class="text-[#087BB4] font-semibold">
-                 Search to find your game
-               </span>
-             </p>
-           </div>
+
+          <!-- Results Summary -->
+          <div class="text-center">
+            <p class="font-poppins text-[18px] text-body mb-4">
+              {{ displayedToolkits.length }} toolkits displayed out of our 100+
+              games!
+              <span
+                v-if="!searchQuery && displayedToolkits.length === 8"
+                class="text-[#087BB4] font-semibold"
+              >
+                Search to find your game
+              </span>
+            </p>
+          </div>
         </div>
       </div>
     </div>
@@ -1155,7 +1254,7 @@ const displayedToolkits = computed(() => {
     margin: 0 1rem;
     min-width: 100px;
   }
-  
+
   .logo-track {
     animation-duration: 15s;
   }
@@ -1166,7 +1265,7 @@ const displayedToolkits = computed(() => {
     margin: 0 0.5rem;
     min-width: 80px;
   }
-  
+
   .logo-track {
     animation-duration: 12s;
   }
