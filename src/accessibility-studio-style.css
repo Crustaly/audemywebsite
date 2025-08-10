@@ -28,7 +28,7 @@
   }
 
   .studio-base-btn {
-    @apply page-button tracking-wide font-[600] text-center duration-300 text-[16px] mobile:w-full w-[300px] h-[70px] md:h-[60px] mobile:h-[80px] py-3 md:py-5;
+    @apply page-button tracking-wide font-[600] text-center duration-300 text-[16px] w-[300px] h-[70px] md:h-[60px] mobile:h-[80px] py-3 md:py-5;
   }
 
   /* --- Decorative colored banner & icon cards --- */
