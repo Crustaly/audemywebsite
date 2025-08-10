@@ -38,7 +38,7 @@ const props = defineProps({
   <div aria-hidden="true">
     <img
       :src="topLeftImgPath ? topLeftImgPath : Star"
-      class="absolute top-5 left-5 w-[50px] rotate-[0.3rad]"
+      class="absolute top-5 left-5 w-[50px] rotate-[-.5rad]"
     />
     <img
       :src="topRightImgPath ? topRightImgPath : Star"
@@ -46,7 +46,7 @@ const props = defineProps({
     />
     <img
       :src="bottomLeftImgPath ? bottomLeftImgPath : Star"
-      class="absolute bottom-5 left-5 w-[40px] rotate-[0.45rad]"
+      class="absolute bottom-5 left-5 w-[40px] rotate-[-.5rad]"
     />
     <img
       :src="bottomRightImgPath ? bottomRightImgPath : Star"

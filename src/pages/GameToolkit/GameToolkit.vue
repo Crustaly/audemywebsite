@@ -856,7 +856,9 @@ const displayedToolkits = computed(() => {
           </p>
         </div>
         <!-- Game Toolkit Stats: Flex Container -->
-        <div class="flex gap-8 mobile:flex-col mobile:gap-4">
+        <div
+          class="flex justify-center items-center gap-10 mobile:flex-col mobile:gap-10"
+        >
           <div class="text-center">
             <div class="text-3xl font-bold text-[#087BB4]">136</div>
             <div class="text-sm text-body">Countries reached</div>
@@ -871,8 +873,22 @@ const displayedToolkits = computed(() => {
         class="lg:w-6/12 w-full my-10 md:my-0 md:py-24 lg:py-0 relative"
         aria-hidden="true"
       >
-        <!-- Accessibility: Hide decorative icons and images -->
-        <PageDecorations />
+        <!-- Accessibility: Hide decorative SVG, icons, and images -->
+        <PageDecorations
+          topRightImgPath="/assets/images/game-toolkit/game-control.png"
+          bottomLeftImgPath="/assets/images/game-toolkit/game-console.png"
+        />
+        <svg
+          viewBox="0 0 200 200"
+          xmlns="http://www.w3.org/2000/svg"
+          class="z-0 absolute w-full h-[420px] md:h-[500px] lg:h-[500px] top-0 lg:top-[-90px]"
+        >
+          <path
+            fill="#e7f0f5"
+            d="M29.9,-47.5C38,-41.3,43.1,-31.7,54.1,-20.9C65,-10,81.7,2.1,83.1,14C84.6,25.9,70.8,37.6,58.5,49.4C46.3,61.1,35.5,72.8,23.4,73.7C11.2,74.7,-2.5,64.8,-19.2,61.6C-35.9,58.5,-55.7,62,-67.6,54.9C-79.5,47.8,-83.4,30.2,-79.9,15.2C-76.4,0.1,-65.3,-12.3,-56.9,-24C-48.5,-35.7,-42.7,-46.6,-33.7,-52.3C-24.6,-57.9,-12.3,-58.4,-0.7,-57.3C10.9,-56.2,21.8,-53.6,29.9,-47.5Z"
+            transform="translate(100 100)"
+          />
+        </svg>
         <img
           src="/src/assets/character/toolkit.png"
           alt=""
@@ -977,18 +993,20 @@ const displayedToolkits = computed(() => {
       <div class="flex justify-center">
         <div class="max-w-[1200px] w-full">
           <div
-            class="grid grid-cols-4 tablet:grid-cols-2 mobile:grid-cols-1 gap-6 mt-[40px] tablet:mt-[72px] mb-[63px]"
+            class="grid mobile:grid-cols-1 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-8"
           >
             <div
               v-for="toolkit in displayedToolkits.slice(0, 8)"
               :key="toolkit.id"
-              class="bg-white border-2 border-[#0C0D0D] rounded-lg p-4 shadow-[4px_4px_0px_#0C0D0D] hover:shadow-[6px_6px_0px_#0C0D0D] transition-all duration-300"
+              class="bg-cross-lines border-2 border-[#0C0D0D] rounded-lg p-4 shadow-[4px_4px_0px_#0C0D0D] hover:shadow-[6px_6px_0px_#0C0D0D] transition-all duration-300"
             >
               <div class="flex items-center justify-between mb-3">
                 <h3 class="text-[18px] font-[600] text-[#151E22]">
                   {{ toolkit.name }}
                 </h3>
-                <span class="text-2xl">{{ toolkit.platformIcon }}</span>
+                <span aria-hidden="true" class="text-2xl">{{
+                  toolkit.platformIcon
+                }}</span>
               </div>
               <p class="text-[14px] text-body mb-3">
                 {{ toolkit.description }}
@@ -1026,11 +1044,11 @@ const displayedToolkits = computed(() => {
           >
             <!-- Step 1: Test -->
             <div class="studio-steps-card-flex">
-              <div class="studio-icon-card relative">
+              <div class="studio-icon-card relative" aria-hidden="true">
                 <img
-                  src="/assets/images/studio/1-digit.png"
+                  src="/assets/images/game-toolkit/testing.png"
                   class="absolute w-[50px]"
-                  alt="1"
+                  alt=""
                 />
               </div>
               <h3 class="studio-card-subtitle">We Test the Game</h3>
@@ -1041,11 +1059,11 @@ const displayedToolkits = computed(() => {
             </div>
             <!-- Step 2: Build -->
             <div class="studio-steps-card-flex">
-              <div class="studio-icon-card relative">
+              <div class="studio-icon-card relative" aria-hidden="true">
                 <img
-                  src="/assets/images/studio/2-digit.png"
+                  src="/assets/images/game-toolkit/toolkit.png"
                   class="absolute w-[50px]"
-                  alt="2"
+                  alt=""
                 />
               </div>
               <h3 class="studio-card-subtitle">We Build the Toolkit</h3>
@@ -1055,11 +1073,11 @@ const displayedToolkits = computed(() => {
             </div>
             <!-- Step 3: Share -->
             <div class="studio-steps-card-flex">
-              <div class="studio-icon-card relative">
+              <div class="studio-icon-card relative" aria-hidden="true">
                 <img
-                  src="/assets/images/studio/3-digit.png"
+                  src="/assets/images/game-toolkit/friends.png"
                   class="absolute w-[50px]"
-                  alt="3"
+                  alt=""
                 />
               </div>
               <h3 class="studio-card-subtitle">We Share Globally</h3>
@@ -1076,7 +1094,11 @@ const displayedToolkits = computed(() => {
     <div
       class="flex flex-col items-center justify-center mobile:justify-center w-full h-auto py-10 md:py-10 my-10"
     >
-      <div class="w-full">
+      <div class="w-full relative p-16">
+        <PageDecorations
+          topRightImgPath="/assets/images/game-toolkit/puzzle.png"
+          bottomLeftImgPath="/assets/images/studio/shooting-stars.png"
+        />
         <h2 class="studio-header">
           Ready to make gaming <br /><span
             class="font-semibold text-primary-color"
@@ -1084,7 +1106,7 @@ const displayedToolkits = computed(() => {
           >
         </h2>
         <div
-          class="md:mx-auto flex justify-center items-center md:gap-24 my-16 mx-10 mobile:gap-y-20 mobile:flex-col"
+          class="md:mx-auto flex justify-center items-center my-16 mx-10 gap-y-10 flex-col md:flex-row md:gap-16"
         >
           <a
             href="#toolkit-database"
@@ -1117,11 +1139,28 @@ const displayedToolkits = computed(() => {
           <input
             v-model="searchQuery"
             type="text"
-            placeholder="Search for toolkits by game name, description, or category..."
+            placeholder="Search for toolkits by game name, description, or category"
             class="w-full px-6 py-4 border-2 border-[#0C0D0D] rounded-lg text-[16px] focus:outline-none focus:border-[#087BB4] shadow-[4px_4px_0px_#0C0D0D]"
           />
-          <div class="absolute right-4 top-1/2 transform -translate-y-1/2">
-            <span class="text-2xl">🔍</span>
+          <div
+            class="absolute right-4 top-1/2 transform -translate-y-1/2"
+            aria-hidden="true"
+          >
+            <!-- Accessibility: Hide decorative search icon -->
+            <span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                fill="currentColor"
+                class="bi bi-search"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"
+                />
+              </svg>
+            </span>
           </div>
         </div>
       </div>
@@ -1135,13 +1174,15 @@ const displayedToolkits = computed(() => {
             <div
               v-for="toolkit in displayedToolkits"
               :key="toolkit.id"
-              class="bg-white border-2 border-[#0C0D0D] rounded-lg p-4 shadow-[4px_4px_0px_#0C0D0D] hover:shadow-[6px_6px_0px_#0C0D0D] transition-all duration-300"
+              class="bg-cross-lines border-2 border-[#0C0D0D] rounded-lg p-4 shadow-[4px_4px_0px_#0C0D0D] hover:shadow-[6px_6px_0px_#0C0D0D] transition-all duration-300"
             >
               <div class="flex items-center justify-between mb-3">
                 <h3 class="text-[18px] font-[600] text-[#151E22]">
                   {{ toolkit.name }}
                 </h3>
-                <span class="text-2xl">{{ toolkit.platformIcon }}</span>
+                <span aria-hidden="true" class="text-2xl">{{
+                  toolkit.platformIcon
+                }}</span>
               </div>
               <p class="text-[14px] text-body mb-3">
                 {{ toolkit.description }}
