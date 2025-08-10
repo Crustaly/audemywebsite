@@ -2,6 +2,7 @@
 import Header from '../../components/Header/Header.vue';
 import Footer from '../../components/Footer/Footer.vue';
 import ScrollUpButton from '../../components/ScrollUpButton/ScrollUpButton.vue';
+import PageDecorations from '../../components/PageDecorations/PageDecorations.vue';
 
 // Sample toolkit data - in a real app, this would come from an API
 const toolkits = [
@@ -832,28 +833,29 @@ const displayedToolkits = computed(() => {
     <Header :logoPath="'/assets/images/header/header-logo-2.png'" />
 
     <!-- Hero Section -->
-    <div class="flex items-center mobile:flex-col-reverse gap-x-6 py-8 mt-20">
+    <div
+      class="flex items-center md:items-start md:flex-row flex-col-reverse gap-x-5 py-8 my-5"
+    >
       <div
-        class="w-6/12 mobile:w-full flex flex-col gap-y-4 mobile:items-center mobile:text-center"
+        class="lg:w-6/12 w-full flex flex-col gap-y-4 items-center text-center md:text-left lg:text-center mx-auto"
       >
-        <div class="font-poppins">
-          <h1
-            class="text-4xl tablet:text-[24px] mobile:text-[24px] leading-normal text-title font-poppins"
-          >
-            Mainstream Games, Made Accessible
+        <!-- Main Page Header -->
+        <div class="px-5">
+          <h1 class="studio-header">
+            Mainstream Games, Made
+            <span class="font-semibold text-primary-color">Accessible</span>
           </h1>
         </div>
-
-        <div>
-          <p
-            class="font-poppins text-body text-xl mobile:text-[16px] max-w-md leading-8"
-          >
-            Blind players in 136 countries are enjoying top titles like Call of
-            Duty, Minecraft, Valorant, and Roblox through our 100+ accessibility
-            toolkits.
+        <div class="my-10 px-5">
+          <p class="text-body text-xl mobile:text-[16px] leading-8">
+            Blind players in
+            <span class="font-semibold">136 countries</span>
+            are enjoying top titles like Call of Duty, Minecraft, Valorant, and
+            Roblox through our
+            <span class="font-semibold">100+ accessibility toolkits.</span>
           </p>
         </div>
-
+        <!-- Game Toolkit Stats: Flex Container -->
         <div class="flex gap-8 mobile:flex-col mobile:gap-4">
           <div class="text-center">
             <div class="text-3xl font-bold text-[#087BB4]">136</div>
@@ -865,24 +867,25 @@ const displayedToolkits = computed(() => {
           </div>
         </div>
       </div>
-      <div class="w-4/12 mobile:w-full mobile:mb-14">
+      <div
+        class="lg:w-6/12 w-full my-10 md:my-0 md:py-24 lg:py-0 relative"
+        aria-hidden="true"
+      >
+        <!-- Accessibility: Hide decorative icons and images -->
+        <PageDecorations />
         <img
           src="/src/assets/character/toolkit.png"
-          alt="Game Toolkit illustration"
-          class="z-7 w-50"
+          alt=""
+          class="z-10 w-[60%] sm:w-[45%] md:w-[50%] mx-auto rotate-[6rad] md:rotate-[0.20rad]"
         />
       </div>
     </div>
     <!-- Developer Partnerships Section -->
     <div
-      class="flex flex-col items-center justify-start mobile:justify-center w-full h-auto mb-36 tablet:mb-[265px] mobile:mb-[129px]"
+      class="flex flex-col items-center justify-start mobile:justify-center w-full h-auto py-10 md:py-20 my-10"
     >
       <div class="w-full">
-        <h2
-          class="text-center font-poppins text-4.5xl tablet:text-[32px] mobile:text-[24px] mobile:text-center font-[400] mb-16"
-        >
-          Developer Partnerships
-        </h2>
+        <h2 class="studio-header">Developer Partnerships</h2>
       </div>
       <div class="flex justify-center">
         <div class="max-w-[800px] w-full overflow-hidden">
@@ -966,14 +969,10 @@ const displayedToolkits = computed(() => {
     </div>
     <!-- Toolkit Gallery Section -->
     <div
-      class="flex flex-col items-center justify-start mobile:justify-center w-full h-auto mb-36 tablet:mb-[265px] mobile:mb-[129px]"
+      class="flex flex-col items-center justify-start mobile:justify-center w-full h-auto py-10 md:py-10 my-10"
     >
       <div class="w-full">
-        <h2
-          class="text-center font-poppins text-4.5xl tablet:text-[32px] mobile:text-[24px] mobile:text-center font-[400] mb-16"
-        >
-          Toolkit Gallery
-        </h2>
+        <h2 class="studio-header">Toolkit Gallery</h2>
       </div>
       <div class="flex justify-center">
         <div class="max-w-[1200px] w-full">
@@ -986,26 +985,25 @@ const displayedToolkits = computed(() => {
               class="bg-white border-2 border-[#0C0D0D] rounded-lg p-4 shadow-[4px_4px_0px_#0C0D0D] hover:shadow-[6px_6px_0px_#0C0D0D] transition-all duration-300"
             >
               <div class="flex items-center justify-between mb-3">
-                <h3 class="font-poppins text-[18px] font-[600] text-[#151E22]">
+                <h3 class="text-[18px] font-[600] text-[#151E22]">
                   {{ toolkit.name }}
                 </h3>
                 <span class="text-2xl">{{ toolkit.platformIcon }}</span>
               </div>
-              <p class="font-poppins text-[14px] text-body mb-3">
+              <p class="text-[14px] text-body mb-3">
                 {{ toolkit.description }}
               </p>
               <div class="bg-[#E5F0F5] rounded px-2 py-1 inline-block">
-                <span
-                  class="font-poppins text-[12px] text-[#087BB4] font-[500]"
-                  >{{ toolkit.category }}</span
-                >
+                <span class="text-[12px] text-[#087BB4] font-[500]">{{
+                  toolkit.category
+                }}</span>
               </div>
             </div>
           </div>
-          <div class="text-center">
+          <div class="md:mx-auto flex justify-center items-center my-16 mx-10">
             <a
               href="#toolkit-database"
-              class="font-poppins font-semibold px-9 py-4 border-[1.5px] border-[#0C0D0D] rounded-[8px] bg-[#087BB4] hover:bg-[#0C587D] duration-300 text-base text-center text-[#fff] shadow-[3px_4px_0px_#0C0D0D]"
+              class="studio-base-btn h-[70px] tablet:h-[60px] bg-primary-color text-white py-3 md:py-5"
             >
               View All Toolkits
             </a>
@@ -1016,80 +1014,56 @@ const displayedToolkits = computed(() => {
 
     <!-- How It Works Section -->
     <div
-      class="flex flex-col items-center justify-start mobile:justify-center w-full h-auto mb-36 tablet:mb-[265px] mobile:mb-[129px]"
+      class="flex flex-col items-center justify-start mobile:justify-center w-full h-auto py-10 md:py-10 my-10"
     >
       <div class="w-full">
-        <h2
-          class="text-center font-poppins text-4.5xl tablet:text-[32px] mobile:text-[24px] mobile:text-center font-[400] mb-16"
-        >
-          How It Works
-        </h2>
+        <h2 class="studio-header">How it Works</h2>
       </div>
       <div class="flex justify-center">
-        <div class="max-w-[744px] w-full">
+        <div class="w-full">
           <div
-            class="flex justify-between mt-[40px] tablet:mt-[72px] mb-[63px] gap-16 tablet:gap-14 mobile:gap-4 mobile:flex-col"
+            class="flex justify-between py-5 px-5 md:gap-x-10 lg:gap-x-24 mobile:gap-y-12 mobile:flex-col"
           >
-            <!-- Step 1 -->
-            <div
-              class="w-4/12 mobile:w-full flex flex-col items-center text-center"
-            >
-              <div
-                class="w-[76px] h-[76px] tablet:w-[72px] tablet:h-[72px] rounded-[8px] border-[1.5px] border-[#0C0D0D] shadow-[4px_4px_0px_#0C0D0D] flex justify-center items-center mb-[15px] bg-[#087BB4]"
-              >
-                <span class="text-white text-2xl font-bold">🎮</span>
+            <!-- Step 1: Test -->
+            <div class="studio-steps-card-flex">
+              <div class="studio-icon-card relative">
+                <img
+                  src="/assets/images/studio/1-digit.png"
+                  class="absolute w-[50px]"
+                  alt="1"
+                />
               </div>
-              <h3
-                class="text-center text-body-text-color font-poppins text-[18px] tablet:text-[16px] font-[600] mb-4"
-              >
-                We Test the Game
-              </h3>
-              <p
-                class="text-center text-body-text-color font-poppins text-[14px] tablet:text-[12px] font-[400]"
-              >
+              <h3 class="studio-card-subtitle">We Test the Game</h3>
+              <p class="text-center studio-card-caption">
                 Real blind players & assistive tech experts explore game
                 mechanics.
               </p>
             </div>
-
-            <!-- Step 2 -->
-            <div
-              class="w-4/12 mobile:w-full flex flex-col items-center text-center"
-            >
-              <div
-                class="w-[76px] h-[76px] tablet:w-[72px] tablet:h-[72px] rounded-[8px] border-[1.5px] border-[#0C0D0D] shadow-[4px_4px_0px_#0C0D0D] flex justify-center items-center mb-[15px] bg-[#FE892A]"
-              >
-                <span class="text-white text-2xl font-bold">🔧</span>
+            <!-- Step 2: Build -->
+            <div class="studio-steps-card-flex">
+              <div class="studio-icon-card relative">
+                <img
+                  src="/assets/images/studio/2-digit.png"
+                  class="absolute w-[50px]"
+                  alt="2"
+                />
               </div>
-              <h3
-                class="text-center text-body-text-color font-poppins text-[18px] tablet:text-[16px] font-[600] mb-4"
-              >
-                We Build the Toolkit
-              </h3>
-              <p
-                class="text-center text-body-text-color font-poppins text-[14px] tablet:text-[12px] font-[400]"
-              >
+              <h3 class="studio-card-subtitle">We Build the Toolkit</h3>
+              <p class="text-center studio-card-caption">
                 Audio guides, tactile maps, and adapted instructions.
               </p>
             </div>
-
-            <!-- Step 3 -->
-            <div
-              class="w-4/12 mobile:w-full flex flex-col items-center text-center"
-            >
-              <div
-                class="w-[76px] h-[76px] tablet:w-[72px] tablet:h-[72px] rounded-[8px] border-[1.5px] border-[#0C0D0D] shadow-[4px_4px_0px_#0C0D0D] flex justify-center items-center mb-[15px] bg-[#06C270]"
-              >
-                <span class="text-white text-2xl font-bold">🌍</span>
+            <!-- Step 3: Share -->
+            <div class="studio-steps-card-flex">
+              <div class="studio-icon-card relative">
+                <img
+                  src="/assets/images/studio/3-digit.png"
+                  class="absolute w-[50px]"
+                  alt="3"
+                />
               </div>
-              <h3
-                class="text-center text-body-text-color font-poppins text-[18px] tablet:text-[16px] font-[600] mb-4"
-              >
-                We Share Globally
-              </h3>
-              <p
-                class="text-center text-body-text-color font-poppins text-[14px] tablet:text-[12px] font-[400]"
-              >
+              <h3 class="studio-card-subtitle">We Share Globally</h3>
+              <p class="text-center studio-card-caption">
                 Free downloads for players and devs.
               </p>
             </div>
@@ -1100,26 +1074,27 @@ const displayedToolkits = computed(() => {
 
     <!-- Call to Action Section -->
     <div
-      class="mobile:min-w-full tablet:min-w-[504px] mx-auto bg-white mobile:mb-12"
+      class="flex flex-col items-center justify-center mobile:justify-center w-full h-auto py-10 md:py-10 my-10"
     >
-      <div class="max-w-[504px] mobile:max-w-[358px] mx-auto pb-[78px]">
-        <h1
-          class="font-poppins text-[40px] tablet:text-[32px] leading-[60px] tablet:leading-[60px] text-center text-[#151E22]"
-        >
-          Ready to make gaming accessible?
-        </h1>
+      <div class="w-full">
+        <h2 class="studio-header">
+          Ready to make gaming <br /><span
+            class="font-semibold text-primary-color"
+            >accessible?</span
+          >
+        </h2>
         <div
-          class="flex mobile:flex-col justify-between mobile:gap-[20px] mobile:mx-[16px] items-center mt-8"
+          class="md:mx-auto flex justify-center items-center md:gap-24 my-16 mx-10 mobile:gap-y-20 mobile:flex-col"
         >
           <a
             href="#toolkit-database"
-            class="font-poppins font-[600] w-[236.07px] mobile:w-full h-[56px] leading-[56px] tablet:h-[60px] tablet:leading-[60px] border-[1.5px] border-[#0C0D0D] rounded-[8px] bg-[#087BB4] hover:bg-[#0C587D] text-[16px] text-center text-white shadow-[4px_4px_0px_#0C0D0D]"
+            class="studio-base-btn h-[70px] tablet:h-[60px] bg-[#FE892A] text-[#0D0C0C] mobile:px-5 py-3 md:py-5"
           >
             Download a Toolkit
           </a>
           <a
             href="/accessibility-studio"
-            class="font-poppins font-[600] w-[236.07px] mobile:w-full h-[56px] leading-[56px] tablet:h-[60px] tablet:leading-[60px] border-[1.5px] border-[#0C0D0D] rounded-[8px] bg-[#FE892A] hover:bg-[#D6711F] text-[16px] text-center text-[#0D0C0C] shadow-[4px_4px_0px_#0C0D0D]"
+            class="studio-base-btn h-[70px] tablet:h-[60px] bg-primary-color text-white py-3 md:py-5"
           >
             Partner with Us
           </a>
@@ -1130,14 +1105,10 @@ const displayedToolkits = computed(() => {
     <!-- Toolkit Database Section -->
     <div
       id="toolkit-database"
-      class="flex flex-col items-center justify-start mobile:justify-center w-full h-auto mb-36 tablet:mb-[265px] mobile:mb-[129px]"
+      class="flex flex-col items-center justify-start mobile:justify-center w-full h-auto py-10 md:py-10 my-10"
     >
       <div class="w-full">
-        <h2
-          class="text-center font-poppins text-4.5xl tablet:text-[32px] mobile:text-[24px] mobile:text-center font-[400] mb-16"
-        >
-          Toolkit Database
-        </h2>
+        <h2 class="studio-header">Toolkit Database</h2>
       </div>
 
       <!-- Search Bar -->
@@ -1147,7 +1118,7 @@ const displayedToolkits = computed(() => {
             v-model="searchQuery"
             type="text"
             placeholder="Search for toolkits by game name, description, or category..."
-            class="w-full px-6 py-4 border-2 border-[#0C0D0D] rounded-lg font-poppins text-[16px] focus:outline-none focus:border-[#087BB4] shadow-[4px_4px_0px_#0C0D0D]"
+            class="w-full px-6 py-4 border-2 border-[#0C0D0D] rounded-lg text-[16px] focus:outline-none focus:border-[#087BB4] shadow-[4px_4px_0px_#0C0D0D]"
           />
           <div class="absolute right-4 top-1/2 transform -translate-y-1/2">
             <span class="text-2xl">🔍</span>
@@ -1159,7 +1130,7 @@ const displayedToolkits = computed(() => {
       <div class="flex justify-center">
         <div class="max-w-[1200px] w-full">
           <div
-            class="grid grid-cols-4 tablet:grid-cols-2 mobile:grid-cols-1 gap-6 mb-8"
+            class="grid mobile:grid-cols-1 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-8"
           >
             <div
               v-for="toolkit in displayedToolkits"
@@ -1167,26 +1138,25 @@ const displayedToolkits = computed(() => {
               class="bg-white border-2 border-[#0C0D0D] rounded-lg p-4 shadow-[4px_4px_0px_#0C0D0D] hover:shadow-[6px_6px_0px_#0C0D0D] transition-all duration-300"
             >
               <div class="flex items-center justify-between mb-3">
-                <h3 class="font-poppins text-[18px] font-[600] text-[#151E22]">
+                <h3 class="text-[18px] font-[600] text-[#151E22]">
                   {{ toolkit.name }}
                 </h3>
                 <span class="text-2xl">{{ toolkit.platformIcon }}</span>
               </div>
-              <p class="font-poppins text-[14px] text-body mb-3">
+              <p class="text-[14px] text-body mb-3">
                 {{ toolkit.description }}
               </p>
               <div class="bg-[#E5F0F5] rounded px-2 py-1 inline-block">
-                <span
-                  class="font-poppins text-[12px] text-[#087BB4] font-[500]"
-                  >{{ toolkit.category }}</span
-                >
+                <span class="text-[12px] text-[#087BB4] font-[500]">{{
+                  toolkit.category
+                }}</span>
               </div>
             </div>
           </div>
 
           <!-- Results Summary -->
           <div class="text-center">
-            <p class="font-poppins text-[18px] text-body mb-4">
+            <p class="text-[18px] text-body mb-4">
               {{ displayedToolkits.length }} toolkits displayed out of our 100+
               games!
               <span
