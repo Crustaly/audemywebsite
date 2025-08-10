@@ -870,18 +870,14 @@ const displayedToolkits = computed(() => {
         </div>
       </div>
       <div
-        class="lg:w-6/12 w-full my-10 md:my-0 md:py-24 lg:py-0 relative"
+        class="lg:w-6/12 w-full my-10 md:my-0 mobile:py-5 md:py-24 lg:py-0 relative"
         aria-hidden="true"
       >
         <!-- Accessibility: Hide decorative SVG, icons, and images -->
-        <PageDecorations
-          topRightImgPath="/assets/images/game-toolkit/game-control.png"
-          bottomLeftImgPath="/assets/images/game-toolkit/game-console.png"
-        />
         <svg
           viewBox="0 0 200 200"
           xmlns="http://www.w3.org/2000/svg"
-          class="z-0 absolute w-full h-[420px] md:h-[500px] lg:h-[500px] top-0 lg:top-[-90px]"
+          class="z-0 absolute w-full h-[450px] md:h-[500px] lg:h-[500px] mobile:top-[-90px] top-0 lg:top-[-90px]"
         >
           <path
             fill="#e7f0f5"
@@ -889,6 +885,10 @@ const displayedToolkits = computed(() => {
             transform="translate(100 100)"
           />
         </svg>
+        <PageDecorations
+          topRightImgPath="/assets/images/studio/sparkles.png"
+          bottomLeftImgPath="/assets/images/studio/shooting-stars.png"
+        />
         <img
           src="/src/assets/character/toolkit.png"
           alt=""
@@ -991,20 +991,23 @@ const displayedToolkits = computed(() => {
         <h2 class="studio-header">Toolkit Gallery</h2>
       </div>
       <div class="flex justify-center">
-        <div class="max-w-[1200px] w-full">
+        <div class="mobile:w-[310px] w-[85%]">
           <div
             class="grid mobile:grid-cols-1 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-8"
           >
             <div
               v-for="toolkit in displayedToolkits.slice(0, 8)"
               :key="toolkit.id"
-              class="bg-cross-lines border-2 border-[#0C0D0D] rounded-lg p-4 shadow-[4px_4px_0px_#0C0D0D] hover:shadow-[6px_6px_0px_#0C0D0D] transition-all duration-300"
+              class="relative bg-cross-lines border-2 border-[#0C0D0D] rounded-lg p-4 shadow-[4px_4px_0px_#0C0D0D] hover:shadow-[6px_6px_0px_#0C0D0D] transition-all duration-300"
             >
+              <div class="studio-card-banner h-1/3" aria-hidden="true">
+                <!-- Decorative card banner (empty) -->
+              </div>
               <div class="flex items-center justify-between mb-3">
-                <h3 class="text-[18px] font-[600] text-[#151E22]">
+                <h3 class="z-50 text-[18px] font-[600] text-white">
                   {{ toolkit.name }}
                 </h3>
-                <span aria-hidden="true" class="text-2xl">{{
+                <span aria-hidden="true" class="z-50 text-2xl">{{
                   toolkit.platformIcon
                 }}</span>
               </div>
@@ -1096,8 +1099,8 @@ const displayedToolkits = computed(() => {
     >
       <div class="w-full relative p-16">
         <PageDecorations
-          topRightImgPath="/assets/images/game-toolkit/puzzle.png"
-          bottomLeftImgPath="/assets/images/studio/shooting-stars.png"
+          topRightImgPath="/assets/images/game-toolkit/game-control.png"
+          bottomLeftImgPath="/assets/images/game-toolkit/game-console.png"
         />
         <h2 class="studio-header">
           Ready to make gaming <br /><span
@@ -1134,7 +1137,7 @@ const displayedToolkits = computed(() => {
       </div>
 
       <!-- Search Bar -->
-      <div class="max-w-[600px] w-full mb-12">
+      <div class="w-full md:w-[80%] mb-12">
         <div class="relative">
           <input
             v-model="searchQuery"
@@ -1167,20 +1170,23 @@ const displayedToolkits = computed(() => {
 
       <!-- Toolkit Grid -->
       <div class="flex justify-center">
-        <div class="max-w-[1200px] w-full">
+        <div class="mobile:w-[310px] w-[85%]">
           <div
             class="grid mobile:grid-cols-1 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-8"
           >
             <div
               v-for="toolkit in displayedToolkits"
               :key="toolkit.id"
-              class="bg-cross-lines border-2 border-[#0C0D0D] rounded-lg p-4 shadow-[4px_4px_0px_#0C0D0D] hover:shadow-[6px_6px_0px_#0C0D0D] transition-all duration-300"
+              class="relative bg-cross-lines border-2 border-[#0C0D0D] rounded-lg p-4 shadow-[4px_4px_0px_#0C0D0D] hover:shadow-[6px_6px_0px_#0C0D0D] transition-all duration-300"
             >
+              <div class="studio-card-banner h-1/3" aria-hidden="true">
+                <!-- Decorative card banner (empty) -->
+              </div>
               <div class="flex items-center justify-between mb-3">
-                <h3 class="text-[18px] font-[600] text-[#151E22]">
+                <h3 class="z-50 text-[18px] font-[600] text-white">
                   {{ toolkit.name }}
                 </h3>
-                <span aria-hidden="true" class="text-2xl">{{
+                <span aria-hidden="true" class="text-2xl z-50">{{
                   toolkit.platformIcon
                 }}</span>
               </div>
