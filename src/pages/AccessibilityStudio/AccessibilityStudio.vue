@@ -56,7 +56,7 @@ import PageDecorations from '../../components/PageDecorations/PageDecorations.vu
         <svg
           viewBox="0 0 200 200"
           xmlns="http://www.w3.org/2000/svg"
-          class="z-0 absolute w-full h-[400px] md:h-[550px] top-0"
+          class="z-0 absolute w-full h-[380px] md:h-[550px] top-0"
         >
           <path
             fill="#e7f0f5"
@@ -194,7 +194,7 @@ import PageDecorations from '../../components/PageDecorations/PageDecorations.vu
 
     <!-- Who We Work With Section -->
     <div
-      class="relative flex flex-col items-center justify-start mobile:justify-center w-full h-auto my-10 p-10"
+      class="relative flex flex-col items-center justify-start mobile:justify-center w-full h-auto my-10 p-12"
     >
       <div class="w-full">
         <h2 class="studio-header">Who We Work With</h2>
