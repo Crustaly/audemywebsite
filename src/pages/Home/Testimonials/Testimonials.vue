@@ -4,43 +4,44 @@ import { ref, computed } from 'vue';
 const testimonials = [
   {
     image: '/assets/images/testimonials/testimonial1.png',
-    text: `“I appreciate Audemy.org for offering a wide variety of academic games, particularly those focused on nourishing spelling, life skills and independence. The option to reward my students at the end of their lessons with 5 quick educational questions/games, fits in well into our busy schedule.”`,
+    text: `"I appreciate Audemy.org for offering a wide variety of games, particularly those focused on nourishing life skills and independence. The option to reward my students at the end of their lessons with 5 quick educational questions/games, fits in well into our busy schedule."`,
     name: 'Stephanie Bissonette',
     role: 'Director of Children Services at the Vermont Association for the Blind (sbissonette@vabvi.org)',
-  },
-  {
-    image: '/assets/images/testimonials/testimonial2.png',
-    text: `“Audemy has been an invaluable tool within my classroom. My students who played the games were very into it, and the games cover tons of educational topics like math and language!”`,
-    name: 'Teacher',
-    role: 'Texas School for the Blind and Visually Impaired',
-  },
-  {
-    image: '/assets/images/testimonials/testimonial3.png',
-    text: `“Audemy’s games provide accessible and engaging educational content for our blind students. We encourage parents and other teachers to check it out as well.”`,
-    name: 'Staff',
-    role: 'Kansas School for the Blind',
-  },
-  {
-    image: '/assets/images/testimonials/testimonial4.png',
-    text: `“Audemy’s audio games are really cool! My favorite game was car counting because I love cars and math.”`,
-    name: 'Adam',
-    role: 'A Student who is blind from Houston',
-  },
+  }, 
   {
     image: '/assets/images/impact/arizonaStudent.png',
-    text: `“Hello! My name is Denise Bean, Youth Service Librarian for the Iowa Library for the Blind and Print Disabled, and one of the greatest joys of my work is building meaningful connections with children who are blind or have low vision. During one of our 28 virtual Summer Reading Program events, we introduced a game called Audemy, and what an unforgettable experience it was! The children lit up with excitement, laughter filled the room, and the joy was contagious.”`,
+    text: `"Hello! My name is Denise Bean, Youth Service Librarian for the Iowa Library for the Blind and Print Disabled, and one of the greatest joys of my work is building meaningful connections with children who are blind or have low vision. During one of our 28 virtual Summer Reading Program events, we introduced a game called Audemy, and what an unforgettable experience it was! The children lit up with excitement, laughter filled the room, and the joy was contagious."`,
     name: 'Denise Bean',
     role: 'Youth service librarian from the Iowa Library for the Blind (Denise.Bean@blind.state.ia.us)',
   },
   {
+    image: '/assets/images/testimonials/testimonial2.png',
+    text: `"The audio gaming experience on Audemy is incredible! My students are completely immersed in the games - the sound effects, voice acting, and interactive gameplay make it feel like a real gaming console. They can't get enough of the adventure-style games!"`,
+    name: 'Technology Coordinator',
+    role: 'Texas School for the Blind and Visually Impaired',
+  },
+  {
+    image: '/assets/images/testimonials/testimonial3.png',
+    text: `"Audemy's gaming platform is revolutionary for blind gamers. The audio-only design creates an immersive experience that rivals mainstream games. Our students love competing with each other and achieving high scores!"`,
+    name: 'Workshop Coordinator',
+    role: 'Massachusetts Lighthouse for the Blind',
+  },
+  {
+    image: '/assets/images/testimonials/testimonial4.png',
+    text: `"Audemy's games are so much fun! I love the car racing game and the adventure quests. The sound effects make me feel like I'm really driving or exploring. It's the coolest gaming experience I've ever had!"`,
+    name: 'Adam',
+    role: 'A Student who is blind from Houston',
+  },
+ 
+  {
     image: '/assets/images/impact/5b46078e-65e0-42c8-a658-2939c6676a21.jpeg',
-    text: `“Audemy is not only easy to use, but it’s also beautifully adaptable to meet a wide range of learning levels. From fun audio cues to thoughtfully chosen topics for all levels, the game offers an inclusive and engaging way to learn and play. It was a hit with our group, and they couldn’t wait to play again!`,
-    name: 'Staff',
+    text: `"The gaming mechanics on Audemy are brilliant! The audio cues, spatial awareness features, and competitive elements create an engaging gaming experience that keeps our players coming back. It's like having a professional gaming studio designed specifically for blind gamers."`,
+    name: 'Technology Specialist',
     role: 'Iowa Center for the Blind',
   },
   {
     image: '/assets/images/impact/carousel/carousel1.jpg',
-    text: `“Audemy isn’t just for our library programs, it would be a perfect fit for public libraries everywhere. A huge thank you to Crystal for designing this game with such care and intention. She truly thought of everything to make sure every player feels included."`,
+    text: `"Audemy has transformed our gaming programs! The multiplayer features and leaderboards create a social gaming experience that's rare for blind players. Crystal has created something truly special - a gaming platform that's both accessible and genuinely fun to play."`,
     name: 'Librarian',
     role: 'for Blind Students',
   },
@@ -83,12 +84,9 @@ function prev() {
       class="font-poppins flex flex-col gap-y-3 mobile:px-5 text-center relative"
     >
       <h1 class="text-4.5xl text-title mobile:text-[24px]">
-        What people are saying
+        What people are saying:
       </h1>
-      <p class="text-body text-xl mobile:text-[16px]">
-        Our learners are our top priority, and we strive to make their
-        experience unique and enriching.
-      </p>
+     
     </div>
 
     <!-- Carousel Area -->

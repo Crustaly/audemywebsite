@@ -181,7 +181,7 @@ const teachers = [
       "
       class="w-1/2 font-poppins font-[600] p-3 rounded-tl-[8px] rounded-tr-[8px] h-[50px] flex justify-center items-center"
     >
-      Partnered Educators
+      Partnered Staff
     </button>
 
     <button
@@ -193,7 +193,7 @@ const teachers = [
       "
       class="w-1/2 font-poppins font-[600] p-3 rounded-tl-[8px] rounded-tr-[8px] h-[50px] flex justify-center items-center"
     >
-      Affiliated Schools
+      Affiliated Organizations
     </button>
   </div>
 
