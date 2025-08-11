@@ -2,6 +2,7 @@
 @import './form-style.css';
 @import './game-zone-style.css';
 @import './footer-style.css';
+@import './game-resources-style.css';
 
 @tailwind base;
 @tailwind components;

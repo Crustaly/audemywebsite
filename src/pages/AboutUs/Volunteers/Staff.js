@@ -27,7 +27,7 @@ const founderStaff = [
   {
     name: 'Crystal Yang',
     role: 'Founder & Chief Executive Officer',
-    image: '/assets/images/about-us/volunteers/crystal.png',
+    image: '/assets/images/about-us/volunteers/crystal yang.png',
     github: 'https://github.com/crustaly',
     linkedin: 'https://www.linkedin.com/in/crustaly/',
     email: 'crystal@audemy.org',

@@ -75,11 +75,11 @@ let videoStoped = () => {
 
 <template>
   <div
-    class="mt-[44px] mb-[2rem] mobile:mb-[128px] flex items-center justify-around mobile:gap-[64px] text-left mobile:flex-col"
+    class="mt-16 mb-16 mobile:mb-20 flex items-center justify-around mobile:gap-12 text-left mobile:flex-col"
     :class="{ 'tablet-showcase': isTablet }"
   >
     <div
-      class="ml-[10%] tablet:ml-[5%] mobile:ml-0 relative w-[295px] h-[529px] tablet:w-[238px] tablet:h-[426px] mobile:w-[296px] mobile:h-[529px] mobile:order-2"
+      class="ml-8 tablet:ml-4 mobile:ml-0 relative w-[295px] h-[529px] tablet:w-[238px] tablet:h-[426px] mobile:w-[296px] mobile:h-[529px] mobile:order-2"
     >
       <img
         class="w-[295px] h-[529px] tablet:w-[238px] tablet:h-[426px] mobile:w-[296px] mobile:h-[529px] max-w-none"
@@ -132,23 +132,23 @@ let videoStoped = () => {
     </div>
 
     <div
-      class="max-w-[505px] tablet:max-w-[440px] h-[348px] tablet:h-[309px] mobile:h-[285px] grid justify-self-start mobile:order-1 mobile:items-center mobile:text-center"
+      class="max-w-[505px] tablet:max-w-[440px] h-[348px] tablet:h-[309px] mobile:h-[285px] grid justify-self-start mobile:order-1 mobile:items-center mobile:text-center gap-6"
       :class="{ 'tablet-text-container': isTablet }"
     >
       <h1
         class="font-poppins text-[40px] tablet:text-[32px] mobile:text-[24px] leading-[60px] tablet:leading-[48px] mobile:leading-[36px] text-[#151E22]"
       >
-        Learning is more fun when it
-        <span style="color: #077bb3; font-weight: 700">talks back</span>.
+        Games are more accessible when they
+        <span style="color: #077bb3; font-weight: 700">talk back</span>.
       </h1>
 
       <p
-        class="font-poppins text-[20px] tablet:text-[16px] leading-[30px] tablet:leading-[24px] text-[#2F3E45]"
+        class="font-poppins text-[20px] tablet:text-[16px] leading-[30px] tablet:leading-[24px] text-[#2F3E45] mb-6"
       >
         We’ve built <strong>50+ accessible audio games</strong> that make
         learning joyful, inclusive, and interactive—designed for blind and
         visually impaired students to learn through play. So far, students have
-        solved <strong>100,000+ learning challenges</strong> on our platform!
+        solved <strong>100,000+ in-game challenges</strong> on our platform!
       </p>
 
       <div class="flex mobile:mx-0 items-end">

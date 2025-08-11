@@ -60,11 +60,11 @@
             Our Team
           </router-link>
         </li>
-        <li id="projects-item">
+        <!--li id="projects-item">
           <router-link to="/our-projects" class="navbar-link-desktop">
             Our Projects
           </router-link>
-        </li>
+        </li-->
         <li id="impact-item">
           <router-link to="/impact" class="navbar-link-desktop">
             Impact
@@ -74,6 +74,12 @@
           <router-link to="/press" class="navbar-link-desktop">
             Press & Recognition
           </router-link>
+        </li>
+        <li id="game-toolkit-item">
+          <router-link to="/game-toolkit" class="navbar-link-desktop">Game Toolkit</router-link>
+        </li>
+        <li id="accessibility-studio-item">
+          <router-link to="/accessibility-studio" class="navbar-link-desktop">Accessibility Studio</router-link>
         </li>
         <!-- TODO: This GameZone link is to be used when user auth is implemented -->
         <!-- li id="games-item">
@@ -173,7 +179,7 @@
               Our Team
             </router-link>
           </li>
-          <li>
+          <!--li>
             <router-link
               to="/our-projects"
               class="navbar-link-mobile"
@@ -181,7 +187,7 @@
             >
               Our Projects
             </router-link>
-          </li>
+          </li-->
           <li>
             <router-link
               to="/impact"
@@ -198,6 +204,16 @@
               @click="closeMenu"
             >
               Press & Recognition
+            </router-link>
+          </li>
+          <li>
+            <router-link to="/game-toolkit" class="navbar-link-mobile" @click="closeMenu">
+              Game Toolkit
+            </router-link>
+          </li>
+          <li>
+            <router-link to="/accessibility-studio" class="navbar-link-mobile" @click="closeMenu">
+              Accessibility Studio
             </router-link>
           </li>
           <!-- TODO: This GameZone link is to be used when user auth is implemented -->
@@ -361,15 +377,15 @@ import Cookies from 'js-cookie';
 import { useRouter } from 'vue-router';
 
 // Extracted Tailwind classes for <router-link> grid layout (desktop)
-const navLinksGridClasses = [
+  const navLinksGridClasses = [
   'justify-end',
+  'items-center',
   'md:col-start-1',
-  'md:col-span-6',
-  'md:grid',
-  'md:[grid-template-columns:repeat(7,auto)]',
+  'md:col-span-8',     
+  'md:flex',           
+  'md:space-x-6',      
   'font-poppins',
   'font-semibold',
-  'md:gap-x-2',
 ];
 
 // Extracted Tailwind classes for successful logout alert

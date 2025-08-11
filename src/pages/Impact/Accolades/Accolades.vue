@@ -44,7 +44,7 @@ onUnmounted(() => {
   <div class="flex w-full px-20 relative">
     <!-- MAIN CONTENT -->
     <div
-      class="flex flex-col items-center justify-center mobile:justify-center w-full h-[10%] mb-36 tablet:mb-[265px] mobile:mb-[129px]"
+      class="flex flex-col items-center justify-center mobile:justify-center w-full h-[10%] mb-4"
     >
       <div class="w-full">
         <h3

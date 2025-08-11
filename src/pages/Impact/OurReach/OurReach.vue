@@ -1,5 +1,5 @@
 <script setup>
-import Students from '/assets/images/impact/students 1.svg';
+import Students from '/assets/images/impact/carl-pencil.svg';
 import Problems from '/assets/images/impact/problems 1.svg';
 import Globe from '/assets/images/impact/globe 1.svg';
 
@@ -20,7 +20,7 @@ const impactImages = [
 </script>
 
 <template>
-  <div class="flex flex-col justify-center items-center">
+  <div class="flex flex-col justify-center items-center mt-20">
     <h3
       class="font-poppins text-[12px] font-[500] tracking-[3.6px] mb-4 text-[#6E777C] text-center"
     >
@@ -37,7 +37,7 @@ const impactImages = [
   </div>
 
   <div
-    class="relative w-full flex flex-col items-center px-4 md:px-12 lg:px-24 py-12"
+    class="relative w-full flex flex-col items-center px-4 md:px-12 lg:px-24 py-12 pb-24"
   >
     <!-- Decorative icons -->
     <img
@@ -68,72 +68,21 @@ const impactImages = [
           index % 6 === 0
             ? 'rotate-[-1.5deg]'
             : index % 6 === 1
-              ? 'rotate-[1deg]'
-              : index % 6 === 2
-                ? 'rotate-[1.5deg]'
-                : index % 6 === 3
-                  ? 'rotate-[-2deg]'
-                  : index % 6 === 4
-                    ? 'rotate-[0.5deg]'
-                    : '',
+            ? 'rotate-[1deg]'
+            : index % 6 === 2
+            ? 'rotate-[1.5deg]'
+            : index % 6 === 3
+            ? 'rotate-[-2deg]'
+            : index % 6 === 4
+            ? 'rotate-[0.5deg]'
+            : '',
         ]"
       >
         <img :src="img" alt="Impact" class="w-full h-full object-cover" />
       </div>
     </div>
 
-    <!-- ✅ Stat Cards Section -->
-    <div class="w-full flex flex-wrap justify-center gap-x-7 gap-y-6 mt-16">
-      <!-- Card 1 -->
-      <div
-        class="bg-card-background w-[280px] flex flex-col items-center rounded-xl border-2 border-[#C5DBE2] pb-3 px-3"
-      >
-        <img :src="Students" alt="Student" class="-translate-y-10" />
-        <div class="flex flex-col items-center text-body">
-          <h1
-            class="font-serif font-semibold text-7xl mobile:text-4xl text-[#d96f1f]"
-          >
-            1 in 5
-          </h1>
-          <p class="font-poppins text-base text-center mobile:text-[12px]">
-            blind students<br />learning through play
-          </p>
-        </div>
-      </div>
-
-      <!-- Card 2 -->
-      <div
-        class="bg-card-background w-[280px] flex flex-col items-center rounded-xl border-2 border-[#C5DBE2] translate-y-1/4 pb-3 px-3"
-      >
-        <img :src="Problems" alt="Problem" class="-translate-y-10" />
-        <div class="flex flex-col items-center text-body">
-          <h1
-            class="font-serif font-bold text-7xl mobile:text-4xl text-[#077bb3]"
-          >
-            36
-          </h1>
-          <p class="font-poppins text-base text-center mobile:text-[12px]">
-            partnering <br />schools
-          </p>
-        </div>
-      </div>
-
-      <!-- Card 3 -->
-      <div
-        class="bg-card-background w-[280px] flex flex-col items-center rounded-xl border-2 border-[#C5DBE2] pb-3 px-3"
-      >
-        <img :src="Globe" alt="Globe" class="-translate-y-10" />
-        <div class="flex flex-col items-center text-body">
-          <h1
-            class="font-serif font-bold text-7xl mobile:text-4xl text-[#d96f1f]"
-          >
-            66
-          </h1>
-          <p class="font-poppins text-base text-center mobile:text-[12px]">
-            countries <br />and counting...
-          </p>
-        </div>
-      </div>
-    </div>
+   
+   
   </div>
 </template>

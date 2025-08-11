@@ -7,7 +7,7 @@ import SponsorsCarousel from './SponsorsCarousel/SponsorsCarousel.vue';
     <h1
       class="text-small font-poppins text-xs text-center font-bold tracking-[6px]"
     >
-      SPONSORS THAT TRUSTED US, AMONG OTHERS:
+      SPONSORS THAT SUPPORT US, AMONG OTHERS:
     </h1>
     <div class="sponsors-carousel w-full">
       <div
@@ -23,6 +23,20 @@ import SponsorsCarousel from './SponsorsCarousel/SponsorsCarousel.vue';
           alt="google logo"
           class="mx-auto"
         />
+                                   <img
+            src="/assets/images/sponsors/Amazon-Logo.png"
+            alt="amazon logo"
+            class="mx-auto w-32 h-16 object-contain"
+          />
+                 <img
+           src="/assets/images/sponsors/ae.png"
+           alt="ae foundation logo"
+           class="mx-auto w-32 h-16 object-contain"
+         />
+      </div>
+      <div
+        class="w-full scroll-auto grid grid-cols-4 grid-row-a items-center justify-center text-center mb-5"
+      >
         <img
           src="/assets/images/sponsors/hersheys.svg"
           alt="hersheys logo"
@@ -33,6 +47,16 @@ import SponsorsCarousel from './SponsorsCarousel/SponsorsCarousel.vue';
           alt="desmos logo"
           class="mx-auto"
         />
+        <img
+          src="/assets/images/sponsors/aops.svg"
+          alt="aops logo"
+          class="mx-auto"
+        />
+                 <img
+           src="/assets/images/sponsors/contribution.webp"
+           alt="contribution logo"
+           class="mx-auto w-28 h-14 object-contain"
+         />
       </div>
       <div
         class="w-full scroll-auto grid grid-cols-4 grid-row-a items-center justify-center text-center"
@@ -48,7 +72,7 @@ import SponsorsCarousel from './SponsorsCarousel/SponsorsCarousel.vue';
           class="mx-auto"
         />
         <img
-          src="/assets/images/sponsors/k4c.svg"
+          src="/assets/images/sponsors/k4c logo.svg"
           alt="k4c logo"
           class="mx-auto"
         />
