@@ -15,6 +15,10 @@
   @apply h-[55px] font-bold rounded-lg border-2 border-black shadow-[4px_4px_0px_black] hover:bg-opacity-90;
 }
 
+.page-button-flex {
+  @apply flex mobile:flex-col justify-center items-center my-10;
+}
+
 /* --- Pattern: White bg with grey crossed-lines --- */
 .bg-cross-lines {
   @apply bg-white bg-[linear-gradient(to_right,#e0e0e0_1px,transparent_1px),linear-gradient(to_bottom,#e0e0e0_1px,transparent_1px)] bg-[size:24px_24px];
@@ -25,9 +29,11 @@
   @apply scale-105 transition duration-500;
 }
 
-/* --- Currently applied in: legal/info pages; reusable elsewhere --- */
-
 /* --- Typography --- */
+.page-header {
+  @apply text-center text-4.5xl tablet:text-[32px] mobile:text-[24px] mobile:text-center font-[400] py-5;
+}
+
 .page-subheader {
   @apply font-semibold text-primary-color text-lg mt-8 mb-2;
 }
