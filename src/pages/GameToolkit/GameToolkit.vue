@@ -1069,7 +1069,7 @@ const displayedToolkits = computed(() => {
           <div class="md:mx-auto flex justify-center items-center my-16 mx-10">
             <a
               href="#toolkit-database"
-              class="game-resource-base-btn h-[70px] tablet:h-[60px] bg-primary-color text-white py-3 md:py-5"
+              class="game-resource-base-btn blue-button h-[70px] tablet:h-[60px] py-3 md:py-5"
             >
               View All Toolkits
             </a>
@@ -1158,13 +1158,13 @@ const displayedToolkits = computed(() => {
         >
           <a
             href="#toolkit-database"
-            class="game-resource-base-btn h-[70px] tablet:h-[60px] bg-[#FE892A] text-[#0D0C0C] mobile:px-5 py-3 md:py-5"
+            class="game-resource-base-btn orange-button h-[70px] tablet:h-[60px] mobile:px-5 py-3 md:py-5"
           >
             Download a Toolkit
           </a>
           <a
             href="/accessibility-studio"
-            class="game-resource-base-btn h-[70px] tablet:h-[60px] bg-primary-color text-white py-3 md:py-5"
+            class="game-resource-base-btn blue-button h-[70px] tablet:h-[60px] py-3 md:py-5"
           >
             Partner with Us
           </a>
