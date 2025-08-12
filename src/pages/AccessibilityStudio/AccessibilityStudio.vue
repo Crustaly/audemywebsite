@@ -42,7 +42,7 @@ import PageDecorations from '../../components/PageDecorations/PageDecorations.vu
         <div class="game-resource-btn-flex">
           <a
             href="mailto:connect@audemy.org"
-            class="game-resource-base-btn mx-auto h-[70px] tablet:h-[60px] bg-[#FE892A] text-[#0D0C0C] mobile:px-5 py-3 md:py-5"
+            class="game-resource-base-btn orange-button mx-auto h-[70px] tablet:h-[60px] mobile:px-5 py-3 md:py-5"
           >
             Start Your Accessibility Test
           </a>
@@ -386,7 +386,7 @@ import PageDecorations from '../../components/PageDecorations/PageDecorations.vu
           <a
             href="mailto:connect@audemy.org"
             target="_blank"
-            class="game-resource-base-btn h-[70px] tablet:h-[60px] bg-primary-color text-white py-3 md:py-5"
+            class="game-resource-base-btn blue-button h-[70px] tablet:h-[60px] py-3 md:py-5"
           >
             Book Your Free Test
           </a>
@@ -415,7 +415,7 @@ import PageDecorations from '../../components/PageDecorations/PageDecorations.vu
           <img
             src="/assets/images/impact/carl-pencil.svg"
             alt=""
-            class="mx-auto"
+            class="mx-auto mobile:w-[70%]"
           />
         </div>
       </div>
