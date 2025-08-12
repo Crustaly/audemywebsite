@@ -12,7 +12,15 @@
 
 /* --- Buttons --- */
 .page-button {
-  @apply h-[55px] font-bold rounded-lg border-2 border-black shadow-[4px_4px_0px_black] hover:bg-opacity-90;
+  @apply h-[55px] font-bold rounded-lg border-2 border-black shadow-[4px_4px_0px_black] duration-300;
+}
+
+.blue-button {
+  @apply bg-[#087BB4] hover:bg-[#0C587D] text-white;
+}
+
+.orange-button {
+  @apply bg-[#FE892A] hover:bg-[#D6711F] text-[#0D0C0C];
 }
 
 .page-button-flex {

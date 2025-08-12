@@ -39,7 +39,7 @@ import CrystalWithGroups from '../../../assets/images/crystalwith groups.jpeg';
                 </h3>
               </a>
               <p
-                class="ftext-body text-sm mobile:text-base leading-6"
+                class="text-body text-sm mobile:text-base leading-6"
               >
                 We've built 50+ AI-powered, fully accessible games — from word
                 puzzles to strategy titles!

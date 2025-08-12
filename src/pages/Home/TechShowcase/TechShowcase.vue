@@ -152,7 +152,7 @@ let videoStoped = () => {
       <div class="flex text-center my-10">
         <a
           href="our-projects"
-          class="mx-auto page-button w-[300px] py-3 bg-[#087BB4] hover:bg-[#0C587D] text-white ease-in duration-300"
+          class="mx-auto page-button blue-button w-[300px] py-3 ease-in"
         >
           Discover more
         </a>
