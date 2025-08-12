@@ -70,7 +70,7 @@ function prev() {
 
 <template>
   <div
-    class="md:translate-y-[180px] lg:translate-y-0 my-10 py-80 flex flex-col items-center gap-y-12 self-center pt-80 relative z-10"
+    class="my-10 py-80 flex flex-col items-center gap-y-12 self-center pt-80 relative z-10"
   >
     <!-- Background image -->
     <img
