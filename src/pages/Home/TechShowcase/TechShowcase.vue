@@ -75,11 +75,11 @@ let videoStoped = () => {
 
 <template>
   <div
-    class="mt-16 mb-16 mobile:mb-20 flex items-center justify-around mobile:gap-12 text-left mobile:flex-col"
+    class="flex items-center flex-col lg:flex-row justify-center items-center gap-x-5 gap-y-16 md:gap-y-0 py-10 my-10"
     :class="{ 'tablet-showcase': isTablet }"
   >
     <div
-      class="ml-8 tablet:ml-4 mobile:ml-0 relative w-[295px] h-[529px] tablet:w-[238px] tablet:h-[426px] mobile:w-[296px] mobile:h-[529px] mobile:order-2"
+      class="relative w-[295px] h-[529px] tablet:w-[238px] tablet:h-[426px] mobile:w-[296px] mobile:h-[529px] mobile:order-2"
     >
       <img
         class="w-[295px] h-[529px] tablet:w-[238px] tablet:h-[426px] mobile:w-[296px] mobile:h-[529px] max-w-none"
@@ -132,18 +132,16 @@ let videoStoped = () => {
     </div>
 
     <div
-      class="max-w-[505px] tablet:max-w-[440px] h-[348px] tablet:h-[309px] mobile:h-[285px] grid justify-self-start mobile:order-1 mobile:items-center mobile:text-center gap-6"
+      class="text-center w-[80%] md:-translate-x-12 md:w-1/2 lg:translate-x-0 lg:mx-8 py-5"
       :class="{ 'tablet-text-container': isTablet }"
     >
-      <h1
-        class="font-poppins text-[40px] tablet:text-[32px] mobile:text-[24px] leading-[60px] tablet:leading-[48px] mobile:leading-[36px] text-[#151E22]"
-      >
+      <h1 class="page-header">
         Games are more accessible when they
-        <span style="color: #077bb3; font-weight: 700">talk back</span>.
+        <span style="color: #077bb3; font-weight: 700">talk back</span>
       </h1>
 
       <p
-        class="font-poppins text-[20px] tablet:text-[16px] leading-[30px] tablet:leading-[24px] text-[#2F3E45] mb-6"
+        class="text-[20px] tablet:text-[16px] leading-[30px] tablet:leading-[24px] text-[#2F3E45] mb-6"
       >
         We’ve built <strong>50+ accessible audio games</strong> that make
         learning joyful, inclusive, and interactive—designed for blind and
@@ -151,10 +149,10 @@ let videoStoped = () => {
         solved <strong>100,000+ in-game challenges</strong> on our platform!
       </p>
 
-      <div class="flex mobile:mx-0 items-end">
+      <div class="flex text-center my-10">
         <a
           href="our-projects"
-          class="font-poppins font-semiBold w-[236.07px] mobile:w-full h-[56px] tablet:h-[60px] mobile:h-[56px] leading-[56px] tablet:leading-[60px] border-[1.5px] border-[#0C0D0D] rounded-[8px] bg-[#087BB4] hover:bg-[#0C587D] text-[16px] text-center text-white shadow-[4px_4px_0px_#0C0D0D]"
+          class="mx-auto page-button w-[300px] py-3 bg-[#087BB4] hover:bg-[#0C587D] text-white ease-in duration-300"
         >
           Discover more
         </a>
