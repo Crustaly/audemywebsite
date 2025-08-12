@@ -8,9 +8,9 @@
       <div class="px-5">
         <h1 class="page-header">
           Powering the
-          <span style="color: #077bb3" class="font-semibold"> Future</span>
+          <i class="text-[#fe892a]"> Future</i>
           of
-          <span style="color: #077bb3" class="font-semibold"
+          <span class="font-semibold text-primary-color"
             >Accessible Gaming</span
           >
         </h1>
@@ -27,7 +27,7 @@
       <div class="page-button-flex">
         <a
           href="/game-zone-landing-page"
-          class="page-button w-[280px] mx-auto text-center p-4 bg-[#FE892A] hover:bg-[#D6711F] text-[#0D0C0C] duration-300"
+          class="page-button orange-button w-[280px] mx-auto text-center p-4"
         >
           Play our games!
         </a>
@@ -38,7 +38,7 @@
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 1440 320"
-        class="rotate-[-90deg] absolute right-0 -z-10 h-[600px] translate-x-[1100px] -translate-y-[90px] md:-translate-y-[50px]"
+        class="rotate-[-90deg] absolute right-0 -z-10 h-[600px] translate-x-[1110px] translate-y-[70px]"
       >
         <path
           fill="#e7f0f5"
