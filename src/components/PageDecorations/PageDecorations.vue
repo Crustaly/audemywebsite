@@ -30,6 +30,12 @@ const props = defineProps({
     type: String,
     required: false,
   },
+  // increaseIconSize: flag used to scale small icons
+  increaseIconSize: {
+    type: Boolean,
+    required: false,
+    default: false,
+  },
 });
 </script>
 
@@ -38,19 +44,31 @@ const props = defineProps({
   <div aria-hidden="true">
     <img
       :src="topLeftImgPath ? topLeftImgPath : Star"
-      class="absolute top-5 left-5 w-[50px] rotate-[-.5rad]"
+      :class="[
+        increaseIconSize ? 'w-[60px]' : 'w-[50px]',
+        'absolute top-5 left-5 rotate-[-.5rad]',
+      ]"
     />
     <img
       :src="topRightImgPath ? topRightImgPath : Star"
-      class="absolute top-10 right-10 w-[40px] rotate-[0.45rad]"
+      :class="[
+        increaseIconSize ? 'w-[55px]' : 'w-[40px]',
+        'absolute top-10 right-10 rotate-[0.45rad]',
+      ]"
     />
     <img
       :src="bottomLeftImgPath ? bottomLeftImgPath : Star"
-      class="absolute bottom-5 left-5 w-[40px] rotate-[-.5rad]"
+      :class="[
+        increaseIconSize ? 'w-[55px]' : 'w-[40px]',
+        'absolute bottom-5 left-5 rotate-[-.5rad]',
+      ]"
     />
     <img
       :src="bottomRightImgPath ? bottomRightImgPath : Star"
-      class="absolute bottom-5 right-2 w-[45px] rotate-[0.3rad]"
+      :class="[
+        increaseIconSize ? 'w-[60px]' : 'w-[45px]',
+        'absolute bottom-5 right-2 rotate-[0.3rad]',
+      ]"
     />
   </div>
 </template>
