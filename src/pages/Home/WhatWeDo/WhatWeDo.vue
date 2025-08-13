@@ -25,7 +25,7 @@ import CrystalWithGroups from '../../../assets/images/crystalwith groups.jpeg';
             class="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-600/10 rounded-xl border border-blue-500/20 group-hover:border-blue-400/40 transition-all duration-300"
           ></div>
           <div
-            class="relative z-10 flex flex-col mobile:flex-col-reverse gap-4"
+            class="relative z-10 flex flex-col mobile:flex-col-reverse gap-4 h-full"
           >
             <div class="flex-1 text-center lg:py-5">
               <a href="/game-zone-landing-page" class="block">
@@ -46,7 +46,7 @@ import CrystalWithGroups from '../../../assets/images/crystalwith groups.jpeg';
               </p>
             </div>
             <!-- Decorative image and filter -->
-            <div class="flex-1 flex justify-center" aria-hidden="true">
+            <div class="mt-auto flex justify-center" aria-hidden="true">
               <div
                 class="w-[80%] mx-auto md:w-full relative group-hover:scale-105 transition-transform duration-300"
               >
@@ -71,7 +71,7 @@ import CrystalWithGroups from '../../../assets/images/crystalwith groups.jpeg';
             class="absolute inset-0 bg-gradient-to-br from-green-500/10 to-blue-600/10 rounded-xl border border-green-500/20 group-hover:border-green-400/40 transition-all duration-300"
           ></div>
           <div
-            class="relative z-10 flex flex-col mobile:flex-col-reverse gap-4"
+            class="relative z-10 flex flex-col mobile:flex-col-reverse gap-4 h-full" 
           >
             <div class="flex-1 text-center lg:py-5">
               <a href="/game-toolkit" class="block">
@@ -92,7 +92,7 @@ import CrystalWithGroups from '../../../assets/images/crystalwith groups.jpeg';
               </p>
             </div>
             <!-- Decorative image and filter -->
-            <div class="flex-1 flex justify-center" aria-hidden="true">
+            <div class="mt-auto flex justify-center" aria-hidden="true">
               <div
                 class="w-[80%] mx-auto md:w-full relative group-hover:scale-105 transition-transform duration-300"
               >
@@ -117,7 +117,7 @@ import CrystalWithGroups from '../../../assets/images/crystalwith groups.jpeg';
             class="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-pink-600/10 rounded-xl border border-purple-500/20 group-hover:border-purple-400/40 transition-all duration-300"
           ></div>
           <div
-            class="relative z-10 flex flex-col mobile:flex-col-reverse gap-4"
+            class="relative z-10 flex flex-col mobile:flex-col-reverse gap-4 h-full"
           >
             <div class="flex-1 text-center lg:py-5">
               <a href="/buzzle" class="block">
@@ -138,7 +138,7 @@ import CrystalWithGroups from '../../../assets/images/crystalwith groups.jpeg';
               </p>
             </div>
             <!-- Decorative image and filter -->
-            <div class="flex-1 flex justify-center" aria-hidden="true">
+            <div class="mt-auto flex justify-center" aria-hidden="true">
               <div
                 class="w-[80%] mx-auto md:w-full relative group-hover:scale-105 transition-transform duration-300"
               >
@@ -163,7 +163,7 @@ import CrystalWithGroups from '../../../assets/images/crystalwith groups.jpeg';
             class="absolute inset-0 bg-gradient-to-br from-orange-500/10 to-red-600/10 rounded-xl border border-orange-500/20 group-hover:border-orange-400/40 transition-all duration-300"
           ></div>
           <div
-            class="relative z-10 flex flex-col mobile:flex-col-reverse gap-4"
+            class="relative z-10 flex flex-col mobile:flex-col-reverse gap-4 h-full"
           >
             <div class="flex-1 text-center lg:py-5">
               <a href="/accessibility-studio" class="block">
@@ -184,7 +184,7 @@ import CrystalWithGroups from '../../../assets/images/crystalwith groups.jpeg';
               </p>
             </div>
             <!-- Decorative image and filter -->
-            <div class="flex-1 flex justify-center" aria-hidden="true">
+            <div class="mt-auto flex justify-center" aria-hidden="true">
               <div
                 class="w-[80%] mx-auto md:w-full relative group-hover:scale-105 transition-transform duration-300"
               >
