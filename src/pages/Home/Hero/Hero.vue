@@ -1,10 +1,16 @@
 <template>
-  <div
-    class="flex md:items-start items-center md:flex-row flex-col-reverse gap-x-5 py-8 my-5"
-  >
+  <div class="flex items-center md:flex-row flex-col-reverse gap-x-5 py-8 my-5">
     <div
-      class="lg:w-6/12 w-full flex flex-col items-center text-center md:text-left lg:text-center mx-10"
+      class="relative md:py-36 lg:w-6/12 w-full flex flex-col items-center text-center md:text-left lg:text-center mx-10"
     >
+      <PageDecorations
+        class="hidden md:block"
+        :topLeftImgPath="Glasses"
+        :topRightImgPath="Bulb"
+        :bottomRightImgPath="Book"
+        :bottomLeftImgPath="YellowStar"
+        :increaseIconSize="true"
+      />
       <div class="px-5">
         <h1 class="page-header">
           Powering the
@@ -17,7 +23,7 @@
       </div>
       <div>
         <p
-          class="my-5 font-poppins text-body text-center text-xl mobile:text-[16px] max-w-md leading-8"
+          class="p-3 my-5 font-poppins text-body text-center text-xl mobile:text-[16px] max-w-md leading-8"
         >
           Our gaming solutions are transforming access to gaming, reaching
           <strong>100,000+ blind and visually impaired gamers worldwide</strong
@@ -54,3 +60,11 @@
     </div>
   </div>
 </template>
+
+<script setup>
+import PageDecorations from '/src/components/PageDecorations/PageDecorations.vue';
+import YellowStar from '/assets/images/testimonials/star.svg';
+import Glasses from '/assets/images/impact/glasses.svg';
+import Book from '/assets/images/SignUpImg/books.png';
+import Bulb from '/assets/images/about-us/bulb.png';
+</script>
