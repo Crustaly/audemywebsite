@@ -41,37 +41,35 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="flex w-full px-20 relative font-poppins">
-    <!-- MAIN CONTENT -->
+  <div class="my-10 flex-col w-full py-10 relative font-poppins">
+    <!-- ACCOLADES HEADER: ACCENT & TITLE -->
     <div
-      class="flex flex-col items-center justify-center mobile:justify-center w-full h-[10%] mb-4"
+      class="flex flex-col items-center justify-center mobile:justify-center w-[80%] mx-auto"
     >
       <div class="w-full">
         <h3 class="page-header-accent">ACCOLADES AND RECOGNITION</h3>
       </div>
-
-      <div class="max-w-[519px]">
+      <div>
         <h2 class="page-header">
           A
           <span class="font-semibold text-primary-color"> testament </span>
           to our work
         </h2>
       </div>
-
-      <div class="flex justify-center">
-        <div class="w-full">
-          <div
-            id="div_about_us"
-            class="mobile:flex-wrap flex justify-between mt-[40px] tablet:mt-[72px] mb-[63px] gap-4 tablet:gap-14 mobile:gap-4 mobile:flex-col"
-          >
-            <AccoladesCard
-              v-for="(item, index) in items"
-              :key="index"
-              :icon="item.icon"
-              :text="item.text"
-              :smallScreen="smallScreen"
-            />
-          </div>
+    </div>
+    <!-- MAIN CONTENT -->
+    <div class="flex justify-center">
+      <div class="w-full">
+        <div
+          id="div_about_us"
+          class="flex-wrap flex mobile:flex-col items-center flex-cols-2 md:flex-cols-3 justify-center mx-10 my-10 gap-12"
+        >
+          <AccoladesCard
+            v-for="(item, index) in items"
+            :key="index"
+            :icon="item.icon"
+            :text="item.text"
+          />
         </div>
       </div>
     </div>
