@@ -41,25 +41,19 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="flex w-full px-20 relative">
+  <div class="flex w-full px-20 relative font-poppins">
     <!-- MAIN CONTENT -->
     <div
       class="flex flex-col items-center justify-center mobile:justify-center w-full h-[10%] mb-4"
     >
       <div class="w-full">
-        <h3
-          class="font-poppins text-small-text-color text-[12px] font-[500] mobile:w-auto text-center tracking-[3.6px] mb-4 text-[#6E777C] font-semibold"
-        >
-          ACCOLADES AND RECOGNITION
-        </h3>
+        <h3 class="page-header-accent">ACCOLADES AND RECOGNITION</h3>
       </div>
 
       <div class="max-w-[519px]">
-        <h2
-          class="text-left font-poppins text-4.5xl tablet:text-[32px] mobile:text-[24px] mobile:text-center font-[400]"
-        >
+        <h2 class="page-header">
           A
-          <span style="color: #077bb3" class="font-semibold"> testament </span>
+          <span class="font-semibold text-primary-color"> testament </span>
           to our work
         </h2>
       </div>
@@ -68,7 +62,7 @@ onUnmounted(() => {
         <div class="w-full">
           <div
             id="div_about_us"
-            class="flex justify-between mt-[40px] tablet:mt-[72px] mb-[63px] gap-4 tablet:gap-14 mobile:gap-4 mobile:flex-col"
+            class="mobile:flex-wrap flex justify-between mt-[40px] tablet:mt-[72px] mb-[63px] gap-4 tablet:gap-14 mobile:gap-4 mobile:flex-col"
           >
             <AccoladesCard
               v-for="(item, index) in items"
@@ -83,26 +77,3 @@ onUnmounted(() => {
     </div>
   </div>
 </template>
-
-<style scoped>
-@media screen and (max-width: 450px) {
-  #div_about_us {
-    flex-wrap: wrap;
-  }
-}
-
-.scroll-top-button {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: #3498db;
-  color: white;
-  border: none;
-  border-radius: 50%;
-  padding: 10px;
-  cursor: pointer;
-  font-size: 16px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  transition: background-color 0.3s ease;
-}
-</style>
