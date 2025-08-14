@@ -1,13 +1,22 @@
 <template>
   <!-- Logo size fixed at 155x51px (width x height) for consistent UI across viewports. -->
+  <!-- 
+  Responsive grid layout: 
+    - Mobile, small, & medium screens: 
+      - Flex Row: Logo (9/12 cols) + Hamburger icon (3/12 cols)
+      - Navbar links overlay: flex column
+    - Large+ screens: 
+      - Logo (3/12 cols) + Navbar links (9/12 cols)
+      - Each navbar link / button: flex column
+  -->
   <header
     id="header-grid"
-    class="relative h-[115px] grid grid-cols-6 md:grid-cols-12 md:gap-[21px] items-center"
+    class="relative h-[115px] grid grid-cols-12 md:gap-[21px] items-center"
   >
     <!-- Logo Section -->
     <div
       id="logo-item"
-      class="col-span-3 md:col-start-1 md:col-span-3 text-lg font-bold pl-2 z-10"
+      class="col-span-9 lg:col-span-3 text-lg font-bold pl-2 z-10"
     >
       <router-link to="/home" aria-hidden="true" tabindex="-1">
         <img
@@ -21,11 +30,11 @@
       <p v-if="!logoPath">Audemy</p>
     </div>
 
-    <!-- Hamburger Button for Mobile -->
+    <!-- Hamburger Button for Mobile, Small, & Medium Screens -->
     <div
       id="nav-btn-item"
-      v-if="isMobileView"
-      class="col-start-6 col-span-1 text-right z-30"
+      v-if="isMobileView || isTabletView"
+      class="col-start-10 col-span-3 text-right z-30"
     >
       <button
         @click="toggleMenu"
@@ -39,17 +48,10 @@
     <!-- Desktop Navigation Links -->
     <nav
       id="nav-links-grid"
-      v-if="!isMobileView"
-      class="md:col-start-4 md:col-span-9 md:grid md:grid-cols-6 py-2"
+      v-if="!isMobileView & !isTabletView"
+      class="col-start-4 col-span-9 py-2"
     >
-      <ul
-        id="router-links-grid"
-        :class="[
-          ...navLinksGridClasses,
-          textColor ?? 'text-[#151e22]',
-          isTabletView ? 'text-sm' : 'space-x-4',
-        ]"
-      >
+      <ul id="router-links-grid" :class="[...navLinksGridClasses]">
         <li id="home-item">
           <router-link to="/home" class="navbar-link-desktop">
             Home
@@ -76,10 +78,14 @@
           </router-link>
         </li>
         <li id="game-toolkit-item">
-          <router-link to="/game-toolkit" class="navbar-link-desktop">Game Toolkit</router-link>
+          <router-link to="/game-toolkit" class="navbar-link-desktop"
+            >Game Toolkit</router-link
+          >
         </li>
         <li id="accessibility-studio-item">
-          <router-link to="/accessibility-studio" class="navbar-link-desktop">Accessibility Studio</router-link>
+          <router-link to="/accessibility-studio" class="navbar-link-desktop"
+            >Accessibility Studio</router-link
+          >
         </li>
         <!-- TODO: This GameZone link is to be used when user auth is implemented -->
         <!-- li id="games-item">
@@ -90,7 +96,7 @@
         <li id="games-item">
           <router-link
             to="/game-zone-landing-page"
-            class="base-login-btn md:p-[15px] lg:p-[12px] lg:px-4"
+            class="base-game-zone-btn lg:w-[110px] xl:w-[145px] text-center"
           >
             Game Zone
           </router-link>
@@ -139,14 +145,14 @@
 
     <!-- Mobile Menu Overlay -->
     <div
-      v-if="isMobileView && isMenuOpen"
+      v-if="(isMobileView || isTabletView) && isMenuOpen"
       class="fixed inset-0 bg-black bg-opacity-50 z-40"
       @click="closeMenu"
     ></div>
 
     <!-- Mobile Slide-in Menu -->
     <div
-      v-if="isMobileView && isMenuOpen"
+      v-if="(isMobileView || isTabletView) && isMenuOpen"
       class="fixed inset-y-0 right-0 bg-white z-50 w-4/5 max-w-xs flex flex-col overflow-hidden"
     >
       <div class="flex justify-end p-7 px-10">
@@ -207,12 +213,20 @@
             </router-link>
           </li>
           <li>
-            <router-link to="/game-toolkit" class="navbar-link-mobile" @click="closeMenu">
+            <router-link
+              to="/game-toolkit"
+              class="navbar-link-mobile"
+              @click="closeMenu"
+            >
               Game Toolkit
             </router-link>
           </li>
           <li>
-            <router-link to="/accessibility-studio" class="navbar-link-mobile" @click="closeMenu">
+            <router-link
+              to="/accessibility-studio"
+              class="navbar-link-mobile"
+              @click="closeMenu"
+            >
               Accessibility Studio
             </router-link>
           </li>
@@ -229,7 +243,7 @@
           <router-link
             to="/game-zone-landing-page"
             @click="closeMenu"
-            class="base-login-btn w-full mt-8"
+            class="base-game-zone-btn w-full mt-8"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -377,15 +391,15 @@ import Cookies from 'js-cookie';
 import { useRouter } from 'vue-router';
 
 // Extracted Tailwind classes for <router-link> grid layout (desktop)
-  const navLinksGridClasses = [
-  'justify-end',
+const navLinksGridClasses = [
+  'flex',
+  'justify-around',
   'items-center',
-  'md:col-start-1',
-  'md:col-span-8',     
-  'md:flex',           
-  'md:space-x-6',      
   'font-poppins',
   'font-semibold',
+  'text-[#151e22]',
+  'lg:text-[14px]',
+  'xl:text-[16px]',
 ];
 
 // Extracted Tailwind classes for successful logout alert
