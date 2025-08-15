@@ -56,7 +56,7 @@ const impactImages = [
       alt="Chat"
     />
 
-    <!-- ✅ Uniform Image Grid with Slight Tilt -->
+    <!-- Uniform Image Grid with Slight Tilt -->
     <div
       class="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-10"
     >
@@ -68,14 +68,14 @@ const impactImages = [
           index % 6 === 0
             ? 'rotate-[-1.5deg]'
             : index % 6 === 1
-              ? 'rotate-[1deg]'
-              : index % 6 === 2
-                ? 'rotate-[1.5deg]'
-                : index % 6 === 3
-                  ? 'rotate-[-2deg]'
-                  : index % 6 === 4
-                    ? 'rotate-[0.5deg]'
-                    : '',
+            ? 'rotate-[1deg]'
+            : index % 6 === 2
+            ? 'rotate-[1.5deg]'
+            : index % 6 === 3
+            ? 'rotate-[-2deg]'
+            : index % 6 === 4
+            ? 'rotate-[0.5deg]'
+            : '',
         ]"
       >
         <img :src="img" alt="Impact" class="w-full h-full object-cover" />
