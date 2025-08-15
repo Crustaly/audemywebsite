@@ -94,7 +94,15 @@ import LoopHero from './Toolkits/Gaming_Toolkit_Template_LoopHero.pdf';
 import GriftlandsPdf from './Toolkits/Gaming_Toolkit_Template_Griftlands.pdf';
 import MonsterSanctuary from './Toolkits/Gaming_Toolkit_Template_MonsterSanctuary.pdf';
 import TemtemPdf from './Toolkits/Gaming_Toolkit_Template_Temtem.pdf';
-
+import PalworldPdf from './Toolkits/Gaming_Toolkit_Template_Palworld.pdf';
+import ARKPdf from './Toolkits/Gaming_Toolkit_Template_ARK.pdf';
+import RustPdf from './Toolkits/Gaming_Toolkit_Template_Rust.pdf';
+import DayZPdf from './Toolkits/Gaming_Toolkit_Template_DayZ.pdf';
+import DaystoDie from './Toolkits/Gaming_Toolkit_Template_7DaystoDie.pdf';
+import SubnauticaPdf from './Toolkits/Gaming_Toolkit_Template_Subnautica.pdf';
+import The_Forest from './Toolkits/Gaming_Toolkit_Template_The_Forest.pdf';
+import GreenHell from './Toolkits/Gaming_Toolkit_Template_GreenHell.pdf';
+import ValheimPdf from './Toolkits/Gaming_Toolkit_Template_Valheim.pdf';
 
 // Sample toolkit data - in a real app, this would come from an API
 const toolkits = [
@@ -924,6 +932,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio feedback for monster survival',
     category: 'Survival',
+    pdfUrl: PalworldPdf
   },
   {
     id: 93,
@@ -932,6 +941,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio cues for dinosaur survival',
     category: 'Survival',
+    pdfUrl: ARKPdf
   },
   {
     id: 94,
@@ -940,6 +950,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio feedback for multiplayer survival',
     category: 'Survival',
+    pdfUrl: RustPdf
   },
   {
     id: 95,
@@ -948,6 +959,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio cues for zombie survival',
     category: 'Survival',
+    pdfUrl: DayZPdf
   },
   {
     id: 96,
@@ -956,6 +968,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio feedback for zombie crafting survival',
     category: 'Survival',
+    pdfUrl: DaystoDie
   },
   {
     id: 97,
@@ -964,6 +977,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio cues for underwater survival',
     category: 'Survival',
+    pdfUrl: SubnauticaPdf
   },
   {
     id: 98,
@@ -972,6 +986,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio feedback for forest survival horror',
     category: 'Survival',
+    pdfUrl: The_Forest
   },
   {
     id: 99,
@@ -980,6 +995,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio cues for jungle survival',
     category: 'Survival',
+    pdfUrl: GreenHell
   },
   {
     id: 100,
@@ -988,6 +1004,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio feedback for Viking survival',
     category: 'Survival',
+    pdfUrl: ValheimPdf
   },
 ];
 
