@@ -41,9 +41,13 @@ const routes = [
   { path: '/impact', name: 'Impact', component: Impact },
   { path: '/about-us', name: 'About-Us', component: AboutUs },
   { path: '/press', name: 'Press', component: Press },
-  { path: '/game-toolkit', name: 'GameToolkit', component: GameToolkit},
-  { path: '/accessibility-studio', name: 'AccessibilityStudio', component: AccessibilityStudio},
-  
+  { path: '/game-toolkit', name: 'GameToolkit', component: GameToolkit },
+  {
+    path: '/accessibility-studio',
+    name: 'AccessibilityStudio',
+    component: AccessibilityStudio,
+  },
+
   {
     path: '/accessibility-statement',
     name: 'Accessibility-Statement',

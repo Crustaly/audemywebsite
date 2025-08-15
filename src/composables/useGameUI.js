@@ -16,8 +16,8 @@ export function useGameUI(gameState) {
     isTablet.value
       ? 'w-[250px] h-[60px]'
       : isMobile.value
-      ? 'w-full h-[60px]'
-      : 'w-[250px] h-[116px]',
+        ? 'w-full h-[60px]'
+        : 'w-[250px] h-[116px]',
     gameState.isRecording.value ? 'bg-red-500' : 'bg-[#087BB4]',
     'text-white',
     isButtonDisabled.value ? 'opacity-50 cursor-not-allowed' : '',
@@ -42,8 +42,8 @@ export function useGameUI(gameState) {
     return gameState.isRecording.value
       ? 'Stop Recording'
       : isTablet.value || isMobile.value
-      ? 'Record'
-      : 'Record Answer';
+        ? 'Record'
+        : 'Record Answer';
   });
 
   return {

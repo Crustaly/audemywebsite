@@ -6,8 +6,8 @@
       isTablet
         ? 'flex gap-[25px] mb-6'
         : isMobile
-        ? 'flex flex-col gap-4 mb-6'
-        : 'flex gap-6 mb-6',
+          ? 'flex flex-col gap-4 mb-6'
+          : 'flex gap-6 mb-6',
     ]"
   >
     <button
@@ -42,8 +42,8 @@
         isTablet
           ? 'w-[250px] h-[60px]'
           : isMobile
-          ? 'w-full h-[60px]'
-          : 'w-[250px] h-[116px]',
+            ? 'w-full h-[60px]'
+            : 'w-[250px] h-[116px]',
         'bg-white border border-[#0096D6] text-[#0096D6]',
         isIntroPlaying || isButtonCooldown
           ? 'opacity-50 cursor-not-allowed'
@@ -54,8 +54,8 @@
         isIntroPlaying
           ? 'Please wait until the introduction finishes'
           : isButtonCooldown
-          ? 'Please wait before repeating the question again'
-          : 'Repeat the current question'
+            ? 'Please wait before repeating the question again'
+            : 'Repeat the current question'
       "
     >
       <span class="text-lg font-medium">{{
