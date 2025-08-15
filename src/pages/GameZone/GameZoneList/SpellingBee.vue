@@ -134,8 +134,8 @@ const recordButtonClasses = computed(() => [
   isTablet.value
     ? 'w-[250px] h-[60px]'
     : isMobile.value
-    ? 'w-full h-[60px]'
-    : 'w-[250px] h-[116px]',
+      ? 'w-full h-[60px]'
+      : 'w-[250px] h-[116px]',
   isRecording.value ? 'bg-red-500' : 'bg-[#087BB4]',
   'text-white',
   isButtonDisabled.value ? 'opacity-50 cursor-not-allowed' : '',
@@ -160,8 +160,8 @@ const recordButtonText = computed(() => {
   return isRecording.value
     ? 'Stop Recording'
     : isTablet.value || isMobile.value
-    ? 'Record'
-    : 'Record Answer';
+      ? 'Record'
+      : 'Record Answer';
 });
 
 // 5. Watch/WatchEffect

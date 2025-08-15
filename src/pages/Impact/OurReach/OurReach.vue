@@ -68,21 +68,18 @@ const impactImages = [
           index % 6 === 0
             ? 'rotate-[-1.5deg]'
             : index % 6 === 1
-            ? 'rotate-[1deg]'
-            : index % 6 === 2
-            ? 'rotate-[1.5deg]'
-            : index % 6 === 3
-            ? 'rotate-[-2deg]'
-            : index % 6 === 4
-            ? 'rotate-[0.5deg]'
-            : '',
+              ? 'rotate-[1deg]'
+              : index % 6 === 2
+                ? 'rotate-[1.5deg]'
+                : index % 6 === 3
+                  ? 'rotate-[-2deg]'
+                  : index % 6 === 4
+                    ? 'rotate-[0.5deg]'
+                    : '',
         ]"
       >
         <img :src="img" alt="Impact" class="w-full h-full object-cover" />
       </div>
     </div>
-
-   
-   
   </div>
 </template>

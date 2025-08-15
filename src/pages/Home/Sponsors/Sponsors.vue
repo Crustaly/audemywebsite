@@ -23,16 +23,16 @@ import SponsorsCarousel from './SponsorsCarousel/SponsorsCarousel.vue';
           alt="google logo"
           class="mx-auto"
         />
-                                   <img
-            src="/assets/images/sponsors/Amazon-Logo.png"
-            alt="amazon logo"
-            class="mx-auto w-32 h-16 object-contain"
-          />
-                 <img
-           src="/assets/images/sponsors/ae.png"
-           alt="ae foundation logo"
-           class="mx-auto w-32 h-16 object-contain"
-         />
+        <img
+          src="/assets/images/sponsors/Amazon-Logo.png"
+          alt="amazon logo"
+          class="mx-auto w-32 h-16 object-contain"
+        />
+        <img
+          src="/assets/images/sponsors/ae.png"
+          alt="ae foundation logo"
+          class="mx-auto w-32 h-16 object-contain"
+        />
       </div>
       <div
         class="w-full scroll-auto grid grid-cols-4 grid-row-a items-center justify-center text-center mb-5"
@@ -52,11 +52,11 @@ import SponsorsCarousel from './SponsorsCarousel/SponsorsCarousel.vue';
           alt="aops logo"
           class="mx-auto"
         />
-                 <img
-           src="/assets/images/sponsors/contribution.webp"
-           alt="contribution logo"
-           class="mx-auto w-28 h-14 object-contain"
-         />
+        <img
+          src="/assets/images/sponsors/contribution.webp"
+          alt="contribution logo"
+          class="mx-auto w-28 h-14 object-contain"
+        />
       </div>
       <div
         class="w-full scroll-auto grid grid-cols-4 grid-row-a items-center justify-center text-center"
