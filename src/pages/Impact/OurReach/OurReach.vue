@@ -1,7 +1,10 @@
 <script setup>
-import Students from '/assets/images/impact/carl-pencil.svg';
-import Problems from '/assets/images/impact/problems 1.svg';
-import Globe from '/assets/images/impact/globe 1.svg';
+import OrangeStar from '/assets/images/impact/Group 1135.png';
+import SpeechBubble from '/assets/images/impact/Group 1153.png';
+import BlueStar from '/assets/images/about-us/blueStar2.svg';
+import YellowStar from '/assets/images/testimonials/star.svg';
+
+import PageDecorations from '/src/components/PageDecorations/PageDecorations.vue';
 
 const impactImages = [
   '/assets/images/impact/IMG.png',
@@ -21,44 +24,32 @@ const impactImages = [
 
 <template>
   <div class="flex flex-col justify-center items-center mt-20">
-    <h3
-      class="font-poppins text-[12px] font-[500] tracking-[3.6px] mb-4 text-[#6E777C] text-center"
-    >
-      OUR REACH
-    </h3>
+    <h3 class="page-header-accent">OUR REACH</h3>
     <div class="w-[450px] max-w-full px-4">
-      <h2
-        class="text-center font-poppins text-4.5xl tablet:text-[32px] mobile:text-[24px] font-[400]"
-      >
+      <h2 class="page-header">
         Transforming lives,
-        <em style="color: #fe892a"> one child at a time </em>
+        <span class="text-primary-color font-semibold">
+          one child at a time
+        </span>
       </h2>
     </div>
   </div>
 
   <div
-    class="relative w-full flex flex-col items-center px-4 md:px-12 lg:px-24 py-12 pb-24"
+    class="relative w-full flex flex-col items-center px-4 md:px-12 lg:px-24 py-24"
   >
-    <!-- Decorative icons -->
-    <img
-      src="/assets/images/impact/Union.png"
-      class="absolute max-w-[100px] -z-10 -top-6 -left-8 md:-left-14 md:-top-14 xl:-top-28"
-      alt="Union"
+    <!-- Page Decorations -->
+    <PageDecorations
+      :topLeftImgPath="BlueStar"
+      :bottomRightImgPath="OrangeStar"
+      :topRightImgPath="SpeechBubble"
+      :bottomLeftImgPath="YellowStar"
+      increaseIconSize="true"
     />
-    <img
-      src="/assets/images/impact/Group 1135.png"
-      class="absolute right-28 top-8 h-8 md:h-16 md:left-56 xl:left-72 z-20"
-      alt="Star"
-    />
-    <img
-      src="/assets/images/impact/Group 1153.png"
-      class="absolute left-20 -top-5 h-8 md:h-16 md:left-24 md:-top-10 xl:-top-14 z-20"
-      alt="Chat"
-    />
-
     <!-- Uniform Image Grid with Slight Tilt -->
     <div
       class="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-10"
+      aria-hidden="true"
     >
       <div
         v-for="(img, index) in impactImages"
@@ -78,7 +69,7 @@ const impactImages = [
             : '',
         ]"
       >
-        <img :src="img" alt="Impact" class="w-full h-full object-cover" />
+        <img :src="img" alt="" class="w-full h-full object-cover" />
       </div>
     </div>
   </div>
