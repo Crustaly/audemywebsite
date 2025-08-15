@@ -4,6 +4,90 @@ import Footer from '../../components/Footer/Footer.vue';
 import ScrollUpButton from '../../components/ScrollUpButton/ScrollUpButton.vue';
 import PageDecorations from '../../components/PageDecorations/PageDecorations.vue';
 import callOfDutyPDF from './Toolkits/Gaming_Toolkit_Template_Call_of_Duty.pdf';
+import mineCraftPDF from './Toolkits/Gaming_Toolkit_Template_Minecraft.pdf';
+import Age_of_Empires from './Toolkits/Gaming_Toolkit_Template_Age_of_Empires.pdf';
+import Among_Us from './Toolkits/Gaming_Toolkit_Template_Among_Us.pdf';
+import animal_Crossing from './Toolkits/Gaming_Toolkit_Template_Animal_Crossing.pdf';
+import Apex_Legends from './Toolkits/Gaming_Toolkit_Template_Apex_Legends.pdf';
+import AssassinsCreed from './Toolkits/Gaming_Toolkit_Template_AssassinsCreed.pdf';
+import Baldurs_Gate from './Toolkits/Gaming_Toolkit_Template_Baldurs_Gate.pdf';
+import CelestePDF from './Toolkits/Gaming_Toolkit_Template_Celeste.pdf';
+import Cities_Skylines from './Toolkits/Gaming_Toolkit_Template_Cities-Skylines.pdf';
+import CivilizationVI from './Toolkits/Gaming_Toolkit_Template_CivilizationVI.pdf';
+import CounterStrike2 from './Toolkits/Gaming_Toolkit_Template_Counter-Strike2.pdf';
+import CupheadPDF from './Toolkits/Gaming_Toolkit_Template_Cuphead.pdf';
+import Cyberpunk2077PDF from './Toolkits/Gaming_Toolkit_Template_Cyberpunk2077.pdf';
+import Dead_by_Daylight from './Toolkits/Gaming_Toolkit_Template_Dead_by_Daylight.pdf';
+import Dead_Cells from './Toolkits/Gaming_Toolkit_Template_Dead_Cells.pdf';
+import Destiny2 from './Toolkits/Gaming_Toolkit_Template_Destiny2.pdf';
+import Disco_Elysium from './Toolkits/Gaming_Toolkit_Template_Disco_Elysium.pdf';
+import DivinityPDF from './Toolkits/Gaming_Toolkit_Template_Divinity.pdf';
+import Dragon_Quest from './Toolkits/Gaming_Toolkit_Template_Dragon_Quest.pdf';
+import Dragon_Age from './Toolkits/Gaming_Toolkit_Template_Dragon_Age.pdf';
+import EldenRingPDF from './Toolkits/Gaming_Toolkit_Template_EldenRing.pdf';
+import FallGyusPDF from './Toolkits/Gaming_Toolkit_Template_FallGyus.pdf';
+import FalloutPDF from './Toolkits/Gaming_Toolkit_Template_Fallout.pdf';
+import FIFAPDF from './Toolkits/Gaming_Toolkit_Template_FIFA23.pdf';
+import Final_Fantasy from './Toolkits/Gaming_Toolkit_Template_Final_Fantasy.pdf';
+import Fire_Emblem from './Toolkits/Gaming_Toolkit_Template_Fire_Emblem.pdf';
+import FortnitePDF from './Toolkits/Gaming_Toolkit_Template_Fortnite.pdf';
+import Forza_Horizon from './Toolkits/Gaming_Toolkit_Template_Forza_Horizon.pdf';
+import God_of_War from './Toolkits/Gaming_Toolkit_Template_God_of_War.pdf';
+import Gran_Turismo from './Toolkits/Gaming_Toolkit_Template_Gran_Turismo.pdf';
+import GrisPDF from './Toolkits/Gaming_Toolkit_Template_Gris.pdf';
+import GTAVPDF from './Toolkits/Gaming_Toolkit_Template_GTAV.pdf';
+import HearthstonePDF from './Toolkits/Gaming_Toolkit_Template_Hearthstone.pdf';
+import Hollow_Knight from './Toolkits/Gaming_Toolkit_Template_Hollow_Knight.pdf';
+import JourneyPDF from './Toolkits/Gaming_Toolkit_Template_Journey.pdf';
+import LolPDF from './Toolkits/Gaming_Toolkit_Template_LOL.pdf';
+import Mario_Kart from './Toolkits/Gaming_Toolkit_Template_Mario_Kart.pdf';
+import Mass_effect from './Toolkits/Gaming_Toolkit_Template_Mass_effect.pdf';
+import Mortal_Kombat from './Toolkits/Gaming_Toolkit_Template_Mortal_Kombat.pdf';
+import Need_for_Speed from './Toolkits/Gaming_Toolkit_Template_Need_for_Speed.pdf';
+import OriPDF from './Toolkits/Gaming_Toolkit_Template_Ori.pdf';
+import Outer_Wilds from './Toolkits/Gaming_Toolkit_Template_Outer_Wilds.pdf';
+import Outer_Worlds from './Toolkits/Gaming_Toolkit_Template_Outer_Worlds.pdf';
+import Overwatch2PDF from './Toolkits/Gaming_Toolkit_Template_Overwatch2.pdf';
+import PathfinderPDF from './Toolkits/Gaming_Toolkit_Template_Pathfinder.pdf';
+import PersonaPDF from './Toolkits/Gaming_Toolkit_Template_Persona.pdf';
+import Pillars_of_Eternity from './Toolkits/Gaming_Toolkit_Template_Pillars_of_Eternity.pdf';
+import PokemonPDF from './Toolkits/Gaming_Toolkit_Template_Pokemon.pdf';
+import PUBGPDF from './Toolkits/Gaming_Toolkit_Template_PUBG.pdf';
+import Rainbow_Six_Siege from './Toolkits/Gaming_Toolkit_Template_Rainbow_Six_Siege.pdf';
+import Red_Dead_Redemption2 from './Toolkits/Gaming_Toolkit_Template_Red_Dead_Redemption2.pdf';
+import Resident_Evil from './Toolkits/Gaming_Toolkit_Template_Resident_Evil.pdf';
+import RobloxPDF from './Toolkits/Gaming_Toolkit_Template_Roblox.pdf';
+import Rocket_League from './Toolkits/Gaming_Toolkit_Template_Rocket_League.pdf';
+import SkyrimPDF from './Toolkits/Gaming_Toolkit_Template_Skyrim.pdf';
+import SpiderMan from './Toolkits/Gaming_Toolkit_Template_Spider-Man.pdf';
+import StarcraftPDF from './Toolkits/Gaming_Toolkit_Template_Starcraft.pdf';
+import Stardew_Valley from './Toolkits/Gaming_Toolkit_Template_Stardew_Valley.pdf';
+import StreetFighter6 from './Toolkits/Gaming_Toolkit_Template_StreetFighter6.pdf';
+import Super_Smash_Bros from './Toolkits/Gaming_Toolkit_Template_Super_Smash_Bros.pdf';
+import Last_of_Us from './Toolkits/Gaming_Toolkit_Template_The_Last_of_Us.pdf';
+import The_Sims from './Toolkits/Gaming_Toolkit_Template_The_Sims.pdf';
+import The_Witcher from './Toolkits/Gaming_Toolkit_Template_The_Witcher.pdf';
+import Total_War from './Toolkits/Gaming_Toolkit_Template_Total_War.pdf';
+import ValorantPDF from './Toolkits/Gaming_Toolkit_Template_Valorant.pdf';
+import World_of_Warcraft from './Toolkits/Gaming_Toolkit_Template_World_of_Warcraft.pdf';
+import XCOMpdf from './Toolkits/Gaming_Toolkit_Template_XCOM.pdf';
+import HadesPdf from './Toolkits/Gaming_Toolkit_Template_Hades.pdf';
+import Slay_the_Spire from './Toolkits/Gaming_Toolkit_Template_Slay_the_Spire.pdf';
+import Monster_Train from './Toolkits/Gaming_Toolkit_Template_Monster_Train.pdf';
+import GwentPdf from './Toolkits/Gaming_Toolkit_Template_Gwent.pdf';
+import Magic_TheGathering from './Toolkits/Gaming_Toolkit_Template_Magic_TheGathering.pdf';
+import YuGiOh from './Toolkits/Gaming_Toolkit_Template_YuGiOh.pdf';
+import ArtifactPdf from './Toolkits/Gaming_Toolkit_Template_Artifact.pdf';
+import Legends_of_Runeterra from './Toolkits/Gaming_Toolkit_Template_Legends_of_Runeterra.pdf';
+import GwentRM from './Toolkits/Gaming_Toolkit_Template_Gwent_RogueMage.pdf';
+import InscryptionPdf from './Toolkits/Gaming_Toolkit_Template_Inscryption.pdf';
+import StacklandsPdf from './Toolkits/Gaming_Toolkit_Template_Stacklands.pdf';
+import Vampire_Survivors from './Toolkits/Gaming_Toolkit_Template_Vampire_Survivors.pdf';
+import Risk_of_Rain from './Toolkits/Gaming_Toolkit_Template_Risk_of_Rain.pdf';
+import EntertheGungeon from './Toolkits/Gaming_Toolkit_Template_EntertheGungeon.pdf';
+import BindingofIsaac from './Toolkits/Gaming_Toolkit_Template_BindingofIsaac.pdf';
+import SpelunkyPDF from './Toolkits/Gaming_Toolkit_Template_Spelunky.pdf';
+import Faster_Than_Light from './Toolkits/Gaming_Toolkit_Template_Faster_Than_Light.pdf';
 
 // Sample toolkit data - in a real app, this would come from an API
 const toolkits = [
@@ -23,6 +107,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Blind-friendly crafting guide and audio cues',
     category: 'Sandbox',
+    pdfUrl: mineCraftPDF,
   },
   {
     id: 3,
@@ -31,6 +116,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio feedback system for ability usage',
     category: 'FPS',
+    pdfUrl: ValorantPDF
   },
   {
     id: 4,
@@ -39,6 +125,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Accessible navigation for popular games',
     category: 'Platform',
+    pdfUrl: RobloxPDF
   },
   {
     id: 5,
@@ -47,6 +134,7 @@ const toolkits = [
     platformIcon: 'controller',
     description: 'Audio commentary and menu navigation',
     category: 'Sports',
+    pdfUrl: FIFAPDF
   },
   {
     id: 6,
@@ -55,6 +143,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio building and combat assistance',
     category: 'Battle Royale',
+    pdfUrl: FortnitePDF
   },
   {
     id: 7,
@@ -63,6 +152,7 @@ const toolkits = [
     platformIcon: 'controller',
     description: 'Audio navigation for open world exploration',
     category: 'Action',
+    pdfUrl: GTAVPDF
   },
   {
     id: 8,
@@ -71,6 +161,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio cues for ability management',
     category: 'MOBA',
+    pdfUrl: LolPDF
   },
   {
     id: 9,
@@ -79,6 +170,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Hero ability audio feedback system',
     category: 'FPS',
+    pdfUrl: Overwatch2PDF
   },
   {
     id: 10,
@@ -87,6 +179,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio navigation for battle royale',
     category: 'Battle Royale',
+    pdfUrl: Apex_Legends
   },
   {
     id: 11,
@@ -95,6 +188,7 @@ const toolkits = [
     platformIcon: 'controller',
     description: 'Audio cues for car control and positioning',
     category: 'Sports',
+    pdfUrl: Rocket_League
   },
   {
     id: 12,
@@ -103,6 +197,7 @@ const toolkits = [
     platformIcon: 'mobile',
     description: 'Audio navigation for social deduction',
     category: 'Party',
+    pdfUrl: Among_Us
   },
   {
     id: 13,
@@ -111,6 +206,7 @@ const toolkits = [
     platformIcon: 'controller',
     description: 'Audio guidance for obstacle courses',
     category: 'Party',
+    pdfUrl: FallGyusPDF
   },
   {
     id: 14,
@@ -119,6 +215,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio cues for survivor and killer gameplay',
     category: 'Horror',
+    pdfUrl: Dead_by_Daylight
   },
   {
     id: 15,
@@ -127,6 +224,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio feedback for tactical gameplay',
     category: 'FPS',
+    pdfUrl: Rainbow_Six_Siege
   },
   {
     id: 16,
@@ -135,6 +233,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio navigation for raids and strikes',
     category: 'RPG',
+    pdfUrl: Destiny2
   },
   {
     id: 17,
@@ -143,6 +242,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio addons for MMO accessibility',
     category: 'MMO',
+    pdfUrl: World_of_Warcraft
   },
   {
     id: 18,
@@ -151,6 +251,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio feedback for competitive play',
     category: 'FPS',
+    pdfUrl: CounterStrike2
   },
   {
     id: 19,
@@ -159,6 +260,7 @@ const toolkits = [
     platformIcon: 'mobile',
     description: 'Audio navigation for mobile battle royale',
     category: 'Battle Royale',
+    pdfUrl: PUBGPDF
   },
   {
     id: 20,
@@ -167,6 +269,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio cues for card game strategy',
     category: 'Card',
+    pdfUrl: HearthstonePDF
   },
   {
     id: 21,
@@ -175,6 +278,7 @@ const toolkits = [
     platformIcon: 'controller',
     description: 'Audio navigation for story-driven gameplay',
     category: 'Adventure',
+    pdfUrl: Last_of_Us
   },
   {
     id: 22,
@@ -183,6 +287,7 @@ const toolkits = [
     platformIcon: 'controller',
     description: 'Audio cues for combat and exploration',
     category: 'Action',
+    pdfUrl: God_of_War
   },
   {
     id: 23,
@@ -191,6 +296,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio navigation for western open world',
     category: 'Action',
+    pdfUrl: Red_Dead_Redemption2
   },
   {
     id: 24,
@@ -199,6 +305,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio feedback for futuristic RPG',
     category: 'RPG',
+    pdfUrl: Cyberpunk2077PDF
   },
   {
     id: 25,
@@ -207,6 +314,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio cues for challenging combat',
     category: 'RPG',
+    pdfUrl: EldenRingPDF
   },
   {
     id: 26,
@@ -215,6 +323,7 @@ const toolkits = [
     platformIcon: 'controller',
     description: 'Audio navigation for web-swinging',
     category: 'Action',
+    pdfUrl: SpiderMan
   },
   {
     id: 27,
@@ -223,6 +332,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio feedback for stealth gameplay',
     category: 'Action',
+    pdfUrl: AssassinsCreed
   },
   {
     id: 28,
@@ -231,6 +341,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio cues for survival horror',
     category: 'Horror',
+    pdfUrl: Resident_Evil
   },
   {
     id: 29,
@@ -239,6 +350,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio feedback for fighting combos',
     category: 'Fighting',
+    pdfUrl: StreetFighter6
   },
   {
     id: 30,
@@ -247,6 +359,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio cues for brutal combat',
     category: 'Fighting',
+    pdfUrl: Mortal_Kombat
   },
   {
     id: 31,
@@ -255,6 +368,7 @@ const toolkits = [
     platformIcon: 'controller',
     description: 'Audio feedback for platform fighting',
     category: 'Fighting',
+    pdfUrl: Super_Smash_Bros
   },
   {
     id: 32,
@@ -263,6 +377,7 @@ const toolkits = [
     platformIcon: 'controller',
     description: 'Audio cues for racing gameplay',
     category: 'Racing',
+    pdfUrl: Mario_Kart
   },
   {
     id: 33,
@@ -271,6 +386,7 @@ const toolkits = [
     platformIcon: 'controller',
     description: 'Audio feedback for realistic racing',
     category: 'Racing',
+    pdfUrl: Gran_Turismo
   },
   {
     id: 34,
@@ -279,6 +395,7 @@ const toolkits = [
     platformIcon: 'controller',
     description: 'Audio navigation for open-world racing',
     category: 'Racing',
+    pdfUrl: Forza_Horizon
   },
   {
     id: 35,
@@ -287,6 +404,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio cues for high-speed racing',
     category: 'Racing',
+    pdfUrl: Need_for_Speed
   },
   {
     id: 36,
@@ -295,6 +413,7 @@ const toolkits = [
     platformIcon: 'controller',
     description: 'Audio navigation for peaceful life sim',
     category: 'Simulation',
+    pdfUrl: animal_Crossing
   },
   {
     id: 37,
@@ -303,6 +422,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio feedback for life simulation',
     category: 'Simulation',
+    pdfUrl: The_Sims
   },
   {
     id: 38,
@@ -311,6 +431,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio cues for farming simulation',
     category: 'Simulation',
+    pdfUrl: Stardew_Valley
   },
   {
     id: 39,
@@ -319,6 +440,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio feedback for city building',
     category: 'Strategy',
+    pdfUrl: Cities_Skylines
   },
   {
     id: 40,
@@ -327,6 +449,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio cues for turn-based strategy',
     category: 'Strategy',
+    pdfUrl: CivilizationVI
   },
   {
     id: 41,
@@ -335,6 +458,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio feedback for RTS gameplay',
     category: 'Strategy',
+    pdfUrl: Age_of_Empires,
   },
   {
     id: 42,
@@ -343,6 +467,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio cues for sci-fi strategy',
     category: 'Strategy',
+    pdfUrl: StarcraftPDF
   },
   {
     id: 43,
@@ -351,6 +476,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio feedback for historical battles',
     category: 'Strategy',
+    pdfUrl: Total_War
   },
   {
     id: 44,
@@ -359,6 +485,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio cues for tactical combat',
     category: 'Strategy',
+    pdfUrl: XCOMpdf
   },
   {
     id: 45,
@@ -367,6 +494,7 @@ const toolkits = [
     platformIcon: 'controller',
     description: 'Audio feedback for tactical RPG',
     category: 'Strategy',
+    pdfUrl: Fire_Emblem
   },
   {
     id: 46,
@@ -375,6 +503,7 @@ const toolkits = [
     platformIcon: 'controller',
     description: 'Audio cues for monster battles',
     category: 'RPG',
+    pdfUrl: PokemonPDF
   },
   {
     id: 47,
@@ -383,6 +512,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio feedback for JRPG storytelling',
     category: 'RPG',
+    pdfUrl: Final_Fantasy
   },
   {
     id: 48,
@@ -391,6 +521,7 @@ const toolkits = [
     platformIcon: 'controller',
     description: 'Audio cues for classic RPG',
     category: 'RPG',
+    pdfUrl: Dragon_Quest
   },
   {
     id: 49,
@@ -399,6 +530,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio feedback for social RPG',
     category: 'RPG',
+    pdfUrl: PersonaPDF
   },
   {
     id: 50,
@@ -407,6 +539,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio navigation for fantasy RPG',
     category: 'RPG',
+    pdfUrl: The_Witcher
   },
   {
     id: 51,
@@ -415,6 +548,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio cues for open-world fantasy',
     category: 'RPG',
+    pdfUrl: SkyrimPDF
   },
   {
     id: 52,
@@ -423,6 +557,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio feedback for post-apocalyptic RPG',
     category: 'RPG',
+    pdfUrl: FalloutPDF
   },
   {
     id: 53,
@@ -431,6 +566,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio cues for sci-fi RPG',
     category: 'RPG',
+    pdfUrl: Mass_effect
   },
   {
     id: 54,
@@ -439,6 +575,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio feedback for fantasy RPG',
     category: 'RPG',
+    pdfUrl: Dragon_Age
   },
   {
     id: 55,
@@ -447,6 +584,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio cues for D&D RPG',
     category: 'RPG',
+    pdfUrl: Baldurs_Gate
   },
   {
     id: 56,
@@ -455,6 +593,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio feedback for tactical RPG',
     category: 'RPG',
+    pdfUrl: DivinityPDF
   },
   {
     id: 57,
@@ -463,6 +602,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio cues for isometric RPG',
     category: 'RPG',
+    pdfUrl: Pillars_of_Eternity
   },
   {
     id: 58,
@@ -471,6 +611,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio feedback for tabletop RPG',
     category: 'RPG',
+    pdfUrl: PathfinderPDF
   },
   {
     id: 59,
@@ -479,6 +620,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio cues for narrative RPG',
     category: 'RPG',
+    pdfUrl: Disco_Elysium
   },
   {
     id: 60,
@@ -487,6 +629,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio feedback for space RPG',
     category: 'RPG',
+    pdfUrl: Outer_Worlds
   },
   {
     id: 61,
@@ -495,6 +638,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio cues for space exploration',
     category: 'Adventure',
+    pdfUrl: Outer_Wilds
   },
   {
     id: 62,
@@ -503,6 +647,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio feedback for meditative adventure',
     category: 'Adventure',
+    pdfUrl: JourneyPDF
   },
   {
     id: 63,
@@ -511,6 +656,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio cues for emotional platformer',
     category: 'Adventure',
+    pdfUrl: GrisPDF
   },
   {
     id: 64,
@@ -519,6 +665,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio feedback for metroidvania',
     category: 'Adventure',
+    pdfUrl: OriPDF
   },
   {
     id: 65,
@@ -527,6 +674,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio cues for challenging platformer',
     category: 'Adventure',
+    pdfUrl: Hollow_Knight
   },
   {
     id: 66,
@@ -535,6 +683,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio feedback for precision platformer',
     category: 'Adventure',
+    pdfUrl: CelestePDF
   },
   {
     id: 67,
@@ -543,6 +692,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio cues for boss rush platformer',
     category: 'Adventure',
+    pdfUrl: CupheadPDF
   },
   {
     id: 68,
@@ -551,6 +701,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio feedback for roguelike action',
     category: 'Adventure',
+    pdfUrl: Dead_Cells
   },
   {
     id: 69,
@@ -559,6 +710,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio cues for roguelike dungeon crawler',
     category: 'Adventure',
+    pdfUrl: HadesPdf
   },
   {
     id: 70,
@@ -567,6 +719,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio feedback for deck-building roguelike',
     category: 'Card',
+    pdfUrl: Slay_the_Spire
   },
   {
     id: 71,
@@ -575,6 +728,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio cues for deck-building strategy',
     category: 'Card',
+    pdfUrl: Monster_Train
   },
   {
     id: 72,
@@ -583,6 +737,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio feedback for standalone card game',
     category: 'Card',
+    pdfUrl: GwentPdf
   },
   {
     id: 73,
@@ -591,6 +746,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio cues for digital card game',
     category: 'Card',
+    pdfUrl: Magic_TheGathering
   },
   {
     id: 74,
@@ -599,6 +755,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio feedback for anime card game',
     category: 'Card',
+    pdfUrl: YuGiOh
   },
   {
     id: 75,
@@ -607,6 +764,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio cues for Dota card game',
     category: 'Card',
+    pdfUrl: ArtifactPdf
   },
   {
     id: 76,
@@ -615,6 +773,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio feedback for League card game',
     category: 'Card',
+    pdfUrl: Legends_of_Runeterra
   },
   {
     id: 77,
@@ -623,6 +782,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio cues for single-player card game',
     category: 'Card',
+    pdfUrl: GwentRM
   },
   {
     id: 78,
@@ -631,6 +791,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio feedback for horror card game',
     category: 'Card',
+    pdfUrl: InscryptionPdf
   },
   {
     id: 79,
@@ -639,6 +800,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio cues for village-building card game',
     category: 'Card',
+    pdfUrl: StacklandsPdf
   },
   {
     id: 80,
@@ -647,6 +809,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio feedback for survival action',
     category: 'Action',
+    pdfUrl: Vampire_Survivors
   },
   {
     id: 81,
@@ -655,6 +818,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio cues for roguelike action',
     category: 'Action',
+    pdfUrl: Risk_of_Rain
   },
   {
     id: 82,
@@ -663,6 +827,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio feedback for bullet hell roguelike',
     category: 'Action',
+    pdfUrl: EntertheGungeon
   },
   {
     id: 83,
@@ -671,6 +836,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio cues for roguelike dungeon crawler',
     category: 'Action',
+    pdfUrl: BindingofIsaac
   },
   {
     id: 84,
@@ -679,6 +845,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio feedback for platformer roguelike',
     category: 'Adventure',
+    pdfUrl: SpelunkyPDF
   },
   {
     id: 85,
@@ -687,6 +854,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio cues for spaceship management',
     category: 'Strategy',
+    pdfUrl: Faster_Than_Light
   },
   {
     id: 86,
