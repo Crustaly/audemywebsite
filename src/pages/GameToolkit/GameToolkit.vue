@@ -88,6 +88,13 @@ import EntertheGungeon from './Toolkits/Gaming_Toolkit_Template_EntertheGungeon.
 import BindingofIsaac from './Toolkits/Gaming_Toolkit_Template_BindingofIsaac.pdf';
 import SpelunkyPDF from './Toolkits/Gaming_Toolkit_Template_Spelunky.pdf';
 import Faster_Than_Light from './Toolkits/Gaming_Toolkit_Template_Faster_Than_Light.pdf';
+import IntotheBreach from './Toolkits/Gaming_Toolkit_Template_IntotheBreach.pdf';
+import DarkestDungeon from './Toolkits/Gaming_Toolkit_Template_DarkestDungeon.pdf';
+import LoopHero from './Toolkits/Gaming_Toolkit_Template_LoopHero.pdf';
+import GriftlandsPdf from './Toolkits/Gaming_Toolkit_Template_Griftlands.pdf';
+import MonsterSanctuary from './Toolkits/Gaming_Toolkit_Template_MonsterSanctuary.pdf';
+import TemtemPdf from './Toolkits/Gaming_Toolkit_Template_Temtem.pdf';
+
 
 // Sample toolkit data - in a real app, this would come from an API
 const toolkits = [
@@ -863,6 +870,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio feedback for tactical mech combat',
     category: 'Strategy',
+    pdfUrl: IntotheBreach
   },
   {
     id: 87,
@@ -871,6 +879,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio cues for gothic roguelike',
     category: 'RPG',
+    pdfUrl: DarkestDungeon
   },
   {
     id: 88,
@@ -879,6 +888,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio feedback for auto-battler roguelike',
     category: 'Strategy',
+    pdfUrl: LoopHero
   },
   {
     id: 89,
@@ -887,6 +897,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio cues for sci-fi roguelike',
     category: 'RPG',
+    pdfUrl: GriftlandsPdf
   },
   {
     id: 90,
@@ -895,6 +906,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio feedback for monster collection RPG',
     category: 'RPG',
+    pdfUrl: MonsterSanctuary
   },
   {
     id: 91,
@@ -903,6 +915,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio cues for monster collection MMO',
     category: 'MMO',
+    pdfUrl: TemtemPdf
   },
   {
     id: 92,
