@@ -3,10 +3,10 @@
   <!-- 
   Responsive grid layout: 
     - Mobile, small, & medium screens: 
-      - Flex Row: Logo (9/12 cols) + Hamburger icon (3/12 cols)
+      - Single Row: Logo (9/12 cols) + Hamburger icon (3/12 cols)
       - Navbar links overlay: flex column
     - Large+ screens: 
-      - Logo (3/12 cols) + Navbar links (9/12 cols)
+      - Logo (lg: 3/12 | xl: 2/12 cols) + Navbar links (lg: 9/12 | xl: 10/12 cols)
       - Each navbar link / button: flex column
   -->
   <header
@@ -16,7 +16,7 @@
     <!-- Logo Section -->
     <div
       id="logo-item"
-      class="col-span-9 lg:col-span-3 text-lg font-bold pl-2 z-10"
+      class="col-span-9 lg:col-span-3 xl:col-span-2 text-lg font-bold pl-2 z-10"
     >
       <router-link to="/home" aria-hidden="true" tabindex="-1">
         <img
@@ -49,7 +49,7 @@
     <nav
       id="nav-links-grid"
       v-if="!isMobileView & !isTabletView"
-      class="col-start-4 col-span-9 py-2"
+      class="lg:col-start-4 lg:col-span-9 xl:col-start-3 xl:col-span-10 py-2"
     >
       <ul id="router-links-grid" :class="[...navLinksGridClasses]">
         <li id="home-item">
@@ -393,7 +393,7 @@ import { useRouter } from 'vue-router';
 // Extracted Tailwind classes for <router-link> grid layout (desktop)
 const navLinksGridClasses = [
   'flex',
-  'justify-around',
+  'justify-between',
   'items-center',
   'font-poppins',
   'font-semibold',

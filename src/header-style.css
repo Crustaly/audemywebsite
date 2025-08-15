@@ -12,7 +12,14 @@
   }
 
   #router-links-grid > li {
-    @apply self-center flex flex-col text-center; /* Align links vertically with logo */
+    /* Large screens: Allow navbar links to fill up space */
+    /* X-Large: Remove flex grow */
+    @apply self-center flex lg:flex-1 xl:flex-initial flex-col text-center duration-300; /* Align links vertically with logo */
+  }
+
+  #router-links-grid > li:not(:first-child) {
+    /* Large screens: Add margin for better spacing; skip first link ('Home') */
+    @apply lg:ml-5 xl:ml-0;
   }
 
   /* --- Mobile Nav Icons --- */
