@@ -3,6 +3,37 @@ import { ref } from 'vue';
 import SchoolsList from './SchoolsList/SchoolsList.vue';
 import TeachersList from './TeachersList/TeachersList.vue';
 
+const activeTabClasses = [
+  'bg-primary-color',
+  'text-white',
+  'border-t-2',
+  'border-l-2',
+  'border-r-2',
+  'border-black',
+];
+
+const inactiveTabClasses = [
+  'bg-[#0C587D]',
+  'text-white',
+  'border',
+  'border-black',
+  'font-normal',
+];
+
+// Extracted shared page styling and flex layout
+const pageClasses = [
+  'w-1/2',
+  'font-poppins',
+  'font-[600]',
+  'p-3',
+  'rounded-tl-[8px]',
+  'rounded-tr-[8px]',
+  'h-[50px]',
+  'flex',
+  'justify-center',
+  'items-center',
+];
+
 const currentPage = ref(1);
 
 const changeCurrentPage = (page) => {
@@ -169,36 +200,31 @@ const teachers = [
 </script>
 
 <template>
-  <div
-    class="flex flex-row justify-left items-center w-full mobile:w-[80vw] mobile:-ml-10"
-  >
+  <div class="flex flex-row justify-left items-center w-full">
+    <!-- TAB 1: Partnered Staff -->
     <button
       @click="changeCurrentPage(2)"
-      :class="
-        currentPage == 2
-          ? 'bg-white border-t-2 border-l-2 border-r-2 border-black'
-          : 'bg-gray-500 text-white border border-black'
-      "
-      class="w-1/2 font-poppins font-[600] p-3 rounded-tl-[8px] rounded-tr-[8px] h-[50px] flex justify-center items-center"
+      :class="[
+        pageClasses,
+        currentPage == 2 ? activeTabClasses : inactiveTabClasses,
+      ]"
     >
       Partnered Staff
     </button>
-
+    <!-- TAB 2: Affiliated Organizations -->
     <button
       @click="changeCurrentPage(1)"
-      :class="
-        currentPage == 1
-          ? 'bg-white border-t-2 border-l-2 border-r-2 border-black'
-          : 'bg-gray-500 text-white border-black'
-      "
-      class="w-1/2 font-poppins font-[600] p-3 rounded-tl-[8px] rounded-tr-[8px] h-[50px] flex justify-center items-center"
+      :class="[
+        pageClasses,
+        currentPage == 1 ? activeTabClasses : inactiveTabClasses,
+      ]"
     >
       Affiliated Organizations
     </button>
   </div>
 
   <div
-    class="relative max-h-[270px] h-[270px] w-[33vw] pl-[1rem] py-[2rem] rounded-b-[8px] bg-white border-b-2 border-l-2 border-r-2 border-black shadow-[1px_3px_4px_#2F3E45] mobile:w-[80vw] mobile:h-[80vw] mobile:-ml-10"
+    class="relative max-h-[270px] h-[270px] w-full pl-[1rem] py-[2rem] rounded-b-[8px] bg-cross-lines border-b-2 border-l-2 border-r-2 border-black shadow-[1px_3px_4px_#2F3E45]"
   >
     <div v-if="currentPage === 1" class="overflow-y-auto h-[200px]">
       <SchoolsList
@@ -206,11 +232,12 @@ const teachers = [
         :key="index"
         :name="school.name"
         :link="school.link"
+        class="w-full md:w-[80%] mx-auto mb-2"
       />
     </div>
     <div v-if="currentPage === 2" class="overflow-y-auto h-[200px]">
       <p
-        class="ml-8 sm:ml-0 text-[18px] sm:text-[12px] xs:text-[10px] text-gray-700 text-left sm:text-center font-thin font-poppins pb-4"
+        class="mx-auto text-[16px] md:text-[18px] text-gray-700 text-center font-thin font-poppins pb-5 px-5 border-b-2 border-primary-color w-[80%] mb-5"
       >
         Thank you to our participating teachers and organization leaders for
         helping us spread Audemy out to their school, organization, and beyond.
@@ -219,6 +246,7 @@ const teachers = [
         v-for="(teacher, index) in teachers"
         :key="index"
         :school="teacher"
+        class="w-[80%] mx-auto"
       />
     </div>
     <img
