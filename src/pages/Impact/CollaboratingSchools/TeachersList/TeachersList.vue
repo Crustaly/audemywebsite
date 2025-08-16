@@ -6,13 +6,14 @@ const props = defineProps({
 </script>
 
 <template>
+  <!-- Accessibility: Hide decorative icons (school & arrow) -->
   <div v-if="!smallScreen" class="mx-1 flex flex-col mb-4">
     <!-- School Name and Link -->
     <div class="flex flex-row items-center mb-2">
       <img
         src="/assets/images/impact/school.png"
         class="mr-2 w-4 h-4"
-        alt="School Icon"
+        aria-hidden="true"
       />
       <a
         class="text-[16px] text-body-text-color font-poppins tablet:text-[16px] font-[400]"
@@ -35,7 +36,7 @@ const props = defineProps({
           <img
             src="/assets/images/impact/arrow.png"
             class="mr-2 w-3 h-3"
-            alt="Arrow Icon"
+            aria-hidden="true"
           />
           <span
             class="text-[14px] text-body-text-color font-poppins tablet:text-[16px] font-[400]"
