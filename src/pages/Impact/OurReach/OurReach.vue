@@ -56,7 +56,7 @@ const impactImages = [
       alt="Chat"
     />
 
-    <!-- ✅ Uniform Image Grid with Slight Tilt -->
+    <!-- Uniform Image Grid with Slight Tilt -->
     <div
       class="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-10"
     >
@@ -81,8 +81,5 @@ const impactImages = [
         <img :src="img" alt="Impact" class="w-full h-full object-cover" />
       </div>
     </div>
-
-   
-   
   </div>
 </template>

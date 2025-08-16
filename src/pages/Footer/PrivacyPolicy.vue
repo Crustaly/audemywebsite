@@ -11,7 +11,7 @@ import Footer from '../../components/Footer/Footer.vue';
   <div class="content-container lg:grid lg:grid-cols-3">
     <Banner
       class="lg:col-span-1 lg:h-full"
-      :CarlImgPath="'/assets/images/impact/students%201.svg'"
+      :CarlImgPath="'/assets/images/impact/carl-pencil.svg'"
       :isImageWide="false"
       bgColor="#B1C7D0"
       curveColor="#E5F0F5"

@@ -6,7 +6,7 @@ import Footer from '../../components/Footer/Footer.vue';
 import Accolades from './Accolades/Accolades.vue';
 import OurReach from './OurReach/OurReach.vue';
 import CollaboratingSchools from './CollaboratingSchools/CollaboratingSchools.vue';
-import ProjectsInAction from '../OurProjects/ProjectsInAction/ProjectsInAction.vue'
+import ProjectsInAction from '../OurProjects/ProjectsInAction/ProjectsInAction.vue';
 import ResearchTech from '../OurProjects/ResearchTech/ResearchTech.vue';
 import HaveYouHeard from '../OurProjects/Events/HaveYouHeard/HaveYouHeard.vue';
 import KatyYouthHacks from '../OurProjects/Events/KatyYouthHacks/KatyYouthHacks.vue';
@@ -38,7 +38,7 @@ const { isMobile, isTablet } = useDeviceType();
   </div-->
 
   <OurReach />
-  
+
   <CollaboratingSchools />
   <Accolades />
 

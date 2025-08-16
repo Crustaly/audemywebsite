@@ -205,36 +205,34 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="relative flex w-full justify-center px-10 mt-20 mb-16">
+  <div class="font-poppins relative flex w-full justify-center px-10 my-10">
     <!-- MAIN SECTION -->
     <div
-      class="flex flex-col items-start justify-start mobile:justify-center h-auto mb-36 tablet:mb-[265px] mobile:mb-[129px]"
+      class="flex flex-col items-start justify-start mobile:justify-center h-auto"
     >
-      <div class="w-full">
-        <div class="">
+      <div class="w-full py-5 md:my-10">
+        <!-- Header -->
+        <div>
           <h3
-            class="font-poppins text-small-text-color text-[12px] text-[#899296] font-[600] mobile:w-auto mobile:mx-20 text-left tracking-[3.6px]"
+            class="text-small-text-color text-[12px] text-[#899296] font-[600] text-center tracking-[3.6px]"
           >
             PRESS LIST
           </h3>
         </div>
-
-        <div class="my-8">
-          <h2
-            class="text-left font-poppins text-4.5xl tablet:text-[32px] mobile:text-[24px] mobile:text-center mobile: items-center mobile:justify-center mobile:-mx-14 font-[400]"
-          >
+        <div>
+          <h2 class="page-header">
             Trusted by <em style="color: #fe892a"> Leading Publications </em>
           </h2>
         </div>
       </div>
-
+      <!-- Responsive Grid Layout: 1 Column (Mobile); 2 Cols (Small); 3 Cols (Medium); 4 Cols (Large) -->
       <div class="flex justify-center">
         <div
           class="w-full mobile:justify-center mobile:items-center mobile:text-center"
         >
           <div
             id="div_about_us"
-            class="grid gap-6 mt-[40px] tablet:mt-[72px] mb-[32px] w-full grid-cols-4 mobile:grid-cols-2 transition-all duration-500 ease-in-out"
+            class="grid gap-6 my-10 mobile:my-16 w-full mobile:grid-cols-1 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 transition-all duration-500 ease-in-out"
           >
             <div
               v-for="(item, index) in displayedItems"
@@ -254,7 +252,6 @@ onUnmounted(() => {
                       :image="item.image"
                       :text="item.text"
                       :network="item.network"
-                      :smallScreen="smallScreen"
                       :url="item.url"
                       class="h-full"
                     />
@@ -268,7 +265,7 @@ onUnmounted(() => {
           <div class="flex justify-center mb-[31px]">
             <button
               @click="toggleShowAll"
-              class="w-[244px] mobile:w-auto font-poppins font-semibold px-[4.20rem] py-4 border-[1.5px] border-[#0C0D0D] rounded-[8px] bg-primary-color hover:bg-[#0C587D] duration-300 text-base text-white shadow-[3px_4px_0px_#0C0D0D]"
+              class="w-[244px] mobile:w-auto font-semibold px-[4.20rem] py-4 border-[1.5px] border-[#0C0D0D] rounded-[8px] bg-primary-color hover:bg-[#0C587D] duration-300 text-base text-white shadow-[3px_4px_0px_#0C0D0D]"
             >
               {{ showAll ? 'Show Less' : 'See More' }}
             </button>
@@ -276,16 +273,5 @@ onUnmounted(() => {
         </div>
       </div>
     </div>
-
-    <img
-      src="/assets/images/impact/orangeStar.png"
-      class="absolute left-[18rem] bottom-[0rem]"
-      alt="image"
-    />
-    <!-- <img
-      src="/assets/images/impact/blueStar.png"
-      class="absolute right-[16rem] bottom-[35rem]"
-      alt="image"
-    /> -->
   </div>
 </template>

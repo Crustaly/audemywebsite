@@ -1,6 +1,5 @@
 <script setup>
 const props = defineProps({
-  smallScreen: Boolean,
   image: String,
   text: String,
   author: String,
@@ -11,10 +10,7 @@ const path = '/assets/images/impact/';
 </script>
 
 <template>
-  <div
-    v-if="!smallScreen"
-    class="w-full mx-auto flex flex-row justify-center h-auto"
-  >
+  <div class="w-full mx-auto flex flex-row justify-center h-auto">
     <div class="w-full max-w-[360px] px-4">
       <div
         class="flex flex-col items-center justify-evenly h-auto rounded-[8px] gap-4 mobile:px-4"
@@ -40,7 +36,7 @@ const path = '/assets/images/impact/';
             <img
               :src="path + image"
               class="w-full h-[150px] object-cover rounded-2xl border-[1px] border-[#E5E5E5] hover:opacity-80 transition-opacity duration-200 cursor-pointer"
-              alt="image"
+              alt=""
             />
           </a>
         </div>

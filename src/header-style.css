@@ -3,7 +3,8 @@
 @layer components {
   /* --- Navigation Links --- */
   .navbar-link-desktop {
-    @apply px-2 pb-2 hover:text-primary-color hover:border-b-2 border-primary-color;
+    /* Hover effect: Underlined with medium thickness */
+    @apply px-2 pb-2 hover:text-primary-color hover:underline-offset-4 hover:underline hover:decoration-2;
   }
 
   .navbar-link-mobile {
@@ -11,7 +12,14 @@
   }
 
   #router-links-grid > li {
-    @apply self-center; /* Align links vertically with logo */
+    /* Large screens: Allow navbar links to fill up space */
+    /* X-Large: Remove flex grow */
+    @apply self-center flex lg:flex-1 xl:flex-initial flex-col text-center duration-300; /* Align links vertically with logo */
+  }
+
+  #router-links-grid > li:not(:first-child) {
+    /* Large screens: Add margin for better spacing; skip first link ('Home') */
+    @apply lg:ml-5 xl:ml-0;
   }
 
   /* --- Mobile Nav Icons --- */
@@ -29,17 +37,18 @@
     @apply w-6 h-6 rounded-full ml-2 md:m-0 lg:ml-2; /* Google or default avatar */
   }
 
-  /* --- Account Buttons --- */
-  .base-account-btn {
-    /* Shared Login/Logout button styles */
-    @apply flex justify-center items-center font-bold py-3 px-6 rounded-lg border-[1.5px] shadow-[3px_4px_0px_#0C0D0D] border-black;
+  /* --- Game Zone & Account Buttons --- */
+  .base-navbar-btn-flex {
+    /* Shared flex button layout */
+    @apply page-button flex justify-center items-center;
   }
 
-  .base-login-btn {
-    @apply base-account-btn text-white bg-[#087BB4] hover:bg-[#0C587D];
+  .base-login-btn,
+  .base-game-zone-btn {
+    @apply base-navbar-btn-flex blue-button;
   }
 
   .base-logout-btn {
-    @apply base-account-btn text-black bg-[#FE892A] hover:bg-[#D6711F];
+    @apply base-navbar-btn-flex orange-button;
   }
 }

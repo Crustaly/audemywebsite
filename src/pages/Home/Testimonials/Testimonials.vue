@@ -7,7 +7,7 @@ const testimonials = [
     text: `"I appreciate Audemy.org for offering a wide variety of games, particularly those focused on nourishing life skills and independence. The option to reward my students at the end of their lessons with 5 quick educational questions/games, fits in well into our busy schedule."`,
     name: 'Stephanie Bissonette',
     role: 'Director of Children Services at the Vermont Association for the Blind (sbissonette@vabvi.org)',
-  }, 
+  },
   {
     image: '/assets/images/impact/arizonaStudent.png',
     text: `"Hello! My name is Denise Bean, Youth Service Librarian for the Iowa Library for the Blind and Print Disabled, and one of the greatest joys of my work is building meaningful connections with children who are blind or have low vision. During one of our 28 virtual Summer Reading Program events, we introduced a game called Audemy, and what an unforgettable experience it was! The children lit up with excitement, laughter filled the room, and the joy was contagious."`,
@@ -32,7 +32,7 @@ const testimonials = [
     name: 'Adam',
     role: 'A Student who is blind from Houston',
   },
- 
+
   {
     image: '/assets/images/impact/5b46078e-65e0-42c8-a658-2939c6676a21.jpeg',
     text: `"The gaming mechanics on Audemy are brilliant! The audio cues, spatial awareness features, and competitive elements create an engaging gaming experience that keeps our players coming back. It's like having a professional gaming studio designed specifically for blind gamers."`,
@@ -70,7 +70,7 @@ function prev() {
 
 <template>
   <div
-    class="flex flex-col items-center gap-y-12 self-center pt-80 mobile:pt-64 pb-[6rem] mobile:mt-5 mobile:pb-16 px-20 mobile:px-0 relative z-10"
+    class="my-10 py-80 flex flex-col items-center gap-y-12 self-center pt-80 relative z-10"
   >
     <!-- Background image -->
     <img
@@ -86,7 +86,6 @@ function prev() {
       <h1 class="text-4.5xl text-title mobile:text-[24px]">
         What people are saying:
       </h1>
-     
     </div>
 
     <!-- Carousel Area -->
