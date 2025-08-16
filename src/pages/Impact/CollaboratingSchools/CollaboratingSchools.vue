@@ -1,63 +1,88 @@
 <script setup>
 import Map from './Map.vue';
 import Affiliates from './Affiliates.vue';
+import BlueArrow from '/assets/images/our-projects/Vector Stroke.png';
+
+// Extracted RWD styling for BlueArrow icon
+const arrowClasses = [
+  'absolute',
+  'w-[60px]',
+  'left-0',
+  'bottom-[25%]',
+  'transform',
+  '-scale-x-100',
+  'md:w-[70px]',
+  'md:top-[25%]',
+  'md:left-[45%]',
+  'lg:top-1/4',
+  'lg:left-1/2',
+  'lg:rotate-[-35deg]',
+  'lg:w-[75px]',
+];
 </script>
 
 <template>
   <div
-    class="relative flex flex-col items-start justify-center mobile:justify-center w-full h-[10%] px-[15rem] mt-[7rem] mb-10 tablet:mb-[265px] mobile:mb-[129px]"
+    class="font-poppins relative flex flex-col items-start justify-center mobile:justify-center w-full h-[1500px] md:h-[900px] mt-36 md:mt-36 lg:mt-24"
   >
     <img
       src="/assets/images/impact/light-green-bg-2.png"
       class="absolute w-full h-[125%] -top-[12rem] right-0 -z-10"
-      alt="Background image"
+      aria-hidden="true"
     />
 
     <!-- HEADER -->
-    <div class="max-w-[519px]">
-      <h2
-        class="text-left ml-[2rem] font-poppins text-4.5xl tablet:text-[32px] mobile:text-[24px] mobile:text-center font-[400] mobile:ml-0"
-      >
-        Collaborating <em style="color: #fe892a"> Schools </em>
+    <div class="mx-auto w-full my-5">
+      <h2 class="page-header">
+        Collaborating <em class="text-[#fe892a]"> Schools </em>
       </h2>
     </div>
 
     <!-- MAP AND LIST OF AFFILIATED SCHOOLS AND TEACHERS -->
+    <!-- 
+    Responsive Layout:
+      - Mobile & Small (flex column): Map (top) & School List (bottom)
+      - Medium+ (flex row):  Map (left) & School List (right) 
+    -->
     <div
-      class="flex items-start justify-center mobile:justify-center mobile:items-center w-full h-[10%] mt-[4rem] mb-[6rem] tablet:mb-[265px] mobile:mb-[129px] mobile:flex-col mobile:gap-5"
+      class="py-10 mx-auto flex flex-col md:flex-row md:justify-center md:gap-x-10 items-center gap-y-10 w-[90%]"
     >
-      <!-- MAP Content -->
-      <div class="shadow-[3px_4px_5px_#2F3E45] rounded-[16px] mr-[3rem]">
+      <!-- School Map Content -->
+      <div
+        class="w-full md:w-1/2 flex flex-col items-center"
+        aria-hidden="true"
+      >
         <Map />
       </div>
-
-      <div class="">
+      <!-- Affiliated Schools List -->
+      <div class="w-full md:w-1/2 flex flex-col items-center">
         <Affiliates />
       </div>
     </div>
 
     <!-- CALL TO ACTION -->
+    <!-- 
+    Responsive Layout 
+      - Mobile & Small (flex column): CTA Text (top) & Button (bottom)
+      - Medium+ (flex row): CTA Text (left) & Button (right)
+    -->
     <div
-      class="flex content-center items-center justify-center w-full h-[10%] mb-36 tablet:mb-[265px] mobile:mb-[129px] mobile:flex-col mobile:items-center mobile:gap-5"
+      class="relative my-5 mx-auto w-[80%] flex flex-col md:flex-row items-center justify-center gap-x-10 gap-y-10"
     >
-      <div
-        class="w-1/2 mobile:text-center mobile:items-center mobile:flex mobile:w-fit"
-      >
-        <p
-          class="w-[504px] text-body text-xl font-poppins leading-8 mobile:ml-0 mobile:w-fit-content mobile:text-center"
-        >
+      <!-- Decorative Right Arrow -->
+      <img :src="BlueArrow" :class="arrowClasses" aria-hidden="true" />
+      <div class="w-full md:w-1/2 p-10">
+        <p class="text-center text-body text-[16px] md:text-[18px] leading-8">
           As we expand our services, we'd love to have you
-          <strong> partner with us on this exciting journey </strong>!
+          <span class="font-semibold text-primary-color">partner with us</span>
+          on this exciting journey!
         </p>
       </div>
-
-      <div
-        class="text-end w-1/2 mobile:w-full mobile:flex mobile:justify-center"
-      >
+      <div class="w-full md:w-1/2 text-center">
         <a
           href="mailto:connect@audemy.org"
           target="_blank"
-          class="w-[244px] mobile:w-auto font-poppins font-semibold px-[4.20rem] py-4 border-[1.5px] border-[#0C0D0D] rounded-[8px] bg-primary-color hover:bg-[#0C587D] duration-300 text-base text-white shadow-[3px_4px_0px_#0C0D0D]"
+          class="w-[250px] py-5 px-16 page-button blue-button"
         >
           Get affiliated
         </a>
