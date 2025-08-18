@@ -3,6 +3,7 @@ import Banner from '../../components/AccountPages/Banner.vue';
 import Header from '../../components/Header/Header.vue';
 import Footer from '../../components/Footer/Footer.vue';
 import PasswordToggle from '../../components/AccountPages/PasswordToggle.vue';
+import PasswordChecklist from '../../components/AccountPages/PasswordChecklist.vue';
 
 import { ref, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
@@ -166,15 +167,6 @@ const resetConfirm = async (event) => {
             maxlength="15"
           />
         </div>
-        <!-- HINT MESSAGES FOR PASSWORD -->
-        <div
-          class="form-hint"
-          :class="{ 'text-red-700': errors, 'text-body': !errors }"
-        >
-          <div role="alert">
-            <span>Your password must be at least 8 characters long.</span>
-          </div>
-        </div>
         <!-- CONFIRM PASSWORD FIELD -->
         <div>
           <label for="confirm_password" class="form-label">
@@ -197,12 +189,17 @@ const resetConfirm = async (event) => {
           @password-toggle="showPassword = !showPassword"
           class="mb-8"
         />
-        <!-- ERROR MESSAGES FOR PASSWORD CONFIRMATION -->
-        <div class="form-hint" v-if="errors">
-          <div role="alert" class="text-red-700">
-            <span>Passwords do not match.</span>
-          </div>
-        </div>
+        <!-- PASSWORD STRENGTH CHECKLIST -->
+        <!-- TODO: Add fade effects to PasswordChecklist, error message, & expired link alert UI -->
+        <PasswordChecklist
+          v-show="isWeakPassword || !passwordsMatch"
+          :hasEnoughChars="hasEnoughChars"
+          :hasPersonalInfo="hasPersonalInfo"
+          :hasLowercase="hasLowercase"
+          :hasUppercase="hasUppercase"
+          :hasNumber="hasNumber"
+          :hasSpecialChar="hasSpecialChar"
+        />
         <!-- CHECK IF RESET PASSWORD LINK EXPIRED -->
         <div class="form-error-wrapper" v-if="linkExpired">
           <div class="error-message" role="alert">
