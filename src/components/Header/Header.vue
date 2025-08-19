@@ -79,12 +79,17 @@
         </li>
         <li id="game-toolkit-item">
           <router-link to="/game-toolkit" class="navbar-link-desktop"
-            >Game Toolkit</router-link
+            >Game Toolkits</router-link
           >
         </li>
         <li id="accessibility-studio-item">
           <router-link to="/accessibility-studio" class="navbar-link-desktop"
             >Accessibility Studio</router-link
+          >
+        </li>
+        <li id="audio-console-item">
+          <router-link to="/audio-console" class="navbar-link-desktop"
+            >World's First Audio Console</router-link
           >
         </li>
         <!-- TODO: This GameZone link is to be used when user auth is implemented -->
@@ -218,7 +223,7 @@
               class="navbar-link-mobile"
               @click="closeMenu"
             >
-              Game Toolkit
+              Game Toolkits
             </router-link>
           </li>
           <li>
@@ -228,6 +233,15 @@
               @click="closeMenu"
             >
               Accessibility Studio
+            </router-link>
+          </li>
+          <li>
+            <router-link
+              to="/audio-console"
+              class="navbar-link-mobile"
+              @click="closeMenu"
+            >
+              World's First Audio Console
             </router-link>
           </li>
           <!-- TODO: This GameZone link is to be used when user auth is implemented -->

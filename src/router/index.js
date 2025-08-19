@@ -27,6 +27,7 @@ import DashboardSummary from '../pages/Dashboard/DashboardSummary.vue';
 import Press from '../pages/Press/Press.vue';
 import GameToolkit from '../pages/GameToolkit/GameToolkit.vue';
 import AccessibilityStudio from '../pages/AccessibilityStudio/AccessibilityStudio.vue';
+import AudioConsole from '../pages/AudioConsole/AudioConsole.vue'
 
 const routes = [
   { path: '/home', redirect: '/' },
@@ -47,7 +48,7 @@ const routes = [
     name: 'AccessibilityStudio',
     component: AccessibilityStudio,
   },
-
+  { path: '/audio-console', name: 'AudioConsole', component: AudioConsole },
   {
     path: '/accessibility-statement',
     name: 'Accessibility-Statement',
