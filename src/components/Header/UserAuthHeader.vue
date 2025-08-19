@@ -90,35 +90,18 @@
             >Accessibility Studio</router-link
           >
         </li>
-        <!-- TODO: This GameZone link is to be used when user auth is implemented -->
-        <!-- 
         <li id="games-item">
           <router-link to="/game-zone-landing-page" class="navbar-link-desktop">
             Game Zone
           </router-link>
         </li>
-        -->
-        <li id="games-item">
-          <router-link
-            to="/game-zone-landing-page"
-            class="base-game-zone-btn lg:w-[110px] xl:w-[145px] text-center"
-          >
-            Game Zone
-          </router-link>
-        </li>
-        <!-- TODO: Enable login/logout functionality when user auth is required -->
-        <!-- START 
         <li v-if="userSession" id="logout-btn-item">
           <button
             id="logout-btn-desktop"
-            class="base-logout-btn lg:w-[110px] xl:w-[145px] text-center flex flex-row"
+            class="base-logout-btn lg:w-[70px] xl:w-[145px] text-center flex flex-row"
             @click="logout"
           >
-            <span
-              id="logout-text-desktop"
-            >
-              Logout
-            </span>
+            <span id="logout-text-desktop"> Logout </span>
             <img
               id="google-profile-desktop"
               v-if="userSession.user && userSession.user.imageUrl"
@@ -139,13 +122,11 @@
           <router-link
             id="login-btn-desktop"
             to="/login"
-            class="base-login-btn lg:w-[110px] xl:w-[145px] text-center"
+            class="base-login-btn lg:w-[70px] xl:w-[145px] text-center"
           >
             Log in
           </router-link>
         </li>
-        -->
-        <!-- END -->
       </ul>
     </nav>
 
@@ -239,8 +220,6 @@
               Accessibility Studio
             </router-link>
           </li>
-          <!-- TODO: This GameZone link is to be used when user auth is implemented -->
-          <!-- 
           <li>
             <router-link
               to="/game-zone-landing-page"
@@ -250,31 +229,6 @@
               Game Zone
             </router-link>
           </li>
-          -->
-          <router-link
-            to="/game-zone-landing-page"
-            @click="closeMenu"
-            class="base-game-zone-btn w-full mt-8"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              aria-hidden="true"
-            >
-              <path d="M5 12h14" />
-              <path d="m12 5 7 7-7 7" />
-            </svg>
-            &nbsp;Game Zone
-          </router-link>
-          <!-- TODO: Enable login/logout functionality when user auth is required -->
-          <!-- START 
           <li v-if="userSession">
             <button class="base-logout-btn w-full mt-4" @click="logout">
               Logout
@@ -319,8 +273,6 @@
               &nbsp;Log in
             </router-link>
           </li>
-          -->
-          <!-- END -->
         </ul>
       </nav>
 
