@@ -38,6 +38,10 @@
       "use": "@vercel/node"
     },
     {
+      "src": "src/pages/api/reset_password_get_user_basics.js",
+      "use": "@vercel/node"
+    },
+    {
       "src": "package.json",
       "use": "@vercel/static-build",
       "config": {
@@ -90,6 +94,10 @@
     {
       "source": "/api/reset-password",
       "destination": "/src/pages/api/reset-password.js"
+    },
+    {
+      "source": "/api/reset_password_get_user_basics",
+      "destination": "/src/pages/api/reset_password_get_user_basics.js"
     },
     {
       "source": "/api/db/get_user_count",

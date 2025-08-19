@@ -62,14 +62,50 @@ const { matchAndInputMessage, feedbackClass } = usePasswordFeedback({
   hasPersonalInfo,
 });
 
-onMounted(() => {
+onMounted(async () => {
   // Get the token from the URL query parameters
   const query = new URLSearchParams(window.location.search);
   token.value = query.get('token');
 
   if (!token.value) {
+    linkExpired.value = true;
     errorMessage.value =
       'Invalid password reset link. Please request a new one.';
+    return; // Skip API call below if invalid token
+  }
+
+  // API call to securely fetch user's basic info (first name, last name, and email)
+  // Instead of using '?user=' from URL query (since it is tamperable)
+  try {
+    const getUserBasicsResponse = await fetch(
+      `/api/reset_password_get_user_basics`,
+      {
+        method: 'GET',
+        headers: {
+          Authorization: `Bearer ${token.value}`,
+        },
+      }
+    );
+
+    const jsonResponse = await getUserBasicsResponse.json().catch(() => ({}));
+
+    if (!getUserBasicsResponse.ok) {
+      handleApiError(
+        getUserBasicsResponse.status,
+        jsonResponse.message || 'Failed to find matching user or expired token'
+      );
+      return;
+    }
+
+    // Otherwise, successful API call
+    const { full_name, email_address } = jsonResponse;
+    console.log('JSON Response for GET API: ', jsonResponse);
+    console.log('User basic info: ', full_name, email_address);
+
+    fullName.value = full_name;
+    email.value = email_address;
+  } catch (error) {
+    console.log('reset_password_get_user_basics API Error: ', error);
   }
 });
 
@@ -158,7 +194,14 @@ const resetConfirm = async (event) => {
   // Ensure passwords meet strength criteria and match before submission
   checkCriteriaPassed();
   validatePasswords(); // Updates flags: passwordsMatch & errors
-  if (errors.value) {
+  if (errors.value || !passwordsMatch.value) {
+    return;
+  }
+
+  if (isWeakPassword.value) {
+    errors.value = true;
+    errorMessage.value =
+      'Weak password! Please use letters, numbers, and symbols (no name or email).';
     return;
   }
 
