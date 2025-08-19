@@ -67,11 +67,12 @@ onMounted(async () => {
   const query = new URLSearchParams(window.location.search);
   token.value = query.get('token');
 
+  // Check for empty token parameter in URL
   if (!token.value) {
     linkExpired.value = true;
     errorMessage.value =
       'Invalid password reset link. Please request a new one.';
-    return; // Skip API call below if invalid token
+    return; // Skip API call below
   }
 
   // API call to securely fetch user's basic info (first name, last name, and email)
@@ -281,6 +282,8 @@ const resetConfirm = async (event) => {
           <input
             v-model="password"
             :type="showPassword ? 'text' : 'password'"
+            :disabled="linkExpired"
+            :class="linkExpired ? 'hover:cursor-not-allowed' : ''"
             class="form-input-full"
             id="password"
             name="password"
@@ -297,6 +300,8 @@ const resetConfirm = async (event) => {
           <input
             v-model="confirmPassword"
             :type="showPassword ? 'text' : 'password'"
+            :disabled="linkExpired"
+            :class="linkExpired ? 'hover:cursor-not-allowed' : ''"
             class="form-input-full"
             id="confirm_password"
             name="confirm_password"
@@ -309,6 +314,8 @@ const resetConfirm = async (event) => {
         <PasswordToggle
           :showPassword="showPassword"
           @password-toggle="showPassword = !showPassword"
+          :disabled="linkExpired"
+          :isDisabled="linkExpired"
           class="mb-8"
         />
         <!-- PASSWORD STRENGTH CHECKLIST -->
@@ -351,7 +358,7 @@ const resetConfirm = async (event) => {
           </div>
         </div>
         <!-- RESET / SUBMIT NEW PASSWORD BUTTON -->
-        <div class="form-action-container">
+        <div class="form-action-container" v-if="!linkExpired">
           <button type="submit" class="primary-button">Reset Password</button>
         </div>
       </form>

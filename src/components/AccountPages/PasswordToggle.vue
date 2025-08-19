@@ -19,6 +19,15 @@ const props = defineProps({
     required: true,
     default: true,
   },
+  /* isDisabled: 
+    - Flag for expired or invalid Reset Password tokens 
+    - Used to adjust hover effects 
+  */
+  isDisabled: {
+    type: Boolean,
+    required: false,
+    default: false,
+  },
 });
 
 const emit = defineEmits(['password-toggle']);
@@ -29,8 +38,12 @@ const emit = defineEmits(['password-toggle']);
     type="button"
     @click="emit('password-toggle')"
     class="password-toggle-button grid grid-cols-[auto_auto]"
+    :class="isDisabled ? 'hover:bg-white' : ''"
   >
-    <span class="password-toggle-flex col-start-1">
+    <span
+      class="password-toggle-flex col-start-1"
+      :class="isDisabled ? 'hover:cursor-not-allowed' : ''"
+    >
       <!-- Show eye icon when password is hidden -->
       <span v-if="!showPassword" aria-hidden="true" class="mr-4 inline-block">
         <svg
