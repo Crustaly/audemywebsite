@@ -5,19 +5,62 @@ import Footer from '../../components/Footer/Footer.vue';
 import PasswordToggle from '../../components/AccountPages/PasswordToggle.vue';
 import PasswordChecklist from '../../components/AccountPages/PasswordChecklist.vue';
 
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, watch } from 'vue';
 import { useRouter } from 'vue-router';
 
 var linkExpired = ref(false); // flag for link expired error on frontend
 const password = ref('');
 const confirmPassword = ref('');
+const passwordsMatch = ref(false);
 const showPassword = ref(false); // Toggle password visibility
 const token = ref('');
 const router = useRouter();
 const isLoading = ref(false); // For loading state
+const formSubmitted = ref(false); // For final error message on submission
 
-import { useErrorAlert } from '../../Utilities/useErrorAlert';
-const { errors, errorMessage, showErrorAlert } = useErrorAlert();
+// Check for password strength: Require no personal info
+const fullName = ref('');
+const email = ref('');
+
+const errors = ref(false);
+const errorMessage = ref('');
+
+const resetErrors = () => {
+  setTimeout(() => {
+    errors.value = false;
+  }, 5000);
+};
+
+// Reusable Composables
+import { usePasswordCriteria } from '../../composables/usePasswordCriteria.js';
+import { usePasswordFeedback } from '../../composables/usePasswordFeedback.js';
+
+// Reactive flags from usePasswordCriteria() used by <PasswordChecklist/>
+// to render dynamic icons and validate password strength
+const {
+  hasEnoughChars,
+  hasPersonalInfo,
+  hasLowercase,
+  hasUppercase,
+  hasNumber,
+  hasSpecialChar,
+  checkCriteriaPassed,
+  isWeakPassword,
+} = usePasswordCriteria({
+  password,
+  email,
+  fullName,
+});
+
+// usePasswordFeedback(): Returns live feedback and styling based on password inputs
+const { matchAndInputMessage, feedbackClass } = usePasswordFeedback({
+  password,
+  confirmPassword,
+  passwordsMatch,
+  isWeakPassword,
+  hasEnoughChars,
+  hasPersonalInfo,
+});
 
 onMounted(() => {
   // Get the token from the URL query parameters
@@ -29,6 +72,35 @@ onMounted(() => {
       'Invalid password reset link. Please request a new one.';
   }
 });
+
+// Watch password fields for changes
+watch([password, confirmPassword], () => {
+  // Reset formSubmitted when either password changes
+  formSubmitted.value = false;
+
+  // Check password strength and confirmation match
+  checkCriteriaPassed();
+  validatePasswords();
+});
+
+// validatePasswords(): Compute passwords match status & errors flag
+const validatePasswords = () => {
+  // Default: Reset password match status
+  passwordsMatch.value = false;
+
+  if (password.value && confirmPassword.value) {
+    // Both passwords filled
+    passwordsMatch.value = password.value === confirmPassword.value;
+  }
+
+  // If passwords match, set errors to false (opposite)
+  // Covers edge case: Either password field is empty
+  errors.value = !passwordsMatch.value;
+
+  // Generate password strength feedback
+  errorMessage.value = matchAndInputMessage;
+  return;
+};
 
 const handleApiError = (status, message) => {
   switch (status) {
@@ -66,65 +138,72 @@ const handleApiError = (status, message) => {
 const resetConfirm = async (event) => {
   event.preventDefault(); // prevent default form submission which would reload the page
 
-  // Reset error states
-  errors.value = false;
-  linkExpired.value = false;
-  errorMessage.value = '';
+  formSubmitted.value = true;
 
+  // Check for empty password field(s)
+  if (!password.value || !confirmPassword.value) {
+    errors.value = true;
+    errorMessage.value = 'Please fill in required fields.';
+    return;
+  }
+
+  // Check for empty token parameter in URL
   if (!token.value) {
+    errors.value = true;
     errorMessage.value =
       'Invalid password reset link. Please request a new one.';
     return;
   }
 
-  // pre-condition checks for the password and confirm password fields
-  if (password.value != confirmPassword.value || password.value.length < 8) {
-    // Set the flag to true to display the error message on the frontend
-    errors.value = true;
-    errorMessage.value =
-      'Passwords do not match or is not at least 8 characters long';
+  // Ensure passwords meet strength criteria and match before submission
+  checkCriteriaPassed();
+  validatePasswords(); // Updates flags: passwordsMatch & errors
+  if (errors.value) {
     return;
-  } else {
-    errors.value = false;
+  }
 
-    isLoading.value = true; // Show loading UI
+  // Otherwise: Valid token & passwords match and are strong
+  isLoading.value = true; // Show loading UI
 
-    // API call to reset password
-    try {
-      const resetResponse = await fetch(`/api/reset-password`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          token: token.value,
-          newPassword: password.value,
-        }),
-      });
+  // API call to reset password
+  try {
+    const resetResponse = await fetch(`/api/reset-password`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        token: token.value,
+        newPassword: password.value,
+      }),
+    });
 
-      // Handle the response from the API based on the status code
-      console.log('Reset Password response:', resetResponse.status);
-      if (!resetResponse.ok) {
-        // Get response body if available
-        let errorData = {};
-        try {
-          errorData = await resetResponse.json();
-        } catch (e) {
-          // If response body can't be parsed as JSON, continue with empty error data
-        }
-
-        handleApiError(resetResponse.status, errorData.message);
-        return;
+    // Handle the response from the API based on the status code
+    console.log('Reset Password response:', resetResponse.status);
+    if (!resetResponse.ok) {
+      // Get response body if available
+      let errorData = {};
+      try {
+        errorData = await resetResponse.json();
+      } catch (e) {
+        // If response body can't be parsed as JSON, continue with empty error data
       }
 
-      // Route to reset-confirm page if password reset was successful
-      router.push('/reset-confirm');
-    } catch (error) {
-      // Throw error and set the flag to true to display the error message on the frontend
-      console.error('Error: ', error);
-      errorMessage.value =
-        'Connection error: Please check your internet connection and try again';
-    } finally {
-      isLoading.value = false; // Hide loading UI
+      handleApiError(resetResponse.status, errorData.message);
+      return;
     }
+
+    // Successful API response: Reset error states
+    linkExpired.value = false;
+    errorMessage.value = '';
+
+    // Route to reset-confirm page if password reset was successful
+    router.push('/reset-confirm');
+  } catch (error) {
+    // Throw error and set the flag to true to display the error message on the frontend
+    console.error('Error: ', error);
+    errorMessage.value =
+      'Connection error: Please check your internet connection and try again';
+  } finally {
+    isLoading.value = false; // Hide loading UI
   }
 };
 </script>
@@ -200,6 +279,24 @@ const resetConfirm = async (event) => {
           :hasNumber="hasNumber"
           :hasSpecialChar="hasSpecialChar"
         />
+        <!-- Password match feedback container (Using computed properties) -->
+        <!-- Accessibility: feedback is muted while typing; final error announced on submit -->
+        <div
+          v-show="matchAndInputMessage !== 'cleared'"
+          :class="feedbackClass"
+          class="feedback-box"
+          aria-hidden="true"
+        >
+          <p class="font-medium">
+            {{ matchAndInputMessage }}
+          </p>
+        </div>
+        <!-- Final error message: On form submission -->
+        <div class="form-error-wrapper" v-show="errors && formSubmitted">
+          <div class="error-message" role="alert">
+            <p>{{ errorMessage }}</p>
+          </div>
+        </div>
         <!-- CHECK IF RESET PASSWORD LINK EXPIRED -->
         <div class="form-error-wrapper" v-if="linkExpired">
           <div class="error-message" role="alert">
