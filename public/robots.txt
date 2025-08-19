@@ -10,6 +10,7 @@ Disallow: /api/auth/signup.js
 Disallow: /api/auth/login.js
 Disallow: /api/send-email.js
 Disallow: /api/reset-password.js
+Disallow: /api/reset_password_get_user_basics.js
 Disallow: /api/forgot-password.js
 
 Disallow: /login
