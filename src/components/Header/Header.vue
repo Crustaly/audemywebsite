@@ -111,7 +111,7 @@
         <li v-if="userSession" id="logout-btn-item">
           <button
             id="logout-btn-desktop"
-            class="base-logout-btn lg:w-[110px] xl:w-[145px] text-center flex flex-row"
+            class="base-logout-btn lg:w-[70px] xl:w-[145px] text-center"
             @click="logout"
           >
             <span
@@ -139,7 +139,7 @@
           <router-link
             id="login-btn-desktop"
             to="/login"
-            class="base-login-btn lg:w-[110px] xl:w-[145px] text-center"
+            class="base-login-btn lg:w-[70px] xl:w-[145px] text-center"
           >
             Log in
           </router-link>
