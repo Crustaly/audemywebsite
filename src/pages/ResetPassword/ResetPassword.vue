@@ -4,6 +4,7 @@ import Header from '../../components/Header/Header.vue';
 import Footer from '../../components/Footer/Footer.vue';
 import PasswordToggle from '../../components/AccountPages/PasswordToggle.vue';
 import PasswordChecklist from '../../components/AccountPages/PasswordChecklist.vue';
+import LoadingOverlay from '../../components/PageDecorations/LoadingOverlay.vue';
 
 import { ref, onMounted, watch } from 'vue';
 import { useRouter } from 'vue-router';
@@ -247,7 +248,7 @@ const resetConfirm = async (event) => {
 </script>
 
 <template>
-  <div v-if="isLoading" class="loading-overlay">Loading...</div>
+  <LoadingOverlay v-if="isLoading" />
   <div class="page-container" ref="content">
     <Header :logoPath="'/assets/images/header/header-logo-2.png'" />
   </div>

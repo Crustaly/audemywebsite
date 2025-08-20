@@ -1,6 +1,6 @@
 <template>
   <ScrollUpButton />
-  <div v-if="isLoading" class="loading-overlay">Loading...</div>
+  <LoadingOverlay v-if="isLoading" />
   <div class="page-container" ref="content">
     <Header :logoPath="'/assets/images/header/header-logo-2.png'" />
   </div>
@@ -144,6 +144,7 @@ import Footer from '../../components/Footer/Footer.vue';
 import ScrollUpButton from '../../components/ScrollUpButton/ScrollUpButton.vue';
 import Banner from '../../components/AccountPages/Banner.vue';
 import PasswordToggle from '../../components/AccountPages/PasswordToggle.vue';
+import LoadingOverlay from '../../components/PageDecorations/LoadingOverlay.vue';
 
 import { ref, onMounted } from 'vue';
 import { GoogleLogin } from 'vue3-google-login';
