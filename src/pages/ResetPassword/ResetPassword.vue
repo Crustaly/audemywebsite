@@ -25,12 +25,6 @@ const email = ref('');
 const errors = ref(false);
 const errorMessage = ref('');
 
-const resetErrors = () => {
-  setTimeout(() => {
-    errors.value = false;
-  }, 5000);
-};
-
 // Reusable Composables
 import { usePasswordCriteria } from '../../composables/usePasswordCriteria.js';
 import { usePasswordFeedback } from '../../composables/usePasswordFeedback.js';
@@ -352,7 +346,7 @@ const resetConfirm = async (event) => {
           <div class="error-message" role="alert">
             <p>Password reset link expired!</p>
             <br />
-            <a href="./forgot-password" class="auth-link">
+            <a href="./forgot-password" class="auth-link font-semibold">
               Generate a new link?
             </a>
           </div>

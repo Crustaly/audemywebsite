@@ -67,8 +67,8 @@ export const usePasswordFeedback = ({
   });
 
   const feedbackClass = computed(() => {
-    const errorClasses = 'bg-red-100 border-red-500 text-red-800';
-    const successClasses = 'bg-green-100 border-green-500 text-green-800';
+    const errorClasses = 'bg-red-50 border-red-500 text-red-800';
+    const successClasses = 'bg-green-50 border-green-500 text-green-800';
 
     if (passwordsMatch.value === true) {
       return isWeakPassword.value ? errorClasses : successClasses;
