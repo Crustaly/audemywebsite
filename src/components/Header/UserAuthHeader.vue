@@ -375,7 +375,7 @@ const logoutAlertClasses = [
   'w-1/2',
   'md:w-[40%]',
   'lg:w-1/3',
-  'bg-green-100',
+  'bg-green-50',
   'border',
   'border-green-400',
   'text-green-700',
