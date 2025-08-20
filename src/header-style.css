@@ -34,12 +34,16 @@
 
   /* --- Profile Icon --- */
   .navbar-profile-desktop {
-    @apply w-6 h-6 rounded-full ml-2 md:m-0 lg:ml-2; /* Google or default avatar */
+    @apply w-6 h-6 rounded-full xl:ml-2; /* Google or default avatar */
   }
 
   /* --- Game Zone & Account Buttons --- */
   .base-navbar-btn-flex {
     /* Shared flex button layout */
+    /* NOTE:
+     * - Mobile to medium screens: Display Hamburger Menu Icon only
+     * - Large+ only: Display account (login / logout) button with links
+    */
     @apply page-button flex justify-center items-center;
   }
 
@@ -49,6 +53,10 @@
   }
 
   .base-logout-btn {
-    @apply base-navbar-btn-flex orange-button;
+    /* RWD Layout:
+     * - Large (column): 'logout' text (top) & profile (bottom) 
+     * - X-Large (row): 'logout' (left) & profile (right) 
+     */
+    @apply base-navbar-btn-flex lg:flex-col xl:flex-row orange-button;
   }
 }
