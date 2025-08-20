@@ -116,7 +116,7 @@
     @apply mb-6 p-3 rounded-lg border-2 shadow-md min-h-[56px] text-base font-medium;
   }
   .error-message {
-    @apply bg-red-100 border-error-state text-red-800 p-3 rounded-lg border-2 shadow-md min-h-[56px] text-base font-medium w-full;
+    @apply bg-red-50 border-error-state text-red-800 p-3 rounded-lg border-2 shadow-md min-h-[56px] text-base w-full;
   }
   .auth-grid {
     @apply grid grid-cols-2 text-base font-semibold p-0 my-5 mobile:text-sm;
