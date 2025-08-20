@@ -1,6 +1,6 @@
 <template>
   <ScrollUpButton />
-  <div v-if="isLoading" class="loading-overlay">Loading...</div>
+  <LoadingOverlay v-if="isLoading" />
   <div class="page-container" ref="content">
     <Header :logoPath="'/assets/images/header/header-logo-2.png'" />
   </div>
@@ -219,6 +219,7 @@ import ScrollUpButton from '../../components/ScrollUpButton/ScrollUpButton.vue';
 import Banner from '../../components/AccountPages/Banner.vue';
 import PasswordToggle from '../../components/AccountPages/PasswordToggle.vue';
 import PasswordChecklist from '../../components/AccountPages/PasswordChecklist.vue';
+import LoadingOverlay from '../../components/PageDecorations/LoadingOverlay.vue';
 
 import { ref, watch, onMounted, computed } from 'vue';
 import { jwtDecode } from 'jwt-decode';
