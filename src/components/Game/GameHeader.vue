@@ -33,9 +33,23 @@
         >
           Question {{ numOfAudiosPlayed + 1 }}:
         </p>
-        <p class="mobile:text-[16px] text-[18px] my-2">
-          {{ currentQuestion['Q'] }}
-        </p>
+        <div class="mobile:text-[16px] md:text-[18px] my-2">
+          <div v-if="multipleChoiceGames.includes(title)">
+            <!-- Special case: Format multiple-choice questions -->
+            <p>{{ splitMCQs(currentQuestion['Q'])['prompt'] }}</p>
+            <!-- RWD: flex container for answer choices -->
+            <div class="px-10 flex flex-wrap justify-between items-center">
+              <div
+                v-for="choice in splitMCQs(currentQuestion['Q'])['choices']"
+                :key="choice"
+                :class="multipleChoiceClasses"
+              >
+                <p>{{ choice }}</p>
+              </div>
+            </div>
+          </div>
+          <p v-else>{{ currentQuestion['Q'] }}</p>
+        </div>
       </div>
       <p v-else class="mobile:text-[16px] text-[18px]">
         {{ description }}
@@ -85,4 +99,29 @@ defineProps({
     default: 1,
   },
 });
+
+const multipleChoiceGames = ['Vocabulary Vortex']; // TODO: Update this list of games as needed
+
+// Extracted style classes for multiple-choice captions
+const multipleChoiceClasses = [
+  'bg-[#edf7fc]',
+  'rounded-full',
+  'p-0',
+  'md:p-1',
+  'my-3',
+  'ease-in',
+  'duration-300',
+  'w-full' /* Mobile & small screens: Column layout */,
+  'md:w-[45%]' /* Medium+ screens: Row layout */,
+];
+
+/* splitMCQs(): Helper function to handle multiple-choice game Q's
+  - Based on 'multipleChoiceGames' list 
+*/
+const splitMCQs = (fullQuestion) => {
+  const questionParts = fullQuestion.split('?');
+  const prompt = questionParts[0] + '?'; // split removes '?' delimiter, so manually add char back
+  const choices = questionParts[1].split(','); // list of multiple choice, separated by ',' (comma)
+  return { prompt, choices };
+};
 </script>
