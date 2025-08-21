@@ -23,9 +23,9 @@
       :class="[isMobile ? 'w-[280px]' : 'w-[420px]']"
       class="font-poppins leading-[24px] text-center text-[#000000] mobile:px-5 p-3 mobile:m-5 m-0"
     >
-      <!-- Accessibility: 
-        - Screen readers: Skip duplicate output (since questions are narrated via TTS API)
-        - Sighted users: Captions remain visible & readable throughout game (until <GameOver />)
+      <!-- Accessibility & Usability: 
+        - Screen readers: Skip duplicate content (Qs are narrated via TTS API)
+        - Sighted users: Dynamic captions persists until game ends
       -->
       <div v-if="showQuestions" aria-hidden="true">
         <p
@@ -33,7 +33,7 @@
         >
           Question {{ numOfAudiosPlayed + 1 }}:
         </p>
-        <div class="mobile:text-[16px] md:text-[18px] my-2">
+        <div class="mobile:text-[16px] md:text-[16.5px] my-2">
           <div v-if="multipleChoiceGames.includes(title)">
             <!-- Special case: Format multiple-choice questions -->
             <p>{{ splitMCQs(currentQuestion['Q'])['prompt'] }}</p>
@@ -92,7 +92,7 @@ defineProps({
     type: String,
     required: false,
   },
-  /* numOfAudiosPlayed: Index for current question (tracks game progress) */
+  /* numOfAudiosPlayed: Index for current question */
   numOfAudiosPlayed: {
     type: Number,
     required: false,
@@ -100,7 +100,8 @@ defineProps({
   },
 });
 
-const multipleChoiceGames = ['Vocabulary Vortex']; // TODO: Update this list of games as needed
+// TODO: Update this list of MCQ games as needed
+const multipleChoiceGames = ['Vocabulary Vortex', 'Polar Pairing'];
 
 // Extracted style classes for multiple-choice captions
 const multipleChoiceClasses = [
@@ -115,13 +116,28 @@ const multipleChoiceClasses = [
   'md:w-[45%]' /* Medium+ screens: Row layout */,
 ];
 
-/* splitMCQs(): Helper function to handle multiple-choice game Q's
-  - Based on 'multipleChoiceGames' list 
-*/
+/* splitMCQs():
+ * - Helper function to handle multiple-choice game Q's
+ * - Based on 'multipleChoiceGames' list
+ */
 const splitMCQs = (fullQuestion) => {
   const questionParts = fullQuestion.split('?');
-  const prompt = questionParts[0] + '?'; // split removes '?' delimiter, so manually add char back
-  const choices = questionParts[1].split(','); // list of multiple choice, separated by ',' (comma)
+
+  // Split removes '?' delimiter, so manually add char back in UI
+  const prompt = questionParts[0] + '?';
+
+  // Splits multiple-choice options by a comma delimiter
+  let choices = questionParts[1].split(',');
+
+  // Special case: Trim trailing 'or ' from last answer choice
+  // Ex: 'Independence, Liberty, Constraint, or Automony?'
+  let lastChoice = choices.at(-1);
+  if (lastChoice.includes('or ')) {
+    lastChoice = lastChoice.replace('or ', '');
+    // Concatenate subarrays
+    choices = choices.slice(0, -1).concat(lastChoice);
+  }
+
   return { prompt, choices };
 };
 </script>
