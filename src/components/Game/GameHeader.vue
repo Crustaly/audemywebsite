@@ -1,8 +1,8 @@
 <template>
   <div
-    class="flex flex-col items-center bg-cross-lines p-10 mt-5 mb-5 rounded-[16px] w-full shadow-md"
+    class="flex flex-col items-center bg-cross-lines p-10 my-5 rounded-[16px] mobile:w-[70%] w-full shadow-md"
   >
-    <div class="mb-2 mt-2">
+    <div class="my-2">
       <img
         :src="iconSrc"
         alt="Game icon"
@@ -13,27 +13,31 @@
       :class="[
         isMobile
           ? 'text-[30px] leading-[50px]'
-          : 'text-[50px] leading-[70px] lg:text-[55px]',
+          : 'text-[40px] leading-[70px] lg:text-[50px]',
       ]"
-      class="font-poppins font-semibold tracking-normal text-center mobile:mb-1 mb-6"
+      class="font-poppins font-semibold text-center"
     >
       {{ title }}
     </h1>
     <div
-      :class="[isMobile ? 'w-[300px] h-[24px]' : 'w-[420px] h-[24px]']"
-      class="font-poppins font-normal text-[16px] leading-[24px] tracking-normal text-center mt-2 mb-8 text-[#000000]"
+      :class="[isMobile ? 'w-[280px]' : 'w-[420px]']"
+      class="font-poppins leading-[24px] text-center text-[#000000] mobile:px-5 p-3 mobile:m-5 m-0"
     >
       <!-- Accessibility: 
         - Screen readers: Skip duplicate output (since questions are narrated via TTS API)
         - Sighted users: Captions remain visible & readable throughout game (until <GameOver />)
       -->
       <div v-if="showQuestions" aria-hidden="true">
-        <p class="font-semibold text-[18px] border-b-2 border-primary-color">
+        <p
+          class="p-3 font-semibold bg-[#edf7fc] rounded-full w-[60%] mx-auto mobile:text-[18px] text-[20px]"
+        >
           Question {{ numOfAudiosPlayed + 1 }}:
         </p>
-        <p class="my-2">{{ currentQuestion['Q'] }}</p>
+        <p class="mobile:text-[16px] text-[18px] my-2">
+          {{ currentQuestion['Q'] }}
+        </p>
       </div>
-      <p v-else>
+      <p v-else class="mobile:text-[16px] text-[18px]">
         {{ description }}
       </p>
     </div>
