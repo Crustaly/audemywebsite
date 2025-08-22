@@ -13,6 +13,8 @@
         :title="gameConfig.title"
         :description="gameConfig.description"
         :isMobile="isMobile"
+        :showQuestions="playButton && !isIntroPlaying && numOfAudiosPlayed < 5"
+        :numOfAudiosPlayed="numOfAudiosPlayed"
       />
 
       <PlayButton v-if="playButton === false" @play-click="playButton = true" />
