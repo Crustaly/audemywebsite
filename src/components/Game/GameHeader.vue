@@ -48,8 +48,8 @@
               </div>
             </div>
           </div>
-          <!-- Otherwise: Non-multiple choice game question -->
-          <p v-else>{{ currentQuestion['Q'] }}</p>
+          <!-- Non-multiple choice game question -->
+          <p v-else-if="currentQuestion">{{ currentQuestion['Q'] }}</p>
         </div>
       </div>
       <p v-else class="mobile:text-[16px] text-[18px]">
@@ -90,8 +90,9 @@ defineProps({
   },
   /* currentQuestion: Captions for current game question */
   currentQuestion: {
-    type: String,
+    type: Object,
     required: false,
+    default: null,
   },
   /* numOfAudiosPlayed: Index for current question */
   numOfAudiosPlayed: {
