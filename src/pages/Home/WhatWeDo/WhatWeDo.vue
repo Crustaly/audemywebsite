@@ -91,7 +91,7 @@ import CrystalWithGroups from '../../../assets/images/crystalwith groups.jpeg';
           ></div>
           <div class="wwd-card-flex">
             <div class="flex-1 text-center lg:py-5">
-              <a href="/buzzle" class="block">
+              <a href="/audio-console" class="block">
                 <h3 class="wwd-card-title hover:text-purple-400">
                   <span
                     class="bg-gradient-to-r from-purple-500 to-pink-600 bg-clip-text text-transparent"
