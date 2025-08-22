@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex flex-col items-center bg-cross-lines p-10 my-5 rounded-[16px] mobile:w-[70%] w-full shadow-md"
+    class="flex flex-col items-center bg-cross-lines p-10 my-5 rounded-[16px] mobile:w-[70%] w-[400px] md:w-full shadow-md"
   >
     <div class="my-2">
       <img
@@ -31,11 +31,11 @@
         <p
           class="p-3 font-semibold bg-[#edf7fc] rounded-full w-[60%] mx-auto mobile:text-[18px] text-[20px]"
         >
-          Question {{ numOfAudiosPlayed + 1 }}:
+          Question {{ numOfAudiosPlayed + 1 }}
         </p>
         <div class="mobile:text-[16px] md:text-[16.5px] my-2">
+          <!-- Special case: Format multiple-choice questions -->
           <div v-if="multipleChoiceGames.includes(title)">
-            <!-- Special case: Format multiple-choice questions -->
             <p>{{ splitMCQs(currentQuestion['Q'])['prompt'] }}</p>
             <!-- RWD: flex container for answer choices -->
             <div class="px-10 flex flex-wrap justify-between items-center">
@@ -48,6 +48,7 @@
               </div>
             </div>
           </div>
+          <!-- Otherwise: Non-multiple choice game question -->
           <p v-else>{{ currentQuestion['Q'] }}</p>
         </div>
       </div>
@@ -101,7 +102,11 @@ defineProps({
 });
 
 // TODO: Update this list of MCQ games as needed
-const multipleChoiceGames = ['Vocabulary Vortex', 'Polar Pairing'];
+const multipleChoiceGames = [
+  'Vocabulary Vortex',
+  'Polar Pairing',
+  'Odd One Out',
+];
 
 // Extracted style classes for multiple-choice captions
 const multipleChoiceClasses = [
