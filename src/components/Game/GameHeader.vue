@@ -34,7 +34,7 @@
           Question {{ numOfAudiosPlayed + 1 }}
         </p>
         <div class="mobile:text-[16px] md:text-[16.5px] my-2">
-          <!-- Special case: Format multiple-choice questions -->
+          <!-- 1. Special case: Format multiple-choice questions -->
           <div v-if="multipleChoiceGames.includes(title)">
             <p>{{ splitMCQs(currentQuestion['Q'])['prompt'] }}</p>
             <!-- RWD: flex container for answer choices -->
@@ -48,8 +48,14 @@
               </div>
             </div>
           </div>
-          <!-- Non-multiple choice game question -->
+
+          <!-- 2. Non-multiple choice game question -->
           <p v-else-if="currentQuestion">{{ currentQuestion['Q'] }}</p>
+
+          <!-- 3. Otherwise: Show game description for 'Spelling Bee' & 'Car Counting' -->
+          <p v-else class="mobile:text-[16px] text-[18px]">
+            {{ description }}
+          </p>
         </div>
       </div>
       <p v-else class="mobile:text-[16px] text-[18px]">
