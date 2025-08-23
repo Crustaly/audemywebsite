@@ -108,9 +108,6 @@ const socialMediaGridClasses = [
             <a href="/about-us">Our Team</a>
           </li>
           <li class="ftr-subtext">
-            <a href="/our-projects">Our Projects</a>
-          </li>
-          <li class="ftr-subtext">
             <a href="/impact">Impact</a>
           </li>
           <li class="ftr-subtext">
@@ -118,6 +115,9 @@ const socialMediaGridClasses = [
           </li>
           <li class="ftr-subtext">
             <a href="/game-zone-landing-page">Game Zone</a>
+          </li>
+          <li class="ftr-subtext">
+            <a href="/audio-console">About Buzzle</a>
           </li>
         </ul>
       </div>
