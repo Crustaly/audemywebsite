@@ -34,7 +34,7 @@
 
   /* --- Decorative colored banner & icon cards --- */
   .game-resource-card-banner {
-    @apply z-0 bg-[#357ca0] absolute top-0 left-0 w-full rounded-t-md;
+    @apply z-0 bg-[#0a7db8] absolute top-0 left-0 w-full rounded-t-md;
   }
 
   .game-resource-text-card-base {
