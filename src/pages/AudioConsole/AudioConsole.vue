@@ -11,6 +11,8 @@ import OrangeStar from '/assets/images/SignUpImg/orange-star.png';
 import Book from '/assets/images/SignUpImg/books.png';
 import Mic from '/assets/images/techShowcase/microphone.png';
 import BlueArrow from '/assets/images/our-projects/Vector Stroke.png';
+import Sparkles from '/assets/images/studio/sparkles.png';
+import ShootingStars from '/assets/images/studio/shooting-stars.png';
 
 // Extracted shared styling for BlueArrow icon
 const arrowClasses = [
@@ -90,7 +92,7 @@ const finalArrowClasses = [
         </div>
 
         <div class="my-10 px-5">
-          <p class="text-body text-xl mobile:text-[16px] leading-8">
+          <p class="page-text">
             Gaming should be made for
             <span class="font-semibold">everyone</span>
           </p>
@@ -142,7 +144,7 @@ const finalArrowClasses = [
       <div class="flex justify-center">
         <div class="max-w-[900px] w-full">
           <div class="my-10 px-5 text-center">
-            <p class="text-body text-xl mobile:text-[18px] leading-8 mb-8">
+            <p class="page-text mb-8">
               <span class="font-semibold text-primary-color">Buzzle</span> is
               the
               <span class="font-semibold"
@@ -226,8 +228,8 @@ const finalArrowClasses = [
       <div class="w-full">
         <h2 class="game-resource-header">Grant & Pilot Information</h2>
         <PageDecorations
-          topRightImgPath="/assets/images/studio/sparkles.png"
-          bottomLeftImgPath="/assets/images/studio/shooting-stars.png"
+          :topRightImgPath="Sparkles"
+          :bottomLeftImgPath="ShootingStars"
         />
       </div>
 
@@ -235,7 +237,7 @@ const finalArrowClasses = [
         <div class="max-w-[800px] w-full">
           <div class="my-10 px-5">
             <div class="text-center mb-12">
-              <p class="text-body text-xl mobile:text-[18px] leading-8 mb-8">
+              <p class="page-text mb-8">
                 Backed by grants from
                 <span class="font-semibold text-primary-color">Amazon</span> and
                 the
@@ -262,7 +264,7 @@ const finalArrowClasses = [
             </div>
 
             <div
-              class="game-resource-text-card-base game-resource-text-card-flex w-full relative mb-8"
+              class="game-resource-text-card-base game-resource-text-card-flex mx-auto w-[300px] sm:w-full relative mb-8 duration-300"
             >
               <div
                 class="game-resource-card-banner h-1/4 md:h-1/3"
@@ -291,7 +293,7 @@ const finalArrowClasses = [
             </div>
 
             <div class="text-center my-10">
-              <p class="text-body text-xl mobile:text-[16px] leading-7">
+              <p class="page-text">
                 We are done with prototyping and ready to
                 <span class="font-semibold text-primary-color"
                   >begin pilots</span

@@ -41,11 +41,15 @@
 /* --- Typography --- */
 .page-header-accent {
   /* Small, grey, CAPS text above page-header */
-  @apply text-small text-[12px] font-[500] mobile:w-auto text-center tracking-[3.6px] mb-4 text-[#6E777C] font-semibold;
+  @apply uppercase text-[14px] font-[500] mobile:w-auto text-center tracking-[3.6px] mb-4 text-[#6E777C] font-semibold;
 }
 
 .page-header {
   @apply text-center text-4.5xl tablet:text-[32px] mobile:text-[24px] mobile:text-center font-[400] py-5;
+}
+
+.page-text {
+  @apply text-body text-xl mobile:text-[16px] leading-7;
 }
 
 /* --- Currently, reused in policy pages --- */
