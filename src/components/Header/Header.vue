@@ -59,14 +59,17 @@
         </li>
         <li id="about-item">
           <router-link to="/about-us" class="navbar-link-desktop">
-            Our Team
+            Team
           </router-link>
         </li>
-        <!--li id="projects-item">
+        <!-- NOTE: REMOVED OUR PROJECTS FROM NAVBAR (content combined w/ Impact page) -->
+        <!--
+        <li id="projects-item">
           <router-link to="/our-projects" class="navbar-link-desktop">
             Our Projects
           </router-link>
-        </li-->
+        </li>
+        -->
         <li id="impact-item">
           <router-link to="/impact" class="navbar-link-desktop">
             Impact
@@ -74,7 +77,7 @@
         </li>
         <li id="press-item">
           <router-link to="/press" class="navbar-link-desktop">
-            Press & Recognition
+            Press
           </router-link>
         </li>
         <li id="game-toolkit-item">
@@ -88,35 +91,37 @@
           >
         </li>
         <li id="audio-console-item">
-          <router-link to="/audio-console" class="navbar-link-desktop"
-            >World's First Audio Console</router-link
-          >
+          <router-link to="/audio-console" class="navbar-link-desktop">
+            <span class="lg:block xl:hidden">About Buzzle</span>
+            <span class="lg:hidden xl:block">World's First Audio Console</span>
+          </router-link>
         </li>
         <!-- TODO: This GameZone link is to be used when user auth is implemented -->
-        <!-- li id="games-item">
+        <!-- 
+        <li id="games-item">
           <router-link to="/game-zone-landing-page" class="navbar-link-desktop">
             Game Zone
           </router-link>
-        </li-->
+        </li>
+        -->
         <li id="games-item">
           <router-link
             to="/game-zone-landing-page"
-            class="base-game-zone-btn lg:w-[110px] xl:w-[145px] text-center"
+            class="base-game-zone-btn lg:w-[70px] xl:w-[145px] text-center"
           >
             Game Zone
           </router-link>
         </li>
         <!-- TODO: Enable login/logout functionality when user auth is required -->
-        <!-- li v-if="userSession" id="logout-btn-item">
+        <!-- START 
+        <li v-if="userSession" id="logout-btn-item">
           <button
             id="logout-btn-desktop"
-            class="base-logout-btn md:p-[8px] lg:p-[10px] md:grid md:grid-cols-3 md:grid-rows-2 lg:grid-rows-1"
+            class="base-logout-btn lg:w-[70px] xl:w-[145px] text-center"
             @click="logout"
           >
-            
             <span
               id="logout-text-desktop"
-              class="row-start-1 col-span-3 lg:col-span-2"
             >
               Logout
             </span>
@@ -125,14 +130,14 @@
               v-if="userSession.user && userSession.user.imageUrl"
               :src="userSession.user.imageUrl"
               aria-hidden="true"
-              class="navbar-profile-desktop row-start-2 col-start-2 lg:row-start-1 lg:col-span-1"
+              class="navbar-profile-desktop"
             />
             <img
               id="default-profile-desktop"
               v-else
               src="../../assets/character/default-profile.png"
               aria-hidden="true"
-              class="navbar-profile-desktop row-start-2 col-start-2 lg:row-start-1 lg:col-span-1"
+              class="navbar-profile-desktop"
             />
           </button>
         </li>
@@ -140,11 +145,13 @@
           <router-link
             id="login-btn-desktop"
             to="/login"
-            class="base-login-btn md:p-[15px] lg:p-[12px] lg:px-4"
+            class="base-login-btn lg:w-[70px] xl:w-[145px] text-center"
           >
             Log in
           </router-link>
-        </li -->
+        </li>
+        -->
+        <!-- END -->
       </ul>
     </nav>
 
@@ -190,7 +197,9 @@
               Our Team
             </router-link>
           </li>
-          <!--li>
+          <!-- NOTE: REMOVED OUR PROJECTS FROM NAVBAR (content combined w/ Impact page) -->
+          <!--
+          <li>
             <router-link
               to="/our-projects"
               class="navbar-link-mobile"
@@ -198,7 +207,8 @@
             >
               Our Projects
             </router-link>
-          </li-->
+          </li>
+          -->
           <li>
             <router-link
               to="/impact"
@@ -245,7 +255,8 @@
             </router-link>
           </li>
           <!-- TODO: This GameZone link is to be used when user auth is implemented -->
-          <!-- li>
+          <!-- 
+          <li>
             <router-link
               to="/game-zone-landing-page"
               class="navbar-link-mobile"
@@ -253,7 +264,8 @@
             >
               Game Zone
             </router-link>
-          </li-->
+          </li>
+          -->
           <router-link
             to="/game-zone-landing-page"
             @click="closeMenu"
@@ -277,7 +289,8 @@
             &nbsp;Game Zone
           </router-link>
           <!-- TODO: Enable login/logout functionality when user auth is required -->
-          <!-- li v-if="userSession">
+          <!-- START 
+          <li v-if="userSession">
             <button class="base-logout-btn w-full mt-4" @click="logout">
               Logout
 
@@ -320,7 +333,9 @@
               </svg>
               &nbsp;Log in
             </router-link>
-          </li-->
+          </li>
+          -->
+          <!-- END -->
         </ul>
       </nav>
 
