@@ -105,19 +105,23 @@ const socialMediaGridClasses = [
             <a href="/">Home</a>
           </li>
           <li class="ftr-subtext">
-            <a href="/about-us">Our Team</a>
-          </li>
-          <li class="ftr-subtext">
-            <a href="/our-projects">Our Projects</a>
+            <a href="/about-us">Team</a>
           </li>
           <li class="ftr-subtext">
             <a href="/impact">Impact</a>
           </li>
           <li class="ftr-subtext">
-            <a href="/press">Press & Recognition</a>
+            <a href="/press">Press</a>
           </li>
           <li class="ftr-subtext">
             <a href="/game-zone-landing-page">Game Zone</a>
+          </li>
+          <li class="ftr-subtext">
+            <!-- RWD: Shortened 'Buzzle' link (mobile to small screens) & full text for medium+ -->
+            <a href="/audio-console">
+              <p class="hidden md:block">World's First Audio Console</p>
+              <p class="block md:hidden">About Buzzle</p>
+            </a>
           </li>
         </ul>
       </div>
