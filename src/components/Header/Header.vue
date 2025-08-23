@@ -59,7 +59,7 @@
         </li>
         <li id="about-item">
           <router-link to="/about-us" class="navbar-link-desktop">
-            Our Team
+            Team
           </router-link>
         </li>
         <!-- NOTE: REMOVED OUR PROJECTS FROM NAVBAR (content combined w/ Impact page) -->
@@ -77,7 +77,7 @@
         </li>
         <li id="press-item">
           <router-link to="/press" class="navbar-link-desktop">
-            Press & Recognition
+            Press
           </router-link>
         </li>
         <li id="game-toolkit-item">
@@ -91,9 +91,10 @@
           >
         </li>
         <li id="audio-console-item">
-          <router-link to="/audio-console" class="navbar-link-desktop"
-            >World's First Audio Console</router-link
-          >
+          <router-link to="/audio-console" class="navbar-link-desktop">
+            <span class="lg:block xl:hidden">About Buzzle</span>
+            <span class="lg:hidden xl:block">World's First Audio Console</span>
+          </router-link>
         </li>
         <!-- TODO: This GameZone link is to be used when user auth is implemented -->
         <!-- 
@@ -106,7 +107,7 @@
         <li id="games-item">
           <router-link
             to="/game-zone-landing-page"
-            class="base-game-zone-btn lg:w-[110px] xl:w-[145px] text-center"
+            class="base-game-zone-btn lg:w-[70px] xl:w-[145px] text-center"
           >
             Game Zone
           </router-link>
@@ -193,7 +194,7 @@
               class="navbar-link-mobile"
               @click="closeMenu"
             >
-              Our Team
+              Team
             </router-link>
           </li>
           <!-- NOTE: REMOVED OUR PROJECTS FROM NAVBAR (content combined w/ Impact page) -->
@@ -223,7 +224,7 @@
               class="navbar-link-mobile"
               @click="closeMenu"
             >
-              Press & Recognition
+              Press
             </router-link>
           </li>
           <li>
