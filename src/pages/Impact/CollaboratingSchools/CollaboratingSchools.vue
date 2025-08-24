@@ -1,7 +1,7 @@
 <script setup>
 import Map from './Map.vue';
 import Affiliates from './Affiliates.vue';
-import BlueArrow from '/assets/images/our-projects/Vector Stroke.png';
+import BlueArrow from '/assets/images/our-projects/blue-arrow.png';
 
 // Extracted RWD styling for BlueArrow icon
 const arrowClasses = [
@@ -72,7 +72,7 @@ const arrowClasses = [
       <!-- Decorative Right Arrow -->
       <img :src="BlueArrow" :class="arrowClasses" aria-hidden="true" />
       <div class="w-full md:w-1/2 p-10">
-        <p class="text-center text-body text-[16px] md:text-[18px] leading-8">
+        <p class="text-center page-text">
           As we expand our services, we'd love to have you
           <span class="font-semibold text-primary-color">partner with us</span>
           on this exciting journey!

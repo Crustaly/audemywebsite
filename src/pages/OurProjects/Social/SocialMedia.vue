@@ -1,32 +1,35 @@
 <template>
-  <div class="flex flex-col">
+  <div class="relative flex flex-col font-poppins">
+    <!-- Hide decorative blue arrow -->
+    <img
+      src="/assets/images/our-projects/blue-arrow.png"
+      class="h-[40px] sm:h-[50px] md:h-[60px] lg:h-[70px] absolute right-0 bottom-[18%] sm:bottom-[10%] sm:right-[10%] md:bottom-20 lg:bottom-1/2 lg:right-[-5%] z-40 duration-300"
+      aria-hidden="true"
+    />
     <div class="flex justify-center">
-      <h2 class="text-sm uppercase tracking-[3.6px]">Social Media Content</h2>
+      <h2 class="page-header-accent">Social Media Content</h2>
     </div>
     <div class="flex justify-center">
-      <h3 class="text-[32px] text-center font-poppins md:text-4.5xl">
+      <h3 class="page-header">
         Explore
         <span style="color: #077bb3" class="font-semibold">
           Apple Loo Education
         </span>
       </h3>
     </div>
-    <div class="text-body text-xl font-poppins leading-8 text-center mt-5">
+    <div class="page-text text-center my-5">
       <p>
         Our YouTube channel that
-        <strong> educates young students through engaging videos. </strong>
+        <span class="font-semibold">
+          educates young students through engaging videos.
+        </span>
       </p>
     </div>
     <div class="relative flex place-content-center mt-10">
       <img
         src="/assets/images/our-projects/tablet.png"
         class="h-auto w-3/4"
-        alt="Tablet Image"
-      />
-      <img
-        src="/assets/images/our-projects/Vector Stroke.png"
-        class="absolute -top-20 -right-3 md:-right-34 md:-top-12 xl:-right-0 lg:h-28 z-40"
-        alt="Vector Stroke Image"
+        aria-hidden="true"
       />
       <div
         class="absolute top-0 left-[15%] h-[100%] w-[70%] flex items-center justify-center"
@@ -46,7 +49,7 @@
       <a
         href="https://www.youtube.com/@applelooeducationalvideosf1743/featured"
         target="_blank"
-        class="font-poppins font-semibold px-9 py-4 border-[1.5px] border-[#0C0D0D] rounded-[8px] bg-primary-color hover:bg-[#0C587D] duration-300 text-base text-center text-[#fff] shadow-[3px_4px_0px_#0C0D0D]"
+        class="page-button blue-button page-button-flex px-9 py-4"
       >
         Watch more videos
       </a>

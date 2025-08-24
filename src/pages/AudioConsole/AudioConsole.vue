@@ -10,7 +10,7 @@ import YellowStar from '/assets/images/testimonials/star.svg';
 import OrangeStar from '/assets/images/SignUpImg/orange-star.png';
 import Book from '/assets/images/SignUpImg/books.png';
 import Mic from '/assets/images/techShowcase/microphone.png';
-import BlueArrow from '/assets/images/our-projects/Vector Stroke.png';
+import BlueArrow from '/assets/images/our-projects/blue-arrow.png';
 import Sparkles from '/assets/images/studio/sparkles.png';
 import ShootingStars from '/assets/images/studio/shooting-stars.png';
 
