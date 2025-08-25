@@ -13,6 +13,8 @@
         title="Car Counting"
         description="How many cars are passing by?"
         :isMobile="isMobile"
+        :showQuestions="playButton && !isIntroPlaying && numOfAudiosPlayed < 5"
+        :numOfAudiosPlayed="numOfAudiosPlayed"
       />
 
       <PlayButton v-if="playButton === false" @play-click="playButton = true" />
