@@ -1,21 +1,28 @@
 <template>
   <div
-    class="flex flex-col items-center bg-cross-lines p-10 my-5 rounded-[16px] mobile:w-[70%] w-[400px] md:w-full shadow-md"
+    class="relative flex flex-col items-center bg-cross-lines py-5 px-12 md:p-10 my-5 rounded-[16px] mobile:w-[70%] w-[400px] md:w-full shadow-md"
   >
     <div class="my-2">
+      <!-- Icon RWD: 
+        - Switch to bottom-left (mobile + small screens only)
+        - To reduce vertical scrolling & avoid overlap w/ 'Something Not Working' button  
+      -->
       <img
         :src="iconSrc"
-        alt="Game icon"
-        class="mobile:w-[50px] mobile:h-auto w-[70px] h-[70px]"
+        aria-hidden="true"
+        :class="[
+          'duration-300 h-auto w-[50px] md:w-[70px] md:h-[70px]',
+          isMobile ? 'absolute -bottom-3 -left-3' : '',
+        ]"
       />
     </div>
     <h1
       :class="[
         isMobile
-          ? 'text-[30px] leading-[50px]'
+          ? 'text-[25px] leading-[35px]'
           : 'text-[40px] leading-[70px] lg:text-[50px]',
       ]"
-      class="font-poppins font-semibold text-center"
+      class="font-poppins font-semibold text-center duration-300"
     >
       {{ title }}
     </h1>
@@ -29,7 +36,7 @@
       -->
       <div v-if="showQuestions" aria-hidden="true">
         <p
-          class="p-3 font-semibold bg-[#edf7fc] rounded-full w-[60%] mx-auto mobile:text-[18px] text-[20px]"
+          class="p-3 font-semibold bg-[#edf7fc] rounded-full w-[60%] mx-auto text-[16px] md:text-[20px]"
         >
           Question {{ numOfAudiosPlayed + 1 }}
         </p>
