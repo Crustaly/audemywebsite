@@ -2,9 +2,9 @@
 import Card from './Card/Card.vue';
 import ResearchListCard from './Research/ResearchListCard.vue';
 const items = [
-  { icon: 'message.png', text: '50+ AI-Driven \n Conversational Games' },
-  { icon: 'intel.png', text: 'Intel OpenVINO \n Speech Processing' },
-  { icon: 'digital.png', text: 'Screen Reader Compatibility' },
+  { icon: 'chat.png', title: '50+ AI-Driven \n Conversational Games' },
+  { icon: 'intel.png', title: 'Intel OpenVINO \n Speech Processing' },
+  { icon: 'volume-up.png', title: 'Screen Reader Compatibility' },
 ];
 const items2 = [
   {
@@ -23,20 +23,19 @@ const items2 = [
 </script>
 
 <template>
-  <div class="flex flex-col">
-    <div class="flex flex-col text-center mb-16">
-      <h2 class="text-sm uppercase tracking-[3.6px]">
-        Research & Technologies
-      </h2>
-      <h3 class="text-[32px] font-poppins md:text-4.5xl">
+  <div class="flex flex-col font-poppins">
+    <div class="flex flex-col text-center my-10">
+      <h2 class="page-header-accent">Research & Technologies</h2>
+      <h3 class="page-header">
         What makes our platform
-        <em style="color: #fe892a"> accessible and engaging </em>
+        <em class="text-secondary-color"> accessible</em> and
+        <em class="text-secondary-color">engaging</em>
       </h3>
     </div>
 
     <!-- Centered content section -->
     <div class="flex flex-col items-center justify-center">
-      <div class="flex flex-col my-6 lg:my-10 lg:flex-row lg:gap-20">
+      <div class="flex flex-col lg:flex-row lg:gap-20">
         <Card
           v-for="(item, index) in items"
           :key="index"
@@ -46,14 +45,15 @@ const items2 = [
         />
       </div>
 
-      <div class="max-w-2xl px-4 text-center mb-10">
-        <p class="font-poppins text-base text-gray-700 leading-relaxed">
-          We conduct <strong> research on accessibility </strong> in the field
-          of AI and Computer Science to make sure
+      <div class="w-[80%] px-4 text-center m-12">
+        <p class="page-text">
+          We conduct
+          <span class="font-semibold"> research on accessibility </span> in the
+          field of AI and Computer Science to make sure
           <span style="color: #077bb3" class="font-semibold">
             Audemy's games
           </span>
-          stay as <strong> accessible as possible </strong>.
+          stay as <span class="font-semibold"> accessible as possible. </span>
         </p>
       </div>
       <div
@@ -90,18 +90,20 @@ const items2 = [
         </div>
       </div>
 
-      <div class="max-w-2xl px-4 text-center mb-10">
-        <p class="font-poppins text-base text-gray-700 leading-relaxed">
-          Peer-reviewed studies in <strong> 20+ classrooms </strong> show Audemy
-          boosts math performance by <strong> 28% in just one week</strong>.
+      <div class="w-[80%] px-4 text-center m-12">
+        <p class="page-text">
+          Peer-reviewed studies in
+          <span class="font-semibold"> 20+ classrooms </span> show Audemy boosts
+          math performance by
+          <span class="font-semibold"> 28% in just one week.</span>
         </p>
       </div>
     </div>
 
-    <div class="flex items-center justify-center mt-10">
+    <div class="flex items-center justify-center mt-10 text-center">
       <a
         href="/game-zone-landing-page"
-        class="font-poppins font-semibold w-[244px] px-9 py-4 border-[1.5px] border-[#0C0D0D] rounded-[8px] bg-primary-color hover:bg-[#0C587D] duration-300 text-base text-center text-[#fff] shadow-[3px_4px_0px_#0C0D0D]"
+        class="page-button blue-button w-[244px] px-9 py-4"
       >
         Try out our games!
       </a>
