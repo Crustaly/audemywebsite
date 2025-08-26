@@ -3,57 +3,60 @@ import HaveYouHeardCard from './HaveYouHeardCard/HaveYouHeardCard.vue';
 
 const items = [
   {
-    icon: 'school.svg',
-    text: ' <strong> Sessions at schools for the blind </strong> to introduce our games to students.',
+    icon: 'primary-school.png',
+    title: 'Sessions at schools for the blind',
+    caption: 'To introduce our games to students',
   },
   {
-    icon: 'classroom.svg',
-    text: ' <strong> Workshops for BVI </strong> individuals on accessing coding resources.',
+    icon: 'whiteboard.png',
+    title: 'Workshops for BVI individuals',
+    caption: 'On accessing coding resources',
   },
 ];
 </script>
 
 <template>
-  <div class="relative">
+  <div class="relative font-poppins w-full">
     <img
       src="/assets/images/our-projects/Mask group.png"
       class="absolute -z-10 -right-8 -top-32 md:-right-14"
-      alt="Mask Group Image"
+      aria-hidden="true"
     />
-    <div class="text-center">
-      <h2 class="text-sm uppercase tracking-[3.6px]">Education Events</h2>
-      <h3 class="text-[32px] font-poppins md:text-4.5xl">
-        Have you heard about the
-        <span style="color: #077bb3" class="font-semibold">
-          events we organize </span
-        >?
-      </h3>
-    </div>
-    <div class="flex flex-col lg:flex-row-reverse">
-      <div class="flex">
-        <img
-          src="/assets/images/our-projects/event.png"
-          alt="Image of students"
-          class=""
-        />
+    <div class="w-full md:w-[80%] mx-auto">
+      <div class="text-center">
+        <h2 class="page-header-accent">Education Events</h2>
+        <h3 class="page-header w-[80%] mx-auto">
+          Have you heard about the
+          <span class="font-semibold text-primary-color">
+            events we organize?
+          </span>
+        </h3>
       </div>
-      <div class="flex flex-col gap-4 my-8">
-        <HaveYouHeardCard
-          v-for="(item, index) in items"
-          :key="index"
-          :icon="item.icon"
-          :text="item.text"
-        />
-      </div>
-    </div>
-    <div class="flex items-center justify-center mt-13 lg:mt-0">
-      <a
-        href="https://www.instagram.com/audemyapp/"
-        target="_blank"
-        class="font-poppins font-semibold px-9 py-4 border-[1.5px] border-[#0C0D0D] rounded-[8px] bg-primary-color hover:bg-[#0C587D] duration-300 text-base text-center text-[#fff] shadow-[3px_4px_0px_#0C0D0D] mobile:items-center mobile:text-center"
+      <div
+        class="flex flex-col lg:flex-row-reverse justify-center items-center"
       >
-        Follow us on Instagram
-      </a>
+        <div class="flex justify-center">
+          <img src="/assets/images/our-projects/event.png" aria-hidden="true" />
+        </div>
+        <div class="flex flex-col gap-16 my-8">
+          <HaveYouHeardCard
+            v-for="(item, index) in items"
+            :key="index"
+            :icon="item.icon"
+            :title="item.title"
+            :caption="item.caption"
+          />
+        </div>
+      </div>
+      <div class="flex items-center justify-center my-10 text-center">
+        <a
+          href="https://www.instagram.com/audemyapp/"
+          target="_blank"
+          class="page-button blue-button px-9 mobile:h-auto py-3"
+        >
+          Follow us on Instagram
+        </a>
+      </div>
     </div>
   </div>
 </template>
