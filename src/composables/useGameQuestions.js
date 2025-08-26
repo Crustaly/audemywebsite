@@ -40,10 +40,15 @@ export function useGameQuestions(gameConfig) {
   };
 
   const validateAnswer = (finalTranscript, question) => {
-    const userWords = finalTranscript
-      .toLowerCase()
-      .replace(/[.,!?]/g, '')
-      .split(/\s+/);
+    const cleanedInput = finalTranscript.trim().toLowerCase();
+
+    if (gameConfig.validationType === 'spelling') {
+      return question['A'].some((answer) =>
+        cleanedInput.includes(answer.toLowerCase())
+      );
+    }
+
+    const userWords = cleanedInput.replace(/[.,!?]/g, '').split(/\s+/);
 
     const correctAnswers = Array.isArray(question['A'])
       ? question['A'].map((a) => a.toLowerCase())
