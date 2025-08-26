@@ -43,7 +43,7 @@
         <div class="mobile:text-[16px] md:text-[16.5px] my-2">
           <!-- 1. Special case: Format multiple-choice questions -->
           <div v-if="multipleChoiceGames.includes(title)">
-            <p>{{ splitMCQs(currentQuestion['Q'])['prompt'] }}</p>
+            <p>{{ splitMCQs(currentQuestion['Q'])['question'] }}</p>
             <!-- RWD: flex container for answer choices -->
             <div class="px-10 flex flex-wrap justify-between items-center">
               <div
@@ -56,10 +56,19 @@
             </div>
           </div>
 
-          <!-- 2. Non-multiple choice game question -->
+          <!-- 2. Check if question has multiple parts (prompt + question) -->
+          <div v-else-if="currentQuestion && multiPartsGames.includes(title)">
+            <!-- Split multiple part question for better readability -->
+            <p>{{ splitMultiPartsQs(currentQuestion['Q'])['prompt'] }}</p>
+            <p class="mt-3 md:mt-5">
+              {{ splitMultiPartsQs(currentQuestion['Q'])['question'] }}
+            </p>
+          </div>
+
+          <!-- 3. Regular question: Non-MCQ and Non-multiple part game -->
           <p v-else-if="currentQuestion">{{ currentQuestion['Q'] }}</p>
 
-          <!-- 3. Otherwise: Show game description for 'Spelling Bee' & 'Car Counting' -->
+          <!-- 4. Otherwise: Show game description for 'Spelling Bee' & 'Car Counting' -->
           <p v-else class="mobile:text-[16px] text-[18px]">
             {{ description }}
           </p>
@@ -140,10 +149,11 @@ const multipleChoiceClasses = [
  * - Based on 'multipleChoiceGames' list
  */
 const splitMCQs = (fullQuestion) => {
+  // Expected format (fullQuestion): Question followed by list of answer choices
   const questionParts = fullQuestion.split('?');
 
   // Split removes '?' delimiter, so manually add char back in UI
-  const prompt = questionParts[0] + '?';
+  const question = questionParts[0] + '?';
 
   // Splits multiple-choice options by a comma delimiter
   let choices = questionParts[1].split(',');
@@ -157,6 +167,25 @@ const splitMCQs = (fullQuestion) => {
     choices = choices.slice(0, -1).concat(lastChoice);
   }
 
-  return { prompt, choices };
+  return { question, choices };
+};
+
+// TODO: Update this list of multi-part games as needed
+const multiPartsGames = ['Fruit Frenzy', 'Monkey Madness', 'Shape Shark'];
+
+/* splitMultiPartsQs():
+ * - Helper function to handle multiple-part game Q's
+ * - Based on 'multiPartsGames' list
+ */
+const splitMultiPartsQs = (fullQuestion) => {
+  // Expected format (fullQuestion): Prompt (sentence) followed by question
+  // Ex: 'There are 3 apples and 2 bananas. How many fruits are there in total?'
+
+  const questionParts = fullQuestion.split('.');
+  // Split removes '.' delimiter, so manually add char back in UI
+  const prompt = questionParts[0] + '.';
+  const question = questionParts[1];
+
+  return { prompt, question };
 };
 </script>
