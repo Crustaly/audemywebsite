@@ -9,15 +9,21 @@ const items = [
 const items2 = [
   {
     icon: 'Research_paper1.png',
-    text: "Presented Research at ACM \n ICMI '23 in Paris, France",
+    title: 'Presented Research at ACM',
+    subtitle: "ICMI '23 in Paris, France",
+    url: 'https://dl.acm.org/doi/10.1145/3686215.3690154',
   },
   {
     icon: 'Research_paper2.png',
-    text: "Presented Research at ACM \n ICMI '24 in Costa Rica",
+    title: 'Presented Research at ACM',
+    subtitle: "ICMI '24 in Costa Rica",
+    url: 'https://dl.acm.org/doi/10.1145/3610661.3617150',
   },
   {
     icon: 'Research_paper3.png',
-    text: "Presented Research at ACM CHI \n '25 in Yokohama, Japan",
+    title: 'Presented Research at ACM CHI',
+    subtitle: "'25 in Yokohama, Japan",
+    url: 'https://arxiv.org/abs/2504.17117',
   },
 ];
 </script>
@@ -41,7 +47,6 @@ const items2 = [
           :key="index"
           :icon="item.icon"
           :title="item.title"
-          :text="item.text"
         />
       </div>
 
@@ -74,14 +79,14 @@ const items2 = [
                 showAll || (smallScreen ? index < 4 : index < 8),
             }"
           >
-            <div class="flex flex-col h-full w-full min-h-[300px] mb-3">
+            <div class="flex flex-col w-full my-3">
               <div class="flex justify-center w-full">
-                <div class="w-full px-4">
+                <div class="px-4">
                   <ResearchListCard
                     :image="item.icon"
-                    :text="item.text"
-                    :smallScreen="smallScreen"
-                    class="h-full"
+                    :title="item.title"
+                    :subtitle="item.subtitle"
+                    :url="item.url"
                   />
                 </div>
               </div>
