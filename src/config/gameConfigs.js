@@ -129,6 +129,7 @@ export const gameConfigs = {
     dbFile: 'spellingBeeDB.json',
     dbKey: 'SpellingBeeGame',
     category: 'language',
+    validationType: 'spelling',
   },
 
   subtraction: {
