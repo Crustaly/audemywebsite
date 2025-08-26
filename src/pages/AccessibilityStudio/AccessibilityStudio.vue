@@ -3,6 +3,7 @@ import Header from '../../components/Header/Header.vue';
 import Footer from '../../components/Footer/Footer.vue';
 import ScrollUpButton from '../../components/ScrollUpButton/ScrollUpButton.vue';
 import PageDecorations from '../../components/PageDecorations/PageDecorations.vue';
+import GamesShowcase from './GamesToLife/GamesShowcase.vue';
 </script>
 
 <template>
@@ -136,6 +137,8 @@ import PageDecorations from '../../components/PageDecorations/PageDecorations.vu
         </div>
       </div>
     </div>
+
+    <GamesShowcase />
 
     <!-- How the Studio Works Section -->
     <div
