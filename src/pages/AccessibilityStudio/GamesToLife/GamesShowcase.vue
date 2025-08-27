@@ -4,7 +4,7 @@
   >
     <!-- Section Title -->
     <div class="flex flex-col gap-y-3 mobile:px-5 text-center relative">
-      <h2 class="game-resource-header">Games we've helped bring to life</h2>
+      <h2 class="page-header">Games we've helped bring to life</h2>
     </div>
 
     <!-- Carousel Area -->
@@ -22,11 +22,13 @@
       </button>
 
       <!-- Game Cards -->
-      <div class="flex gap-6 justify-center overflow-hidden">
+      <div
+        class="flex flex-col lg:flex-row gap-3 lg:gap-6 xl:justify-between justify-center items-center overflow-hidden h-[550px] lg:h-auto p-5"
+      >
         <div
           v-for="(game, index) in visibleGames"
           :key="index"
-          class="game-resource-icon-card bg-cross-lines flex flex-col text-center px-6 py-8 mobile:px-4 mobile:py-6 w-[320px] h-[480px]"
+          class="game-resource-icon-card bg-cross-lines flex flex-col text-center px-6 py-8 mobile:px-4 mobile:py-6 mobile:w-full w-[80%] md:w-[50%] lg:w-[320px] h-[480px] duration-300"
         >
           <!-- Game Image -->
           <div
