@@ -1,6 +1,9 @@
 <template>
   <div
-    class="font-poppins my-10 py-20 flex flex-col items-center gap-y-12 self-center relative z-10"
+    :class="[
+      'z-10 font-poppins my-10 py-20',
+      'relative flex flex-col gap-y-12 items-center self-center',
+    ]"
   >
     <!-- Section Title -->
     <div class="flex flex-col gap-y-3 mobile:px-5 text-center relative">
@@ -12,7 +15,7 @@
       <!-- Arrow button RWD: Down (mobile-medium) or Left (large+) -->
       <button
         @click="prev"
-        class="absolute rotate-[-90deg] lg:rotate-[0deg] left-2 md:left-[10%] lg:left-2 top-1/2 -translate-y-1/2 z-10 hover:scale-125 transition"
+        :class="[arrowButtonClasses, 'left-2 md:left-[10%] lg:left-2']"
         aria-label="View previous game"
       >
         <img
@@ -23,18 +26,32 @@
       </button>
 
       <!-- Game Cards -->
-      <!-- Enable vertical (mobile-md) or horizontal (lg+) content scrolling on desktop & mobile devices -->
+      <!-- Enable vertical (mobile-md) / horizontal (lg+) scrolling on desktop & mobile devices -->
       <div
-        class="flex flex-col lg:flex-row lg:flex-nowrap justify-between md:gap-8 lg:gap-12 xl:justify-between justify-center items-center overflow-y-auto lg:overflow-x-auto h-[600px] w-full p-5"
+        :class="[
+          'h-[600px] w-full p-5',
+          'flex flex-col lg:flex-row lg:flex-nowrap',
+          'justify-center items-center justify-between md:gap-8 lg:gap-12 xl:justify-between',
+          'overflow-y-auto lg:overflow-x-auto',
+        ]"
       >
         <div
           v-for="(game, index) in visibleGames"
           :key="index"
-          class="game-resource-icon-card bg-cross-lines flex flex-col justify-start text-center px-6 py-8 mobile:px-4 mobile:py-6 mobile:w-[280px] w-[80%] md:w-[50%] lg:w-[400px] h-[500px] md:h-[520px] lg:h-[550px] duration-300"
+          :class="[
+            'game-resource-icon-card bg-cross-lines text-center duration-300',
+            'mobile:px-4 mobile:py-6 px-6 py-8',
+            'mobile:w-[280px] w-[80%] md:w-[50%] lg:w-[400px]',
+            'h-[500px] md:h-[520px] lg:h-[550px]',
+            'flex flex-col justify-start',
+          ]"
         >
           <!-- Game Image -->
           <div
-            class="h-[150px] w-[230px] my-3 overflow-hidden rounded-md flex items-center justify-center"
+            :class="[
+              'h-[150px] w-[230px] my-3 rounded-md',
+              'overflow-hidden flex items-center justify-center',
+            ]"
           >
             <img
               :src="game.image"
@@ -78,7 +95,7 @@
       <!-- Arrow button RWD: Up (mobile-medium) or Right (large+) -->
       <button
         @click="next"
-        class="absolute rotate-[-90deg] lg:rotate-[0deg] right-2 md:right-[10%] lg:right-2 top-1/2 -translate-y-1/2 z-10 hover:scale-125 transition duration-300"
+        :class="[arrowButtonClasses, 'right-2 md:right-[10%] lg:right-2']"
         aria-label="View next game"
       >
         <img
@@ -148,4 +165,17 @@ function next() {
 function prev() {
   currentIndex.value = (currentIndex.value - 1 + games.length) % games.length;
 }
+
+/* Extracted shared RWD classes for carousel arrow buttons */
+const arrowButtonClasses = [
+  'z-10',
+  'absolute',
+  'top-1/2',
+  '-translate-y-1/2',
+  'rotate-[-90deg]',
+  'lg:rotate-[0deg]',
+  'hover:scale-125',
+  'transition',
+  'duration-300',
+];
 </script>
