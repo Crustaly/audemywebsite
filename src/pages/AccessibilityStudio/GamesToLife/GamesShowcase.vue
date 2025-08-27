@@ -23,8 +23,9 @@
       </button>
 
       <!-- Game Cards -->
+      <!-- Enable vertical (mobile-md) or horizontal (lg+) content scrolling on desktop & mobile devices -->
       <div
-        class="flex flex-col lg:flex-row justify-between md:gap-8 lg:gap-12 xl:justify-between justify-center items-center overflow-hidden h-[600px] p-5"
+        class="flex flex-col lg:flex-row lg:flex-nowrap justify-between md:gap-8 lg:gap-12 xl:justify-between justify-center items-center overflow-y-auto lg:overflow-x-auto h-[600px] w-full p-5"
       >
         <div
           v-for="(game, index) in visibleGames"
