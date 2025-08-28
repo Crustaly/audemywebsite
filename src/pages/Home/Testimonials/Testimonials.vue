@@ -70,10 +70,25 @@ function prev() {
 // Extracted shared RWD classes for testimonial arrow buttons
 const arrowButtonClasses = [
   'z-10',
+  'w-12' /* Default btn size: Mobile - XL */,
+  'h-12',
+  '2xl:w-16',
+  '2xl:h-16',
   '-translate-y-1/2',
+  'rotate-[-90deg]' /* Mobile - Medium: Up & Down */,
+  'lg:rotate-[0deg]' /* Large+: Left & Right */,
   'absolute',
   'top-1/2',
   'hover:scale-125',
+  'transition',
+  'duration-300',
+];
+
+const arrowIconClasses = [
+  'w-12' /* Default size: Mobile - XL */,
+  'h-12',
+  '2xl:w-16',
+  '2xl:h-16',
   'transition',
   'duration-300',
 ];
@@ -102,84 +117,86 @@ const arrowButtonClasses = [
     </div>
 
     <!-- Carousel Area -->
-    <div class="relative w-full max-w-[92rem] px-4 mobile:px-2">
+    <div class="relative w-full md:w-[90%] px-4 mobile:px-2">
       <!-- Left arrow -->
       <button
         @click="prev"
-        :class="[arrowButtonClasses, 'left-2']"
+        :class="[arrowButtonClasses, 'left-5 md:left-[10%] lg:left-2']"
         aria-label="View previous review"
       >
         <img
           src="/assets/images/testimonials/arrow.png"
           aria-hidden="true"
-          class="w-12 h-12 rotate-180"
+          :class="[arrowIconClasses, 'rotate-180', 'xl:-translate-x-5']"
         />
       </button>
 
       <!-- Testimonial Cards -->
-      <div class="flex gap-6 justify-center overflow-hidden">
+      <!-- Enable vertical (mobile-md) / horizontal (lg+) scrolling on desktop & mobile devices -->
+      <div
+        :class="[
+          'h-[600px] w-full p-5',
+          'flex flex-col lg:flex-row lg:flex-nowrap',
+          'justify-center items-center justify-between md:gap-8 lg:gap-12 xl:justify-between',
+          'overflow-y-auto lg:overflow-x-auto',
+        ]"
+      >
         <div
           v-for="(testimonial, index) in visibleTestimonials"
           :key="index"
           :class="[
-            'game-resource-icon-card bg-cross-lines text-center duration-300',
+            'game-resource-icon-card bg-cross-lines text-center',
+            'hover:shadow-[6px_6px_0px_#0C0D0D] transition-all duration-300',
             'mobile:px-4 mobile:py-6 px-6 py-8',
-            'w-[320px] h-[520px]',
-            'flex flex-col items-center',
+            'mobile:w-[280px] w-[70%] md:w-[60%] lg:w-[400px]',
+            'h-[500px] md:h-[520px] lg:h-[550px]',
+            'flex flex-col justify-start',
           ]"
         >
           <!-- Image -->
           <img
             :src="testimonial.image"
             aria-hidden="true"
-            class="w-full h-[160px] object-cover rounded-md mb-4"
+            class="w-full h-[180px] lg:h-[160px] object-cover rounded-md mb-4 shadow-lg"
           />
 
           <!-- Scrollable Text Content -->
-          <div class="overflow-y-auto no-scrollbar max-h-[220px] mb-4 px-1">
+          <div class="h-[180px] overflow-y-auto mb-4 px-2">
             <p
-              class="text-sm text-gray-700 leading-relaxed whitespace-pre-wrap"
+              class="text-[14px] text-[15px] 2xl:text-[16px] text-gray-700 leading-relaxed whitespace-pre-wrap"
               v-html="testimonial.text"
             ></p>
           </div>
-          <!-- Name -->
-          <p class="text-[15px] font-semibold text-[#2A3338] mt-2">
-            – {{ testimonial.name }}
-          </p>
-          <!-- Role -->
-          <p
-            class="text-[14px] text-[#2A3338] mt-2 font-poppins leading-snug"
-            v-html="testimonial.role"
-          ></p>
+
+          <!-- Testimonial Name & Role Container -->
+          <div class="mt-auto flex flex-col flex-1">
+            <!-- Name -->
+            <p
+              class="mobile:text-[14px] text-[15px] 2xl:text-[16px] font-semibold text-[#2A3338] mt-2 duration-300"
+            >
+              – {{ testimonial.name }}
+            </p>
+            <!-- Role -->
+            <p
+              class="text-[15px] text-[#2A3338] mt-2 leading-snug"
+              v-html="testimonial.role"
+            ></p>
+          </div>
         </div>
       </div>
 
       <!-- Right arrow -->
       <button
         @click="next"
-        :class="[arrowButtonClasses, 'right-2']"
+        :class="[arrowButtonClasses, 'right-5 md:right-[10%] lg:right-2']"
         aria-label="View next review"
       >
         <img
           src="/assets/images/testimonials/arrow.png"
           aria-hidden="true"
-          class="w-12 h-12"
+          :class="[arrowIconClasses, 'xl:translate-x-5']"
         />
       </button>
     </div>
   </div>
 </template>
-
-<style scoped>
-.no-scrollbar::-webkit-scrollbar {
-  width: 0;
-  height: 0;
-}
-.no-scrollbar {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-.fill {
-  width: -webkit-fill-available;
-}
-</style>
