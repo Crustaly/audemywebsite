@@ -32,11 +32,12 @@ const path = '/assets/images/impact/';
             target="_blank"
             rel="noopener noreferrer"
             class="block w-full"
+            tabindex="-1"
           >
             <img
               :src="path + image"
               class="w-full h-[150px] object-cover rounded-2xl border-[1px] border-[#E5E5E5] hover:opacity-80 transition-opacity duration-200 cursor-pointer"
-              alt=""
+              aria-hidden="true"
             />
           </a>
         </div>
