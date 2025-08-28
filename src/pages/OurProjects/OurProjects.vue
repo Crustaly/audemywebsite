@@ -14,13 +14,14 @@ import Footer from '../../components/Footer/Footer.vue';
 <template>
   <ScrollUpButton />
 
-  <div class="relative px-8 sm:px-8 md:px-6 lg:px-14">
+  <div class="relative px-8 sm:px-8 md:px-6 lg:px-14 font-poppins">
     <Header :logoPath="'/assets/images/header/header-logo-2.png'" />
   </div>
 
-  <div class="flex flex-col">
-    <div class="flex justify-center px-8 md:px-14 xl:mt-20">
-      <div class="md:w-full md:mt-10">
+  <div class="flex flex-col font-poppins">
+    <!-- Accessibility: Hide decorative image carousel from SR output -->
+    <div class="flex justify-center px-8 md:px-14" aria-hidden="true">
+      <div class="md:w-full">
         <ProjectsInAction />
       </div>
     </div>
@@ -31,20 +32,20 @@ import Footer from '../../components/Footer/Footer.vue';
       </div>
     </div>
 
-    <div class="flex justify-center px-8 md:px-14 mt-36">
+    <div class="flex justify-center px-10 py-10 my-36">
       <div class="md:w-full">
         <HaveYouHeard />
       </div>
     </div>
 
-    <div class="flex justify-center px-8 md:px-14 mt-36">
+    <div class="flex justify-center mx-10 my-10">
       <div class="md:w-full">
         <KatyYouthHacks />
       </div>
     </div>
 
-    <div class="flex justify-center px-8 md:px-14 my-36">
-      <div class="md:w-full">
+    <div class="flex justify-center px-10 py-10 my-36">
+      <div class="md:w-[80%]">
         <SocialMedia />
       </div>
     </div>

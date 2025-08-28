@@ -38,15 +38,30 @@ onMounted(() => {
     goToSlide(currentSlide, carousel);
   });
 });
+
+// Extracted shared classes for arrow buttons
+const arrowButtonClasses = [
+  'absolute',
+  'top-1/2',
+  '-translate-1/2',
+  'z-10',
+  'cursor-pointer',
+  'w-8',
+  'h-8',
+  'hover:w-10',
+  'hover:h-10',
+  'duration-300',
+];
 </script>
 
 <template>
-  <div class="relative carousel h-48 md:h-60 xl:h-96 overflow-hidden">
+  <div class="relative carousel mobile:h-60 h-80 xl:h-96 overflow-hidden">
+    <!-- Previous / Left icon -->
     <img
       src="/assets/images/impact/carousel/leftChevron.svg"
       id="left-chevron"
-      class="absolute top-1/2 left-1 -translate-1/2 z-10 cursor-pointer"
-      alt="Left Chevron"
+      :class="[arrowButtonClasses, 'left-1']"
+      aria-hidden="true"
     />
 
     <!-- Render slides dynamically from prop -->
@@ -57,16 +72,16 @@ onMounted(() => {
     >
       <img
         :src="img"
-        class="-z-10 w-full h-full object-cover"
-        alt="Carousel Image"
+        class="-z-10 w-full h-full object-cover rounded-[16px] shadow-lg"
+        aria-hidden="true"
       />
     </div>
-
+    <!-- Next / Right icon -->
     <img
       src="/assets/images/impact/carousel/rightChevron.svg"
       id="right-chevron"
-      class="absolute top-1/2 right-1 -translate-1/2 z-10 cursor-pointer"
-      alt="Right Chevron"
+      :class="[arrowButtonClasses, 'right-1']"
+      aria-hidden="true"
     />
   </div>
 </template>
