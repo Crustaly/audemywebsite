@@ -1,5 +1,10 @@
 <script setup>
 import Carousel from './Carousel.vue';
+import PageDecorations from '../../../components/PageDecorations/PageDecorations.vue';
+import Bubble from '/assets/images/impact/Group 1153.png';
+import OrangeStar from '/assets/images/impact/Group 1135.png';
+import YellowStar from '/assets/images/testimonials/star.svg';
+import BlueStar from '/assets/images/about-us/blueStar2.svg';
 
 const impactImages = [
   '/assets/images/impact/carousel/carousel1.jpg',
@@ -11,47 +16,50 @@ const impactImages = [
 </script>
 
 <template>
-  <div class="flex flex-col gap-4 relative md:flex-row lg:gap-10 pb-20">
+  <div
+    class="flex flex-col gap-4 relative lg:flex-row lg:gap-10 md:p-20 xl:p-24"
+  >
+    <!-- Background & page decorations -->
     <img
       src="/assets/images/impact/Union.png"
-      class="absolute max-w[100px] -z-10 -top-6 -left-8 md:-left-14 md:-top-14 xl:-top-28"
-      alt="Union Image"
+      class="absolute -z-10 -top-6 -left-8 md:-left-14 md:-top-14 xl:-top-28"
+      aria-hidden="true"
     />
-    <img
-      src="/assets/images/impact/Group 1135.png"
-      class="absolute right-28 top-8 h-8 md:h-16 md:left-56 xl:left-72 z-20"
-      alt="Star Icon"
+    <PageDecorations
+      class="hidden md:block"
+      :topRightImgPath="Bubble"
+      :topLeftImgPath="BlueStar"
+      :bottomLeftImgPath="OrangeStar"
+      :bottomRightImgPath="YellowStar"
+      increaseIconSize="true"
     />
-    <img
-      src="/assets/images/impact/Group 1153.png"
-      class="absolute left-20 -top-5 h-8 md:h-16 md:left-24 md:-top-10 xl:-top-14 z-20"
-      alt="Chat Icon"
-    />
-
-    <div class="p-4 md:basis-1/2">
-      <div class="bg-white rounded-xl border-4 border-[#2A3338] p-2">
-        <div
-          class="h-full rounded-xl border-4 border-[#2A3338] overflow-hidden xl:h-96"
-        >
-          <Carousel :images="impactImages" />
-        </div>
+    <div
+      class="flex items-center flex-col w-full lg:flex-row lg:w-1/2 justify-center"
+    >
+      <div
+        class="rounded-[16px] bg-cross-lines shadow-md w-full my-10 md:my-0 mobile:py-12 p-12 md:py-16"
+      >
+        <Carousel :images="impactImages" />
       </div>
     </div>
-    <div class="flex items-center font-poppins text-center md:basis-1/2">
-      <div class="flex flex-col gap-6 text-start">
-        <h2 class="text-[32px] md:text-4.5xl">
+    <div
+      class="flex items-center flex-col w-full lg:flex-row lg:w-1/2 justify-center"
+    >
+      <div class="flex flex-col gap-6 text-center">
+        <h2 class="page-header">
           Discover how we make
-          <span style="color: #077bb3" class="font-semibold">
+          <span class="font-semibold text-primary-color">
             education accessible
           </span>
         </h2>
 
-        <p class="text-lg text-body leading-8 lg:text-xl">
-          <strong>
-            Our innovative technologies and educational initiatives
-          </strong>
+        <p class="page-text">
+          Our <span class="font-semibold">innovative technologies</span> and
+          <span class="font-semibold">educational initiatives </span>
           provide fun learning for
-          <strong> blind and visually impaired individuals</strong>.
+          <span class="font-semibold">
+            blind and visually impaired individuals.</span
+          >
         </p>
       </div>
     </div>
