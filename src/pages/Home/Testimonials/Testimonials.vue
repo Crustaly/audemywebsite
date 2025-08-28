@@ -4,46 +4,46 @@ import { ref, computed } from 'vue';
 const testimonials = [
   {
     image: '/assets/images/testimonials/testimonial1.png',
-    text: `"I appreciate Audemy.org for offering a wide variety of games, particularly those focused on nourishing life skills and independence. The option to reward my students at the end of their lessons with 5 quick educational questions/games, fits in well into our busy schedule."`,
+    text: `"I appreciate Audemy.org for offering a wide variety of games, particularly those focused on nourishing life skills and independence. <p class="mt-3">The option to reward my students at the end of their lessons with 5 quick educational questions/games, fits in well into our busy schedule."</p>`,
     name: 'Stephanie Bissonette',
-    role: 'Director of Children Services at the Vermont Association for the Blind (sbissonette@vabvi.org)',
+    role: '<i>Director of Children Services at the Vermont Association for the Blind</i> <p class="mt-3"><a href="mailto:sbissonette@vabvi.org" class="underline hover:text-primary-color transition-colors duration-300" tabindex="-1">sbissonette@vabvi.org</a></p>',
   },
   {
     image: '/assets/images/impact/arizonaStudent.png',
-    text: `"Hello! My name is Denise Bean, Youth Service Librarian for the Iowa Library for the Blind and Print Disabled, and one of the greatest joys of my work is building meaningful connections with children who are blind or have low vision. During one of our 28 virtual Summer Reading Program events, we introduced a game called Audemy, and what an unforgettable experience it was! The children lit up with excitement, laughter filled the room, and the joy was contagious."`,
+    text: `"Hello! My name is Denise Bean, Youth Service Librarian for the Iowa Library for the Blind and Print Disabled, and one of the greatest joys of my work is building meaningful connections with children who are blind or have low vision. <p class="mt-3">During one of our 28 virtual Summer Reading Program events, we introduced a game called Audemy, and what an unforgettable experience it was! The children lit up with excitement, laughter filled the room, and the joy was contagious."</p>`,
     name: 'Denise Bean',
-    role: 'Youth service librarian from the Iowa Library for the Blind (Denise.Bean@blind.state.ia.us)',
+    role: '<i>Youth Service Librarian from the Iowa Library for the Blind</i> <p class="mt-3"><a href="mailto:denise.bean@blind.state.ia.us" class="underline hover:text-primary-color transition-colors duration-300" tabindex="-1">denise.bean@blind.state.ia.us</a></p>',
   },
   {
     image: '/assets/images/testimonials/testimonial2.png',
-    text: `"The audio gaming experience on Audemy is incredible! My students are completely immersed in the games - the sound effects, voice acting, and interactive gameplay make it feel like a real gaming console. They can't get enough of the adventure-style games!"`,
+    text: `"The audio gaming experience on Audemy is incredible! <p class="mt-3">My students are completely immersed in the games - the sound effects, voice acting, and interactive gameplay make it feel like a real gaming console. They can't get enough of the adventure-style games!"</p>`,
     name: 'Technology Coordinator',
-    role: 'Texas School for the Blind and Visually Impaired',
+    role: '<i>Texas School for the Blind and Visually Impaired</i>',
   },
   {
     image: '/assets/images/testimonials/testimonial3.png',
-    text: `"Audemy's gaming platform is revolutionary for blind gamers. The audio-only design creates an immersive experience that rivals mainstream games. Our students love competing with each other and achieving high scores!"`,
+    text: `"Audemy's gaming platform is revolutionary for blind gamers. The audio-only design creates an immersive experience that rivals mainstream games. <p class="mt-3">Our students love competing with each other and achieving high scores!"</p>`,
     name: 'Workshop Coordinator',
-    role: 'Massachusetts Lighthouse for the Blind',
+    role: '<i>Massachusetts Lighthouse for the Blind</i>',
   },
   {
     image: '/assets/images/testimonials/testimonial4.png',
-    text: `"Audemy's games are so much fun! I love the car racing game and the adventure quests. The sound effects make me feel like I'm really driving or exploring. It's the coolest gaming experience I've ever had!"`,
+    text: `"Audemy's games are so much fun! I love the car racing game and the adventure quests. <p class="mt-3">The sound effects make me feel like I'm really driving or exploring. It's the coolest gaming experience I've ever had!"</p>`,
     name: 'Adam',
-    role: 'A Student who is blind from Houston',
+    role: '<i>A Student who is blind from Houston</i>',
   },
 
   {
     image: '/assets/images/impact/5b46078e-65e0-42c8-a658-2939c6676a21.jpeg',
-    text: `"The gaming mechanics on Audemy are brilliant! The audio cues, spatial awareness features, and competitive elements create an engaging gaming experience that keeps our players coming back. It's like having a professional gaming studio designed specifically for blind gamers."`,
+    text: `"The gaming mechanics on Audemy are brilliant! The audio cues, spatial awareness features, and competitive elements create an engaging gaming experience that keeps our players coming back. <p class="mt-3">It's like having a professional gaming studio designed specifically for blind gamers."</p>`,
     name: 'Technology Specialist',
-    role: 'Iowa Center for the Blind',
+    role: '<i>Iowa Center for the Blind</i>',
   },
   {
     image: '/assets/images/impact/carousel/carousel1.jpg',
-    text: `"Audemy has transformed our gaming programs! The multiplayer features and leaderboards create a social gaming experience that's rare for blind players. Crystal has created something truly special - a gaming platform that's both accessible and genuinely fun to play."`,
+    text: `"Audemy has transformed our gaming programs! The multiplayer features and leaderboards create a social gaming experience that's rare for blind players. <p class="mt-3">Crystal has created something truly special - a gaming platform that's both accessible and genuinely fun to play."</p>`,
     name: 'Librarian',
-    role: 'for Blind Students',
+    role: '<i>for Blind Students</i>',
   },
 ];
 
@@ -66,25 +66,38 @@ function prev() {
   currentIndex.value =
     (currentIndex.value - 1 + testimonials.length) % testimonials.length;
 }
+
+// Extracted shared RWD classes for testimonial arrow buttons
+const arrowButtonClasses = [
+  'z-10',
+  '-translate-y-1/2',
+  'absolute',
+  'top-1/2',
+  'hover:scale-125',
+  'transition',
+  'duration-300',
+];
 </script>
 
 <template>
   <div
-    class="my-10 py-80 flex flex-col items-center gap-y-12 self-center pt-80 relative z-10"
+    :class="[
+      'z-10 font-poppins my-10 py-80',
+      'relative flex flex-col gap-y-12 items-center self-center',
+    ]"
   >
     <!-- Background image -->
     <img
       src="/assets/images/testimonials/testimonials-bg.png"
-      class="absolute top-[4rem] -z-10 h-[70rem] fill"
-      alt="Background image"
+      class="absolute top-[4rem] -z-10 h-[70rem] w-full"
+      aria-hidden="true"
     />
 
     <!-- Section Title -->
-    <div
-      class="font-poppins flex flex-col gap-y-3 mobile:px-5 text-center relative"
-    >
-      <h1 class="text-4.5xl text-title mobile:text-[24px]">
-        What people are saying:
+    <div class="flex flex-col gap-y-3 mobile:px-5 text-center relative">
+      <h1 class="page-header">
+        What <span class="font-semibold text-primary-color">people</span> are
+        saying:
       </h1>
     </div>
 
@@ -93,11 +106,12 @@ function prev() {
       <!-- Left arrow -->
       <button
         @click="prev"
-        class="absolute left-2 top-1/2 -translate-y-1/2 z-10 hover:scale-125 transition"
+        :class="[arrowButtonClasses, 'left-2']"
+        aria-label="View previous review"
       >
         <img
           src="/assets/images/testimonials/arrow.png"
-          alt="Previous"
+          aria-hidden="true"
           class="w-12 h-12 rotate-180"
         />
       </button>
@@ -107,44 +121,48 @@ function prev() {
         <div
           v-for="(testimonial, index) in visibleTestimonials"
           :key="index"
-          class="bg-white border-2 border-[#2A3338] shadow-[3px_4px_0px_#0C0D0D] rounded-lg flex flex-col items-center text-center px-6 py-8 mobile:px-4 mobile:py-6 w-[320px] h-[520px]"
+          :class="[
+            'game-resource-icon-card bg-cross-lines text-center duration-300',
+            'mobile:px-4 mobile:py-6 px-6 py-8',
+            'w-[320px] h-[520px]',
+            'flex flex-col items-center',
+          ]"
         >
           <!-- Image -->
           <img
             :src="testimonial.image"
-            alt="testimonial image"
+            aria-hidden="true"
             class="w-full h-[160px] object-cover rounded-md mb-4"
           />
 
           <!-- Scrollable Text Content -->
           <div class="overflow-y-auto no-scrollbar max-h-[220px] mb-4 px-1">
             <p
-              class="text-sm text-gray-700 font-poppins leading-relaxed whitespace-pre-wrap"
-            >
-              {{ testimonial.text }}
-            </p>
+              class="text-sm text-gray-700 leading-relaxed whitespace-pre-wrap"
+              v-html="testimonial.text"
+            ></p>
           </div>
-
           <!-- Name -->
-          <p class="text-[15px] font-semibold font-poppins text-[#2A3338] mt-2">
+          <p class="text-[15px] font-semibold text-[#2A3338] mt-2">
             – {{ testimonial.name }}
           </p>
-
           <!-- Role -->
-          <p class="text-sm text-[#2A3338] mt-2 font-poppins leading-snug">
-            {{ testimonial.role }}
-          </p>
+          <p
+            class="text-[14px] text-[#2A3338] mt-2 font-poppins leading-snug"
+            v-html="testimonial.role"
+          ></p>
         </div>
       </div>
 
       <!-- Right arrow -->
       <button
         @click="next"
-        class="absolute right-2 top-1/2 -translate-y-1/2 z-10 hover:scale-125 transition"
+        :class="[arrowButtonClasses, 'right-2']"
+        aria-label="View next review"
       >
         <img
           src="/assets/images/testimonials/arrow.png"
-          alt="Next"
+          aria-hidden="true"
           class="w-12 h-12"
         />
       </button>
