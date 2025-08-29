@@ -113,7 +113,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio navigation system for multiplayer maps',
     category: 'FPS',
-    pdfUrl: callOfDutyPDF
+    pdfUrl: callOfDutyPDF,
   },
   {
     id: 2,
@@ -131,7 +131,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio feedback system for ability usage',
     category: 'FPS',
-    pdfUrl: ValorantPDF
+    pdfUrl: ValorantPDF,
   },
   {
     id: 4,
@@ -140,7 +140,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Accessible navigation for popular games',
     category: 'Platform',
-    pdfUrl: RobloxPDF
+    pdfUrl: RobloxPDF,
   },
   {
     id: 5,
@@ -149,7 +149,7 @@ const toolkits = [
     platformIcon: 'controller',
     description: 'Audio commentary and menu navigation',
     category: 'Sports',
-    pdfUrl: FIFAPDF
+    pdfUrl: FIFAPDF,
   },
   {
     id: 6,
@@ -158,7 +158,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio building and combat assistance',
     category: 'Battle Royale',
-    pdfUrl: FortnitePDF
+    pdfUrl: FortnitePDF,
   },
   {
     id: 7,
@@ -167,7 +167,7 @@ const toolkits = [
     platformIcon: 'controller',
     description: 'Audio navigation for open world exploration',
     category: 'Action',
-    pdfUrl: GTAVPDF
+    pdfUrl: GTAVPDF,
   },
   {
     id: 8,
@@ -176,7 +176,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio cues for ability management',
     category: 'MOBA',
-    pdfUrl: LolPDF
+    pdfUrl: LolPDF,
   },
   {
     id: 9,
@@ -185,7 +185,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Hero ability audio feedback system',
     category: 'FPS',
-    pdfUrl: Overwatch2PDF
+    pdfUrl: Overwatch2PDF,
   },
   {
     id: 10,
@@ -194,7 +194,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio navigation for battle royale',
     category: 'Battle Royale',
-    pdfUrl: Apex_Legends
+    pdfUrl: Apex_Legends,
   },
   {
     id: 11,
@@ -203,7 +203,7 @@ const toolkits = [
     platformIcon: 'controller',
     description: 'Audio cues for car control and positioning',
     category: 'Sports',
-    pdfUrl: Rocket_League
+    pdfUrl: Rocket_League,
   },
   {
     id: 12,
@@ -212,7 +212,7 @@ const toolkits = [
     platformIcon: 'mobile',
     description: 'Audio navigation for social deduction',
     category: 'Party',
-    pdfUrl: Among_Us
+    pdfUrl: Among_Us,
   },
   {
     id: 13,
@@ -221,7 +221,7 @@ const toolkits = [
     platformIcon: 'controller',
     description: 'Audio guidance for obstacle courses',
     category: 'Party',
-    pdfUrl: FallGyusPDF
+    pdfUrl: FallGyusPDF,
   },
   {
     id: 14,
@@ -230,7 +230,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio cues for survivor and killer gameplay',
     category: 'Horror',
-    pdfUrl: Dead_by_Daylight
+    pdfUrl: Dead_by_Daylight,
   },
   {
     id: 15,
@@ -239,7 +239,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio feedback for tactical gameplay',
     category: 'FPS',
-    pdfUrl: Rainbow_Six_Siege
+    pdfUrl: Rainbow_Six_Siege,
   },
   {
     id: 16,
@@ -248,7 +248,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio navigation for raids and strikes',
     category: 'RPG',
-    pdfUrl: Destiny2
+    pdfUrl: Destiny2,
   },
   {
     id: 17,
@@ -257,7 +257,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio addons for MMO accessibility',
     category: 'MMO',
-    pdfUrl: World_of_Warcraft
+    pdfUrl: World_of_Warcraft,
   },
   {
     id: 18,
@@ -266,7 +266,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio feedback for competitive play',
     category: 'FPS',
-    pdfUrl: CounterStrike2
+    pdfUrl: CounterStrike2,
   },
   {
     id: 19,
@@ -275,7 +275,7 @@ const toolkits = [
     platformIcon: 'mobile',
     description: 'Audio navigation for mobile battle royale',
     category: 'Battle Royale',
-    pdfUrl: PUBGPDF
+    pdfUrl: PUBGPDF,
   },
   {
     id: 20,
@@ -284,7 +284,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio cues for card game strategy',
     category: 'Card',
-    pdfUrl: HearthstonePDF
+    pdfUrl: HearthstonePDF,
   },
   {
     id: 21,
@@ -293,7 +293,7 @@ const toolkits = [
     platformIcon: 'controller',
     description: 'Audio navigation for story-driven gameplay',
     category: 'Adventure',
-    pdfUrl: Last_of_Us
+    pdfUrl: Last_of_Us,
   },
   {
     id: 22,
@@ -302,7 +302,7 @@ const toolkits = [
     platformIcon: 'controller',
     description: 'Audio cues for combat and exploration',
     category: 'Action',
-    pdfUrl: God_of_War
+    pdfUrl: God_of_War,
   },
   {
     id: 23,
@@ -311,7 +311,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio navigation for western open world',
     category: 'Action',
-    pdfUrl: Red_Dead_Redemption2
+    pdfUrl: Red_Dead_Redemption2,
   },
   {
     id: 24,
@@ -320,7 +320,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio feedback for futuristic RPG',
     category: 'RPG',
-    pdfUrl: Cyberpunk2077PDF
+    pdfUrl: Cyberpunk2077PDF,
   },
   {
     id: 25,
@@ -329,7 +329,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio cues for challenging combat',
     category: 'RPG',
-    pdfUrl: EldenRingPDF
+    pdfUrl: EldenRingPDF,
   },
   {
     id: 26,
@@ -338,7 +338,7 @@ const toolkits = [
     platformIcon: 'controller',
     description: 'Audio navigation for web-swinging',
     category: 'Action',
-    pdfUrl: SpiderMan
+    pdfUrl: SpiderMan,
   },
   {
     id: 27,
@@ -347,7 +347,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio feedback for stealth gameplay',
     category: 'Action',
-    pdfUrl: AssassinsCreed
+    pdfUrl: AssassinsCreed,
   },
   {
     id: 28,
@@ -356,7 +356,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio cues for survival horror',
     category: 'Horror',
-    pdfUrl: Resident_Evil
+    pdfUrl: Resident_Evil,
   },
   {
     id: 29,
@@ -365,7 +365,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio feedback for fighting combos',
     category: 'Fighting',
-    pdfUrl: StreetFighter6
+    pdfUrl: StreetFighter6,
   },
   {
     id: 30,
@@ -374,7 +374,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio cues for brutal combat',
     category: 'Fighting',
-    pdfUrl: Mortal_Kombat
+    pdfUrl: Mortal_Kombat,
   },
   {
     id: 31,
@@ -383,7 +383,7 @@ const toolkits = [
     platformIcon: 'controller',
     description: 'Audio feedback for platform fighting',
     category: 'Fighting',
-    pdfUrl: Super_Smash_Bros
+    pdfUrl: Super_Smash_Bros,
   },
   {
     id: 32,
@@ -392,7 +392,7 @@ const toolkits = [
     platformIcon: 'controller',
     description: 'Audio cues for racing gameplay',
     category: 'Racing',
-    pdfUrl: Mario_Kart
+    pdfUrl: Mario_Kart,
   },
   {
     id: 33,
@@ -401,7 +401,7 @@ const toolkits = [
     platformIcon: 'controller',
     description: 'Audio feedback for realistic racing',
     category: 'Racing',
-    pdfUrl: Gran_Turismo
+    pdfUrl: Gran_Turismo,
   },
   {
     id: 34,
@@ -410,7 +410,7 @@ const toolkits = [
     platformIcon: 'controller',
     description: 'Audio navigation for open-world racing',
     category: 'Racing',
-    pdfUrl: Forza_Horizon
+    pdfUrl: Forza_Horizon,
   },
   {
     id: 35,
@@ -419,7 +419,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio cues for high-speed racing',
     category: 'Racing',
-    pdfUrl: Need_for_Speed
+    pdfUrl: Need_for_Speed,
   },
   {
     id: 36,
@@ -428,7 +428,7 @@ const toolkits = [
     platformIcon: 'controller',
     description: 'Audio navigation for peaceful life sim',
     category: 'Simulation',
-    pdfUrl: animal_Crossing
+    pdfUrl: animal_Crossing,
   },
   {
     id: 37,
@@ -437,7 +437,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio feedback for life simulation',
     category: 'Simulation',
-    pdfUrl: The_Sims
+    pdfUrl: The_Sims,
   },
   {
     id: 38,
@@ -446,7 +446,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio cues for farming simulation',
     category: 'Simulation',
-    pdfUrl: Stardew_Valley
+    pdfUrl: Stardew_Valley,
   },
   {
     id: 39,
@@ -455,7 +455,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio feedback for city building',
     category: 'Strategy',
-    pdfUrl: Cities_Skylines
+    pdfUrl: Cities_Skylines,
   },
   {
     id: 40,
@@ -464,7 +464,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio cues for turn-based strategy',
     category: 'Strategy',
-    pdfUrl: CivilizationVI
+    pdfUrl: CivilizationVI,
   },
   {
     id: 41,
@@ -482,7 +482,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio cues for sci-fi strategy',
     category: 'Strategy',
-    pdfUrl: StarcraftPDF
+    pdfUrl: StarcraftPDF,
   },
   {
     id: 43,
@@ -491,7 +491,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio feedback for historical battles',
     category: 'Strategy',
-    pdfUrl: Total_War
+    pdfUrl: Total_War,
   },
   {
     id: 44,
@@ -500,7 +500,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio cues for tactical combat',
     category: 'Strategy',
-    pdfUrl: XCOMpdf
+    pdfUrl: XCOMpdf,
   },
   {
     id: 45,
@@ -509,7 +509,7 @@ const toolkits = [
     platformIcon: 'controller',
     description: 'Audio feedback for tactical RPG',
     category: 'Strategy',
-    pdfUrl: Fire_Emblem
+    pdfUrl: Fire_Emblem,
   },
   {
     id: 46,
@@ -518,7 +518,7 @@ const toolkits = [
     platformIcon: 'controller',
     description: 'Audio cues for monster battles',
     category: 'RPG',
-    pdfUrl: PokemonPDF
+    pdfUrl: PokemonPDF,
   },
   {
     id: 47,
@@ -527,7 +527,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio feedback for JRPG storytelling',
     category: 'RPG',
-    pdfUrl: Final_Fantasy
+    pdfUrl: Final_Fantasy,
   },
   {
     id: 48,
@@ -536,7 +536,7 @@ const toolkits = [
     platformIcon: 'controller',
     description: 'Audio cues for classic RPG',
     category: 'RPG',
-    pdfUrl: Dragon_Quest
+    pdfUrl: Dragon_Quest,
   },
   {
     id: 49,
@@ -545,7 +545,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio feedback for social RPG',
     category: 'RPG',
-    pdfUrl: PersonaPDF
+    pdfUrl: PersonaPDF,
   },
   {
     id: 50,
@@ -554,7 +554,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio navigation for fantasy RPG',
     category: 'RPG',
-    pdfUrl: The_Witcher
+    pdfUrl: The_Witcher,
   },
   {
     id: 51,
@@ -563,7 +563,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio cues for open-world fantasy',
     category: 'RPG',
-    pdfUrl: SkyrimPDF
+    pdfUrl: SkyrimPDF,
   },
   {
     id: 52,
@@ -572,7 +572,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio feedback for post-apocalyptic RPG',
     category: 'RPG',
-    pdfUrl: FalloutPDF
+    pdfUrl: FalloutPDF,
   },
   {
     id: 53,
@@ -581,7 +581,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio cues for sci-fi RPG',
     category: 'RPG',
-    pdfUrl: Mass_effect
+    pdfUrl: Mass_effect,
   },
   {
     id: 54,
@@ -590,7 +590,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio feedback for fantasy RPG',
     category: 'RPG',
-    pdfUrl: Dragon_Age
+    pdfUrl: Dragon_Age,
   },
   {
     id: 55,
@@ -599,7 +599,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio cues for D&D RPG',
     category: 'RPG',
-    pdfUrl: Baldurs_Gate
+    pdfUrl: Baldurs_Gate,
   },
   {
     id: 56,
@@ -608,7 +608,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio feedback for tactical RPG',
     category: 'RPG',
-    pdfUrl: DivinityPDF
+    pdfUrl: DivinityPDF,
   },
   {
     id: 57,
@@ -617,7 +617,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio cues for isometric RPG',
     category: 'RPG',
-    pdfUrl: Pillars_of_Eternity
+    pdfUrl: Pillars_of_Eternity,
   },
   {
     id: 58,
@@ -626,7 +626,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio feedback for tabletop RPG',
     category: 'RPG',
-    pdfUrl: PathfinderPDF
+    pdfUrl: PathfinderPDF,
   },
   {
     id: 59,
@@ -635,7 +635,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio cues for narrative RPG',
     category: 'RPG',
-    pdfUrl: Disco_Elysium
+    pdfUrl: Disco_Elysium,
   },
   {
     id: 60,
@@ -644,7 +644,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio feedback for space RPG',
     category: 'RPG',
-    pdfUrl: Outer_Worlds
+    pdfUrl: Outer_Worlds,
   },
   {
     id: 61,
@@ -653,7 +653,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio cues for space exploration',
     category: 'Adventure',
-    pdfUrl: Outer_Wilds
+    pdfUrl: Outer_Wilds,
   },
   {
     id: 62,
@@ -662,7 +662,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio feedback for meditative adventure',
     category: 'Adventure',
-    pdfUrl: JourneyPDF
+    pdfUrl: JourneyPDF,
   },
   {
     id: 63,
@@ -671,7 +671,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio cues for emotional platformer',
     category: 'Adventure',
-    pdfUrl: GrisPDF
+    pdfUrl: GrisPDF,
   },
   {
     id: 64,
@@ -680,7 +680,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio feedback for metroidvania',
     category: 'Adventure',
-    pdfUrl: OriPDF
+    pdfUrl: OriPDF,
   },
   {
     id: 65,
@@ -689,7 +689,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio cues for challenging platformer',
     category: 'Adventure',
-    pdfUrl: Hollow_Knight
+    pdfUrl: Hollow_Knight,
   },
   {
     id: 66,
@@ -698,7 +698,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio feedback for precision platformer',
     category: 'Adventure',
-    pdfUrl: CelestePDF
+    pdfUrl: CelestePDF,
   },
   {
     id: 67,
@@ -707,7 +707,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio cues for boss rush platformer',
     category: 'Adventure',
-    pdfUrl: CupheadPDF
+    pdfUrl: CupheadPDF,
   },
   {
     id: 68,
@@ -716,7 +716,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio feedback for roguelike action',
     category: 'Adventure',
-    pdfUrl: Dead_Cells
+    pdfUrl: Dead_Cells,
   },
   {
     id: 69,
@@ -725,7 +725,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio cues for roguelike dungeon crawler',
     category: 'Adventure',
-    pdfUrl: HadesPdf
+    pdfUrl: HadesPdf,
   },
   {
     id: 70,
@@ -734,7 +734,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio feedback for deck-building roguelike',
     category: 'Card',
-    pdfUrl: Slay_the_Spire
+    pdfUrl: Slay_the_Spire,
   },
   {
     id: 71,
@@ -743,7 +743,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio cues for deck-building strategy',
     category: 'Card',
-    pdfUrl: Monster_Train
+    pdfUrl: Monster_Train,
   },
   {
     id: 72,
@@ -752,7 +752,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio feedback for standalone card game',
     category: 'Card',
-    pdfUrl: GwentPdf
+    pdfUrl: GwentPdf,
   },
   {
     id: 73,
@@ -761,7 +761,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio cues for digital card game',
     category: 'Card',
-    pdfUrl: Magic_TheGathering
+    pdfUrl: Magic_TheGathering,
   },
   {
     id: 74,
@@ -770,7 +770,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio feedback for anime card game',
     category: 'Card',
-    pdfUrl: YuGiOh
+    pdfUrl: YuGiOh,
   },
   {
     id: 75,
@@ -779,7 +779,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio cues for Dota card game',
     category: 'Card',
-    pdfUrl: ArtifactPdf
+    pdfUrl: ArtifactPdf,
   },
   {
     id: 76,
@@ -788,7 +788,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio feedback for League card game',
     category: 'Card',
-    pdfUrl: Legends_of_Runeterra
+    pdfUrl: Legends_of_Runeterra,
   },
   {
     id: 77,
@@ -797,7 +797,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio cues for single-player card game',
     category: 'Card',
-    pdfUrl: GwentRM
+    pdfUrl: GwentRM,
   },
   {
     id: 78,
@@ -806,7 +806,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio feedback for horror card game',
     category: 'Card',
-    pdfUrl: InscryptionPdf
+    pdfUrl: InscryptionPdf,
   },
   {
     id: 79,
@@ -815,7 +815,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio cues for village-building card game',
     category: 'Card',
-    pdfUrl: StacklandsPdf
+    pdfUrl: StacklandsPdf,
   },
   {
     id: 80,
@@ -824,7 +824,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio feedback for survival action',
     category: 'Action',
-    pdfUrl: Vampire_Survivors
+    pdfUrl: Vampire_Survivors,
   },
   {
     id: 81,
@@ -833,7 +833,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio cues for roguelike action',
     category: 'Action',
-    pdfUrl: Risk_of_Rain
+    pdfUrl: Risk_of_Rain,
   },
   {
     id: 82,
@@ -842,7 +842,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio feedback for bullet hell roguelike',
     category: 'Action',
-    pdfUrl: EntertheGungeon
+    pdfUrl: EntertheGungeon,
   },
   {
     id: 83,
@@ -851,7 +851,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio cues for roguelike dungeon crawler',
     category: 'Action',
-    pdfUrl: BindingofIsaac
+    pdfUrl: BindingofIsaac,
   },
   {
     id: 84,
@@ -860,7 +860,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio feedback for platformer roguelike',
     category: 'Adventure',
-    pdfUrl: SpelunkyPDF
+    pdfUrl: SpelunkyPDF,
   },
   {
     id: 85,
@@ -869,7 +869,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio cues for spaceship management',
     category: 'Strategy',
-    pdfUrl: Faster_Than_Light
+    pdfUrl: Faster_Than_Light,
   },
   {
     id: 86,
@@ -878,7 +878,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio feedback for tactical mech combat',
     category: 'Strategy',
-    pdfUrl: IntotheBreach
+    pdfUrl: IntotheBreach,
   },
   {
     id: 87,
@@ -887,7 +887,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio cues for gothic roguelike',
     category: 'RPG',
-    pdfUrl: DarkestDungeon
+    pdfUrl: DarkestDungeon,
   },
   {
     id: 88,
@@ -896,7 +896,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio feedback for auto-battler roguelike',
     category: 'Strategy',
-    pdfUrl: LoopHero
+    pdfUrl: LoopHero,
   },
   {
     id: 89,
@@ -905,7 +905,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio cues for sci-fi roguelike',
     category: 'RPG',
-    pdfUrl: GriftlandsPdf
+    pdfUrl: GriftlandsPdf,
   },
   {
     id: 90,
@@ -914,7 +914,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio feedback for monster collection RPG',
     category: 'RPG',
-    pdfUrl: MonsterSanctuary
+    pdfUrl: MonsterSanctuary,
   },
   {
     id: 91,
@@ -923,7 +923,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio cues for monster collection MMO',
     category: 'MMO',
-    pdfUrl: TemtemPdf
+    pdfUrl: TemtemPdf,
   },
   {
     id: 92,
@@ -932,7 +932,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio feedback for monster survival',
     category: 'Survival',
-    pdfUrl: PalworldPdf
+    pdfUrl: PalworldPdf,
   },
   {
     id: 93,
@@ -941,7 +941,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio cues for dinosaur survival',
     category: 'Survival',
-    pdfUrl: ARKPdf
+    pdfUrl: ARKPdf,
   },
   {
     id: 94,
@@ -950,7 +950,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio feedback for multiplayer survival',
     category: 'Survival',
-    pdfUrl: RustPdf
+    pdfUrl: RustPdf,
   },
   {
     id: 95,
@@ -959,7 +959,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio cues for zombie survival',
     category: 'Survival',
-    pdfUrl: DayZPdf
+    pdfUrl: DayZPdf,
   },
   {
     id: 96,
@@ -968,7 +968,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio feedback for zombie crafting survival',
     category: 'Survival',
-    pdfUrl: DaystoDie
+    pdfUrl: DaystoDie,
   },
   {
     id: 97,
@@ -977,7 +977,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio cues for underwater survival',
     category: 'Survival',
-    pdfUrl: SubnauticaPdf
+    pdfUrl: SubnauticaPdf,
   },
   {
     id: 98,
@@ -986,7 +986,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio feedback for forest survival horror',
     category: 'Survival',
-    pdfUrl: The_Forest
+    pdfUrl: The_Forest,
   },
   {
     id: 99,
@@ -995,7 +995,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio cues for jungle survival',
     category: 'Survival',
-    pdfUrl: GreenHell
+    pdfUrl: GreenHell,
   },
   {
     id: 100,
@@ -1004,7 +1004,7 @@ const toolkits = [
     platformIcon: 'desktop',
     description: 'Audio feedback for Viking survival',
     category: 'Survival',
-    pdfUrl: ValheimPdf
+    pdfUrl: ValheimPdf,
   },
 ];
 
@@ -1195,13 +1195,17 @@ const openToolkitPDF = (pdfUrl, gameName) => {
     </div>
 
     <!-- Toolkit Gallery Section -->
-    <div class="flex flex-col items-center justify-start mobile:justify-center w-full h-auto py-10 md:py-10 my-10">
+    <div
+      class="flex flex-col items-center justify-start mobile:justify-center w-full h-auto py-10 md:py-10 my-10"
+    >
       <div class="w-full">
         <h2 class="game-resource-header">Toolkit Gallery</h2>
       </div>
       <div class="flex justify-center">
         <div class="mobile:w-[310px] w-[85%]">
-          <div class="grid mobile:grid-cols-1 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-8">
+          <div
+            class="grid mobile:grid-cols-1 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-8"
+          >
             <button
               v-for="toolkit in displayedToolkits.slice(0, 8)"
               :key="toolkit.id"
@@ -1209,32 +1213,70 @@ const openToolkitPDF = (pdfUrl, gameName) => {
               class="relative bg-cross-lines border-2 border-[#0C0D0D] rounded-lg p-4 shadow-[4px_4px_0px_#0C0D0D] hover:shadow-[6px_6px_0px_#0C0D0D] transition-all duration-300 cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#087BB4] focus:ring-offset-2"
               :aria-label="`Download ${toolkit.name} accessibility toolkit PDF`"
             >
-              <div class="game-resource-card-banner h-1/3" aria-hidden="true"></div>
+              <div
+                class="game-resource-card-banner h-1/3"
+                aria-hidden="true"
+              ></div>
               <div class="flex items-center justify-between mb-3">
-                <h3 class="z-50 text-[18px] font-[600] text-white">{{ toolkit.name }}</h3>
+                <h3 class="z-50 text-[18px] font-[600] text-white">
+                  {{ toolkit.name }}
+                </h3>
                 <span aria-hidden="true" class="z-50">
                   <span v-if="toolkit.platformIcon == 'desktop'">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white" class="bi bi-display" viewBox="0 0 16 16">
-                      <path d="M0 4s0-2 2-2h12s2 0 2 2v6s0 2-2 2h-4q0 1 .25 1.5H11a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1h.75Q6 13 6 12H2s-2 0-2-2zm1.398-.855a.76.76 0 0 0-.254.302A1.5 1.5 0 0 0 1 4.01V10c0 .325.078.502.145.602q.105.156.302.254a1.5 1.5 0 0 0 .538.143L2.01 11H14c.325 0 .502-.078.602-.145a.76.76 0 0 0 .254-.302 1.5 1.5 0 0 0 .143-.538L15 9.99V4c0-.325-.078-.502-.145-.602a.76.76 0 0 0-.302-.254A1.5 1.5 0 0 0 13.99 3H2c-.325 0-.502.078-.602.145"/>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      fill="white"
+                      class="bi bi-display"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        d="M0 4s0-2 2-2h12s2 0 2 2v6s0 2-2 2h-4q0 1 .25 1.5H11a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1h.75Q6 13 6 12H2s-2 0-2-2zm1.398-.855a.76.76 0 0 0-.254.302A1.5 1.5 0 0 0 1 4.01V10c0 .325.078.502.145.602q.105.156.302.254a1.5 1.5 0 0 0 .538.143L2.01 11H14c.325 0 .502-.078.602-.145a.76.76 0 0 0 .254-.302 1.5 1.5 0 0 0 .143-.538L15 9.99V4c0-.325-.078-.502-.145-.602a.76.76 0 0 0-.302-.254A1.5 1.5 0 0 0 13.99 3H2c-.325 0-.502.078-.602.145"
+                      />
                     </svg>
                   </span>
                   <span v-else-if="toolkit.platformIcon == 'controller'">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white" class="bi bi-controller" viewBox="0 0 16 16">
-                      <path d="M11.5 6.027a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0m-1.5 1.5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1m2.5-.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0m-1.5 1.5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1m-6.5-3h1v1h1v1h-1v1h-1v-1h-1v-1h1z"/>
-                      <path d="M3.051 3.26a.5.5 0 0 1 .354-.613l1.932-.518a.5.5 0 0 1 .62.39c.655-.079 1.35-.117 2.043-.117.72 0 1.443.041 2.12.126a.5.5 0 0 1 .622-.399l1.932.518a.5.5 0 0 1 .306.729q.211.136.373.297c.408.408.78 1.05 1.095 1.772.32.733.599 1.591.805 2.466s.34 1.78.364 2.606c.024.816-.059 1.602-.328 2.21a1.42 1.42 0 0 1-1.445.83c-.636-.067-1.115-.394-1.513-.773-.245-.232-.496-.526-.739-.808-.126-.148-.25-.292-.368-.423-.728-.804-1.597-1.527-3.224-1.527s-2.496.723-3.224 1.527c-.119.131-.242.275-.368.423-.243.282-.494.575-.739.808-.398.38-.877.706-1.513.773a1.42 1.42 0 0 1-1.445-.83c-.27-.608-.352-1.395-.329-2.21.024-.826.16-1.73.365-2.606.206-.875.486-1.733.805-2.466.315-.722.687-1.364 1.094-1.772a2.3 2.3 0 0 1 .433-.335l-.028-.079zm2.036.412c-.877.185-1.469.443-1.733.708-.276.276-.587.783-.885 1.465a14 14 0 0 0-.748 2.295 12.4 12.4 0 0 0-.339 2.406c-.022.755.062 1.368.243 1.776a.42.42 0 0 0 .426.24c.327-.034.61-.199.929-.502.212-.202.4-.423.615-.674.133-.156.276-.323.44-.504C4.861 9.969 5.978 9.027 8 9.027s3.139.942 3.965 1.855c.164.181.307.348.44.504.214.251.403.472.615.674.318.303.601.468.929.503a.42.42 0 0 0 .426-.241c.18-.408.265-1.02.243-1.776a12.4 12.4 0 0 0-.339-2.406 14 14 0 0 0-.748-2.295c-.298-.682-.61-1.19-.885-1.465-.264-.265-.856-.523-1.733-.708-.85-.179-1.877-.27-2.913-.27s-2.063.091-2.913.27"/>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      fill="white"
+                      class="bi bi-controller"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        d="M11.5 6.027a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0m-1.5 1.5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1m2.5-.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0m-1.5 1.5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1m-6.5-3h1v1h1v1h-1v1h-1v-1h-1v-1h1z"
+                      />
+                      <path
+                        d="M3.051 3.26a.5.5 0 0 1 .354-.613l1.932-.518a.5.5 0 0 1 .62.39c.655-.079 1.35-.117 2.043-.117.72 0 1.443.041 2.12.126a.5.5 0 0 1 .622-.399l1.932.518a.5.5 0 0 1 .306.729q.211.136.373.297c.408.408.78 1.05 1.095 1.772.32.733.599 1.591.805 2.466s.34 1.78.364 2.606c.024.816-.059 1.602-.328 2.21a1.42 1.42 0 0 1-1.445.83c-.636-.067-1.115-.394-1.513-.773-.245-.232-.496-.526-.739-.808-.126-.148-.25-.292-.368-.423-.728-.804-1.597-1.527-3.224-1.527s-2.496.723-3.224 1.527c-.119.131-.242.275-.368.423-.243.282-.494.575-.739.808-.398.38-.877.706-1.513.773a1.42 1.42 0 0 1-1.445-.83c-.27-.608-.352-1.395-.329-2.21.024-.826.16-1.73.365-2.606.206-.875.486-1.733.805-2.466.315-.722.687-1.364 1.094-1.772a2.3 2.3 0 0 1 .433-.335l-.028-.079zm2.036.412c-.877.185-1.469.443-1.733.708-.276.276-.587.783-.885 1.465a14 14 0 0 0-.748 2.295 12.4 12.4 0 0 0-.339 2.406c-.022.755.062 1.368.243 1.776a.42.42 0 0 0 .426.24c.327-.034.61-.199.929-.502.212-.202.4-.423.615-.674.133-.156.276-.323.44-.504C4.861 9.969 5.978 9.027 8 9.027s3.139.942 3.965 1.855c.164.181.307.348.44.504.214.251.403.472.615.674.318.303.601.468.929.503a.42.42 0 0 0 .426-.241c.18-.408.265-1.02.243-1.776a12.4 12.4 0 0 0-.339-2.406 14 14 0 0 0-.748-2.295c-.298-.682-.61-1.19-.885-1.465-.264-.265-.856-.523-1.733-.708-.85-.179-1.877-.27-2.913-.27s-2.063.091-2.913.27"
+                      />
                     </svg>
                   </span>
                   <span v-else-if="toolkit.platformIcon == 'mobile'">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white" class="bi bi-phone" viewBox="0 0 16 16">
-                      <path d="M11 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM5 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"/>
-                      <path d="M8 14a1 1 0 1 0 0-2 1 1 0 0 0 0 2"/>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      fill="white"
+                      class="bi bi-phone"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        d="M11 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM5 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"
+                      />
+                      <path d="M8 14a1 1 0 1 0 0-2 1 1 0 0 0 0 2" />
                     </svg>
                   </span>
                 </span>
               </div>
-              <p class="text-[14px] text-body py-3">{{ toolkit.description }}</p>
+              <p class="text-[14px] text-body py-3">
+                {{ toolkit.description }}
+              </p>
               <div class="bg-[#E5F0F5] rounded px-2 py-1 inline-block">
-                <span class="text-[14px] text-[#087BB4] font-semibold">{{ toolkit.category }}</span>
+                <span class="text-[14px] text-[#087BB4] font-semibold">{{
+                  toolkit.category
+                }}</span>
               </div>
             </button>
           </div>
