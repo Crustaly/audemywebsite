@@ -27,7 +27,6 @@ export const getLanguageGames = () => {
       bgColor: '#cf88ff', // Light Purple
       description: 'Name the color of a given object!',
     },
-
     {
       icon: basedPath + 'syllable-sorting.png',
       title: 'Syllable Sorting',
@@ -56,7 +55,6 @@ export const getLanguageGames = () => {
       bgColor: '#ff834d', // Bright Orange
       description: 'Test your vocabulary with polar opposites.',
     },
-
     {
       icon: basedPath + 'odd-one-out.png',
       title: 'Odd One Out',
@@ -65,7 +63,6 @@ export const getLanguageGames = () => {
       bgColor: '#FF82E0', // Pink
       description: 'Can you find what doesn’t belong?',
     },
-
     {
       icon: basedPath + 'spellingBee.svg',
       title: 'Spelling Bee',
@@ -97,7 +94,6 @@ export const getMathGames = () => {
       bgColor: '#0EA1EA', // Bright Blue
       description: 'Identify the shape based on its sides.',
     },
-
     {
       icon: basedPath + 'addition.svg',
       title: 'Animal Addition',
@@ -116,7 +112,6 @@ export const getMathGames = () => {
       bgImage: '/assets/gameImages/cardBgImages/bg-sub.svg',
       description: 'Subtract animals in safari scenarios!',
     },
-
     {
       icon: basedPath + 'mul.svg',
       title: 'Multiplication Madness',
@@ -145,7 +140,6 @@ export const getMathGames = () => {
       bgImage: '/assets/gameImages/cardBgImages/bg-mm.svg',
       description: 'Help the monkeys split their bananas!',
     },
-
     {
       icon: basedPath + 'cc.svg',
       title: 'Car Counting',
@@ -235,82 +229,6 @@ export const getScienceGames = () => {
       bgColor: '#fed7aa', // Light Orange
       bgDecoration: true,
       bgImage: '/assets/gameImages/cardBgImages/bg-sound.png',
-      description: 'Measure and decode sound waves to escape an echoing cave.',
-    },
-    {
-      icon: basedPath + 'matter.png',
-      title: 'Matter Mix-Up',
-      url: '/game/mattermixup',
-      textColor: '#323232',
-      bgColor: '#4dd4ff', // Light Blue
-      description:
-        'Help identify solids, liquids, and gases before they evaporate!',
-    },
-    {
-      icon: basedPath + 'cells.png',
-      title: 'Tiny Cell Town',
-      url: '/game/tinycelltown',
-      textColor: '#323232',
-      bgColor: '#a7f3d0', // Mint Green
-      description:
-        'Guide an alien through the microscopic city of a human cell.',
-    },
-    {
-      icon: basedPath + 'weather.png',
-      title: 'Weather Whiz',
-      url: '/game/weatherwhiz',
-      textColor: '#323232',
-      bgColor: '#B19CD9', // Lavender
-      description:
-        'Interpret the sky’s mood swings before the thunder has a tantrum.',
-    },
-    {
-      icon: basedPath + 'astronaut.png',
-      title: 'Space Case',
-      url: '/game/spacecase',
-      textColor: '#323232',
-      bgColor: '#d1d5db', // Light Gray
-      bgDecoration: true,
-      bgImage: '/assets/gameImages/bg-star.png',
-      description:
-        'Help a forgetful astronaut remember basic facts about space.',
-    },
-    {
-      icon: basedPath + 'dino.png',
-      title: 'Dino Detectives',
-      url: '/game/dinodetectives',
-      textColor: '#323232',
-      bgColor: '#c08b5f', // Brown
-      bgDecoration: true,
-      bgImage: '/assets/gameImages/bg-dino.png',
-      description: 'Use clues from bones and roars to identify ancient beasts.',
-    },
-    {
-      icon: basedPath + 'germ.png',
-      title: 'Germ Squad',
-      url: '/game/germsquad',
-      textColor: '#323232',
-      bgColor: '#ff8c69', // Salmon
-      description:
-        'Name the culprits behind a fever before the party gets out of hand.',
-    },
-    {
-      icon: basedPath + 'landscape.png',
-      title: 'Eco Rangers',
-      url: '/game/ecorangers',
-      textColor: '#323232',
-      bgColor: '#52c687', // Green
-      description:
-        'Identify environmental threats and help restore balance to nature.',
-    },
-    {
-      icon: basedPath + 'sound.png',
-      title: 'Sound Explorer',
-      url: '/game/soundexplorer',
-      textColor: '#323232',
-      bgColor: '#fed7aa', // Light Orange
-      bgDecoration: true,
-      bgImage: '/assets/gameImages/bg-sound.png',
       description: 'Measure and decode sound waves to escape an echoing cave.',
     },
     {
