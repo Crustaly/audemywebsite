@@ -1,52 +1,61 @@
 <script></script>
 
 <template>
-  <div class="relative md:flex">
+  <!-- RWD Layout:
+    - Mobile & small screens: Column; Carl image (top) & text (bottom)
+    - Medium+: Row; Carl image (left) & text (right)
+  -->
+  <div
+    class="relative w-full flex flex-col md:flex-row font-poppins p-10 gap-y-5 md:gap-y-0"
+  >
+    <!-- DECORATIVE BG PATTERN -->
     <img
       src="/assets/images/our-projects/lightred-background.png"
-      class="absolute w-screen h-[150%] -top-60 -left-8 -z-10 md:-top-52 md:-left-14 md:h-[180%] xl:-top-48"
-      style="max-width: none"
+      class="w-full absolute -top-5 h-[300px] md:h-[750px] md:-top-[15%] lg:-top-[30%] left-0 -z-10"
+      aria-hidden="true"
     />
-    <div class="hidden md:block md:w-1/2 md:justify-items-center">
+    <!-- CARL IMAGE -->
+    <div
+      class="w-full md:w-1/2 mx-auto flex flex-col md:flex-row items-center justify-center"
+    >
       <img
-        src="/assets/images/our-projects/Group 1205.png"
-        alt="Caterpillar"
-        class="h-max w-60 lg:w-72"
+        src="/assets/images/our-projects/carl-trophy.png"
+        aria-hidden="true"
+        class="w-[200px] md:w-[250px] lg:w-[300px] duration-300"
       />
     </div>
-
-    <div class="flex flex-col md:w-1/2">
-      <div class="flex justify-start">
-        <h2 class="text-sm uppercase tracking-[3.6px]">Educational Events</h2>
+    <!-- TEXT CONTENT -->
+    <div class="w-full md:w-1/2 mx-auto">
+      <div class="flex justify-center md:justify-start">
+        <h2 class="page-header-accent">Educational Events</h2>
       </div>
-      <div class="flex justify-start">
-        <h3 class="text-[32px] font-poppins md:text-4.5xl">
-          <em style="color: #fe892a"> Katy Youth </em> Hacks
+      <div class="flex justify-center md:justify-start">
+        <h3 class="page-header">
+          <em class="text-secondary-color"> Katy Youth </em> Hacks
         </h3>
       </div>
-      <div class="md:hidden flex justify-center">
-        <img
-          src="/assets/images/our-projects/Group 1205.png"
-          alt="Caterpillar"
-          class="h-max w-52"
-        />
-      </div>
       <div class="flex my-10">
-        <p class="text-body text-xl font-poppins leading-8">
-          An accessibility-focused hackathon empowering innovation for people
-          with disabilities. Learn
-          <strong>
-            project development, business pitching, and accessible design
-          </strong>
-          — and compete for <strong> $70,000+ in prizes </strong> from leading
-          corporate sponsors.
-        </p>
+        <div class="page-text text-center md:text-left">
+          <p>
+            An accessibility-focused hackathon empowering innovation for people
+            with disabilities.
+          </p>
+          <p class="my-5">
+            Learn
+            <span class="font-semibold">
+              project development, business pitching, and accessible design
+            </span>
+            — and compete for
+            <span class="font-semibold"> $70,000+ in prizes </span> from leading
+            corporate sponsors.
+          </p>
+        </div>
       </div>
-      <div class="flex justify-start mt-5">
+      <div class="flex justify-center md:justify-start mt-5">
         <a
           href="https://katyhacks.org/"
           target="_blank"
-          class="font-poppins font-semibold px-9 py-4 border-[1.5px] border-[#0C0D0D] rounded-[8px] bg-secondary-color hover:bg-[#D6711F] duration-300 text-base text-center text-[#0D0C0C] shadow-[3px_4px_0px_#0C0D0D]"
+          class="page-button orange-button px-9 py-3"
         >
           Check upcoming events
         </a>

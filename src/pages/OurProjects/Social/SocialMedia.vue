@@ -3,7 +3,15 @@
     <!-- Hide decorative blue arrow -->
     <img
       src="/assets/images/our-projects/blue-arrow.png"
-      class="h-[40px] sm:h-[50px] md:h-[60px] lg:h-[70px] absolute right-0 bottom-[18%] sm:bottom-[10%] sm:right-[10%] md:bottom-20 lg:bottom-1/2 lg:right-[-5%] z-40 duration-300"
+      :class="[
+        'h-[40px] sm:h-[50px] md:h-[60px] lg:h-[70px]',
+        'absolute z-40',
+        'right-0 bottom-[18%]',
+        'sm:bottom-[10%] sm:right-[10%]',
+        'md:bottom-20',
+        'lg:bottom-1/2 lg:right-[-5%]',
+        'duration-300',
+      ]"
       aria-hidden="true"
     />
     <div class="flex justify-center">
@@ -12,7 +20,7 @@
     <div class="flex justify-center">
       <h3 class="page-header">
         Explore
-        <span style="color: #077bb3" class="font-semibold">
+        <span class="font-semibold text-primary-color">
           Apple Loo Education
         </span>
       </h3>
@@ -41,6 +49,7 @@
             frameborder="0"
             allowfullscreen
             style="pointer-events: auto"
+            title="Pet Names and Fun Facts for Kids (Youtube Video)"
           ></iframe>
         </div>
       </div>
