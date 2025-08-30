@@ -13,7 +13,11 @@ const path = '/assets/images/our-projects/researchtech/';
     <div class="flex flex-col items-center w-full gap-[15px] py-4 text-center">
       <div class="flex justify-center">
         <div class="game-resource-icon-card relative">
-          <img :src="path + icon" alt="icon" class="w-[55px] absolute" />
+          <img
+            :src="path + icon"
+            aria-hidden="true"
+            class="w-[55px] absolute"
+          />
         </div>
       </div>
       <div class="flex flex-col items-center font-poppins">

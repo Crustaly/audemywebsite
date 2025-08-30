@@ -23,10 +23,11 @@ const path = '/assets/images/our-projects/';
             rel="noopener noreferrer"
             class="block"
             tabindex="-1"
+            aria-hidden="true"
           >
             <img
               :src="path + image"
-              class="w-full h-auto object-cover rounded-[16px] border-[1px] border-[#E5E5E5] hover:opacity-80 transition-opacity duration-200 cursor-pointer"
+              class="w-[250px] h-[200px] mx-auto object-cover rounded-[16px] border-[1px] border-[#E5E5E5] hover:opacity-80 transition-opacity duration-200 cursor-pointer"
               aria-hidden="true"
             />
           </a>
