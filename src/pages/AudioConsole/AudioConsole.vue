@@ -242,7 +242,7 @@ const finalArrowClasses = [
                 <span class="font-semibold text-primary-color">Amazon</span> and
                 the
                 <span class="font-semibold text-primary-color"
-                  >American Eagle Foundation</span
+                  >AE Foundation</span
                 >
               </p>
 
@@ -253,12 +253,12 @@ const finalArrowClasses = [
                 <img
                   src="/assets/images/audio-console/amazon_logo.png"
                   aria-hidden="true"
-                  class="w-1/3 md:w-1/4 object-contain"
+                  class="w-1/3 md:w-1/4"
                 />
                 <img
-                  src="/assets/images/audio-console/american-eagle-foundation-logo.png"
+                  src="/assets/images/audio-console/ae-foundation-logo.png"
                   aria-hidden="true"
-                  class="w-1/3 md:w-1/4 object-contain"
+                  class="w-1/3 md:w-1/4"
                 />
               </div>
             </div>
