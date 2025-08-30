@@ -74,6 +74,9 @@ import GamesShowcase from './GamesToLife/GamesShowcase.vue';
       </div>
     </div>
 
+    <!-- Carousel of game cards -->
+    <GamesShowcase />
+
     <!-- Problem & Opportunity Section -->
     <div
       class="flex flex-col items-center justify-start mobile:justify-center w-full h-auto py-10 md:py-20 my-10"
@@ -137,8 +140,6 @@ import GamesShowcase from './GamesToLife/GamesShowcase.vue';
         </div>
       </div>
     </div>
-
-    <GamesShowcase />
 
     <!-- How the Studio Works Section -->
     <div
