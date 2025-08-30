@@ -8,19 +8,19 @@ const items = [
 ];
 const items2 = [
   {
-    icon: 'Research_paper1.png',
+    icon: 'audiotactcle-sys-paper-1.png',
     title: 'Presented Research at ACM',
     subtitle: "ICMI '23 in Paris, France",
     url: 'https://dl.acm.org/doi/10.1145/3686215.3690154',
   },
   {
-    icon: 'Research_paper2.png',
+    icon: 'heard-le-paper-2.png',
     title: 'Presented Research at ACM',
     subtitle: "ICMI '24 in Costa Rica",
     url: 'https://dl.acm.org/doi/10.1145/3610661.3617150',
   },
   {
-    icon: 'Research_paper3.png',
+    icon: 'acm-chi-paper-3.png',
     title: 'Presented Research at ACM CHI',
     subtitle: "'25 in Yokohama, Japan",
     url: 'https://arxiv.org/abs/2504.17117',

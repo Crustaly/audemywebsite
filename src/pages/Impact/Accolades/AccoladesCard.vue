@@ -13,10 +13,10 @@ const path = '/assets/images/impact/';
     >
       <!-- TEXT -->
       <div class="p-3">
-        <h4
+        <h3
           class="text-center text-body text-[18px] md:text-[16px] font-[400] text-[16px]"
           v-html="text"
-        ></h4>
+        ></h3>
       </div>
       <!-- ICON -->
       <div class="p-3 flex justify-center">
