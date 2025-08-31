@@ -2,7 +2,7 @@ const basedPath = '/assets/gameImages/buttons/gameButtons/';
 export const getLanguageGames = () => {
   return [
     {
-      icon: basedPath + 'definition.svg',
+      icon: basedPath + 'detective.png',
       title: 'Definition Detective',
       url: '/game/definitionDetective',
       textColor: '#323232',
@@ -12,7 +12,7 @@ export const getLanguageGames = () => {
       description: 'Find the correct word based on the definition.',
     },
     {
-      icon: basedPath + 'pos.svg',
+      icon: basedPath + 'chat-bubble.png',
       title: 'Part of Speech',
       url: '/game/partofspeech',
       textColor: '#323232',
@@ -48,7 +48,7 @@ export const getLanguageGames = () => {
       description: 'Match the word to its definition.',
     },
     {
-      icon: basedPath + 'strawberry.svg',
+      icon: basedPath + 'magnet.png',
       title: 'Polar Pairing',
       url: '/game/polarpairing',
       textColor: '#323232',
@@ -79,7 +79,7 @@ export const getLanguageGames = () => {
 export const getMathGames = () => {
   return [
     {
-      icon: basedPath + 'ff.svg',
+      icon: basedPath + 'tropical-fruit.png',
       title: 'Fruit Frenzy',
       url: '/game/fruitfrenzy',
       textColor: '#323232',
@@ -87,7 +87,7 @@ export const getMathGames = () => {
       description: 'Practice addition by counting the fruits!',
     },
     {
-      icon: basedPath + 'ss.svg',
+      icon: basedPath + 'new-shark.png',
       title: 'Shape Shark',
       url: '/game/shapeshark',
       textColor: '#323232',
@@ -103,7 +103,7 @@ export const getMathGames = () => {
       description: 'Add up the animals!',
     },
     {
-      icon: basedPath + 'subtraction.svg',
+      icon: basedPath + 'subtract-pie.png',
       title: 'Subtraction Safari',
       url: '/game/subtraction',
       textColor: '#323232',
@@ -123,7 +123,7 @@ export const getMathGames = () => {
       description: 'Can you multiply numbers?',
     },
     {
-      icon: basedPath + 'div.svg',
+      icon: basedPath + 'pie-chart.png',
       title: 'Division Duel',
       url: 'game/DivisionDuel',
       textColor: '#323232',
@@ -131,7 +131,7 @@ export const getMathGames = () => {
       description: 'Divide the given numbers!',
     },
     {
-      icon: basedPath + 'mm.svg',
+      icon: basedPath + 'new-monkey.png',
       title: 'Monkey Madness',
       url: '/game/monkeymadness',
       textColor: '#323232',
@@ -141,7 +141,7 @@ export const getMathGames = () => {
       description: 'Help the monkeys split their bananas!',
     },
     {
-      icon: basedPath + 'cc.svg',
+      icon: basedPath + 'new-car.png',
       title: 'Car Counting',
       url: '/game/carcounting',
       textColor: '#323232',
@@ -156,7 +156,7 @@ export const getMathGames = () => {
 export const getScienceGames = () => {
   return [
     {
-      icon: basedPath + 'matter.png',
+      icon: basedPath + 'icicles.png',
       title: 'Matter Mix-Up',
       url: '/game/mattermixup',
       textColor: '#323232',
@@ -174,7 +174,7 @@ export const getScienceGames = () => {
         'Guide an alien through the microscopic city of a human cell.',
     },
     {
-      icon: basedPath + 'weather.png',
+      icon: basedPath + 'season.png',
       title: 'Weather Whiz',
       url: '/game/weatherwhiz',
       textColor: '#323232',
@@ -213,7 +213,7 @@ export const getScienceGames = () => {
         'Name the culprits behind a fever before the party gets out of hand.',
     },
     {
-      icon: basedPath + 'landscape.png',
+      icon: basedPath + 'earth.png',
       title: 'Eco Rangers',
       url: '/game/ecorangers',
       textColor: '#323232',
@@ -232,7 +232,7 @@ export const getScienceGames = () => {
       description: 'Measure and decode sound waves to escape an echoing cave.',
     },
     {
-      icon: basedPath + 'robot.png',
+      icon: basedPath + 'new-robot.png',
       title: 'Robot Repair Lab',
       url: '/game/robotrepair',
       textColor: '#323232',
@@ -243,7 +243,7 @@ export const getScienceGames = () => {
         'Reprogram glitching science robots before they short-circuit the lab.',
     },
     {
-      icon: basedPath + 'alocasia.png',
+      icon: basedPath + 'flower-pot.png',
       title: 'Plant Power',
       url: '/game/plantpower',
       textColor: '#323232',
@@ -257,7 +257,7 @@ export const getScienceGames = () => {
 export const getLifeSkillsGames = () => {
   return [
     {
-      icon: basedPath + 'grocery.png',
+      icon: basedPath + 'healthy-food.png',
       title: 'Grocery Grab',
       url: '/game/groceryGrab',
       textColor: '#323232',
@@ -274,7 +274,7 @@ export const getLifeSkillsGames = () => {
       description: 'Match the right coins and bills to pay for your items.',
     },
     {
-      icon: basedPath + 'laundry.png',
+      icon: basedPath + 'new-laundry.png',
       title: 'Laundry Legend',
       url: '/game/laundryLegend',
       textColor: '#323232',
@@ -292,7 +292,7 @@ export const getLifeSkillsGames = () => {
         'Identify tools and follow recipes using only sound and smell.',
     },
     {
-      icon: basedPath + 'clothing.png',
+      icon: basedPath + 'clothes.png',
       title: 'Dress to Impress',
       url: '/game/dressToImpress',
       textColor: '#323232',
@@ -309,7 +309,7 @@ export const getLifeSkillsGames = () => {
         'From fire alarms to bumping your knee, learn the safest move.',
     },
     {
-      icon: basedPath + 'schedule.png',
+      icon: basedPath + 'deadline.png',
       title: 'Schedule Shuffle',
       url: '/game/scheduleShuffle',
       textColor: '#323232',
@@ -318,7 +318,7 @@ export const getLifeSkillsGames = () => {
         'Piece your day back together with clues from talking clocks.',
     },
     {
-      icon: basedPath + 'cleaning.png',
+      icon: basedPath + 'chores.png',
       title: 'Clean Machine',
       url: '/game/cleanMachine',
       textColor: '#323232',
@@ -351,7 +351,7 @@ export const getLifeSkillsGames = () => {
       description: 'Finish cooking before everything overcooks.',
     },
     {
-      icon: basedPath + 'bus.png',
+      icon: basedPath + 'school-bus.png',
       title: 'Bus Stop Brainstorm',
       url: '/game/busStopBrainstorm',
       textColor: '#323232',
@@ -359,7 +359,7 @@ export const getLifeSkillsGames = () => {
       description: 'Navigate the city’s bus system using only sound clues.',
     },
     {
-      icon: basedPath + 'piggybank.png',
+      icon: basedPath + 'piggy-bank.png',
       title: 'Money Manager',
       url: '/game/moneyManager',
       textColor: '#323232',
@@ -380,7 +380,7 @@ export const getLifeSkillsGames = () => {
 export const getIndependenceSkillsGames = () => {
   return [
     {
-      icon: basedPath + 'street.png',
+      icon: basedPath + 'traffic-light.png',
       title: 'Street Smart',
       url: '/game/streetSmart',
       textColor: '#323232',
@@ -396,7 +396,7 @@ export const getIndependenceSkillsGames = () => {
       description: 'Listen to your cane’s taps to navigate safely.',
     },
     {
-      icon: basedPath + 'door.png',
+      icon: basedPath + 'new-door.png',
       title: 'Doorway Decisions',
       url: '/game/doorwayDecisions',
       textColor: '#323232',
@@ -405,7 +405,7 @@ export const getIndependenceSkillsGames = () => {
         'Figure out how to open different types of doors by touch and sound.',
     },
     {
-      icon: basedPath + 'elevator.png',
+      icon: basedPath + 'lift.png',
       title: 'Elevator Experience',
       url: '/game/elevatorExperience',
       textColor: '#323232',
@@ -437,7 +437,7 @@ export const getIndependenceSkillsGames = () => {
       description: 'Knowing what kitchen sounds mean helps you cook safely.',
     },
     {
-      icon: basedPath + 'phone-friend.png',
+      icon: basedPath + 'smartphone.png',
       title: 'Phone Friend',
       url: '/game/phoneFriend',
       textColor: '#323232',
@@ -463,7 +463,7 @@ export const getIndependenceSkillsGames = () => {
         'Your cane and other sounds alert you to unexpected objects.',
     },
     {
-      icon: basedPath + 'social.png',
+      icon: basedPath + 'idea.png',
       title: 'Social Sense',
       url: '/game/socialSense',
       textColor: '#323232',
@@ -471,7 +471,7 @@ export const getIndependenceSkillsGames = () => {
       description: 'Interpret conversations and respond appropriately.',
     },
     {
-      icon: basedPath + 'assistance.png',
+      icon: basedPath + 'charity.png',
       title: 'Asking for Assistance',
       url: '/game/askingForAssistance',
       textColor: '#323232',
