@@ -6,12 +6,28 @@ import OrangeStar from '/assets/images/impact/Group 1135.png';
 import YellowStar from '/assets/images/testimonials/star.svg';
 import BlueStar from '/assets/images/about-us/blueStar2.svg';
 
+// impactImages: Maps image src and alt text to dynamically render <Carousel/>
 const impactImages = [
-  '/assets/images/impact/carousel/carousel1.jpg',
-  '/assets/images/impact/carousel/carousel2.png',
-  '/assets/images/impact/carousel/carousel3.png',
-  '/assets/images/impact/carousel/carousel4.png',
-  '/assets/images/impact/carousel/carousel5.png',
+  {
+    src: '/assets/images/impact/carousel/carousel1.jpg',
+    alt: 'Student playing spelling games on Audemy',
+  },
+  {
+    src: '/assets/images/impact/carousel/carousel2.png',
+    alt: 'Student playing Fruit Frenzy on laptop',
+  },
+  {
+    src: '/assets/images/impact/carousel/carousel3.png',
+    alt: 'Student playing Spell Safari',
+  },
+  {
+    src: '/assets/images/impact/carousel/carousel4.png',
+    alt: 'Student playing Fruit Frenzy',
+  },
+  {
+    src: '/assets/images/impact/carousel/carousel5.png',
+    alt: 'Another student playing Fruit Frenzy',
+  },
 ];
 </script>
 

@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted } from 'vue';
+import { onMounted, ref } from 'vue';
 
 const props = defineProps({
   images: {
@@ -8,80 +8,109 @@ const props = defineProps({
   },
 });
 
+const currentSlide = ref(0);
+const carousel = ref(null);
+const maxLength = ref(0);
+
 function goToSlide(slide, container) {
-  container.forEach((s, i) => {
-    s.style.transform = `translateX(${100 * (i - slide)}%)`;
+  container.value.forEach((s, i) => {
+    s.style.transform = `translateX(${100 * (i - slide.value)}%)`;
   });
 }
 
+const goToPrevSlide = () => {
+  if (currentSlide.value === 0) return;
+  currentSlide.value--;
+  goToSlide(currentSlide, carousel);
+};
+
+const goToNextSlide = () => {
+  if (currentSlide.value === maxLength.value - 1) {
+    currentSlide.value = 0;
+  } else {
+    currentSlide.value++;
+  }
+  goToSlide(currentSlide, carousel);
+};
+
 onMounted(() => {
-  const carousel = document.querySelectorAll('.carousel__slide');
+  // Define carousel object & max length
+  carousel.value = document.querySelectorAll('.carousel__slide');
+  maxLength.value = carousel.value.length;
+
+  // Reset carousel to first slide
   goToSlide(0, carousel);
-  const prevButton = document.getElementById('left-chevron');
-  const nextButton = document.getElementById('right-chevron');
-
-  let currentSlide = 0;
-  const maxLength = carousel.length;
-
-  prevButton.addEventListener('click', () => {
-    if (currentSlide === 0) return;
-    currentSlide--;
-    goToSlide(currentSlide, carousel);
-  });
-
-  nextButton.addEventListener('click', () => {
-    if (currentSlide === maxLength - 1) {
-      currentSlide = 0;
-    } else {
-      currentSlide++;
-    }
-    goToSlide(currentSlide, carousel);
-  });
+  currentSlide.value = 0;
 });
 
-// Extracted shared classes for arrow buttons
+// Extracted shared RWD classes for arrow buttons
 const arrowButtonClasses = [
   'absolute',
   'top-1/2',
-  '-translate-1/2',
   'z-10',
+  'w-10',
+  'h-10',
+  '2xl:w-14',
+  '2xl:h-14',
+];
+
+// Extracted shared RWD classes for arrow icons
+const arrowIconClasses = [
   'cursor-pointer',
-  'w-8',
-  'h-8',
-  'hover:w-10',
-  'hover:h-10',
+  'w-10',
+  'h-10',
+  '2xl:w-14',
+  '2xl:h-14',
+  'transition',
+  'hover:scale-125',
   'duration-300',
 ];
 </script>
 
 <template>
-  <div class="relative carousel mobile:h-60 h-80 xl:h-96 overflow-hidden">
+  <div class="relative h-full w-full">
     <!-- Previous / Left icon -->
-    <img
-      src="/assets/images/impact/carousel/leftChevron.svg"
-      id="left-chevron"
-      :class="[arrowButtonClasses, 'left-1']"
-      aria-hidden="true"
-    />
-
-    <!-- Render slides dynamically from prop -->
-    <div
-      v-for="(img, index) in images"
-      :key="index"
-      class="carousel__slide absolute top-0 left-0 w-full h-full duration-500"
+    <button
+      @click="goToPrevSlide"
+      aria-label="See previous image"
+      :class="[arrowButtonClasses, '-left-12 md:-left-16']"
     >
       <img
-        :src="img"
-        class="-z-10 w-full h-full object-cover rounded-[16px] shadow-lg"
+        src="/assets/images/testimonials/arrow.png"
+        :class="[arrowIconClasses, 'rotate-180']"
         aria-hidden="true"
       />
+    </button>
+    <div
+      class="relative carousel mobile:h-60 h-80 xl:h-96 overflow-hidden"
+      id="projects-carousel"
+    >
+      <!-- Render slides dynamically from prop -->
+      <!-- SR Accessibility: Conditionally set aria-hidden & output alt text -->
+      <div
+        v-for="(img, index) in images"
+        :key="index"
+        class="carousel__slide absolute top-0 left-0 w-full h-full duration-500"
+        :aria-hidden="index == !currentSlide"
+      >
+        <img
+          :src="img.src"
+          :alt="img.alt"
+          class="-z-10 w-full h-full object-cover rounded-[16px] shadow-lg"
+        />
+      </div>
     </div>
     <!-- Next / Right icon -->
-    <img
-      src="/assets/images/impact/carousel/rightChevron.svg"
-      id="right-chevron"
-      :class="[arrowButtonClasses, 'right-1']"
-      aria-hidden="true"
-    />
+    <button
+      @click="goToNextSlide"
+      aria-label="See next image"
+      :class="[arrowButtonClasses, '-right-12 md:-right-16']"
+    >
+      <img
+        src="/assets/images/testimonials/arrow.png"
+        :class="[arrowIconClasses]"
+        aria-hidden="true"
+      />
+    </button>
   </div>
 </template>

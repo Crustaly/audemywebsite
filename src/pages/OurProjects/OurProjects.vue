@@ -20,7 +20,7 @@ import Footer from '../../components/Footer/Footer.vue';
 
   <div class="flex flex-col font-poppins">
     <!-- Accessibility: Hide decorative image carousel from SR output -->
-    <div class="flex justify-center px-8 md:px-14" aria-hidden="true">
+    <div class="flex justify-center px-8 md:px-14">
       <div class="md:w-full">
         <ProjectsInAction />
       </div>
