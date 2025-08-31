@@ -25,7 +25,7 @@ export const gameConfigs = {
     title: 'Definition Detective',
     description: 'Find the correct word based on the definition.',
     bgColor: '#c3deff', // Light Blue
-    iconSrc: '/assets/gameImages/buttons/gameButtons/definition.svg',
+    iconSrc: '/assets/gameImages/buttons/gameButtons/detective.png',
     introAudio: '/gameIntroAudio/definitionIntro.mp3',
     dbFile: 'definitionDetectiveDB.json',
     dbKey: 'DefinitionDetectiveGame',
@@ -36,7 +36,7 @@ export const gameConfigs = {
     title: 'Division Duel',
     description: 'Divide the given numbers!',
     bgColor: '#e1f7d5', // Light Green
-    iconSrc: '/assets/gameImages/buttons/gameButtons/div.svg',
+    iconSrc: '/assets/gameImages/buttons/gameButtons/pie-chart.png',
     introAudio: '/gameIntroAudio/divIntro.mp3',
     dbFile: 'divisionDB.json',
     dbKey: 'DivisionGame',
@@ -47,7 +47,7 @@ export const gameConfigs = {
     title: 'Fruit Frenzy',
     description: 'How many total fruits are there?',
     bgColor: '#FFCCCB', // Light Red
-    iconSrc: '/assets/gameImages/buttons/gameButtons/ff.svg',
+    iconSrc: '/assets/gameImages/buttons/gameButtons/tropical-fruit.png',
     introAudio: '/gameIntroAudio/fruitIntro.mp3',
     dbFile: 'fruitFrenzyDB.json',
     dbKey: 'FruitFrenzy',
@@ -58,7 +58,7 @@ export const gameConfigs = {
     title: 'Monkey Madness',
     description: 'Help the monkeys split their bananas!',
     bgColor: '#FFCCCB', // Light Red
-    iconSrc: '/assets/gameImages/buttons/gameButtons/mm.svg',
+    iconSrc: '/assets/gameImages/buttons/gameButtons/new-monkey.png',
     introAudio: '/gameIntroAudio/monkeyIntro.mp3',
     dbFile: 'monkeyMadnessDB.json',
     dbKey: 'MonkeyMadnessGame',
@@ -91,7 +91,7 @@ export const gameConfigs = {
     title: 'Part of Speech',
     description: 'Noun, verb, or adjective?',
     bgColor: '#e1f7d5', // Light Green
-    iconSrc: '/assets/gameImages/buttons/gameButtons/pos.svg',
+    iconSrc: '/assets/gameImages/buttons/gameButtons/chat-bubble.png',
     introAudio: '/gameIntroAudio/partOfSpeechIntro.mp3',
     dbFile: 'partOfSpeechDB.json',
     dbKey: 'PartOfSpeechGame',
@@ -102,7 +102,7 @@ export const gameConfigs = {
     title: 'Polar Pairing',
     description: 'Test your vocabulary with polar opposites.',
     bgColor: '#fed7aa', // Light Orange
-    iconSrc: '/assets/gameImages/buttons/gameButtons/strawberry.svg',
+    iconSrc: '/assets/gameImages/buttons/gameButtons/magnet.png',
     introAudio: '/gameIntroAudio/polarIntro.mp3',
     dbFile: 'polarPairingDB.json',
     dbKey: 'PolarPairingGame',
@@ -113,7 +113,7 @@ export const gameConfigs = {
     title: 'Shape Shark',
     description: 'Identify the shape based on its sides.',
     bgColor: '#c3deff', // Light Blue
-    iconSrc: '/assets/gameImages/buttons/gameButtons/ss.svg',
+    iconSrc: '/assets/gameImages/buttons/gameButtons/new-shark.png',
     introAudio: '/gameIntroAudio/shapeIntro.mp3',
     dbFile: 'shapeSharkDB.json',
     dbKey: 'ShapeSharkGame',
@@ -136,7 +136,7 @@ export const gameConfigs = {
     title: 'Subtraction Safari',
     description: 'Subtract animals in safari scenarios!',
     bgColor: '#C6E7FF', // Light Blue
-    iconSrc: '/assets/gameImages/buttons/gameButtons/subtraction.svg',
+    iconSrc: '/assets/gameImages/buttons/gameButtons/subtract-pie.png',
     introAudio: '/gameIntroAudio/subtractionIntro.mp3',
     dbFile: 'subtractionDB.json',
     dbKey: 'SubtractionGame',
@@ -173,7 +173,7 @@ export const gameConfigs = {
     description:
       'Help identify solids, liquids, and gases before they evaporate!',
     bgColor: '#C9E4F8', // Light Blue
-    iconSrc: '/assets/gameImages/buttons/gameButtons/matter.png',
+    iconSrc: '/assets/gameImages/buttons/gameButtons/icicles.png',
     introAudio: '/gameIntroAudio/matterIntro.m4a',
     bgmAudio: '/bgmAudio/happy-kids.mp3',
     dbFile: 'matterMixUpDB.json',
@@ -202,7 +202,7 @@ export const gameConfigs = {
     description:
       "Interpret the sky's mood swings before the thunder has a tantrum.",
     bgColor: '#E4C9F8', // Light Purple
-    iconSrc: '/assets/gameImages/buttons/gameButtons/weather.png',
+    iconSrc: '/assets/gameImages/buttons/gameButtons/season.png',
     introAudio: '/gameIntroAudio/weatherIntro.m4a',
     bgmAudio: '/bgmAudio/penguin.mp3',
     dbFile: 'weatherWhizDB.json',
@@ -260,7 +260,7 @@ export const gameConfigs = {
     description:
       'Identify environmental threats and help restore balance to nature.',
     bgColor: '#A2EAB8', // Mint Green
-    iconSrc: '/assets/gameImages/buttons/gameButtons/landscape.png',
+    iconSrc: '/assets/gameImages/buttons/gameButtons/earth.png',
     introAudio: '/gameIntroAudio/ecoIntro.m4a',
     bgmAudio: '/bgmAudio/chasing-sunshine.mp3',
     dbFile: 'ecoRangersDB.json',
@@ -289,7 +289,7 @@ export const gameConfigs = {
     description:
       'Reprogram glitching science robots before they short-circuit the lab.',
     bgColor: '#C9E4F8', // Light Blue
-    iconSrc: '/assets/gameImages/buttons/gameButtons/robot.png',
+    iconSrc: '/assets/gameImages/buttons/gameButtons/new-robot.png',
     introAudio: '/gameIntroAudio/robotIntro.m4a',
     bgmAudio: '/bgmAudio/another-happy-kids.mp3',
     dbFile: 'robotRepairLabDB.json',
@@ -304,7 +304,7 @@ export const gameConfigs = {
     description:
       'Learn the parts of a plant by listening to their whispered secrets.',
     bgColor: '#FFE59A', // Light Yellow
-    iconSrc: '/assets/gameImages/buttons/gameButtons/alocasia.png',
+    iconSrc: '/assets/gameImages/buttons/gameButtons/flower-pot.png',
     introAudio: '/gameIntroAudio/plantIntro.m4a',
     bgmAudio: '/bgmAudio/penguin.mp3',
     dbFile: 'plantPowerDB.json',
@@ -321,7 +321,7 @@ export const gameConfigs = {
     description:
       'Listen to each item and help it find the right spot in the store.',
     bgColor: '#FFDDC1', // Light Peach
-    iconSrc: '/assets/gameImages/buttons/gameButtons/grocery.png',
+    iconSrc: '/assets/gameImages/buttons/gameButtons/healthy-food.png',
     introAudio: '/gameIntroAudio/groceryIntro.m4a',
     bgmAudio: '/bgmAudio/abstract-beauty.mp3',
     dbFile: 'groceryGrabDB.json',
@@ -350,7 +350,7 @@ export const gameConfigs = {
     description:
       'Sort and start your laundry while the machines try to outsmart you.',
     bgColor: '#C9E4F8', // Light Blue
-    iconSrc: '/assets/gameImages/buttons/gameButtons/laundry.png',
+    iconSrc: '/assets/gameImages/buttons/gameButtons/new-laundry.png',
     introAudio: '/gameIntroAudio/laundryIntro.m4a',
     bgmAudio: '/bgmAudio/happy.mp3',
     dbFile: 'laundryLegendDB.json',
@@ -379,7 +379,7 @@ export const gameConfigs = {
     title: 'Dress to Impress',
     description: 'Choose the right outfit based on the weather forecast.',
     bgColor: '#F8EAC9', // Light Yellow
-    iconSrc: '/assets/gameImages/buttons/gameButtons/clothing.png',
+    iconSrc: '/assets/gameImages/buttons/gameButtons/clothes.png',
     introAudio: '/gameIntroAudio/dressIntro.m4a',
     bgmAudio: '/bgmAudio/happy-kids.mp3',
     dbFile: 'dressToImpressDB.json',
@@ -408,7 +408,7 @@ export const gameConfigs = {
     title: 'Schedule Shuffle',
     description: 'Piece your day back together with clues from talking clocks.',
     bgColor: '#C9F8E4', // Light Teal
-    iconSrc: '/assets/gameImages/buttons/gameButtons/schedule.png',
+    iconSrc: '/assets/gameImages/buttons/gameButtons/deadline.png',
     introAudio: '/gameIntroAudio/scheduleIntro.m4a',
     bgmAudio: '/bgmAudio/penguin.mp3',
     dbFile: 'scheduleShuffleDB.json',
@@ -422,7 +422,7 @@ export const gameConfigs = {
     title: 'Clean Machine',
     description: 'Grab your tools and tidy up before the clutter takes over.',
     bgColor: '#E5D9F2', // Light Purple
-    iconSrc: '/assets/gameImages/buttons/gameButtons/cleaning.png',
+    iconSrc: '/assets/gameImages/buttons/gameButtons/chores.png',
     introAudio: '/gameIntroAudio/cleanMachineIntro.m4a',
     bgmAudio: '/bgmAudio/abstract-beauty.mp3',
     dbFile: 'cleanMachineDB.json',
@@ -478,7 +478,7 @@ export const gameConfigs = {
     title: 'Bus Stop Brainstorm',
     description: 'Navigate the city’s bus system using only sound clues.',
     bgColor: '#D2C9F8', // Light Mauve
-    iconSrc: '/assets/gameImages/buttons/gameButtons/bus.png',
+    iconSrc: '/assets/gameImages/buttons/gameButtons/school-bus.png',
     introAudio: '/gameIntroAudio/busStopIntro.m4a',
     bgmAudio: '/bgmAudio/happy-kids.mp3',
     dbFile: 'busStopBrainstormDB.json',
@@ -492,7 +492,7 @@ export const gameConfigs = {
     title: 'Money Manager',
     description: 'Save up for your goal while avoiding surprise expenses.',
     bgColor: '#C9F8D5', // Light Mint
-    iconSrc: '/assets/gameImages/buttons/gameButtons/piggybank.png',
+    iconSrc: '/assets/gameImages/buttons/gameButtons/piggy-bank.png',
     introAudio: '/gameIntroAudio/moneyManagerIntro.m4a',
     bgmAudio: '/bgmAudio/another-happy-kids.mp3',
     dbFile: 'moneyManagerDB.json',
@@ -522,7 +522,7 @@ export const gameConfigs = {
     title: 'Street Smart',
     description: 'Decide when it’s safe to cross the street using sound.',
     bgColor: '#B0E0E6', // Powder Blue
-    iconSrc: '/assets/gameImages/buttons/gameButtons/street.png',
+    iconSrc: '/assets/gameImages/buttons/gameButtons/traffic-light.png',
     introAudio: '/gameIntroAudio/streetSmartIntro.m4a',
     bgmAudio: '/bgmAudio/abstract-beauty.mp3',
     dbFile: 'streetSmartDB.json',
@@ -551,7 +551,7 @@ export const gameConfigs = {
     description:
       'Figure out how to open different types of doors by touch and sound.',
     bgColor: '#F5DEB3', // Wheat
-    iconSrc: '/assets/gameImages/buttons/gameButtons/door.png',
+    iconSrc: '/assets/gameImages/buttons/gameButtons/new-door.png',
     introAudio: '/gameIntroAudio/doorwayIntro.m4a',
     bgmAudio: '/bgmAudio/happy.mp3',
     dbFile: 'doorwayDecisionsDB.json',
@@ -565,7 +565,7 @@ export const gameConfigs = {
     title: 'Elevator Experience',
     description: 'Listen to elevator sounds to act safely and politely.',
     bgColor: '#C0C0C0', // Silver
-    iconSrc: '/assets/gameImages/buttons/gameButtons/elevator.png',
+    iconSrc: '/assets/gameImages/buttons/gameButtons/lift.png',
     introAudio: '/gameIntroAudio/elevatorIntro.m4a',
     bgmAudio: '/bgmAudio/chasing-sunshine.mp3',
     dbFile: 'elevatorExperienceDB.json',
@@ -621,7 +621,7 @@ export const gameConfigs = {
     title: 'Phone Friend',
     description: 'Manage calls and messages using voice commands.',
     bgColor: '#E6E6FA', // Lavender
-    iconSrc: '/assets/gameImages/buttons/gameButtons/phone-friend.png',
+    iconSrc: '/assets/gameImages/buttons/gameButtons/smartphone.png',
     introAudio: '/gameIntroAudio/phoneFriendIntro.m4a',
     bgmAudio: '/bgmAudio/abstract-beauty.mp3',
     dbFile: 'phoneFriendDB.json',
@@ -664,7 +664,7 @@ export const gameConfigs = {
     title: 'Social Sense',
     description: 'Interpret conversations and respond appropriately.',
     bgColor: '#D4EDD4', // Light Green
-    iconSrc: '/assets/gameImages/buttons/gameButtons/social.png',
+    iconSrc: '/assets/gameImages/buttons/gameButtons/idea.png',
     introAudio: '/gameIntroAudio/socialSenseIntro.m4a',
     bgmAudio: '/bgmAudio/chasing-sunshine.mp3',
     dbFile: 'socialSenseDB.json',
@@ -678,7 +678,7 @@ export const gameConfigs = {
     title: 'Asking for Assistance',
     description: 'Learn how to phrase requests for help clearly and politely.',
     bgColor: '#C9E4F8', // Light Blue
-    iconSrc: '/assets/gameImages/buttons/gameButtons/assistance.png',
+    iconSrc: '/assets/gameImages/buttons/gameButtons/charity.png',
     introAudio: '/gameIntroAudio/assistanceIntro.m4a',
     bgmAudio: '/bgmAudio/happy-kids.mp3',
     dbFile: 'askingForAssistanceDB.json',

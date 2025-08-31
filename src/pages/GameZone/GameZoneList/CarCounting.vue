@@ -9,7 +9,7 @@
   >
     <div class="flex flex-col justify-center items-center mb-8">
       <GameHeader
-        iconSrc="/assets/gameImages/buttons/gameButtons/cc.svg"
+        iconSrc="/assets/gameImages/buttons/gameButtons/new-car.png"
         title="Car Counting"
         description="How many cars are passing by?"
         :isMobile="isMobile"
