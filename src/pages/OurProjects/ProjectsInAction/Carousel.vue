@@ -19,13 +19,18 @@ function goToSlide(slide, container) {
 }
 
 const goToPrevSlide = () => {
-  if (currentSlide.value === 0) return;
-  currentSlide.value--;
+  if (currentSlide.value === 0) {
+    // Circular behavior: Go to last image
+    currentSlide.value = maxLength.value - 1;
+  } else {
+    currentSlide.value--;
+  }
   goToSlide(currentSlide, carousel);
 };
 
 const goToNextSlide = () => {
   if (currentSlide.value === maxLength.value - 1) {
+    // Circular behavior: Go to first image
     currentSlide.value = 0;
   } else {
     currentSlide.value++;
@@ -39,8 +44,8 @@ onMounted(() => {
   maxLength.value = carousel.value.length;
 
   // Reset carousel to first slide
-  goToSlide(0, carousel);
   currentSlide.value = 0;
+  goToSlide(currentSlide, carousel);
 });
 
 // Extracted shared RWD classes for arrow buttons
