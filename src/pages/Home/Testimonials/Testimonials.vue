@@ -161,7 +161,7 @@ const arrowIconClasses = [
           />
 
           <!-- Scrollable Text Content -->
-          <div class="h-[180px] overflow-y-auto mb-4 px-2">
+          <div class="bg-white rounded-lg h-[180px] overflow-y-auto mb-4 px-2">
             <p
               class="text-[14px] text-[15px] 2xl:text-[16px] text-gray-700 leading-relaxed whitespace-pre-wrap"
               v-html="testimonial.text"
@@ -169,7 +169,7 @@ const arrowIconClasses = [
           </div>
 
           <!-- Testimonial Name & Role Container -->
-          <div class="mt-auto flex flex-col flex-1">
+          <div class="bg-white rounded-lg mt-auto flex flex-col flex-1 justify-center">
             <!-- Name -->
             <p
               class="mobile:text-[14px] text-[15px] 2xl:text-[16px] font-semibold text-[#2A3338] mt-2 duration-300"

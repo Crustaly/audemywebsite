@@ -39,7 +39,8 @@
           v-for="(game, index) in visibleGames"
           :key="index"
           :class="[
-            'game-resource-icon-card bg-cross-lines text-center duration-300',
+            'game-resource-icon-card bg-cross-lines text-center',
+            'hover:shadow-[6px_6px_0px_#0C0D0D] transition-all duration-300',
             'mobile:px-4 mobile:py-6 px-6 py-8',
             'mobile:w-[280px] w-[80%] md:w-[50%] lg:w-[400px]',
             'h-[500px] md:h-[520px] lg:h-[550px]',
@@ -61,7 +62,7 @@
           </div>
 
           <!-- Game Title & Description Container -->
-          <div>
+          <div class="bg-white rounded-lg">
             <!-- Game Title -->
             <h3 class="text-xl font-semibold text-[#2A3338] mb-3">
               {{ game.title }}
