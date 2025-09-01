@@ -3,7 +3,7 @@ export const gameConfigs = {
     title: 'Animal Addition',
     description: 'Add up the animals!',
     bgColor: '#F8C9E4', // Light Pink
-    iconSrc: '/assets/gameImages/buttons/gameButtons/addition.svg',
+    iconSrc: '/assets/gameImages/buttons/gameButtons/giraffe.png',
     introAudio: '/gameIntroAudio/additionIntro.mp3',
     dbFile: 'additionDB.json',
     dbKey: 'AdditionGame',
@@ -14,7 +14,7 @@ export const gameConfigs = {
     title: 'Color Game',
     description: 'Name the color of a given object!',
     bgColor: '#EACAFF', // Light Purple
-    iconSrc: '/assets/gameImages/buttons/gameButtons/color-game.svg',
+    iconSrc: '/assets/gameImages/buttons/gameButtons/paint-brush.png',
     introAudio: '/gameIntroAudio/colorIntro.mp3',
     dbFile: 'crazyColorsDB.json',
     dbKey: 'ColorQuizGame',
@@ -124,7 +124,7 @@ export const gameConfigs = {
     title: 'Spelling Bee',
     description: 'Buzz your way to spelling mastery!',
     bgColor: '#F8F2C9', // Light cream
-    iconSrc: '/assets/gameImages/buttons/gameButtons/spellingBee.svg',
+    iconSrc: '/assets/gameImages/buttons/gameButtons/bee.png',
     introAudio: '/gameIntroAudio/spellingIntro.mp3',
     dbFile: 'spellingBeeDB.json',
     dbKey: 'SpellingBeeGame',
@@ -159,7 +159,7 @@ export const gameConfigs = {
     description:
       'Dive into the vocabulary vortex and match the word to its definition.',
     bgColor: '#FFCCCB', // Light Red
-    iconSrc: '/assets/gameImages/buttons/gameButtons/book.svg',
+    iconSrc: '/assets/gameImages/buttons/gameButtons/dictionary.png',
     introAudio: '/gameIntroAudio/vortexIntro.mp3',
     dbFile: 'vocabVortexDB.json',
     dbKey: 'VocabVortexGame',
