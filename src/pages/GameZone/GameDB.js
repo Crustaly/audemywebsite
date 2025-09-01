@@ -20,7 +20,7 @@ export const getLanguageGames = () => {
       description: 'Noun, verb, or adjective?',
     },
     {
-      icon: basedPath + 'color-game.svg',
+      icon: basedPath + 'paint-brush.png',
       title: 'Color Game',
       url: '/game/colorgame',
       textColor: '#323232',
@@ -38,7 +38,7 @@ export const getLanguageGames = () => {
       description: 'Can you count the syllables in a given word?',
     },
     {
-      icon: basedPath + 'book.svg',
+      icon: basedPath + 'dictionary.png',
       title: 'Vocabulary Vortex',
       url: '/game/vocabVortex',
       textColor: '#323232',
@@ -64,7 +64,7 @@ export const getLanguageGames = () => {
       description: 'Can you find what doesn’t belong?',
     },
     {
-      icon: basedPath + 'spellingBee.svg',
+      icon: basedPath + 'bee.png',
       title: 'Spelling Bee',
       url: '/game/spellingbee',
       textColor: '#323232',
@@ -95,7 +95,7 @@ export const getMathGames = () => {
       description: 'Identify the shape based on its sides.',
     },
     {
-      icon: basedPath + 'addition.svg',
+      icon: basedPath + 'giraffe.png',
       title: 'Animal Addition',
       url: '/game/addition',
       textColor: '#323232',
