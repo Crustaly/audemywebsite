@@ -169,7 +169,9 @@ const arrowIconClasses = [
           </div>
 
           <!-- Testimonial Name & Role Container -->
-          <div class="bg-white rounded-lg mt-auto flex flex-col flex-1 justify-center">
+          <div
+            class="bg-white rounded-lg mt-auto flex flex-col flex-1 justify-center"
+          >
             <!-- Name -->
             <p
               class="mobile:text-[14px] text-[15px] 2xl:text-[16px] font-semibold text-[#2A3338] mt-2 duration-300"
