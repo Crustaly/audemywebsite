@@ -10,26 +10,18 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="flex justify-center mb-10">
-    <div class="max-w-[85%] w-full h-auto">
+  <div class="font-poppins flex justify-center mb-10">
+    <div class="w-full p-5 h-auto">
       <!-- Section Header -->
       <div class="w-full">
-        <h3
-          class="font-poppins text-small-text-color text-[12px] font-[500] mobile:w-auto text-center tracking-[3.6px]"
-        >
-          OUR TEAM
-        </h3>
+        <h3 class="page-header-accent">OUR TEAM</h3>
       </div>
-      <div class="w-full mb-24">
-        <h2
-          class="font-poppins text-4.5xl tablet:text-[32px] mobile:text-[24px] text-center font-[400]"
-        >
-          Volunteers for Good
-        </h2>
+      <div class="w-full mb-10">
+        <h2 class="page-header">Volunteers for Good</h2>
       </div>
       <!-- Volunteer Staff Section -->
       <div
-        class="w-full mb-10 grid grid-cols-1 tablet:grid-cols-1 mobile:grid-cols-1 gap-6 items-center justify-between"
+        class="p-5 w-full my-10 flex flex-col gap-10 items-center justify-between"
         v-for="item in staff"
         :key="item.staffTitle"
       >
@@ -37,17 +29,18 @@ onMounted(() => {
       </div>
       <!-- Call to Action -->
       <div
-        class="w-full my-20 flex flex-col justify-center items-center gap-10"
+        class="w-full my-36 flex flex-col justify-center items-center gap-10"
       >
-        <h4
-          class="text-center font-poppins text-[18px] max-w-[500px] mobile:text-[16px]"
-        >
-          Be part of this journey to change lives, one game at a time.
+        <h4 class="text-center page-text">
+          Be part of this journey to change lives,
+          <span class="font-semibold text-primary-color"
+            >one game at a time.</span
+          >
         </h4>
-        <div class="flex items-center justify-center">
+        <div class="flex items-center justify-center mx-auto">
           <a
             href="mailto:connect@audemy.org"
-            class="w-[240px] h-[60px] font-poppins font-semibold px-4 py-4 font-[16px] border-[1.5px] border-[#0C0D0D] rounded-[8px] bg-primary-color hover:bg-[#0C587D] duration-300 text-base text-center text-[#fff] shadow-[3px_4px_0px_#0C0D0D] mobile:w-[200px] mobile:h-[50px] mobile:px-2 mobile:text-sm"
+            class="page-button blue-button mobile:h-auto md:w-[240px] mobile:p-5 p-10 md:p-3 flex flex-col text-center justify-center items-center"
           >
             Join the team
           </a>
