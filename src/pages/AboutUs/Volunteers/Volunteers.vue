@@ -1,7 +1,7 @@
 <script setup>
 import { onMounted, ref } from 'vue';
 import getAllVolunteers from './Staff.js';
-import VonlunteerStaff from './VonlunteerStaff/VonlunteerStaff.vue';
+import VolunteerStaff from './VolunteerStaff/VolunteerStaff.vue';
 
 const staff = ref([]);
 onMounted(() => {
@@ -33,7 +33,7 @@ onMounted(() => {
         v-for="item in staff"
         :key="item.staffTitle"
       >
-        <VonlunteerStaff :staffTitle="item.staffTitle" :staff="item.staff" />
+        <VolunteerStaff :staffTitle="item.staffTitle" :staff="item.staff" />
       </div>
       <!-- Call to Action -->
       <div
