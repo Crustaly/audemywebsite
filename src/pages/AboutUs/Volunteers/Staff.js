@@ -27,7 +27,7 @@ const founderStaff = [
   {
     name: 'Crystal Yang',
     role: 'Founder & Chief Executive Officer',
-    image: '/assets/images/about-us/volunteers/crystal yang.png',
+    image: '/assets/images/about-us/volunteers/crystal-yang.png',
     github: 'https://github.com/crustaly',
     linkedin: 'https://www.linkedin.com/in/crustaly/',
     email: 'crystal@audemy.org',
@@ -65,7 +65,7 @@ const designStaff = [
   {
     name: 'Katerina Rabadzhyiska',
     role: 'UX/UI Designer',
-    image: '/assets/images/about-us/volunteers/katerina.png',
+    image: '/assets/images/about-us/volunteers/katerina-new.png',
     linkedin: 'https://www.linkedin.com/in/katerina-rabadzhyiska-93989233b/',
     email: 'katerinarabadzhyiska@gmail.com',
   },
@@ -227,7 +227,6 @@ const developmentStaff = [
     image: '/assets/images/about-us/volunteers/jennifer.png',
     github: 'https://github.com/jschhie',
     linkedin: 'https://www.linkedin.com/in/jennifer-chhie/',
-    email: 'jschhie@gmail.com',
   },
   {
     name: 'Brian Ference',
@@ -243,12 +242,6 @@ const developmentStaff = [
     image: '/assets/images/about-us/volunteers/default2.svg',
     github: 'https://github.com/krs9851',
     linkedin: 'https://www.linkedin.com/in/carter-sargent-0b1821192',
-  },
-  {
-    name: 'Jennifer Shi',
-    role: 'Accessibility Specialist',
-    image: '/assets/images/about-us/volunteers/default1.svg',
-    email: 'jennifershi3872@gmail.com',
   },
   {
     name: 'Shobha Sudha Kamath',
