@@ -13,7 +13,7 @@
 
 /* --- Buttons --- */
 .page-button {
-  @apply h-[55px] font-bold rounded-lg border-2 border-black shadow-[4px_4px_0px_black] duration-300;
+  @apply text-center h-[55px] font-bold rounded-lg border-2 border-black shadow-[4px_4px_0px_black] duration-300;
 }
 
 .blue-button {

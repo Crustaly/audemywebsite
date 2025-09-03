@@ -91,11 +91,11 @@ onUnmounted(() => {
             Our accessibility-focused hackathon that inspires innovation for
             people with disabilities.
           </p>
-          <div class="flex justify-center mt-4">
+          <div class="page-button-flex">
             <a
               href="https://katyhacks.org/"
               target="_blank"
-              class="font-poppins font-[600] w-[280px] tablet:w-full mobile:w-[90%] h-[56px] mobile:h-[56px] leading-[56px] tablet:h-[60px] tablet:leading-[60px] border-[1.5px] border-[#0C0D0D] rounded-[8px] bg-[#FE892A] hover:bg-[#D6711F] text-[16px] text-center text-[#0D0C0C] shadow-[4px_4px_0px_#0C0D0D]"
+              class="page-button orange-button"
             >
               Check upcoming events
             </a>

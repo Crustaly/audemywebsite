@@ -105,10 +105,10 @@ const items2 = [
       </div>
     </div>
 
-    <div class="flex items-center justify-center mt-10 text-center">
+    <div class="page-button-flex">
       <a
         href="/game-zone-landing-page"
-        class="page-button blue-button w-[244px] px-9 py-4"
+        class="page-button blue-button md:px-3 md:w-[300px] px-9 mobile:h-auto py-3"
       >
         Try out our games!
       </a>
