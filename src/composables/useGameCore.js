@@ -25,6 +25,15 @@ export function useGameCore(gameConfig) {
   const isIntroPlaying = ref(false);
   const isButtonCooldown = ref(false);
 
+  /*
+* isAnswerPlaying (flag): 
+- True: If final transcription is ready & validated
+- False: Otherwise
+*/
+  const isAnswerPlaying = ref(false);
+
+  const isCorrect = ref(false);
+
   const gameQuestions = useGameQuestions(gameConfig);
 
   const gameState = {
@@ -94,12 +103,14 @@ export function useGameCore(gameConfig) {
           console.log('User Answer:', finalTranscript);
           console.log('Correct Answer:', question['A']);
 
-          const isCorrect = gameQuestions.validateAnswer(
+          isCorrect.value = gameQuestions.validateAnswer(
             finalTranscript,
             question
           );
 
-          if (isCorrect) {
+          isAnswerPlaying.value = true;
+
+          if (isCorrect.value) {
             score.value++;
             console.log('Correct Answer!');
             await playSound('correctaudio.mp3');
@@ -112,9 +123,13 @@ export function useGameCore(gameConfig) {
             await playQuestion(incorrectAudio);
           }
 
+          // Reset reactive values before playing next question
           transcription.value = '';
           isRecording.value = false;
           isFinalResult.value = false;
+          isAnswerPlaying.value = false;
+          isCorrect.value = false;
+
           gameQuestions.moveToNextQuestion();
 
           if (!gameQuestions.isGameComplete()) {
@@ -247,6 +262,8 @@ export function useGameCore(gameConfig) {
     playButton,
     isIntroPlaying,
     isButtonCooldown,
+    isAnswerPlaying,
+    isCorrect,
     isTablet: gameUI.isTablet,
     isMobile: gameUI.isMobile,
     isDesktop: gameUI.isDesktop,
