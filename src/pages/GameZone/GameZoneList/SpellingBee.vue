@@ -13,7 +13,7 @@
         :title="gameConfig.title"
         :description="gameConfig.description"
         :isMobile="isMobile"
-        :showQuestions="playButton && !isIntroPlaying && numOfAudiosPlayed < 5"
+        :showCaptions="playButton && !isIntroPlaying && numOfAudiosPlayed < 5"
         :numOfAudiosPlayed="numOfAudiosPlayed"
       />
 

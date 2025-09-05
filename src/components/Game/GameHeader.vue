@@ -1,8 +1,30 @@
 <template>
-  <div
-    class="relative flex flex-col items-center bg-cross-lines py-5 px-12 md:p-10 my-5 rounded-[16px] mobile:w-[70%] w-[400px] md:w-full shadow-md"
-  >
-    <div class="my-2">
+  <div :class="gameHeaderClasses">
+    <!-- Decorative Question Progress Bar -->
+    <div
+      v-if="showCaptions"
+      aria-hidden="true"
+      class="flex flex-col items-center gap-y-3 w-full mb-3"
+    >
+      <div class="text-[14px] md:text-[15px] 2xl:text-[18px]">
+        <div class="flex gap-x-2">
+          <span class="hidden md:inline-block">Question</span>
+          <span class="inline-block md:hidden">Q</span>
+          <p class="inline-block mr-3">{{ numOfAudiosPlayed + 1 }} of 5</p>
+        </div>
+      </div>
+      <div class="flex w-full gap-x-3">
+        <div
+          v-for="n in 5"
+          :key="n"
+          class="w-1/5 h-[8px] rounded-[16px] border"
+          :class="
+            n <= numOfAudiosPlayed + 1 ? 'bg-primary-color' : 'bg-[#edf7fc]'
+          "
+        ></div>
+      </div>
+    </div>
+    <div class="my-3">
       <!-- Icon RWD: 
         - Switch to bottom-left (mobile + small screens only)
         - To reduce vertical scrolling & avoid overlap w/ 'Something Not Working' button  
@@ -19,8 +41,8 @@
     <h1
       :class="[
         isMobile
-          ? 'text-[25px] leading-[35px]'
-          : 'text-[40px] leading-[70px] lg:text-[50px]',
+          ? 'text-[25px] leading-[28px]'
+          : 'text-[35px] leading-[70px] lg:text-[40px]',
       ]"
       class="font-poppins font-semibold text-center duration-300"
     >
@@ -34,47 +56,131 @@
         - Screen readers: Skip duplicate content (Qs are narrated via TTS API)
         - Sighted users: Dynamic captions persists until game ends
       -->
-      <div v-if="showQuestions" aria-hidden="true">
-        <p
-          class="p-3 font-semibold bg-[#edf7fc] rounded-full w-[60%] mx-auto text-[16px] md:text-[20px]"
+      <div
+        v-if="showCaptions"
+        aria-hidden="true"
+        class="flex flex-col items-center gap-y-3"
+      >
+        <div
+          v-if="!isAnswerPlaying"
+          class="flex flex-col md:flex-row justify-center items-center md:items-stretch"
         >
-          Question {{ numOfAudiosPlayed + 1 }}
-        </p>
-        <div class="mobile:text-[16px] md:text-[16.5px] my-2">
-          <!-- 1. Special case: Format multiple-choice questions -->
-          <div v-if="multipleChoiceGames.includes(title)">
-            <p>{{ splitMCQs(currentQuestion['Q'])['question'] }}</p>
-            <!-- RWD: flex container for answer choices -->
-            <div class="px-10 flex flex-wrap justify-between items-center">
+          <div
+            class="relative text-[15.5px] md:text-[16px] 2xl:text-[20px] my-2 w-full"
+          >
+            <!-- Decorative transparent background for question legibility -->
+            <div
+              aria-hidden="true"
+              :class="[transparentBgClasses, '[rounded-[16px]']"
+            ></div>
+
+            <!-- 1. Special case: Format multiple-choice questions -->
+            <div
+              v-if="multipleChoiceGames.includes(title)"
+              class="relative z-10"
+            >
+              <p>{{ splitMCQs(currentQuestion['Q'])['question'] }}</p>
+              <!-- RWD: flex container for answer choices -->
+              <div class="px-10 flex flex-wrap justify-between items-center">
+                <div
+                  v-for="choice in splitMCQs(currentQuestion['Q'])['choices']"
+                  :key="choice"
+                  :class="multipleChoiceClasses"
+                >
+                  <p>{{ choice }}</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- 2. Check if question has multiple parts (prompt + question) -->
+            <div
+              v-else-if="currentQuestion && multiPartsGames.includes(title)"
+              class="relative z-10"
+            >
+              <!-- Split multiple part question for better readability -->
+              <p>{{ splitMultiPartsQs(currentQuestion['Q'])['prompt'] }}</p>
+              <p class="mt-3 md:mt-5">
+                {{ splitMultiPartsQs(currentQuestion['Q'])['question'] }}
+              </p>
+            </div>
+
+            <!-- 3. Fill in the blank question: Non-MCQ and Non-multiple parts game -->
+            <p v-else-if="currentQuestion" class="relative z-10">
+              {{ currentQuestion['Q'] }}
+            </p>
+
+            <!-- 4. Otherwise: Show game description for 'Spelling Bee' & 'Car Counting' -->
+            <p
+              v-else
+              class="mobile:text-[16px] text-[18px] 2xl:text-[20px] relative z-10"
+            >
+              {{ description }}
+            </p>
+          </div>
+        </div>
+
+        <!-- Show feedback & answer once final transcription is ready & validated -->
+        <div
+          v-if="isAnswerPlaying"
+          aria-hidden="true"
+          class="flex flex-col items-center justify-center gap-y-5 w-full"
+        >
+          <div
+            class="flex flex-col md:flex-row items-center w-full md:items-stretch rounded-[16px] shadow-md"
+          >
+            <div
+              class="flex gap-x-2 md:flex-col items-center justify-center rounded-t-[16px] md:rounded-l-[16px] md:rounded-r-[0px] w-full md:w-1/4 text-[16px] lg:text-[18px] 2xl:text-[20px] p-1"
+              :class="
+                isCorrect
+                  ? 'bg-green-100 text-green-700'
+                  : 'bg-red-100 text-red-800'
+              "
+            >
+              <span v-if="isCorrect">
+                <img
+                  aria-hidden="true"
+                  src="/assets/gameImages/correct.png"
+                  class="h-[25px] md:h-[35px]"
+                />
+              </span>
+              <span v-else>
+                <img
+                  aria-hidden="true"
+                  src="/assets/gameImages/wrong.png"
+                  class="h-[25px] md:h-[35px]"
+                />
+              </span>
+            </div>
+            <div
+              class="relative w-full md:w-3/4 p-2 flex flex-col items-center justify-center"
+            >
+              <!-- Decorative transparent background for answer legibility -->
               <div
-                v-for="choice in splitMCQs(currentQuestion['Q'])['choices']"
-                :key="choice"
-                :class="multipleChoiceClasses"
-              >
-                <p>{{ choice }}</p>
+                aria-hidden="true"
+                :class="[
+                  transparentBgClasses,
+                  'rounded-b-[16px] md:rounded-l-[0px] md:rounded-r-[16px]',
+                ]"
+              ></div>
+              <div class="relative z-10 text-[15.5px] md:text-[16px]">
+                <p
+                  :class="[
+                    'font-semibold',
+                    isCorrect ? 'text-green-700' : 'text-red-800',
+                  ]"
+                >
+                  {{ isCorrect ? 'Correct!' : 'Incorrect!' }}
+                </p>
+                <p>
+                  <span class="font-semibold">Answer: </span
+                  >{{ currentQuestion['A'][0] }}
+                </p>
               </div>
             </div>
           </div>
-
-          <!-- 2. Check if question has multiple parts (prompt + question) -->
-          <div v-else-if="currentQuestion && multiPartsGames.includes(title)">
-            <!-- Split multiple part question for better readability -->
-            <p>{{ splitMultiPartsQs(currentQuestion['Q'])['prompt'] }}</p>
-            <p class="mt-3 md:mt-5">
-              {{ splitMultiPartsQs(currentQuestion['Q'])['question'] }}
-            </p>
-          </div>
-
-          <!-- 3. Regular question: Non-MCQ and Non-multiple part game -->
-          <p v-else-if="currentQuestion">{{ currentQuestion['Q'] }}</p>
-
-          <!-- 4. Otherwise: Show game description for 'Spelling Bee' & 'Car Counting' -->
-          <p v-else class="mobile:text-[16px] text-[18px]">
-            {{ description }}
-          </p>
         </div>
       </div>
-      <p v-else class="mobile:text-[16px] text-[18px]">
+      <p v-else class="mobile:text-[16px] text-[18px] 2xl:text-[20px]">
         {{ description }}
       </p>
     </div>
@@ -82,6 +188,67 @@
 </template>
 
 <script setup>
+/* --- EXTRACTED RWD & STYLE CLASSES --- */
+
+// Extracted RWD classes for outermost <GameHeader/> wrapper
+const gameHeaderClasses = [
+  'relative', // RWD & positioning layout
+  'flex',
+  'flex-col',
+  'items-center',
+  'mobile:w-[70%]', // RWD size
+  'w-[400px]',
+  'md:w-full',
+  'bg-cross-lines', // Styling & spacing
+  'py-5',
+  'px-12',
+  'md:p-10',
+  'my-2',
+  'md:my-5',
+  'rounded-[16px]',
+  'shadow-md',
+];
+
+// Extracted style classes for multiple-choice captions
+const multipleChoiceClasses = [
+  'bg-[#edf7fc]',
+  'rounded-full',
+  'p-0',
+  'md:p-1',
+  'my-3',
+  'ease-in',
+  'duration-300',
+  'w-full' /* Mobile & small screens: Column layout */,
+  'md:w-[45%]' /* Medium+ screens: Row layout */,
+];
+
+// Shared styles for transparent bg behind captions
+const transparentBgClasses = [
+  '-z-1',
+  'absolute',
+  'top-0',
+  'left-0',
+  'bg-white',
+  'w-full',
+  'h-full',
+  'opacity-70',
+  'rounded-b-[16px]',
+  'md:rounded-l-[0px]',
+  'md:rounded-r-[16px]',
+];
+
+/* --- CONSTANTS FOR MCQ & MULTI-PART QUESTION TYPES --- */
+
+const multipleChoiceGames = [
+  'Vocabulary Vortex',
+  'Polar Pairing',
+  'Odd One Out',
+];
+
+const multiPartsGames = ['Fruit Frenzy', 'Monkey Madness', 'Shape Shark'];
+
+/* --- PROPS --- */
+
 defineProps({
   iconSrc: {
     type: String,
@@ -99,13 +266,13 @@ defineProps({
     type: Boolean,
     required: true,
   },
-  /* showQuestions: Flag to control visibility of question captions 
+  /* showCaptions: Flag to control visibility of Qns, feedback, & answers
     - Set to 'true' if all 3 conditions met: 
     - 1. Game is playing, 
     - 2. Intro audio is completed, 
     - 3. Game has remaining questions to be played
   */
-  showQuestions: {
+  showCaptions: {
     type: Boolean,
     required: false,
     default: false,
@@ -122,27 +289,27 @@ defineProps({
     required: false,
     default: 1,
   },
+  /* isAnswerPlaying (flag): 
+  - True: If feedback audio is playing for current question 
+  - Controlled & returned by useGameCore.js: toggleRecording() 
+  */
+  isAnswerPlaying: {
+    type: Boolean,
+    required: false,
+    default: false,
+  },
+  /* isCorrect (flag): 
+  - True: If user answer is correct 
+  - Controlled & returned by useGameCore.js: toggleRecording() 
+  */
+  isCorrect: {
+    type: Boolean,
+    required: false,
+    default: false,
+  },
 });
 
-// TODO: Update this list of MCQ games as needed
-const multipleChoiceGames = [
-  'Vocabulary Vortex',
-  'Polar Pairing',
-  'Odd One Out',
-];
-
-// Extracted style classes for multiple-choice captions
-const multipleChoiceClasses = [
-  'bg-[#edf7fc]',
-  'rounded-full',
-  'p-0',
-  'md:p-1',
-  'my-3',
-  'ease-in',
-  'duration-300',
-  'w-full' /* Mobile & small screens: Column layout */,
-  'md:w-[45%]' /* Medium+ screens: Row layout */,
-];
+/* --- HELPER FUNCTIONS --- */
 
 /* splitMCQs():
  * - Helper function to handle multiple-choice game Q's
@@ -169,9 +336,6 @@ const splitMCQs = (fullQuestion) => {
 
   return { question, choices };
 };
-
-// TODO: Update this list of multi-part games as needed
-const multiPartsGames = ['Fruit Frenzy', 'Monkey Madness', 'Shape Shark'];
 
 /* splitMultiPartsQs():
  * - Helper function to handle multiple-part game Q's
