@@ -98,10 +98,11 @@ const staffCardClasses = [
                 target="_blank"
                 rel="noopener noreferrer"
                 class="hover:opacity-75 transition-opacity"
+                aria-label="LinkedIn"
               >
                 <img
                   src="/assets/images/about-us/linkedin.png"
-                  alt="LinkedIn"
+                  alt=""
                   class="w-6 h-6"
                 />
               </a>
@@ -113,10 +114,11 @@ const staffCardClasses = [
                 target="_blank"
                 rel="noopener noreferrer"
                 class="hover:opacity-75 transition-opacity"
+                aria-label="GitHub"
               >
                 <img
                   src="/assets/images/about-us/github.png"
-                  alt="GitHub"
+                  alt=""
                   class="w-6 h-6"
                 />
               </a>
@@ -128,10 +130,11 @@ const staffCardClasses = [
                 target="_blank"
                 rel="noopener noreferrer"
                 class="hover:opacity-75 transition-opacity"
+                aria-label="Email"
               >
                 <img
                   src="/assets/images/about-us/email.png"
-                  alt="Email"
+                  alt=""
                   class="w-6 h-6"
                 />
               </a>
@@ -143,10 +146,11 @@ const staffCardClasses = [
                 target="_blank"
                 rel="noopener noreferrer"
                 class="hover:opacity-75 transition-opacity"
+                aria-label="Portfolio site"
               >
                 <img
                   src="/assets/images/about-us/domain.png"
-                  alt="Website"
+                  alt=""
                   class="w-6 h-6"
                 />
               </a>
