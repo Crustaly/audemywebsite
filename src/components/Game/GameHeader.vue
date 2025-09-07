@@ -105,13 +105,16 @@
             </div>
 
             <!-- 3. Fill in the blank question: Non-MCQ and Non-multiple parts game -->
-            <p v-else-if="currentQuestion" class="relative z-10">
+            <p
+              v-else-if="!showAnswerOnly && currentQuestion"
+              class="relative z-10"
+            >
               {{ currentQuestion['Q'] }}
             </p>
 
             <!-- 4. Otherwise: Show game description for 'Spelling Bee' & 'Car Counting' -->
             <p
-              v-else
+              v-else-if="showAnswerOnly"
               class="mobile:text-[16px] text-[18px] 2xl:text-[20px] relative z-10"
             >
               {{ description }}
@@ -303,6 +306,14 @@ defineProps({
   - Controlled & returned by useGameCore.js: toggleRecording() 
   */
   isCorrect: {
+    type: Boolean,
+    required: false,
+    default: false,
+  },
+  /* showAnswerOnly (flag): 
+  - True: Show answer & feedback captions only 
+  - Hide questions for 'Spelling Bee' & 'Car Counting' */
+  showAnswerOnly: {
     type: Boolean,
     required: false,
     default: false,
