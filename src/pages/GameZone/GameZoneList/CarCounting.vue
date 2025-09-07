@@ -15,6 +15,10 @@
         :isMobile="isMobile"
         :showCaptions="playButton && !isIntroPlaying && numOfAudiosPlayed < 5"
         :numOfAudiosPlayed="numOfAudiosPlayed"
+        :currentQuestion="getCurrentAnswer()"
+        :isAnswerPlaying="isAnswerPlaying"
+        :isCorrect="isCorrect"
+        :showAnswerOnly="true"
       />
 
       <PlayButton v-if="playButton === false" @play-click="playButton = true" />
@@ -111,6 +115,8 @@ const score = ref(0);
 const isRecording = ref(false);
 const isFinalResult = ref(false);
 const transcription = ref('');
+const isAnswerPlaying = ref(false);
+const isCorrect = ref(false);
 
 // UI control states
 const playButton = ref(false);
@@ -257,9 +263,11 @@ const toggleRecording = async () => {
         console.log('User Answer:', finalTranscript);
         console.log('Correct Answer:', getCurrentAnswer());
 
-        const isCorrect = validateCarAnswer(finalTranscript);
+        isCorrect.value = validateCarAnswer(finalTranscript);
 
-        if (isCorrect) {
+        isAnswerPlaying.value = true;
+
+        if (isCorrect.value) {
           score.value++;
           console.log('Correct Answer!');
           await playSound('correctaudio.mp3');
@@ -271,9 +279,12 @@ const toggleRecording = async () => {
           await playQuestion(incorrectAudio);
         }
 
+        // Reset reactive values before playing next question
         transcription.value = '';
         isRecording.value = false;
         isFinalResult.value = false;
+        isAnswerPlaying.value = false;
+        isCorrect.value = false;
         moveToNextQuestion();
 
         if (!isGameComplete()) {

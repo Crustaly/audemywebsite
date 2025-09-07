@@ -175,8 +175,15 @@
                   {{ isCorrect ? 'Correct!' : 'Incorrect!' }}
                 </p>
                 <p>
-                  <span class="font-semibold">Answer: </span
-                  >{{ currentQuestion['A'][0] }}
+                  <span class="font-semibold"> Answer: </span>
+                  <!-- Special case: 'Car Counting' 
+                    - Game passes 'getCurrentAnswer()' return value as 'currentQuestion' prop 
+                  -->
+                  {{
+                    title == 'Car Counting'
+                      ? currentQuestion
+                      : currentQuestion['A'][0]
+                  }}
                 </p>
               </div>
             </div>
