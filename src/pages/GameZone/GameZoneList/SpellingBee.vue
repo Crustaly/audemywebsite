@@ -15,6 +15,10 @@
         :isMobile="isMobile"
         :showCaptions="playButton && !isIntroPlaying && numOfAudiosPlayed < 5"
         :numOfAudiosPlayed="numOfAudiosPlayed"
+        :currentQuestion="currentQuestion"
+        :isAnswerPlaying="isAnswerPlaying"
+        :isCorrect="isCorrect"
+        :showAnswerOnly="true"
       />
 
       <PlayButton v-if="playButton === false" @play-click="playButton = true" />
@@ -79,6 +83,8 @@ const {
   playButton,
   isIntroPlaying,
   isButtonCooldown,
+  isAnswerPlaying,
+  isCorrect,
   isTablet,
   isMobile,
   isDesktop,
