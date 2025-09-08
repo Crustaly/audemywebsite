@@ -105,10 +105,7 @@
             </div>
 
             <!-- 3. Fill in the blank question: Non-MCQ and Non-multiple parts game -->
-            <p
-              v-else-if="!showAnswerOnly && currentQuestion"
-              class="relative z-10"
-            >
+            <p v-else-if="!showAnswerOnly" class="relative z-10">
               {{ currentQuestion['Q'] }}
             </p>
 
@@ -132,7 +129,7 @@
             class="flex flex-col md:flex-row items-center w-full md:items-stretch rounded-[16px] shadow-md"
           >
             <div
-              class="flex gap-x-2 md:flex-col items-center justify-center rounded-t-[16px] md:rounded-l-[16px] md:rounded-r-[0px] w-full md:w-1/4 text-[16px] lg:text-[18px] 2xl:text-[20px] p-1"
+              class="flex gap-x-2 md:flex-col items-center justify-center rounded-t-[16px] md:rounded-l-[16px] md:rounded-r-[0px] w-full md:w-1/4 p-1"
               :class="
                 isCorrect
                   ? 'bg-green-100 text-green-700'
@@ -165,7 +162,9 @@
                   'rounded-b-[16px] md:rounded-l-[0px] md:rounded-r-[16px]',
                 ]"
               ></div>
-              <div class="relative z-10 text-[15.5px] md:text-[16px]">
+              <div
+                class="relative flex flex-col gap-y-2 z-10 text-[15.5px] md:text-[16px] 2xl:text-[20px]"
+              >
                 <p
                   :class="[
                     'font-semibold',
@@ -176,13 +175,16 @@
                 </p>
                 <p>
                   <span class="font-semibold"> Answer: </span>
-                  <!-- Special case: 'Car Counting' 
+                  <!-- 1. Check special case: 'Car Counting' 
                     - Game passes 'getCurrentAnswer()' return value as 'currentQuestion' prop 
                   -->
+                  <!-- 2. Check if game accepts synonymous answers or number formats -->
                   {{
-                    title == 'Car Counting'
+                    title == 'Car Counting' // Check #1
                       ? currentQuestion
-                      : currentQuestion['A'][0]
+                      : firstCorrectAnswer !== '' // Check #2
+                        ? firstCorrectAnswer
+                        : currentQuestion['A'][0]
                   }}
                 </p>
               </div>
@@ -317,9 +319,19 @@ defineProps({
     required: false,
     default: false,
   },
+  /* firstCorrectAnswer: 
+  - Accounts for answers with synonyms or number formats (eg. plurality, '3' vs 'three')
+  - Controlled & returned by useGameQuestions.js: validateAnswer() 
+  */
+  firstCorrectAnswer: {
+    type: String,
+    required: false,
+    default: '',
+  },
   /* showAnswerOnly (flag): 
   - True: Show answer & feedback captions only 
-  - Hide questions for 'Spelling Bee' & 'Car Counting' */
+  - Hide questions for 'Spelling Bee' & 'Car Counting' 
+  */
   showAnswerOnly: {
     type: Boolean,
     required: false,

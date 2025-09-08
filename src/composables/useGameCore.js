@@ -25,14 +25,20 @@ export function useGameCore(gameConfig) {
   const isIntroPlaying = ref(false);
   const isButtonCooldown = ref(false);
 
-  /*
-* isAnswerPlaying (flag): 
-- True: If final transcription is ready & validated
-- False: Otherwise
-*/
+  /* 
+  isAnswerPlaying (flag): 
+  - True: If final transcription is ready & validated
+  - False: Otherwise
+  */
   const isAnswerPlaying = ref(false);
 
   const isCorrect = ref(false);
+
+  /* firstCorrectAnswer: 
+  - Accounts for answers with synonyms or number formats (eg. plurality, '3' vs 'three')
+  - Empty string: If !isCorrect 
+  */
+  const firstCorrectAnswer = ref('');
 
   const gameQuestions = useGameQuestions(gameConfig);
 
@@ -103,10 +109,8 @@ export function useGameCore(gameConfig) {
           console.log('User Answer:', finalTranscript);
           console.log('Correct Answer:', question['A']);
 
-          isCorrect.value = gameQuestions.validateAnswer(
-            finalTranscript,
-            question
-          );
+          [isCorrect.value, firstCorrectAnswer.value] =
+            gameQuestions.validateAnswer(finalTranscript, question);
 
           isAnswerPlaying.value = true;
 
@@ -129,6 +133,7 @@ export function useGameCore(gameConfig) {
           isFinalResult.value = false;
           isAnswerPlaying.value = false;
           isCorrect.value = false;
+          firstCorrectAnswer.value = '';
 
           gameQuestions.moveToNextQuestion();
 
@@ -264,6 +269,7 @@ export function useGameCore(gameConfig) {
     isButtonCooldown,
     isAnswerPlaying,
     isCorrect,
+    firstCorrectAnswer,
     isTablet: gameUI.isTablet,
     isMobile: gameUI.isMobile,
     isDesktop: gameUI.isDesktop,

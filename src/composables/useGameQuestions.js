@@ -43,9 +43,12 @@ export function useGameQuestions(gameConfig) {
     const cleanedInput = finalTranscript.trim().toLowerCase();
 
     if (gameConfig.validationType === 'spelling') {
-      return question['A'].some((answer) =>
-        cleanedInput.includes(answer.toLowerCase())
-      );
+      return [
+        question['A'].some((answer) =>
+          cleanedInput.includes(answer.toLowerCase())
+        ),
+        '',
+      ]; // Return list: boolean & empty 'foundWord' string
     }
 
     const userWords = cleanedInput.replace(/[.,!?]/g, '').split(/\s+/);
@@ -54,7 +57,13 @@ export function useGameQuestions(gameConfig) {
       ? question['A'].map((a) => a.toLowerCase())
       : [question['A'].toLowerCase()];
 
-    return userWords.some((word) => correctAnswers.includes(word));
+    let foundWord = userWords.find((word) => correctAnswers.includes(word));
+    // NOTE: find() returns undefined if no matching answer
+    if (foundWord == undefined) {
+      foundWord = ''; // Set to empty string
+    }
+    const isCorrect = foundWord !== '';
+    return [isCorrect, foundWord];
   };
 
   const hasMoreQuestions = () => {
