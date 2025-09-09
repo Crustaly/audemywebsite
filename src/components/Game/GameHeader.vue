@@ -18,9 +18,9 @@
           v-for="n in 5"
           :key="n"
           class="w-1/5 h-[8px] rounded-[16px] border"
-          :class="
-            n <= numOfAudiosPlayed + 1 ? 'bg-primary-color' : 'bg-[#edf7fc]'
-          "
+          :class="[
+            n <= numOfAudiosPlayed + 1 ? 'bg-primary-color' : 'bg-[#edf7fc]',
+          ]"
         ></div>
       </div>
     </div>
@@ -94,7 +94,7 @@
 
             <!-- 2. Check if question has multiple parts (prompt + question) -->
             <div
-              v-else-if="currentQuestion && multiPartsGames.includes(title)"
+              v-else-if="multiPartsGames.includes(title)"
               class="relative z-10"
             >
               <!-- Split multiple part question for better readability -->
@@ -129,12 +129,12 @@
             class="flex flex-col md:flex-row items-center w-full md:items-stretch rounded-[16px] shadow-md"
           >
             <div
-              class="flex gap-x-2 md:flex-col items-center justify-center rounded-t-[16px] md:rounded-l-[16px] md:rounded-r-[0px] w-full md:w-1/4 p-1"
-              :class="
+              :class="[
+                feedbackClasses,
                 isCorrect
                   ? 'bg-green-100 text-green-700'
-                  : 'bg-red-100 text-red-800'
-              "
+                  : 'bg-red-100 text-red-800',
+              ]"
             >
               <span v-if="isCorrect">
                 <img
@@ -178,7 +178,7 @@
                   <!-- 1. Check special case: 'Car Counting' 
                     - Game passes 'getCurrentAnswer()' return value as 'currentQuestion' prop 
                   -->
-                  <!-- 2. Check if game accepts synonymous answers or number formats -->
+                  <!-- 2. Check if game accepts answers with synonyms or numbers -->
                   {{
                     title == 'Car Counting' // Check #1
                       ? currentQuestion
@@ -202,7 +202,7 @@
 <script setup>
 /* --- EXTRACTED RWD & STYLE CLASSES --- */
 
-// Extracted RWD classes for outermost <GameHeader/> wrapper
+// RWD classes for outermost <GameHeader/> wrapper
 const gameHeaderClasses = [
   'relative', // RWD & positioning layout
   'flex',
@@ -221,7 +221,7 @@ const gameHeaderClasses = [
   'shadow-md',
 ];
 
-// Extracted style classes for multiple-choice captions
+// RWD classes for multiple-choice captions
 const multipleChoiceClasses = [
   'bg-[#edf7fc]',
   'rounded-full',
@@ -234,7 +234,22 @@ const multipleChoiceClasses = [
   'md:w-[45%]' /* Medium+ screens: Row layout */,
 ];
 
-// Shared styles for transparent bg behind captions
+// RWD classes for user feedback message
+const feedbackClasses = [
+  'flex', // RWD
+  'gap-x-2',
+  'md:flex-col',
+  'items-center',
+  'justify-center',
+  'rounded-t-[16px]', // Styling, size, & text
+  'md:rounded-l-[16px]',
+  'md:rounded-r-[0px]',
+  'w-full',
+  'md:w-1/4',
+  'p-1',
+];
+
+// Shared RWD classes for background (behind captions)
 const transparentBgClasses = [
   '-z-1',
   'absolute',
