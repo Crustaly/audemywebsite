@@ -10,6 +10,17 @@ export const gameConfigs = {
     category: 'math',
   },
 
+  carCounting: {
+    title: 'Car Counting',
+    description: 'How many cars are passing by?',
+    bgColor: '#F8F2C9', // Light Yellow
+    iconSrc: '/assets/gameImages/buttons/gameButtons/new-car.png',
+    introAudio: '/gameIntroAudio/carCountIntro.mp3',
+    dbFile: '', // Special case: Game Qs generated via useCarCounting.js
+    dbKey: '',
+    category: 'math',
+  },
+
   colorGame: {
     title: 'Color Game',
     description: 'Name the color of a given object!',

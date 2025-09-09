@@ -1,6 +1,6 @@
 <template>
   <GameLayout
-    bgColor="#F8F2C9"
+    :bgColor="gameConfig.bgColor"
     :isTablet="isTablet"
     :isMobile="isMobile"
     :currentAudios="currentAudios"
@@ -9,9 +9,9 @@
   >
     <div class="flex flex-col justify-center items-center mb-8">
       <GameHeader
-        iconSrc="/assets/gameImages/buttons/gameButtons/new-car.png"
-        title="Car Counting"
-        description="How many cars are passing by?"
+        :iconSrc="gameConfig.iconSrc"
+        :title="gameConfig.title"
+        :description="gameConfig.description"
         :isMobile="isMobile"
         :showCaptions="playButton && !isIntroPlaying && numOfAudiosPlayed < 5"
         :numOfAudiosPlayed="numOfAudiosPlayed"
@@ -71,6 +71,10 @@ import GameHeader from '../../../components/Game/GameHeader.vue';
 import PlayButton from '../../../components/Game/PlayButton.vue';
 import StartQuestionsButton from '../../../components/Game/StartQuestionsButton.vue';
 import GameOver from '../../../components/Game/GameOver.vue';
+
+// Configs for <GameHeader/> UI props
+import { gameConfigs } from '../../../config/gameConfigs';
+const gameConfig = gameConfigs.carCounting;
 
 import { useCarCounting } from '../../../composables/useCarCounting';
 import { useDeviceDetection } from '../../../composables/useDeviceDetection';
@@ -173,7 +177,7 @@ onMounted(() => {
   watch(playButton, (newVal) => {
     if (newVal) {
       isIntroPlaying.value = true;
-      const introAudio = playIntro('/gameIntroAudio/carCountIntro.mp3');
+      const introAudio = playIntro(gameConfig.introAudio);
       currentAudios.push(introAudio);
       introAudio.onended = () => {
         isIntroPlaying.value = false;
