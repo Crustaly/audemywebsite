@@ -33,7 +33,7 @@
       <div class="page-button-flex">
         <a
           href="/game-zone-landing-page"
-          class="page-button orange-button w-[280px] mx-auto text-center p-4"
+          class="page-button orange-button px-9 mobile:h-auto md:w-[300px] py-3"
         >
           Play our games!
         </a>

@@ -186,10 +186,10 @@ let videoStoped = () => {
           platform!
         </p>
 
-        <div class="flex text-center my-10">
+        <div class="page-button-flex">
           <a
             href="our-projects"
-            class="mx-auto page-button blue-button w-[300px] py-3 ease-in"
+            class="page-button blue-button px-9 mobile:h-auto py-3 md:w-[300px]"
           >
             Discover more
           </a>
