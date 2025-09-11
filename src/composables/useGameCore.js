@@ -34,11 +34,11 @@ export function useGameCore(gameConfig) {
 
   const isCorrect = ref(false);
 
-  /* firstCorrectAnswer: 
+  /* firstMatchingAnswer: 
   - Accounts for answers with synonyms or number formats (eg. plurality, '3' vs 'three')
   - Empty string: If !isCorrect 
   */
-  const firstCorrectAnswer = ref('');
+  const firstMatchingAnswer = ref('');
 
   const gameQuestions = useGameQuestions(gameConfig);
 
@@ -109,7 +109,7 @@ export function useGameCore(gameConfig) {
           console.log('User Answer:', finalTranscript);
           console.log('Correct Answer:', question['A']);
 
-          [isCorrect.value, firstCorrectAnswer.value] =
+          [isCorrect.value, firstMatchingAnswer.value] =
             gameQuestions.validateAnswer(finalTranscript, question);
 
           isAnswerPlaying.value = true;
@@ -133,7 +133,7 @@ export function useGameCore(gameConfig) {
           isFinalResult.value = false;
           isAnswerPlaying.value = false;
           isCorrect.value = false;
-          firstCorrectAnswer.value = '';
+          firstMatchingAnswer.value = '';
 
           gameQuestions.moveToNextQuestion();
 
@@ -269,7 +269,7 @@ export function useGameCore(gameConfig) {
     isButtonCooldown,
     isAnswerPlaying,
     isCorrect,
-    firstCorrectAnswer,
+    firstMatchingAnswer,
     isTablet: gameUI.isTablet,
     isMobile: gameUI.isMobile,
     isDesktop: gameUI.isDesktop,

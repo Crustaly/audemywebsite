@@ -182,8 +182,8 @@
                   {{
                     title == 'Car Counting' // Check #1
                       ? currentQuestion
-                      : firstCorrectAnswer !== '' // Check #2
-                        ? firstCorrectAnswer
+                      : firstMatchingAnswer !== '' // Check #2
+                        ? firstMatchingAnswer
                         : currentQuestion['A'][0]
                   }}
                 </p>
@@ -334,11 +334,11 @@ defineProps({
     required: false,
     default: false,
   },
-  /* firstCorrectAnswer: 
+  /* firstMatchingAnswer: 
   - Accounts for answers with synonyms or number formats (eg. plurality, '3' vs 'three')
   - Controlled & returned by useGameQuestions.js: validateAnswer() 
   */
-  firstCorrectAnswer: {
+  firstMatchingAnswer: {
     type: String,
     required: false,
     default: '',
