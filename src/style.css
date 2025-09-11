@@ -13,7 +13,7 @@
 
 /* --- Buttons --- */
 .page-button {
-  @apply text-center h-[55px] font-bold rounded-lg border-2 border-black shadow-[4px_4px_0px_black] duration-300;
+  @apply text-center h-[55px] font-bold rounded-lg border-2 border-black shadow-[4px_4px_0px_black] ease-in duration-300;
 }
 
 .blue-button {
@@ -25,7 +25,7 @@
 }
 
 .page-button-flex {
-  @apply flex mobile:flex-col justify-center items-center my-10;
+  @apply flex mobile:flex-col justify-center items-center text-center my-10;
 }
 
 /* --- Pattern: White bg with grey crossed-lines --- */

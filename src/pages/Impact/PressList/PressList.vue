@@ -219,15 +219,12 @@ onUnmounted(() => {
       <div class="w-full py-5 md:my-10">
         <!-- Header -->
         <div>
-          <h3
-            class="text-small-text-color text-[12px] text-[#899296] font-[600] text-center tracking-[3.6px]"
-          >
-            PRESS LIST
-          </h3>
+          <h3 class="page-header-accent">PRESS LIST</h3>
         </div>
         <div>
           <h2 class="page-header">
-            Trusted by <em style="color: #fe892a"> Leading Publications </em>
+            Trusted by
+            <em class="text-secondary-color"> Leading Publications </em>
           </h2>
         </div>
       </div>
@@ -268,10 +265,10 @@ onUnmounted(() => {
           </div>
 
           <!-- Show More/Less Button -->
-          <div class="flex justify-center mb-[31px]">
+          <div class="page-button-flex">
             <button
               @click="toggleShowAll"
-              class="w-[244px] mobile:w-auto font-semibold px-[4.20rem] py-4 border-[1.5px] border-[#0C0D0D] rounded-[8px] bg-primary-color hover:bg-[#0C587D] duration-300 text-base text-white shadow-[3px_4px_0px_#0C0D0D]"
+              class="page-button blue-button px-10 py-3 mobile:h-auto md:w-[300px]"
             >
               {{ showAll ? 'Show Less' : 'See More' }}
             </button>
