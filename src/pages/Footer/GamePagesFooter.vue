@@ -1,13 +1,13 @@
 <!-- GamePagesFooter.vue -->
 <template>
   <footer
-    class="absolute bottom-1/2 right-[-113px] z-50 rotate-[-90deg] flex items-center justify-between ml-auto bg-cross-lines md-shadow"
+    class="absolute bottom-1/2 right-[-113px] z-50 rotate-[-90deg] flex items-center justify-between ml-auto bg-cross-lines shadow-md"
   >
     <!-- Something Not Working? Button -->
     <div class="whitespace-nowrap">
       <button
         @click="handleSthNotWorkingButtonClick"
-        class="text-[16px] text-black font-semibold py-2 px-4 rounded-lg flex items-center gap-2"
+        class="text-[15px] hover:text-[16px] ease-in duration-300 text-black font-semibold py-2 px-4 rounded-lg flex items-center gap-2"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"

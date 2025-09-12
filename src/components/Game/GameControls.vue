@@ -47,7 +47,7 @@
         'bg-white border border-[#0096D6] text-[#0096D6]',
         isIntroPlaying || isButtonCooldown
           ? 'opacity-50 cursor-not-allowed'
-          : '',
+          : 'hover:bg-gray-200',
       ]"
       :disabled="isIntroPlaying || isButtonCooldown"
       :title="
