@@ -2,25 +2,28 @@
   "SafetySirensGame": {
     "Questions": {
       "Easy": [
-        { "Q": "What number should you call in an emergency?", "A": ["911"] },
+        {
+          "Q": "What number should you call in an emergency?",
+          "A": ["911", "9-1-1"]
+        },
         { "Q": "What does a red light at a crosswalk mean?", "A": ["Stop"] },
         { "Q": "What does a green light at a crosswalk mean?", "A": ["Go"] },
         {
           "Q": "What should you wear in a car to stay safe?",
-          "A": ["Seatbelt"]
+          "A": ["Seatbelt", "seat belt"]
         },
         {
           "Q": "What should you wear on your head when riding a bike?",
           "A": ["Helmet"]
         },
-        { "Q": "What vehicle responds to fires?", "A": ["Fire-truck"] },
+        { "Q": "What vehicle responds to fires?", "A": ["Firetruck"] },
         {
           "Q": "What vehicle takes sick people to the hospital?",
           "A": ["Ambulance"]
         },
         {
           "Q": "What do you put on a small cut to keep it clean?",
-          "A": ["Bandage"]
+          "A": ["Bandage", "Bandages", "Band-Aid"]
         },
         {
           "Q": "If your clothes catch fire, you should stop, drop, and...?",
@@ -33,22 +36,53 @@
       ],
       "Medium": [
         {
-          "Q": "What should you never play with because it can start a fire?",
-          "A": ["Matches"]
+          "Q": "During a flood, the safest area is higher or lower ground?",
+          "A": ["Higher"]
         },
         {
-          "Q": "What is the name for the plan your family has to escape during a fire?",
-          "A": ["Plan"]
+          "Q": "During a tornado, the safest area is higher or lower ground?",
+          "A": ["Lower"]
+        },
+        {
+          "Q": "During an earthquake, you should drop, cover, and...?",
+          "A": ["Hold"]
+        },
+        {
+          "Q": "During an earthquake, you should protect your head and...?",
+          "A": ["Neck"]
+        },
+        {
+          "Q": "True or false? A blinking hand crosswalk light means it will turn red soon.",
+          "A": ["True"]
+        },
+        {
+          "Q": "True or false? A solid red hand crosswalk light means, it is safe to cross.",
+          "A": ["False"]
+        },
+        {
+          "Q": "What should you never play with because it can start a fire?",
+          "A": [
+            "Matches",
+            "Match",
+            "lighter",
+            "lighters",
+            "candle",
+            "candles",
+            "stove",
+            "oven",
+            "wires",
+            "wire"
+          ]
         },
         {
           "Q": "What do you call the person who helps children cross the street safely?",
           "A": ["Guard"]
         },
+        { "Q": "What do you put on a burn to cool it down?", "A": ["Water"] },
         {
-          "Q": "What should you do if you find a strange pill or medicine?",
-          "A": ["Tell"]
-        },
-        { "Q": "What do you put on a burn to cool it down?", "A": ["Water"] }
+          "Q": "True or False? You should apply ice to a burn.",
+          "A": ["False"]
+        }
       ],
       "Hard": [
         {
@@ -69,7 +103,7 @@
         },
         {
           "Q": "What is a safe place to go during a thunderstorm?",
-          "A": ["Indoors"]
+          "A": ["Indoors", "indoor"]
         }
       ]
     }

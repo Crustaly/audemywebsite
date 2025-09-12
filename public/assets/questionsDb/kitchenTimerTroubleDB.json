@@ -4,7 +4,7 @@
       "Easy": [
         {
           "Q": "What kitchen appliance keeps food cold?",
-          "A": ["Refrigerator"]
+          "A": ["Refrigerator", "fridge"]
         },
         { "Q": "What appliance do you use to bake cookies?", "A": ["Oven"] },
         { "Q": "What appliance can toast bread?", "A": ["Toaster"] },
@@ -43,11 +43,27 @@
         },
         {
           "Q": "What small appliance can cook rice perfectly?",
-          "A": ["Rice-cooker"]
+          "A": ["Rice cooker"]
         },
         {
           "Q": "What is the top part of the stove called where you place pots?",
-          "A": ["Burner"]
+          "A": ["Burner", "stovetop", "cooktop"]
+        },
+        {
+          "Q": "How many teaspoons are in a tablespoon of sugar?",
+          "A": ["3", "three"]
+        },
+        {
+          "Q": "How many cups are in a gallon of water?",
+          "A": ["16", "sixteen"]
+        },
+        {
+          "Q": "How many cups are in a pint of icecream?",
+          "A": ["2", "two"]
+        },
+        {
+          "Q": "How many pints are in a gallon of oil?",
+          "A": ["8", "eight"]
         }
       ],
       "Hard": [
@@ -57,7 +73,7 @@
         },
         {
           "Q": "What does a beeping sound from an oven usually mean?",
-          "A": ["Done"]
+          "A": ["Done", "Ready", "Finished"]
         },
         {
           "Q": "What do you call the process of warming up leftover food?",
@@ -70,6 +86,22 @@
         {
           "Q": "What do you call the process of melting solid food, like frozen chicken?",
           "A": ["Thaw"]
+        },
+        {
+          "Q": "A cup of oil measures volume or weight?",
+          "A": ["volume"]
+        },
+        {
+          "Q": "10 grams of salt measures volume or weight?",
+          "A": ["weight"]
+        },
+        {
+          "Q": "You should measure ingredients like sugar by volume or weight?",
+          "A": ["weight"]
+        },
+        {
+          "Q": "You should measure ingredients like milk by volume or weight?",
+          "A": ["volume"]
         }
       ]
     }

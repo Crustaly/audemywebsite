@@ -6,7 +6,10 @@
         { "Q": "What tool do you use to eat soup?", "A": ["Spoon"] },
         { "Q": "What tool do you use to cut food?", "A": ["Knife"] },
         { "Q": "What appliance do you use to bake a cake?", "A": ["Oven"] },
-        { "Q": "What appliance keeps your food cold?", "A": ["Refrigerator"] },
+        {
+          "Q": "What appliance keeps your food cold?",
+          "A": ["Refrigerator", "fridge"]
+        },
         {
           "Q": "What do you wear to protect your clothes while cooking?",
           "A": ["Apron"]
@@ -31,7 +34,7 @@
       "Medium": [
         {
           "Q": "What do you use to measure ingredients like flour and sugar?",
-          "A": ["Cup"]
+          "A": ["Measuring cup", "Cup"]
         },
         {
           "Q": "What appliance heats food up very quickly?",
@@ -63,10 +66,13 @@
           "Q": "What do you call the process of cooking food slowly in liquid?",
           "A": ["Simmer"]
         },
-        { "Q": "What tool protects your hands from hot pans?", "A": ["Mitt"] },
+        {
+          "Q": "What tool protects your hands from hot pans?",
+          "A": ["Mittens", "mitten", "Mitt", "Mitts"]
+        },
         {
           "Q": "What kitchen tool is used to drain water from pasta?",
-          "A": ["Colander"]
+          "A": ["Colander", "strainer", "drainer"]
         }
       ]
     }

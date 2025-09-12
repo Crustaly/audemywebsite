@@ -18,15 +18,15 @@
         },
         {
           "Q": "What is it called when you give money to help others?",
-          "A": ["Donate"]
+          "A": ["Donate", "Donation"]
         },
         {
           "Q": "What do you call something you want but don't need?",
-          "A": ["Want"]
+          "A": ["Want", "Non-essential"]
         },
         {
           "Q": "What do you call something you must have, like food or shelter?",
-          "A": ["Need"]
+          "A": ["Need", "Essentials", "Neccessities", "Neccessity", "Basics"]
         },
         {
           "Q": "What is the money you earn from a job called?",
@@ -39,6 +39,14 @@
       ],
       "Medium": [
         {
+          "Q": "What is the money you make per year called?",
+          "A": ["Salary"]
+        },
+        {
+          "Q": "What is the money you make per hour or task called?",
+          "A": ["Wage"]
+        },
+        {
           "Q": "What is it called when you put money aside for a big purchase in the future?",
           "A": ["Goal"]
         },
@@ -48,7 +56,11 @@
         },
         {
           "Q": "What is it called when something costs less than usual?",
-          "A": ["Sale"]
+          "A": ["Sale", "Discount"]
+        },
+        {
+          "Q": "What do you use to get a special discount on an item?",
+          "A": ["Coupon", "Coupons"]
         },
         { "Q": "What do you call your spending habits?", "A": ["Expenses"] },
         {
@@ -71,11 +83,11 @@
         },
         {
           "Q": "What do you call it when you put money into something hoping to make more money?",
-          "A": ["Invest"]
+          "A": ["Invest", "Investment", "Investing"]
         },
         {
           "Q": "What is the tax you pay when you buy something?",
-          "A": ["Sales-tax"]
+          "A": ["Sales tax"]
         }
       ]
     }

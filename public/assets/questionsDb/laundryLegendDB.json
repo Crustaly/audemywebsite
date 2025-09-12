@@ -10,7 +10,7 @@
         { "Q": "What machine dries your clothes?", "A": ["Dryer"] },
         {
           "Q": "What should you separate your clothes by before washing?",
-          "A": ["Color"]
+          "A": ["Color", "colors"]
         },
         {
           "Q": "What temperature water should you use for white clothes?",
@@ -22,11 +22,11 @@
         },
         {
           "Q": "What do you call a piece of clothing you wear on your foot?",
-          "A": ["Sock"]
+          "A": ["Sock", "socks"]
         },
         {
           "Q": "What do you call a piece of clothing you wear on your top half?",
-          "A": ["Shirt"]
+          "A": ["Shirt", "top"]
         },
         {
           "Q": "What do you call a tough spot or mark on clothes?",
@@ -48,13 +48,16 @@
         },
         {
           "Q": "What do you call a large bag or container for dirty clothes?",
-          "A": ["Hamper"]
+          "A": ["Hamper", "basket", "bag"]
         },
         {
           "Q": "What chemical can be used to make white clothes whiter?",
           "A": ["Bleach"]
         },
-        { "Q": "What is another word for clothing?", "A": ["Garment"] }
+        {
+          "Q": "What is another word for clothing?",
+          "A": ["Garment", "outfit", "clothes", "attire"]
+        }
       ],
       "Hard": [
         {
@@ -68,11 +71,39 @@
         { "Q": "What do you call a clothesline, but indoors?", "A": ["Rack"] },
         {
           "Q": "What do you call it when colors from one shirt get on another?",
-          "A": ["Bleeding"]
+          "A": ["Bleeding", "bleed"]
         },
         {
           "Q": "What is the clothing care symbol for 'do not wash'?",
-          "A": ["X"]
+          "A": ["X", "cross"]
+        },
+        {
+          "Q": "The 'do not dry' symbol has an 'X' striking through what shape?",
+          "A": ["circle"]
+        },
+        {
+          "Q": "The 'do not bleach' symbol has an 'X' striking through what shape?",
+          "A": ["triangle"]
+        },
+        {
+          "Q": "How many dots are on the washing symbol for cold temperatures?",
+          "A": ["one", "1"]
+        },
+        {
+          "Q": "How many dots are on the washing symbol for warm temperatures?",
+          "A": ["two", "2"]
+        },
+        {
+          "Q": "How many dots are on the washing symbol for hot temperatures?",
+          "A": ["three", "3"]
+        },
+        {
+          "Q": "The 'hand wash' symbol has what icon on it?",
+          "A": ["hand"]
+        },
+        {
+          "Q": "True or false? More dots on the washing symbol means a colder water setting.",
+          "A": ["false"]
         }
       ]
     }
