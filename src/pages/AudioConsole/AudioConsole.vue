@@ -60,7 +60,7 @@ const finalArrowClasses = [
       aria-hidden="true"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 1440 320"
-      class="absolute -z-10 left-0 top-0 scale-y-[-1]"
+      class="absolute -z-10 left-0 top-0 scale-y-[-1] w-full"
     >
       <path
         fill="#e7f0f5"
@@ -99,10 +99,10 @@ const finalArrowClasses = [
         </div>
 
         <!-- Learn More Button -->
-        <div class="game-resource-btn-flex">
+        <div class="page-button-flex">
           <a
             href="#learn-more"
-            class="game-resource-base-btn orange-button mx-auto h-[70px] tablet:h-[60px] mobile:px-5 py-3 md:py-5"
+            class="page-button orange-button mobile:h-auto w-[180px] sm:w-[350px] px-5 py-3"
           >
             Learn More
           </a>
@@ -223,11 +223,12 @@ const finalArrowClasses = [
 
     <!-- Grant + Pilot Information Section -->
     <div
-      class="relative flex flex-col items-center justify-start mobile:justify-center w-full h-auto my-10 p-12"
+      class="relative flex flex-col items-center justify-start mobile:justify-center w-full h-auto my-10 sm:p-12"
     >
       <div class="w-full">
         <h2 class="game-resource-header">Grant & Pilot Information</h2>
         <PageDecorations
+          class="hidden sm:block"
           :topRightImgPath="Sparkles"
           :bottomLeftImgPath="ShootingStars"
         />
@@ -391,8 +392,9 @@ const finalArrowClasses = [
         :class="[arrowClasses, finalArrowClasses]"
         aria-hidden="true"
       />
-      <div class="p-16 relative">
+      <div class="sm:p-16 relative">
         <PageDecorations
+          class="hidden sm:block"
           :topLeftImgPath="YellowStar"
           :bottomRightImgPath="YellowStar"
           :topRightImgPath="OrangeStar"
@@ -410,11 +412,11 @@ const finalArrowClasses = [
         </h1>
 
         <!-- Learn More Button -->
-        <div class="game-resource-btn-flex">
+        <div class="page-button-flex">
           <a
             href="mailto:connect@audemy.org"
             target="_blank"
-            class="game-resource-base-btn blue-button h-[70px] tablet:h-[60px] py-3 md:py-5"
+            class="page-button blue-button mobile:h-auto w-[180px] sm:w-[350px] px-5 py-3"
           >
             Learn More
           </a>
