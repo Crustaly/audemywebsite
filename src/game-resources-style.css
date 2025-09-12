@@ -23,15 +23,6 @@
     @apply text-white text-2xl font-bold;
   }
 
-  /* --- Responsive buttons --- */
-  .game-resource-btn-flex {
-    @apply flex mobile:flex-col justify-center items-center my-10;
-  }
-
-  .game-resource-base-btn {
-    @apply page-button tracking-wide font-[600] text-center duration-300 text-[16px] w-[300px] h-[70px] md:h-[60px] mobile:h-[80px] py-3 md:py-5;
-  }
-
   /* --- Decorative colored banner & icon cards --- */
   .game-resource-card-banner {
     @apply z-0 bg-[#0a7db8] absolute top-0 left-0 w-full rounded-t-md;
