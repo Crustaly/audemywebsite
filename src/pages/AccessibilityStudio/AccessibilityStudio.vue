@@ -40,10 +40,10 @@ import GamesShowcase from './GamesToLife/GamesShowcase.vue';
           </p>
         </div>
         <!-- Start Test Button -->
-        <div class="game-resource-btn-flex">
+        <div class="page-button-flex">
           <a
             href="mailto:connect@audemy.org"
-            class="game-resource-base-btn orange-button mx-auto h-[70px] tablet:h-[60px] mobile:px-5 py-3 md:py-5"
+            class="page-button orange-button mobile:h-auto md:w-[350px] px-5 py-3"
           >
             Start Your Accessibility Test
           </a>
@@ -210,11 +210,12 @@ import GamesShowcase from './GamesToLife/GamesShowcase.vue';
 
     <!-- Who We Work With Section -->
     <div
-      class="relative flex flex-col items-center justify-start mobile:justify-center w-full h-auto my-10 p-12"
+      class="relative flex flex-col items-center justify-start mobile:justify-center w-full h-auto my-10 sm:p-12"
     >
       <div class="w-full">
         <h2 class="game-resource-header">Who We Work With</h2>
         <PageDecorations
+          class="hidden sm:block"
           topRightImgPath="/assets/images/studio/sparkles.png"
           bottomLeftImgPath="/assets/images/studio/shooting-stars.png"
         />
@@ -375,8 +376,8 @@ import GamesShowcase from './GamesToLife/GamesShowcase.vue';
 
     <!-- Final Call to Action Section -->
     <div class="mobile:w-[90%] mx-auto bg-white p-5 my-10">
-      <div class="p-16 relative">
-        <PageDecorations />
+      <div class="sm:p-16 relative">
+        <PageDecorations class="hidden sm:block" />
         <h1 class="game-resource-header">
           <p>
             Make your game
@@ -386,11 +387,11 @@ import GamesShowcase from './GamesToLife/GamesShowcase.vue';
           <p>Let's talk.</p>
         </h1>
         <!-- Book Test Button -->
-        <div class="game-resource-btn-flex">
+        <div class="page-button-flex">
           <a
             href="mailto:connect@audemy.org"
             target="_blank"
-            class="game-resource-base-btn blue-button h-[70px] tablet:h-[60px] py-3 md:py-5"
+            class="page-button blue-button mobile:h-auto sm:w-[350px] px-5 py-3"
           >
             Book Your Free Test
           </a>
