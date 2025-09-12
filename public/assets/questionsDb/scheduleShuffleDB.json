@@ -9,7 +9,10 @@
           "Q": "What do you call the time you are supposed to go to bed?",
           "A": ["Bedtime"]
         },
-        { "Q": "Where do you go during the day to learn?", "A": ["School"] },
+        {
+          "Q": "Where do you go during the day to learn?",
+          "A": ["School", "Class"]
+        },
         {
           "Q": "What is the name for a short meal between main meals?",
           "A": ["Snack"]
@@ -22,13 +25,13 @@
         },
         {
           "Q": "What do you call the jobs you have to do around the house?",
-          "A": ["Chores"]
+          "A": ["Chores", "chore"]
         }
       ],
       "Medium": [
         {
           "Q": "What tool do you use to see what day it is?",
-          "A": ["Calendar"]
+          "A": ["Calendar", "Agenda"]
         },
         {
           "Q": "What do you call an event you have to go to?",
@@ -42,7 +45,17 @@
           "Q": "What do you call the time after school and before dinner?",
           "A": ["Afternoon"]
         },
-        { "Q": "What is the first day of the school week?", "A": ["Monday"] }
+        { "Q": "What is the first day of the school week?", "A": ["Monday"] },
+        { "Q": "How many months are in a year?", "A": ["12", "Twelve"] },
+        { "Q": "How many days are in a year?", "A": ["365"] },
+        { "Q": "How many months in a season?", "A": ["3", "three"] },
+        {
+          "Q": "The four seasons include Spring, Summer, Winter, and what?",
+          "A": ["Fall", "Autumn"]
+        },
+        { "Q": "Which month is always the shortest?", "A": ["February"] },
+        { "Q": "True or false? January always has 31 days.", "A": ["True"] },
+        { "Q": "Which month is the most U.S. holidays?", "A": ["December"] }
       ],
       "Hard": [
         {
@@ -50,12 +63,24 @@
           "A": ["Routine"]
         },
         {
+          "Q": "True or false? In November, U.S. clocks are reset by one hour back.",
+          "A": ["True"]
+        },
+        {
+          "Q": "True or false? In March, U.S. clocks are reset by one hour ahead.",
+          "A": ["True"]
+        },
+        {
+          "Q": "We reset our clocks by an hour on 'Daylight' what?",
+          "A": ["Saving"]
+        },
+        {
           "Q": "What do you call it when you plan your tasks based on what's most important?",
           "A": ["Prioritize"]
         },
         {
           "Q": "What do you call the time between sunset and sunrise?",
-          "A": ["Night"]
+          "A": ["Night", "nighttime"]
         },
         {
           "Q": "What is the name for a book where you write down your schedule?",

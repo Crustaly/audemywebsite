@@ -8,30 +8,33 @@
         },
         {
           "Q": "What do you wear to keep your hands warm in winter?",
-          "A": ["Gloves"]
+          "A": ["Gloves", "glove", "mittens", "mitten", "mitt", "mitts"]
         },
         {
           "Q": "What do you wear on your head to block the sun?",
-          "A": ["Hat"]
+          "A": ["Hat", "cap"]
         },
         { "Q": "What do you wear for swimming?", "A": ["Swimsuit"] },
         {
           "Q": "What do you wear when it is very cold outside?",
-          "A": ["Coat"]
+          "A": ["Coat", "jacket"]
         },
         {
           "Q": "What piece of clothing do you wear on your legs?",
-          "A": ["Pants"]
+          "A": ["Pants", "bottoms"]
         },
         {
           "Q": "What do you wear on your feet inside your shoes?",
-          "A": ["Socks"]
+          "A": ["Socks", "sock"]
         },
         {
           "Q": "What do you wear to protect your eyes from the sun?",
           "A": ["Sunglasses"]
         },
-        { "Q": "What do you wear to bed?", "A": ["Pajamas"] },
+        {
+          "Q": "What do you wear to bed?",
+          "A": ["Pajamas", "PJ", "PJs", "pajama"]
+        },
         {
           "Q": "What do you hold over your head to stay dry in the rain?",
           "A": ["Umbrella"]
@@ -40,17 +43,23 @@
       "Medium": [
         {
           "Q": "What is a piece of clothing that covers your whole body, often with a zipper?",
-          "A": ["Jumpsuit"]
+          "A": ["Jumpsuit", "bodysuit", "onesie"]
         },
-        { "Q": "What do you call pants made of denim?", "A": ["Jeans"] },
-        { "Q": "What do you call a shirt with no sleeves?", "A": ["Tank-top"] },
+        {
+          "Q": "What do you call pants made of denim?",
+          "A": ["Jeans", "jean"]
+        },
+        {
+          "Q": "What do you call a shirt with no sleeves?",
+          "A": ["Tank top", "tank"]
+        },
         {
           "Q": "What do you call shoes that are open at the toes?",
-          "A": ["Sandals"]
+          "A": ["Sandals", "sandal"]
         },
         {
           "Q": "What do you wrap around your neck to stay warm?",
-          "A": ["Scarf"]
+          "A": ["Scarf", "scarves"]
         }
       ],
       "Hard": [
@@ -64,7 +73,7 @@
         },
         {
           "Q": "What do you call a shoe designed for running or sports?",
-          "A": ["Sneaker"]
+          "A": ["Sneaker", "sneakers"]
         },
         {
           "Q": "What is the term for the weather prediction that helps you choose your clothes?",

@@ -22,7 +22,7 @@
         },
         {
           "Q": "What sweet treat should you eat only sometimes?",
-          "A": ["Candy"]
+          "A": ["Candy", "Candies", "Dessert", "Desserts", "Sweets"]
         },
         {
           "Q": "What is a healthy meal to start your day?",
@@ -57,6 +57,26 @@
         {
           "Q": "What do you call a meal that has a good mix of all food groups?",
           "A": ["Balanced"]
+        },
+        {
+          "Q": "True or false? There are two types of cholesterol: 'good' and 'bad.'",
+          "A": ["True"]
+        },
+        {
+          "Q": "True or false? You should eat more food groups at the top of the food pyramid.",
+          "A": ["False"]
+        },
+        {
+          "Q": "True or false? You should eat more food groups at the bottom of the food pyramid.",
+          "A": ["True"]
+        },
+        {
+          "Q": "Name a food group at the top of the food pyramid.",
+          "A": ["Fats", "Oils", "Sugar", "Sweets", "Desserts", "Fat", "Oil"]
+        },
+        {
+          "Q": "Name a food group at the bottom of the food pyramid.",
+          "A": ["Vegetables", "Fruits", "Grains"]
         }
       ],
       "Hard": [
@@ -79,6 +99,18 @@
         {
           "Q": "What do you call a person who does not eat meat?",
           "A": ["Vegetarian"]
+        },
+        {
+          "Q": "What do you call a person who does not eat eggs, butter, milk, or meat?",
+          "A": ["Vegan"]
+        },
+        {
+          "Q": "What do you call a person who eats plants and fish but not meat?",
+          "A": ["Pescatarian"]
+        },
+        {
+          "Q": "What kind of diet aims for low carbs?",
+          "A": ["Keto", "Ketogenic"]
         }
       ]
     }

@@ -3,16 +3,19 @@
     "Questions": {
       "Easy": [
         { "Q": "What body part do you use to smell?", "A": ["Nose"] },
-        { "Q": "What body part do you use to see?", "A": ["Eye"] },
-        { "Q": "What body part do you use to hear?", "A": ["Ear"] },
+        { "Q": "What body part do you use to see?", "A": ["Eye", "eyes"] },
+        { "Q": "What body part do you use to hear?", "A": ["Ear", "ears"] },
         {
           "Q": "What should you do to your hands before eating?",
           "A": ["Wash"]
         },
-        { "Q": "What do you use to clean your teeth?", "A": ["Toothbrush"] },
+        {
+          "Q": "What do you use to clean your teeth?",
+          "A": ["Toothbrush", "toothpaste"]
+        },
         {
           "Q": "How many glasses of water should you aim to drink a day?",
-          "A": ["Eight"]
+          "A": ["Eight", "8"]
         },
         {
           "Q": "What is it called when your body feels sick?",
@@ -48,6 +51,22 @@
         {
           "Q": "What is the sticky film on your teeth called?",
           "A": ["Plaque"]
+        },
+        {
+          "Q": "Is Calicum a vitamin or mineral?",
+          "A": ["Mineral"]
+        },
+        {
+          "Q": "Is Iron a vitamin or mineral?",
+          "A": ["Mineral"]
+        },
+        {
+          "Q": "Is Sodium a vitamin or mineral?",
+          "A": ["Mineral"]
+        },
+        {
+          "Q": "Most of the Iron in your body can be found in your what?",
+          "A": ["Blood"]
         }
       ],
       "Hard": [
@@ -60,6 +79,30 @@
           "A": ["Immune"]
         },
         {
+          "Q": "What is the name for the body's system that manages your heart health?",
+          "A": ["Cardiovascular"]
+        },
+        {
+          "Q": "What is the name for the body's system that manages your lung health?",
+          "A": ["Respiratory"]
+        },
+        {
+          "Q": "What is the name for the body's system that manages your gut health?",
+          "A": ["Digestive"]
+        },
+        {
+          "Q": "What is the name for the body's system that manages your thoughts and movement?",
+          "A": ["Nervous"]
+        },
+        {
+          "Q": "What is the name for the body's system that manages your movement and posture?",
+          "A": ["Muscular"]
+        },
+        {
+          "Q": "What is the name for the body's system that protects your organs?",
+          "A": ["Skeletal"]
+        },
+        {
           "Q": "What is the mineral that makes your bones strong?",
           "A": ["Calcium"]
         },
@@ -70,6 +113,30 @@
         {
           "Q": "What vitamin do you get from being in the sunlight?",
           "A": ["D"]
+        },
+        {
+          "Q": "True or false? Carrots are a healthy source of Vitamin A.",
+          "A": ["True"]
+        },
+        {
+          "Q": "Vitamin A greatly supports your what?",
+          "A": ["vision", "eyesight", "eye", "eyes", "sight"]
+        },
+        {
+          "Q": "To improve your immune system, you should take which Vitamin?",
+          "A": ["C"]
+        },
+        {
+          "Q": "There are how many essential vitamins?",
+          "A": ["13", "thirteen"]
+        },
+        {
+          "Q": "There are over how many essential minerals?",
+          "A": ["20", "twenty"]
+        },
+        {
+          "Q": "Humans have how many organ systems?",
+          "A": ["11", "eleven"]
         }
       ]
     }

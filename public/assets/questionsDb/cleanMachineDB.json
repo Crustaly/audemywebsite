@@ -2,7 +2,10 @@
   "CleanMachineGame": {
     "Questions": {
       "Easy": [
-        { "Q": "What tool do you use to sweep the floor?", "A": ["Broom"] },
+        {
+          "Q": "What tool do you use to sweep the floor?",
+          "A": ["Broom", "broomstick"]
+        },
         {
           "Q": "What do you use with a broom to pick up dirt?",
           "A": ["Dustpan"]
@@ -10,7 +13,10 @@
         { "Q": "What machine do you use to clean carpets?", "A": ["Vacuum"] },
         { "Q": "What do you use to wash dishes?", "A": ["Sponge"] },
         { "Q": "Where do you put your trash?", "A": ["Trashcan"] },
-        { "Q": "What do you use to wipe up spills?", "A": ["Towel"] },
+        {
+          "Q": "What do you use to wipe up spills?",
+          "A": ["Towel", "napkin", "towels", "napkins"]
+        },
         { "Q": "What do you do to your bed every morning?", "A": ["Make"] },
         {
           "Q": "What liquid do you use with a sponge to clean dishes?",
@@ -19,7 +25,7 @@
         { "Q": "What do you use to clean windows?", "A": ["Squeegee"] },
         {
           "Q": "What do you call it when you put your toys away?",
-          "A": ["Tidy"]
+          "A": ["Tidy", "cleanup"]
         }
       ],
       "Medium": [
@@ -29,8 +35,12 @@
           "A": ["Dusting"]
         },
         {
-          "Q": "What do you call it when you sort items for recycling?",
-          "A": ["Sort"]
+          "Q": "True or false? You can put banana peels in compost.",
+          "A": ["True"]
+        },
+        {
+          "Q": "True or false? You can recycle newspaper and water bottles together.",
+          "A": ["False"]
         },
         {
           "Q": "What room in the house is for washing yourself?",
@@ -40,12 +50,32 @@
       ],
       "Hard": [
         {
+          "Q": "The three R's of waste management are Reduce, Reuse, and what?",
+          "A": ["Recycle"]
+        },
+        {
+          "Q": "True or false? You can recycle an oily pizza box.",
+          "A": ["False"]
+        },
+        {
+          "Q": "True or false? You can throw away batteries.",
+          "A": ["False"]
+        },
+        {
+          "Q": "True or false? You can throw away broken earbuds.",
+          "A": ["False"]
+        },
+        {
+          "Q": "Old batteries and broken electronics are called what?",
+          "A": ["e-waste"]
+        },
+        {
           "Q": "What do you call a cleaning substance that kills germs?",
           "A": ["Disinfectant"]
         },
         {
           "Q": "What is the term for making a room neat and orderly?",
-          "A": ["Organize"]
+          "A": ["Organize", "organizing"]
         },
         {
           "Q": "What do you call the mixture of soap and water?",
@@ -57,7 +87,7 @@
         },
         {
           "Q": "What do you call a deep, thorough cleaning of a room?",
-          "A": ["Spring-cleaning"]
+          "A": ["Spring cleaning"]
         }
       ]
     }
