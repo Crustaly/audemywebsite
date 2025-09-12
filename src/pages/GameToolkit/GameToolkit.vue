@@ -1280,10 +1280,10 @@ const openToolkitPDF = (pdfUrl, gameName) => {
               </div>
             </button>
           </div>
-          <div class="md:mx-auto flex justify-center items-center my-16 mx-10">
+          <div class="page-button-flex">
             <a
               href="#toolkit-database"
-              class="game-resource-base-btn blue-button h-[70px] tablet:h-[60px] py-3 md:py-5"
+              class="page-button blue-button mobile:h-auto mobile:w-[80%] sm:w-[300px] px-5 py-3"
             >
               View All Toolkits
             </a>
@@ -1354,10 +1354,11 @@ const openToolkitPDF = (pdfUrl, gameName) => {
 
     <!-- Call to Action Section -->
     <div
-      class="flex flex-col items-center justify-center mobile:justify-center w-full h-auto py-10 md:py-10 my-10"
+      class="flex flex-col items-center justify-center mobile:justify-center w-full h-auto sm:py-10 my-10"
     >
-      <div class="w-full relative p-16">
+      <div class="w-full relative sm:p-16">
         <PageDecorations
+          class="hidden sm:block"
           topRightImgPath="/assets/images/game-toolkit/game-control.png"
           bottomLeftImgPath="/assets/images/game-toolkit/game-console.png"
         />
@@ -1368,20 +1369,24 @@ const openToolkitPDF = (pdfUrl, gameName) => {
           >
         </h2>
         <div
-          class="md:mx-auto flex justify-center items-center my-16 mx-10 gap-y-10 flex-col md:flex-row md:gap-16"
+          class="w-full mx-auto flex justify-center items-center my-16 mx-10 gap-y-10 flex-col md:flex-row md:gap-16"
         >
-          <a
-            href="#toolkit-database"
-            class="game-resource-base-btn orange-button h-[70px] tablet:h-[60px] mobile:px-5 py-3 md:py-5"
-          >
-            Download a Toolkit
-          </a>
-          <a
-            href="/accessibility-studio"
-            class="game-resource-base-btn blue-button h-[70px] tablet:h-[60px] py-3 md:py-5"
-          >
-            Partner with Us
-          </a>
+          <div class="flex flex-col">
+            <a
+              href="#toolkit-database"
+              class="page-button orange-button mobile:h-auto sm:w-[300px] px-5 py-3"
+            >
+              Download a Toolkit
+            </a>
+          </div>
+          <div class="flex flex-col">
+            <a
+              href="/accessibility-studio"
+              class="page-button blue-button mobile:h-auto sm:w-[300px] px-8 py-3"
+            >
+              Partner with Us
+            </a>
+          </div>
         </div>
       </div>
     </div>
