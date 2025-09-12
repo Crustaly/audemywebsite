@@ -14,11 +14,14 @@
         { "Q": "What color is a flamingo?", "A": ["pink"] },
         { "Q": "What color is a lemon?", "A": ["yellow"] },
         { "Q": "What color is a fire truck?", "A": ["red"] },
-        { "Q": "What color is a watermelon?", "A": ["green"] },
+        { "Q": "Name a color of a watermelon.", "A": ["green", "pink", "red"] },
         { "Q": "What color is bubblegum?", "A": ["pink"] },
         { "Q": "What color is a cherry?", "A": ["red"] },
         { "Q": "What color is a pumpkin?", "A": ["orange"] },
-        { "Q": "What color is a rose?", "A": ["pink"] },
+        {
+          "Q": "Name a color of a rose.",
+          "A": ["pink", "red", "white", "yellow", "orange", "purple"]
+        },
         { "Q": "What color is a pickle?", "A": ["green"] },
         { "Q": "What color is a basketball?", "A": ["orange"] },
         { "Q": "What color is a blueberry?", "A": ["blue"] },
@@ -26,7 +29,10 @@
         { "Q": "What color is a baseball?", "A": ["white"] },
         { "Q": "What color is a football?", "A": ["brown"] },
         { "Q": "What color is a goldfish?", "A": ["orange"] },
-        { "Q": "What color is a rabbit?", "A": ["white"] },
+        {
+          "Q": "Name a color of a rabbit.",
+          "A": ["white", "gray", "brown", "black"]
+        },
         { "Q": "What color is a fox?", "A": ["orange"] },
         { "Q": "What color is a pig?", "A": ["pink"] },
         { "Q": "What color is a lobster?", "A": ["red"] },
@@ -40,24 +46,27 @@
         { "Q": "What color is a carrot?", "A": ["orange"] },
         { "Q": "What color are clouds during a storm?", "A": ["gray"] },
         { "Q": "What color is a tomato?", "A": ["red"] },
-        { "Q": "What color is an apple?", "A": ["red", "green"] },
+        { "Q": "Name a color of an apple.", "A": ["red", "green", "yellow"] },
         { "Q": "What color is a lime?", "A": ["green"] },
         { "Q": "What color is a pine tree?", "A": ["green"] },
-        { "Q": "What color is a grape?", "A": ["purple"] },
-        { "Q": "What color is the inside of a watermelon?", "A": ["red"] },
+        { "Q": "Name a color of grapes.", "A": ["purple", "green"] },
+        {
+          "Q": "Name a color of the inside of a watermelon.",
+          "A": ["red", "pink"]
+        },
         { "Q": "What color are peas?", "A": ["green"] },
         { "Q": "What color is a cucumber?", "A": ["green"] },
-        { "Q": "What color is a kiwi?", "A": ["green"] },
+        { "Q": "What color is the inside of a kiwi?", "A": ["green"] },
         { "Q": "What color is a grapefruit?", "A": ["pink"] },
         { "Q": "What color is an eggplant?", "A": ["purple"] },
         { "Q": "What color is a sunflower?", "A": ["yellow"] },
-        { "Q": "What color is a monkey's fur?", "A": ["brown"] },
+        { "Q": "Name a color of a monkey's fur.", "A": ["brown", "tan"] },
         { "Q": "What color is a jellyfish?", "A": ["pink"] },
         { "Q": "What color is a raccoon?", "A": ["gray"] },
         { "Q": "What color is a sloth?", "A": ["brown"] },
         { "Q": "What color is a dolphin?", "A": ["gray"] },
         { "Q": "What color is a cactus?", "A": ["green"] },
-        { "Q": "What color is a monkey?", "A": ["brown"] },
+        { "Q": "What color is a monkey?", "A": ["brown", "tan"] },
         { "Q": "What color is a gorilla?", "A": ["black"] },
         { "Q": "What color is a piece of paper?", "A": ["white"] }
       ],
@@ -65,28 +74,64 @@
         { "Q": "What color is copper?", "A": ["brown"] },
         { "Q": "What color is a chicken egg?", "A": ["white"] },
         { "Q": "What color is a robin's egg?", "A": ["blue"] },
-        { "Q": "What color is sand on most beaches?", "A": ["tan", "brown"] },
+        {
+          "Q": "Name a color of sand on most beaches.",
+          "A": ["tan", "brown", "white"]
+        },
         { "Q": "What color is lava?", "A": ["red"] },
-        { "Q": "What color is the inside of a watermelon?", "A": ["red"] },
+        {
+          "Q": "What color is the inside of a watermelon?",
+          "A": ["red", "pink"]
+        },
         { "Q": "What color is rust?", "A": ["brown"] },
-        { "Q": "What color are autumn leaves?", "A": ["yellow"] },
-        { "Q": "What color is a peacock's feather?", "A": ["blue"] },
+        {
+          "Q": "Name a color of autumn leaves.",
+          "A": ["yellow", "orange", "red", "brown"]
+        },
+        {
+          "Q": "Name a color of a peacock's feather.",
+          "A": ["blue", "green", "gold", "yellow"]
+        },
         { "Q": "What color is a polar bear's fur?", "A": ["white"] },
-        { "Q": "What color is a squid?", "A": ["pink"] },
+        {
+          "Q": "Name a color of a squid.",
+          "A": ["white", "red", "yellow", "pink"]
+        },
         { "Q": "What color is a traffic cone?", "A": ["orange"] },
         { "Q": "What color is a ruby?", "A": ["red"] },
         { "Q": "What color is an emerald?", "A": ["green"] },
         { "Q": "What color is pure gold?", "A": ["yellow"] },
-        { "Q": "What color is the moon?", "A": ["white"] },
+        { "Q": "Name a color of the moon.", "A": ["white", "gray", "yellow"] },
         { "Q": "What color is the planet Mars?", "A": ["red"] },
         { "Q": "What color is silverware?", "A": ["silver"] },
         { "Q": "What color is a pencil?", "A": ["yellow"] },
         { "Q": "What color is a pencil eraser?", "A": ["pink"] },
         { "Q": "What color is a hockey puck?", "A": ["black"] },
         { "Q": "What color is a golf ball?", "A": ["white"] },
-        { "Q": "What color is a zebra?", "A": ["black and white"] },
-        { "Q": "What color is a tiger?", "A": ["orange and black"] },
-        { "Q": "What color is a panda?", "A": ["black and white"] }
+        {
+          "Q": "What color is a zebra?",
+          "A": ["black and white", "white and black"]
+        },
+        {
+          "Q": "What color is a tiger?",
+          "A": ["orange and black", "black and orange"]
+        },
+        {
+          "Q": "What color is a panda?",
+          "A": ["black and white", "white and black"]
+        },
+        {
+          "Q": "What color is a ladybug?",
+          "A": ["red and black", "black and red"]
+        },
+        {
+          "Q": "What color is a penguin?",
+          "A": ["white and black", "black and white"]
+        },
+        {
+          "Q": "What color is a giraffe?",
+          "A": ["yellow and brown", "brown and yellow"]
+        }
       ]
     }
   }
