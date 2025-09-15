@@ -17,7 +17,7 @@
         },
         {
           "Q": "What does your cane help you find so you don't trip?",
-          "A": ["Obstacles"]
+          "A": ["Obstacles", "Obstacle"]
         },
         {
           "Q": "What does a tap against something tall and thin, like a sign, often mean?",
@@ -62,7 +62,7 @@
       "Hard": [
         {
           "Q": "What cane technique keeps the tip on the ground at all times?",
-          "A": ["Constant-contact"]
+          "A": ["Constant contact"]
         },
         {
           "Q": "What kind of tip is shaped like a ball and rolls along the ground?",
@@ -77,7 +77,7 @@
           "A": ["Guide"]
         },
         {
-          "Q": "What is the proper way to hold a cane, similar to a handshake?",
+          "Q": "The proper way to hold a cane is similar to a...?",
           "A": ["Handshake"]
         }
       ]

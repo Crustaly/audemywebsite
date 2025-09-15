@@ -5,9 +5,12 @@
         { "Q": "What word means 'please assist me'?", "A": ["Help"] },
         {
           "Q": "What polite phrase do you use to get someone's attention?",
-          "A": ["Excuse-me"]
+          "A": ["Excuse me"]
         },
-        { "Q": "What do you say after someone helps you?", "A": ["Thank-you"] },
+        {
+          "Q": "What do you say after someone helps you?",
+          "A": ["Thank you", "Thanks"]
+        },
         {
           "Q": "What do you call the information someone gives you to find a place?",
           "A": ["Directions"]
@@ -28,7 +31,7 @@
         { "Q": "What do you ask to find out what time it is?", "A": ["Time"] },
         {
           "Q": "What is the name of the person who works in a store?",
-          "A": ["Employee"]
+          "A": ["Employee", "Staff"]
         }
       ],
       "Medium": [
@@ -42,7 +45,7 @@
         },
         {
           "Q": "What do you call it when you ask for more details?",
-          "A": ["Clarification"]
+          "A": ["Clarification", "Clarify"]
         },
         {
           "Q": "What is the name of a place where you can ask for information?",
