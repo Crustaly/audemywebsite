@@ -23,6 +23,7 @@
         :currentQuestion="currentQuestion"
         :isAnswerPlaying="isAnswerPlaying"
         :isCorrect="isCorrect"
+        :firstMatchingAnswer="firstMatchingAnswer"
       />
 
       <PlayButton v-if="playButton === false" @play-click="playButton = true" />
@@ -87,6 +88,7 @@ const {
   isButtonCooldown,
   isAnswerPlaying,
   isCorrect,
+  firstMatchingAnswer,
   isTablet,
   isMobile,
   currentAudios,

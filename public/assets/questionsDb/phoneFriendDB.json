@@ -8,11 +8,11 @@
         },
         {
           "Q": "What command do you say to end a phone call?",
-          "A": ["Hangup"]
+          "A": ["Hang up"]
         },
         {
           "Q": "What feature reads the screen out loud to you?",
-          "A": ["VoiceOver"]
+          "A": ["VoiceOver", "Voice Over"]
         },
         { "Q": "What is the name of Apple's voice assistant?", "A": ["Siri"] },
         {
@@ -43,7 +43,7 @@
       "Medium": [
         {
           "Q": "What gesture, using three fingers, often reads the screen from the top?",
-          "A": ["Swipe-down"]
+          "A": ["Swipe down"]
         },
         {
           "Q": "What is the name for the sound feedback you get when you touch the screen?",
@@ -51,7 +51,7 @@
         },
         {
           "Q": "What do you call the feature that describes images out loud?",
-          "A": ["Image-description"]
+          "A": ["Image description"]
         },
         {
           "Q": "What command do you use to increase the speaking rate of your screen reader?",
@@ -65,7 +65,7 @@
       "Hard": [
         {
           "Q": "What is the name of the screen reader feature on Android phones?",
-          "A": ["TalkBack"]
+          "A": ["TalkBack", "Talk Back"]
         },
         {
           "Q": "What part of the screen reader lets you change settings like 'words' or 'characters'?",
@@ -73,7 +73,7 @@
         },
         {
           "Q": "What gesture often moves to the next item on the screen?",
-          "A": ["Swipe-right"]
+          "A": ["Swipe right"]
         },
         {
           "Q": "What do you call the process of using your voice to write a text message?",

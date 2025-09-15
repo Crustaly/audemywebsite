@@ -6,7 +6,7 @@
         { "Q": "Which U.S. coin is the largest in size?", "A": ["Quarter"] },
         { "Q": "Which coin has rough edges?", "A": ["Quarter"] },
         { "Q": "Which coin has smooth edges?", "A": ["Penny"] },
-        { "Q": "What is the paper money called?", "A": ["Bill"] },
+        { "Q": "What is the paper money called?", "A": ["Bill", "Cash"] },
         {
           "Q": "Are all U.S. bills the same size or different sizes?",
           "A": ["Same"]
@@ -16,7 +16,7 @@
         { "Q": "Which is worth more, a penny or a nickel?", "A": ["Nickel"] },
         {
           "Q": "What do you call it when you organize bills by their value?",
-          "A": ["Sorting"]
+          "A": ["Sorting", "Sort"]
         }
       ],
       "Medium": [

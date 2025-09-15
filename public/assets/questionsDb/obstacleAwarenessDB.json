@@ -13,7 +13,7 @@
         { "Q": "What is a small step up or down called?", "A": ["Step"] },
         {
           "Q": "What do you call the things that block your path?",
-          "A": ["Obstacles"]
+          "A": ["Obstacles", "Obstacle"]
         },
         {
           "Q": "What sound does it make when your cane hits a wall?",
@@ -47,7 +47,7 @@
       "Hard": [
         {
           "Q": "What do you call the area above your head where you might hit something?",
-          "A": ["Head-height"]
+          "A": ["Head height"]
         },
         {
           "Q": "What is a low-hanging object, like a tree branch, called?",
@@ -55,7 +55,7 @@
         },
         {
           "Q": "What do you call a sign that is standing on the sidewalk?",
-          "A": ["A-frame"]
+          "A": ["A-frame", "A frame"]
         },
         {
           "Q": "What do you call the process of remembering where obstacles are?",

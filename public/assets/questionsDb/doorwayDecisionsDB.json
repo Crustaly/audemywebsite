@@ -20,7 +20,7 @@
         },
         {
           "Q": "What is the name for the frame around a door?",
-          "A": ["Doorframe"]
+          "A": ["Doorframe", "Door frame"]
         },
         { "Q": "What sound does a closing door often make?", "A": ["Click"] },
         {
@@ -44,7 +44,7 @@
         },
         {
           "Q": "What kind of heavy door is designed to stop fires?",
-          "A": ["Fire-door"]
+          "A": ["Fire door"]
         },
         {
           "Q": "What is the flat part at the bottom of a doorway that you step over?",
@@ -66,7 +66,7 @@
         },
         {
           "Q": "What is the name for the metal plate on a doorframe where the latch catches?",
-          "A": ["Strike-plate"]
+          "A": ["Strike plate"]
         },
         {
           "Q": "What type of door is split into a top and bottom half that can open separately?",
