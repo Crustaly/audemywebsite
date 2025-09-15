@@ -42,28 +42,47 @@ export function useGameQuestions(gameConfig) {
   const validateAnswer = (finalTranscript, question) => {
     const cleanedInput = finalTranscript.trim().toLowerCase();
 
+    let foundMatch = ''; // 1st matching answer in transcript; used to align captions
+    let isCorrect = false; // Default
+
+    // 1. Check if game needs "spelling" validation
     if (gameConfig.validationType === 'spelling') {
-      return [
-        question['A'].some((answer) =>
-          cleanedInput.includes(answer.toLowerCase())
-        ),
-        '',
-      ]; // Return list: boolean & empty 'foundWord' string
+      isCorrect = question['A'].some((answer) =>
+        cleanedInput.includes(answer.toLowerCase())
+      );
+      return [isCorrect, foundMatch];
     }
 
-    const userWords = cleanedInput.replace(/[.,!?]/g, '').split(/\s+/);
-
+    // 2. Default: Assume answer list does not contain whitespace
     const correctAnswers = Array.isArray(question['A'])
       ? question['A'].map((a) => a.toLowerCase())
       : [question['A'].toLowerCase()];
 
-    let foundWord = userWords.find((word) => correctAnswers.includes(word));
-    // NOTE: find() returns undefined if no matching answer
-    if (foundWord == undefined) {
-      foundWord = ''; // Set to empty string
+    // Split transcript into words to avoid false positives
+    // Ex: 'car' (answer) vs 'this is a carton' (transcript) --> Mark as incorrect
+    const userWords = cleanedInput.replace(/[.,!?]/g, '').split(/\s+/);
+    foundMatch = userWords.find((word) => correctAnswers.includes(word));
+
+    // 3. Finally: Check if answer list includes whitespace or phrase (2+ words)
+    if (foundMatch === undefined) {
+      const whitespaceAnswers = correctAnswers.filter((answer) =>
+        answer.includes(' ')
+      );
+      if (whitespaceAnswers.length) {
+        // At least one answer choice contains whitespace
+        // Ex: 'right angled triangle' or 'black and white'
+        foundMatch = whitespaceAnswers.find((phrase) =>
+          cleanedInput.includes(phrase)
+        );
+      }
     }
-    const isCorrect = foundWord !== '';
-    return [isCorrect, foundWord];
+
+    // NOTE: find() returns undefined if no matching answer
+    if (foundMatch === undefined) {
+      foundMatch = ''; // Set to empty string
+    }
+    isCorrect = foundMatch !== '';
+    return [isCorrect, foundMatch];
   };
 
   const hasMoreQuestions = () => {

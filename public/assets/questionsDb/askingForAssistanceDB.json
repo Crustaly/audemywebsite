@@ -13,7 +13,7 @@
         },
         {
           "Q": "What do you call the information someone gives you to find a place?",
-          "A": ["Directions"]
+          "A": ["Directions", "Direction"]
         },
         { "Q": "What do you call a person you don't know?", "A": ["Stranger"] },
         {
@@ -64,7 +64,7 @@
         },
         {
           "Q": "What do you call it when you sense someone is busy and decide not to ask for help?",
-          "A": ["Judgement"]
+          "A": ["Judgment", "Judgement"]
         },
         {
           "Q": "What is it called when you explain what kind of help you need?",
