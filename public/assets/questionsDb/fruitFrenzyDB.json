@@ -126,15 +126,15 @@
       "Medium": [
         {
           "Q": "There are 10 dragonfruit and 5 passion fruit. How many fruits are there in total?",
-          "A": ["15", "fifteen", "fifteen"]
+          "A": ["15", "fifteen"]
         },
         {
           "Q": "There are 8 lychees and 7 mangosteen. How many fruits are there in total?",
-          "A": ["15", "fifteen", "fifteen"]
+          "A": ["15", "fifteen"]
         },
         {
           "Q": "There are 12 rambutan and 8 durian. How many fruits are there in total?",
-          "A": ["20", "twenty", "twenty"]
+          "A": ["20", "twenty"]
         },
         {
           "Q": "There are 15 jackfruit and 10 soursop. How many fruits are there in total?",
@@ -166,11 +166,11 @@
         },
         {
           "Q": "There are 12 miracle fruit and 8 kiwi. How many fruits are there in total?",
-          "A": ["20", "twenty", "twenty"]
+          "A": ["20", "twenty"]
         },
         {
           "Q": "There are 15 yuzu and 5 ugli fruit. How many fruits are there in total?",
-          "A": ["20", "twenty", "twenty"]
+          "A": ["20", "twenty"]
         },
         {
           "Q": "There are 18 quince and 7 nectarines. How many fruits are there in total?",
@@ -178,19 +178,19 @@
         },
         {
           "Q": "There are 14 plums and 16 apricots. How many fruits are there in total?",
-          "A": ["30", "thirty", "thirty"]
+          "A": ["30", "thirty"]
         },
         {
           "Q": "There are 17 peaches and 13 blackberries. How many fruits are there in total?",
-          "A": ["30", "thirty", "thirty"]
+          "A": ["30", "thirty"]
         },
         {
           "Q": "There are 15 raspberries and 15 mulberries. How many fruits are there in total?",
-          "A": ["30", "thirty", "thirty"]
+          "A": ["30", "thirty"]
         },
         {
           "Q": "There are 19 cranberries and 11 gooseberries. How many fruits are there in total?",
-          "A": ["30", "thirty", "thirty"]
+          "A": ["30", "thirty"]
         },
         {
           "Q": "There are 20 elderberries and 10 starfruit. How many fruits are there in total?",
@@ -198,43 +198,43 @@
         },
         {
           "Q": "There are 21 tangerines and 9 mandarins. How many fruits are there in total?",
-          "A": ["30", "thirty", "thirty"]
+          "A": ["30", "thirty"]
         },
         {
           "Q": "There are 16 coconuts and 14 limes. How many fruits are there in total?",
-          "A": ["30", "thirty", "thirty"]
+          "A": ["30", "thirty"]
         },
         {
           "Q": "There are 22 lemons and 8 grapefruit. How many fruits are there in total?",
-          "A": ["30", "thirty", "thirty"]
+          "A": ["30", "thirty"]
         },
         {
           "Q": "There are 23 clementines and 7 honeydew. How many fruits are there in total?",
-          "A": ["30", "thirty", "thirty"]
+          "A": ["30", "thirty"]
         },
         {
           "Q": "There are 24 watermelon and 6 cantaloupe. How many fruits are there in total?",
-          "A": ["30", "thirty", "thirty"]
+          "A": ["30", "thirty"]
         },
         {
           "Q": "There are 25 boysenberries and 5 pawpaw. How many fruits are there in total?",
-          "A": ["30", "thirty", "thirty"]
+          "A": ["30", "thirty"]
         },
         {
           "Q": "There are 26 sapodilla and 4 jujube. How many fruits are there in total?",
-          "A": ["30", "thirty", "thirty"]
+          "A": ["30", "thirty"]
         },
         {
           "Q": "There are 27 tamarind and 3 custard apples. How many fruits are there in total?",
-          "A": ["30", "thirty", "thirty"]
+          "A": ["30", "thirty"]
         },
         {
           "Q": "There are 28 pomegranates and 2 guavas. How many fruits are there in total?",
-          "A": ["30", "thirty", "thirty"]
+          "A": ["30", "thirty"]
         },
         {
           "Q": "There are 29 mangoes and 1 passion fruit. How many fruits are there in total?",
-          "A": ["30", "thirty", "thirty"]
+          "A": ["30", "thirty"]
         },
         {
           "Q": "There are 15 dragonfruit and 10 lychees. How many fruits are there in total?",
@@ -260,35 +260,35 @@
         },
         {
           "Q": "There are 60 jackfruit and 20 longan. How many fruits are there in total?",
-          "A": ["80", "eighty", "eighty"]
+          "A": ["80", "eighty"]
         },
         {
           "Q": "There are 45 carambola and 35 salak. How many fruits are there in total?",
-          "A": ["80", "eighty", "eighty"]
+          "A": ["80", "eighty"]
         },
         {
           "Q": "There are 45 breadfruit and 35 papaya. How many fruits are there in total?",
-          "A": ["80", "eighty", "eighty"]
+          "A": ["80", "eighty"]
         },
         {
           "Q": "There are 50 persimmons and 30 kumquats. How many fruits are there in total?",
-          "A": ["80", "eighty", "eighty"]
+          "A": ["80", "eighty"]
         },
         {
           "Q": "There are 55 figs and 25 dates. How many fruits are there in total?",
-          "A": ["80", "eighty", "eighty"]
+          "A": ["80", "eighty"]
         },
         {
           "Q": "There are 60 miracle fruit and 20 kiwi. How many fruits are there in total?",
-          "A": ["80", "eighty", "eighty"]
+          "A": ["80", "eighty"]
         },
         {
           "Q": "There are 65 yuzu and 15 ugli fruit. How many fruits are there in total?",
-          "A": ["80", "eighty", "eighty"]
+          "A": ["80", "eighty"]
         },
         {
           "Q": "There are 70 quince and 30 nectarines. How many fruits are there in total?",
-          "A": ["100", "one hundred", "one-hundred"]
+          "A": ["100", "one hundred"]
         }
       ]
     }
