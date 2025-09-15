@@ -10,6 +10,12 @@ const items = [
     url: 'https://www.fox26houston.com/news/katy-student-develops-online-tool-help-blind-students',
   },
   {
+    image: 'white-house-feature.png',
+    text: 'Audemy Featured as Major Organization Commit to Supporting AI Education',
+    network: 'The White House',
+    url: 'https://www.whitehouse.gov/articles/2025/09/major-organizations-commit-to-supporting-ai-education/',
+  },
+  {
     image: 'intel-globalImpactAI.png',
     text: 'Intel celebrates Crystal Yang, winner of Global AI Impact Festival',
     network: 'Intel',
