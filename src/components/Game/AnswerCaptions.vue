@@ -54,14 +54,22 @@ const captionText = computed(() => {
   if (props.title === 'Car Counting') {
     // 1. Check special case: 'Car Counting'
     // - Game passes 'getCurrentAnswer()' return value as 'currentQuestion' prop
+
     return props.currentQuestion;
-  } else if (props.firstMatchingAnswer !== '') {
-    // 2. Check if game accepts answers with synonyms or numbers
-    // - Align answer UI captions with transcript
-    return props.firstMatchingAnswer;
-  } else {
-    // 3. Default: First answer choice
+  } else if (
+    props.firstMatchingAnswer === '' ||
+    props.currentQuestion['hasRepAnswer']
+  ) {
+    // 2. Check if game:
+    // - Does NOT include answers with synonyms or numbers
+    // - OR game has representative answer
+
+    // Either case: Return 1st answer choice
     return props.currentQuestion['A'][0];
+  } else {
+    // 3. Default: Align answer UI captions with transcript
+
+    return props.firstMatchingAnswer;
   }
 });
 </script>

@@ -34,7 +34,7 @@
       "Medium": [
         {
           "Q": "What do you use to measure ingredients like flour and sugar?",
-          "A": ["Measuring cup", "Cup"]
+          "A": ["Measuring cup"]
         },
         {
           "Q": "What appliance heats food up very quickly?",
@@ -68,7 +68,7 @@
         },
         {
           "Q": "What tool protects your hands from hot pans?",
-          "A": ["Mittens", "mitten", "Mitt", "Mitts"]
+          "A": ["Mittens", "mitten"]
         },
         {
           "Q": "What kitchen tool is used to drain water from pasta?",

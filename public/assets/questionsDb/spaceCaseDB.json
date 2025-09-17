@@ -4,19 +4,23 @@
       "Easy": [
         {
           "Q": "What planet is known for its beautiful rings?",
-          "A": ["Saturn"]
+          "A": ["Saturn"],
+          "hasRepAnswer": true
         },
         {
           "Q": "What giant star is at the center of our solar system?",
-          "A": ["Sun"]
+          "A": ["Sun"],
+          "hasRepAnswer": true
         },
         {
           "Q": "What is the name of the planet we all live on?",
-          "A": ["Earth"]
+          "A": ["Earth"],
+          "hasRepAnswer": true
         },
         {
           "Q": "What is the nickname for Mars because of its color?",
-          "A": ["Red Planet"]
+          "A": ["Red Planet"],
+          "hasRepAnswer": true
         },
         {
           "Q": "What do we call the person who travels to space in a rocket?",
@@ -24,11 +28,13 @@
         },
         {
           "Q": "What shines in the sky at night and orbits the Earth?",
-          "A": ["Moon"]
+          "A": ["Moon"],
+          "hasRepAnswer": true
         },
         {
           "Q": "What is the biggest planet in our solar system?",
-          "A": ["Jupiter"]
+          "A": ["Jupiter"],
+          "hasRepAnswer": true
         },
         {
           "Q": "What vehicle is used to fly into outer space?",
@@ -46,11 +52,13 @@
       "Medium": [
         {
           "Q": "What planet is closest to the Sun?",
-          "A": ["Mercury"]
+          "A": ["Mercury"],
+          "hasRepAnswer": true
         },
         {
           "Q": "What blue planet is the farthest from the Sun?",
-          "A": ["Neptune"]
+          "A": ["Neptune"],
+          "hasRepAnswer": true
         },
         {
           "Q": "What invisible force pulls you down and keeps planets orbiting the Sun?",
@@ -68,11 +76,13 @@
       "Hard": [
         {
           "Q": "What is the giant storm on Jupiter called the Great Red ___?",
-          "A": ["Spot"]
+          "A": ["Spot"],
+          "hasRepAnswer": true
         },
         {
           "Q": "What is the name of the galaxy we live in?",
-          "A": ["Milky Way"]
+          "A": ["Milky Way"],
+          "hasRepAnswer": true
         },
         {
           "Q": "What tool do scientists use to see faraway planets and stars?",
@@ -84,7 +94,8 @@
         },
         {
           "Q": "What is the name of the largest volcano in our solar system, found on Mars?",
-          "A": ["Olympus"]
+          "A": ["Olympus"],
+          "hasRepAnswer": true
         }
       ]
     }

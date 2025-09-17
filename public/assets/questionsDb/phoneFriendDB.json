@@ -12,7 +12,8 @@
         },
         {
           "Q": "What feature reads the screen out loud to you?",
-          "A": ["VoiceOver", "Voice Over"]
+          "A": ["VoiceOver", "Voice Over"],
+          "hasRepAnswer": true
         },
         { "Q": "What is the name of Apple's voice assistant?", "A": ["Siri"] },
         {
@@ -65,7 +66,8 @@
       "Hard": [
         {
           "Q": "What is the name of the screen reader feature on Android phones?",
-          "A": ["TalkBack", "Talk Back"]
+          "A": ["TalkBack", "Talk Back"],
+          "hasRepAnswer": true
         },
         {
           "Q": "What part of the screen reader lets you change settings like 'words' or 'characters'?",
