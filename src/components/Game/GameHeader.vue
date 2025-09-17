@@ -51,77 +51,13 @@
         />
 
         <!-- Show feedback & answer once final transcription is ready & validated -->
-        <div
+        <AnswerCaptions
           v-if="isAnswerPlaying"
-          aria-hidden="true"
-          class="flex flex-col items-center justify-center gap-y-5 w-full"
-        >
-          <div
-            class="flex flex-col md:flex-row items-center w-full md:items-stretch rounded-[16px] shadow-md"
-          >
-            <div
-              :class="[
-                feedbackClasses,
-                isCorrect
-                  ? 'bg-green-100 text-green-700'
-                  : 'bg-red-100 text-red-800',
-              ]"
-            >
-              <span v-if="isCorrect">
-                <img
-                  aria-hidden="true"
-                  src="/assets/gameImages/correct.png"
-                  class="h-[25px] md:h-[35px]"
-                />
-              </span>
-              <span v-else>
-                <img
-                  aria-hidden="true"
-                  src="/assets/gameImages/wrong.png"
-                  class="h-[25px] md:h-[35px]"
-                />
-              </span>
-            </div>
-            <div
-              class="relative w-full md:w-3/4 p-2 flex flex-col items-center justify-center"
-            >
-              <!-- Decorative transparent background for answer legibility -->
-              <div
-                aria-hidden="true"
-                :class="[
-                  transparentBgClasses,
-                  'rounded-b-[16px] md:rounded-l-[0px] md:rounded-r-[16px]',
-                ]"
-              ></div>
-              <div
-                class="relative flex flex-col gap-y-2 z-10 text-[15.5px] md:text-[16px] 2xl:text-[20px]"
-              >
-                <p
-                  :class="[
-                    'font-semibold',
-                    isCorrect ? 'text-green-700' : 'text-red-800',
-                  ]"
-                >
-                  {{ isCorrect ? 'Correct!' : 'Incorrect!' }}
-                </p>
-                <p>
-                  <span class="font-semibold"> Answer: </span>
-                  <!-- 1. Check special case: 'Car Counting' 
-                    - Game passes 'getCurrentAnswer()' return value as 'currentQuestion' prop 
-                  -->
-                  <!-- 2. Check if game accepts answers with synonyms or numbers -->
-                  {{
-                    title == 'Car Counting' // Check #1
-                      ? currentQuestion
-                      : firstMatchingAnswer !== '' // Check #2
-                        ? firstMatchingAnswer
-                        : currentQuestion['A'][0]
-                  }}
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
+          :title="title"
+          :currentQuestion="currentQuestion"
+          :isCorrect="isCorrect"
+          :firstMatchingAnswer="firstMatchingAnswer"
+        />
       </div>
       <p v-else class="mobile:text-[16px] text-[18px] 2xl:text-[20px]">
         {{ description }}
@@ -133,14 +69,11 @@
 <script setup>
 /* --- IMPORTS --- */
 
-import {
-  gameHeaderClasses,
-  feedbackClasses,
-  transparentBgClasses,
-} from './GameHeaderConstants.js';
+import { gameHeaderClasses } from './GameHeaderConstants.js';
 
 import GameProgressBar from './GameProgressBar.vue';
 import QuestionCaptions from './QuestionCaptions.vue';
+import AnswerCaptions from './AnswerCaptions.vue';
 
 /* --- PROPS --- */
 
