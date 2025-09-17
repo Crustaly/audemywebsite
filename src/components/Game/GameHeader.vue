@@ -1,29 +1,10 @@
 <template>
   <div :class="gameHeaderClasses">
     <!-- Decorative Question Progress Bar -->
-    <div
-      v-if="showCaptions"
-      aria-hidden="true"
-      class="flex flex-col items-center gap-y-3 w-full mb-3"
-    >
-      <div class="text-[14px] md:text-[15px] 2xl:text-[18px]">
-        <div class="flex gap-x-2">
-          <span class="hidden md:inline-block">Question</span>
-          <span class="inline-block md:hidden">Q</span>
-          <p class="inline-block mr-3">{{ currentQuestionIndex + 1 }} of 5</p>
-        </div>
-      </div>
-      <div class="flex w-full gap-x-3">
-        <div
-          v-for="n in 5"
-          :key="n"
-          class="w-1/5 h-[8px] rounded-[16px] border"
-          :class="[
-            n <= currentQuestionIndex + 1 ? 'bg-primary-color' : 'bg-[#edf7fc]',
-          ]"
-        ></div>
-      </div>
-    </div>
+    <GameProgressBar
+      :showCaptions="showCaptions"
+      :currentQuestionIndex="currentQuestionIndex"
+    />
     <div class="my-3">
       <!-- Icon RWD: 
         - Switch to bottom-left (mobile + small screens only)
@@ -210,6 +191,8 @@ import {
   multipleChoiceGames,
   multiPartsGames,
 } from './GameHeaderConstants.js';
+
+import GameProgressBar from './GameProgressBar.vue';
 
 /* --- PROPS --- */
 
