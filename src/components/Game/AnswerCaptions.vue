@@ -6,6 +6,9 @@
  */
 
 /* --- IMPORTS --- */
+
+import { computed } from 'vue';
+
 import {
   feedbackClasses,
   transparentBgClasses,
@@ -42,6 +45,24 @@ const props = defineProps({
     required: false,
     default: '',
   },
+});
+
+/* --- COMPUTED PROPERTIES --- */
+
+// Compute final answer captions
+const captionText = computed(() => {
+  if (props.title === 'Car Counting') {
+    // 1. Check special case: 'Car Counting'
+    // - Game passes 'getCurrentAnswer()' return value as 'currentQuestion' prop
+    return props.currentQuestion;
+  } else if (props.firstMatchingAnswer !== '') {
+    // 2. Check if game accepts answers with synonyms or numbers
+    // - Align answer UI captions with transcript
+    return props.firstMatchingAnswer;
+  } else {
+    // 3. Default: First answer choice
+    return props.currentQuestion['A'][0];
+  }
 });
 </script>
 
@@ -98,17 +119,7 @@ const props = defineProps({
           </p>
           <p>
             <span class="font-semibold"> Answer: </span>
-            <!-- 1. Check special case: 'Car Counting' 
-                    - Game passes 'getCurrentAnswer()' return value as 'currentQuestion' prop 
-                  -->
-            <!-- 2. Check if game accepts answers with synonyms or numbers -->
-            {{
-              title == 'Car Counting' // Check #1
-                ? currentQuestion
-                : firstMatchingAnswer !== '' // Check #2
-                  ? firstMatchingAnswer
-                  : currentQuestion['A'][0]
-            }}
+            {{ captionText }}
           </p>
         </div>
       </div>
