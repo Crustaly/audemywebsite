@@ -21,23 +21,28 @@
       "Medium": [
         {
           "Q": "Which U.S. president is on the front of the quarter?",
-          "A": ["George Washington", "Washington", "George"]
+          "A": ["George Washington", "Washington", "George"],
+          "hasRepAnswer": true
         },
         {
           "Q": "Which U.S. president is on the front of the penny?",
-          "A": ["Abraham Lincoln", "Lincoln", "Abraham"]
+          "A": ["Abraham Lincoln", "Lincoln", "Abraham"],
+          "hasRepAnswer": true
         },
         {
           "Q": "Which U.S. president is on the front of the nickel?",
-          "A": ["Thomas Jefferson", "Jefferson", "Thomas"]
+          "A": ["Thomas Jefferson", "Jefferson", "Thomas"],
+          "hasRepAnswer": true
         },
         {
           "Q": "Which U.S. president is on the front of the dime?",
-          "A": ["Franklin Roosevelt", "Roosevelt", "Franklin"]
+          "A": ["Franklin Roosevelt", "Roosevelt", "Franklin"],
+          "hasRepAnswer": true
         },
         {
           "Q": "What building is shown on the back of a U.S. penny?",
-          "A": ["Lincoln Memorial", "Memorial"]
+          "A": ["Lincoln Memorial", "Memorial"],
+          "hasRepAnswer": true
         },
         { "Q": "What material are most U.S. coins made of?", "A": ["Metal"] },
         {
@@ -62,31 +67,38 @@
         },
         {
           "Q": "Which U.S. president is the face of the one-dollar bill?",
-          "A": ["George Washington", "Washington", "George"]
+          "A": ["George Washington", "Washington", "George"],
+          "hasRepAnswer": true
         },
         {
           "Q": "Which U.S. president is the face of the two-dollar bill?",
-          "A": ["Thomas Jefferson", "Jefferson", "Thomas"]
+          "A": ["Thomas Jefferson", "Jefferson", "Thomas"],
+          "hasRepAnswer": true
         },
         {
           "Q": "Which U.S. president is the face of the five-dollar bill?",
-          "A": ["Abraham Lincoln", "Lincoln", "Abraham"]
+          "A": ["Abraham Lincoln", "Lincoln", "Abraham"],
+          "hasRepAnswer": true
         },
         {
           "Q": "Which U.S. president is the face of the ten-dollar bill?",
-          "A": ["Alexander Hamilton", "Hamilton", "Alexander"]
+          "A": ["Alexander Hamilton", "Hamilton", "Alexander"],
+          "hasRepAnswer": true
         },
         {
           "Q": "Which U.S. president is the face of the twenty-dollar bill?",
-          "A": ["Andrew Jackson", "Jackson", "Andrew"]
+          "A": ["Andrew Jackson", "Jackson", "Andrew"],
+          "hasRepAnswer": true
         },
         {
           "Q": "What U.S. president is the face of the fifty-dollar bill?",
-          "A": ["Ulysses Grant", "Grant", "Ulysses"]
+          "A": ["Ulysses Grant", "Grant", "Ulysses"],
+          "hasRepAnswer": true
         },
         {
           "Q": "What U.S. president is the face of the hundred-dollar bill?",
-          "A": ["Benjamin Franklin", "Franklin", "Benjamin"]
+          "A": ["Benjamin Franklin", "Franklin", "Benjamin"],
+          "hasRepAnswer": true
         },
         {
           "Q": "What building is on the back of the nickel?",
@@ -97,10 +109,12 @@
           "A": [
             "Torch with branches",
             "Torch and branches",
+            "Branches with torch",
+            "Branches and torch",
             "Torch",
-            "Branch",
             "Branches"
-          ]
+          ],
+          "hasRepAnswer": true
         }
       ]
     }
