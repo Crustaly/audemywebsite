@@ -77,7 +77,7 @@ import AnswerCaptions from './AnswerCaptions.vue';
 
 /* --- PROPS --- */
 
-defineProps({
+const props = defineProps({
   iconSrc: {
     type: String,
     required: true,

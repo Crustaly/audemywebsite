@@ -7,7 +7,7 @@
 
 /* --- PROPS --- */
 
-defineProps({
+const props = defineProps({
   /* showCaptions: Flag to control visibility of Qns, feedback, & answers
     - Set to 'true' if all 3 conditions met: 
     - 1. Game is playing, 
