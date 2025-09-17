@@ -1,8 +1,9 @@
 /*
  * GameHeaderConstants.js:
  *
- * - Extracted / shared UI classes & game title constants for <GameHeader/>
- * - Improves <GameHeader/> script readability & maintainability
+ * - Extracted, shared UI classes & game title constants for <GameHeader/> components
+ * - Improves script readability & maintainability for: 
+ *  - <GameHeader/>, <QuestionCaptions/>, & <AnswerCaptions/>
  */
 
 /* --- EXTRACTED RWD & STYLE CLASSES --- */
