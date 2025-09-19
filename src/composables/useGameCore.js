@@ -24,6 +24,7 @@ export function useGameCore(gameConfig) {
   const playButton = ref(false);
   const isIntroPlaying = ref(false);
   const isButtonCooldown = ref(false);
+  const hasStartedFirstQuestion = ref(false);
 
   const gameQuestions = useGameQuestions(gameConfig);
 
@@ -35,6 +36,17 @@ export function useGameCore(gameConfig) {
   };
 
   const gameUI = useGameUI(gameState);
+
+  const numOfAudiosPlayed = computed(() => {
+    if (
+      (gameUI.isTablet.value || gameUI.isMobile.value) &&
+      hasStartedFirstQuestion.value &&
+      gameQuestions.currentQuestionIndex.value === 0
+    ) {
+      return 1;
+    }
+    return gameQuestions.currentQuestionIndex.value;
+  });
 
   const playNextQuestion = async () => {
     if (
@@ -162,7 +174,7 @@ export function useGameCore(gameConfig) {
 
   const startFirstQuestion = () => {
     console.log('Starting first question...');
-    gameQuestions.moveToNextQuestion();
+    hasStartedFirstQuestion.value = true;
     playNextQuestion();
   };
 
@@ -239,7 +251,7 @@ export function useGameCore(gameConfig) {
   });
 
   return {
-    numOfAudiosPlayed: gameQuestions.currentQuestionIndex,
+    numOfAudiosPlayed,
     score,
     isRecording,
     isFinalResult,
