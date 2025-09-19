@@ -20,62 +20,56 @@ const openImageInNewTab = (imageSrc, imageName) => {
   </div>
 
   <div
-    class="relative flex flex-col items-start justify-center mobile:justify-center w-full h-[10%] mt-[2rem] px-[8rem] mb-16 tablet:mb-[265px] mobile:mb-[129px]"
+    class="font-poppins relative flex flex-col items-start justify-center w-full px-10 my-16"
   >
     <!-- HEADER -->
-    <div class="max-w-[519px]">
-      <h2
-        class="text-left font-poppins text-4.5xl tablet:text-[32px] mobile:text-[24px] mobile:text-center font-[400] mobile:ml-0"
-      >
-        Troubleshooting Page
-      </h2>
+    <div class="w-full">
+      <h2 class="page-header">Troubleshooting Page</h2>
     </div>
 
     <!-- QUESTIONS -->
-    <div
-      class="flex flex-col w-full items-start justify-start mt-3 tablet:mb-[265px] mobile:mb-[129px]"
-    >
+    <div class="flex flex-col w-full items-start justify-start my-3">
       <!-- Loop through issues dynamically -->
       <div
         v-for="(issue, index) in troubleshootingData.issues"
         :key="index"
-        class="w-full mb-6 mt-2 p-10 border-8 rounded-lg"
+        class="w-full md:w-[80%] mx-auto my-5 p-5 shadow-md rounded-lg bg-cross-lines"
       >
         <h3
-          class="text-3xl font-semibold mb-4 text-[#087BB4] flex items-center gap-2"
+          class="p-3 text-[28px] md:text-[32px] font-semibold my-12 text-primary-color flex flex-col md:flex-row justify-center items-center text-center gap-5"
         >
           <img
             src="/assets/images/troubleshooting/alert.png"
-            alt="Icon"
+            aria-hidden="true"
             class="w-6 h-6"
           />
-          {{ issue.name }}
+          <p class="p-3 border-b-2 border-primary-color">{{ issue.name }}</p>
         </h3>
 
         <!-- Loop through the body items (titles, text, and images) -->
-        <div v-for="(item, idx) in issue.body" :key="idx">
+        <div v-for="(item, idx) in issue.body" :key="idx" class="my-10 px-2">
           <!-- Title -->
           <h4
             v-if="item.type === 'title'"
-            class="text-2xl font-semibold mt-8 mb-2"
+            class="text-[18px] md:text-[20px] font-semibold my-5 text-center"
           >
-            {{ item.content }}
+            <p>{{ item.content }}</p>
           </h4>
 
           <!-- Text -->
           <p
             v-if="item.type === 'text'"
-            class="text-body text-lg font-poppins leading-8 mb-4"
-          >
-            {{ item.content }}
-          </p>
+            v-html="item.content"
+            class="page-text flex flex-col text-center"
+          ></p>
 
           <!-- Image -->
           <img
             v-if="item.type === 'image'"
             :src="item.path"
             :alt="item.caption"
-            class="w-[504px] mb-4"
+            class="w-[504px] my-5 mx-auto hover:cursor-pointer"
+            title="Open image in new tab"
             @click="openImageInNewTab(item.path, item.caption)"
           />
         </div>
