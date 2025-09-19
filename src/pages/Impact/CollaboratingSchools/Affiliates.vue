@@ -219,7 +219,7 @@ const teachers = [
         currentPage == 1 ? activeTabClasses : inactiveTabClasses,
       ]"
     >
-      Affiliated Organizations
+      Associated Organizations
     </button>
   </div>
 
