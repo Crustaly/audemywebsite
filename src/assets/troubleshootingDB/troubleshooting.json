@@ -1,6 +1,7 @@
 {
   "issues": [
     {
+      "iconPath": "/assets/images/techShowcase/microphone.png",
       "name": "Microphone is not working",
       "body": [
         {

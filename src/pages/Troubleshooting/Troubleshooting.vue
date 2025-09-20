@@ -13,7 +13,7 @@ const openImageInNewTab = (imageSrc, imageName) => {
       <img src="${imageSrc}" style="width:80%; height:auto; margin:3%;"/>
     </div>
   `;
-  newTab.document.title = `${imageName}`;
+  newTab.document.title = `Audemy | Troubleshooting`;
 };
 
 // Shared RWD image classes
@@ -49,70 +49,85 @@ const imageClasses = [
       <div
         v-for="(issue, index) in troubleshootingData.issues"
         :key="index"
-        class="w-[80%] mx-auto my-5 p-5 md:p-16 shadow-md rounded-lg bg-cross-lines"
+        class="relative z-0 w-[80%] mx-auto my-5 shadow-md p-12 rounded-lg bg-cross-lines overflow-hidden"
       >
-        <h3
-          class="text-[28px] md:text-[32px] font-semibold text-primary-color flex flex-col md:flex-row justify-center lg:justify-start items-center gap-5"
+        <!-- Hide decorative SVG wave -->
+        <svg
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1440 320"
+          class="absolute -z-10 left-0 top-0 scale-y-[-1] h-[300px]"
         >
-          <img
-            src="/assets/images/troubleshooting/alert.png"
-            aria-hidden="true"
-            class="w-6 h-6"
-          />
-          <p>{{ issue.name }}</p>
-        </h3>
-
-        <!-- Loop through the body items (titles, text, and images) -->
-        <div v-for="(item, idx) in issue.body" :key="idx" class="my-10 px-2">
-          <!-- Title -->
-          <h4
-            v-if="item.type === 'title'"
-            class="text-primary-color text-[18px] sm:text-[20px] md:text-[22px] font-semibold my-5"
+          <path
+            fill="#e7f0f5"
+            fill-opacity="1"
+            d="M0,96L48,112C96,128,192,160,288,165.3C384,171,480,149,576,165.3C672,181,768,235,864,229.3C960,224,1056,160,1152,138.7C1248,117,1344,139,1392,149.3L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+          ></path>
+        </svg>
+        <div class="lg:p-10 w-full">
+          <h3
+            class="text-[28px] md:text-[32px] font-semibold text-primary-color flex flex-col md:flex-row justify-center lg:justify-start items-center gap-5"
           >
-            <p>{{ item.content }}</p>
-          </h4>
+            <img
+              aria-hidden="true"
+              :src="issue.iconPath"
+              class="w-[40px] h-auto"
+            />
+            <p>{{ issue.name }}</p>
+          </h3>
 
-          <!-- Text -->
-          <p
-            v-if="item.type === 'text'"
-            v-html="item.content"
-            :class="[
-              'page-text flex flex-col',
-              item.subtype === 'subheader'
-                ? 'border-b-2 p-3 border-primary-color font-semibold page-subheader'
-                : '',
-            ]"
-          ></p>
+          <!-- Loop through the body items (titles, text, and images) -->
+          <div v-for="(item, idx) in issue.body" :key="idx" class="my-10 px-2">
+            <!-- Title -->
+            <h4
+              v-if="item.type === 'title'"
+              class="text-primary-color text-[18px] sm:text-[20px] md:text-[22px] font-semibold my-5"
+            >
+              <p>{{ item.content }}</p>
+            </h4>
 
-          <!-- Mobile to Medium Screens: Display Cropped Image -->
-          <img
-            v-if="item.type === 'image'"
-            :src="item.prefix + 'mobile' + item.suffix"
-            :alt="item.caption"
-            :class="[imageClasses, 'block lg:hidden']"
-            title="Open image in new tab"
-            @click="
-              openImageInNewTab(
-                item.prefix + 'mobile' + item.suffix,
-                item.caption
-              )
-            "
-          />
+            <!-- Text -->
+            <p
+              v-if="item.type === 'text'"
+              v-html="item.content"
+              :class="[
+                'page-text flex flex-col',
+                item.subtype === 'subheader'
+                  ? 'border-b-2 p-3 border-primary-color font-semibold page-subheader'
+                  : '',
+              ]"
+            ></p>
 
-          <!-- Large+ Screens: Display Full Image -->
-          <img
-            v-if="item.type === 'image'"
-            :src="item.prefix + 'full' + item.suffix"
-            :alt="item.caption"
-            :class="[imageClasses, 'hidden lg:block']"
-            title="Open image in new tab"
-            @click="
-              openImageInNewTab(
-                item.prefix + 'full' + item.suffix,
-                item.caption
-              )
-            "
-          />
+            <!-- Mobile to Medium Screens: Display Cropped Image -->
+            <img
+              v-if="item.type === 'image'"
+              :src="item.prefix + 'mobile' + item.suffix"
+              :alt="item.caption"
+              :class="[imageClasses, 'block lg:hidden']"
+              title="Open image in new tab"
+              @click="
+                openImageInNewTab(
+                  item.prefix + 'mobile' + item.suffix,
+                  item.caption
+                )
+              "
+            />
+
+            <!-- Large+ Screens: Display Full Image -->
+            <img
+              v-if="item.type === 'image'"
+              :src="item.prefix + 'full' + item.suffix"
+              :alt="item.caption"
+              :class="[imageClasses, 'hidden lg:block']"
+              title="Open image in new tab"
+              @click="
+                openImageInNewTab(
+                  item.prefix + 'full' + item.suffix,
+                  item.caption
+                )
+              "
+            />
+          </div>
         </div>
       </div>
     </div>
