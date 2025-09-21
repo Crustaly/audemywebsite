@@ -25,9 +25,30 @@ const getImagePath = (prefix, suffix) => {
 
 const openImageInNewTab = (imageSrc, imageName) => {
   const newTab = window.open();
+
+  const imageWidth = imageSrc.includes('mobile')
+    ? '50%' // Mobile & small
+    : imageSrc.includes('medium')
+      ? '60%' // Medium only
+      : '80%'; // Large+ screens
+
+  // Audemy Favicon
+  newTab.document.head.innerHTML = `
+    <link 
+      rel="icon" 
+      href="/assets/images/audemyelements/logo.png" 
+      type="image/png"
+    >
+  `;
+
   newTab.document.body.innerHTML = `
     <div 
-      style="text-align:center; font-family:sans-serif; font-weight:normal;"
+      style="
+        text-align:center; 
+        font-family:sans-serif; 
+        font-weight:normal; 
+        font-size:15px;
+      "
     >
       <h1 
         style="margin:2%;"
@@ -36,16 +57,32 @@ const openImageInNewTab = (imageSrc, imageName) => {
       </h1>
       <img 
         src="${imageSrc}" 
-        style="width:80%; height:auto; margin:3%;"
+        style="width:${imageWidth}; height:auto; margin:auto;"
       />
     </div>
   `;
   newTab.document.title = `Audemy | Troubleshooting`;
 };
 
-// Shared RWD image classes
+// RWD Issues Header + Icon Classes
+const IssuesHeaderClasses = [
+  'text-[28px]',
+  'md:text-[32px]',
+  'font-semibold',
+  'text-primary-color',
+  'flex',
+  'flex-col',
+  'md:flex-row',
+  'justify-center',
+  'items-center',
+  'lg:justify-start',
+  'gap-5',
+];
+
+// RWD image classes
 const imageClasses = [
-  'w-[80%]',
+  'w-full', // Mobile & Small screens
+  'md:w-[80%]', // Large+ screens
   'my-5',
   'mx-auto',
   'hover:cursor-pointer',
@@ -92,9 +129,8 @@ const imageClasses = [
           ></path>
         </svg>
         <div class="lg:p-10 w-full">
-          <h3
-            class="text-[28px] md:text-[32px] font-semibold text-primary-color flex flex-col md:flex-row justify-center lg:justify-start items-center gap-5"
-          >
+          <!-- Issues Header + Icon -->
+          <h3 :class="IssuesHeaderClasses">
             <img
               aria-hidden="true"
               :src="issue.iconPath"
@@ -104,7 +140,11 @@ const imageClasses = [
           </h3>
 
           <!-- Loop through the body items (titles, text, and images) -->
-          <div v-for="(item, idx) in issue.body" :key="idx" class="my-10 px-2">
+          <div
+            v-for="(item, idx) in issue.body"
+            :key="idx"
+            class="my-10 md:px-2"
+          >
             <!-- Title -->
             <h4
               v-if="item.type === 'title'"
