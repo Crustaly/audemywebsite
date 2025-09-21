@@ -98,16 +98,31 @@ const imageClasses = [
               ]"
             ></p>
 
-            <!-- Mobile to Medium Screens: Display Cropped Image -->
+            <!-- Mobile & Small Screens: Display Cropped Image -->
             <img
               v-if="item.type === 'image'"
               :src="item.prefix + 'mobile' + item.suffix"
               :alt="item.caption"
-              :class="[imageClasses, 'block lg:hidden']"
+              :class="[imageClasses, 'block md:hidden']"
               title="Open image in new tab"
               @click="
                 openImageInNewTab(
                   item.prefix + 'mobile' + item.suffix,
+                  item.caption
+                )
+              "
+            />
+
+            <!-- Medium Only: Display Medium Image -->
+            <img
+              v-if="item.type === 'image'"
+              :src="item.prefix + 'medium' + item.suffix"
+              :alt="item.caption"
+              :class="[imageClasses, 'hidden md:block lg:hidden']"
+              title="Open image in new tab"
+              @click="
+                openImageInNewTab(
+                  item.prefix + 'medium' + item.suffix,
                   item.caption
                 )
               "
