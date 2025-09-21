@@ -3,14 +3,41 @@
 import ScrollUpButton from '../../components/ScrollUpButton/ScrollUpButton.vue';
 import Header from '../../components/Header/Header.vue';
 import Footer from '../../components/Footer/Footer.vue';
+
 import troubleshootingData from '../../assets/troubleshootingDB/troubleshooting.json';
+
+import { useDeviceDetection } from '../../composables/useDeviceDetection';
+const { isTablet, isMobile, isDesktop } = useDeviceDetection();
+
+// getImagePath(): Dynamically generate RWD image path
+const getImagePath = (prefix, suffix) => {
+  let imageSize = 'full'; // Default
+  if (isMobile.value) {
+    imageSize = 'mobile';
+  } else if (isTablet.value) {
+    imageSize = 'medium';
+  } else if (isDesktop.value) {
+    imageSize = 'full';
+  }
+  // Concatenate image path
+  return `${prefix}${imageSize}${suffix}`;
+};
 
 const openImageInNewTab = (imageSrc, imageName) => {
   const newTab = window.open();
   newTab.document.body.innerHTML = `
-    <div style="text-align:center; font-family:sans-serif; font-weight:normal;">
-      <h1 style="margin:2%;">${imageName}</h1>
-      <img src="${imageSrc}" style="width:80%; height:auto; margin:3%;"/>
+    <div 
+      style="text-align:center; font-family:sans-serif; font-weight:normal;"
+    >
+      <h1 
+        style="margin:2%;"
+      >
+        ${imageName}
+      </h1>
+      <img 
+        src="${imageSrc}" 
+        style="width:80%; height:auto; margin:3%;"
+      />
     </div>
   `;
   newTab.document.title = `Audemy | Troubleshooting`;
@@ -93,51 +120,25 @@ const imageClasses = [
               :class="[
                 'page-text flex flex-col',
                 item.subtype === 'subheader'
-                  ? 'border-b-2 p-3 border-primary-color font-semibold page-subheader'
+                  ? 'border-b-2 p-3 border-primary-color page-subheader'
                   : '',
               ]"
             ></p>
 
-            <!-- Mobile & Small Screens: Display Cropped Image -->
+            <!-- Dynamic Image RWD: 
+              - Mobile & Small Screens: Cropped Image
+              - Medium Only: Slightly-cropped
+              - Large+: Full-width
+            -->
             <img
               v-if="item.type === 'image'"
-              :src="item.prefix + 'mobile' + item.suffix"
+              :src="getImagePath(item.prefix, item.suffix)"
               :alt="item.caption"
-              :class="[imageClasses, 'block md:hidden']"
+              :class="imageClasses"
               title="Open image in new tab"
               @click="
                 openImageInNewTab(
-                  item.prefix + 'mobile' + item.suffix,
-                  item.caption
-                )
-              "
-            />
-
-            <!-- Medium Only: Display Medium Image -->
-            <img
-              v-if="item.type === 'image'"
-              :src="item.prefix + 'medium' + item.suffix"
-              :alt="item.caption"
-              :class="[imageClasses, 'hidden md:block lg:hidden']"
-              title="Open image in new tab"
-              @click="
-                openImageInNewTab(
-                  item.prefix + 'medium' + item.suffix,
-                  item.caption
-                )
-              "
-            />
-
-            <!-- Large+ Screens: Display Full Image -->
-            <img
-              v-if="item.type === 'image'"
-              :src="item.prefix + 'full' + item.suffix"
-              :alt="item.caption"
-              :class="[imageClasses, 'hidden lg:block']"
-              title="Open image in new tab"
-              @click="
-                openImageInNewTab(
-                  item.prefix + 'full' + item.suffix,
+                  getImagePath(item.prefix, item.suffix),
                   item.caption
                 )
               "
