@@ -42,15 +42,23 @@ export function useGameQuestions(gameConfig) {
   const validateAnswer = (finalTranscript, question) => {
     const cleanedInput = finalTranscript.trim().toLowerCase();
 
-    let foundMatch = ''; // 1st matching answer in transcript; used to align captions
-    let isCorrect = false; // Default
+    let foundMatch = ''; // 1st match in transcript
+
+    // matchingIndex: Maps 'foundMatch' in original answers
+    let matchingIndex = -1;
+
+    // firstMatchingAnswer: Answer choice at 'matchingIndex'
+    // - Preserves capitalization for <AnswerCaptions/> (ex: proper nouns)
+    let firstMatchingAnswer = '';
+
+    let isCorrect = false;
 
     // 1. Check if game needs "spelling" validation
     if (gameConfig.validationType === 'spelling') {
       isCorrect = question['A'].some((answer) =>
         cleanedInput.includes(answer.toLowerCase())
       );
-      return [isCorrect, foundMatch];
+      return [isCorrect, firstMatchingAnswer];
     }
 
     // 2. Default: Assume answer list does not contain whitespace
@@ -63,7 +71,8 @@ export function useGameQuestions(gameConfig) {
     const userWords = cleanedInput.replace(/[.,!?]/g, '').split(/\s+/);
     foundMatch = userWords.find((word) => correctAnswers.includes(word));
 
-    // 3. Finally: Check if answer list includes whitespace or phrase (2+ words)
+    // 3. Check if answer list includes whitespace or phrase (2+ words)
+    // (Skip below if-block if 'foundMatch' exists)
     if (foundMatch === undefined) {
       const whitespaceAnswers = correctAnswers.filter((answer) =>
         answer.includes(' ')
@@ -77,12 +86,17 @@ export function useGameQuestions(gameConfig) {
       }
     }
 
-    // NOTE: find() returns undefined if no matching answer
-    if (foundMatch === undefined) {
-      foundMatch = ''; // Set to empty string
+    // 4. Map 'foundMatch' to original answers
+    // to preserve capitalization (proper nouns)
+    if (foundMatch !== undefined) {
+      matchingIndex = correctAnswers.findIndex(
+        (answerChoice) => answerChoice === foundMatch
+      );
+      firstMatchingAnswer = question['A'][matchingIndex];
     }
-    isCorrect = foundMatch !== '';
-    return [isCorrect, foundMatch];
+
+    isCorrect = matchingIndex !== -1; // findIndex() returns -1 if match DNE
+    return [isCorrect, firstMatchingAnswer];
   };
 
   const hasMoreQuestions = () => {
