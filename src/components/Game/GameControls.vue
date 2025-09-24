@@ -169,10 +169,7 @@ const props = defineProps({
 });
 
 const showControls = computed(() => {
-  return (
-    !(props.isTablet || props.isMobile) ||
-    (!props.isIntroPlaying && props.numOfAudiosPlayed > 0)
-  );
+  return !props.isIntroPlaying && props.numOfAudiosPlayed > 0;
 });
 
 const emits = defineEmits(['record-click', 'repeat-click']);

@@ -10,7 +10,7 @@
         <div class="flex gap-x-2">
           <span class="hidden md:inline-block">Question</span>
           <span class="inline-block md:hidden">Q</span>
-          <p class="inline-block mr-3">{{ numOfAudiosPlayed + 1 }} of 5</p>
+          <p class="inline-block mr-3">{{ currentQuestionIndex + 1 }} of 5</p>
         </div>
       </div>
       <div class="flex w-full gap-x-3">
@@ -19,7 +19,7 @@
           :key="n"
           class="w-1/5 h-[8px] rounded-[16px] border"
           :class="[
-            n <= numOfAudiosPlayed + 1 ? 'bg-primary-color' : 'bg-[#edf7fc]',
+            n <= currentQuestionIndex + 1 ? 'bg-primary-color' : 'bg-[#edf7fc]',
           ]"
         ></div>
       </div>
@@ -310,11 +310,11 @@ defineProps({
     required: false,
     default: null,
   },
-  /* numOfAudiosPlayed: Index for current question */
-  numOfAudiosPlayed: {
+  /* currentQuestionIndex: Index for current question */
+  currentQuestionIndex: {
     type: Number,
     required: false,
-    default: 1,
+    default: 0,
   },
   /* isAnswerPlaying (flag): 
   - True: If feedback audio is playing for current question 
