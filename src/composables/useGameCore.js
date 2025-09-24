@@ -54,7 +54,6 @@ export function useGameCore(gameConfig) {
 
   const numOfAudiosPlayed = computed(() => {
     if (
-      (gameUI.isTablet.value || gameUI.isMobile.value) &&
       hasStartedFirstQuestion.value &&
       gameQuestions.currentQuestionIndex.value === 0
     ) {
@@ -195,6 +194,9 @@ export function useGameCore(gameConfig) {
   const startFirstQuestion = () => {
     console.log('Starting first question...');
     hasStartedFirstQuestion.value = true;
+
+    // Remain at index 0
+    // since toggleRecording() calls moveToNextQuestion()
     playNextQuestion();
   };
 
@@ -238,9 +240,6 @@ export function useGameCore(gameConfig) {
             }
 
             isIntroPlaying.value = false;
-            if (gameUI.isDesktop.value) {
-              playNextQuestion();
-            }
           };
         } else {
           // Start the background music
@@ -253,9 +252,6 @@ export function useGameCore(gameConfig) {
           // Stop music after TTS intro
           stopMusic();
           isIntroPlaying.value = false;
-          if (gameUI.isDesktop.value) {
-            playNextQuestion();
-          }
         }
       }
     });
@@ -272,6 +268,7 @@ export function useGameCore(gameConfig) {
 
   return {
     numOfAudiosPlayed,
+    currentQuestionIndex: gameQuestions.currentQuestionIndex,
     score,
     isRecording,
     isFinalResult,
