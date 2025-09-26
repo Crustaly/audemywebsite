@@ -13,8 +13,13 @@
         :title="gameConfig.title"
         :description="gameConfig.description"
         :isMobile="isMobile"
-        :showCaptions="playButton && !isIntroPlaying && numOfAudiosPlayed < 5"
-        :numOfAudiosPlayed="numOfAudiosPlayed"
+        :showCaptions="
+          playButton &&
+          !isIntroPlaying &&
+          numOfAudiosPlayed > 0 &&
+          numOfAudiosPlayed < 5
+        "
+        :currentQuestionIndex="currentQuestionIndex"
         :currentQuestion="getCurrentAnswer()"
         :isAnswerPlaying="isAnswerPlaying"
         :isCorrect="isCorrect"
@@ -24,22 +29,18 @@
       <PlayButton v-if="playButton === false" @play-click="playButton = true" />
 
       <div
-        v-else-if="hasQuestionsRemaining && playButton === true"
+        v-else-if="numOfAudiosPlayed < 5 && playButton === true"
         class="flex flex-col p-4 justify-center"
         id="content"
       >
         <StartQuestionsButton
-          v-show="
-            (isTablet || isMobile) &&
-            currentQuestionIndex === 0 &&
-            !isIntroPlaying
-          "
+          v-show="numOfAudiosPlayed === 0"
           :isIntroPlaying="isIntroPlaying"
           @start-click="startFirstQuestion"
         />
 
         <GameControls
-          v-show="!(isTablet || isMobile) || !isIntroPlaying"
+          v-show="!isIntroPlaying && numOfAudiosPlayed > 0"
           :isTablet="isTablet"
           :isMobile="isMobile"
           :isRecording="isRecording"
@@ -114,13 +115,13 @@ const {
   isGameComplete,
 } = carCounting;
 
-const numOfAudiosPlayed = currentQuestionIndex;
 const score = ref(0);
 const isRecording = ref(false);
 const isFinalResult = ref(false);
 const transcription = ref('');
 const isAnswerPlaying = ref(false);
 const isCorrect = ref(false);
+const hasStartedFirstQuestion = ref(false);
 
 // UI control states
 const playButton = ref(false);
@@ -145,6 +146,13 @@ const { goBack, handleSthNotWorkingButtonClick } = useGameNavigation(
 );
 
 // 4. Computed Properties
+const numOfAudiosPlayed = computed(() => {
+  if (hasStartedFirstQuestion.value && currentQuestionIndex.value === 0) {
+    return 1;
+  }
+  return currentQuestionIndex.value;
+});
+
 const isButtonDisabled = computed(
   () => gameUI.isButtonDisabled.value || isPlaying.value
 );
@@ -181,10 +189,6 @@ onMounted(() => {
       currentAudios.push(introAudio);
       introAudio.onended = () => {
         isIntroPlaying.value = false;
-        // Only auto-play next question on desktop
-        if (isDesktop.value) {
-          playNextQuestion();
-        }
       };
     }
   });
@@ -339,8 +343,11 @@ const repeatQuestion = () => {
  */
 const startFirstQuestion = () => {
   console.log('Starting first question...');
+  hasStartedFirstQuestion.value = true;
+
+  // Remain at current index 0
+  // since toggleRecording() calls moveToNextQuestion()
   playNextQuestion();
-  moveToNextQuestion();
 };
 
 // 8. Exposed Values
