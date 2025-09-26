@@ -16,7 +16,7 @@
         },
         {
           "Q": "What is the word for a round object used in many sports, like soccer and basketball?",
-          "A": ["ball", "bawl"]
+          "A": ["ball"]
         },
         {
           "Q": "What is the word for a big red fruit with seeds inside, often made into sauce?",
@@ -40,7 +40,7 @@
         },
         {
           "Q": "What is the word for a person who teaches in a school?",
-          "A": ["teacher", "teach her"]
+          "A": ["teacher"]
         },
         {
           "Q": "What is the word for something you wear on your feet?",
@@ -102,7 +102,7 @@
       "Medium": [
         {
           "Q": "What is the word for a place where books are kept and borrowed?",
-          "A": ["library", "lie berry"]
+          "A": ["library"]
         },
         {
           "Q": "What is the word for a person who flies an airplane?",
