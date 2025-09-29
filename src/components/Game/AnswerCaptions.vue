@@ -104,7 +104,7 @@ const captionText = computed(() => {
         </span>
       </div>
       <div
-        class="relative w-full md:w-3/4 p-2 flex flex-col items-center justify-center"
+        class="relative z-0 w-full md:w-3/4 p-2 flex flex-col items-center justify-center"
       >
         <!-- Decorative transparent background for answer legibility -->
         <div
