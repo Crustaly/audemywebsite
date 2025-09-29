@@ -57,7 +57,7 @@ export const feedbackClasses = [
 
 // Shared RWD classes for background (behind captions)
 export const transparentBgClasses = [
-  '-z-1',
+  '-z-[1]',
   'absolute',
   'top-0',
   'left-0',

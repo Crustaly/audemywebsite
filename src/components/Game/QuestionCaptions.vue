@@ -92,7 +92,7 @@ const splitMultiPartsQs = (fullQuestion) => {
     class="flex flex-col md:flex-row justify-center items-center md:items-stretch"
   >
     <div
-      class="relative text-[15.5px] md:text-[16px] 2xl:text-[20px] my-2 w-full"
+      class="relative z-0 text-[15.5px] md:text-[16px] 2xl:text-[20px] my-2 w-full"
     >
       <!-- Decorative transparent background for question legibility -->
       <div
