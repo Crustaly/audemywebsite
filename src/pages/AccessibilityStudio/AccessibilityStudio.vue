@@ -412,8 +412,8 @@ import GamesShowcase from './GamesToLife/GamesShowcase.vue';
             Accessibility Commitment
           </h3>
           <p class="game-resource-card-caption py-5">
-            We commit to following WCAG 2.1 AA guidelines and beyond — testing
-            with real players to ensure meaningful accessibility.
+            We commit to following WCAG 2.2, Level AA guidelines and beyond —
+            testing with real players to ensure meaningful accessibility.
           </p>
         </div>
         <div class="w-2/6 mobile:w-full">
