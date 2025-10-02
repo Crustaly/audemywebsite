@@ -47,19 +47,19 @@ const items = [
   },
   {
     image: 'students2.png',
-    text: 'Crystal Yang creates audio-based gaming experiences for visually impaired players.',
+    text: 'Crystal Yang creates audio-based gaming experiences for visually impaired players',
     network: 'Community Impact',
     url: 'https://communityimpact.com/houston/katy-north/nonprofit/2024/06/27/katy-isd-student-creates-audio-based-education-games-for-visually-impaired-children/',
   },
   {
     image: 'points-of-light.png',
-    text: 'Championing Accessibility in Gaming for Blind and Visually Impaired Players.',
+    text: 'Championing Accessibility in Gaming for Blind and Visually Impaired Players',
     network: 'Points of Light',
     url: 'https://www.pointsoflight.org/awards/championing-accessibility-in-education-for-blind-and-visually-impaired-students/',
   },
   {
     image: 'pbs-app.png',
-    text: 'Audemy, a gaming platform for blind and visually impaired players.',
+    text: 'Audemy, a gaming platform for blind and visually impaired players',
     network: 'PBS',
     url: 'https://www.houstonpublicmedia.org/articles/shows/hello-houston/2025/06/10/523583/hello-houston-june-10-2025/',
   },
@@ -131,7 +131,7 @@ const items = [
   },
   {
     image: 'Disabilitynewsdigest.png',
-    text: 'Crystal Yang, is transforming gaming for blind and visually impaired players through Audemy',
+    text: 'Crystal Yang is transforming gaming for blind and visually impaired players through Audemy',
     network: 'Disability Newsdigest',
     url: 'https://disabilitynewsdigest.substack.com/p/the-last-leg-promotes-disability',
   },
@@ -143,7 +143,7 @@ const items = [
   },
   {
     image: 'EV.png',
-    text: 'Crystal Yang, develops online gaming tool to help blind players',
+    text: 'Crystal Yang develops online gaming tool to help blind players',
     network: 'EV',
     url: 'https://www.elvenezolanohouston.com/estudiante-de-katy-isd-desarrolla-herramienta-online-para-ayudar-a-alumnos-ciegos/',
   },
@@ -155,19 +155,19 @@ const items = [
   },
   {
     image: 'Youth.png',
-    text: 'Crystal Yang of Audemy is addressing a real need in our gaming industry by creating fun, accessible gaming experiences.',
+    text: 'Crystal Yang of Audemy is addressing a real need in our gaming industry by creating fun, accessible gaming experiences',
     network: 'Youth Service America',
     url: 'https://ysa.org/crystalyang/',
   },
   {
     image: 'WIT.png',
-    text: '"Don’t Optimize for Perfection. Optimize for Progress." Crystal Yang',
+    text: '"Don’t Optimize for Perfection. Optimize for Progress." – Crystal Yang',
     network: 'WIT Media',
     url: 'https://www.instagram.com/reel/DMO34LeONU5/',
   },
   {
     image: 'Tech.png',
-    text: 'Crystal Yang created a gaming app that has been used by more than 7,000 blind players.',
+    text: 'Crystal Yang created a gaming app that has been used by more than 7,000 blind players',
     network: 'Tech & Learning',
     url: 'https://www.techlearning.com/how-to/using-ai-and-tech-for-accessibility-5-tips-for-educators-and-students?utm_source=facebook&utm_medium=social&utm_campaign=dhfacebook&utm_content=null',
   },
