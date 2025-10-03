@@ -28,7 +28,7 @@ import Globe from '/assets/images/impact/globe 1.svg';
       <div class="page-button-flex">
         <a
           href="/impact"
-          class="page-button blue-button w-[350px] mobile:w-[280px] mobile:h-[75px] py-3 px-16 text-center"
+          class="page-button blue-button mobile:h-auto md:w-[300px] py-3 px-4"
         >
           Explore our impact further
         </a>

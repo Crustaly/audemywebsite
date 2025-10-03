@@ -1,6 +1,7 @@
 {
   "issues": [
     {
+      "iconPath": "/assets/images/techShowcase/microphone.png",
       "name": "Microphone is not working",
       "body": [
         {
@@ -9,7 +10,7 @@
         },
         {
           "type": "text",
-          "content": "Oops! Our games don’t fully work on Safari, Firefox, or Edge just yet. For now, please switch to Google Chrome for the best experience."
+          "content": "<p class='mb-5'>Oops! Our games don’t fully work on Safari, Firefox, or Edge just yet.</p> For now, please switch to Google Chrome for the best experience."
         },
         {
           "type": "text",
@@ -21,39 +22,61 @@
         },
         {
           "type": "text",
-          "content": "Chrome likes to pick your microphone for you (how thoughtful… right?). It doesn’t ask—just grabs the default one and runs with it. Want to change it? Here’s how:"
+          "content": "<p class='mb-5'>Chrome likes to pick your microphone for you (how thoughtful… right?).</p><p class='mb-5'>It doesn’t ask—just grabs the default one and runs with it.</p> <p class='mb-5'>Want to change it? Here’s how:</p>"
         },
         {
           "type": "text",
-          "content": "1. Go to Settings > Privacy and Security > Site Settings > Microphone"
+          "content": "1. Go to: Settings",
+          "subtype": "subheader"
         },
         {
           "type": "image",
-          "path": "/assets/images/troubleshooting/01-01.png",
+          "prefix": "/assets/images/troubleshooting/",
+          "suffix": "-step-1.png",
           "caption": "Go to site settings"
         },
         {
+          "type": "text",
+          "content": "2. Go to: Privacy and Security",
+          "subtype": "subheader"
+        },
+        {
           "type": "image",
-          "path": "/assets/images/troubleshooting/01-02.png",
+          "prefix": "/assets/images/troubleshooting/",
+          "suffix": "-step-2.png",
           "caption": "Choose Privacy and security"
         },
         {
-          "type": "image",
-          "path": "/assets/images/troubleshooting/01-03.png",
-          "caption": "Click Site settings"
+          "type": "text",
+          "content": "3. Go to: Site Settings",
+          "subtype": "subheader"
         },
         {
           "type": "image",
-          "path": "/assets/images/troubleshooting/01-04.png",
+          "prefix": "/assets/images/troubleshooting/",
+          "suffix": "-step-3.png",
+          "caption": "Click Site settings"
+        },
+        {
+          "type": "text",
+          "content": "4. Go to: Microphone",
+          "subtype": "subheader"
+        },
+        {
+          "type": "image",
+          "prefix": "/assets/images/troubleshooting/",
+          "suffix": "-step-4.png",
           "caption": "Select Microphone"
         },
         {
           "type": "text",
-          "content": "2. Pick the mic you actually want to use"
+          "content": "5. Pick the mic you actually want to use",
+          "subtype": "subheader"
         },
         {
           "type": "image",
-          "path": "/assets/images/troubleshooting/01-05.png",
+          "prefix": "/assets/images/troubleshooting/",
+          "suffix": "-step-5.png",
           "caption": "Pick the mic you want to use"
         },
         {
@@ -62,11 +85,11 @@
         },
         {
           "type": "text",
-          "content": "No worries — we’ve got your back! Our dev team is super responsive and loves squashing bugs like it’s their day job (because it is)."
+          "content": "<p class='mb-5'>No worries — we’ve got your back!</p> Our dev team is super responsive and loves squashing bugs like it’s their day job (because it is)."
         },
         {
           "type": "text",
-          "content": "Reach out to us at connect.audemy@gmail.com We’ll get things sorted in no time!"
+          "content": "<p class='mb-5'>Reach out to us at <a href='mailto:connect@audemy.org' class='page-link'>connect@audemy.org</a>.</p> We’ll get things sorted in no time!"
         }
       ]
     }

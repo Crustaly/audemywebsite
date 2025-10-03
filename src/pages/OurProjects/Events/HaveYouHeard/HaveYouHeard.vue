@@ -48,11 +48,11 @@ const items = [
           />
         </div>
       </div>
-      <div class="flex items-center justify-center my-10 text-center">
+      <div class="page-button-flex">
         <a
           href="https://www.instagram.com/audemyapp/"
           target="_blank"
-          class="page-button blue-button px-9 mobile:h-auto py-3"
+          class="page-button blue-button px-9 py-3 mobile:h-auto md:w-[300px]"
         >
           Follow us on Instagram
         </a>

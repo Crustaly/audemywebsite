@@ -77,7 +77,7 @@
           <button @click="goBack">
             <img
               src="/assets/gameImages/buttons/arrow-back.svg"
-              class="bg-white border-2 rounded-lg border-black h-12 p-2 shadow-md hover:bg-gray-300"
+              class="border-2 rounded-lg border-black h-12 p-2 bg-white shadow-md hover:bg-gray-200 ease-in duration-300"
               alt="Back to Game Zone"
             />
           </button>
@@ -92,7 +92,7 @@
             <button @click="goBack">
               <img
                 src="/assets/gameImages/buttons/arrow-back.svg"
-                class="bg-white border-2 rounded-lg border-black h-12 p-2 shadow-md hover:bg-gray-300"
+                class="bg-white border-2 rounded-lg border-black h-12 p-2 shadow-md hover:bg-gray-200 ease-in duration-300"
                 alt="Back to Game Zone"
               />
             </button>

@@ -26,14 +26,14 @@
           class="p-3 my-5 font-poppins text-body text-center text-xl mobile:text-[16px] max-w-md leading-8"
         >
           Our gaming solutions are transforming access to gaming, reaching
-          <strong>100,000+ blind and visually impaired gamers worldwide</strong
+          <strong>200,000+ blind and visually impaired gamers worldwide</strong
           >, including <strong>1 in 5 blind children in the U.S.</strong>!
         </p>
       </div>
       <div class="page-button-flex">
         <a
           href="/game-zone-landing-page"
-          class="page-button orange-button w-[280px] mx-auto text-center p-4"
+          class="page-button orange-button px-9 mobile:h-auto md:w-[300px] py-3"
         >
           Play our games!
         </a>

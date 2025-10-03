@@ -3,12 +3,12 @@
     "Questions": {
       "Easy": [
         {
-          "Q": "What feeling means being happy for someone else?",
-          "A": ["Joy"]
+          "Q": "What feeling describes being happy for someone else?",
+          "A": ["Joy", "Glad", "Excited", "Thrilled"]
         },
         {
-          "Q": "What emotion do you feel when something is funny?",
-          "A": ["Laughter"]
+          "Q": "What emotional response do you make when something is funny?",
+          "A": ["Laugh", "Smile", "Grin", "Giggle", "Chuckle"]
         },
         {
           "Q": "What feeling do you have when you are upset or hurt?",
@@ -16,12 +16,12 @@
         },
         {
           "Q": "What do you say to greet someone in the morning?",
-          "A": ["Hello"]
+          "A": ["Hello", "Morning", "Good morning", "Hi"]
         },
-        { "Q": "What do you say when you leave?", "A": ["Goodbye"] },
+        { "Q": "What do you say when you leave?", "A": ["Goodbye", "Bye"] },
         {
           "Q": "What do you say when you receive something nice?",
-          "A": ["Thanks"]
+          "A": ["Thank you", "Thanks"]
         },
         {
           "Q": "What do you do with your ears during a conversation?",
@@ -57,6 +57,14 @@
         {
           "Q": "What is the name for the unspoken rules of a conversation?",
           "A": ["Etiquette"]
+        },
+        {
+          "Q": "True or false? Anxiety is when you are worried about something that hasn't happened yet.",
+          "A": ["True"]
+        },
+        {
+          "Q": "True or false? Fear is how you feel when you are in danger right now.",
+          "A": ["True"]
         }
       ],
       "Hard": [
@@ -66,11 +74,11 @@
         },
         {
           "Q": "What is it called when you repeat what someone said to show you understand?",
-          "A": ["Paraphrasing"]
+          "A": ["Paraphrasing", "Paraphrase"]
         },
         {
           "Q": "What is the feeling of being worried or uneasy?",
-          "A": ["Anxiety"]
+          "A": ["Anxiety", "Stress"]
         },
         {
           "Q": "What do you call the feeling of being very interested in a conversation?",
@@ -79,6 +87,18 @@
         {
           "Q": "What is the feeling of being annoyed or bothered?",
           "A": ["Irritation"]
+        },
+        {
+          "Q": "What do you call it when you are trying to hold back a laugh?",
+          "A": ["Suppressed"]
+        },
+        {
+          "Q": "What do you call it when you end up laughing because of your friend's laugh?",
+          "A": ["Contagious"]
+        },
+        {
+          "Q": "What do you call it when someone laughs even though they are actually stressed or uncomfortable?",
+          "A": ["Nervous"]
         }
       ]
     }

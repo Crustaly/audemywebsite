@@ -16,7 +16,7 @@
         },
         {
           "Q": "What is the nickname for Mars because of its color?",
-          "A": ["Red"]
+          "A": ["Red Planet"]
         },
         {
           "Q": "What do we call the person who travels to space in a rocket?",
@@ -32,7 +32,7 @@
         },
         {
           "Q": "What vehicle is used to fly into outer space?",
-          "A": ["Rocket"]
+          "A": ["Rocket", "Rocketship", "Spaceship", "Spacecraft"]
         },
         {
           "Q": "What is a pattern of stars in the night sky called?",
@@ -72,7 +72,7 @@
         },
         {
           "Q": "What is the name of the galaxy we live in?",
-          "A": ["Milkyway"]
+          "A": ["Milky Way"]
         },
         {
           "Q": "What tool do scientists use to see faraway planets and stars?",

@@ -10,6 +10,12 @@ const items = [
     url: 'https://www.fox26houston.com/news/katy-student-develops-online-tool-help-blind-students',
   },
   {
+    image: 'white-house-feature.png',
+    text: 'Audemy Featured as Major Organization Commit to Supporting AI Education',
+    network: 'The White House',
+    url: 'https://www.whitehouse.gov/articles/2025/09/major-organizations-commit-to-supporting-ai-education/',
+  },
+  {
     image: 'intel-globalImpactAI.png',
     text: 'Intel celebrates Crystal Yang, winner of Global AI Impact Festival',
     network: 'Intel',
@@ -41,19 +47,19 @@ const items = [
   },
   {
     image: 'students2.png',
-    text: 'Crystal Yang creates audio-based gaming experiences for visually impaired players.',
+    text: 'Crystal Yang creates audio-based gaming experiences for visually impaired players',
     network: 'Community Impact',
     url: 'https://communityimpact.com/houston/katy-north/nonprofit/2024/06/27/katy-isd-student-creates-audio-based-education-games-for-visually-impaired-children/',
   },
   {
     image: 'points-of-light.png',
-    text: 'Championing Accessibility in Gaming for Blind and Visually Impaired Players.',
+    text: 'Championing Accessibility in Gaming for Blind and Visually Impaired Players',
     network: 'Points of Light',
     url: 'https://www.pointsoflight.org/awards/championing-accessibility-in-education-for-blind-and-visually-impaired-students/',
   },
   {
     image: 'pbs-app.png',
-    text: 'Audemy, a gaming platform for blind and visually impaired players.',
+    text: 'Audemy, a gaming platform for blind and visually impaired players',
     network: 'PBS',
     url: 'https://www.houstonpublicmedia.org/articles/shows/hello-houston/2025/06/10/523583/hello-houston-june-10-2025/',
   },
@@ -125,7 +131,7 @@ const items = [
   },
   {
     image: 'Disabilitynewsdigest.png',
-    text: 'Crystal Yang, is transforming gaming for blind and visually impaired players through Audemy',
+    text: 'Crystal Yang is transforming gaming for blind and visually impaired players through Audemy',
     network: 'Disability Newsdigest',
     url: 'https://disabilitynewsdigest.substack.com/p/the-last-leg-promotes-disability',
   },
@@ -137,7 +143,7 @@ const items = [
   },
   {
     image: 'EV.png',
-    text: 'Crystal Yang, develops online gaming tool to help blind players',
+    text: 'Crystal Yang develops online gaming tool to help blind players',
     network: 'EV',
     url: 'https://www.elvenezolanohouston.com/estudiante-de-katy-isd-desarrolla-herramienta-online-para-ayudar-a-alumnos-ciegos/',
   },
@@ -149,19 +155,19 @@ const items = [
   },
   {
     image: 'Youth.png',
-    text: 'Crystal Yang of Audemy is addressing a real need in our gaming industry by creating fun, accessible gaming experiences.',
+    text: 'Crystal Yang of Audemy is addressing a real need in our gaming industry by creating fun, accessible gaming experiences',
     network: 'Youth Service America',
     url: 'https://ysa.org/crystalyang/',
   },
   {
     image: 'WIT.png',
-    text: '"Don’t Optimize for Perfection. Optimize for Progress." Crystal Yang',
+    text: '"Don’t Optimize for Perfection. Optimize for Progress." – Crystal Yang',
     network: 'WIT Media',
     url: 'https://www.instagram.com/reel/DMO34LeONU5/',
   },
   {
     image: 'Tech.png',
-    text: 'Crystal Yang created a gaming app that has been used by more than 7,000 blind players.',
+    text: 'Crystal Yang created a gaming app that has been used by more than 7,000 blind players',
     network: 'Tech & Learning',
     url: 'https://www.techlearning.com/how-to/using-ai-and-tech-for-accessibility-5-tips-for-educators-and-students?utm_source=facebook&utm_medium=social&utm_campaign=dhfacebook&utm_content=null',
   },
@@ -213,15 +219,12 @@ onUnmounted(() => {
       <div class="w-full py-5 md:my-10">
         <!-- Header -->
         <div>
-          <h3
-            class="text-small-text-color text-[12px] text-[#899296] font-[600] text-center tracking-[3.6px]"
-          >
-            PRESS LIST
-          </h3>
+          <h3 class="page-header-accent">PRESS LIST</h3>
         </div>
         <div>
           <h2 class="page-header">
-            Trusted by <em style="color: #fe892a"> Leading Publications </em>
+            Trusted by
+            <em class="text-secondary-color"> Leading Publications </em>
           </h2>
         </div>
       </div>
@@ -262,10 +265,10 @@ onUnmounted(() => {
           </div>
 
           <!-- Show More/Less Button -->
-          <div class="flex justify-center mb-[31px]">
+          <div class="page-button-flex">
             <button
               @click="toggleShowAll"
-              class="w-[244px] mobile:w-auto font-semibold px-[4.20rem] py-4 border-[1.5px] border-[#0C0D0D] rounded-[8px] bg-primary-color hover:bg-[#0C587D] duration-300 text-base text-white shadow-[3px_4px_0px_#0C0D0D]"
+              class="page-button blue-button px-10 py-3 mobile:h-auto md:w-[300px]"
             >
               {{ showAll ? 'Show Less' : 'See More' }}
             </button>

@@ -47,7 +47,7 @@
         'bg-white border border-[#0096D6] text-[#0096D6]',
         isIntroPlaying || isButtonCooldown
           ? 'opacity-50 cursor-not-allowed'
-          : '',
+          : 'hover:bg-gray-200',
       ]"
       :disabled="isIntroPlaying || isButtonCooldown"
       :title="
@@ -84,14 +84,33 @@
   <div
     v-show="showControls"
     id="transcript"
-    class="bg-cross-lines rounded-[16px] p-4 my-4 shadow-md mx-auto mobile:w-[280px] w-[300px] md:w-[500px] flex flex-col gap-y-4 items-center justify-center"
+    class="relative bg-cross-lines rounded-[16px] p-4 my-4 shadow-md mx-auto mobile:w-[280px] w-[300px] md:w-[500px] flex flex-col gap-y-4 items-center justify-center"
   >
     <div
-      class="text-xl font-bold border-primary-color border-b-2 w-full text-center"
+      class="absolute rounded-t-[16px] top-0 left-0 bg-[#edf7fc] h-[44px] w-full"
+      aria-hidden="true"
     >
-      You said:
+      <!-- Decorative banner (empty) -->
     </div>
-    <div>{{ transcription }}</div>
+
+    <div
+      class="relative w-full h-full text-[15.5px] md:text-[16px] 2xl:text-[20px]"
+    >
+      <div class="relative z-10 font-semibold w-full text-center">
+        You said:
+      </div>
+      <div
+        class="mt-1 relative h-full w-full p-1 flex flex-col justify-center items-center"
+      >
+        <!-- Decorative transparent background for transcript legibility -->
+        <div
+          aria-hidden="true"
+          class="-z-1 absolute top-0 left-0 bg-white h-full w-full rounded-[16px]"
+          :class="transcription == '' ? 'opacity-0' : 'opacity-70'"
+        ></div>
+        <div class="relative z-10">{{ transcription }}</div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -150,10 +169,7 @@ const props = defineProps({
 });
 
 const showControls = computed(() => {
-  return (
-    !(props.isTablet || props.isMobile) ||
-    (!props.isIntroPlaying && props.numOfAudiosPlayed > 0)
-  );
+  return !props.isIntroPlaying && props.numOfAudiosPlayed > 0;
 });
 
 const emits = defineEmits(['record-click', 'repeat-click']);

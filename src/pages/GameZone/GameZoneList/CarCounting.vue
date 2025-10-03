@@ -1,6 +1,6 @@
 <template>
   <GameLayout
-    bgColor="#F8F2C9"
+    :bgColor="gameConfig.bgColor"
     :isTablet="isTablet"
     :isMobile="isMobile"
     :currentAudios="currentAudios"
@@ -9,31 +9,38 @@
   >
     <div class="flex flex-col justify-center items-center mb-8">
       <GameHeader
-        iconSrc="/assets/gameImages/buttons/gameButtons/new-car.png"
-        title="Car Counting"
-        description="How many cars are passing by?"
+        :iconSrc="gameConfig.iconSrc"
+        :title="gameConfig.title"
+        :description="gameConfig.description"
         :isMobile="isMobile"
+        :showCaptions="
+          playButton &&
+          !isIntroPlaying &&
+          numOfAudiosPlayed > 0 &&
+          numOfAudiosPlayed < 5
+        "
+        :currentQuestionIndex="currentQuestionIndex"
+        :currentQuestion="getCurrentAnswer()"
+        :isAnswerPlaying="isAnswerPlaying"
+        :isCorrect="isCorrect"
+        :showAnswerOnly="true"
       />
 
       <PlayButton v-if="playButton === false" @play-click="playButton = true" />
 
       <div
-        v-else-if="hasQuestionsRemaining && playButton === true"
+        v-else-if="numOfAudiosPlayed < 5 && playButton === true"
         class="flex flex-col p-4 justify-center"
         id="content"
       >
         <StartQuestionsButton
-          v-show="
-            (isTablet || isMobile) &&
-            currentQuestionIndex === 0 &&
-            !isIntroPlaying
-          "
+          v-show="numOfAudiosPlayed === 0"
           :isIntroPlaying="isIntroPlaying"
           @start-click="startFirstQuestion"
         />
 
         <GameControls
-          v-show="!(isTablet || isMobile) || !isIntroPlaying"
+          v-show="!isIntroPlaying && numOfAudiosPlayed > 0"
           :isTablet="isTablet"
           :isMobile="isMobile"
           :isRecording="isRecording"
@@ -65,6 +72,10 @@ import GameHeader from '../../../components/Game/GameHeader.vue';
 import PlayButton from '../../../components/Game/PlayButton.vue';
 import StartQuestionsButton from '../../../components/Game/StartQuestionsButton.vue';
 import GameOver from '../../../components/Game/GameOver.vue';
+
+// Configs for <GameHeader/> UI props
+import { gameConfigs } from '../../../config/gameConfigs';
+const gameConfig = gameConfigs.carCounting;
 
 import { useCarCounting } from '../../../composables/useCarCounting';
 import { useDeviceDetection } from '../../../composables/useDeviceDetection';
@@ -104,11 +115,13 @@ const {
   isGameComplete,
 } = carCounting;
 
-const numOfAudiosPlayed = currentQuestionIndex;
 const score = ref(0);
 const isRecording = ref(false);
 const isFinalResult = ref(false);
 const transcription = ref('');
+const isAnswerPlaying = ref(false);
+const isCorrect = ref(false);
+const hasStartedFirstQuestion = ref(false);
 
 // UI control states
 const playButton = ref(false);
@@ -133,6 +146,13 @@ const { goBack, handleSthNotWorkingButtonClick } = useGameNavigation(
 );
 
 // 4. Computed Properties
+const numOfAudiosPlayed = computed(() => {
+  if (hasStartedFirstQuestion.value && currentQuestionIndex.value === 0) {
+    return 1;
+  }
+  return currentQuestionIndex.value;
+});
+
 const isButtonDisabled = computed(
   () => gameUI.isButtonDisabled.value || isPlaying.value
 );
@@ -165,14 +185,10 @@ onMounted(() => {
   watch(playButton, (newVal) => {
     if (newVal) {
       isIntroPlaying.value = true;
-      const introAudio = playIntro('/gameIntroAudio/carCountIntro.mp3');
+      const introAudio = playIntro(gameConfig.introAudio);
       currentAudios.push(introAudio);
       introAudio.onended = () => {
         isIntroPlaying.value = false;
-        // Only auto-play next question on desktop
-        if (isDesktop.value) {
-          playNextQuestion();
-        }
       };
     }
   });
@@ -255,9 +271,11 @@ const toggleRecording = async () => {
         console.log('User Answer:', finalTranscript);
         console.log('Correct Answer:', getCurrentAnswer());
 
-        const isCorrect = validateCarAnswer(finalTranscript);
+        isCorrect.value = validateCarAnswer(finalTranscript);
 
-        if (isCorrect) {
+        isAnswerPlaying.value = true;
+
+        if (isCorrect.value) {
           score.value++;
           console.log('Correct Answer!');
           await playSound('correctaudio.mp3');
@@ -269,9 +287,12 @@ const toggleRecording = async () => {
           await playQuestion(incorrectAudio);
         }
 
+        // Reset reactive values before playing next question
         transcription.value = '';
         isRecording.value = false;
         isFinalResult.value = false;
+        isAnswerPlaying.value = false;
+        isCorrect.value = false;
         moveToNextQuestion();
 
         if (!isGameComplete()) {
@@ -322,8 +343,11 @@ const repeatQuestion = () => {
  */
 const startFirstQuestion = () => {
   console.log('Starting first question...');
+  hasStartedFirstQuestion.value = true;
+
+  // Remain at current index 0
+  // since toggleRecording() calls moveToNextQuestion()
   playNextQuestion();
-  moveToNextQuestion();
 };
 
 // 8. Exposed Values

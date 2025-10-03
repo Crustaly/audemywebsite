@@ -19,6 +19,10 @@
           "A": ["Red"]
         },
         {
+          "Q": "What color traffic light means 'slow down' for cars?",
+          "A": ["Yellow"]
+        },
+        {
           "Q": "What color traffic light means 'go' for cars?",
           "A": ["Green"]
         },
@@ -48,7 +52,7 @@
         },
         {
           "Q": "What do you call an intersection with four different streets?",
-          "A": ["Four-way"]
+          "A": ["Four-way", "Four way"]
         },
         { "Q": "What does a car's horn signal?", "A": ["Warning"] },
         { "Q": "What is the name of the sound a siren makes?", "A": ["Wail"] }
@@ -60,7 +64,7 @@
         },
         {
           "Q": "What kind of vehicle runs on a track in the middle of the street?",
-          "A": ["Trolley"]
+          "A": ["Trolley", "Streetcar", "Tram"]
         },
         {
           "Q": "What is the term for judging how far away a sound is?",
@@ -72,7 +76,7 @@
         },
         {
           "Q": "What do you call a street that only allows traffic in one direction?",
-          "A": ["One-way"]
+          "A": ["One-way", "One way"]
         }
       ]
     }

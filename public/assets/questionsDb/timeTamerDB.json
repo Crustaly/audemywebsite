@@ -2,10 +2,10 @@
   "TimeTamerGame": {
     "Questions": {
       "Easy": [
-        { "Q": "How many minutes are in one hour?", "A": ["Sixty"] },
-        { "Q": "How many seconds are in one minute?", "A": ["Sixty"] },
-        { "Q": "How many hours are in one day?", "A": ["Twenty-four"] },
-        { "Q": "What tool do you use to tell time?", "A": ["Clock"] },
+        { "Q": "How many minutes are in one hour?", "A": ["Sixty", "60"] },
+        { "Q": "How many seconds are in one minute?", "A": ["Sixty", "60"] },
+        { "Q": "How many hours are in one day?", "A": ["Twenty four", "24"] },
+        { "Q": "What tool do you use to tell time?", "A": ["Clock", "Watch"] },
         { "Q": "What part of the day has the sun?", "A": ["Day"] },
         { "Q": "What part of the day has the moon?", "A": ["Night"] },
         {
@@ -16,8 +16,10 @@
           "Q": "What do you call the time exactly in the middle of the night?",
           "A": ["Midnight"]
         },
-        { "Q": "How many days are in a week?", "A": ["Seven"] },
-        { "Q": "How many months are in a year?", "A": ["Twelve"] }
+        { "Q": "How many days are in a week?", "A": ["Seven", "7"] },
+        { "Q": "How many weekdays are in a week?", "A": ["Five", "5"] },
+        { "Q": "How many weekends are in a week?", "A": ["Two", "2"] },
+        { "Q": "How many months are in a year?", "A": ["Twelve", "12"] }
       ],
       "Medium": [
         { "Q": "What hand on a clock points to the hour?", "A": ["Short"] },

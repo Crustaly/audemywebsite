@@ -7,6 +7,26 @@ export function useCarCounting() {
   const isPlaying = ref(false);
   const currentQuestionIndex = ref(0);
 
+  // Default: Account for transcript answers with word-based numbers ('three')
+  const digitToWordMap = {
+    1: 'one',
+    2: 'two',
+    3: 'three',
+    4: 'four',
+    5: 'five',
+  };
+
+  // Account for transcript answers with digit-based numbers ('3')
+  const wordToDigitMap = {
+    one: 1,
+    two: 2,
+    three: 3,
+    four: 4,
+    five: 5,
+  };
+
+  const isWordBasedFormat = ref(false); // If transcript contains word-based number
+
   const generateCarQuestions = () => {
     randQueNum.length = 0;
     answers.length = 0;
@@ -15,14 +35,7 @@ export function useCarCounting() {
       let num = Math.floor(Math.random() * 5) + 1;
       if (!randQueNum.includes(num)) {
         randQueNum.push(num);
-        const answerMap = {
-          1: 'one',
-          2: 'two',
-          3: 'three',
-          4: 'four',
-          5: 'five',
-        };
-        answers.push(answerMap[num]);
+        answers.push(digitToWordMap[num]);
       }
     }
   };
@@ -72,11 +85,40 @@ export function useCarCounting() {
       .replace(/[^\w\s]/g, '');
 
     const expectedAnswer = answers[currentQuestionIndex.value];
-    return cleanedInput.includes(expectedAnswer.toLowerCase());
+    const wordBasedAnswer = expectedAnswer.toLowerCase();
+
+    // Check if transcript contains word-based (eg: 'three') or digit-based number ('3')
+    if (cleanedInput.includes(wordBasedAnswer)) {
+      isWordBasedFormat.value = true;
+      return true;
+    } else {
+      // Toggle flag
+      isWordBasedFormat.value = false;
+
+      // Get matching digit-based value, using word-based transcript
+      const digitBasedAnswer = wordToDigitMap[wordBasedAnswer];
+
+      // Split transcript into parts & check for single digits only
+      // Example: Reject '500' vs accept '5'
+      const cleanedInputParts = cleanedInput.split(' ');
+
+      for (let part of cleanedInputParts) {
+        if (part.length == 1 && part.includes(digitBasedAnswer)) {
+          return true;
+        }
+        // Otherwise: Skip any parts longer > 1 char
+        // (already checked for wordBasedAnswer)
+      }
+      return false; // Transcript does not contain wordBasedAnswer or digitBasedAnswer
+    }
   };
 
   const getCurrentAnswer = () => {
-    return answers[currentQuestionIndex.value];
+    const wordBasedAnswer = answers[currentQuestionIndex.value];
+    // Return answer as word-based or digit-based format (to align with transcript)
+    return isWordBasedFormat.value
+      ? wordBasedAnswer
+      : wordToDigitMap[wordBasedAnswer];
   };
 
   const getCurrentCarCount = () => {

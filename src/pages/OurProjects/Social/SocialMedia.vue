@@ -6,7 +6,7 @@
       :class="[
         'h-[40px] sm:h-[50px] md:h-[60px] lg:h-[70px]',
         'absolute z-40',
-        'right-0 bottom-[18%]',
+        'right-0 bottom-[20%]',
         'sm:bottom-[10%] sm:right-[10%]',
         'md:bottom-20',
         'lg:bottom-1/2 lg:right-[-5%]',
@@ -54,11 +54,11 @@
         </div>
       </div>
     </div>
-    <div class="flex justify-center mt-10">
+    <div class="page-button-flex">
       <a
         href="https://www.youtube.com/@applelooeducationalvideosf1743/featured"
         target="_blank"
-        class="page-button blue-button page-button-flex px-9 py-4"
+        class="page-button blue-button mobile:h-auto md:w-[300px] px-9 md:px-3 py-3"
       >
         Watch more videos
       </a>

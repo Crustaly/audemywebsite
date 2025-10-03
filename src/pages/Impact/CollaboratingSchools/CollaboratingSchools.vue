@@ -78,11 +78,11 @@ const arrowClasses = [
           on this exciting journey!
         </p>
       </div>
-      <div class="w-full md:w-1/2 text-center">
+      <div class="w-full md:w-1/2 page-button-flex">
         <a
           href="mailto:connect@audemy.org"
           target="_blank"
-          class="w-[250px] py-5 px-16 page-button blue-button"
+          class="page-button blue-button md:px-3 md:w-[300px] px-9 mobile:h-auto py-3"
         >
           Get affiliated
         </a>

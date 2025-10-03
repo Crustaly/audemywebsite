@@ -24,6 +24,22 @@ export function useGameCore(gameConfig) {
   const playButton = ref(false);
   const isIntroPlaying = ref(false);
   const isButtonCooldown = ref(false);
+  const hasStartedFirstQuestion = ref(false);
+
+  /* 
+  isAnswerPlaying (flag): 
+  - True: If final transcription is ready & validated
+  - False: Otherwise
+  */
+  const isAnswerPlaying = ref(false);
+
+  const isCorrect = ref(false);
+
+  /* firstMatchingAnswer: 
+  - Accounts for answers with synonyms or number formats (eg. plurality, '3' vs 'three')
+  - Empty string: If !isCorrect 
+  */
+  const firstMatchingAnswer = ref('');
 
   const gameQuestions = useGameQuestions(gameConfig);
 
@@ -35,6 +51,16 @@ export function useGameCore(gameConfig) {
   };
 
   const gameUI = useGameUI(gameState);
+
+  const numOfAudiosPlayed = computed(() => {
+    if (
+      hasStartedFirstQuestion.value &&
+      gameQuestions.currentQuestionIndex.value === 0
+    ) {
+      return 1;
+    }
+    return gameQuestions.currentQuestionIndex.value;
+  });
 
   const playNextQuestion = async () => {
     if (
@@ -94,12 +120,12 @@ export function useGameCore(gameConfig) {
           console.log('User Answer:', finalTranscript);
           console.log('Correct Answer:', question['A']);
 
-          const isCorrect = gameQuestions.validateAnswer(
-            finalTranscript,
-            question
-          );
+          [isCorrect.value, firstMatchingAnswer.value] =
+            gameQuestions.validateAnswer(finalTranscript, question);
 
-          if (isCorrect) {
+          isAnswerPlaying.value = true;
+
+          if (isCorrect.value) {
             score.value++;
             console.log('Correct Answer!');
             await playSound('correctaudio.mp3');
@@ -112,9 +138,14 @@ export function useGameCore(gameConfig) {
             await playQuestion(incorrectAudio);
           }
 
+          // Reset reactive values before playing next question
           transcription.value = '';
           isRecording.value = false;
           isFinalResult.value = false;
+          isAnswerPlaying.value = false;
+          isCorrect.value = false;
+          firstMatchingAnswer.value = '';
+
           gameQuestions.moveToNextQuestion();
 
           if (!gameQuestions.isGameComplete()) {
@@ -162,7 +193,10 @@ export function useGameCore(gameConfig) {
 
   const startFirstQuestion = () => {
     console.log('Starting first question...');
-    gameQuestions.moveToNextQuestion();
+    hasStartedFirstQuestion.value = true;
+
+    // Remain at index 0
+    // since toggleRecording() calls moveToNextQuestion()
     playNextQuestion();
   };
 
@@ -206,9 +240,6 @@ export function useGameCore(gameConfig) {
             }
 
             isIntroPlaying.value = false;
-            if (gameUI.isDesktop.value) {
-              playNextQuestion();
-            }
           };
         } else {
           // Start the background music
@@ -221,9 +252,6 @@ export function useGameCore(gameConfig) {
           // Stop music after TTS intro
           stopMusic();
           isIntroPlaying.value = false;
-          if (gameUI.isDesktop.value) {
-            playNextQuestion();
-          }
         }
       }
     });
@@ -239,7 +267,8 @@ export function useGameCore(gameConfig) {
   });
 
   return {
-    numOfAudiosPlayed: gameQuestions.currentQuestionIndex,
+    numOfAudiosPlayed,
+    currentQuestionIndex: gameQuestions.currentQuestionIndex,
     score,
     isRecording,
     isFinalResult,
@@ -247,6 +276,9 @@ export function useGameCore(gameConfig) {
     playButton,
     isIntroPlaying,
     isButtonCooldown,
+    isAnswerPlaying,
+    isCorrect,
+    firstMatchingAnswer,
     isTablet: gameUI.isTablet,
     isMobile: gameUI.isMobile,
     isDesktop: gameUI.isDesktop,

@@ -26,7 +26,7 @@
         },
         {
           "Q": "What appliance hums to keep food cold?",
-          "A": ["Refrigerator"]
+          "A": ["Refrigerator", "Fridge"]
         },
         {
           "Q": "What sound do you hear when pouring milk into a glass?",

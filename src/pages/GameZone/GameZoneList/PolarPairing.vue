@@ -13,6 +13,16 @@
         :title="gameConfig.title"
         :description="gameConfig.description"
         :isMobile="isMobile"
+        :showCaptions="
+          playButton &&
+          !isIntroPlaying &&
+          numOfAudiosPlayed > 0 &&
+          numOfAudiosPlayed < 5
+        "
+        :currentQuestionIndex="currentQuestionIndex"
+        :currentQuestion="currentQuestion"
+        :isAnswerPlaying="isAnswerPlaying"
+        :isCorrect="isCorrect"
       />
 
       <PlayButton v-if="playButton === false" @play-click="playButton = true" />
@@ -23,16 +33,13 @@
         id="content"
       >
         <StartQuestionsButton
-          v-show="(isTablet || isMobile) && numOfAudiosPlayed === 0"
+          v-show="numOfAudiosPlayed === 0"
           :isIntroPlaying="isIntroPlaying"
           @start-click="startFirstQuestion"
         />
 
         <GameControls
-          v-show="
-            !(isTablet || isMobile) ||
-            (!isIntroPlaying && numOfAudiosPlayed > 0)
-          "
+          v-show="!isIntroPlaying && numOfAudiosPlayed > 0"
           :isTablet="isTablet"
           :isMobile="isMobile"
           :isRecording="isRecording"
@@ -70,6 +77,7 @@ const gameConfig = gameConfigs.polarPairing;
 
 const {
   numOfAudiosPlayed,
+  currentQuestionIndex,
   score,
   isRecording,
   isFinalResult,
@@ -77,25 +85,20 @@ const {
   playButton,
   isIntroPlaying,
   isButtonCooldown,
+  isAnswerPlaying,
+  isCorrect,
   isTablet,
   isMobile,
-  isDesktop,
-  questionsDb,
   currentAudios,
   currentQuestion,
   isButtonDisabled,
   recordButtonClasses,
   recordButtonTitle,
   recordButtonText,
-  generateQuestions,
-  playNextQuestion,
   toggleRecording,
   goBack,
   repeatQuestion,
   startFirstQuestion,
   handleSthNotWorkingButtonClick,
-  startGame,
-  cleanup,
-  validateAnswer,
 } = useGameCore(gameConfig);
 </script>

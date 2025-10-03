@@ -4,260 +4,191 @@
       "Easy": [
         {
           "Q": "A shark found a shape with 3 sides. What shape is it?",
-          "A": ["triangle", "Triangle", "TRIANGLE"]
+          "A": ["Triangle"]
         },
         {
           "Q": "The shark swam to a shape with 4 equal sides. Name the shape!",
-          "A": ["square", "Square", "SQUARE"]
+          "A": ["Square"]
         },
         {
           "Q": "Sharks spotted a shape with no corners and a single curve. What is this shape?",
-          "A": ["circle", "Circle", "CIRCLE"]
+          "A": ["Circle"]
         },
         {
           "Q": "A sharp-eyed shark noticed a shape with 4 sides, but opposite sides are equal. What's the name of the shape?",
-          "A": ["rectangle", "Rectangle", "RECTANGLE"]
+          "A": ["Rectangle"]
         },
         {
           "Q": "A shape with 3 sides has caught the shark's attention. What is it called?",
-          "A": ["triangle", "Triangle", "TRIANGLE"]
+          "A": ["Triangle"]
         },
         {
           "Q": "The shark swims past a shape with 5 sides. Can you name it?",
-          "A": ["pentagon", "Pentagon", "PENTAGON"]
+          "A": ["Pentagon"]
         },
         {
           "Q": "Sharks surround a shape with 6 sides. What shape is this?",
-          "A": ["hexagon", "Hexagon", "HEXAGON"]
+          "A": ["Hexagon"]
         },
         {
           "Q": "A playful shark circles a shape with 4 sides, but only two sides are equal in length. What is this shape?",
-          "A": [
-            "trapezium",
-            "Trapezium",
-            "TRAPEZIUM",
-            "trapezoid",
-            "Trapezoid",
-            "TRAPEZOID"
-          ]
+          "A": ["Trapezium", "Trapezoid"]
         },
         {
           "Q": "A shark observes a shape with 8 sides. What is this shape called?",
-          "A": ["octagon", "Octagon", "OCTAGON"]
+          "A": ["Octagon"]
         },
         {
           "Q": "A shape with 7 sides is seen underwater. What is its name?",
-          "A": ["heptagon", "Heptagon", "HEPTAGON"]
+          "A": ["Heptagon"]
         },
         {
           "Q": "The shark spots a shape that looks like a half-circle. What is it?",
-          "A": [
-            "semicircle",
-            "Semicircle",
-            "SEMICIRCLE",
-            "semi-circle",
-            "Semi-circle",
-            "semi circle",
-            "Semi circle"
-          ]
+          "A": ["Semicircle", "Semi-circle", "Semi circle"]
         },
         {
           "Q": "A shark sees a shape with 4 equal sides and 4 right angles. What is it?",
-          "A": ["square", "Square", "SQUARE"]
+          "A": ["Square"]
         },
         {
           "Q": "The shark finds a shape that looks like an oval. What's its proper name?",
-          "A": ["ellipse", "Ellipse", "ELLIPSE"]
+          "A": ["Ellipse"]
         },
         {
           "Q": "A shape with no straight sides catches the shark's eye. What is it?",
-          "A": ["circle", "Circle", "CIRCLE"]
+          "A": ["Circle"]
         },
         {
           "Q": "The shark spots a shape that's like a triangle but all sides are equal. What is it called?",
-          "A": [
-            "equilateral triangle",
-            "Equilateral triangle",
-            "EQUILATERAL TRIANGLE",
-            "equilateral Triangle"
-          ]
+          "A": ["Equilateral triangle"]
         }
       ],
       "Medium": [
         {
           "Q": "Sharks discovered a shape with 5 corners and 5 sides. Name the shape!",
-          "A": ["pentagon", "Pentagon", "PENTAGON"]
+          "A": ["Pentagon"]
         },
         {
           "Q": "The shark found a shape with 6 equal sides. What is this shape called?",
-          "A": ["hexagon", "Hexagon", "HEXAGON"]
+          "A": ["Hexagon"]
         },
         {
           "Q": "While hunting, a shark swims past a shape with 8 sides. What shape is this?",
-          "A": ["octagon", "Octagon", "OCTAGON"]
+          "A": ["Octagon"]
         },
         {
           "Q": "The shark notices a shape with 10 sides. Can you tell its name?",
-          "A": ["decagon", "Decagon", "DECAGON"]
+          "A": ["Decagon"]
         },
         {
           "Q": "A shape with 12 sides has caught the shark's attention. What is it called?",
-          "A": ["dodecagon", "Dodecagon", "DODECAGON"]
+          "A": ["Dodecagon"]
         },
         {
           "Q": "A quick shark noticed a 9-sided shape nearby. What's the name of this shape?",
-          "A": ["nonagon", "Nonagon", "NONAGON"]
+          "A": ["Nonagon"]
         },
         {
           "Q": "The shark observes a shape with 3 sides and no equal length. What kind of triangle is this?",
-          "A": [
-            "scalene triangle",
-            "Scalene triangle",
-            "SCALENE TRIANGLE",
-            "scalene Triangle"
-          ]
+          "A": ["Scalene triangle"]
         },
         {
           "Q": "The shark swims past a shape with 4 sides and no equal angles. What type of shape is this?",
-          "A": [
-            "irregular quadrilateral",
-            "Irregular quadrilateral",
-            "IRREGULAR QUADRILATERAL",
-            "irregular Quadrilateral"
-          ]
+          "A": ["Irregular quadrilateral"]
         },
         {
           "Q": "A triangle with all sides of equal length appears before the shark. What is this triangle called?",
-          "A": [
-            "equilateral triangle",
-            "Equilateral triangle",
-            "EQUILATERAL TRIANGLE",
-            "equilateral Triangle"
-          ]
+          "A": ["Equilateral triangle"]
         },
         {
           "Q": "The shark finds a polygon with 11 sides. Can you name it?",
-          "A": ["hendecagon", "Hendecagon", "HENDECAGON"]
+          "A": ["Hendecagon"]
         },
         {
           "Q": "A shark spots a triangle with two equal sides. What's this type of triangle called?",
-          "A": [
-            "isosceles triangle",
-            "Isosceles triangle",
-            "ISOSCELES TRIANGLE",
-            "isosceles Triangle"
-          ]
+          "A": ["Isosceles triangle"]
         },
         {
           "Q": "The shark sees a four-sided shape with parallel sides. What's its name?",
-          "A": ["parallelogram", "Parallelogram", "PARALLELOGRAM"]
+          "A": ["Parallelogram"]
         },
         {
           "Q": "A shape with two pairs of parallel sides catches the shark's eye. What is it?",
-          "A": ["parallelogram", "Parallelogram", "PARALLELOGRAM"]
+          "A": ["Parallelogram"]
         },
         {
           "Q": "The shark finds a triangle with a right angle. What type of triangle is this?",
           "A": [
-            "right triangle",
             "Right triangle",
-            "RIGHT TRIANGLE",
-            "right Triangle",
-            "right-angled triangle",
+            "Right angled triangle",
             "Right-angled triangle"
           ]
         },
         {
           "Q": "A four-sided shape with all equal angles but not equal sides appears. What is it?",
-          "A": ["rectangle", "Rectangle", "RECTANGLE"]
+          "A": ["Rectangle"]
         }
       ],
       "Hard": [
         {
           "Q": "The shark encounters a complex shape with 15 sides. What is this shape known as?",
-          "A": [
-            "pentadecagon",
-            "Pentadecagon",
-            "PENTADECAGON",
-            "quindecagon",
-            "Quindecagon",
-            "QUINDECAGON"
-          ]
+          "A": ["Pentadecagon", "Quindecagon"]
         },
         {
           "Q": "A polygon with 20 sides appears in front of the shark. What's its name?",
-          "A": ["icosagon", "Icosagon", "ICOSAGON"]
+          "A": ["Icosagon"]
         },
         {
           "Q": "The shark observes a shape with 100 sides. Can you name this shape?",
-          "A": [
-            "hectogon",
-            "Hectogon",
-            "HECTOGON",
-            "centagon",
-            "Centagon",
-            "CENTAGON"
-          ]
+          "A": ["Hectogon", "Centagon"]
         },
         {
           "Q": "A 30-sided polygon surprises the shark. What is this shape called?",
-          "A": ["triacontagon", "Triacontagon", "TRIACONTAGON"]
+          "A": ["Triacontagon"]
         },
         {
           "Q": "The shark investigates a 50-sided shape. What's its name?",
-          "A": ["pentacontagon", "Pentacontagon", "PENTACONTAGON"]
+          "A": ["Pentacontagon"]
         },
         {
           "Q": "A 7-sided polygon floats in the shark's view. What is it called?",
-          "A": ["heptagon", "Heptagon", "HEPTAGON"]
+          "A": ["Heptagon"]
         },
         {
           "Q": "The shark passes a polygon with 13 sides. What is its name?",
-          "A": ["tridecagon", "Tridecagon", "TRIDECAGON"]
+          "A": ["Tridecagon"]
         },
         {
           "Q": "A mysterious polygon with 40 sides appears. Can you name it?",
-          "A": ["tetracontagon", "Tetracontagon", "TETRACONTAGON"]
+          "A": ["Tetracontagon"]
         },
         {
           "Q": "The shark spots a polygon with 6 equal sides and angles. What is this regular shape called?",
-          "A": [
-            "regular hexagon",
-            "Regular hexagon",
-            "REGULAR HEXAGON",
-            "regular Hexagon"
-          ]
+          "A": ["Regular hexagon"]
         },
         {
           "Q": "The shark finds a polygon with 25 sides. What's this shape known as?",
-          "A": [
-            "pentacontapentagon",
-            "Pentacontapentagon",
-            "PENTACONTAPENTAGON",
-            "icosipentagon",
-            "Icosipentagon",
-            "ICOSIPENTAGON"
-          ]
+          "A": ["Pentacontapentagon", "Icosipentagon"]
         },
         {
           "Q": "A polygon with 16 sides swims by the shark. What is its name?",
-          "A": ["hexadecagon", "Hexadecagon", "HEXADECAGON"]
+          "A": ["Hexadecagon"]
         },
         {
           "Q": "The shark encounters a polygon with 14 sides. What is this called?",
-          "A": ["tetradecagon", "Tetradecagon", "TETRADECAGON"]
+          "A": ["Tetradecagon"]
         },
         {
           "Q": "A 60-sided polygon appears before the shark. What's its name?",
-          "A": ["hexacontagon", "Hexacontagon", "HEXACONTAGON"]
+          "A": ["Hexacontagon"]
         },
         {
           "Q": "The shark spots a polygon with 80 sides. What is it called?",
-          "A": ["octacontagon", "Octacontagon", "OCTACONTAGON"]
+          "A": ["Octacontagon"]
         },
         {
           "Q": "A 70-sided shape drifts past the shark. What's its name?",
-          "A": ["heptacontagon", "Heptacontagon", "HEPTACONTAGON"]
+          "A": ["Heptacontagon"]
         }
       ]
     }

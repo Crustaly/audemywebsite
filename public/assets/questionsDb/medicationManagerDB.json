@@ -19,7 +19,10 @@
           "Q": "What do you call the time you are supposed to take your medicine?",
           "A": ["Time"]
         },
-        { "Q": "What do you put on a small cut?", "A": ["Bandage"] },
+        {
+          "Q": "What do you put on a small cut?",
+          "A": ["Bandage", "Band-Aid"]
+        },
         { "Q": "What do you drink your pill with?", "A": ["Water"] },
         {
           "Q": "What meal do you often take medicine after?",
@@ -46,7 +49,7 @@
         },
         {
           "Q": "What do you call an unwanted reaction to a medicine?",
-          "A": ["Side-effect"]
+          "A": ["Side effect"]
         },
         {
           "Q": "What is the container you get your pills in called?",
@@ -56,15 +59,15 @@
       "Hard": [
         {
           "Q": "How many times a day do you take medicine if it says 'BID'?",
-          "A": ["Twice"]
+          "A": ["Twice", "Two", "2"]
         },
         {
           "Q": "How many times a day do you take medicine if it says 'TID'?",
-          "A": ["Thrice"]
+          "A": ["Thrice", "Three", "3"]
         },
         {
           "Q": "What is the name for the special cap that is hard for children to open?",
-          "A": ["Child-proof"]
+          "A": ["Childproof"]
         },
         {
           "Q": "What do you call the paper with extra information inside the medicine box?",
@@ -72,7 +75,7 @@
         },
         {
           "Q": "What does it mean to take medicine on an empty stomach?",
-          "A": ["Before-eating"]
+          "A": ["Pre-meal"]
         }
       ]
     }

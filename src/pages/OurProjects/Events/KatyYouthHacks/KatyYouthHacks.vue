@@ -6,7 +6,7 @@
     - Medium+: Row; Carl image (left) & text (right)
   -->
   <div
-    class="relative w-full flex flex-col md:flex-row font-poppins p-10 gap-y-5 md:gap-y-0"
+    class="relative w-full flex flex-col md:flex-row font-poppins p-3 md:p-10 gap-y-5 md:gap-y-0"
   >
     <!-- DECORATIVE BG PATTERN -->
     <img
@@ -51,11 +51,11 @@
           </p>
         </div>
       </div>
-      <div class="flex justify-center md:justify-start mt-5">
+      <div class="page-button-flex justify-center md:justify-start">
         <a
           href="https://katyhacks.org/"
           target="_blank"
-          class="page-button orange-button px-9 py-3"
+          class="page-button orange-button text-center md:px-3 md:w-[280px] px-9 mobile:h-auto py-3"
         >
           Check upcoming events
         </a>
