@@ -1,6 +1,6 @@
 <script setup>
-import OrangeStar from '/assets/images/impact/Group 1135.png';
-import SpeechBubble from '/assets/images/impact/Group 1153.png';
+import OrangeStar from '/assets/images/impact/orange-star-v1.png';
+import SpeechBubble from '/assets/images/impact/speech-bubble.png';
 import BlueStar from '/assets/images/about-us/blueStar2.svg';
 import YellowStar from '/assets/images/testimonials/star.svg';
 
@@ -17,7 +17,7 @@ const impactImages = [
   '/assets/images/impact/visuallyImpairedArizonaStudent.png',
   '/assets/images/impact/IMG_0489.jpeg',
   '/assets/images/impact/image_720.png',
-  '/assets/images/impact/Screenshot 2025-07-24 155925.png',
+  '/assets/images/impact/crystal-impact-image.png',
   '/assets/images/impact/image_721.png',
 ];
 </script>

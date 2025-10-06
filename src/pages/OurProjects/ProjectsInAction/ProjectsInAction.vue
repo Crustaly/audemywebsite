@@ -1,8 +1,8 @@
 <script setup>
 import Carousel from './Carousel.vue';
 import PageDecorations from '../../../components/PageDecorations/PageDecorations.vue';
-import Bubble from '/assets/images/impact/Group 1153.png';
-import OrangeStar from '/assets/images/impact/Group 1135.png';
+import Bubble from '/assets/images/impact/speech-bubble.png';
+import OrangeStar from '/assets/images/impact/orange-star-v1.png';
 import YellowStar from '/assets/images/testimonials/star.svg';
 import BlueStar from '/assets/images/about-us/blueStar2.svg';
 
