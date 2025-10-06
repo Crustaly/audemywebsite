@@ -25,8 +25,11 @@ const path = '/assets/images/impact/';
           ></h2>
         </div>
 
-        <!-- IMAGE -->
-        <div class="w-full flex justify-center">
+        <!-- CLICKABLE IMAGE 
+          - SR Accessibility: Remove linked images from tab order to remove redundant output 
+          - Text link remains tabbable
+        -->
+        <div class="w-full flex justify-center" aria-hidden="true">
           <a
             :href="url"
             target="_blank"
@@ -50,10 +53,10 @@ const path = '/assets/images/impact/';
             rel="noopener noreferrer"
             class="block"
           >
-            <h4
+            <h3
               class="text-gray-500 font-poppins font-[600] text-[16px] tablet:text-[14px] mobile:text-[14px] hover:text-blue-600 transition-colors duration-200 cursor-pointer"
               v-html="text"
-            ></h4>
+            ></h3>
           </a>
         </div>
 
