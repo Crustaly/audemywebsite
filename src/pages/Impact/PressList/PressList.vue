@@ -219,13 +219,13 @@ onUnmounted(() => {
       <div class="w-full py-5 md:my-10">
         <!-- Header -->
         <div>
-          <h3 class="page-header-accent">PRESS LIST</h3>
+          <h2 class="page-header-accent">PRESS LIST</h2>
         </div>
         <div>
-          <h2 class="page-header">
+          <h3 class="page-header">
             Trusted by
             <em class="text-secondary-color"> Leading Publications </em>
-          </h2>
+          </h3>
         </div>
       </div>
       <!-- Responsive Grid Layout: 1 Column (Mobile); 2 Cols (Small); 3 Cols (Medium); 4 Cols (Large) -->
