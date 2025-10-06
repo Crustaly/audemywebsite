@@ -59,12 +59,23 @@ let videoStoped = () => {
   pauseVideo();
   video.value.removeAttribute('controls', '');
 };
+
+// WCAG: Prevent focus trap in video controls after interaction
+const exitVideoControls = () => {
+  if (isplaying.value) {
+    pauseVideo();
+  }
+  // Manually move focus to 'Discover more' button
+  const nextFocusTarget = document.getElementById('discoverMoreBtn');
+  nextFocusTarget.focus();
+};
 </script>
 
 <template>
   <div
     class="lg:relative flex items-center flex-col lg:flex-row justify-center items-center gap-x-5 gap-y-16 md:gap-y-0 py-10 my-10"
     :class="{ 'tablet-showcase': isTablet }"
+    role="none"
   >
     <!-- Decorative icons (medium+ screens) -->
     <PageDecorations
@@ -90,18 +101,35 @@ let videoStoped = () => {
     -->
     <div
       class="w-full md:w-2/5 flex flex-col md:flex-row justify-center items-center"
+      role="none"
     >
       <div
         class="relative w-[295px] h-[529px] tablet:w-[238px] tablet:h-[426px] mobile:w-[296px] mobile:h-[529px] mobile:order-2"
+        role="none"
       >
         <!-- Decorative phone overlay -->
         <img
           class="w-[295px] h-[529px] tablet:w-[238px] tablet:h-[426px] mobile:w-[296px] mobile:h-[529px] max-w-none"
           src="/assets/images/techShowcase/phone.svg"
-          alt=""
+          aria-hidden="true"
         />
-        <div
+
+        <!-- Lazy Video Wrapper Button 
+          - WCAG (Keyboard Access.): Video is in tab order & avoids focus trap in video controls
+          - Tab: Focus video
+          - Enter: Play 
+          - Space: Pause 
+          - Esc: Pause, exit, & go to next focus target ('Discover more' button) 
+          - Remove noisy, unhelpful SR output with 'role'
+        -->
+
+        <button
+          tabindex="0"
           id="lazy-video-wrapper"
+          @keyup.enter="playVideo"
+          @keyup.space.prevent="pauseVideo"
+          @keyup.esc.prevent="exitVideoControls"
+          aria-label="Press 'Enter' to play video. Press 'Space' to pause. Press 'Escape' to exit video controls."
           class="absolute w-[88%] left-[6%] h-[82%] top-[9%] mx-auto z-0 overflow-hidden rounded-[16px]"
         >
           <!-- Poster image -->
@@ -111,16 +139,19 @@ let videoStoped = () => {
             style="
               background-image: url('/assets/images/techShowcase/video-poster.png');
             "
+            aria-hidden="true"
           ></div>
 
-          <!-- Play Button -->
+          <!-- WCAG: Hide decorative orange play button -->
           <div
             v-if="!isplaying"
             @click="playVideo"
             ref="playBut"
             class="absolute z-10 cursor-pointer w-[56px] h-[56px] rounded-[50%] border-[2px] border-[black] bg-[#FE892A] hover:bg-[#D6711F] top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]"
+            aria-hidden="true"
           >
             <div
+              aria-hidden="true"
               class="tra absolute w-[22px] h-[22px] top-[50%] left-[50%] translate-x-[-40%] bg-black translate-y-[-50%] rotate-90"
             ></div>
           </div>
@@ -142,7 +173,7 @@ let videoStoped = () => {
             />
             <span>browser does not support the video tag.</span>
           </video>
-        </div>
+        </button>
       </div>
     </div>
 
@@ -170,6 +201,7 @@ let videoStoped = () => {
 
         <div class="page-button-flex">
           <a
+            id="discoverMoreBtn"
             href="our-projects"
             class="page-button blue-button px-9 mobile:h-auto py-3 md:w-[300px]"
           >
