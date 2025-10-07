@@ -7,7 +7,8 @@ import { useRouter } from 'vue-router';
 
 const router = useRouter();
 
-const toGameZone = () => {
+const toGameZoneLandingPage = () => {
+  // Route to Game Zone Landing Page when button is clicked
   router.push('/game-zone-landing-page');
 };
 </script>
@@ -38,12 +39,12 @@ const toGameZone = () => {
       <p class="form-description">
         Use the password you just created the next time you log in.
       </p>
-      <!-- GO TO GAME ZONE FORM -->
-      <form @submit="toGameZone" method="post" class="form-wrapper">
-        <div class="form-action-container">
+      <!-- RETURN TO GAME ZONE FORM -->
+      <form @submit="toGameZoneLandingPage" method="post" class="form-wrapper">
+        <div class="form-action-container flex flex-col items-center w-full">
           <button
             type="submit"
-            class="primary-button font-semibold hover:bg-[#0C587D] hover:cursor-pointer"
+            class="page-button blue-button p-1 md:p-3 mobile:w-[80%] w-[250px] h-auto"
           >
             Return to Game Zone
           </button>
