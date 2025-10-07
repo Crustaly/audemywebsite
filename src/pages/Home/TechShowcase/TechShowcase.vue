@@ -5,31 +5,17 @@ import OrangeStar from '/assets/images/impact/orangeStar.png';
 import Headphones from '/assets/images/techShowcase/headphone.png';
 import Mic from '/assets/images/techShowcase/microphone.png';
 
+import { useDeviceDetection } from '../../../composables/useDeviceDetection';
+
 import { ref, onMounted, onUnmounted } from 'vue';
 
 let isplaying = ref(false);
 let video = ref();
-const isTablet = ref(false);
-const isMobile = ref(false);
 const videoVisible = ref(false);
 
 // Check device type
-const checkDeviceType = () => {
-  const width = window.innerWidth;
-  if (width >= 640 && width < 768) {
-    isTablet.value = false;
-    isMobile.value = true;
-  } else if (width >= 768 && width < 1024) {
-    isTablet.value = true;
-    isMobile.value = false;
-  } else if (width >= 1024) {
-    isTablet.value = false;
-    isMobile.value = false;
-  } else {
-    isTablet.value = false;
-    isMobile.value = true;
-  }
-};
+// NOTE: Current UI logic only uses 'isTablet' flag
+const { isTablet } = useDeviceDetection();
 
 let observer;
 
@@ -42,9 +28,6 @@ const onVideoIntersect = (entries) => {
 };
 
 onMounted(() => {
-  checkDeviceType();
-  window.addEventListener('resize', checkDeviceType);
-
   observer = new IntersectionObserver(onVideoIntersect, {
     root: null,
     threshold: 0.3,
@@ -55,7 +38,6 @@ onMounted(() => {
 });
 
 onUnmounted(() => {
-  window.removeEventListener('resize', checkDeviceType);
   if (observer) observer.disconnect();
 });
 
