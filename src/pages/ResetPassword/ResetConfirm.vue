@@ -2,15 +2,7 @@
 import Banner from '../../components/AccountPages/Banner.vue';
 import Header from '../../components/Header/Header.vue';
 import Footer from '../../components/Footer/Footer.vue';
-
-import { useRouter } from 'vue-router';
-
-const router = useRouter();
-
-const toGameZoneLandingPage = () => {
-  // Route to Game Zone Landing Page when button is clicked
-  router.push('/game-zone-landing-page');
-};
+import ReturnToGameZoneButton from '../../components/ReturnToGameZoneButton/ReturnToGameZoneButton.vue';
 </script>
 
 <template>
@@ -39,17 +31,8 @@ const toGameZoneLandingPage = () => {
       <p class="form-description">
         Use the password you just created the next time you log in.
       </p>
-      <!-- RETURN TO GAME ZONE FORM -->
-      <form @submit="toGameZoneLandingPage" method="post" class="form-wrapper">
-        <div class="form-action-container flex flex-col items-center w-full">
-          <button
-            type="submit"
-            class="page-button blue-button p-1 md:p-3 mobile:w-[80%] w-[250px] h-auto"
-          >
-            Return to Game Zone
-          </button>
-        </div>
-      </form>
+      <!-- RETURN TO GAME ZONE LANDING PAGE BUTTON -->
+      <ReturnToGameZoneButton />
     </div>
   </div>
   <Footer />
