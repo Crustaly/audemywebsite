@@ -6,8 +6,8 @@ import Footer from '../../components/Footer/Footer.vue';
 import { useRouter } from 'vue-router';
 const router = useRouter();
 
-const toGameZone = () => {
-  // Route to game-zone page when button is clicked
+const toGameZoneLandingPage = () => {
+  // Route to Game Zone Landing Page when button is clicked
   router.push('/game-zone-landing-page');
 };
 </script>
@@ -37,9 +37,12 @@ const toGameZone = () => {
       <br />
       <p class="form-description">Please try again, or check your URL.</p>
       <!-- RETURN TO GAME ZONE FORM -->
-      <form @submit="toGameZone" method="post" class="form-wrapper">
-        <div class="form-action-container">
-          <button type="submit" class="primary-button">
+      <form @submit="toGameZoneLandingPage" method="post" class="form-wrapper">
+        <div class="form-action-container flex flex-col items-center w-full">
+          <button
+            type="submit"
+            class="page-button blue-button p-1 md:p-3 mobile:w-[80%] w-[250px] h-auto"
+          >
             Return to Game Zone
           </button>
         </div>

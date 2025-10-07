@@ -76,8 +76,11 @@ const toGameZoneLandingPage = () => {
       </div>
       <!-- RETURN TO GAME ZONE FORM -->
       <form @submit="toGameZoneLandingPage" method="post" class="form-wrapper">
-        <div class="form-action-container">
-          <button type="submit" class="primary-button">
+        <div class="form-action-container flex flex-col items-center w-full">
+          <button
+            type="submit"
+            class="page-button blue-button p-1 md:p-3 mobile:w-[80%] w-[250px] h-auto"
+          >
             Return to Game Zone
           </button>
         </div>
