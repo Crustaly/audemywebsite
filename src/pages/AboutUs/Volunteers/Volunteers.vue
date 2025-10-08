@@ -11,7 +11,7 @@ onMounted(() => {
 
 <template>
   <div class="font-poppins flex justify-center mb-10">
-    <div class="w-full h-auto">
+    <div class="w-full h-auto relative">
       <!-- Section Header -->
       <div class="w-full">
         <h3 class="page-header-accent">OUR TEAM</h3>
@@ -26,11 +26,11 @@ onMounted(() => {
         - Bypass 80+ social media links
         - Link offers quick jump to next section ('Join our Team')
       -->
-      <div class="page-button-flex relative">
+      <div class="page-button-flex">
         <a
           href="#cta-section"
           aria-label="Skip to next section (Bypass 80+ social links)"
-          class="absolute left-[-10000px] focus:static page-button blue-button mobile:h-auto mobile:w-[70%] md:w-[300px] px-5 py-3"
+          class="absolute -z-10 opacity-0 focus:static focus:z-auto focus:opacity-100 page-button blue-button mobile:h-auto mobile:w-[70%] md:w-[300px] px-5 py-3"
         >
           Skip to next section
         </a>
