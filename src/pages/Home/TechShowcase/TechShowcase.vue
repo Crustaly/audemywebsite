@@ -41,6 +41,16 @@ onUnmounted(() => {
   if (observer) observer.disconnect();
 });
 
+// toggleVideo(): Handles 'Space' key shortcut to play or pause video
+// Supports WCAG Keyboard Accessibility
+const toggleVideo = () => {
+  if (!isplaying.value) {
+    playVideo();
+  } else {
+    pauseVideo();
+  }
+};
+
 const playVideo = () => {
   if (!isplaying.value) {
     isplaying.value = true;
@@ -117,8 +127,7 @@ const exitVideoControls = () => {
         <!-- Lazy Video Wrapper Button 
           - WCAG (Keyboard Access.): Video is in tab order & avoids focus trap in video controls
           - Tab: Focus video
-          - Enter: Play 
-          - Space: Pause 
+          - Space: Play or Pause (via toggleVideo)
           - Esc: Pause, exit, & go to next focus target ('Discover more' button) 
           - Remove noisy, unhelpful SR output with 'role'
         -->
@@ -126,10 +135,9 @@ const exitVideoControls = () => {
         <button
           tabindex="0"
           id="lazy-video-wrapper"
-          @keyup.enter="playVideo"
-          @keyup.space.prevent="pauseVideo"
+          @keyup.space.prevent="toggleVideo"
           @keyup.esc.prevent="exitVideoControls"
-          aria-label="Press 'Enter' to play video. Press 'Space' to pause. Press 'Escape' to exit video controls."
+          aria-label="Press 'Space' to play or pause video. Press 'Escape' to exit video controls."
           class="absolute w-[88%] left-[6%] h-[82%] top-[9%] mx-auto z-0 overflow-hidden rounded-[16px]"
         >
           <!-- Poster image -->
