@@ -12,6 +12,7 @@ import { ref, onMounted, onUnmounted } from 'vue';
 let isplaying = ref(false);
 let video = ref();
 const videoVisible = ref(false);
+let showTooltipMsg = ref(false);
 
 // Check device type
 // NOTE: Current UI logic only uses 'isTablet' flag
@@ -132,9 +133,28 @@ const exitVideoControls = () => {
           - Remove noisy, unhelpful SR output with 'role'
         -->
 
+        <!-- Visual 'tooltip' of video shortcuts (for sighted keyboard users)
+          - Text visibility based on video focus state
+          - Hidden from SR output since ARIA label already announces it
+          - NOTE: SR output repeats 'title' attribute, so this is a workaround
+        -->
+        <div
+          class="text-center my-2 flex flex-col items-center"
+          aria-hidden="true"
+          v-show="showTooltipMsg"
+        >
+          <p class="text-sm">
+            <b>Key shortcuts:</b> Press
+            <span class="font-semibold">Space</span> to toggle video &
+            <span class="font-semibold">Esc</span> to exit.
+          </p>
+        </div>
+
         <button
           tabindex="0"
           id="lazy-video-wrapper"
+          @focus="showTooltipMsg = true"
+          @blur="showTooltipMsg = false"
           @keyup.space.prevent="toggleVideo"
           @keyup.esc.prevent="exitVideoControls"
           aria-label="Press 'Space' to play or pause video. Press 'Escape' to exit video controls."
