@@ -9,7 +9,7 @@ import { useDeviceDetection } from '../../../composables/useDeviceDetection';
 
 import { ref, onMounted, onUnmounted } from 'vue';
 
-let isplaying = ref(false);
+let isPlaying = ref(false);
 let video = ref();
 const videoVisible = ref(false);
 let showTooltipMsg = ref(false);
@@ -45,7 +45,7 @@ onUnmounted(() => {
 // toggleVideo(): Handles 'Space' key shortcut to play or pause video
 // Supports WCAG Keyboard Accessibility
 const toggleVideo = () => {
-  if (!isplaying.value) {
+  if (!isPlaying.value) {
     playVideo();
   } else {
     pauseVideo();
@@ -53,27 +53,27 @@ const toggleVideo = () => {
 };
 
 const playVideo = () => {
-  if (!isplaying.value) {
-    isplaying.value = true;
+  if (!isPlaying.value) {
+    isPlaying.value = true;
     video.value.setAttribute('controls', '');
     video.value.play();
   }
 };
 
 let pauseVideo = () => {
-  isplaying.value = false;
+  isPlaying.value = false;
   video.value.pause();
 };
 
 let videoStoped = () => {
-  isplaying.value = false;
+  isPlaying.value = false;
   pauseVideo();
   video.value.removeAttribute('controls', '');
 };
 
 // WCAG: Prevent focus trap in video controls after interaction
 const exitVideoControls = () => {
-  if (isplaying.value) {
+  if (isPlaying.value) {
     pauseVideo();
   }
   // Manually move focus to 'Discover more' button
@@ -162,7 +162,7 @@ const exitVideoControls = () => {
         >
           <!-- Poster image -->
           <div
-            v-if="!isplaying"
+            v-if="!isPlaying"
             class="w-full h-full bg-cover bg-center"
             style="
               background-image: url('/assets/images/techShowcase/video-poster.png');
@@ -172,7 +172,7 @@ const exitVideoControls = () => {
 
           <!-- WCAG: Hide decorative orange play button -->
           <div
-            v-if="!isplaying"
+            v-if="!isPlaying"
             @click="playVideo"
             ref="playBut"
             class="absolute z-10 cursor-pointer w-[56px] h-[56px] rounded-[50%] border-[2px] border-[black] bg-[#FE892A] hover:bg-[#D6711F] top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]"
