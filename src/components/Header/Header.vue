@@ -177,7 +177,7 @@
         </button>
       </div>
 
-      <nav class="flex-shrink-0">
+      <nav class="flex-shrink-0 mb-6">
         <ul class="flex flex-col px-6 font-poppins font-semibold">
           <li>
             <router-link
