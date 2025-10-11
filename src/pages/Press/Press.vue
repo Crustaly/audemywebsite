@@ -6,23 +6,12 @@ import Footer from '../../components/Footer/Footer.vue';
 import PressList from '../Impact/PressList/PressList.vue';
 import Accolades from '../Impact/Accolades/Accolades.vue';
 import Sponsors from '../Home/Sponsors/Sponsors.vue';
-
-import { useDeviceType } from '../../Utilities/checkDeviceType';
-const { isMobile, isTablet } = useDeviceType();
 </script>
 
 <template>
   <ScrollUpButton />
 
-  <div
-    :class="[
-      'relative',
-      !isTablet && !isMobile ? 'px-14' : '',
-      isTablet ? 'px-6' : '',
-      isMobile ? 'px-8' : '',
-    ]"
-    ref="content"
-  >
+  <div class="relative px-8 sm:px-8 md:px-6 lg:px-14 font-poppins">
     <Header :logoPath="'/assets/images/header/header-logo-2.png'" />
   </div>
   <PressList />
