@@ -158,8 +158,13 @@ const sendResetEmail = async (event) => {
           </div>
         </div>
         <!-- SUBMIT BUTTON -->
-        <div class="form-action-container">
-          <button type="submit" class="primary-button">
+        <div
+          class="form-action-container mt-[40px] mb-[40px] w-full flex flex-col items-center"
+        >
+          <button
+            type="submit"
+            class="page-button blue-button p-1 md:p-3 mobile:w-[80%] w-[250px] h-auto"
+          >
             Send link to email
           </button>
         </div>
