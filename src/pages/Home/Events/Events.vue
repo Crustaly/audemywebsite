@@ -1,39 +1,8 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue';
 
-const isTablet = ref(false);
-const isMobile = ref(false);
-
-// Check device type on mount and on window resize
-const checkDeviceType = () => {
-  const width = window.innerWidth;
-  if (width >= 640 && width < 768) {
-    // Small devices (large phones)
-    isTablet.value = false;
-    isMobile.value = true;
-  } else if (width >= 768 && width < 1024) {
-    // Medium devices (tablets)
-    isTablet.value = true;
-    isMobile.value = false;
-  } else if (width >= 1024) {
-    // Large devices (laptops/desktops)
-    isTablet.value = false;
-    isMobile.value = false;
-  } else {
-    // Extra small devices (phones)
-    isTablet.value = false;
-    isMobile.value = true;
-  }
-};
-
-onMounted(() => {
-  checkDeviceType();
-  window.addEventListener('resize', checkDeviceType);
-});
-
-onUnmounted(() => {
-  window.removeEventListener('resize', checkDeviceType);
-});
+import { useDeviceDetection } from '../../composables/useDeviceDetection';
+const { isTablet } = useDeviceDetection();
 </script>
 
 <template>
@@ -54,7 +23,7 @@ onUnmounted(() => {
       <img
         class="w-full h-full"
         src="/assets/images/events/apple-illustration.png"
-        alt="Background Image"
+        alt=""
       />
     </div>
 
@@ -112,7 +81,7 @@ onUnmounted(() => {
           <img
             class="character-image relative z-10"
             src="/assets/images/events/events-image.svg"
-            alt="Apple Loo Character"
+            alt=""
           />
         </div>
       </div>
