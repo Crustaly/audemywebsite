@@ -3,9 +3,6 @@ import Banner from '../../components/AccountPages/Banner.vue';
 import Header from '../../components/Header/Header.vue';
 import Footer from '../../components/Footer/Footer.vue';
 
-import { useDeviceType } from '../../Utilities/checkDeviceType';
-const { isMobile, isTablet } = useDeviceType();
-
 import { useRouter } from 'vue-router';
 import { ref, onMounted } from 'vue';
 
@@ -27,12 +24,12 @@ const toResetPswd = () => {
 </script>
 
 <template>
-  <div :class="['page-container']" ref="content">
+  <div class="page-container" ref="content">
     <Header :logoPath="'/assets/images/header/header-logo-2.png'" />
   </div>
   <div
     id="reset-landing-page-container"
-    :class="['content-container', 'reset-page-grid-layout']"
+    class="content-container lg:grid lg:grid-cols-3"
   >
     <Banner
       id="reset-landing-page-banner"
@@ -41,7 +38,7 @@ const toResetPswd = () => {
       bgColor="#B1C7D0"
       curveColor="#E5F0F5"
       :isPageShort="true"
-      class="reset-page-banner-grid-area"
+      class="lg:col-span-1 lg:h-full"
     />
     <div
       id="reset-landing-page-form-container"
