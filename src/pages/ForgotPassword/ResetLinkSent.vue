@@ -3,9 +3,6 @@ import Banner from '../../components/AccountPages/Banner.vue';
 import Header from '../../components/Header/Header.vue';
 import Footer from '../../components/Footer/Footer.vue';
 
-import { useDeviceType } from '../../Utilities/checkDeviceType';
-const { isMobile, isTablet } = useDeviceType();
-
 import { ref, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
 
@@ -50,10 +47,10 @@ const forgotPassword = async (event) => {
       </p>
       <!-- FORGOT PASSWORD FORM -->
       <form @submit="forgotPassword" method="post" class="form-wrapper">
-        <div class="mt-[40px] mb-[40px] w-full">
+        <div class="mt-[40px] mb-[40px] w-full flex flex-col items-center">
           <button
             type="submit"
-            class="primary-button font-semibold hover:bg-[#0C587D] hover:cursor-pointer"
+            class="page-button blue-button p-1 md:p-3 mobile:w-[80%] w-[250px] h-auto"
           >
             Use another email
           </button>
@@ -63,5 +60,3 @@ const forgotPassword = async (event) => {
   </div>
   <Footer />
 </template>
-
-<style scoped></style>
