@@ -11,6 +11,10 @@ const items = [
   '/assets/images/sponsors/hersheys.svg',
   '/assets/images/sponsors/k4c.svg',
   '/assets/images/sponsors/ncwit.png',
+  '/assets/images/sponsors/Amazon-Logo.png',
+  '/assets/images/sponsors/ae.png',
+  '/assets/images/sponsors/aops.svg',
+  '/assets/images/sponsors/contribution.webp',
 ];
 
 let interval;
