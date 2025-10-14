@@ -3,83 +3,71 @@ import SponsorsCarousel from './SponsorsCarousel/SponsorsCarousel.vue';
 </script>
 
 <template>
-  <div class="w-full mb-64 mobile:mb-24 flex flex-col gap-y-10 items-center">
-    <h1
-      class="text-small font-poppins text-xs text-center font-bold tracking-[6px]"
-    >
-      SPONSORS THAT SUPPORT US, AMONG OTHERS:
-    </h1>
+  <div class="w-full my-32 mobile:my-24 flex flex-col gap-y-10 items-center">
+    <h1 class="page-header-accent">SPONSORS THAT SUPPORT US, AMONG OTHERS:</h1>
     <div class="sponsors-carousel w-full">
       <div
-        class="w-full scroll-auto grid grid-cols-4 grid-row-a items-center justify-center text-center mb-5"
+        class="w-full scroll-auto grid mobile:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-y-10 items-center justify-center text-center my-5"
       >
         <img
           src="/assets/images/sponsors/intel.svg"
           alt="intel logo"
-          class="mx-auto"
+          class="w-1/2 md:w-[80%] mx-auto"
         />
         <img
           src="/assets/images/sponsors/google.png"
           alt="google logo"
-          class="mx-auto"
+          class="w-1/2 md:w-[80%] mx-auto"
         />
         <img
           src="/assets/images/sponsors/Amazon-Logo.png"
           alt="amazon logo"
-          class="mx-auto w-32 h-16 object-contain"
+          class="w-1/3 md:w-[50%] mx-auto"
         />
         <img
           src="/assets/images/sponsors/ae.png"
           alt="ae foundation logo"
-          class="mx-auto w-32 h-16 object-contain"
+          class="w-1/3 md:w-[45%] mx-auto"
         />
-      </div>
-      <div
-        class="w-full scroll-auto grid grid-cols-4 grid-row-a items-center justify-center text-center mb-5"
-      >
         <img
           src="/assets/images/sponsors/hersheys.svg"
           alt="hersheys logo"
-          class="mx-auto"
+          class="w-1/2 md:w-[80%] mx-auto"
         />
         <img
           src="/assets/images/sponsors/desmos.png"
           alt="desmos logo"
-          class="mx-auto"
+          class="w-1/2 md:w-[80%] mx-auto"
         />
         <img
           src="/assets/images/sponsors/aops.svg"
           alt="aops logo"
-          class="mx-auto"
+          class="w-1/2 md:w-[80%] mx-auto"
         />
         <img
           src="/assets/images/sponsors/contribution.webp"
           alt="contribution logo"
-          class="mx-auto w-28 h-14 object-contain"
+          class="w-1/2 md:w-[70%] mx-auto"
         />
-      </div>
-      <div
-        class="w-full scroll-auto grid grid-cols-4 grid-row-a items-center justify-center text-center"
-      >
         <img
           src="/assets/images/sponsors/tacobell.png"
           alt="tacobell logo"
-          class="mx-auto w-40 h-20"
+          class="w-1/3 md:w-[70%] mx-auto"
         />
         <img
           src="/assets/images/sponsors/wolframalpha.svg"
           alt="wolframalpha logo"
-          class="mx-auto"
+          class="w-1/2 md:w-[80%] mx-auto"
         />
         <img
-          src="/assets/images/sponsors/k4c logo.svg"
+          src="/assets/images/sponsors/k4c-logo.svg"
           alt="k4c logo"
-          class="mx-auto"
+          class="w-1/3 md:w-[45%] mx-auto"
         />
         <img
           src="/assets/images/sponsors/ncwit.png"
           alt="ncwit logo"
-          class="w-[45%] h-auto mx-auto"
+          class="w-1/3 md:w-[45%] h-auto mx-auto"
         />
       </div>
     </div>
