@@ -5,7 +5,13 @@ import SponsorsCarousel from './SponsorsCarousel/SponsorsCarousel.vue';
 <template>
   <div class="w-full my-32 mobile:my-24 flex flex-col gap-y-10 items-center">
     <h1 class="page-header-accent">SPONSORS THAT SUPPORT US, AMONG OTHERS:</h1>
-    <div class="sponsors-carousel w-full">
+    <!-- Sponsors Carousel RWD Layout: 
+      - Mobile-first: 1 column 
+      - Small: 2 cols
+      - Medium: 3 cols
+      - Large+ screens: 4 cols 
+    -->
+    <div class="hidden sm:block w-full">
       <div
         class="w-full scroll-auto grid mobile:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-y-10 items-center justify-center text-center my-5"
       >
@@ -71,28 +77,8 @@ import SponsorsCarousel from './SponsorsCarousel/SponsorsCarousel.vue';
         />
       </div>
     </div>
-    <div class="sponsors-carousel-small w-full">
+    <div class="block sm:hidden w-full">
       <SponsorsCarousel />
     </div>
   </div>
 </template>
-
-<style>
-@media screen and (min-width: 451px) {
-  .sponsors-carousel {
-    display: block;
-  }
-  .sponsors-carousel-small {
-    display: none;
-  }
-}
-
-@media screen and (max-width: 451px) {
-  .sponsors-carousel-small {
-    display: block;
-  }
-  .sponsors-carousel {
-    display: none;
-  }
-}
-</style>
