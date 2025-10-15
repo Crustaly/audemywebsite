@@ -1,0 +1,64 @@
+{
+  "sponsors": [
+    {
+      "src": "/assets/images/sponsors/intel.svg",
+      "alt": "Intel",
+      "isLogoWide": "false"
+    },
+    {
+      "src": "/assets/images/sponsors/google.png",
+      "alt": "Google",
+      "isLogoWide": "false"
+    },
+    {
+      "src": "/assets/images/sponsors/Amazon-Logo.png",
+      "alt": "Amazon",
+      "isLogoWide": "true"
+    },
+    {
+      "src": "/assets/images/sponsors/ae.png",
+      "alt": "AE Foundation",
+      "isLogoWide": "true"
+    },
+    {
+      "src": "/assets/images/sponsors/hersheys.svg",
+      "alt": "Hershey's",
+      "isLogoWide": "false"
+    },
+    {
+      "src": "/assets/images/sponsors/desmos.png",
+      "alt": "Desmos",
+      "isLogoWide": "false"
+    },
+    {
+      "src": "/assets/images/sponsors/aops.svg",
+      "alt": "AoPS Academy",
+      "isLogoWide": "false"
+    },
+    {
+      "src": "/assets/images/sponsors/contribution.webp",
+      "alt": "The Contribution Project",
+      "isLogoWide": "false"
+    },
+    {
+      "src": "/assets/images/sponsors/tacobell.png",
+      "alt": "Taco Bell Foundation",
+      "isLogoWide": "true"
+    },
+    {
+      "src": "/assets/images/sponsors/wolframalpha.svg",
+      "alt": "Wolfram Alpha",
+      "isLogoWide": "false"
+    },
+    {
+      "src": "/assets/images/sponsors/k4c-logo.svg",
+      "alt": "Karma for Cara Foundation",
+      "isLogoWide": "true"
+    },
+    {
+      "src": "/assets/images/sponsors/ncwit.png",
+      "alt": "NCWIT",
+      "isLogoWide": "true"
+    }
+  ]
+}
