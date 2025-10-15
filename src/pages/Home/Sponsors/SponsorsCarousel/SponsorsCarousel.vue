@@ -31,7 +31,7 @@ onBeforeUnmount(() => {
 <template>
   <div class="overflow-hidden relative w-full">
     <div
-      class="flex justify-content w-full transition-transform duration-500 ease-in-out"
+      class="flex justify-content transition-transform duration-500 ease-in-out"
       :style="{ transform: `translateX(-${currentIndex * 100}%)` }"
     >
       <div
@@ -39,17 +39,21 @@ onBeforeUnmount(() => {
         :key="index"
         class="flex-none w-full"
       >
-        <!-- NOTE: Manually add prefix to image path 
-          - since <SponsorsCarousel/> is nested in a subdirectory
+        <!-- NOTES: 
+          1. Manually add prefix to image path:
+            - Since <SponsorsCarousel/> is nested in a subdirectory
+          2. Use flex wrapper and object-contain to align logos horizontally
         -->
-        <img
-          :src="'../' + sponsor.src"
-          :alt="sponsor.alt"
-          :class="[
-            'h-auto mx-auto',
-            sponsor.isLogoWide === 'true' ? 'w-[40%]' : 'w-[75%]',
-          ]"
-        />
+        <div class="h-full flex">
+          <img
+            :src="'../' + sponsor.src"
+            :alt="sponsor.alt"
+            :class="[
+              'h-auto mx-auto object-contain',
+              sponsor.isLogoWide === 'true' ? 'w-[35%]' : 'w-[70%]',
+            ]"
+          />
+        </div>
       </div>
     </div>
   </div>
