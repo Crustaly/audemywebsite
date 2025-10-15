@@ -1,22 +1,8 @@
 <script setup>
 import { ref, onMounted, onBeforeUnmount } from 'vue';
+import sponsorsData from '../../../../assets/sponsorsDB/sponsors.json';
 
 const currentIndex = ref(0);
-const items = [
-  '/assets/images/sponsors/google.png',
-  '/assets/images/sponsors/desmos.png',
-  '/assets/images/sponsors/tacobell.png',
-  '/assets/images/sponsors/wolframalpha.svg',
-  '/assets/images/sponsors/intel.svg',
-  '/assets/images/sponsors/hersheys.svg',
-  '/assets/images/sponsors/k4c.svg',
-  '/assets/images/sponsors/ncwit.png',
-  '/assets/images/sponsors/Amazon-Logo.png',
-  '/assets/images/sponsors/ae.png',
-  '/assets/images/sponsors/aops.svg',
-  '/assets/images/sponsors/contribution.webp',
-];
-
 let interval;
 
 const startAutoScroll = () => {
@@ -26,7 +12,7 @@ const startAutoScroll = () => {
 };
 
 const next = () => {
-  if (currentIndex.value < items.length - 1) {
+  if (currentIndex.value < sponsorsData.sponsors.length - 1) {
     currentIndex.value++;
   } else {
     currentIndex.value = 0;
@@ -43,36 +29,28 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <div class="carousel-container overflow-hidden relative w-full mobile:h-32">
+  <div class="overflow-hidden relative w-full">
     <div
-      class="carousel flex transition-transform duration-500 ease-in-out"
+      class="flex justify-content w-full transition-transform duration-500 ease-in-out"
       :style="{ transform: `translateX(-${currentIndex * 100}%)` }"
     >
       <div
-        v-for="(item, index) in items"
+        v-for="(sponsor, index) in sponsorsData.sponsors"
         :key="index"
-        class="carousel-item flex-none w-full h-auto mobile:h-32"
+        class="flex-none w-full"
       >
-        <img :src="item" class="w-full h-auto object-cover" alt="logo" />
+        <!-- NOTE: Manually add prefix to image path 
+          - since <SponsorsCarousel/> is nested in a subdirectory
+        -->
+        <img
+          :src="'../' + sponsor.src"
+          :alt="sponsor.alt"
+          :class="[
+            'h-auto mx-auto',
+            sponsor.isLogoWide === 'true' ? 'w-[50%]' : 'w-[75%]',
+          ]"
+        />
       </div>
     </div>
   </div>
 </template>
-
-<style scoped>
-.carousel-container {
-  width: 100%;
-  max-width: 800px;
-  margin: auto;
-}
-
-.carousel {
-  display: flex;
-  width: 100%;
-  height: 400px;
-}
-
-.carousel-item {
-  flex: 0 0 100%;
-}
-</style>

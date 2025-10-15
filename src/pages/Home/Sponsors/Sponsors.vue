@@ -4,7 +4,7 @@ import SponsorsCarousel from './SponsorsCarousel/SponsorsCarousel.vue';
 </script>
 
 <template>
-  <div class="w-full my-32 mobile:my-24 flex flex-col gap-y-10 items-center">
+  <div class="w-full mobile:my-10 sm:my-32 flex flex-col gap-y-10 items-center">
     <h1 class="page-header-accent">SPONSORS THAT SUPPORT US, AMONG OTHERS:</h1>
     <!-- Sponsors RWD Layout: 
       - Mobile only: Hidden (Switches to <SponsorsCarousel/> UI)
