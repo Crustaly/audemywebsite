@@ -17,15 +17,19 @@ import SponsorsCarousel from './SponsorsCarousel/SponsorsCarousel.vue';
         class="w-full scroll-auto grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-y-10 items-center justify-center text-center my-5"
       >
         <!-- Loop through sponsors dynamically -->
-        <div v-for="(sponsor, index) in sponsorsData.sponsors" :key="index">
+        <div
+          v-for="(sponsor, index) in sponsorsData.sponsors"
+          :key="index"
+          class="w-full h-full flex justify-content mx-auto"
+        >
           <img
             :src="sponsor.src"
             :alt="sponsor.alt"
             :class="[
-              'h-auto mx-auto',
+              'h-auto mx-auto object-contain',
               sponsor.isLogoWide === 'true'
-                ? 'w-1/3 md:w-[45%]'
-                : 'w-1/2 md:w-[80%]',
+                ? 'w-1/4 md:w-[30%] lg:w-[33%]'
+                : 'w-1/2 md:w-[65%] lg:w-[70%]',
             ]"
           />
         </div>
