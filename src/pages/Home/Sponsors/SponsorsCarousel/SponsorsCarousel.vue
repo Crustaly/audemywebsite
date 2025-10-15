@@ -47,7 +47,7 @@ onBeforeUnmount(() => {
           :alt="sponsor.alt"
           :class="[
             'h-auto mx-auto',
-            sponsor.isLogoWide === 'true' ? 'w-[50%]' : 'w-[75%]',
+            sponsor.isLogoWide === 'true' ? 'w-[40%]' : 'w-[75%]',
           ]"
         />
       </div>

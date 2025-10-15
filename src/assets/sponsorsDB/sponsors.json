@@ -6,9 +6,9 @@
       "isLogoWide": "false"
     },
     {
-      "src": "/assets/images/sponsors/google.png",
+      "src": "/assets/images/sponsors/new-google.png",
       "alt": "Google",
-      "isLogoWide": "false"
+      "isLogoWide": "true"
     },
     {
       "src": "/assets/images/sponsors/Amazon-Logo.png",
@@ -26,7 +26,7 @@
       "isLogoWide": "false"
     },
     {
-      "src": "/assets/images/sponsors/desmos.png",
+      "src": "/assets/images/sponsors/new-desmos.webp",
       "alt": "Desmos",
       "isLogoWide": "false"
     },
@@ -43,7 +43,7 @@
     {
       "src": "/assets/images/sponsors/tacobell.png",
       "alt": "Taco Bell Foundation",
-      "isLogoWide": "true"
+      "isLogoWide": "false"
     },
     {
       "src": "/assets/images/sponsors/wolframalpha.svg",
@@ -58,7 +58,7 @@
     {
       "src": "/assets/images/sponsors/ncwit.png",
       "alt": "NCWIT",
-      "isLogoWide": "true"
+      "isLogoWide": "false"
     }
   ]
 }
