@@ -252,12 +252,12 @@ const finalArrowClasses = [
                 class="flex flex-col gap-y-10 items-center md:flex-row md:justify-center md:justify-evenly my-10"
               >
                 <img
-                  src="/assets/images/audio-console/amazon_logo.png"
+                  src="/assets/images/sponsors/Amazon-Logo.png"
                   aria-hidden="true"
                   class="w-1/3 md:w-1/4"
                 />
                 <img
-                  src="/assets/images/audio-console/ae-foundation-logo.png"
+                  src="/assets/images/sponsors/ae-foundation-logo.png"
                   aria-hidden="true"
                   class="w-1/3 md:w-1/4"
                 />
