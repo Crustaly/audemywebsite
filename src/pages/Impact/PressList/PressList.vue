@@ -10,19 +10,19 @@ const items = [
     url: 'https://www.fox26houston.com/news/katy-student-develops-online-tool-help-blind-students',
   },
   {
-    image: 'white-house-feature.png',
+    image: 'white-house-resized-icon.png',
     text: 'Audemy Featured as Major Organization Commit to Supporting AI Education',
     network: 'The White House',
     url: 'https://www.whitehouse.gov/articles/2025/09/major-organizations-commit-to-supporting-ai-education/',
   },
   {
-    image: 'intel-globalImpactAI.png',
+    image: 'intel-global-Impact-AI-resized.png',
     text: 'Intel celebrates Crystal Yang, winner of Global AI Impact Festival',
     network: 'Intel',
     url: 'https://www.intel.com/content/www/us/en/corporate/artificial-intelligence/winners2024.html',
   },
   {
-    image: 'NPR-app.png',
+    image: 'NPR-app-resized.png',
     text: 'Crystal Yang on making gaming accessible for blind players through sound',
     network: 'NPR',
     url: 'https://www.youtube.com/watch?v=-Cd82j8v7Dc&ab_channel=HoustonPublicMedia',
@@ -40,7 +40,7 @@ const items = [
     url: 'https://arxiv.org/abs/2504.17117',
   },
   {
-    image: 'ISTE.png',
+    image: 'ISTE-resized.png',
     text: 'Intel presents: How students and developers are shaping the future of gaming',
     network: 'ISTE',
     url: 'https://conference.iste.org/2025/program/search/detail_session.php?id=118237270',
