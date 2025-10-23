@@ -53,7 +53,7 @@
         ></path>
       </svg>
       <img
-        src="/assets/images/hero/hero-image2.png"
+        src="/assets/images/hero/hero-resized.png"
         alt=""
         class="z-10 w-[70%] sm:w-[45%] md:w-[85%] lg:w-full mx-auto md:mx-0"
       />
