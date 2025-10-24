@@ -1099,7 +1099,7 @@ const openToolkitPDF = (pdfUrl, gameName) => {
           bottomLeftImgPath="/assets/images/studio/shooting-stars.png"
         />
         <img
-          src="/src/assets/character/toolkit.png"
+          src="/src/assets/character/toolkit-resized.png"
           alt=""
           class="z-10 w-[60%] sm:w-[45%] md:w-[50%] mx-auto rotate-[6rad] md:rotate-[0.20rad]"
         />
@@ -1147,7 +1147,7 @@ const openToolkitPDF = (pdfUrl, gameName) => {
               </div>
               <div class="logo-slide">
                 <img
-                  src="/src/assets/logos/Minecraft-Logo.png"
+                  src="/src/assets/logos/minecraft-logo-resized.png"
                   alt="Minecraft"
                   class="h-16 w-auto object-contain"
                 />
@@ -1183,7 +1183,7 @@ const openToolkitPDF = (pdfUrl, gameName) => {
               </div>
               <div class="logo-slide">
                 <img
-                  src="/src/assets/logos/Minecraft-Logo.png"
+                  src="/src/assets/logos/minecraft-logo-resized.png"
                   alt="Minecraft"
                   class="h-16 w-auto object-contain"
                 />
