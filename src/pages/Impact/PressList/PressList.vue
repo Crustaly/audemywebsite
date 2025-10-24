@@ -11,7 +11,7 @@ const items = [
   },
   {
     image: 'white-house-resized-icon.png',
-    text: 'Audemy Featured as Major Organization Commit to Supporting AI Education',
+    text: 'Audemy Featured as Major Organization Committed to Supporting AI Education',
     network: 'The White House',
     url: 'https://www.whitehouse.gov/articles/2025/09/major-organizations-commit-to-supporting-ai-education/',
   },
