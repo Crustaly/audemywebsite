@@ -28,7 +28,7 @@ const items = [
     url: 'https://www.youtube.com/watch?v=-Cd82j8v7Dc&ab_channel=HoustonPublicMedia',
   },
   {
-    image: 'PBS-student-developes-app.png',
+    image: 'PBS-student-develops-app-resized.png',
     text: 'Houston Students raise $100,000 for Accessibility Hackathon, KatyYouthHacks',
     network: 'CW',
     url: 'https://www.youtube.com/watch?v=7y_vTaRb6Mc&t=2382s',
