@@ -9,7 +9,7 @@ import PageDecorations from '/src/components/PageDecorations/PageDecorations.vue
 const impactImages = [
   '/assets/images/impact/IMG.png',
   '/assets/images/impact/IMG_1661.jpeg',
-  '/assets/images/impact/arizonaStudent.png',
+  '/assets/images/impact/arizona-student-resized.png',
   '/assets/images/impact/5b46078e-65e0-42c8-a658-2939c6676a21.jpeg',
   '/assets/images/impact/IMG_0779.jpeg',
   '/assets/images/impact/spellsafariuser.png',
