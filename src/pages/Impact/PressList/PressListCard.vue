@@ -2,7 +2,6 @@
 const props = defineProps({
   image: String,
   text: String,
-  author: String,
   network: String,
   url: String,
 });
@@ -13,14 +12,14 @@ const path = '/assets/images/impact/';
   <div class="w-full mx-auto flex flex-row justify-center h-auto">
     <div class="w-full max-w-[360px] px-4">
       <div
-        class="flex flex-col items-center justify-evenly h-auto rounded-[8px] gap-4 mobile:px-4"
+        class="font-poppins flex flex-col items-center justify-evenly h-auto rounded-[8px] gap-4 mobile:px-4"
       >
         <!-- NEWS NETWORK (HEADING) -->
         <div
-          class="w-full flex items-center justify-center h-[60px] text-center px-2"
+          class="w-full flex items-center justify-center h-[80px] text-center"
         >
           <h2
-            class="text-[26px] font-bold font-poppins tablet:text-[14px] font-[600] mobile:text-[14px]"
+            class="text-[16px] md:text-[18px] xl:text-[20px] font-bold"
             v-html="network"
           ></h2>
         </div>
@@ -54,18 +53,10 @@ const path = '/assets/images/impact/';
             class="block"
           >
             <h3
-              class="text-gray-500 font-poppins font-[600] text-[16px] tablet:text-[14px] mobile:text-[14px] hover:text-blue-600 transition-colors duration-200 cursor-pointer"
+              class="text-gray-500 font-[600] text-[16px] tablet:text-[14px] mobile:text-[14px] hover:text-blue-600 transition-colors duration-200 cursor-pointer"
               v-html="text"
             ></h3>
           </a>
-        </div>
-
-        <!-- AUTHOR -->
-        <div class="w-full text-right mobile:text-center px-2">
-          <p
-            class="text-body-text-color font-poppins text-[14px] tablet:text-[10px] font-[500] mobile:text-[12px]"
-            v-html="author"
-          ></p>
         </div>
       </div>
     </div>
