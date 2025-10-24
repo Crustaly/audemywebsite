@@ -1,5 +1,5 @@
 <script setup>
-import AudemyStudent from '../../../assets/images/audemy-student.png';
+import AudemyStudent from '../../../assets/images/audemy-student-resize.png';
 import StudentMinecraft from '../../../assets/images/student-minecraft-resized.png';
 import BuzzleHand from '../../../assets/images/buzzlehand.png';
 import CrystalWithGroups from '../../../assets/images/crystal-with-groups-resized.jpg';

@@ -3,31 +3,31 @@ import { ref, computed } from 'vue';
 
 const testimonials = [
   {
-    image: '/assets/images/testimonials/testimonial1.png',
+    image: '/assets/images/testimonials/testimonial-1.png',
     text: `"I appreciate Audemy.org for offering a wide variety of games, particularly those focused on nourishing life skills and independence. <p class="mt-3">The option to reward my students at the end of their lessons with 5 quick educational questions/games, fits in well into our busy schedule."</p>`,
     name: 'Stephanie Bissonette',
     role: '<i>Director of Children Services at the Vermont Association for the Blind</i> <p class="mt-3"><a href="mailto:sbissonette@vabvi.org" class="underline hover:text-primary-color transition-colors duration-300" tabindex="-1">sbissonette@vabvi.org</a></p>',
   },
   {
-    image: '/assets/images/impact/arizonaStudent.png',
+    image: '/assets/images/impact/arizona-student-resized.png',
     text: `"Hello! My name is Denise Bean, Youth Service Librarian for the Iowa Library for the Blind and Print Disabled, and one of the greatest joys of my work is building meaningful connections with children who are blind or have low vision. <p class="mt-3">During one of our 28 virtual Summer Reading Program events, we introduced a game called Audemy, and what an unforgettable experience it was! The children lit up with excitement, laughter filled the room, and the joy was contagious."</p>`,
     name: 'Denise Bean',
     role: '<i>Youth Service Librarian from the Iowa Library for the Blind</i> <p class="mt-3"><a href="mailto:denise.bean@blind.state.ia.us" class="underline hover:text-primary-color transition-colors duration-300" tabindex="-1">denise.bean@blind.state.ia.us</a></p>',
   },
   {
-    image: '/assets/images/testimonials/testimonial2.png',
+    image: '/assets/images/testimonials/testimonial-2.png',
     text: `"The audio gaming experience on Audemy is incredible! <p class="mt-3">My students are completely immersed in the games - the sound effects, voice acting, and interactive gameplay make it feel like a real gaming console. They can't get enough of the adventure-style games!"</p>`,
     name: 'Technology Coordinator',
     role: '<i>Texas School for the Blind and Visually Impaired</i>',
   },
   {
-    image: '/assets/images/testimonials/testimonial3.png',
+    image: '/assets/images/testimonials/testimonial-3.png',
     text: `"Audemy's gaming platform is revolutionary for blind gamers. The audio-only design creates an immersive experience that rivals mainstream games. <p class="mt-3">Our students love competing with each other and achieving high scores!"</p>`,
     name: 'Workshop Coordinator',
     role: '<i>Massachusetts Lighthouse for the Blind</i>',
   },
   {
-    image: '/assets/images/testimonials/testimonial4.png',
+    image: '/assets/images/testimonials/testimonial-4.png',
     text: `"Audemy's games are so much fun! I love the car racing game and the adventure quests. <p class="mt-3">The sound effects make me feel like I'm really driving or exploring. It's the coolest gaming experience I've ever had!"</p>`,
     name: 'Adam',
     role: '<i>A Student who is blind from Houston</i>',
