@@ -11,7 +11,7 @@
       "isLogoWide": "true"
     },
     {
-      "src": "/assets/images/sponsors/Amazon-Logo.png",
+      "src": "/assets/images/sponsors/Amazon-logo-resized.png",
       "alt": "Amazon",
       "isLogoWide": "true"
     },
@@ -36,12 +36,12 @@
       "isLogoWide": "false"
     },
     {
-      "src": "/assets/images/sponsors/contribution.webp",
+      "src": "/assets/images/sponsors/contribution-resized.webp",
       "alt": "The Contribution Project",
       "isLogoWide": "false"
     },
     {
-      "src": "/assets/images/sponsors/tacobell.png",
+      "src": "/assets/images/sponsors/tacobell-resized.png",
       "alt": "Taco Bell Foundation",
       "isLogoWide": "false"
     },
