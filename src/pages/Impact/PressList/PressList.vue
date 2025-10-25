@@ -40,7 +40,7 @@ const items = [
     url: 'https://arxiv.org/abs/2504.17117',
   },
   {
-    image: 'ISTE-resized.png',
+    image: 'ISTE-winner-resized.png',
     text: 'Intel presents: How students and developers are shaping the future of gaming',
     network: 'ISTE',
     url: 'https://conference.iste.org/2025/program/search/detail_session.php?id=118237270',
@@ -52,7 +52,7 @@ const items = [
     url: 'https://communityimpact.com/houston/katy-north/nonprofit/2024/06/27/katy-isd-student-creates-audio-based-education-games-for-visually-impaired-children/',
   },
   {
-    image: 'points-of-light.png',
+    image: 'points-of-light-resized.png',
     text: 'Championing Accessibility in Gaming for Blind and Visually Impaired Players',
     network: 'Points of Light',
     url: 'https://www.pointsoflight.org/awards/championing-accessibility-in-education-for-blind-and-visually-impaired-students/',
@@ -76,13 +76,13 @@ const items = [
     url: 'https://www.yahoo.com/news/katy-isd-student-develops-online-223852490.html?guce_referrer=aHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS8&guce_referrer_sig=AQAAAGGYGPaUqvUCacJ9ExqIFOi7nLlL2Y9NFLcw4cprR1LeexxAbnW5xbK0h8dRPsLum2VnRzbOrFiZ31vzoDnh5Z4lKt2r1Ub_9xVjfD2iLOmXHS8pVYwN-vbuuBQmmIBkKYrqH3xw0my8NZzI5cwqOdUKjODwY97Bm77FRpleNdKM&guccounter=2',
   },
   {
-    image: 'devpost.png',
+    image: 'devpost-resized.png',
     text: 'How Crystal’s love for hackathons inspired her to host her own',
     network: 'Devpost',
     url: 'https://info.devpost.com/blog/user-story-crystal',
   },
   {
-    image: 'Flipboard.png',
+    image: 'Flipboard-resized.png',
     text: 'Crystal’s Games Are Changing Education for Blind Students Nationwide',
     network: 'Flipboard edu',
     url: 'https://flipboardedu.substack.com/p/she-solved-a-friends-problem-now',
@@ -94,13 +94,13 @@ const items = [
     url: 'https://dl.acm.org/doi/10.1145/3610661.3617150',
   },
   {
-    image: 'Authority.png',
+    image: 'Authority-resized.png',
     text: 'Crystal Yang of Audemy Is Helping To Change Our World',
     network: 'Authority Magazine',
     url: 'https://medium.com/authority-magazine/social-impact-heroes-why-how-crystal-yang-of-audemy-is-helping-to-change-our-world-59d47f21ac81',
   },
   {
-    image: 'Canvas.png',
+    image: 'Canvas-resized.png',
     text: 'Meet Crystal Yang!',
     network: 'By Canvas rebel',
     url: 'https://canvasrebel.com/meet-crystal-yang/',
@@ -118,7 +118,7 @@ const items = [
     url: 'https://boldjourney.com/meet-crystal-yang/',
   },
   {
-    image: 'C-hubworld.png',
+    image: 'C-hubworld-resized.png',
     text: 'Game Without Limits with Audemy!',
     network: 'C-hubworld',
     url: 'https://www.instagram.com/c_hubworld/reel/DLkIX7TSlqK/',
@@ -142,7 +142,7 @@ const items = [
     url: 'https://scale.stanford.edu/genai/repository/al-accessible-education-personalized-audio-based-learning-blind-students',
   },
   {
-    image: 'EV.png',
+    image: 'EV-resized.png',
     text: 'Crystal Yang develops online gaming tool to help blind players',
     network: 'EV',
     url: 'https://www.elvenezolanohouston.com/estudiante-de-katy-isd-desarrolla-herramienta-online-para-ayudar-a-alumnos-ciegos/',
@@ -154,13 +154,13 @@ const items = [
     url: 'https://www.iheart.com/podcast/269-hello-houston-the-commuter-271597362/episode/hello-houston-the-commuter-cut-280206632/',
   },
   {
-    image: 'Youth.png',
+    image: 'Youth-resized.png',
     text: 'Crystal Yang of Audemy is addressing a real need in our gaming industry by creating fun, accessible gaming experiences',
     network: 'Youth Service America',
     url: 'https://ysa.org/crystalyang/',
   },
   {
-    image: 'WIT.png',
+    image: 'WIT-resized.png',
     text: '"Don’t Optimize for Perfection. Optimize for Progress." – Crystal Yang',
     network: 'WIT Media',
     url: 'https://www.instagram.com/reel/DMO34LeONU5/',
