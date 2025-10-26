@@ -2,14 +2,7 @@
 import Banner from '../../components/AccountPages/Banner.vue';
 import Header from '../../components/Header/Header.vue';
 import Footer from '../../components/Footer/Footer.vue';
-
-import { useRouter } from 'vue-router';
-const router = useRouter();
-
-const toGameZoneLandingPage = () => {
-  // Route to Game Zone Landing Page when button is clicked
-  router.push('/game-zone-landing-page');
-};
+import ReturnToGameZoneButton from '../../components/ReturnToGameZoneButton/ReturnToGameZoneButton.vue';
 </script>
 
 <template>
@@ -19,7 +12,7 @@ const toGameZoneLandingPage = () => {
   <div class="content-container lg:grid lg:grid-cols-3">
     <Banner
       class="lg:col-span-1 lg:h-full"
-      :CarlImgPath="'/assets/images/impact/globe 1.svg'"
+      :CarlImgPath="'/assets/images/impact/carl-globe.svg'"
       :isImageWide="false"
       bgColor="#B1C7D0"
       curveColor="#E5F0F5"
@@ -74,14 +67,8 @@ const toGameZoneLandingPage = () => {
           <span class="font-semibold text-primary-color"><i>play</i></span> !
         </p>
       </div>
-      <!-- RETURN TO GAME ZONE FORM -->
-      <form @submit="toGameZoneLandingPage" method="post" class="form-wrapper">
-        <div class="form-action-container">
-          <button type="submit" class="primary-button">
-            Return to Game Zone
-          </button>
-        </div>
-      </form>
+      <!-- RETURN TO GAME ZONE LANDING PAGE BUTTON -->
+      <ReturnToGameZoneButton />
     </div>
   </div>
   <Footer />

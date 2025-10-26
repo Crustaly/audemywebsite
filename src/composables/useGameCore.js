@@ -41,6 +41,11 @@ export function useGameCore(gameConfig) {
   */
   const firstMatchingAnswer = ref('');
 
+  let customLogic = null;
+  if (gameConfig.usesCustomLogic && gameConfig.customLogic) {
+    customLogic = gameConfig.customLogic();
+  }
+
   const gameQuestions = useGameQuestions(gameConfig);
 
   const gameState = {
@@ -53,33 +58,56 @@ export function useGameCore(gameConfig) {
   const gameUI = useGameUI(gameState);
 
   const numOfAudiosPlayed = computed(() => {
-    if (
-      hasStartedFirstQuestion.value &&
-      gameQuestions.currentQuestionIndex.value === 0
-    ) {
+    const currentIndex = customLogic
+      ? customLogic.currentQuestionIndex.value
+      : gameQuestions.currentQuestionIndex.value;
+
+    if (hasStartedFirstQuestion.value && currentIndex === 0) {
       return 1;
     }
-    return gameQuestions.currentQuestionIndex.value;
+    return currentIndex;
   });
 
   const playNextQuestion = async () => {
-    if (
-      gameQuestions.hasMoreQuestions() &&
-      gameQuestions.currentQuestion.value
-    ) {
-      console.log(gameQuestions.currentQuestion.value);
+    if (customLogic) {
+      if (customLogic.hasMoreQuestions() && !customLogic.isPlaying.value) {
+        isButtonCooldown.value = true;
 
-      isButtonCooldown.value = true;
-      await playQuestion(gameQuestions.currentQuestion.value['Q']);
-      isButtonCooldown.value = false;
+        stopAudios(currentAudios);
+        currentAudios.length = 0;
+
+        try {
+          await customLogic.playCarSequence(currentAudios);
+        } finally {
+          isButtonCooldown.value = false;
+        }
+      }
+    } else {
+      if (
+        gameQuestions.hasMoreQuestions() &&
+        gameQuestions.currentQuestion.value
+      ) {
+        console.log(gameQuestions.currentQuestion.value);
+
+        isButtonCooldown.value = true;
+        await playQuestion(gameQuestions.currentQuestion.value['Q']);
+        isButtonCooldown.value = false;
+      }
     }
   };
 
   const toggleRecording = async () => {
-    if (gameQuestions.hasMoreQuestions() && !isIntroPlaying.value) {
+    const hasQuestions = customLogic
+      ? customLogic.hasMoreQuestions()
+      : gameQuestions.hasMoreQuestions();
+
+    const isAudioPlaying = customLogic ? customLogic.isPlaying.value : false;
+
+    if (hasQuestions && !isIntroPlaying.value && !isAudioPlaying) {
       if (!isRecording.value) {
         isRecording.value = true;
         isFinalResult.value = false;
+        playSound('ding-sound.mp3');
 
         startListening(
           (transcript) => {
@@ -115,43 +143,78 @@ export function useGameCore(gameConfig) {
 
           stopListening();
 
-          const question = gameQuestions.currentQuestion.value;
-          console.log('Question is: ', question['Q']);
-          console.log('User Answer:', finalTranscript);
-          console.log('Correct Answer:', question['A']);
+          if (customLogic) {
+            console.log('User Answer:', finalTranscript);
+            console.log('Correct Answer:', customLogic.getCurrentAnswer());
 
-          [isCorrect.value, firstMatchingAnswer.value] =
-            gameQuestions.validateAnswer(finalTranscript, question);
+            isCorrect.value = customLogic.validateCarAnswer(finalTranscript);
 
-          isAnswerPlaying.value = true;
+            isAnswerPlaying.value = true;
 
-          if (isCorrect.value) {
-            score.value++;
-            console.log('Correct Answer!');
-            await playSound('correctaudio.mp3');
+            if (isCorrect.value) {
+              score.value++;
+              console.log('Correct Answer!');
+              await playSound('correctaudio.mp3');
+            } else {
+              console.log('Wrong Answer!');
+              await playSound('incorrectaudio.mp3');
+
+              const incorrectAudio =
+                'The correct answer is ' + customLogic.getCurrentAnswer();
+              await playQuestion(incorrectAudio);
+            }
+
+            transcription.value = '';
+            isRecording.value = false;
+            isFinalResult.value = false;
+            isAnswerPlaying.value = false;
+            isCorrect.value = false;
+            customLogic.moveToNextQuestion();
+
+            if (!customLogic.isGameComplete()) {
+              playNextQuestion();
+            } else {
+              playScore(score.value);
+            }
           } else {
-            console.log('Wrong Answer!');
-            await playSound('incorrectaudio.mp3');
+            const question = gameQuestions.currentQuestion.value;
+            console.log('Question is: ', question['Q']);
+            console.log('User Answer:', finalTranscript);
+            console.log('Correct Answer:', question['A']);
 
-            console.log('Correct Answer is: ', question['A']);
-            const incorrectAudio = 'The correct answer is ' + question['A'][0];
-            await playQuestion(incorrectAudio);
-          }
+            [isCorrect.value, firstMatchingAnswer.value] =
+              gameQuestions.validateAnswer(finalTranscript, question);
 
-          // Reset reactive values before playing next question
-          transcription.value = '';
-          isRecording.value = false;
-          isFinalResult.value = false;
-          isAnswerPlaying.value = false;
-          isCorrect.value = false;
-          firstMatchingAnswer.value = '';
+            isAnswerPlaying.value = true;
 
-          gameQuestions.moveToNextQuestion();
+            if (isCorrect.value) {
+              score.value++;
+              console.log('Correct Answer!');
+              await playSound('correctaudio.mp3');
+            } else {
+              console.log('Wrong Answer!');
+              await playSound('incorrectaudio.mp3');
 
-          if (!gameQuestions.isGameComplete()) {
-            playNextQuestion();
-          } else {
-            playScore(score.value);
+              console.log('Correct Answer is: ', question['A']);
+              const incorrectAudio =
+                'The correct answer is ' + question['A'][0];
+              await playQuestion(incorrectAudio);
+            }
+
+            transcription.value = '';
+            isRecording.value = false;
+            isFinalResult.value = false;
+            isAnswerPlaying.value = false;
+            isCorrect.value = false;
+            firstMatchingAnswer.value = '';
+
+            gameQuestions.moveToNextQuestion();
+
+            if (!gameQuestions.isGameComplete()) {
+              playNextQuestion();
+            } else {
+              playScore(score.value);
+            }
           }
         }
       }
@@ -166,26 +229,42 @@ export function useGameCore(gameConfig) {
   };
 
   const repeatQuestion = () => {
+    const hasQuestions = customLogic
+      ? customLogic.hasMoreQuestions()
+      : gameQuestions.hasMoreQuestions();
+
+    const isAudioPlaying = customLogic ? customLogic.isPlaying.value : false;
+
     if (
-      gameQuestions.hasMoreQuestions() &&
+      hasQuestions &&
       !isIntroPlaying.value &&
-      !isButtonCooldown.value
+      !isButtonCooldown.value &&
+      !isAudioPlaying
     ) {
       isButtonCooldown.value = true;
 
+      const currentIndex = customLogic
+        ? customLogic.currentQuestionIndex.value
+        : gameQuestions.currentQuestionIndex.value;
+
       console.log(
         `Repeating question for ${gameConfig.title} - Question #${
-          gameQuestions.currentQuestionIndex.value + 1
+          currentIndex + 1
         }`
       );
 
       playNextQuestion();
 
-      setTimeout(() => {
-        isButtonCooldown.value = false;
-      }, 5000);
+      setTimeout(
+        () => {
+          isButtonCooldown.value = false;
+        },
+        customLogic ? 4000 : 5000
+      );
     } else if (isIntroPlaying.value) {
       console.log('Cannot repeat question while introduction is playing');
+    } else if (isAudioPlaying) {
+      console.log('Cannot repeat question while audio is playing');
     } else if (isButtonCooldown.value) {
       console.log('Please wait before repeating the question again');
     }
@@ -214,7 +293,11 @@ export function useGameCore(gameConfig) {
     console.log('Requesting microphone access...');
     requestMicPermission();
 
-    gameQuestions.generateQuestions();
+    if (customLogic) {
+      customLogic.generateCarQuestions();
+    } else {
+      gameQuestions.generateQuestions();
+    }
 
     watch(playButton, async (newVal) => {
       if (newVal) {
@@ -266,9 +349,45 @@ export function useGameCore(gameConfig) {
     cleanup();
   });
 
+  // Computed for button disabled state (includes custom isPlaying)
+  const isButtonDisabled = computed(() => {
+    const baseDisabled = gameUI.isButtonDisabled.value;
+    if (customLogic) {
+      return baseDisabled || customLogic.isPlaying.value;
+    }
+    return baseDisabled;
+  });
+
+  // Computed for button classes (includes custom isPlaying)
+  const recordButtonClasses = computed(() => {
+    const baseClasses = gameUI.recordButtonClasses.value;
+    if (customLogic && customLogic.isPlaying.value) {
+      return [...baseClasses, 'opacity-50 cursor-not-allowed'];
+    }
+    return baseClasses;
+  });
+
+  // Computed for button title (includes custom isPlaying)
+  const recordButtonTitle = computed(() => {
+    if (customLogic && customLogic.isPlaying.value) {
+      return 'Please wait until the question finishes playing';
+    }
+    return gameUI.recordButtonTitle.value;
+  });
+
+  // Computed for current answer (for GameHeader display)
+  const currentAnswer = computed(() => {
+    if (customLogic) {
+      return customLogic.getCurrentAnswer();
+    }
+    return null;
+  });
+
   return {
     numOfAudiosPlayed,
-    currentQuestionIndex: gameQuestions.currentQuestionIndex,
+    currentQuestionIndex: customLogic
+      ? customLogic.currentQuestionIndex
+      : gameQuestions.currentQuestionIndex,
     score,
     isRecording,
     isFinalResult,
@@ -284,12 +403,15 @@ export function useGameCore(gameConfig) {
     isDesktop: gameUI.isDesktop,
     questionsDb: gameQuestions.questionsDb,
     currentAudios,
-    currentQuestion: gameQuestions.currentQuestion,
-    isButtonDisabled: gameUI.isButtonDisabled,
-    recordButtonClasses: gameUI.recordButtonClasses,
-    recordButtonTitle: gameUI.recordButtonTitle,
+    currentQuestion: customLogic ? null : gameQuestions.currentQuestion,
+    currentAnswer,
+    isButtonDisabled,
+    recordButtonClasses,
+    recordButtonTitle,
     recordButtonText: gameUI.recordButtonText,
-    generateQuestions: gameQuestions.generateQuestions,
+    generateQuestions: customLogic
+      ? customLogic.generateCarQuestions
+      : gameQuestions.generateQuestions,
     playNextQuestion,
     toggleRecording,
     goBack,
@@ -298,6 +420,8 @@ export function useGameCore(gameConfig) {
     handleSthNotWorkingButtonClick,
     startGame,
     cleanup,
-    validateAnswer: gameQuestions.validateAnswer,
+    validateAnswer: customLogic
+      ? customLogic.validateCarAnswer
+      : gameQuestions.validateAnswer,
   };
 }

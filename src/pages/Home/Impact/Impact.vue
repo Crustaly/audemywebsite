@@ -1,7 +1,7 @@
 <script setup>
 import Students from '/assets/images/impact/carl-pencil.svg';
-import Problems from '/assets/images/impact/problems 1.svg';
-import Globe from '/assets/images/impact/globe 1.svg';
+import Problems from '/assets/images/impact/carl-problems.svg';
+import Globe from '/assets/images/impact/carl-globe.svg';
 </script>
 
 <template>

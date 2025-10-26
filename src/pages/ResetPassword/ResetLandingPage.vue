@@ -36,7 +36,7 @@ const toResetPswd = () => {
   >
     <Banner
       id="reset-landing-page-banner"
-      :CarlImgPath="'/assets/images/impact/globe 1.svg'"
+      :CarlImgPath="'/assets/images/impact/carl-globe.svg'"
       :isImageWide="false"
       bgColor="#B1C7D0"
       curveColor="#E5F0F5"

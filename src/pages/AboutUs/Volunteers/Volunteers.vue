@@ -11,7 +11,7 @@ onMounted(() => {
 
 <template>
   <div class="font-poppins flex justify-center mb-10">
-    <div class="w-full p-5 h-auto">
+    <div class="w-full h-auto relative">
       <!-- Section Header -->
       <div class="w-full">
         <h3 class="page-header-accent">OUR TEAM</h3>
@@ -19,6 +19,23 @@ onMounted(() => {
       <div class="w-full mb-10">
         <h2 class="page-header">Volunteers for Good</h2>
       </div>
+
+      <!-- WCAG: Avoid excessive tab stops 
+        - Hidden until focused 'Skip' link
+        - Exists in DOM & is keyboard accessible: Focus via Tab + Enter to jump
+        - Bypass 80+ social media links
+        - Link offers quick jump to next section ('Join our Team')
+      -->
+      <div class="page-button-flex">
+        <a
+          href="#cta-section"
+          aria-label="Skip to next section (Bypass 80+ social links)"
+          class="absolute -z-10 opacity-0 focus:static focus:z-auto focus:opacity-100 page-button blue-button mobile:h-auto mobile:w-[70%] md:w-[300px] px-5 py-3"
+        >
+          Skip to next section
+        </a>
+      </div>
+
       <!-- Volunteer Staff Section -->
       <div
         class="p-5 w-full my-10 flex flex-col gap-10 items-center justify-between"
@@ -27,9 +44,11 @@ onMounted(() => {
       >
         <VolunteerStaff :staffTitle="item.staffTitle" :staff="item.staff" />
       </div>
+
       <!-- Call to Action -->
       <div
-        class="w-full my-36 flex flex-col justify-center items-center gap-10"
+        id="cta-section"
+        class="w-full py-24 flex flex-col justify-center items-center gap-10"
       >
         <h4 class="text-center page-text">
           Be part of this journey to change lives,

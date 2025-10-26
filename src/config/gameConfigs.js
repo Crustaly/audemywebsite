@@ -1,3 +1,5 @@
+import { useCarCounting } from '../composables/useCarCounting';
+
 export const gameConfigs = {
   addition: {
     title: 'Animal Addition',
@@ -19,6 +21,9 @@ export const gameConfigs = {
     dbFile: '', // Special case: Game Qs generated via useCarCounting.js
     dbKey: '',
     category: 'math',
+    usesCustomLogic: true,
+    showAnswerOnly: true,
+    customLogic: useCarCounting,
   },
 
   colorGame: {

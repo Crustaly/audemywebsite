@@ -1,8 +1,8 @@
 <script setup>
-import AudemyStudent from '../../../assets/images/audemy student.png';
-import StudentMinecraft from '../../../assets/images/studentminecraft.png';
+import AudemyStudent from '../../../assets/images/audemy-student.png';
+import StudentMinecraft from '../../../assets/images/student-minecraft-resized.png';
 import BuzzleHand from '../../../assets/images/buzzlehand.png';
-import CrystalWithGroups from '../../../assets/images/crystalwith groups.jpeg';
+import CrystalWithGroups from '../../../assets/images/crystal-with-groups-resized.jpg';
 </script>
 
 <template>

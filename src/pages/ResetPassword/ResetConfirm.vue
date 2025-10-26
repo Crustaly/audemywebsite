@@ -2,14 +2,7 @@
 import Banner from '../../components/AccountPages/Banner.vue';
 import Header from '../../components/Header/Header.vue';
 import Footer from '../../components/Footer/Footer.vue';
-
-import { useRouter } from 'vue-router';
-
-const router = useRouter();
-
-const toGameZone = () => {
-  router.push('/game-zone-landing-page');
-};
+import ReturnToGameZoneButton from '../../components/ReturnToGameZoneButton/ReturnToGameZoneButton.vue';
 </script>
 
 <template>
@@ -22,7 +15,7 @@ const toGameZone = () => {
   >
     <Banner
       id="reset-confirm-banner"
-      :CarlImgPath="'/assets/images/impact/globe 1.svg'"
+      :CarlImgPath="'/assets/images/impact/carl-globe.svg'"
       :isImageWide="false"
       bgColor="#B1C7D0"
       curveColor="#E5F0F5"
@@ -38,17 +31,8 @@ const toGameZone = () => {
       <p class="form-description">
         Use the password you just created the next time you log in.
       </p>
-      <!-- GO TO GAME ZONE FORM -->
-      <form @submit="toGameZone" method="post" class="form-wrapper">
-        <div class="form-action-container">
-          <button
-            type="submit"
-            class="primary-button font-semibold hover:bg-[#0C587D] hover:cursor-pointer"
-          >
-            Return to Game Zone
-          </button>
-        </div>
-      </form>
+      <!-- RETURN TO GAME ZONE LANDING PAGE BUTTON -->
+      <ReturnToGameZoneButton />
     </div>
   </div>
   <Footer />
