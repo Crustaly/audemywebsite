@@ -165,7 +165,7 @@ const exitVideoControls = () => {
             v-if="!isPlaying"
             class="w-full h-full bg-cover bg-center"
             style="
-              background-image: url('/assets/images/techShowcase/video-poster.png');
+              background-image: url('/assets/images/techShowcase/video-poster-resized.png');
             "
             aria-hidden="true"
           ></div>
