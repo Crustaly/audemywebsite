@@ -12,13 +12,13 @@ const impactImages = [
   '/assets/images/impact/arizona-student-resized.png',
   '/assets/images/impact/5b46078e-65e0-42c8-a658-2939c6676a21.jpeg',
   '/assets/images/impact/crystal-with-crew.jpg',
-  '/assets/images/impact/spellsafariuser.png',
+  '/assets/images/impact/spell-safari-resized.png',
   '/assets/images/impact/audemy-intel.png',
-  '/assets/images/impact/visuallyImpairedArizonaStudent.png',
+  '/assets/images/impact/fruit-frenzy-resized.png',
   '/assets/images/impact/crystal-japan.jpg',
-  '/assets/images/impact/image_720.png',
+  '/assets/images/impact/crystal-conference-2.png',
   '/assets/images/impact/crystal-impact-2.png',
-  '/assets/images/impact/image_721.png',
+  '/assets/images/impact/crystal-conference-1.png',
 ];
 </script>
 
@@ -59,14 +59,14 @@ const impactImages = [
           index % 6 === 0
             ? 'rotate-[-1.5deg]'
             : index % 6 === 1
-              ? 'rotate-[1deg]'
-              : index % 6 === 2
-                ? 'rotate-[1.5deg]'
-                : index % 6 === 3
-                  ? 'rotate-[-2deg]'
-                  : index % 6 === 4
-                    ? 'rotate-[0.5deg]'
-                    : '',
+            ? 'rotate-[1deg]'
+            : index % 6 === 2
+            ? 'rotate-[1.5deg]'
+            : index % 6 === 3
+            ? 'rotate-[-2deg]'
+            : index % 6 === 4
+            ? 'rotate-[0.5deg]'
+            : '',
         ]"
       >
         <img :src="img" alt="" class="w-full h-full object-cover" />
