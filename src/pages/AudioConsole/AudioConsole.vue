@@ -126,6 +126,7 @@ const finalArrowClasses = [
           src="/assets/images/audio-console/buzzlehand.png"
           aria-hidden="true"
           class="object-cover rounded-lg shadow-md hover:shadow-lg hover:scale-105 transition-transform duration-300 z-10 w-[65%] sm:w-[45%] md:w-[85%] lg:w-[65%] mx-auto rotate-[-5deg] md:rotate-[5deg]"
+          fetchpriority="high"
         />
       </div>
     </div>
@@ -453,9 +454,9 @@ const finalArrowClasses = [
         </div>
         <div class="w-2/6 mobile:w-full">
           <img
-            src="/src/assets/character/audemychargame.png"
+            src="/src/assets/character/audemy-char-game-resized.png"
             alt=""
-            class="mx-auto mobile:w-[70%] rotate-[-10deg] md:rotate-[10deg]"
+            class="mx-auto mobile:w-[70%] rotate-[-10deg] md:rotate-[10deg] aspect-[513/518]"
           />
         </div>
       </div>
