@@ -67,9 +67,10 @@ import GamesShowcase from './GamesToLife/GamesShowcase.vue';
         </svg>
         <PageDecorations />
         <img
-          src="/src/assets/character/audemychargame.png"
+          src="/src/assets/character/audemy-char-game-resized.png"
           alt=""
-          class="z-10 w-[70%] sm:w-[45%] md:w-[85%] lg:w-[65%] mx-auto rotate-[6rad] md:rotate-[0.20rad]"
+          class="z-10 w-[70%] sm:w-[45%] md:w-[85%] lg:w-[55%] mx-auto rotate-[6rad] md:rotate-[0.20rad] aspect-[513/518]"
+          fetchpriority="high"
         />
       </div>
     </div>
