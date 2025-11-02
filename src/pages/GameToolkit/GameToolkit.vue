@@ -1102,6 +1102,7 @@ const openToolkitPDF = (pdfUrl, gameName) => {
           src="/src/assets/character/toolkit-resized.png"
           alt=""
           class="z-10 w-[60%] sm:w-[45%] md:w-[50%] mx-auto rotate-[6rad] md:rotate-[0.20rad]"
+          fetchpriority="high"
         />
       </div>
     </div>
