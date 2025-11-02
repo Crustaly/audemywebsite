@@ -6,6 +6,7 @@
       src="/assets/images/about-us/top-blue-bg.png"
       class="absolute w-full -top-[22rem] right-0 -z-10"
       aria-hidden="true"
+      fetchpriority="high"
     />
   </div>
 </template>
