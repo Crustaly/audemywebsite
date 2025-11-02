@@ -27,7 +27,7 @@ const founderStaff = [
   {
     name: 'Crystal Yang',
     role: 'Founder & Chief Executive Officer',
-    image: '/assets/images/about-us/volunteers/crystal-yang.png',
+    image: '/assets/images/about-us/volunteers/crystal-yang-resized.png',
     github: 'https://github.com/crustaly',
     linkedin: 'https://www.linkedin.com/in/crustaly/',
     email: 'crystal@audemy.org',
@@ -111,7 +111,7 @@ const developmentStaff = [
   {
     name: 'Prajwala Shambulingappa',
     role: 'Developer',
-    image: '/assets/images/about-us/volunteers/prajwala.png',
+    image: '/assets/images/about-us/volunteers/prajwala-resized.png',
     github: 'https://github.com/PrajwalaMugajjiShambulingappa',
     linkedin: 'https://www.linkedin.com/in/prajwalashambulingappa/',
     email: 'prajwalams99@gmail.com',
@@ -224,14 +224,14 @@ const developmentStaff = [
   {
     name: 'Jennifer Chhie',
     role: 'Developer',
-    image: '/assets/images/about-us/volunteers/jennifer.png',
+    image: '/assets/images/about-us/volunteers/jennifer-resized.png',
     github: 'https://github.com/jschhie',
     linkedin: 'https://www.linkedin.com/in/jennifer-chhie/',
   },
   {
     name: 'Brian Ference',
     role: 'Project Manager',
-    image: '/assets/images/about-us/volunteers/brian.png',
+    image: '/assets/images/about-us/volunteers/brian-resized.png',
     linkedin:
       'https://www.linkedin.com/in/brianference?trk=people-guest_people_search-card',
     email: 'brianference@protonmail.com',
@@ -314,7 +314,7 @@ const developmentStaff = [
   {
     name: 'Yashwanth',
     role: 'Developer',
-    image: '/assets/images/about-us/volunteers/yashwanth.png',
+    image: '/assets/images/about-us/volunteers/yashwanth-resized.png',
     email: 'yaswanth9399@gmail.com',
   },
 ];
