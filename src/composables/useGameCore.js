@@ -377,7 +377,7 @@ export function useGameCore(gameConfig) {
 
   // Computed for current answer (for GameHeader display)
   const currentAnswer = computed(() => {
-    if (customLogic) {
+    if (customLogic && isAnswerPlaying.value) {
       return customLogic.getCurrentAnswer();
     }
     return null;
