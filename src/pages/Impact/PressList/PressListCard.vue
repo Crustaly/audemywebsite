@@ -9,7 +9,7 @@ const path = '/assets/images/impact/';
 </script>
 
 <template>
-  <div class="w-full mx-auto flex flex-row justify-center h-auto">
+  <div class="w-full mx-auto flex flex-row justify-center p-2 rounded-[16px] border border-gray-400 hover:border-black hover:shadow-[6px_6px_0px_#0C0D0D] transition-all duration-300">
     <div class="w-full max-w-[360px] px-4">
       <div
         class="font-poppins flex flex-col items-center justify-evenly h-auto rounded-[8px] gap-4 mobile:px-4"
