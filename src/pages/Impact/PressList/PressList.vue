@@ -4,6 +4,12 @@ import PressListCard from './PressListCard.vue';
 
 const items = [
   {
+    image: 'forbes-30-icon.png',
+    text: 'Forbes 30 Under 30 - Games 2026: Crystal Yang',
+    network: 'Forbes',
+    url: 'https://www.forbes.com/profile/crystal-yang/',
+  },
+  {
     image: 'katy-student-develops.png',
     text: 'Crystal Yang, Founder and CEO of Audemy, develops online tool to help blind gamers',
     network: 'Fox News',
@@ -30,7 +36,7 @@ const items = [
   {
     image: 'PBS-student-develops-app-resized.png',
     text: 'Houston Students raise $100,000 for Accessibility Hackathon, KatyYouthHacks',
-    network: 'CW',
+    network: 'CW39 Houston',
     url: 'https://www.youtube.com/watch?v=7y_vTaRb6Mc&t=2382s',
   },
   {
@@ -84,7 +90,7 @@ const items = [
   {
     image: 'Flipboard-resized.png',
     text: 'Crystal’s Games Are Changing Education for Blind Students Nationwide',
-    network: 'Flipboard edu',
+    network: 'Flipboard Edu',
     url: 'https://flipboardedu.substack.com/p/she-solved-a-friends-problem-now',
   },
   {
@@ -102,7 +108,7 @@ const items = [
   {
     image: 'Canvas-resized.png',
     text: 'Meet Crystal Yang!',
-    network: 'By Canvas rebel',
+    network: 'Canvas Rebel',
     url: 'https://canvasrebel.com/meet-crystal-yang/',
   },
   {
@@ -120,7 +126,7 @@ const items = [
   {
     image: 'C-hubworld-resized.png',
     text: 'Game Without Limits with Audemy!',
-    network: 'C-hubworld',
+    network: 'C-Hubworld',
     url: 'https://www.instagram.com/c_hubworld/reel/DLkIX7TSlqK/',
   },
   {
@@ -132,7 +138,7 @@ const items = [
   {
     image: 'Disabilitynewsdigest.png',
     text: 'Crystal Yang is transforming gaming for blind and visually impaired players through Audemy',
-    network: 'Disability Newsdigest',
+    network: 'Disability News Digest',
     url: 'https://disabilitynewsdigest.substack.com/p/the-last-leg-promotes-disability',
   },
   {
@@ -144,13 +150,13 @@ const items = [
   {
     image: 'EV-resized.png',
     text: 'Crystal Yang develops online gaming tool to help blind players',
-    network: 'EV',
+    network: 'EV Houston',
     url: 'https://www.elvenezolanohouston.com/estudiante-de-katy-isd-desarrolla-herramienta-online-para-ayudar-a-alumnos-ciegos/',
   },
   {
     image: 'iheart.png',
     text: 'Crystal Yang’s inspiring journey with Audemy',
-    network: 'iHeart radio',
+    network: 'iHeart Radio',
     url: 'https://www.iheart.com/podcast/269-hello-houston-the-commuter-271597362/episode/hello-houston-the-commuter-cut-280206632/',
   },
   {
