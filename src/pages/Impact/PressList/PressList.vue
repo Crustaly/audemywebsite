@@ -241,7 +241,7 @@ onUnmounted(() => {
         >
           <div
             id="div_about_us"
-            class="grid gap-6 my-10 mobile:my-16 w-full mobile:grid-cols-1 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 transition-all duration-500 ease-in-out"
+            class="grid gap-6 my-10 mobile:my-16 w-full mobile:grid-cols-1 grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 transition-all duration-500 ease-in-out"
           >
             <div
               v-for="(item, index) in displayedItems"
