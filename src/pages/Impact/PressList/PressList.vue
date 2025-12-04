@@ -19,7 +19,7 @@ const items = [
     image: 'white-house-resized-icon.png',
     text: 'Audemy Featured as Major Organization Committed to Supporting AI Education',
     network: 'The White House',
-    url: 'https://www.whitehouse.gov/articles/2025/09/major-organizations-commit-to-supporting-ai-education/',
+    url: 'https://www.whitehouse.gov/articles/2025/09/major-organizations-commit-to-supporting-ai-education/#:~:text=Student%20Innovation%20Challenges,blind%20children%20nationwide.',
   },
   {
     image: 'intel-global-Impact-AI-resized.png',
@@ -31,7 +31,7 @@ const items = [
     image: 'NPR-app-resized.png',
     text: 'Crystal Yang on making gaming accessible for blind players through sound',
     network: 'NPR',
-    url: 'https://www.youtube.com/watch?v=-Cd82j8v7Dc&ab_channel=HoustonPublicMedia',
+    url: 'https://www.youtube.com/live/-Cd82j8v7Dc?t=3027&si=DRsyapPF0SnJUV1q',
   },
   {
     image: 'PBS-student-develops-app-resized.png',
@@ -133,7 +133,7 @@ const items = [
     image: 'Devdiscourse.png',
     text: 'AI-powered audio gaming boosts accessibility for visually impaired players',
     network: 'Dev Discourse',
-    url: 'https://www.devdiscourse.com/article/education/3358683-ai-powered-audio-learning-boosts-accessibility-for-visually-impaired-students',
+    url: 'https://disabilitynewsdigest.substack.com/p/the-last-leg-promotes-disability#:~:text=Championing%20Accessibility%20in,platform%20called%20Audemy.',
   },
   {
     image: 'Disabilitynewsdigest.png',
@@ -157,7 +157,7 @@ const items = [
     image: 'iheart.png',
     text: 'Crystal Yang’s inspiring journey with Audemy',
     network: 'iHeart Radio',
-    url: 'https://www.iheart.com/podcast/269-hello-houston-the-commuter-271597362/episode/hello-houston-the-commuter-cut-280206632/',
+    url: 'https://www.houstonpublicmedia.org/articles/shows/hello-houston/2025/06/10/523586/hello-houston-the-commuter-cut-june-10-2025/',
   },
   {
     image: 'Youth-resized.png',
