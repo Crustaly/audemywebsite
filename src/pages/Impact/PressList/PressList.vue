@@ -4,8 +4,8 @@ import PressListCard from './PressListCard.vue';
 
 const items = [
   {
-    image: 'forbes-30-icon.png',
-    text: 'Forbes 30 Under 30 - Games 2026: Crystal Yang',
+    image: 'forbes-profile-2026.png',
+    text: 'Forbes 30 Under 30 - 2026: Crystal Yang',
     network: 'Forbes',
     url: 'https://www.forbes.com/profile/crystal-yang/',
   },
