@@ -23,6 +23,7 @@ dist-ssr
 *.sln
 *.sw?
 .cache
+.replit
 
 # Virtual Environment
 .venv
