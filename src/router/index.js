@@ -18,7 +18,6 @@ import ResetLandingPage from '../pages/ResetPassword/ResetLandingPage.vue';
 import AboutUs from '../pages/AboutUs/AboutUs.vue';
 import Impact from '../pages/Impact/Impact.vue';
 import Troubleshooting from '../pages/Troubleshooting/Troubleshooting.vue';
-// import SpellingBee from "../pages/GameZone/GameZoneList/SpellingBee/SpellingBee.vue";
 import MainDashboard from '../pages/Dashboard/MainDashboard.vue';
 import StudentList from '../pages/Dashboard/StudentList.vue';
 import TeacherDashboard from '../pages/Dashboard/TeacherDashboard.vue';
@@ -128,11 +127,6 @@ const routes = [
     name: 'PolarPairing',
     component: () => import('../pages/GameZone/GameZoneList/PolarPairing.vue'),
   },
-  // {
-  //     path: "/game/spelling-bee",
-  //     name: "SpellingBee",
-  //     component: SpellingBee,
-  // },
   {
     path: '/game/spellingbee',
     name: 'SpellingBee',
