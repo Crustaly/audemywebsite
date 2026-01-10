@@ -15,8 +15,7 @@ const videoVisible = ref(false);
 let showTooltipMsg = ref(false);
 
 // Check device type
-// NOTE: Current UI logic only uses 'isTablet' flag
-const { isTablet } = useDeviceDetection();
+const { isTablet, isDesktop } = useDeviceDetection();
 
 let observer;
 
@@ -85,7 +84,10 @@ const exitVideoControls = () => {
 <template>
   <div
     class="lg:relative flex items-center flex-col lg:flex-row justify-center items-center gap-x-5 gap-y-16 md:gap-y-0 py-10 my-10"
-    :class="{ 'tablet-showcase': isTablet }"
+    :class="[
+      isDesktop ? 'gap-24 justify-between pl-0 pr-8' : '',
+      isTablet ? 'flex items-center' : '',
+    ]"
     role="none"
   >
     <!-- Decorative icons (medium+ screens) -->
@@ -163,10 +165,7 @@ const exitVideoControls = () => {
           <!-- Poster image -->
           <div
             v-if="!isPlaying"
-            class="w-full h-full bg-cover bg-center"
-            style="
-              background-image: url('/assets/images/techShowcase/video-poster-resized.png');
-            "
+            class="w-full h-full bg-cover bg-center bg-[url('/assets/images/techShowcase/video-poster-resized.png')]"
             aria-hidden="true"
           ></div>
 
@@ -180,7 +179,7 @@ const exitVideoControls = () => {
           >
             <div
               aria-hidden="true"
-              class="tra absolute w-[22px] h-[22px] top-[50%] left-[50%] translate-x-[-40%] bg-black translate-y-[-50%] rotate-90"
+              class="clip-triangle absolute w-[22px] h-[22px] top-[50%] left-[50%] translate-x-[-40%] bg-black translate-y-[-50%] rotate-90"
             ></div>
           </div>
 
@@ -208,10 +207,7 @@ const exitVideoControls = () => {
     <div
       class="w-full md:w-3/5 flex items-center flex-col lg:flex-row justify-center items-center"
     >
-      <div
-        class="text-center w-[80%] md:p-10"
-        :class="{ 'tablet-text-container': isTablet }"
-      >
+      <div class="text-center w-[80%] md:p-10" :class="{ 'pr-6': isTablet }">
         <h1 class="page-header">
           Games are more accessible when they
           <span class="text-primary-color font-[700]">talk back</span>
@@ -240,27 +236,3 @@ const exitVideoControls = () => {
     </div>
   </div>
 </template>
-
-<style scoped>
-.tra {
-  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-}
-
-.tablet-showcase {
-  gap: 6rem;
-  justify-content: space-between;
-  padding: 0 2rem;
-}
-
-.tablet-text-container {
-  padding-right: 1.5rem;
-}
-
-@media (min-width: 768px) and (max-width: 1023px) {
-  .tablet-showcase {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-  }
-}
-</style>
