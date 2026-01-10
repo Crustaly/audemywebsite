@@ -78,9 +78,9 @@ const gameMenusMap = [
         <h2
           class="font-poppins text-black text-[40px] mobile:text-[25px] mobile:text-center mb-[3%]"
         >
-          <em style="color: #077bb3">Explore</em>
+          <em class="text-primary-color">Explore</em>
           our
-          <em style="color: #fe892a">Games</em>
+          <em class="text-secondary-color">Games</em>
         </h2>
         <div
           class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-10 sm:gap-10 text-[#323232] mb-10"
