@@ -3,7 +3,6 @@
 import Header from '../../components/Header/Header.vue';
 import Hero from './Hero/Hero.vue';
 import Footer from '../../components/Footer/Footer.vue';
-import AboutUs from './AboutUs/AboutUs.vue';
 import Testimonials from './Testimonials/Testimonials.vue';
 import Sponsors from './Sponsors/Sponsors.vue';
 import TechShowcase from './TechShowcase/TechShowcase.vue';
