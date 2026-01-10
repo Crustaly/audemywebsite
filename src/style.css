@@ -28,9 +28,13 @@
   @apply flex mobile:flex-col justify-center items-center text-center my-10;
 }
 
-/* --- Pattern: White bg with grey crossed-lines --- */
+/* --- Patterns: White bg with grey crossed-lines --- */
 .bg-cross-lines {
   @apply bg-white bg-[linear-gradient(to_right,#e0e0e0_1px,transparent_1px),linear-gradient(to_bottom,#e0e0e0_1px,transparent_1px)] bg-[size:24px_24px];
+}
+
+.clip-triangle {
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
 }
 
 /* --- Hover: Slight zoom in animation --- */
