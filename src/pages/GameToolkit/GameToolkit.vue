@@ -1033,6 +1033,37 @@ const openToolkitPDF = (pdfUrl, gameName) => {
     alert(`PDF not available for ${gameName} yet. Coming soon!`);
   }
 };
+
+// UI logic for carousel logos (aka 'Developer Partnerships')
+const prefix = '/src/assets/logos/';
+
+// List of dictionaries: Maps names (alt text) to image path (suffix)
+const carouselList = [
+  {
+    name: 'Activision',
+    suffix: 'activision.svg',
+  },
+  {
+    name: 'Microsoft',
+    suffix: 'microsoft.png',
+  },
+  {
+    name: 'Riot Games',
+    suffix: 'riot.png',
+  },
+  {
+    name: 'Roblox',
+    suffix: 'roblox.png',
+  },
+  {
+    name: 'Minecraft',
+    suffix: 'minecraft-logo-resized.png',
+  },
+];
+
+// Duplicate logos for continuous carousel UI effect
+// Combined list of 10 logo maps
+const carouselLogos = computed(() => [...carouselList, ...carouselList]);
 </script>
 
 <template>
@@ -1118,74 +1149,14 @@ const openToolkitPDF = (pdfUrl, gameName) => {
         <div class="max-w-[800px] w-full overflow-hidden">
           <div class="logo-carousel mt-[40px] tablet:mt-[72px] mb-[63px]">
             <div class="logo-track">
-              <div class="logo-slide">
+              <div
+                class="logo-slide"
+                v-for="(logoMap, count) in carouselLogos"
+                :key="count"
+              >
                 <img
-                  src="/src/assets/logos/activision.svg"
-                  alt="Activision"
-                  class="h-16 w-auto object-contain"
-                />
-              </div>
-              <div class="logo-slide">
-                <img
-                  src="/src/assets/logos/microsoft.png"
-                  alt="Microsoft"
-                  class="h-16 w-auto object-contain"
-                />
-              </div>
-              <div class="logo-slide">
-                <img
-                  src="/src/assets/logos/riot.png"
-                  alt="Riot Games"
-                  class="h-16 w-auto object-contain"
-                />
-              </div>
-              <div class="logo-slide">
-                <img
-                  src="/src/assets/logos/roblox.png"
-                  alt="Roblox"
-                  class="h-16 w-auto object-contain"
-                />
-              </div>
-              <div class="logo-slide">
-                <img
-                  src="/src/assets/logos/minecraft-logo-resized.png"
-                  alt="Minecraft"
-                  class="h-16 w-auto object-contain"
-                />
-              </div>
-              <!-- Duplicate logos for seamless loop -->
-              <div class="logo-slide">
-                <img
-                  src="/src/assets/logos/activision.svg"
-                  alt="Activision"
-                  class="h-16 w-auto object-contain"
-                />
-              </div>
-              <div class="logo-slide">
-                <img
-                  src="/src/assets/logos/microsoft.png"
-                  alt="Microsoft"
-                  class="h-16 w-auto object-contain"
-                />
-              </div>
-              <div class="logo-slide">
-                <img
-                  src="/src/assets/logos/riot.png"
-                  alt="Riot Games"
-                  class="h-16 w-auto object-contain"
-                />
-              </div>
-              <div class="logo-slide">
-                <img
-                  src="/src/assets/logos/roblox.png"
-                  alt="Roblox"
-                  class="h-16 w-auto object-contain"
-                />
-              </div>
-              <div class="logo-slide">
-                <img
-                  src="/src/assets/logos/minecraft-logo-resized.png"
-                  alt="Minecraft"
+                  :src="prefix + logoMap.suffix"
+                  :alt="logoMap.name"
                   class="h-16 w-auto object-contain"
                 />
               </div>
