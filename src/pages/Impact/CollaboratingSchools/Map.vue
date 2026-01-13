@@ -1,5 +1,9 @@
 <template>
-  <div id="map" ref="mapRef">
+  <div
+    id="map"
+    class="h-[80vh] w-[80vw] m-auto rounded-xl shadow-[0_4px_8px_rgba(0,0,0,0.2)] md:shadow-none md:h-[45vh] md:w-[35vw] md:rounded-2xl"
+    ref="mapRef"
+  >
     <p v-if="!mapVisible" class="text-center text-sm text-gray-500 mt-4">
       Loading map...
     </p>
@@ -193,20 +197,3 @@ onUnmounted(() => {
   if (observer) observer.disconnect();
 });
 </script>
-
-<style>
-#map {
-  height: 45vh;
-  width: 35vw;
-  border-radius: 16px;
-}
-@media (max-width: 768px) {
-  #map {
-    height: 80vw;
-    width: 80vw;
-    border-radius: 12px;
-    margin: 0 auto;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  }
-}
-</style>
