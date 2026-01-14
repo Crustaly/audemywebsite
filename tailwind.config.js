@@ -47,10 +47,15 @@ export default {
           '0%': { opacity: '1', transform: 'translateY(0)' },
           '100%': { opacity: '0', transform: 'translateY(-10px)' },
         },
+        scroll: {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-50%)' },
+        },
       },
       animation: {
         'fade-slide-in': 'fade-slide-in 0.2s ease-out forwards',
         'fade-slide-out': 'fade-slide-out 0.2s ease-in forwards',
+        scroll: 'scroll 20s linear infinite',
       },
     },
   },
