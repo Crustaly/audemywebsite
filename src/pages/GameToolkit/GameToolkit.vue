@@ -1147,10 +1147,12 @@ const carouselLogos = computed(() => [...carouselList, ...carouselList]);
       </div>
       <div class="flex justify-center">
         <div class="max-w-[800px] w-full overflow-hidden">
-          <div class="logo-carousel mt-[40px] tablet:mt-[72px] mb-[63px]">
-            <div class="logo-track">
+          <div
+            class="logo-carousel relative w-full overflow-hidden mt-[40px] tablet:mt-[72px] mb-[63px]"
+          >
+            <div class="logo-track flex w-max">
               <div
-                class="logo-slide"
+                class="logo-slide mobile:my-0 mobile:mx-2 mobile:min-w-[80px] flex shrink-0 items-center justify-center my-0 mx-4 min-w-[100px] md:mx-8 md:min-w-[120px]"
                 v-for="(logoMap, count) in carouselLogos"
                 :key="count"
               >
@@ -1511,32 +1513,9 @@ const carouselLogos = computed(() => [...carouselList, ...carouselList]);
 </template>
 
 <style scoped>
-@media screen and (max-width: 450px) {
-  .grid {
-    grid-template-columns: 1fr;
-  }
-}
-
 /* Logo Carousel Animation */
-.logo-carousel {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-}
-
 .logo-track {
-  display: flex;
   animation: scroll 20s linear infinite;
-  width: max-content;
-}
-
-.logo-slide {
-  flex-shrink: 0;
-  margin: 0 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 120px;
 }
 
 @keyframes scroll {
@@ -1555,22 +1534,12 @@ const carouselLogos = computed(() => [...carouselList, ...carouselList]);
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-  .logo-slide {
-    margin: 0 1rem;
-    min-width: 100px;
-  }
-
   .logo-track {
     animation-duration: 15s;
   }
 }
 
 @media (max-width: 600px) {
-  .logo-slide {
-    margin: 0 0.5rem;
-    min-width: 80px;
-  }
-
   .logo-track {
     animation-duration: 12s;
   }
