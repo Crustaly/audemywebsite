@@ -1018,7 +1018,7 @@ const searchQuery = ref('');
 const totalSearchResults = ref(8); // Default: Display 8 toolkits
 
 // UI logic for carousel logos (aka 'Developer Partnerships')
-const prefix = '/src/assets/logos/';
+const prefix = '/assets/logos/';
 
 // List of dictionaries: Maps names (alt text) to image path (suffix)
 const carouselList = [
