@@ -60,11 +60,13 @@ const openToolkitPDF = (pdfUrl, gameName) => {
 </script>
 
 <template>
+  <!-- WCAG: Remove redundant Gallery buttons from tab order (Database buttons remain tabbable) -->
   <button
     v-for="toolkit in displayedToolkits"
     :key="toolkit.id"
     @click="openToolkitPDF(toolkit.pdfUrl, toolkit.name)"
     class="relative bg-cross-lines border-2 border-[#0C0D0D] rounded-lg p-4 shadow-[4px_4px_0px_#0C0D0D] hover:shadow-[6px_6px_0px_#0C0D0D] transition-all duration-300 cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#087BB4] focus:ring-offset-2"
+    :tabindex="showGallery ? -1 : 0"
     :aria-label="`Download ${toolkit.name} accessibility toolkit PDF`"
   >
     <div class="game-resource-card-banner h-1/3" aria-hidden="true"></div>
