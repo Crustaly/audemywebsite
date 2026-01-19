@@ -1152,7 +1152,9 @@ const carouselLogos = computed(() => [...carouselList, ...carouselList]);
     </div>
 
     <!-- Toolkit Gallery Section -->
+    <!-- WCAG: Hide Gallery to remove redundant screen-reader output; Database UI announces same toolkits -->
     <div
+      aria-hidden="true"
       class="flex flex-col items-center justify-start mobile:justify-center w-full h-auto py-10 md:py-10 my-10"
     >
       <div class="w-full">
