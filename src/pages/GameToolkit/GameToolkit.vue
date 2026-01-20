@@ -1047,6 +1047,26 @@ const carouselList = [
 // Duplicate logos for continuous carousel UI effect
 // Combined list of 10 logo maps
 const carouselLogos = computed(() => [...carouselList, ...carouselList]);
+
+// List of "How It Works" Cards
+const cardData = [
+  {
+    iconPath: '/assets/images/game-toolkit/testing.png', // Step 1
+    subtitle: 'We Test the Game',
+    caption:
+      'Real blind players & assistive tech experts explore game mechanics.',
+  },
+  {
+    iconPath: '/assets/images/game-toolkit/toolkit.png', // Step 2
+    subtitle: 'We Build the Toolkit',
+    caption: 'Audio guides, tactile maps, and adapted instructions.',
+  },
+  {
+    iconPath: '/assets/images/game-toolkit/friends.png', // Step 3
+    subtitle: 'We Share Globally',
+    caption: 'Free downloads for players and devs.',
+  },
+];
 </script>
 
 <template>
@@ -1191,47 +1211,18 @@ const carouselLogos = computed(() => [...carouselList, ...carouselList]);
           <div
             class="flex justify-between py-5 px-5 md:gap-x-10 lg:gap-x-24 mobile:gap-y-12 mobile:flex-col"
           >
-            <!-- Step 1: Test -->
-            <div class="game-resource-steps-card-flex">
+            <!-- Loop thru "How It Works" Cards -->
+            <div
+              v-for="(card, count) in cardData"
+              :key="count"
+              class="game-resource-steps-card-flex"
+            >
               <div class="game-resource-icon-card relative" aria-hidden="true">
-                <img
-                  src="/assets/images/game-toolkit/testing.png"
-                  class="absolute w-[50px]"
-                  alt=""
-                />
+                <img :src="card.iconPath" class="absolute w-[50px]" alt="" />
               </div>
-              <h3 class="game-resource-card-subtitle">We Test the Game</h3>
+              <h3 class="game-resource-card-subtitle">{{ card.subtitle }}</h3>
               <p class="text-center game-resource-card-caption">
-                Real blind players & assistive tech experts explore game
-                mechanics.
-              </p>
-            </div>
-            <!-- Step 2: Build -->
-            <div class="game-resource-steps-card-flex">
-              <div class="game-resource-icon-card relative" aria-hidden="true">
-                <img
-                  src="/assets/images/game-toolkit/toolkit.png"
-                  class="absolute w-[50px]"
-                  alt=""
-                />
-              </div>
-              <h3 class="game-resource-card-subtitle">We Build the Toolkit</h3>
-              <p class="text-center game-resource-card-caption">
-                Audio guides, tactile maps, and adapted instructions.
-              </p>
-            </div>
-            <!-- Step 3: Share -->
-            <div class="game-resource-steps-card-flex">
-              <div class="game-resource-icon-card relative" aria-hidden="true">
-                <img
-                  src="/assets/images/game-toolkit/friends.png"
-                  class="absolute w-[50px]"
-                  alt=""
-                />
-              </div>
-              <h3 class="game-resource-card-subtitle">We Share Globally</h3>
-              <p class="text-center game-resource-card-caption">
-                Free downloads for players and devs.
+                {{ card.caption }}
               </p>
             </div>
           </div>
