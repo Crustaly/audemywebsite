@@ -4,6 +4,12 @@ import PressListCard from './PressListCard.vue';
 
 const items = [
   {
+    image: 'forbes-profile-2026.png',
+    text: 'Forbes 30 Under 30 - 2026: Crystal Yang',
+    network: 'Forbes',
+    url: 'https://www.forbes.com/profile/crystal-yang/',
+  },
+  {
     image: 'katy-student-develops.png',
     text: 'Crystal Yang, Founder and CEO of Audemy, develops online tool to help blind gamers',
     network: 'Fox News',
@@ -13,7 +19,7 @@ const items = [
     image: 'white-house-resized-icon.png',
     text: 'Audemy Featured as Major Organization Committed to Supporting AI Education',
     network: 'The White House',
-    url: 'https://www.whitehouse.gov/articles/2025/09/major-organizations-commit-to-supporting-ai-education/',
+    url: 'https://www.whitehouse.gov/articles/2025/09/major-organizations-commit-to-supporting-ai-education/#:~:text=Student%20Innovation%20Challenges,blind%20children%20nationwide.',
   },
   {
     image: 'intel-global-Impact-AI-resized.png',
@@ -25,12 +31,12 @@ const items = [
     image: 'NPR-app-resized.png',
     text: 'Crystal Yang on making gaming accessible for blind players through sound',
     network: 'NPR',
-    url: 'https://www.youtube.com/watch?v=-Cd82j8v7Dc&ab_channel=HoustonPublicMedia',
+    url: 'https://www.youtube.com/live/-Cd82j8v7Dc?t=3027&si=DRsyapPF0SnJUV1q',
   },
   {
     image: 'PBS-student-develops-app-resized.png',
     text: 'Houston Students raise $100,000 for Accessibility Hackathon, KatyYouthHacks',
-    network: 'CW',
+    network: 'CW39 Houston',
     url: 'https://www.youtube.com/watch?v=7y_vTaRb6Mc&t=2382s',
   },
   {
@@ -84,7 +90,7 @@ const items = [
   {
     image: 'Flipboard-resized.png',
     text: 'Crystal’s Games Are Changing Education for Blind Students Nationwide',
-    network: 'Flipboard edu',
+    network: 'Flipboard Edu',
     url: 'https://flipboardedu.substack.com/p/she-solved-a-friends-problem-now',
   },
   {
@@ -102,7 +108,7 @@ const items = [
   {
     image: 'Canvas-resized.png',
     text: 'Meet Crystal Yang!',
-    network: 'By Canvas rebel',
+    network: 'Canvas Rebel',
     url: 'https://canvasrebel.com/meet-crystal-yang/',
   },
   {
@@ -120,19 +126,19 @@ const items = [
   {
     image: 'C-hubworld-resized.png',
     text: 'Game Without Limits with Audemy!',
-    network: 'C-hubworld',
+    network: 'C-Hubworld',
     url: 'https://www.instagram.com/c_hubworld/reel/DLkIX7TSlqK/',
   },
   {
     image: 'Devdiscourse.png',
     text: 'AI-powered audio gaming boosts accessibility for visually impaired players',
     network: 'Dev Discourse',
-    url: 'https://www.devdiscourse.com/article/education/3358683-ai-powered-audio-learning-boosts-accessibility-for-visually-impaired-students',
+    url: 'https://disabilitynewsdigest.substack.com/p/the-last-leg-promotes-disability#:~:text=Championing%20Accessibility%20in,platform%20called%20Audemy.',
   },
   {
     image: 'Disabilitynewsdigest.png',
     text: 'Crystal Yang is transforming gaming for blind and visually impaired players through Audemy',
-    network: 'Disability Newsdigest',
+    network: 'Disability News Digest',
     url: 'https://disabilitynewsdigest.substack.com/p/the-last-leg-promotes-disability',
   },
   {
@@ -144,14 +150,14 @@ const items = [
   {
     image: 'EV-resized.png',
     text: 'Crystal Yang develops online gaming tool to help blind players',
-    network: 'EV',
+    network: 'EV Houston',
     url: 'https://www.elvenezolanohouston.com/estudiante-de-katy-isd-desarrolla-herramienta-online-para-ayudar-a-alumnos-ciegos/',
   },
   {
     image: 'iheart.png',
     text: 'Crystal Yang’s inspiring journey with Audemy',
-    network: 'iHeart radio',
-    url: 'https://www.iheart.com/podcast/269-hello-houston-the-commuter-271597362/episode/hello-houston-the-commuter-cut-280206632/',
+    network: 'iHeart Radio',
+    url: 'https://www.houstonpublicmedia.org/articles/shows/hello-houston/2025/06/10/523586/hello-houston-the-commuter-cut-june-10-2025/',
   },
   {
     image: 'Youth-resized.png',
@@ -235,7 +241,7 @@ onUnmounted(() => {
         >
           <div
             id="div_about_us"
-            class="grid gap-6 my-10 mobile:my-16 w-full mobile:grid-cols-1 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 transition-all duration-500 ease-in-out"
+            class="grid gap-6 my-10 mobile:my-16 w-full mobile:grid-cols-1 grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 transition-all duration-500 ease-in-out"
           >
             <div
               v-for="(item, index) in displayedItems"
@@ -249,7 +255,7 @@ onUnmounted(() => {
               }"
             >
               <div class="flex flex-col h-full w-full min-h-[300px] mb-3">
-                <div class="flex justify-center w-full">
+                <div class="flex h-full justify-center w-full">
                   <div class="w-full px-4">
                     <PressListCard
                       :image="item.image"

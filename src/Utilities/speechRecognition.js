@@ -28,8 +28,9 @@ const initSpeechRecognition = () => {
 export function preInitSpeechRecognition() {
   if (!recognition) {
     try {
-      recognition = new (window.SpeechRecognition ||
-        window.webkitSpeechRecognition)();
+      recognition = new (
+        window.SpeechRecognition || window.webkitSpeechRecognition
+      )();
       recognition.lang = 'en-US';
       recognition.interimResults = true;
     } catch (error) {
