@@ -46,6 +46,30 @@ const partnerCardsData = [
   { partner: 'Accessibility-minded publishers', iconSrc: 'accessibility.png' },
   { partner: 'Educational game developers', iconSrc: 'education.png' },
 ];
+
+// List of 'What You Get' card data
+const resultCardsData = [
+  {
+    title: 'Detailed accessibility testing report',
+    caption: 'With screenshots and descriptions',
+    iconSrc: 'checklist-v2.png',
+  },
+  {
+    title: 'Priority list of accessibility fixes',
+    caption: '',
+    iconSrc: 'fix.png',
+  },
+  {
+    title: 'Recommendations for blind and low-vision accessibility',
+    caption: '',
+    iconSrc: 'research.png',
+  },
+  {
+    title: 'Optional: Re-test after changes',
+    caption: '',
+    iconSrc: 'repeat.png',
+  },
+];
 </script>
 
 <template>
@@ -243,75 +267,28 @@ const partnerCardsData = [
         <div class="max-w-[744px] w-full">
           <div class="flex flex-col gap-10 px-5 my-10">
             <!-- Accessibility: Hide decorative icons in each flex child below -->
-            <div class="game-resource-card-small-flex-row">
+            <div
+              class="game-resource-card-small-flex-row"
+              v-for="(resultCard, n) in resultCardsData"
+              :key="n"
+            >
               <div
                 class="game-resource-icon-card-small relative"
                 aria-hidden="true"
               >
                 <img
-                  src="/assets/images/studio/checklist-v2.png"
+                  :src="'/assets/images/studio/' + resultCard.iconSrc"
                   alt=""
                   class="w-[50px] absolute"
                 />
               </div>
               <div class="flex-1">
                 <h3 class="game-resource-card-caption-small">
-                  Detailed accessibility testing report
+                  {{ resultCard.title }}
                 </h3>
-                <p class="game-resource-card-caption">
-                  With screenshots and descriptions
+                <p v-if="resultCard.caption" class="game-resource-card-caption">
+                  {{ resultCard.caption }}
                 </p>
-              </div>
-            </div>
-            <div class="game-resource-card-small-flex-row">
-              <div
-                class="game-resource-icon-card-small relative"
-                aria-hidden="true"
-              >
-                <img
-                  src="/assets/images/studio/fix.png"
-                  alt=""
-                  class="w-[50px] absolute"
-                />
-              </div>
-              <div class="flex-1">
-                <h3 class="game-resource-card-caption-small">
-                  Priority list of accessibility fixes
-                </h3>
-              </div>
-            </div>
-            <div class="game-resource-card-small-flex-row">
-              <div
-                class="game-resource-icon-card-small relative"
-                aria-hidden="true"
-              >
-                <img
-                  src="/assets/images/studio/research.png"
-                  alt=""
-                  class="w-[50px] absolute"
-                />
-              </div>
-              <div class="flex-1">
-                <h3 class="game-resource-card-caption-small">
-                  Recommendations for blind and low-vision accessibility
-                </h3>
-              </div>
-            </div>
-            <div class="game-resource-card-small-flex-row">
-              <div
-                class="game-resource-icon-card-small relative"
-                aria-hidden="true"
-              >
-                <img
-                  src="/assets/images/studio/repeat.png"
-                  alt=""
-                  class="w-[50px] absolute"
-                />
-              </div>
-              <div class="flex-1">
-                <h3 class="game-resource-card-caption-small">
-                  Optional: Re-test after changes
-                </h3>
               </div>
             </div>
           </div>
