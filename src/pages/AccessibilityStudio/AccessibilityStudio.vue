@@ -38,6 +38,14 @@ const stepCardsData = [
       'Actionable feedback, prioritized fixes, and resources to improve accessibility.',
   }, // Step 3
 ];
+
+// List of 'Who We Work With' card data
+const partnerCardsData = [
+  { partner: 'Indie studios', iconSrc: 'seed.png' },
+  { partner: 'Solo developers', iconSrc: 'command-line.png' },
+  { partner: 'Accessibility-minded publishers', iconSrc: 'accessibility.png' },
+  { partner: 'Educational game developers', iconSrc: 'education.png' },
+];
 </script>
 
 <template>
@@ -199,61 +207,24 @@ const stepCardsData = [
           <div
             class="grid grid-cols-2 tablet:grid-cols-1 mobile:grid-cols-1 gap-10 px-5 my-10"
           >
-            <div class="game-resource-card-small-flex-col">
+            <div
+              class="game-resource-card-small-flex-col"
+              v-for="(partnerCard, n) in partnerCardsData"
+              :key="n"
+            >
               <!-- Accessibility: Hide decorative icons -->
               <div
                 class="game-resource-icon-card-small relative"
                 aria-hidden="true"
               >
                 <img
-                  src="/assets/images/studio/seed.png"
-                  alt=""
-                  class="w-[50px] absolute"
-                />
-              </div>
-              <h3 class="game-resource-card-caption-small">Indie studios</h3>
-            </div>
-            <div class="game-resource-card-small-flex-col">
-              <div
-                class="game-resource-icon-card-small relative"
-                aria-hidden="true"
-              >
-                <img
-                  src="/assets/images/studio/command-line.png"
-                  alt=""
-                  class="w-[50px] absolute"
-                />
-              </div>
-              <h3 class="game-resource-card-caption-small">Solo developers</h3>
-            </div>
-            <div class="game-resource-card-small-flex-col">
-              <div
-                class="game-resource-icon-card-small relative"
-                aria-hidden="true"
-              >
-                <img
-                  src="/assets/images/studio/accessibility.png"
+                  :src="'/assets/images/studio/' + partnerCard.iconSrc"
                   alt=""
                   class="w-[50px] absolute"
                 />
               </div>
               <h3 class="game-resource-card-caption-small">
-                Accessibility-minded publishers
-              </h3>
-            </div>
-            <div class="game-resource-card-small-flex-col">
-              <div
-                class="game-resource-icon-card-small relative"
-                aria-hidden="true"
-              >
-                <img
-                  src="/assets/images/studio/education.png"
-                  alt=""
-                  class="w-[50px] absolute"
-                />
-              </div>
-              <h3 class="game-resource-card-caption-small">
-                Educational game developers
+                {{ partnerCard.partner }}
               </h3>
             </div>
           </div>
