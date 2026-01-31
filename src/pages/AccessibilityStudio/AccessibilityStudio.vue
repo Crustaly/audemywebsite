@@ -20,6 +20,24 @@ const cardsData = [
     iconSrc: '/assets/images/studio/opportunity.png',
   },
 ];
+
+// List of 'How It Works' card data (Steps 1 - 3)
+const stepCardsData = [
+  {
+    title: 'Submit Your Build',
+    caption: 'Upload your demo or beta version securely.',
+  }, // Step 1
+  {
+    title: 'Test With Experts & Players',
+    caption:
+      'Our network of <span class="font-semibold">30+</span> blind gamers and assistive tech specialists test your game.',
+  }, // Step 2
+  {
+    title: 'Get Your Accessibility Report',
+    caption:
+      'Actionable feedback, prioritized fixes, and resources to improve accessibility.',
+  }, // Step 3
+];
 </script>
 
 <template>
@@ -140,55 +158,24 @@ const cardsData = [
           <div
             class="flex justify-between py-5 px-5 md:gap-x-10 lg:gap-x-24 mobile:gap-y-12 mobile:flex-col"
           >
-            <!-- Step 1 -->
-            <div class="game-resource-steps-card-flex">
+            <!-- Loop thru card data (Steps 1 - 3) -->
+            <div
+              class="game-resource-steps-card-flex"
+              v-for="(stepCard, n) in stepCardsData"
+              :key="n"
+            >
               <div class="game-resource-icon-card relative">
                 <img
-                  src="/assets/images/studio/1-digit.png"
+                  :src="`/assets/images/studio/${n + 1}-digit.png`"
                   class="absolute w-[50px]"
-                  alt="1"
+                  :alt="n + 1"
                 />
               </div>
-              <h3 class="game-resource-card-subtitle">Submit Your Build</h3>
-              <p class="text-center game-resource-card-caption">
-                Upload your demo or beta version securely.
-              </p>
-            </div>
-
-            <!-- Step 2 -->
-            <div class="game-resource-steps-card-flex">
-              <div class="game-resource-icon-card relative">
-                <img
-                  src="/assets/images/studio/2-digit.png"
-                  class="absolute w-[50px]"
-                  alt="2"
-                />
-              </div>
-              <h3 class="game-resource-card-subtitle">
-                Test With Experts & Players
-              </h3>
-              <p class="text-center game-resource-card-caption">
-                Our network of <span class="font-semibold">30+</span> blind
-                gamers and assistive tech specialists test your game.
-              </p>
-            </div>
-
-            <!-- Step 3 -->
-            <div class="game-resource-steps-card-flex">
-              <div class="game-resource-icon-card relative">
-                <img
-                  src="/assets/images/studio/3-digit.png"
-                  class="absolute w-[50px]"
-                  alt="3"
-                />
-              </div>
-              <h3 class="game-resource-card-subtitle">
-                Get Your Accessibility Report
-              </h3>
-              <p class="text-center game-resource-card-caption">
-                Actionable feedback, prioritized fixes, and resources to improve
-                accessibility.
-              </p>
+              <h3 class="game-resource-card-subtitle">{{ stepCard.title }}</h3>
+              <p
+                class="text-center game-resource-card-caption"
+                v-html="stepCard.caption"
+              ></p>
             </div>
           </div>
         </div>
