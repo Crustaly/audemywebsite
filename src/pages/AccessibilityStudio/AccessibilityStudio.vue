@@ -4,6 +4,22 @@ import Footer from '../../components/Footer/Footer.vue';
 import ScrollUpButton from '../../components/ScrollUpButton/ScrollUpButton.vue';
 import PageDecorations from '../../components/PageDecorations/PageDecorations.vue';
 import GamesShowcase from './GamesToLife/GamesShowcase.vue';
+
+// List of 'Problem' & 'Opportunity' card data
+const cardsData = [
+  {
+    title: 'The Problem',
+    caption:
+      'Accessibility is not only the right thing to do — it opens your game to new audiences, drives inclusivity, and builds brand loyalty.',
+    iconSrc: '/assets/images/studio/problem.png',
+  },
+  {
+    title: 'The Opportunity',
+    caption:
+      'Millions of players with disabilities are excluded from gaming due to inaccessible design choices.',
+    iconSrc: '/assets/images/studio/opportunity.png',
+  },
+];
 </script>
 
 <template>
@@ -86,9 +102,10 @@ import GamesShowcase from './GamesToLife/GamesShowcase.vue';
         <div
           class="flex justify-between my-16 mx-10 gap-16 tablet:gap-14 mobile:gap-y-12 mobile:flex-col"
         >
-          <!-- Problem Card -->
           <div
             class="game-resource-text-card-base game-resource-text-card-flex relative"
+            v-for="(card, n) in cardsData"
+            :key="n"
           >
             <div
               class="game-resource-card-banner h-1/4 md:h-1/3"
@@ -99,44 +116,13 @@ import GamesShowcase from './GamesToLife/GamesShowcase.vue';
             <div>
               <!-- Accessibility: Hide decorative icons -->
               <div class="game-resource-icon-card relative" aria-hidden="true">
-                <img
-                  src="/assets/images/studio/problem.png"
-                  alt=""
-                  class="w-[50px] absolute"
-                />
+                <img :src="card.iconSrc" alt="" class="w-[50px] absolute" />
               </div>
-              <h3 class="game-resource-card-subtitle">The Problem</h3>
+              <h3 class="game-resource-card-subtitle">{{ card.title }}</h3>
               <p class="game-resource-card-caption">
-                Millions of players with disabilities are excluded from gaming
-                due to inaccessible design choices.
+                {{ card.caption }}
               </p>
             </div>
-          </div>
-
-          <!-- Opportunity Card -->
-          <div
-            class="game-resource-text-card-base game-resource-text-card-flex relative"
-          >
-            <div
-              class="game-resource-card-banner h-1/4 md:h-1/3"
-              aria-hidden="true"
-            >
-              <!-- Decorative card banner -->
-            </div>
-            <!-- Accessibility: Hide decorative icons -->
-            <div class="game-resource-icon-card relative" aria-hidden="true">
-              <img
-                src="/assets/images/studio/opportunity.png"
-                alt=""
-                class="w-[50px] absolute"
-              />
-            </div>
-            <h3 class="game-resource-card-subtitle">The Opportunity</h3>
-            <p class="game-resource-card-caption">
-              Accessibility is not only the right thing to do — it opens your
-              game to new audiences, drives inclusivity, and builds brand
-              loyalty.
-            </p>
           </div>
         </div>
       </div>
