@@ -2,6 +2,28 @@
 import Students from '/assets/images/impact/carl-pencil.svg';
 import Problems from '/assets/images/impact/carl-problems.svg';
 import Globe from '/assets/images/impact/carl-globe.svg';
+
+// List of stats card data
+const cardsData = [
+  {
+    iconSrc: Students,
+    stat: '1 <span class="tracking-wide text-3xl"> IN </span> 5',
+    caption: 'students who are blind<br />learning through play',
+    cardClasses: 'rotate-[-5deg]',
+  },
+  {
+    iconSrc: Problems,
+    stat: '200k',
+    caption: 'blind and visually impaired users',
+    cardClasses: 'mobile:translate-y-2 -translate-y-10',
+  },
+  {
+    iconSrc: Globe,
+    stat: '136',
+    caption: 'countries and counting...',
+    cardClasses: 'rotate-[5deg]',
+  },
+];
 </script>
 
 <template>
@@ -42,56 +64,26 @@ import Globe from '/assets/images/impact/carl-globe.svg';
         class="flex justify-between py-5 px-5 gap-x-10 md:gap-x-12 lg:gap-x-24 mobile:gap-y-10 mobile:flex-col"
       >
         <div
-          class="rotate-[-5deg] px-5 bg-card-background shadow-md w-4/12 mobile:w-full flex flex-col items-center text-center items-center rounded-xl border-2 border-[#C5DBE2]"
+          class="px-5 bg-card-background shadow-md w-4/12 mobile:w-full flex flex-col items-center text-center items-center rounded-xl border-2 border-[#C5DBE2]"
+          :class="card.cardClasses"
+          v-for="(card, n) in cardsData"
+          :key="n"
         >
           <img
-            :src="Students"
+            :src="card.iconSrc"
             alt=""
             class="md:-translate-y-10 mobile:w-[50%] w-[120px] md:w-[160px] lg:w-[190px]"
+            :class="card.iconClasses"
           />
           <h1
-            class="font-serif font-bold text-5xl lg:text-7xl mobile:text-4xl text-[#d96f1f]"
-          >
-            1 <span class="tracking-wide text-3xl"> IN </span> 5
-          </h1>
-          <p class="my-5 w-full text-base text-center mobile:text-[16px]">
-            students who are blind<br />
-            learning through play
-          </p>
-        </div>
-        <div
-          class="mobile:translate-y-2 -translate-y-10 px-5 bg-card-background shadow-md w-4/12 mobile:w-full flex flex-col items-center text-center items-center rounded-xl border-2 border-[#C5DBE2]"
-        >
-          <img
-            :src="Problems"
-            alt=""
-            class="md:-translate-y-10 mobile:w-[50%] w-[120px] md:w-[160px] lg:w-[190px]"
-          />
-          <h1
-            class="font-serif font-bold text-5xl lg:text-7xl mobile:text-4xl text-primary-color"
-          >
-            200k
-          </h1>
-          <p class="my-5 w-full text-base text-center mobile:text-[16px]">
-            blind and visually impaired users
-          </p>
-        </div>
-        <div
-          class="rotate-[5deg] px-5 bg-card-background shadow-md w-4/12 mobile:w-full flex flex-col items-center text-center items-center rounded-xl border-2 border-[#C5DBE2]"
-        >
-          <img
-            :src="Globe"
-            alt=""
-            class="md:-translate-y-10 mobile:w-[50%] w-[120px] md:w-[160px] lg:w-[190px]"
-          />
-          <h1
-            class="font-serif font-bold text-5xl lg:text-7xl mobile:text-4xl text-[#d96f1f]"
-          >
-            136
-          </h1>
-          <p class="my-5 w-full text-base text-center mobile:text-[16px]">
-            countries and counting...
-          </p>
+            class="font-serif font-bold text-5xl lg:text-7xl mobile:text-4xl"
+            v-html="card.stat"
+            :class="n % 2 == 0 ? 'text-[#d96f1f]' : 'text-primary-color'"
+          ></h1>
+          <p
+            class="my-5 w-full text-base text-center mobile:text-[16px]"
+            v-html="card.caption"
+          ></p>
         </div>
       </div>
     </div>
