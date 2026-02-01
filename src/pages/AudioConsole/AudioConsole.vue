@@ -49,6 +49,25 @@ const finalArrowClasses = [
   'lg:top-[55%]',
   'lg:left-[25%]',
 ];
+
+// List of 'What Is Buzzle?' Cards
+const aboutCardsData = [
+  {
+    iconSrc: '/assets/images/techShowcase/headphone.png',
+    title: 'Over 30+ original audio games',
+    caption: 'Available at launch',
+  },
+  {
+    iconSrc: '/assets/images/audio-console/blueprint.png',
+    title: 'Simple, physical design',
+    caption: 'Made for classroom and home use',
+  },
+  {
+    iconSrc: '/assets/images/studio/accessibility.png',
+    title: 'Built with accessibility at the core',
+    caption: 'Designed with and for blind players',
+  },
+];
 </script>
 
 <template>
@@ -157,64 +176,22 @@ const finalArrowClasses = [
 
           <div class="grid grid-cols-1 md:grid-cols-2 gap-10 px-5 my-16">
             <!-- Feature Cards -->
-            <div class="game-resource-card-small-flex-col">
+            <div
+              class="game-resource-card-small-flex-col"
+              v-for="(card, n) in aboutCardsData"
+              :key="n"
+            >
               <div
                 class="game-resource-icon-card-small relative"
                 aria-hidden="true"
               >
-                <img
-                  src="/assets/images/techShowcase/headphone.png"
-                  alt=""
-                  class="w-[50px] absolute"
-                />
+                <img :src="card.iconSrc" alt="" class="w-[50px] absolute" />
               </div>
               <div class="flex-1">
                 <h3 class="game-resource-card-caption-small">
-                  Over 30+ original audio games
+                  {{ card.title }}
                 </h3>
-                <p class="game-resource-card-caption">Available at launch</p>
-              </div>
-            </div>
-
-            <div class="game-resource-card-small-flex-col">
-              <div
-                class="game-resource-icon-card-small relative"
-                aria-hidden="true"
-              >
-                <img
-                  src="/assets/images/audio-console/blueprint.png"
-                  alt=""
-                  class="w-[50px] absolute"
-                />
-              </div>
-              <div class="flex-1">
-                <h3 class="game-resource-card-caption-small">
-                  Simple, physical design
-                </h3>
-                <p class="game-resource-card-caption">
-                  Made for classroom and home use
-                </p>
-              </div>
-            </div>
-
-            <div class="game-resource-card-small-flex-col md:col-span-2">
-              <div
-                class="game-resource-icon-card-small relative"
-                aria-hidden="true"
-              >
-                <img
-                  src="/assets/images/studio/accessibility.png"
-                  alt=""
-                  class="w-[50px] absolute"
-                />
-              </div>
-              <div class="flex-1">
-                <h3 class="game-resource-card-caption-small">
-                  Built with accessibility at the core
-                </h3>
-                <p class="game-resource-card-caption">
-                  Designed with and for blind players
-                </p>
+                <p class="game-resource-card-caption">{{ card.caption }}</p>
               </div>
             </div>
           </div>
