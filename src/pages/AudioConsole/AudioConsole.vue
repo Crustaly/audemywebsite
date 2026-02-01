@@ -74,6 +74,25 @@ const grantLogos = [
   '/assets/images/sponsors/Amazon-logo-resized.png',
   '/assets/images/sponsors/ae-foundation-logo.png',
 ];
+
+// List of 'Why It Matters' Cards
+const impactCardsData = [
+  {
+    iconSrc: '/assets/images/audio-console/key.png',
+    title: "Consoles aren't accessible for blind students",
+    caption: 'Until now with Buzzle',
+  },
+  {
+    iconSrc: '/assets/images/audio-console/puzzle.png',
+    title: 'Buzzle opens the door for inclusive gaming',
+    caption: 'In classrooms and at home',
+  },
+  {
+    iconSrc: '/assets/images/game-toolkit/friends.png',
+    title: "This is more than a console: It's a movement",
+    caption: 'Gaming made for everyone',
+  },
+];
 </script>
 
 <template>
@@ -300,64 +319,22 @@ const grantLogos = [
       <div class="flex justify-center">
         <div class="max-w-[744px] w-full">
           <div class="flex flex-col gap-10 px-5 my-10">
-            <div class="game-resource-card-small-flex-row">
+            <div
+              class="game-resource-card-small-flex-row"
+              v-for="(card, n) in impactCardsData"
+              :key="n"
+            >
               <div
                 class="game-resource-icon-card-small relative"
                 aria-hidden="true"
               >
-                <img
-                  src="/assets/images/audio-console/key.png"
-                  alt=""
-                  class="w-[50px] absolute"
-                />
+                <img :src="card.iconSrc" alt="" class="w-[50px] absolute" />
               </div>
               <div class="flex-1">
                 <h3 class="game-resource-card-caption-small">
-                  Consoles aren't accessible for blind students
+                  {{ card.title }}
                 </h3>
-                <p class="game-resource-card-caption">Until now with Buzzle</p>
-              </div>
-            </div>
-
-            <div class="game-resource-card-small-flex-row">
-              <div
-                class="game-resource-icon-card-small relative"
-                aria-hidden="true"
-              >
-                <img
-                  src="/assets/images/audio-console/puzzle.png"
-                  alt=""
-                  class="w-[50px] absolute"
-                />
-              </div>
-              <div class="flex-1">
-                <h3 class="game-resource-card-caption-small">
-                  Buzzle opens the door for inclusive gaming
-                </h3>
-                <p class="game-resource-card-caption">
-                  In classrooms and at home
-                </p>
-              </div>
-            </div>
-
-            <div class="game-resource-card-small-flex-row">
-              <div
-                class="game-resource-icon-card-small relative"
-                aria-hidden="true"
-              >
-                <img
-                  src="/assets/images/game-toolkit/friends.png"
-                  alt=""
-                  class="w-[50px] absolute"
-                />
-              </div>
-              <div class="flex-1">
-                <h3 class="game-resource-card-caption-small">
-                  This is more than a console: It's a movement
-                </h3>
-                <p class="game-resource-card-caption">
-                  Gaming made for everyone
-                </p>
+                <p class="game-resource-card-caption">{{ card.caption }}</p>
               </div>
             </div>
           </div>
