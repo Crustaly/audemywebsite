@@ -68,6 +68,12 @@ const aboutCardsData = [
     caption: 'Designed with and for blind players',
   },
 ];
+
+// List of Logos for Grantors
+const grantLogos = [
+  '/assets/images/sponsors/Amazon-logo-resized.png',
+  '/assets/images/sponsors/ae-foundation-logo.png',
+];
 </script>
 
 <template>
@@ -228,14 +234,11 @@ const aboutCardsData = [
               <!-- Logos Section -->
               <div
                 class="flex flex-col gap-y-10 items-center md:flex-row md:justify-center md:justify-evenly my-10"
+                v-for="(logoPath, n) in grantLogos"
+                :key="n"
               >
                 <img
-                  src="/assets/images/sponsors/Amazon-logo-resized.png"
-                  aria-hidden="true"
-                  class="w-1/3 md:w-1/4"
-                />
-                <img
-                  src="/assets/images/sponsors/ae-foundation-logo.png"
+                  :src="logoPath"
                   aria-hidden="true"
                   class="w-1/3 md:w-1/4"
                 />
