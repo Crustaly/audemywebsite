@@ -1,8 +1,12 @@
 <script setup>
+// Import Components
 import Header from '../../components/Header/Header.vue';
 import Footer from '../../components/Footer/Footer.vue';
 import ScrollUpButton from '../../components/ScrollUpButton/ScrollUpButton.vue';
 import PageDecorations from '../../components/PageDecorations/PageDecorations.vue';
+import GameToolkitButton from './GameToolkitButton.vue';
+
+// Import Game Toolkits PDFs
 import callOfDutyPDF from './Toolkits/Gaming_Toolkit_Template_Call_of_Duty.pdf';
 import mineCraftPDF from './Toolkits/Gaming_Toolkit_Template_Minecraft.pdf';
 import Age_of_Empires from './Toolkits/Gaming_Toolkit_Template_Age_of_Empires.pdf';
@@ -1011,28 +1015,58 @@ const toolkits = [
 import { ref, computed } from 'vue';
 
 const searchQuery = ref('');
-const displayedToolkits = computed(() => {
-  if (!searchQuery.value) {
-    return toolkits.slice(0, 8);
-  }
-  return toolkits.filter(
-    (toolkit) =>
-      toolkit.name.toLowerCase().includes(searchQuery.value.toLowerCase()) ||
-      toolkit.description
-        .toLowerCase()
-        .includes(searchQuery.value.toLowerCase()) ||
-      toolkit.category.toLowerCase().includes(searchQuery.value.toLowerCase())
-  );
-});
+const totalSearchResults = ref(8); // Default: Display 8 toolkits
 
-const openToolkitPDF = (pdfUrl, gameName) => {
-  if (pdfUrl) {
-    window.open(pdfUrl, '_blank');
-  } else {
-    console.warn(`No PDF available for ${gameName}`);
-    alert(`PDF not available for ${gameName} yet. Coming soon!`);
-  }
-};
+// UI logic for carousel logos (aka 'Developer Partnerships')
+const prefix = '/assets/logos/';
+
+// List of dictionaries: Maps names (alt text) to image path (suffix)
+const carouselList = [
+  {
+    name: 'Activision',
+    suffix: 'activision.svg',
+  },
+  {
+    name: 'Microsoft',
+    suffix: 'microsoft.png',
+  },
+  {
+    name: 'Riot Games',
+    suffix: 'riot.png',
+  },
+  {
+    name: 'Roblox',
+    suffix: 'roblox.png',
+  },
+  {
+    name: 'Minecraft',
+    suffix: 'minecraft-logo-resized.png',
+  },
+];
+
+// Duplicate logos for continuous carousel UI effect
+// Combined list of 10 logo maps
+const carouselLogos = computed(() => [...carouselList, ...carouselList]);
+
+// List of "How It Works" Cards
+const cardData = [
+  {
+    iconPath: '/assets/images/game-toolkit/testing.png', // Step 1
+    subtitle: 'We Test the Game',
+    caption:
+      'Real blind players & assistive tech experts explore game mechanics.',
+  },
+  {
+    iconPath: '/assets/images/game-toolkit/toolkit.png', // Step 2
+    subtitle: 'We Build the Toolkit',
+    caption: 'Audio guides, tactile maps, and adapted instructions.',
+  },
+  {
+    iconPath: '/assets/images/game-toolkit/friends.png', // Step 3
+    subtitle: 'We Share Globally',
+    caption: 'Free downloads for players and devs.',
+  },
+];
 </script>
 
 <template>
@@ -1116,76 +1150,18 @@ const openToolkitPDF = (pdfUrl, gameName) => {
       </div>
       <div class="flex justify-center">
         <div class="max-w-[800px] w-full overflow-hidden">
-          <div class="logo-carousel mt-[40px] tablet:mt-[72px] mb-[63px]">
-            <div class="logo-track">
-              <div class="logo-slide">
+          <div
+            class="logo-carousel relative w-full overflow-hidden mt-[40px] tablet:mt-[72px] mb-[63px]"
+          >
+            <div class="logo-track animate-scroll flex w-max">
+              <div
+                class="logo-slide mobile:my-0 mobile:mx-2 mobile:min-w-[80px] flex shrink-0 items-center justify-center my-0 mx-4 min-w-[100px] md:mx-8 md:min-w-[120px]"
+                v-for="(logoMap, count) in carouselLogos"
+                :key="count"
+              >
                 <img
-                  src="/src/assets/logos/activision.svg"
-                  alt="Activision"
-                  class="h-16 w-auto object-contain"
-                />
-              </div>
-              <div class="logo-slide">
-                <img
-                  src="/src/assets/logos/microsoft.png"
-                  alt="Microsoft"
-                  class="h-16 w-auto object-contain"
-                />
-              </div>
-              <div class="logo-slide">
-                <img
-                  src="/src/assets/logos/riot.png"
-                  alt="Riot Games"
-                  class="h-16 w-auto object-contain"
-                />
-              </div>
-              <div class="logo-slide">
-                <img
-                  src="/src/assets/logos/roblox.png"
-                  alt="Roblox"
-                  class="h-16 w-auto object-contain"
-                />
-              </div>
-              <div class="logo-slide">
-                <img
-                  src="/src/assets/logos/minecraft-logo-resized.png"
-                  alt="Minecraft"
-                  class="h-16 w-auto object-contain"
-                />
-              </div>
-              <!-- Duplicate logos for seamless loop -->
-              <div class="logo-slide">
-                <img
-                  src="/src/assets/logos/activision.svg"
-                  alt="Activision"
-                  class="h-16 w-auto object-contain"
-                />
-              </div>
-              <div class="logo-slide">
-                <img
-                  src="/src/assets/logos/microsoft.png"
-                  alt="Microsoft"
-                  class="h-16 w-auto object-contain"
-                />
-              </div>
-              <div class="logo-slide">
-                <img
-                  src="/src/assets/logos/riot.png"
-                  alt="Riot Games"
-                  class="h-16 w-auto object-contain"
-                />
-              </div>
-              <div class="logo-slide">
-                <img
-                  src="/src/assets/logos/roblox.png"
-                  alt="Roblox"
-                  class="h-16 w-auto object-contain"
-                />
-              </div>
-              <div class="logo-slide">
-                <img
-                  src="/src/assets/logos/minecraft-logo-resized.png"
-                  alt="Minecraft"
+                  :src="prefix + logoMap.suffix"
+                  :alt="logoMap.name"
                   class="h-16 w-auto object-contain"
                 />
               </div>
@@ -1196,7 +1172,9 @@ const openToolkitPDF = (pdfUrl, gameName) => {
     </div>
 
     <!-- Toolkit Gallery Section -->
+    <!-- WCAG: Hide Gallery to remove redundant screen-reader output; Database UI announces same toolkits -->
     <div
+      aria-hidden="true"
       class="flex flex-col items-center justify-start mobile:justify-center w-full h-auto py-10 md:py-10 my-10"
     >
       <div class="w-full">
@@ -1207,79 +1185,7 @@ const openToolkitPDF = (pdfUrl, gameName) => {
           <div
             class="grid mobile:grid-cols-1 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-8"
           >
-            <button
-              v-for="toolkit in displayedToolkits.slice(0, 8)"
-              :key="toolkit.id"
-              @click="openToolkitPDF(toolkit.pdfUrl, toolkit.name)"
-              class="relative bg-cross-lines border-2 border-[#0C0D0D] rounded-lg p-4 shadow-[4px_4px_0px_#0C0D0D] hover:shadow-[6px_6px_0px_#0C0D0D] transition-all duration-300 cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#087BB4] focus:ring-offset-2"
-              :aria-label="`Download ${toolkit.name} accessibility toolkit PDF`"
-            >
-              <div
-                class="game-resource-card-banner h-1/3"
-                aria-hidden="true"
-              ></div>
-              <div class="flex items-center justify-between mb-3">
-                <h3 class="z-50 text-[18px] font-[600] text-white">
-                  {{ toolkit.name }}
-                </h3>
-                <span aria-hidden="true" class="z-50">
-                  <span v-if="toolkit.platformIcon == 'desktop'">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      fill="white"
-                      class="bi bi-display"
-                      viewBox="0 0 16 16"
-                    >
-                      <path
-                        d="M0 4s0-2 2-2h12s2 0 2 2v6s0 2-2 2h-4q0 1 .25 1.5H11a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1h.75Q6 13 6 12H2s-2 0-2-2zm1.398-.855a.76.76 0 0 0-.254.302A1.5 1.5 0 0 0 1 4.01V10c0 .325.078.502.145.602q.105.156.302.254a1.5 1.5 0 0 0 .538.143L2.01 11H14c.325 0 .502-.078.602-.145a.76.76 0 0 0 .254-.302 1.5 1.5 0 0 0 .143-.538L15 9.99V4c0-.325-.078-.502-.145-.602a.76.76 0 0 0-.302-.254A1.5 1.5 0 0 0 13.99 3H2c-.325 0-.502.078-.602.145"
-                      />
-                    </svg>
-                  </span>
-                  <span v-else-if="toolkit.platformIcon == 'controller'">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      fill="white"
-                      class="bi bi-controller"
-                      viewBox="0 0 16 16"
-                    >
-                      <path
-                        d="M11.5 6.027a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0m-1.5 1.5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1m2.5-.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0m-1.5 1.5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1m-6.5-3h1v1h1v1h-1v1h-1v-1h-1v-1h1z"
-                      />
-                      <path
-                        d="M3.051 3.26a.5.5 0 0 1 .354-.613l1.932-.518a.5.5 0 0 1 .62.39c.655-.079 1.35-.117 2.043-.117.72 0 1.443.041 2.12.126a.5.5 0 0 1 .622-.399l1.932.518a.5.5 0 0 1 .306.729q.211.136.373.297c.408.408.78 1.05 1.095 1.772.32.733.599 1.591.805 2.466s.34 1.78.364 2.606c.024.816-.059 1.602-.328 2.21a1.42 1.42 0 0 1-1.445.83c-.636-.067-1.115-.394-1.513-.773-.245-.232-.496-.526-.739-.808-.126-.148-.25-.292-.368-.423-.728-.804-1.597-1.527-3.224-1.527s-2.496.723-3.224 1.527c-.119.131-.242.275-.368.423-.243.282-.494.575-.739.808-.398.38-.877.706-1.513.773a1.42 1.42 0 0 1-1.445-.83c-.27-.608-.352-1.395-.329-2.21.024-.826.16-1.73.365-2.606.206-.875.486-1.733.805-2.466.315-.722.687-1.364 1.094-1.772a2.3 2.3 0 0 1 .433-.335l-.028-.079zm2.036.412c-.877.185-1.469.443-1.733.708-.276.276-.587.783-.885 1.465a14 14 0 0 0-.748 2.295 12.4 12.4 0 0 0-.339 2.406c-.022.755.062 1.368.243 1.776a.42.42 0 0 0 .426.24c.327-.034.61-.199.929-.502.212-.202.4-.423.615-.674.133-.156.276-.323.44-.504C4.861 9.969 5.978 9.027 8 9.027s3.139.942 3.965 1.855c.164.181.307.348.44.504.214.251.403.472.615.674.318.303.601.468.929.503a.42.42 0 0 0 .426-.241c.18-.408.265-1.02.243-1.776a12.4 12.4 0 0 0-.339-2.406 14 14 0 0 0-.748-2.295c-.298-.682-.61-1.19-.885-1.465-.264-.265-.856-.523-1.733-.708-.85-.179-1.877-.27-2.913-.27s-2.063.091-2.913.27"
-                      />
-                    </svg>
-                  </span>
-                  <span v-else-if="toolkit.platformIcon == 'mobile'">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      fill="white"
-                      class="bi bi-phone"
-                      viewBox="0 0 16 16"
-                    >
-                      <path
-                        d="M11 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM5 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"
-                      />
-                      <path d="M8 14a1 1 0 1 0 0-2 1 1 0 0 0 0 2" />
-                    </svg>
-                  </span>
-                </span>
-              </div>
-              <p class="text-[14px] text-body py-3">
-                {{ toolkit.description }}
-              </p>
-              <div class="bg-[#E5F0F5] rounded px-2 py-1 inline-block">
-                <span class="text-[14px] text-[#087BB4] font-semibold">{{
-                  toolkit.category
-                }}</span>
-              </div>
-            </button>
+            <GameToolkitButton :toolkits="toolkits" />
           </div>
           <div class="page-button-flex">
             <a
@@ -1305,47 +1211,18 @@ const openToolkitPDF = (pdfUrl, gameName) => {
           <div
             class="flex justify-between py-5 px-5 md:gap-x-10 lg:gap-x-24 mobile:gap-y-12 mobile:flex-col"
           >
-            <!-- Step 1: Test -->
-            <div class="game-resource-steps-card-flex">
+            <!-- Loop thru "How It Works" Cards -->
+            <div
+              v-for="(card, count) in cardData"
+              :key="count"
+              class="game-resource-steps-card-flex"
+            >
               <div class="game-resource-icon-card relative" aria-hidden="true">
-                <img
-                  src="/assets/images/game-toolkit/testing.png"
-                  class="absolute w-[50px]"
-                  alt=""
-                />
+                <img :src="card.iconPath" class="absolute w-[50px]" alt="" />
               </div>
-              <h3 class="game-resource-card-subtitle">We Test the Game</h3>
+              <h3 class="game-resource-card-subtitle">{{ card.subtitle }}</h3>
               <p class="text-center game-resource-card-caption">
-                Real blind players & assistive tech experts explore game
-                mechanics.
-              </p>
-            </div>
-            <!-- Step 2: Build -->
-            <div class="game-resource-steps-card-flex">
-              <div class="game-resource-icon-card relative" aria-hidden="true">
-                <img
-                  src="/assets/images/game-toolkit/toolkit.png"
-                  class="absolute w-[50px]"
-                  alt=""
-                />
-              </div>
-              <h3 class="game-resource-card-subtitle">We Build the Toolkit</h3>
-              <p class="text-center game-resource-card-caption">
-                Audio guides, tactile maps, and adapted instructions.
-              </p>
-            </div>
-            <!-- Step 3: Share -->
-            <div class="game-resource-steps-card-flex">
-              <div class="game-resource-icon-card relative" aria-hidden="true">
-                <img
-                  src="/assets/images/game-toolkit/friends.png"
-                  class="absolute w-[50px]"
-                  alt=""
-                />
-              </div>
-              <h3 class="game-resource-card-subtitle">We Share Globally</h3>
-              <p class="text-center game-resource-card-caption">
-                Free downloads for players and devs.
+                {{ card.caption }}
               </p>
             </div>
           </div>
@@ -1439,85 +1316,19 @@ const openToolkitPDF = (pdfUrl, gameName) => {
           <div
             class="grid mobile:grid-cols-1 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-8"
           >
-            <button
-              v-for="toolkit in displayedToolkits"
-              :key="toolkit.id"
-              @click="openToolkitPDF(toolkit.pdfUrl, toolkit.name)"
-              class="relative bg-cross-lines border-2 border-[#0C0D0D] rounded-lg p-4 shadow-[4px_4px_0px_#0C0D0D] hover:shadow-[6px_6px_0px_#0C0D0D] transition-all duration-300 cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#087BB4] focus:ring-offset-2"
-              :aria-label="`Download ${toolkit.name} accessibility toolkit PDF`"
-            >
-              <div class="game-resource-card-banner h-1/3" aria-hidden="true">
-                <!-- Decorative card banner (empty) -->
-              </div>
-              <div class="flex items-center justify-between mb-3">
-                <h3 class="z-50 text-[18px] font-[600] text-white">
-                  {{ toolkit.name }}
-                </h3>
-                <span aria-hidden="true" class="z-50">
-                  <span v-if="toolkit.platformIcon == 'desktop'">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      fill="white"
-                      class="bi bi-display"
-                      viewBox="0 0 16 16"
-                    >
-                      <path
-                        d="M0 4s0-2 2-2h12s2 0 2 2v6s0 2-2 2h-4q0 1 .25 1.5H11a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1h.75Q6 13 6 12H2s-2 0-2-2zm1.398-.855a.76.76 0 0 0-.254.302A1.5 1.5 0 0 0 1 4.01V10c0 .325.078.502.145.602q.105.156.302.254a1.5 1.5 0 0 0 .538.143L2.01 11H14c.325 0 .502-.078.602-.145a.76.76 0 0 0 .254-.302 1.5 1.5 0 0 0 .143-.538L15 9.99V4c0-.325-.078-.502-.145-.602a.76.76 0 0 0-.302-.254A1.5 1.5 0 0 0 13.99 3H2c-.325 0-.502.078-.602.145"
-                      />
-                    </svg>
-                  </span>
-                  <span v-else-if="toolkit.platformIcon == 'controller'">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      fill="white"
-                      class="bi bi-controller"
-                      viewBox="0 0 16 16"
-                    >
-                      <path
-                        d="M11.5 6.027a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0m-1.5 1.5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1m2.5-.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0m-1.5 1.5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1m-6.5-3h1v1h1v1h-1v1h-1v-1h-1v-1h1z"
-                      />
-                      <path
-                        d="M3.051 3.26a.5.5 0 0 1 .354-.613l1.932-.518a.5.5 0 0 1 .62.39c.655-.079 1.35-.117 2.043-.117.72 0 1.443.041 2.12.126a.5.5 0 0 1 .622-.399l1.932.518a.5.5 0 0 1 .306.729q.211.136.373.297c.408.408.78 1.05 1.095 1.772.32.733.599 1.591.805 2.466s.34 1.78.364 2.606c.024.816-.059 1.602-.328 2.21a1.42 1.42 0 0 1-1.445.83c-.636-.067-1.115-.394-1.513-.773-.245-.232-.496-.526-.739-.808-.126-.148-.25-.292-.368-.423-.728-.804-1.597-1.527-3.224-1.527s-2.496.723-3.224 1.527c-.119.131-.242.275-.368.423-.243.282-.494.575-.739.808-.398.38-.877.706-1.513.773a1.42 1.42 0 0 1-1.445-.83c-.27-.608-.352-1.395-.329-2.21.024-.826.16-1.73.365-2.606.206-.875.486-1.733.805-2.466.315-.722.687-1.364 1.094-1.772a2.3 2.3 0 0 1 .433-.335l-.028-.079zm2.036.412c-.877.185-1.469.443-1.733.708-.276.276-.587.783-.885 1.465a14 14 0 0 0-.748 2.295 12.4 12.4 0 0 0-.339 2.406c-.022.755.062 1.368.243 1.776a.42.42 0 0 0 .426.24c.327-.034.61-.199.929-.502.212-.202.4-.423.615-.674.133-.156.276-.323.44-.504C4.861 9.969 5.978 9.027 8 9.027s3.139.942 3.965 1.855c.164.181.307.348.44.504.214.251.403.472.615.674.318.303.601.468.929.503a.42.42 0 0 0 .426-.241c.18-.408.265-1.02.243-1.776a12.4 12.4 0 0 0-.339-2.406 14 14 0 0 0-.748-2.295c-.298-.682-.61-1.19-.885-1.465-.264-.265-.856-.523-1.733-.708-.85-.179-1.877-.27-2.913-.27s-2.063.091-2.913.27"
-                      />
-                    </svg>
-                  </span>
-                  <span v-else-if="toolkit.platformIcon == 'mobile'">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      fill="white"
-                      class="bi bi-phone"
-                      viewBox="0 0 16 16"
-                    >
-                      <path
-                        d="M11 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM5 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"
-                      />
-                      <path d="M8 14a1 1 0 1 0 0-2 1 1 0 0 0 0 2" />
-                    </svg>
-                  </span>
-                </span>
-              </div>
-              <p class="text-[14px] text-body py-3">
-                {{ toolkit.description }}
-              </p>
-              <div class="bg-[#E5F0F5] rounded px-2 py-1 inline-block">
-                <span class="text-[14px] text-[#087BB4] font-semibold">{{
-                  toolkit.category
-                }}</span>
-              </div>
-            </button>
+            <GameToolkitButton
+              :toolkits="toolkits"
+              :showGallery="false"
+              :searchQuery="searchQuery"
+              v-model:totalSearchResults="totalSearchResults"
+            />
           </div>
 
           <!-- Results Summary -->
           <div class="text-center my-16 text-[18px] text-body">
             <p>
               <span class="font-semibold text-primary-color">
-                {{ displayedToolkits.length }}</span
+                {{ totalSearchResults }}</span
               >
               toolkits displayed out of our
               <span class="font-semibold">100+</span>
@@ -1525,7 +1336,7 @@ const openToolkitPDF = (pdfUrl, gameName) => {
             </p>
             <br />
             <p
-              v-if="!searchQuery && displayedToolkits.length === 8"
+              v-if="!searchQuery && totalSearchResults === 8"
               class="font-semibold mt-3"
             >
               Search to find your game
@@ -1540,43 +1351,6 @@ const openToolkitPDF = (pdfUrl, gameName) => {
 </template>
 
 <style scoped>
-@media screen and (max-width: 450px) {
-  .grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* Logo Carousel Animation */
-.logo-carousel {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-}
-
-.logo-track {
-  display: flex;
-  animation: scroll 20s linear infinite;
-  width: max-content;
-}
-
-.logo-slide {
-  flex-shrink: 0;
-  margin: 0 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 120px;
-}
-
-@keyframes scroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
 /* Pause animation on hover */
 .logo-carousel:hover .logo-track {
   animation-play-state: paused;
@@ -1584,22 +1358,12 @@ const openToolkitPDF = (pdfUrl, gameName) => {
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-  .logo-slide {
-    margin: 0 1rem;
-    min-width: 100px;
-  }
-
   .logo-track {
     animation-duration: 15s;
   }
 }
 
 @media (max-width: 600px) {
-  .logo-slide {
-    margin: 0 0.5rem;
-    min-width: 80px;
-  }
-
   .logo-track {
     animation-duration: 12s;
   }
