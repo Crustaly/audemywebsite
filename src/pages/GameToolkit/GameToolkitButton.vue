@@ -5,7 +5,7 @@
  * - Component used in Gallery and Database sections
  */
 
-import { computed, defineEmits, watch } from 'vue';
+import { computed, watch } from 'vue';
 
 /* --- PROPS --- */
 
