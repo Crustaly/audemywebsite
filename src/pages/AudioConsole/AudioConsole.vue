@@ -163,7 +163,7 @@ const impactCardsData = [
           :bottomRightImgPath="OrangeStar"
           :topRightImgPath="Book"
           :bottomLeftImgPath="Mic"
-          increaseIconSize="true"
+          :increaseIconSize="true"
         />
         <!-- Console Image -->
         <img
@@ -357,7 +357,7 @@ const impactCardsData = [
           :bottomRightImgPath="YellowStar"
           :topRightImgPath="OrangeStar"
           :bottomLeftImgPath="OrangeStar"
-          increaseIconSize="true"
+          :increaseIconSize="true"
         />
         <h1 class="game-resource-header">
           <p>

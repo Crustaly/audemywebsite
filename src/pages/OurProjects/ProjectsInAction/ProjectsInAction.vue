@@ -47,7 +47,7 @@ const impactImages = [
       :topLeftImgPath="BlueStar"
       :bottomLeftImgPath="OrangeStar"
       :bottomRightImgPath="YellowStar"
-      increaseIconSize="true"
+      :increaseIconSize="true"
     />
     <div
       class="flex items-center flex-col w-full lg:flex-row lg:w-1/2 justify-center"
