@@ -44,7 +44,7 @@ const impactImages = [
       :bottomRightImgPath="OrangeStar"
       :topRightImgPath="SpeechBubble"
       :bottomLeftImgPath="YellowStar"
-      increaseIconSize="true"
+      :increaseIconSize="true"
     />
     <!-- Uniform Image Grid with Slight Tilt -->
     <div
