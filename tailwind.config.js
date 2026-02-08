@@ -55,7 +55,7 @@ export default {
       animation: {
         'fade-slide-in': 'fade-slide-in 0.2s ease-out forwards',
         'fade-slide-out': 'fade-slide-out 0.2s ease-in forwards',
-        scroll: 'scroll 20s linear infinite',
+        scroll: 'scroll 12s linear infinite',
       },
     },
   },
