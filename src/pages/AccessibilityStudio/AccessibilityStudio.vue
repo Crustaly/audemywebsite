@@ -4,6 +4,72 @@ import Footer from '../../components/Footer/Footer.vue';
 import ScrollUpButton from '../../components/ScrollUpButton/ScrollUpButton.vue';
 import PageDecorations from '../../components/PageDecorations/PageDecorations.vue';
 import GamesShowcase from './GamesToLife/GamesShowcase.vue';
+
+// List of 'Problem' & 'Opportunity' card data
+const cardsData = [
+  {
+    title: 'The Problem',
+    caption:
+      'Accessibility is not only the right thing to do — it opens your game to new audiences, drives inclusivity, and builds brand loyalty.',
+    iconSrc: '/assets/images/studio/problem.png',
+  },
+  {
+    title: 'The Opportunity',
+    caption:
+      'Millions of players with disabilities are excluded from gaming due to inaccessible design choices.',
+    iconSrc: '/assets/images/studio/opportunity.png',
+  },
+];
+
+// List of 'How It Works' card data (Steps 1 - 3)
+const stepCardsData = [
+  {
+    title: 'Submit Your Build',
+    caption: 'Upload your demo or beta version securely.',
+  }, // Step 1
+  {
+    title: 'Test With Experts & Players',
+    caption:
+      'Our network of <span class="font-semibold">30+</span> blind gamers and assistive tech specialists test your game.',
+  }, // Step 2
+  {
+    title: 'Get Your Accessibility Report',
+    caption:
+      'Actionable feedback, prioritized fixes, and resources to improve accessibility.',
+  }, // Step 3
+];
+
+// List of 'Who We Work With' card data
+const partnerCardsData = [
+  { partner: 'Indie studios', iconSrc: 'seed.png' },
+  { partner: 'Solo developers', iconSrc: 'command-line.png' },
+  { partner: 'Accessibility-minded publishers', iconSrc: 'accessibility.png' },
+  { partner: 'Educational game developers', iconSrc: 'education.png' },
+];
+
+// List of 'What You Get' card data
+const resultCardsData = [
+  {
+    title: 'Detailed accessibility testing report',
+    caption: 'With screenshots and descriptions',
+    iconSrc: 'checklist-v2.png',
+  },
+  {
+    title: 'Priority list of accessibility fixes',
+    caption: '',
+    iconSrc: 'fix.png',
+  },
+  {
+    title: 'Recommendations for blind and low-vision accessibility',
+    caption: '',
+    iconSrc: 'research.png',
+  },
+  {
+    title: 'Optional: Re-test after changes',
+    caption: '',
+    iconSrc: 'repeat.png',
+  },
+];
 </script>
 
 <template>
@@ -86,9 +152,10 @@ import GamesShowcase from './GamesToLife/GamesShowcase.vue';
         <div
           class="flex justify-between my-16 mx-10 gap-16 tablet:gap-14 mobile:gap-y-12 mobile:flex-col"
         >
-          <!-- Problem Card -->
           <div
             class="game-resource-text-card-base game-resource-text-card-flex relative"
+            v-for="(card, n) in cardsData"
+            :key="n"
           >
             <div
               class="game-resource-card-banner h-1/4 md:h-1/3"
@@ -99,44 +166,13 @@ import GamesShowcase from './GamesToLife/GamesShowcase.vue';
             <div>
               <!-- Accessibility: Hide decorative icons -->
               <div class="game-resource-icon-card relative" aria-hidden="true">
-                <img
-                  src="/assets/images/studio/problem.png"
-                  alt=""
-                  class="w-[50px] absolute"
-                />
+                <img :src="card.iconSrc" alt="" class="w-[50px] absolute" />
               </div>
-              <h3 class="game-resource-card-subtitle">The Problem</h3>
+              <h3 class="game-resource-card-subtitle">{{ card.title }}</h3>
               <p class="game-resource-card-caption">
-                Millions of players with disabilities are excluded from gaming
-                due to inaccessible design choices.
+                {{ card.caption }}
               </p>
             </div>
-          </div>
-
-          <!-- Opportunity Card -->
-          <div
-            class="game-resource-text-card-base game-resource-text-card-flex relative"
-          >
-            <div
-              class="game-resource-card-banner h-1/4 md:h-1/3"
-              aria-hidden="true"
-            >
-              <!-- Decorative card banner -->
-            </div>
-            <!-- Accessibility: Hide decorative icons -->
-            <div class="game-resource-icon-card relative" aria-hidden="true">
-              <img
-                src="/assets/images/studio/opportunity.png"
-                alt=""
-                class="w-[50px] absolute"
-              />
-            </div>
-            <h3 class="game-resource-card-subtitle">The Opportunity</h3>
-            <p class="game-resource-card-caption">
-              Accessibility is not only the right thing to do — it opens your
-              game to new audiences, drives inclusivity, and builds brand
-              loyalty.
-            </p>
           </div>
         </div>
       </div>
@@ -154,55 +190,24 @@ import GamesShowcase from './GamesToLife/GamesShowcase.vue';
           <div
             class="flex justify-between py-5 px-5 md:gap-x-10 lg:gap-x-24 mobile:gap-y-12 mobile:flex-col"
           >
-            <!-- Step 1 -->
-            <div class="game-resource-steps-card-flex">
+            <!-- Loop thru card data (Steps 1 - 3) -->
+            <div
+              class="game-resource-steps-card-flex"
+              v-for="(stepCard, n) in stepCardsData"
+              :key="n"
+            >
               <div class="game-resource-icon-card relative">
                 <img
-                  src="/assets/images/studio/1-digit.png"
+                  :src="`/assets/images/studio/${n + 1}-digit.png`"
                   class="absolute w-[50px]"
-                  alt="1"
+                  :alt="n + 1"
                 />
               </div>
-              <h3 class="game-resource-card-subtitle">Submit Your Build</h3>
-              <p class="text-center game-resource-card-caption">
-                Upload your demo or beta version securely.
-              </p>
-            </div>
-
-            <!-- Step 2 -->
-            <div class="game-resource-steps-card-flex">
-              <div class="game-resource-icon-card relative">
-                <img
-                  src="/assets/images/studio/2-digit.png"
-                  class="absolute w-[50px]"
-                  alt="2"
-                />
-              </div>
-              <h3 class="game-resource-card-subtitle">
-                Test With Experts & Players
-              </h3>
-              <p class="text-center game-resource-card-caption">
-                Our network of <span class="font-semibold">30+</span> blind
-                gamers and assistive tech specialists test your game.
-              </p>
-            </div>
-
-            <!-- Step 3 -->
-            <div class="game-resource-steps-card-flex">
-              <div class="game-resource-icon-card relative">
-                <img
-                  src="/assets/images/studio/3-digit.png"
-                  class="absolute w-[50px]"
-                  alt="3"
-                />
-              </div>
-              <h3 class="game-resource-card-subtitle">
-                Get Your Accessibility Report
-              </h3>
-              <p class="text-center game-resource-card-caption">
-                Actionable feedback, prioritized fixes, and resources to improve
-                accessibility.
-              </p>
+              <h3 class="game-resource-card-subtitle">{{ stepCard.title }}</h3>
+              <p
+                class="text-center game-resource-card-caption"
+                v-html="stepCard.caption"
+              ></p>
             </div>
           </div>
         </div>
@@ -226,61 +231,24 @@ import GamesShowcase from './GamesToLife/GamesShowcase.vue';
           <div
             class="grid grid-cols-2 tablet:grid-cols-1 mobile:grid-cols-1 gap-10 px-5 my-10"
           >
-            <div class="game-resource-card-small-flex-col">
+            <div
+              class="game-resource-card-small-flex-col"
+              v-for="(partnerCard, n) in partnerCardsData"
+              :key="n"
+            >
               <!-- Accessibility: Hide decorative icons -->
               <div
                 class="game-resource-icon-card-small relative"
                 aria-hidden="true"
               >
                 <img
-                  src="/assets/images/studio/seed.png"
-                  alt=""
-                  class="w-[50px] absolute"
-                />
-              </div>
-              <h3 class="game-resource-card-caption-small">Indie studios</h3>
-            </div>
-            <div class="game-resource-card-small-flex-col">
-              <div
-                class="game-resource-icon-card-small relative"
-                aria-hidden="true"
-              >
-                <img
-                  src="/assets/images/studio/command-line.png"
-                  alt=""
-                  class="w-[50px] absolute"
-                />
-              </div>
-              <h3 class="game-resource-card-caption-small">Solo developers</h3>
-            </div>
-            <div class="game-resource-card-small-flex-col">
-              <div
-                class="game-resource-icon-card-small relative"
-                aria-hidden="true"
-              >
-                <img
-                  src="/assets/images/studio/accessibility.png"
+                  :src="'/assets/images/studio/' + partnerCard.iconSrc"
                   alt=""
                   class="w-[50px] absolute"
                 />
               </div>
               <h3 class="game-resource-card-caption-small">
-                Accessibility-minded publishers
-              </h3>
-            </div>
-            <div class="game-resource-card-small-flex-col">
-              <div
-                class="game-resource-icon-card-small relative"
-                aria-hidden="true"
-              >
-                <img
-                  src="/assets/images/studio/education.png"
-                  alt=""
-                  class="w-[50px] absolute"
-                />
-              </div>
-              <h3 class="game-resource-card-caption-small">
-                Educational game developers
+                {{ partnerCard.partner }}
               </h3>
             </div>
           </div>
@@ -299,75 +267,28 @@ import GamesShowcase from './GamesToLife/GamesShowcase.vue';
         <div class="max-w-[744px] w-full">
           <div class="flex flex-col gap-10 px-5 my-10">
             <!-- Accessibility: Hide decorative icons in each flex child below -->
-            <div class="game-resource-card-small-flex-row">
+            <div
+              class="game-resource-card-small-flex-row"
+              v-for="(resultCard, n) in resultCardsData"
+              :key="n"
+            >
               <div
                 class="game-resource-icon-card-small relative"
                 aria-hidden="true"
               >
                 <img
-                  src="/assets/images/studio/checklist-v2.png"
+                  :src="'/assets/images/studio/' + resultCard.iconSrc"
                   alt=""
                   class="w-[50px] absolute"
                 />
               </div>
               <div class="flex-1">
                 <h3 class="game-resource-card-caption-small">
-                  Detailed accessibility testing report
+                  {{ resultCard.title }}
                 </h3>
-                <p class="game-resource-card-caption">
-                  With screenshots and descriptions
+                <p v-if="resultCard.caption" class="game-resource-card-caption">
+                  {{ resultCard.caption }}
                 </p>
-              </div>
-            </div>
-            <div class="game-resource-card-small-flex-row">
-              <div
-                class="game-resource-icon-card-small relative"
-                aria-hidden="true"
-              >
-                <img
-                  src="/assets/images/studio/fix.png"
-                  alt=""
-                  class="w-[50px] absolute"
-                />
-              </div>
-              <div class="flex-1">
-                <h3 class="game-resource-card-caption-small">
-                  Priority list of accessibility fixes
-                </h3>
-              </div>
-            </div>
-            <div class="game-resource-card-small-flex-row">
-              <div
-                class="game-resource-icon-card-small relative"
-                aria-hidden="true"
-              >
-                <img
-                  src="/assets/images/studio/research.png"
-                  alt=""
-                  class="w-[50px] absolute"
-                />
-              </div>
-              <div class="flex-1">
-                <h3 class="game-resource-card-caption-small">
-                  Recommendations for blind and low-vision accessibility
-                </h3>
-              </div>
-            </div>
-            <div class="game-resource-card-small-flex-row">
-              <div
-                class="game-resource-icon-card-small relative"
-                aria-hidden="true"
-              >
-                <img
-                  src="/assets/images/studio/repeat.png"
-                  alt=""
-                  class="w-[50px] absolute"
-                />
-              </div>
-              <div class="flex-1">
-                <h3 class="game-resource-card-caption-small">
-                  Optional: Re-test after changes
-                </h3>
               </div>
             </div>
           </div>

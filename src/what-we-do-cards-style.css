@@ -27,7 +27,7 @@
   }
 
   .wwd-card-image {
-    @apply aspect-video object-cover rounded-lg shadow-lg group-hover:shadow-xl;
+    @apply w-full aspect-video object-cover rounded-lg shadow-lg group-hover:shadow-xl;
   }
 
   .wwd-card-image-filter {
@@ -36,6 +36,6 @@
 
   .wwd-card-image-filter-group {
     /* Wrapper for image and filter with hover effect */
-    @apply w-[80%] mx-auto md:w-full relative group-hover:scale-105 transition-transform duration-300;
+    @apply w-[80%] mx-auto relative group-hover:scale-105 transition-transform duration-300;
   }
 }
