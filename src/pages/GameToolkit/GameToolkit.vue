@@ -1153,7 +1153,9 @@ const cardData = [
           <div
             class="logo-carousel relative w-full overflow-hidden mt-[40px] tablet:mt-[72px] mb-[63px]"
           >
-            <div class="logo-track animate-scroll flex w-max">
+            <div
+              class="logo-track animate-scroll md:[animation-duration:15s] lg:[animation-duration:20s] hover:[animation-play-state:paused] flex w-max"
+            >
               <div
                 class="logo-slide mobile:my-0 mobile:mx-2 mobile:min-w-[80px] flex shrink-0 items-center justify-center my-0 mx-4 min-w-[100px] md:mx-8 md:min-w-[120px]"
                 v-for="(logoMap, count) in carouselLogos"
@@ -1349,23 +1351,3 @@ const cardData = [
 
   <Footer />
 </template>
-
-<style scoped>
-/* Pause animation on hover */
-.logo-carousel:hover .logo-track {
-  animation-play-state: paused;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .logo-track {
-    animation-duration: 15s;
-  }
-}
-
-@media (max-width: 600px) {
-  .logo-track {
-    animation-duration: 12s;
-  }
-}
-</style>

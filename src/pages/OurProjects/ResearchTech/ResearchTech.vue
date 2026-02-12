@@ -55,9 +55,7 @@ const items2 = [
           We conduct
           <span class="font-semibold"> research on accessibility </span> in the
           field of AI and Computer Science to make sure
-          <span style="color: #077bb3" class="font-semibold">
-            Audemy's games
-          </span>
+          <span class="font-semibold text-primary-color"> Audemy's games </span>
           stay as <span class="font-semibold"> accessible as possible. </span>
         </p>
       </div>

@@ -44,11 +44,10 @@
       >
         <div class="w-full h-full aspect-video max-w-[100%] max-h-[90%]">
           <iframe
-            class="w-full h-full rounded-[15px]"
+            class="w-full h-full rounded-[15px] pointer-events-auto"
             src="https://www.youtube.com/embed?listType=playlist&list=UU_QnL2hAtkxcMUNYBUFm6rQ"
             frameborder="0"
             allowfullscreen
-            style="pointer-events: auto"
             title="Pet Names and Fun Facts for Kids (Youtube Video)"
           ></iframe>
         </div>
