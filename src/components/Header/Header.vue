@@ -160,12 +160,14 @@
       v-if="(isMobileView || isTabletView) && isMenuOpen"
       class="fixed inset-0 bg-black bg-opacity-50 z-40"
       @click="closeMenu"
+      aria-hidden="true"
     ></div>
 
     <!-- Mobile Slide-in Menu -->
     <div
       v-if="(isMobileView || isTabletView) && isMenuOpen"
       class="fixed inset-y-0 right-0 bg-white z-50 w-4/5 max-w-xs flex flex-col overflow-y-auto"
+      @focusout="handleNavFocusOut"
     >
       <div class="flex justify-end p-7 px-10">
         <button
@@ -522,6 +524,18 @@ const logout = () => {
 const closeAlert = () => {
   showAlert.value = false;
 };
+
+// WCAG: Auto-close mobile nav if tabbing past last menu link (Youtube)
+function handleNavFocusOut(event) {
+  const mobileNav = event.currentTarget;
+
+  // Keep mobile menu open if focus is still within it (e.g., tabbing through it)
+  if (mobileNav.contains(event.relatedTarget)) {
+    return;
+  } else {
+    closeMenu();
+  }
+}
 
 // Add resize listener to check screen size
 onMounted(() => {
