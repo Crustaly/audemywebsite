@@ -1,5 +1,7 @@
 <template>
-  <div class="bg-cross-lines rounded-[16px] p-5 my-4 shadow-md mx-auto">
+  <div
+    class="bg-cross-lines rounded-[16px] p-5 my-4 shadow-md mx-auto animate-fade-slide-in"
+  >
     <div class="text-center text-3xl font-bold p-2 md:w-[300px]">
       Game Over!
     </div>
