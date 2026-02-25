@@ -15,7 +15,7 @@ const props = defineProps({
 </script>
 
 <template>
-  <div class="py-1 text-[15px]" role="none">
+  <div class="py-1 text-[15px] animate-fade-slide-in" role="none">
     <!-- Generate game menu links by looping over 'gamesMap' entries -->
     <a
       v-for="{ title, url } in gamesMap"
