@@ -166,7 +166,7 @@
     <!-- Mobile Slide-in Menu -->
     <div
       v-if="(isMobileView || isTabletView) && isMenuOpen"
-      class="fixed inset-y-0 right-0 bg-white z-50 w-4/5 max-w-xs flex flex-col overflow-y-auto"
+      class="fixed inset-y-0 right-0 bg-white z-50 w-4/5 max-w-xs flex flex-col overflow-y-auto animate-fade-slide-left"
       @focusout="handleNavFocusOut"
     >
       <div class="flex justify-end p-7 px-10">
