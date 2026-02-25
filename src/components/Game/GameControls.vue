@@ -3,7 +3,7 @@
   <div v-show="showControls">
     <div
       :class="[
-        'justify-center',
+        'justify-center animate-fade-slide-in',
         isTablet
           ? 'flex gap-[25px] mb-6'
           : isMobile
@@ -84,7 +84,7 @@
 
     <div
       id="transcript"
-      class="relative bg-cross-lines rounded-[16px] p-4 my-4 shadow-md mx-auto mobile:w-[280px] w-[300px] md:w-[500px] flex flex-col gap-y-4 items-center justify-center"
+      class="animate-fade-slide-in relative bg-cross-lines rounded-[16px] p-4 my-4 shadow-md mx-auto mobile:w-[280px] w-[300px] md:w-[500px] flex flex-col gap-y-4 items-center justify-center"
     >
       <div
         class="absolute rounded-t-[16px] top-0 left-0 bg-[#edf7fc] h-[44px] w-full"

@@ -25,6 +25,7 @@ export const gameHeaderClasses = [
   'md:my-5',
   'rounded-[16px]',
   'shadow-md',
+  'animate-fade-slide-in',
 ];
 
 // RWD classes for multiple-choice captions
