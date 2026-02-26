@@ -246,7 +246,7 @@ onUnmounted(() => {
             <div
               v-for="(item, index) in displayedItems"
               :key="index"
-              class="flex transition-all duration-300 ease-in-out"
+              class="flex animate-fade-slide-in"
               :class="{
                 'opacity-0 translate-y-4':
                   (smallScreen ? index >= 4 : index >= 8) && !showAll,
