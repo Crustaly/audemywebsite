@@ -62,14 +62,6 @@
             Team
           </router-link>
         </li>
-        <!-- NOTE: REMOVED OUR PROJECTS FROM NAVBAR (content combined w/ Impact page) -->
-        <!--
-        <li id="projects-item">
-          <router-link to="/our-projects" class="navbar-link-desktop">
-            Our Projects
-          </router-link>
-        </li>
-        -->
         <li id="impact-item">
           <router-link to="/impact" class="navbar-link-desktop">
             Impact
@@ -199,18 +191,6 @@
               Team
             </router-link>
           </li>
-          <!-- NOTE: REMOVED OUR PROJECTS FROM NAVBAR (content combined w/ Impact page) -->
-          <!--
-          <li>
-            <router-link
-              to="/our-projects"
-              class="navbar-link-mobile"
-              @click="closeMenu"
-            >
-              Our Projects
-            </router-link>
-          </li>
-          -->
           <li>
             <router-link
               to="/impact"
