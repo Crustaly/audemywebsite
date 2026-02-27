@@ -42,22 +42,35 @@
         aria-hidden="true"
         class="flex flex-col items-center gap-y-3"
       >
-        <QuestionCaptions
-          v-if="!isAnswerPlaying"
-          :title="title"
-          :description="description"
-          :currentQuestion="currentQuestion"
-          :showAnswerOnly="showAnswerOnly"
-        />
+        <!-- Vue transition wrapper for fade effects -->
+        <transition
+          enter-active-class="transition duration-300 ease-in"
+          enter-from-class="opacity-0"
+          enter-to-class="opacity-100"
+          leave-active-class="transition duration-300 ease-out"
+          leave-from-class="opacity-100"
+          leave-to-class="opacity-0"
+          mode="out-in"
+        >
+          <QuestionCaptions
+            v-if="!isAnswerPlaying"
+            :title="title"
+            :description="description"
+            :currentQuestion="currentQuestion"
+            :showAnswerOnly="showAnswerOnly"
+            key="question-caption"
+          />
 
-        <!-- Show feedback & answer once final transcription is ready & validated -->
-        <AnswerCaptions
-          v-if="isAnswerPlaying"
-          :title="title"
-          :currentQuestion="currentQuestion"
-          :isCorrect="isCorrect"
-          :firstMatchingAnswer="firstMatchingAnswer"
-        />
+          <!-- Show feedback & answer once final transcription is ready & validated -->
+          <AnswerCaptions
+            v-else
+            :title="title"
+            :currentQuestion="currentQuestion"
+            :isCorrect="isCorrect"
+            :firstMatchingAnswer="firstMatchingAnswer"
+            key="answer-caption"
+          />
+        </transition>
       </div>
       <p v-else class="mobile:text-[16px] text-[18px] 2xl:text-[20px]">
         {{ description }}
