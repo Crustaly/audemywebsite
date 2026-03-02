@@ -33,7 +33,7 @@
     <!-- Hamburger Button for Mobile, Small, & Medium Screens -->
     <div
       id="nav-btn-item"
-      v-if="isMobileView || isTabletView"
+      v-if="isMobile || isTablet"
       class="col-start-10 col-span-3 text-right z-30"
     >
       <button
@@ -48,7 +48,7 @@
     <!-- Desktop Navigation Links -->
     <nav
       id="nav-links-grid"
-      v-if="!isMobileView & !isTabletView"
+      v-if="!isMobile & !isTablet"
       class="lg:col-start-4 lg:col-span-9 xl:col-start-3 xl:col-span-10 py-2"
     >
       <ul id="router-links-grid" :class="[...navLinksGridClasses]">
@@ -149,7 +149,7 @@
 
     <!-- Mobile Menu Overlay -->
     <div
-      v-if="(isMobileView || isTabletView) && isMenuOpen"
+      v-if="(isMobile || isTablet) && isMenuOpen"
       class="fixed inset-0 bg-black bg-opacity-50 z-40"
       @click="closeMenu"
       aria-hidden="true"
@@ -157,7 +157,7 @@
 
     <!-- Mobile Slide-in Menu -->
     <div
-      v-if="(isMobileView || isTabletView) && isMenuOpen"
+      v-if="(isMobile || isTablet) && isMenuOpen"
       class="fixed inset-y-0 right-0 bg-white z-50 w-4/5 max-w-xs flex flex-col overflow-y-auto animate-fade-slide-left"
       @focusout="handleNavFocusOut"
     >
@@ -451,8 +451,8 @@ const props = defineProps({
   },
 });
 
-const isMobileView = ref(false);
-const isTabletView = ref(false);
+import { useDeviceDetection } from '../../composables/useDeviceDetection';
+const { isTablet, isMobile } = useDeviceDetection();
 const isMenuOpen = ref(false);
 
 const toggleMenu = () => {
@@ -468,27 +468,6 @@ const toggleMenu = () => {
 const closeMenu = () => {
   isMenuOpen.value = false;
   document.body.style.overflow = '';
-};
-
-const checkScreenSize = () => {
-  const width = window.innerWidth;
-  if (width >= 640 && width < 768) {
-    // Small devices (large phones)
-    isTabletView.value = false;
-    isMobileView.value = true;
-  } else if (width >= 768 && width <= 1024) {
-    // Medium devices (tablets, including iPad Pro width)
-    isTabletView.value = true;
-    isMobileView.value = false;
-  } else if (width > 1024) {
-    // Large devices (laptops/desktops)
-    isTabletView.value = false;
-    isMobileView.value = false;
-  } else {
-    // Extra small devices (phones)
-    isTabletView.value = false;
-    isMobileView.value = true;
-  }
 };
 
 const logout = () => {
@@ -519,15 +498,6 @@ function handleNavFocusOut(event) {
 
 // Add resize listener to check screen size
 onMounted(() => {
-  // Initial check
-  checkScreenSize();
-
-  nextTick(() => {
-    checkScreenSize();
-  });
-
-  window.addEventListener('resize', checkScreenSize);
-
   const session = Cookies.get('audemyUserSession');
   if (session) {
     try {
@@ -541,7 +511,6 @@ onMounted(() => {
 });
 
 onUnmounted(() => {
-  window.removeEventListener('resize', checkScreenSize);
   document.body.style.overflow = '';
 });
 </script>
