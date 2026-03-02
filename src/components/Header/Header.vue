@@ -33,7 +33,7 @@
     <!-- Hamburger Button for Mobile, Small, & Medium Screens -->
     <div
       id="nav-btn-item"
-      v-if="isMobile || isTablet"
+      v-if="!isDesktop"
       class="col-start-10 col-span-3 text-right z-30"
     >
       <button
@@ -48,7 +48,7 @@
     <!-- Desktop Navigation Links -->
     <nav
       id="nav-links-grid"
-      v-if="!isMobile & !isTablet"
+      v-if="isDesktop"
       class="lg:col-start-4 lg:col-span-9 xl:col-start-3 xl:col-span-10 py-2"
     >
       <ul id="router-links-grid" :class="[...navLinksGridClasses]">
@@ -149,7 +149,7 @@
 
     <!-- Mobile Menu Overlay -->
     <div
-      v-if="(isMobile || isTablet) && isMenuOpen"
+      v-if="!isDesktop && isMenuOpen"
       class="fixed inset-0 bg-black bg-opacity-50 z-40"
       @click="closeMenu"
       aria-hidden="true"
@@ -157,7 +157,7 @@
 
     <!-- Mobile Slide-in Menu -->
     <div
-      v-if="(isMobile || isTablet) && isMenuOpen"
+      v-if="!isDesktop && isMenuOpen"
       class="fixed inset-y-0 right-0 bg-white z-50 w-4/5 max-w-xs flex flex-col overflow-y-auto animate-fade-slide-left"
       @focusout="handleNavFocusOut"
     >
@@ -452,7 +452,7 @@ const props = defineProps({
 });
 
 import { useDeviceDetection } from '../../composables/useDeviceDetection';
-const { isTablet, isMobile } = useDeviceDetection();
+const { isDesktop } = useDeviceDetection();
 const isMenuOpen = ref(false);
 
 const toggleMenu = () => {
