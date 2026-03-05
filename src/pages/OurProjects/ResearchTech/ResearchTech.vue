@@ -66,17 +66,7 @@ const items2 = [
           id="div_about_us"
           class="flex flex-wrap justify-center gap-6 mt-[40px] tablet:mt-[72px] mb-[32px] w-full transition-all duration-500 ease-in-out"
         >
-          <div
-            v-for="(item, index) in items2"
-            :key="index"
-            class="flex transition-all duration-300 ease-in-out"
-            :class="{
-              'opacity-0 translate-y-4':
-                (smallScreen ? index >= 4 : index >= 8) && !showAll,
-              'opacity-100 translate-y-0':
-                showAll || (smallScreen ? index < 4 : index < 8),
-            }"
-          >
+          <div v-for="(item, index) in items2" :key="index" class="flex">
             <div class="flex flex-col w-full my-3">
               <div class="flex justify-center w-full">
                 <div class="px-4">
