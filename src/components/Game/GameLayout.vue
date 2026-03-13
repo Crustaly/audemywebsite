@@ -13,7 +13,7 @@
     />
 
     <div
-      class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none"
+      class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none animate-fade-slide-in"
       aria-hidden="true"
     >
       <!-- Desktop & mobile -->
