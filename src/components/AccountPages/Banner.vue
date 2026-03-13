@@ -62,7 +62,7 @@ const props = defineProps({
       <img
         :src="OrangeStar"
         class="absolute z-10"
-        alt="orange star"
+        alt=""
         :class="[
           isDesktop ? 'w-[70px] right-[8%] top-[23%]' : '',
           isTablet ? 'w-[60px] right-[8%] top-[25%]' : '',
@@ -73,7 +73,7 @@ const props = defineProps({
       <img
         :src="YellowStar"
         class="absolute z-10"
-        alt="yellow star"
+        alt=""
         :class="[
           isDesktop ? 'w-[65px] right-[40%] top-[15%]' : '',
           isTablet ? 'w-[60px] left-[75%] top-[20%]' : '',
@@ -84,7 +84,7 @@ const props = defineProps({
       <img
         :src="BlueStar"
         class="w-[65px] absolute z-10"
-        alt="blue star"
+        alt=""
         :class="[
           isDesktop ? 'w-[70px] left-[8%] top-[22%]' : '',
           isTablet ? 'left-[21%] top-[20%]' : '',
@@ -95,7 +95,7 @@ const props = defineProps({
       <img
         :src="Book"
         class="absolute z-10 rotate-[330deg]"
-        alt="book"
+        alt=""
         :class="[
           isDesktop ? 'left-[40%] top-[75%] rotate-[360deg]' : '',
           !isPageShort && isDesktop ? 'w-[60px]' : '',
@@ -109,7 +109,7 @@ const props = defineProps({
         :src="CarlImgPath"
         ref="imgRef"
         class="object-contain absolute left-[50%] translate-x-[-50%] top-[50%] translate-y-[-50%] z-10"
-        alt="Carl icon"
+        alt=""
         :class="[
           isDesktop
             ? 'top-[40%] max-h-[80vw] max-w-[80vw/3]'
@@ -127,7 +127,7 @@ const props = defineProps({
       <img
         :src="Bulb"
         class="absolute z-10 rotate-[20deg]"
-        alt="lightbulb"
+        alt=""
         :class="[
           isDesktop ? 'right-[10%] top-[70%]' : '',
           !isPageShort && isDesktop ? 'w-[55px]' : '',
@@ -140,7 +140,7 @@ const props = defineProps({
       <img
         :src="Glasses"
         class="absolute z-10"
-        alt="glasses"
+        alt=""
         :class="[
           isDesktop ? 'left-[13%] top-[68%]' : '',
           !isPageShort && isDesktop ? 'w-[60px]' : '',
