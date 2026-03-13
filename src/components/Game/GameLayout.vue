@@ -14,12 +14,13 @@
 
     <div
       class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none"
+      aria-hidden="true"
     >
       <!-- Desktop & mobile -->
       <div v-show="!isTablet" class="absolute top-20 right-20">
         <img
           src="/assets/gameImages/moon.png"
-          alt="Decorative moon"
+          alt=""
           :class="isMobile ? 'w-[120px] h-auto' : 'w-[165px] h-auto'"
         />
       </div>
@@ -29,7 +30,7 @@
         <div class="absolute left-0 z-0 top-20">
           <img
             src="/assets/gameImages/stars-clouds.png"
-            alt="Decorative cloud"
+            alt=""
             class="w-[230px] h-auto transform -scale-x-100"
           />
         </div>
@@ -37,7 +38,7 @@
         <div class="absolute right-0 z-0 bottom-[50px]">
           <img
             src="/assets/gameImages/rainbow.png"
-            alt="Decorative rainbow"
+            alt=""
             class="w-[220px] h-auto"
           />
         </div>
@@ -48,7 +49,7 @@
         <div class="absolute bottom-0 left-0 z-0 bottom-[50px]">
           <img
             src="/assets/gameImages/rainbow.png"
-            alt="Decorative rainbow"
+            alt=""
             class="w-[300px] h-auto transform -scale-x-100"
           />
         </div>
@@ -59,7 +60,7 @@
         <div class="absolute left-3 bottom-5 z-0">
           <img
             src="/assets/gameImages/shooting-star.png"
-            alt="Decorative star"
+            alt=""
             class="w-[170px] h-auto"
           />
         </div>
