@@ -67,4 +67,26 @@ import YellowStar from '/assets/images/testimonials/star.svg';
 import Glasses from '/assets/images/impact/glasses.svg';
 import Book from '/assets/images/SignUpImg/books.png';
 import Bulb from '/assets/images/about-us/bulb.png';
+
+import { onMounted, onUnmounted } from 'vue';
+
+// Preload Hero image for Home Page only
+// To improve performance sitewide (vs always preloading assets in index.html)
+onMounted(() => {
+  const link = document.createElement('link');
+  link.id = 'hero-preload';
+  link.rel = 'preload';
+  link.as = 'image';
+  link.type = 'image/png';
+  link.href = '/assets/images/hero/hero-resized.png';
+  link.fetchPriority = 'high';
+  document.head.appendChild(link);
+});
+
+onUnmounted(() => {
+  const link = document.getElementById('hero-preload');
+  if (link) {
+    document.head.removeChild(link);
+  }
+});
 </script>
