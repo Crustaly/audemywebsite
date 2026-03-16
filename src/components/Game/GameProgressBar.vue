@@ -26,6 +26,9 @@ const props = defineProps({
     default: 0,
   },
 });
+
+import { computed } from 'vue';
+const progressBarIndex = computed(() => props.currentQuestionIndex + 1);
 </script>
 
 <template>
@@ -45,9 +48,10 @@ const props = defineProps({
       <div
         v-for="n in 5"
         :key="n"
-        class="w-1/5 h-[8px] rounded-[16px] border"
+        class="w-1/5 h-[8px] rounded-[16px] border transition ease-in duration-300"
         :class="[
-          n <= currentQuestionIndex + 1 ? 'bg-primary-color' : 'bg-[#edf7fc]',
+          n <= progressBarIndex ? 'bg-primary-color' : 'bg-[#edf7fc]',
+          { 'animate-pulse': n === progressBarIndex },
         ]"
       ></div>
     </div>
