@@ -3,7 +3,6 @@
 import Header from '../../components/Header/Header.vue';
 import ScrollUpButton from '../../components/ScrollUpButton/ScrollUpButton.vue';
 import ProjectsInAction from './ProjectsInAction/ProjectsInAction.vue';
-import Hero from './Hero/Hero.vue';
 import ResearchTech from './ResearchTech/ResearchTech.vue';
 import HaveYouHeard from './Events/HaveYouHeard/HaveYouHeard.vue';
 import KatyYouthHacks from './Events/KatyYouthHacks/KatyYouthHacks.vue';
