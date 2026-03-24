@@ -55,7 +55,7 @@ const schools = [
   },
   {
     name: 'Florida School for the Deaf and the Blind',
-    link: "https://www.fsdbk12.org'",
+    link: 'https://www.fsdbk12.org',
   },
   {
     name: 'Georgia Academy for the Blind',
@@ -71,7 +71,7 @@ const schools = [
   },
   {
     name: 'Illinois School for the Visually Impaired',
-    link: 'https://www.dhs.state.il.us/page.aspx?item=84503',
+    link: 'https://www.dhs.state.il.us',
   },
   {
     name: 'Indiana School for the Blind and Visually Impaired',
@@ -178,7 +178,7 @@ const teachers = [
   },
   {
     name: 'Kansas State School for the Deaf and Blind (KSSDB)',
-    link: 'https://www.kssdb.org/',
+    link: 'https://kansasblind.gov/',
     educators: [
       {
         name: 'Kimberly Rhea',
