@@ -145,7 +145,7 @@ const items = [
     image: 'stanford.png',
     text: 'Audemy, an Al platform for Accessible Gaming through personalized Audio-Based Learning for Blind Players',
     network: 'Stanford Scale',
-    url: 'https://scale.stanford.edu/genai/repository/al-accessible-education-personalized-audio-based-learning-blind-students',
+    url: 'https://scale.stanford.edu/ai/repository/ai-accessible-education-personalized-audio-based-learning-blind-students',
   },
   {
     image: 'EV-resized.png',
