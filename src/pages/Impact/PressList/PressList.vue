@@ -133,13 +133,13 @@ const items = [
     image: 'Devdiscourse.png',
     text: 'AI-powered audio gaming boosts accessibility for visually impaired players',
     network: 'Dev Discourse',
-    url: 'https://disabilitynewsdigest.substack.com/p/the-last-leg-promotes-disability#:~:text=Championing%20Accessibility%20in,platform%20called%20Audemy.',
+    url: 'https://www.devdiscourse.com/article/education/3358683-ai-powered-audio-learning-boosts-accessibility-for-visually-impaired-students',
   },
   {
     image: 'Disabilitynewsdigest.png',
     text: 'Crystal Yang is transforming gaming for blind and visually impaired players through Audemy',
     network: 'Disability News Digest',
-    url: 'https://disabilitynewsdigest.substack.com/p/the-last-leg-promotes-disability',
+    url: 'https://disabilitynewsdigest.substack.com/p/the-last-leg-promotes-disability#:~:text=Championing%20Accessibility%20in,platform%20called%20Audemy.',
   },
   {
     image: 'stanford.png',
