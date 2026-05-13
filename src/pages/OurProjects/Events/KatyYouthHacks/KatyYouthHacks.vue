@@ -53,11 +53,11 @@
       </div>
       <div class="page-button-flex justify-center md:justify-start">
         <a
-          href="https://katyhacks.org/"
+          href="https://katyyouthhacks-2024.devpost.com/"
           target="_blank"
           class="page-button orange-button text-center md:px-3 md:w-[280px] px-9 mobile:h-auto py-3"
         >
-          Check upcoming events
+          About Katy Youth Hacks
         </a>
       </div>
     </div>
