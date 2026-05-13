@@ -275,6 +275,7 @@ onUnmounted(() => {
             <button
               @click="toggleShowAll"
               class="page-button blue-button px-10 py-3 mobile:h-auto md:w-[300px]"
+              :aria-label="showAll ? 'Show less articles' : 'See more articles'"
             >
               {{ showAll ? 'Show Less' : 'See More' }}
             </button>
