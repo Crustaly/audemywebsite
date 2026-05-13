@@ -147,6 +147,7 @@ const impactCardsData = [
           <a
             href="#learn-more"
             class="page-button orange-button mobile:h-auto w-[180px] sm:w-[350px] px-5 py-3"
+            aria-label="Learn more about Buzzle"
           >
             Learn More
           </a>
@@ -369,14 +370,14 @@ const impactCardsData = [
           </p>
         </h1>
 
-        <!-- Learn More Button -->
+        <!-- Get in Touch Button -->
         <div class="page-button-flex">
           <a
             href="mailto:connect@audemy.org"
             target="_blank"
             class="page-button blue-button mobile:h-auto w-[180px] sm:w-[350px] px-5 py-3"
           >
-            Learn More
+            Get in Touch
           </a>
         </div>
       </div>
