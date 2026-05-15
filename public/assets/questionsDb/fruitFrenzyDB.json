@@ -145,7 +145,7 @@
           "A": ["25", "twenty-five", "twenty five"]
         },
         {
-          "Q": "There are 14 guava and 11 carambola. How many fruits are there in total?",
+          "Q": "There are 14 guavas and 11 carambolas. How many fruits are there in total?",
           "A": ["25", "twenty-five", "twenty five"]
         },
         {
@@ -153,7 +153,7 @@
           "A": ["25", "twenty-five", "twenty five"]
         },
         {
-          "Q": "There are 18 papaya and 7 breadfruit. How many fruits are there in total?",
+          "Q": "There are 18 papayas and 7 breadfruit. How many fruits are there in total?",
           "A": ["25", "twenty-five", "twenty five"]
         },
         {
@@ -165,7 +165,7 @@
           "A": ["25", "twenty-five", "twenty five"]
         },
         {
-          "Q": "There are 12 miracle fruit and 8 kiwi. How many fruits are there in total?",
+          "Q": "There are 12 miracle fruits and 8 kiwis. How many fruits are there in total?",
           "A": ["20", "twenty"]
         },
         {
@@ -213,11 +213,11 @@
           "A": ["30", "thirty"]
         },
         {
-          "Q": "There are 24 watermelon and 6 cantaloupe. How many fruits are there in total?",
+          "Q": "There are 24 watermelons and 6 cantaloupes. How many fruits are there in total?",
           "A": ["30", "thirty"]
         },
         {
-          "Q": "There are 25 boysenberries and 5 pawpaw. How many fruits are there in total?",
+          "Q": "There are 25 boysenberries and 5 pawpaws. How many fruits are there in total?",
           "A": ["30", "thirty"]
         },
         {
@@ -241,7 +241,7 @@
           "A": ["25", "twenty-five", "twenty five"]
         },
         {
-          "Q": "There are 13 rambutan and 12 durian. How many fruits are there in total?",
+          "Q": "There are 13 rambutans and 12 durians. How many fruits are there in total?",
           "A": ["25", "twenty-five", "twenty five"]
         }
       ],
@@ -251,11 +251,11 @@
           "A": ["55", "fifty-five", "fifty five"]
         },
         {
-          "Q": "There are 40 rambutan and 35 mangosteen. How many fruits are there in total?",
+          "Q": "There are 40 rambutans and 35 mangosteens. How many fruits are there in total?",
           "A": ["75", "seventy-five", "seventy five"]
         },
         {
-          "Q": "There are 50 durian and 25 soursop. How many fruits are there in total?",
+          "Q": "There are 50 durians and 25 soursops. How many fruits are there in total?",
           "A": ["75", "seventy-five", "seventy five"]
         },
         {
@@ -267,7 +267,7 @@
           "A": ["80", "eighty"]
         },
         {
-          "Q": "There are 45 breadfruit and 35 papaya. How many fruits are there in total?",
+          "Q": "There are 45 breadfruit and 35 papayas. How many fruits are there in total?",
           "A": ["80", "eighty"]
         },
         {
@@ -279,7 +279,7 @@
           "A": ["80", "eighty"]
         },
         {
-          "Q": "There are 60 miracle fruit and 20 kiwi. How many fruits are there in total?",
+          "Q": "There are 60 miracle fruits and 20 kiwis. How many fruits are there in total?",
           "A": ["80", "eighty"]
         },
         {
