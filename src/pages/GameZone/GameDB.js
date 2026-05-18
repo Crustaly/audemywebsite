@@ -249,7 +249,7 @@ export const getScienceGames = () => {
       textColor: '#323232',
       bgColor: '#ffc84d', // Gold
       description:
-        'Learn the parts of a plant by listening to their whispered secrets.',
+        'Learn the parts of a plant by listening to its whispered secrets.',
     },
   ];
 };

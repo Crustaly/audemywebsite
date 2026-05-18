@@ -300,7 +300,7 @@ export const gameConfigs = {
   plantPower: {
     title: 'Plant Power',
     description:
-      'Learn the parts of a plant by listening to their whispered secrets.',
+      'Learn the parts of a plant by listening to its whispered secrets.',
     bgColor: '#FFE59A', // Light Yellow
     iconSrc: '/assets/gameImages/buttons/gameButtons/flower-pot.png',
     introAudio: '/gameIntroAudio/plantIntro.m4a',
