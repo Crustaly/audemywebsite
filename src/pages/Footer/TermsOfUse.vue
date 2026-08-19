@@ -11,11 +11,10 @@ const termSections = [
   },
   {
     header: 'Data and Privacy',
-    details: `Audemy does not collect, store, or share any personal data from
-              users. Our Services are designed to be used without requiring
-              accounts, personal information, or data tracking. Because no user
-              data is collected or stored, there is no risk of your personal
-              information being sold or disclosed.`,
+    details: `Audemy offers optional accounts and uses analytics, cookies, and
+              service providers to operate and improve the Services. Our
+              Privacy Policy explains the information we collect, how we use it,
+              and how to request access, correction, or deletion.`,
   },
   {
     header: 'Purpose of Services',
@@ -27,10 +26,9 @@ const termSections = [
   },
   {
     header: 'Limitation of Liability',
-    details: `Our Services are provided “as-is,” without warranties of any kind.
-              Since no personal data is collected or stored, Audemy is not
-              responsible for any data loss or unauthorized access to personal
-              information.`,
+    details: `Our Services are provided “as-is,” without warranties of any kind,
+              to the extent permitted by law. Please review our Privacy Policy
+              for information about data handling and security.`,
   },
   {
     header: 'Contact Us',
@@ -77,6 +75,8 @@ const contactLinkClasses = ['page-link', 'justify-self-end'];
       :CarlImgPath="'/assets/images/SignUpImg/signup-carl.png'"
       bgColor="#B1C7D0"
       curveColor="#E5F0F5"
+      :showExtraDecorations="true"
+      :anchorCharacterTop="true"
     />
     <div
       class="form-container-view-height lg:col-span-2 lg:pb-[50px] text-left"
@@ -85,7 +85,7 @@ const contactLinkClasses = ['page-link', 'justify-self-end'];
       <br />
       <div class="form-description">
         <p>
-          <i><span class="font-semibold">Last updated:</span> July 30, 2025</i>
+          <i><span class="font-semibold">Last updated:</span> August 19, 2026</i>
         </p>
         <br />
         <p>
