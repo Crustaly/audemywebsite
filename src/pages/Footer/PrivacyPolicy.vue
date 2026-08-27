@@ -50,6 +50,9 @@ const policySections = [
       bgColor="#B1C7D0"
       curveColor="#E5F0F5"
       :isPageShort="true"
+      :showExtraDecorations="true"
+      :anchorCharacterTop="true"
+      :denseDecorations="true"
     />
     <div
       class="form-container-view-height text-left lg:col-span-2 lg:pb-[50px]"
