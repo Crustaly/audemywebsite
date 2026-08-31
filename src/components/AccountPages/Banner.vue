@@ -70,7 +70,7 @@ const isAtDesktopGridWidth = ref(false);
 const isDesktop = computed(
   () =>
     detectedDesktop.value ||
-    (props.anchorCharacterTop && isAtDesktopGridWidth.value),
+    (props.anchorCharacterTop && isAtDesktopGridWidth.value)
 );
 const isTablet = computed(() => detectedTablet.value && !isDesktop.value);
 
