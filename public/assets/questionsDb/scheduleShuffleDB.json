@@ -55,7 +55,7 @@
         },
         { "Q": "Which month is always the shortest?", "A": ["February"] },
         { "Q": "True or false? January always has 31 days.", "A": ["True"] },
-        { "Q": "Which month is the most U.S. holidays?", "A": ["December"] }
+        { "Q": "Which month has the most U.S. holidays?", "A": ["December"] }
       ],
       "Hard": [
         {

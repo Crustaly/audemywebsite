@@ -195,8 +195,6 @@ export const gameConfigs = {
     dbFile: 'matterMixUpDB.json',
     dbKey: 'MatterMixUpGame',
     category: 'science',
-    introText:
-      'A team of kitchen chemists just knocked over a tray of experiments—solids, liquids, and gases are everywhere. Can you help them identify what’s what before it all evaporates?',
   },
 
   tinyCellTown: {
@@ -209,8 +207,6 @@ export const gameConfigs = {
     dbFile: 'tinyCellTownDB.json',
     dbKey: 'TinyCellTownGame',
     category: 'science',
-    introText:
-      "An alien crash-landed inside a human cell and can't tell a nucleus from a ribosome. Guide them through this microscopic city before they mistake mitochondria for a microwave.",
   },
 
   weatherWhiz: {
@@ -224,8 +220,6 @@ export const gameConfigs = {
     dbFile: 'weatherWhizDB.json',
     dbKey: 'WeatherWhizGame',
     category: 'science',
-    introText:
-      "You’re now a certified Sky Translator. When clouds mumble and lightning shouts, it’s your job to interpret the sky's mood swings before the thunder throws another tantrum.",
   },
 
   spaceCase: {
@@ -238,8 +232,6 @@ export const gameConfigs = {
     dbFile: 'spaceCaseDB.json',
     dbKey: 'SpaceCaseGame',
     category: 'science',
-    introText:
-      "An astronaut forgot everything about space! You’re mission control. Feed them facts fast, or they might land on a moon thinking it's a marshmallow.",
   },
 
   dinoDetectives: {
@@ -252,8 +244,6 @@ export const gameConfigs = {
     dbFile: 'dinoDetectivesDB.json',
     dbKey: 'DinoDetectivesGame',
     category: 'science',
-    introText:
-      'A new dinosaur skeleton was just unearthed, but it’s missing its name! Use clues from bones and roars to identify these ancient beasts before they vanish into dust.',
   },
 
   germSquad: {
@@ -267,8 +257,6 @@ export const gameConfigs = {
     dbFile: 'germSquadDB.json',
     dbKey: 'GermSquadGame',
     category: 'science',
-    introText:
-      "You're on a mission inside a sick body. Bacteria are throwing a party and only science can stop them. Can you name the culprits before the fever hits max?",
   },
 
   ecoRangers: {
@@ -282,8 +270,6 @@ export const gameConfigs = {
     dbFile: 'ecoRangersDB.json',
     dbKey: 'EcoRangersGame',
     category: 'science',
-    introText:
-      'The animals are voting someone off the island... and pollution is the top suspect! Help the ecosystem restore balance by identifying environmental threats and natural defenders.',
   },
 
   soundExplorer: {
@@ -296,8 +282,6 @@ export const gameConfigs = {
     dbFile: 'soundExplorerDB.json',
     dbKey: 'SoundExplorerGame',
     category: 'science',
-    introText:
-      "You're trapped in a cave where everything speaks in sound waves. Use your ears to measure, decode, and respond before the cave echoes you into confusion.",
   },
 
   robotRepair: {
@@ -311,14 +295,12 @@ export const gameConfigs = {
     dbFile: 'robotRepairLabDB.json',
     dbKey: 'RobotRepairGame',
     category: 'science',
-    introText:
-      'A team of science robots is glitching! Their sensors are scrambled and they’re confusing magnets with muffins. You’re their only hope—reprogram them before they short-circuit the lab!',
   },
 
   plantPower: {
     title: 'Plant Power',
     description:
-      'Learn the parts of a plant by listening to their whispered secrets.',
+      'Learn the parts of a plant by listening to its whispered secrets.',
     bgColor: '#FFE59A', // Light Yellow
     iconSrc: '/assets/gameImages/buttons/gameButtons/flower-pot.png',
     introAudio: '/gameIntroAudio/plantIntro.m4a',
@@ -326,8 +308,6 @@ export const gameConfigs = {
     dbFile: 'plantPowerDB.json',
     dbKey: 'PlantPowerGame',
     category: 'science',
-    introText:
-      'You’ve been shrunk into a garden where plants whisper their secrets—but only if you know their parts. Solve each clue before the flowers fall asleep again.',
   },
 
   // --- LIFE SKILLS GAME CONFIGS ---
@@ -343,8 +323,6 @@ export const gameConfigs = {
     dbFile: 'groceryGrabDB.json',
     dbKey: 'GroceryGrabGame',
     category: 'life-skills',
-    introText:
-      'The talking grocery store just had a shelf collapse! Cans are rolling, eggs are squawking, and the bananas are giving orders. Your job? Listen to each item and help it find the right spot in the store before closing time.',
   },
 
   moneyMatch: {
@@ -357,8 +335,6 @@ export const gameConfigs = {
     dbFile: 'moneyMatchDB.json',
     dbKey: 'MoneyMatchGame',
     category: 'life-skills',
-    introText:
-      'Welcome to Sound City Market, where your wallet talks and the cashier sings your total! You’ll need to match the right coins and bills to pay for your items—and avoid getting tricked by a sneaky vending machine.',
   },
 
   laundryLegend: {
@@ -372,8 +348,6 @@ export const gameConfigs = {
     dbFile: 'laundryLegendDB.json',
     dbKey: 'LaundryLegendGame',
     category: 'life-skills',
-    introText:
-      'The laundry room is alive! Shirts are shouting colors, socks are going missing, and the dryer keeps spinning riddles. Sort and start your laundry while the machines try to outsmart you.',
   },
 
   kitchenCues: {
@@ -387,8 +361,6 @@ export const gameConfigs = {
     dbFile: 'kitchenCuesDB.json',
     dbKey: 'KitchenCuesGame',
     category: 'life-skills',
-    introText:
-      'Chef! The stovetop is sizzling, and dinner is almost ruined! You’ve got only sound and smell to guide you. Identify tools, follow recipes, and avoid mixing salt with sugar again.',
   },
 
   dressToImpress: {
@@ -401,8 +373,6 @@ export const gameConfigs = {
     dbFile: 'dressToImpressDB.json',
     dbKey: 'DressToImpressGame',
     category: 'life-skills',
-    introText:
-      'You’re late for your field trip, and your closet is talking back! Every time the weather changes, your wardrobe scrambles. Can you choose the right outfit based on the forecast?',
   },
 
   safetySirens: {
@@ -416,8 +386,6 @@ export const gameConfigs = {
     dbFile: 'safetySirensDB.json',
     dbKey: 'SafetySirensGame',
     category: 'life-skills',
-    introText:
-      'It’s Safety Week, and your house is running emergency drills—complete with sound effects! From fire alarms to bumping your knee, you need to know the safest move every time.',
   },
 
   scheduleShuffle: {
@@ -430,8 +398,6 @@ export const gameConfigs = {
     dbFile: 'scheduleShuffleDB.json',
     dbKey: 'ScheduleShuffleGame',
     category: 'life-skills',
-    introText:
-      'Your day planner exploded! Now your meals, school, chores, and fun activities are all out of order. Piece your day back together with clues from talking clocks and helpful reminders.',
   },
 
   cleanMachine: {
@@ -444,8 +410,6 @@ export const gameConfigs = {
     dbFile: 'cleanMachineDB.json',
     dbKey: 'CleanMachineGame',
     category: 'life-skills',
-    introText:
-      'The mess monster is back—and it’s taken over your room! Time to grab your tools, listen for clues, and tidy up before the clutter reaches critical mass.',
   },
 
   healthCheck: {
@@ -458,8 +422,6 @@ export const gameConfigs = {
     dbFile: 'healthCheckDB.json',
     dbKey: 'HealthCheckGame',
     category: 'life-skills',
-    introText:
-      "You're the town’s brand-new audio doctor, and your patients describe their symptoms with sound effects. Use your knowledge to diagnose the basics and keep everyone healthy.",
   },
 
   timeTamer: {
@@ -472,8 +434,6 @@ export const gameConfigs = {
     dbFile: 'timeTamerDB.json',
     dbKey: 'TimeTamerGame',
     category: 'life-skills',
-    introText:
-      'Time is running wild in your house. The microwave thinks it’s midnight, and your alarm clock is rapping in reverse. Help bring order to the hours by solving time-related challenges.',
   },
 
   kitchenTimerTrouble: {
@@ -486,8 +446,6 @@ export const gameConfigs = {
     dbFile: 'kitchenTimerTroubleDB.json',
     dbKey: 'KitchenTimerTroubleGame',
     category: 'life-skills',
-    introText:
-      'Your kitchen’s gone rogue. The fridge hums in Morse code, the oven’s yelling time left, and the microwave keeps guessing your age. Can you finish cooking before everything overcooks?',
   },
 
   busStopBrainstorm: {
@@ -500,8 +458,6 @@ export const gameConfigs = {
     dbFile: 'busStopBrainstormDB.json',
     dbKey: 'BusStopBrainstormGame',
     category: 'life-skills',
-    introText:
-      "You're navigating the city’s bus system, but there’s a catch—the signs are gone! All you’ve got are sound clues and voices from helpful strangers. Can you ride smart?",
   },
 
   moneyManager: {
@@ -514,8 +470,6 @@ export const gameConfigs = {
     dbFile: 'moneyManagerDB.json',
     dbKey: 'MoneyManagerGame',
     category: 'life-skills',
-    introText:
-      'You’ve got a little allowance and a big goal—saving up for your favorite snack, toy, or treat. But surprise expenses and tempting sounds try to trip you up.',
   },
 
   healthyPlate: {
@@ -528,8 +482,6 @@ export const gameConfigs = {
     dbFile: 'healthyPlateDB.json',
     dbKey: 'HealthyPlateGame',
     category: 'life-skills',
-    introText:
-      'Your dinner plate is talking, and it’s picky! Balance your meal using clues from each food item. If you listen carefully, you’ll serve up something healthy and delicious.',
   },
 
   // --- INDEPENDENCE SKILLS GAME CONFIGS ---
@@ -544,8 +496,6 @@ export const gameConfigs = {
     dbFile: 'streetSmartDB.json',
     dbKey: 'StreetSmartGame',
     category: 'independence-skills',
-    introText:
-      'You’re standing at different street corners, listening closely to traffic sounds, crosswalk signals, and nearby footsteps. Your job is to decide when it’s safe to cross, recognize obstacles, and understand street cues.',
   },
 
   caneCompanion: {
@@ -558,8 +508,6 @@ export const gameConfigs = {
     dbFile: 'caneCompanionDB.json',
     dbKey: 'CaneCompanionGame',
     category: 'independence-skills',
-    introText:
-      'Your white cane is your guide through various environments — city sidewalks, grassy parks, staircases, and ramps. Listen carefully to the cane’s taps and other sounds to help you navigate safely.',
   },
 
   doorwayDecisions: {
@@ -573,8 +521,6 @@ export const gameConfigs = {
     dbFile: 'doorwayDecisionsDB.json',
     dbKey: 'DoorwayDecisionsGame',
     category: 'independence-skills',
-    introText:
-      'You approach many types of doors every day: knobs, push bars, automatic sliding doors, heavy fire doors. You have to figure out how to open or pass through them by touch and sound.',
   },
 
   elevatorExperience: {
@@ -587,8 +533,6 @@ export const gameConfigs = {
     dbFile: 'elevatorExperienceDB.json',
     dbKey: 'ElevatorExperienceGame',
     category: 'independence-skills',
-    introText:
-      'In busy buildings, elevators announce floors, open and close doors, and beep for warnings. Listen to the sounds around you and decide when and how to act safely and politely.',
   },
 
   transitTime: {
@@ -601,8 +545,6 @@ export const gameConfigs = {
     dbFile: 'transitTimeDB.json',
     dbKey: 'TransitTimeGame',
     category: 'independence-skills',
-    introText:
-      'You use buses, trains, and subways, relying on announcements, beeps, and crowd noises. It’s your job to figure out stops, board and exit safely, and handle unexpected situations.',
   },
 
   moneyMatters: {
@@ -615,8 +557,6 @@ export const gameConfigs = {
     dbFile: 'moneyMattersDB.json',
     dbKey: 'MoneyMattersGame',
     category: 'independence-skills',
-    introText:
-      'Coins and bills have different sizes, textures, and sounds. You’re learning to identify money by touch and feel to make purchases and count change confidently.',
   },
 
   kitchenKnowHow: {
@@ -629,8 +569,6 @@ export const gameConfigs = {
     dbFile: 'kitchenKnowHowDB.json',
     dbKey: 'KitchenKnowHowGame',
     category: 'independence-skills',
-    introText:
-      'The kitchen is full of sounds — boiling, sizzling, timers, and appliances. Knowing what these sounds mean helps you cook safely and efficiently.',
   },
 
   phoneFriend: {
@@ -643,8 +581,6 @@ export const gameConfigs = {
     dbFile: 'phoneFriendDB.json',
     dbKey: 'PhoneFriendGame',
     category: 'independence-skills',
-    introText:
-      'Using voice commands, talking phones, and audio prompts, you manage calls, messages, and settings without looking at the screen.',
   },
 
   medicationManager: {
@@ -658,8 +594,6 @@ export const gameConfigs = {
     dbFile: 'medicationManagerDB.json',
     dbKey: 'MedicationManagerGame',
     category: 'independence-skills',
-    introText:
-      'Keeping track of your medications means listening for alarms, remembering schedules, and understanding labels and instructions.',
   },
 
   obstacleAwareness: {
@@ -672,8 +606,6 @@ export const gameConfigs = {
     dbFile: 'obstacleAwarenessDB.json',
     dbKey: 'ObstacleAwarenessGame',
     category: 'independence-skills',
-    introText:
-      'You move through indoor and outdoor spaces where obstacles might appear unexpectedly. Your cane taps and other sounds alert you to objects, people, and changes in terrain.',
   },
 
   socialSense: {
@@ -686,8 +618,6 @@ export const gameConfigs = {
     dbFile: 'socialSenseDB.json',
     dbKey: 'SocialSenseGame',
     category: 'independence-skills',
-    introText:
-      'Understanding tone, volume, and context helps you interpret conversations and respond appropriately in social situations.',
   },
 
   askingForAssistance: {
@@ -700,7 +630,5 @@ export const gameConfigs = {
     dbFile: 'askingForAssistanceDB.json',
     dbKey: 'AskingForAssistanceGame',
     category: 'independence-skills',
-    introText:
-      'Sometimes you need to ask strangers for help or directions. Knowing how to phrase your request clearly and politely is essential.',
   },
 };

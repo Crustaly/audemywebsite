@@ -105,7 +105,7 @@
           "A": ["8", "eight"]
         },
         {
-          "Q": "Ten monkeys shared 90 bananas they found by the lake. How many bananas does each one enjoy?",
+          "Q": "Ten monkeys shared the 90 bananas they found by the lake. How many bananas does each one enjoy?",
           "A": ["9", "nine"]
         },
         {
@@ -125,7 +125,7 @@
           "A": ["9", "nine"]
         },
         {
-          "Q": "Six monkeys divided 84 bananas they collected. How many bananas per monkey?",
+          "Q": "Six monkeys divided the 84 bananas they collected. How many bananas per monkey?",
           "A": ["14", "fourteen"]
         },
         {
@@ -137,7 +137,7 @@
           "A": ["12", "twelve"]
         },
         {
-          "Q": "Five monkeys divided 75 bananas they gathered. What's each monkey's share?",
+          "Q": "Five monkeys divided the 75 bananas they gathered. What's each monkey's share?",
           "A": ["15", "fifteen"]
         },
         {
@@ -149,7 +149,7 @@
           "A": ["15", "fifteen"]
         },
         {
-          "Q": "Six monkeys divided 66 bananas they found. How many per monkey?",
+          "Q": "Six monkeys divided the 66 bananas they found. How many per monkey?",
           "A": ["11", "eleven"]
         },
         {
@@ -157,7 +157,7 @@
           "A": ["11", "eleven"]
         },
         {
-          "Q": "Ten monkeys split 130 bananas they discovered. How many for each?",
+          "Q": "Ten monkeys split the 130 bananas they discovered. How many for each?",
           "A": ["13", "thirteen"]
         },
         {
@@ -175,7 +175,7 @@
           "A": ["12", "twelve"]
         },
         {
-          "Q": "Twenty jungle monkeys shared 240 bananas they discovered. How many bananas does each one get?",
+          "Q": "Twenty jungle monkeys shared the 240 bananas they discovered. How many bananas does each one get?",
           "A": ["12", "twelve"]
         },
         {
@@ -191,7 +191,7 @@
           "A": ["25", "twenty-five", "twenty five"]
         },
         {
-          "Q": "Five clever monkeys split 125 bananas they carried back. How many bananas for each one?",
+          "Q": "Five clever monkeys split the 125 bananas they carried back. How many bananas for each one?",
           "A": ["25", "twenty-five", "twenty five"]
         },
         {
@@ -207,7 +207,7 @@
           "A": ["25", "twenty-five", "twenty five"]
         },
         {
-          "Q": "Fifteen monkeys divided 300 bananas they discovered. How many bananas per monkey?",
+          "Q": "Fifteen monkeys divided the 300 bananas they discovered. How many bananas per monkey?",
           "A": ["20", "twenty"]
         },
         {
@@ -215,7 +215,7 @@
           "A": ["20", "twenty"]
         },
         {
-          "Q": "Thirty monkeys split 600 bananas they gathered. What's each monkey's share?",
+          "Q": "Thirty monkeys split the 600 bananas they gathered. What's each monkey's share?",
           "A": ["20", "twenty"]
         },
         {
@@ -227,7 +227,7 @@
           "A": ["20", "twenty"]
         },
         {
-          "Q": "Sixteen monkeys split 400 bananas they found. How many per monkey?",
+          "Q": "Sixteen monkeys split the 400 bananas they found. How many per monkey?",
           "A": ["25", "twenty-five", "twenty five"]
         },
         {
@@ -235,11 +235,11 @@
           "A": ["20", "twenty"]
         },
         {
-          "Q": "Ten monkeys shared 300 bananas they collected. How many for each?",
+          "Q": "Ten monkeys shared the 300 bananas they collected. How many for each?",
           "A": ["30", "thirty"]
         },
         {
-          "Q": "Forty monkeys split 1000 bananas they gathered. How many bananas per monkey?",
+          "Q": "Forty monkeys split the 1000 bananas they gathered. How many bananas per monkey?",
           "A": ["25", "twenty-five", "twenty five"]
         },
         {

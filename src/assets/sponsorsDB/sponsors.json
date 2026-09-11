@@ -59,6 +59,12 @@
       "src": "/assets/images/sponsors/ncwit.png",
       "alt": "NCWIT",
       "isLogoWide": "false"
+    },
+    {
+      "src": "/assets/images/sponsors/elevenlabs-logo-black.svg",
+      "alt": "ElevenLabs",
+      "isLogoWide": "false",
+      "href": "https://elevenlabs.io/"
     }
   ]
 }
