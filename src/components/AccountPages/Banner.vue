@@ -67,6 +67,8 @@ const {
   isDesktop: detectedDesktop,
 } = useDeviceDetection();
 const isAtDesktopGridWidth = ref(false);
+// Anchor the character on wide legal-page banners without forcing a fixed box
+// that can resample or distort assets at tablet landscape widths.
 const isDesktop = computed(
   () =>
     detectedDesktop.value ||
@@ -74,6 +76,7 @@ const isDesktop = computed(
 );
 const isTablet = computed(() => detectedTablet.value && !isDesktop.value);
 
+// Reclassify anchored banners when a tablet crosses the desktop grid width.
 const checkBannerLayout = () => {
   isAtDesktopGridWidth.value = window.innerWidth >= 1024;
 };
@@ -178,16 +181,19 @@ onUnmounted(() => {
         alt=""
         :class="[
           isDesktop && anchorCharacterTop
-            ? 'top-[24px] w-[160px] h-[170px] max-w-[70%]'
+            ? 'top-[24px] max-w-[160px] max-h-[170px] max-w-[70%]'
             : 'top-[50%] translate-y-[-50%]',
           isDesktop && !anchorCharacterTop
             ? 'top-[40%] max-h-[80vw] max-w-[80vw/3]'
             : '',
-          !anchorCharacterTop && !isPageShort && isDesktop ? 'w-[160px]' : '',
-          !anchorCharacterTop && isPageShort && isDesktop ? 'w-[130px]' : '',
-          !isDesktop ? 'max-h-[200px] max-w-[80vw]' : '',
-          !isDesktop && isImageWide ? 'w-[150px]' : '',
-          !isDesktop && !isImageWide ? 'h-[130px]' : '',
+          !anchorCharacterTop && !isPageShort && isDesktop
+            ? 'max-w-[160px]'
+            : '',
+          !anchorCharacterTop && isPageShort && isDesktop
+            ? 'max-w-[130px]'
+            : '',
+          !isDesktop && isImageWide ? 'max-w-[150px] max-h-[200px]' : '',
+          !isDesktop && !isImageWide ? 'max-w-[80vw] max-h-[130px]' : '',
         ]"
         v-if="CarlImgPath"
         loading="lazy"
@@ -257,7 +263,7 @@ onUnmounted(() => {
         >
           <img
             :src="SpeechBubble"
-            class="h-[58px] w-[58px] object-contain rotate-[-5deg]"
+            class="h-auto w-[50px] object-contain rotate-[-5deg]"
             alt=""
             loading="lazy"
           />
