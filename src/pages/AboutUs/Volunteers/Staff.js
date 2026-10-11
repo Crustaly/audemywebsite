@@ -22,6 +22,14 @@ const managementStaff = [
     linkedin: 'https://www.linkedin.com/in/shrikrishna-bhat',
     email: 's.bhat@audemy.org',
   },
+  {
+    name: 'Aditya Jhalani',
+    role: 'Developer and Director of AI Literacy',
+    image: '/assets/images/about-us/volunteers/aditya-jhalani.jpg',
+    linkedin: 'https://www.linkedin.com/in/aditya-jhalani-70b207367/',
+    x: 'https://x.com/adityajhalani43',
+    website: 'https://adityajhalani.com',
+  },
 ];
 const founderStaff = [
   {
