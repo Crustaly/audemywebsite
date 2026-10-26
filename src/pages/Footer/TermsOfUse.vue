@@ -77,6 +77,8 @@ const contactLinkClasses = ['page-link', 'justify-self-end'];
       :CarlImgPath="'/assets/images/SignUpImg/signup-carl.png'"
       bgColor="#B1C7D0"
       curveColor="#E5F0F5"
+      :showExtraDecorations="true"
+      :anchorCharacterTop="true"
     />
     <div
       class="form-container-view-height lg:col-span-2 lg:pb-[50px] text-left"
